@@ -156,18 +156,21 @@ engine — the curves are **data, not code.**
 
 ## 6. Status buildup (bleed / frost / poison / rot / sleep / madness)
 
-Status buildup has its own base value per weapon and its own reinforcement. **[CONFIRMED]** that
-ARC increases bleed/poison buildup and plateaus around 45 ARC.
+Status buildup is a **flat per-weapon value that does not change with upgrade level**
+**[CONFIRMED]** — e.g. Uchigatana's Blood loss is 45 at +0 *and* +25; only the **ARC** stat
+increases bleed/poison buildup, plateauing around 45–60 ARC (soft caps 25/45/60).
 
-Engine model **[MODELED]**:
+Engine model **[CONFIRMED]**:
 
 ```
-statusBuildup = baseStatus × statusReinforce(level)
+statusBuildup = baseStatus
               + (baseStatus × arcStatusScaling × arcStatusSaturation(ARC))
 ```
 
-`arcStatusSaturation` uses a curve that rises to ~100% by ARC 45 then flattens. Only weapons with
-arcane-scaled status (e.g. Rivers of Blood, blood-affinity infusions) get the ARC term.
+`arcStatusSaturation` uses the arcane-status curve (soft caps 25/45/60, plateauing by ARC 60).
+Only weapons with arcane-scaled status (e.g. Rivers of Blood, blood-affinity infusions) get the
+ARC term. Neither term reinforces with upgrade level — upgrading a weapon changes its base damage
+and scaling, never its passive status buildup.
 
 ---
 

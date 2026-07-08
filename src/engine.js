@@ -149,13 +149,13 @@
     return { total: total, byType: byType, byStat: byStat };
   }
 
-  function computeStatus(variant, effStats, rein) {
+  function computeStatus(variant, effStats) {
     var out = {};
     for (var i = 0; i < STATUS_TYPES.length; i++) {
       var st = STATUS_TYPES[i];
       var base = (variant.status && variant.status[st]) || 0;
       if (base <= 0) continue;
-      var buildup = base * rein.baseFrac; // status reinforces ~like base [MODELED]
+      var buildup = base; // status buildup is flat across upgrade levels [CONFIRMED] — only Arcane changes it
       // Arcane boosts bleed/poison buildup on arcane-scaling weapons.
       if ((st === 'bleed' || st === 'poison') && variant.arcStatusScaling > 0) {
         buildup += base * (variant.arcStatusScaling / 100) * saturation('arcaneStatus', effStats.ARC);
@@ -218,7 +218,7 @@
       totalAR: Math.round(main.total),
       byType: roundMap(main.byType),
       byStat: roundMap(main.byStat),
-      status: computeStatus(variant, eff, rein),
+      status: computeStatus(variant, eff),
       softCaps: softCaps,
       grades: grades,
       upgrade: { level: rein.level, maxLevel: rein.maxLevel, category: category },
