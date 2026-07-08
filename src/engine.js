@@ -243,6 +243,29 @@
     return { stat: stat, softCaps: (SOFT_CAPS[STAT_CURVE[stat]] || []).slice(), points: points };
   }
 
+  /**
+   * suggestWeapons(build, weapons, opts)
+   * Rank a weapon list by Attack Rating for the given build (each at its own max upgrade).
+   * @param opts { twoHanded?, usableOnly?, limit? }
+   * @returns [ { weapon, ar, requirementsMet, byType }, ... ] sorted best-first
+   *          (usable weapons ranked above unmet-requirement weapons).
+   */
+  function suggestWeapons(build, weapons, opts) {
+    opts = opts || {};
+    var out = [];
+    for (var i = 0; i < weapons.length; i++) {
+      var w = weapons[i];
+      var r = computeAR(build, w, { twoHanded: opts.twoHanded });
+      if (opts.usableOnly && !r.requirementsMet) continue;
+      out.push({ weapon: w, ar: r.totalAR, requirementsMet: r.requirementsMet, byType: r.byType });
+    }
+    out.sort(function (a, b) {
+      if (a.requirementsMet !== b.requirementsMet) return a.requirementsMet ? -1 : 1;
+      return b.ar - a.ar;
+    });
+    return opts.limit ? out.slice(0, opts.limit) : out;
+  }
+
   // Rough character level from attribute totals (Wretch baseline: 8x10 = level 1).
   function characterLevel(build) {
     var keys = ['VIG', 'MND', 'END', 'STR', 'DEX', 'INT', 'FAI', 'ARC'];
@@ -253,6 +276,7 @@
   return {
     computeAR: computeAR,
     softCapCurve: softCapCurve,
+    suggestWeapons: suggestWeapons,
     saturation: saturation,
     gradeFor: gradeFor,
     reinforce: reinforce,
