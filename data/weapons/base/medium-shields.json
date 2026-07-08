@@ -1,0 +1,925 @@
+[
+ {
+  "id": "albinauric-shield",
+  "name": "Albinauric Shield",
+  "type": "Medium Shield",
+  "source": "base",
+  "category": "regular",
+  "infusable": true,
+  "requirements": {
+   "STR": 11
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 191,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 72,
+   "DEX": 0,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "banished-knight-s-shield",
+  "name": "Banished Knight's Shield",
+  "type": "Medium Shield",
+  "source": "base",
+  "category": "regular",
+  "infusable": true,
+  "requirements": {
+   "STR": 14
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 198,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 72,
+   "DEX": 0,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "beast-crest-heater-shield",
+  "name": "Beast Crest Heater Shield",
+  "type": "Medium Shield",
+  "source": "base",
+  "category": "regular",
+  "infusable": true,
+  "requirements": {
+   "STR": 10
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 188,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 72,
+   "DEX": 0,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "beastman-s-jar-shield",
+  "name": "Beastman's Jar-Shield",
+  "type": "Medium Shield",
+  "source": "base",
+  "category": "regular",
+  "infusable": true,
+  "requirements": {
+   "STR": 10
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 173,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 43,
+   "DEX": 0,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "black-leather-shield",
+  "name": "Black Leather Shield",
+  "type": "Medium Shield",
+  "source": "base",
+  "category": "regular",
+  "infusable": true,
+  "requirements": {
+   "STR": 10
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 183,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 72,
+   "DEX": 0,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "blue-crest-heater-shield",
+  "name": "Blue Crest Heater Shield",
+  "type": "Medium Shield",
+  "source": "base",
+  "category": "regular",
+  "infusable": true,
+  "requirements": {
+   "STR": 10
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 188,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 72,
+   "DEX": 0,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "blue-gold-kite-shield",
+  "name": "Blue-Gold Kite Shield",
+  "type": "Medium Shield",
+  "source": "base",
+  "category": "regular",
+  "infusable": true,
+  "requirements": {
+   "STR": 12
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 196,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 72,
+   "DEX": 0,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "brass-shield",
+  "name": "Brass Shield",
+  "type": "Medium Shield",
+  "source": "base",
+  "category": "regular",
+  "infusable": true,
+  "requirements": {
+   "STR": 16
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 205,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 72,
+   "DEX": 0,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "candletree-wooden-shield",
+  "name": "Candletree Wooden Shield",
+  "type": "Medium Shield",
+  "source": "base",
+  "category": "regular",
+  "infusable": true,
+  "requirements": {
+   "STR": 8
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 186,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 72,
+   "DEX": 0,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "carian-knight-s-shield",
+  "name": "Carian Knight's Shield",
+  "type": "Medium Shield",
+  "source": "base",
+  "category": "regular",
+  "infusable": true,
+  "requirements": {
+   "STR": 10,
+   "DEX": 10,
+   "INT": 15
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 154,
+   "magic": 98,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 72,
+   "DEX": 0,
+   "INT": 54,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "INT": [
+    "magic"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "eclipse-crest-heater-shield",
+  "name": "Eclipse Crest Heater Shield",
+  "type": "Medium Shield",
+  "source": "base",
+  "category": "regular",
+  "infusable": true,
+  "requirements": {
+   "STR": 10
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 188,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 72,
+   "DEX": 0,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "flame-crest-wooden-shield",
+  "name": "Flame Crest Wooden Shield",
+  "type": "Medium Shield",
+  "source": "base",
+  "category": "regular",
+  "infusable": true,
+  "requirements": {
+   "STR": 8
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 186,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 72,
+   "DEX": 0,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "golden-lion-shield",
+  "name": "Golden Lion Shield",
+  "type": "Medium Shield",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 11
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 186,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 108,
+   "DEX": 0,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "great-turtle-shell",
+  "name": "Great Turtle Shell",
+  "type": "Medium Shield",
+  "source": "base",
+  "category": "regular",
+  "infusable": true,
+  "requirements": {
+   "STR": 14
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 198,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 72,
+   "DEX": 0,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "hawk-crest-wooden-shield",
+  "name": "Hawk Crest Wooden Shield",
+  "type": "Medium Shield",
+  "source": "base",
+  "category": "regular",
+  "infusable": true,
+  "requirements": {
+   "STR": 8
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 186,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 72,
+   "DEX": 0,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "heater-shield",
+  "name": "Heater Shield",
+  "type": "Medium Shield",
+  "source": "base",
+  "category": "regular",
+  "infusable": true,
+  "requirements": {
+   "STR": 10
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 188,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 72,
+   "DEX": 0,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "horse-crest-wooden-shield",
+  "name": "Horse Crest Wooden Shield",
+  "type": "Medium Shield",
+  "source": "base",
+  "category": "regular",
+  "infusable": true,
+  "requirements": {
+   "STR": 8
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 186,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 72,
+   "DEX": 0,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "inverted-hawk-heater-shield",
+  "name": "Inverted Hawk Heater Shield",
+  "type": "Medium Shield",
+  "source": "base",
+  "category": "regular",
+  "infusable": true,
+  "requirements": {
+   "STR": 10
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 188,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 72,
+   "DEX": 0,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "kite-shield",
+  "name": "Kite Shield",
+  "type": "Medium Shield",
+  "source": "base",
+  "category": "regular",
+  "infusable": true,
+  "requirements": {
+   "STR": 12
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 191,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 72,
+   "DEX": 0,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "large-leather-shield",
+  "name": "Large Leather Shield",
+  "type": "Medium Shield",
+  "source": "base",
+  "category": "regular",
+  "infusable": true,
+  "requirements": {
+   "STR": 8
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 183,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 72,
+   "DEX": 0,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "marred-leather-shield",
+  "name": "Marred Leather Shield",
+  "type": "Medium Shield",
+  "source": "base",
+  "category": "regular",
+  "infusable": true,
+  "requirements": {
+   "STR": 8
+  },
+  "weight": null,
+  "passive": "Blood loss (50)",
+  "base": {
+   "physical": 183,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 72,
+   "DEX": 0,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {
+   "bleed": 50
+  },
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "marred-wooden-shield",
+  "name": "Marred Wooden Shield",
+  "type": "Medium Shield",
+  "source": "base",
+  "category": "regular",
+  "infusable": true,
+  "requirements": {
+   "STR": 8
+  },
+  "weight": null,
+  "passive": "Blood loss (50)",
+  "base": {
+   "physical": 186,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 72,
+   "DEX": 0,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {
+   "bleed": 50
+  },
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "messmer-soldier-shield",
+  "name": "Messmer Soldier Shield",
+  "type": "Medium Shield",
+  "source": "base",
+  "category": "regular",
+  "infusable": true,
+  "requirements": {
+   "STR": 10
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 196,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 72,
+   "DEX": 0,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "red-crest-heater-shield",
+  "name": "Red Crest Heater Shield",
+  "type": "Medium Shield",
+  "source": "base",
+  "category": "regular",
+  "infusable": true,
+  "requirements": {
+   "STR": 10
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 188,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 72,
+   "DEX": 0,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "round-shield",
+  "name": "Round Shield",
+  "type": "Medium Shield",
+  "source": "base",
+  "category": "regular",
+  "infusable": true,
+  "requirements": {
+   "STR": 8
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 186,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 72,
+   "DEX": 0,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "scorpion-kite-shield",
+  "name": "Scorpion Kite Shield",
+  "type": "Medium Shield",
+  "source": "base",
+  "category": "regular",
+  "infusable": true,
+  "requirements": {
+   "STR": 12
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 191,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 72,
+   "DEX": 0,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "serpent-crest-shield",
+  "name": "Serpent Crest Shield",
+  "type": "Medium Shield",
+  "source": "base",
+  "category": "regular",
+  "infusable": true,
+  "requirements": {
+   "STR": 12
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 200,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 72,
+   "DEX": 0,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "silver-mirrorshield",
+  "name": "Silver Mirrorshield",
+  "type": "Medium Shield",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 12,
+   "DEX": 10,
+   "INT": 10
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 135,
+   "magic": 87,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 72,
+   "DEX": 0,
+   "INT": 54,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "INT": [
+    "magic"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "sun-realm-shield",
+  "name": "Sun Realm Shield",
+  "type": "Medium Shield",
+  "source": "base",
+  "category": "regular",
+  "infusable": true,
+  "requirements": {
+   "STR": 8
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 181,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 72,
+   "DEX": 0,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "twinbird-kite-shield",
+  "name": "Twinbird Kite Shield",
+  "type": "Medium Shield",
+  "source": "base",
+  "category": "regular",
+  "infusable": true,
+  "requirements": {
+   "STR": 12
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 191,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 72,
+   "DEX": 0,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "wolf-crest-shield",
+  "name": "Wolf Crest Shield",
+  "type": "Medium Shield",
+  "source": "base",
+  "category": "regular",
+  "infusable": true,
+  "requirements": {
+   "STR": 12
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 200,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 72,
+   "DEX": 0,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ }
+]
