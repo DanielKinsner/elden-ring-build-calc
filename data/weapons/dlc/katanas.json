@@ -1,0 +1,84 @@
+[
+ {
+  "id": "star-lined-sword",
+  "name": "Star-Lined Sword",
+  "type": "Katana",
+  "source": "dlc",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 10,
+   "DEX": 23,
+   "INT": 21
+  },
+  "weight": null,
+  "passive": "Blood loss (45)",
+  "base": {
+   "physical": 200,
+   "magic": 200,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 27,
+   "DEX": 135,
+   "INT": 54,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ],
+   "INT": [
+    "magic"
+   ]
+  },
+  "status": {
+   "bleed": 45
+  },
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "sword-of-night",
+  "name": "Sword of Night",
+  "type": "Katana",
+  "source": "dlc",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 11,
+   "DEX": 20
+  },
+  "weight": null,
+  "passive": "Blood loss (45)",
+  "base": {
+   "physical": 269,
+   "magic": 80,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 0,
+   "DEX": 113,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "DEX": [
+    "physical",
+    "magic"
+   ]
+  },
+  "status": {
+   "bleed": 45
+  },
+  "arcStatusScaling": 0
+ }
+]
