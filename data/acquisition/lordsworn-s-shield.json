@@ -1,0 +1,32 @@
+{
+ "location": "Random drop (2% chance) from any Spear-and-Greatshield-wielding soldier, found across Limgrave, Liurnia, Caelid, Altus Plateau, Deeproot Depths, and Miquella's Haligtree. The most convenient early farm is Gatefront Ruins in Limgrave, where several such Godrick Soldiers patrol near the Gatefront Site of Grace.",
+ "region": "Limgrave",
+ "source": {
+  "type": "enemy",
+  "name": "Godrick Soldier (Spear + Greatshield)"
+ },
+ "tactics": [
+  "At Gatefront Ruins, one qualifying soldier stands just south of the grace, another near the ruins' western entrance, and a third by the south entrance — resting and returning respawns them.",
+  "Only soldiers wielding both a spear AND this specific shield together will drop it; soldiers with other weapon pairings won't.",
+  "The same enemy archetype reappears in several later regions too, so you can keep farming it well past Limgrave if luck isn't on your side early."
+ ],
+ "nearbyGraces": [
+  "Gatefront"
+ ],
+ "lore": "A simple wooden tower shield, unusually light and easy to handle for a greatshield — standard-issue equipment among the rank-and-file soldiers who fought throughout the Shattering.",
+ "builds": [
+  {
+   "name": "Early-game turtle",
+   "why": "Only 16 Strength to wield one-handed and just 10.0 weight makes it the most accessible full-block greatshield in the early game.",
+   "statFocus": "STR"
+  },
+  {
+   "name": "Guard-counter starter build",
+   "why": "Comes with the Shield Bash skill built in, letting a fresh character punish enemies without needing a separate Ash of War.",
+   "statFocus": "STR"
+  }
+ ],
+ "_verify": [
+  "region"
+ ]
+}

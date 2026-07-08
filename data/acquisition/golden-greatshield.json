@@ -1,0 +1,33 @@
+{
+ "location": "Random drop (4% base chance) from Leyndell Knights (any that actually carry the shield on their model — not the ones who switch from a greatbow to melee) across several regions. The most reliable single farm spot is the knight standing south of the West Capital Rampart Site of Grace in Leyndell, Royal Capital, guarded by only one Foot Soldier. An earlier alternative is a lone Leyndell Knight south of the Artist's Shack in Liurnia of the Lakes.",
+ "region": "Leyndell, Royal Capital",
+ "source": {
+  "type": "enemy",
+  "name": "Leyndell Knight"
+ },
+ "tactics": [
+  "Leyndell Knights carrying this shield also patrol Liurnia, Altus Plateau, and Mt. Gelmir — any of them can drop it, so farm wherever is safest for your gear level.",
+  "The knight south of West Capital Rampart has only one nearby Foot Soldier for backup, making it the safest repeat kill in the capital itself.",
+  "Bow-wielding Leyndell Knights that switch to a shield only in melee will NOT drop this — only ones already carrying it on their back count.",
+  "A Discovery-boosting item speeds up the farm considerably given the low base drop rate."
+ ],
+ "nearbyGraces": [
+  "West Capital Rampart"
+ ],
+ "lore": "A gilded, oval-shaped greatshield carried by the knights who stand guard over Leyndell, the Royal Capital. Its ornate gold construction marks its bearer as one of the capital's own, and its build favors sturdy, exceptional guard capacity over anything flashy.",
+ "builds": [
+  {
+   "name": "Strength greatshield turtle",
+   "why": "Full physical block plus solid holy negation (68%) at a moderate Strength requirement makes it a dependable all-purpose defensive shield.",
+   "statFocus": "STR"
+  },
+  {
+   "name": "Guard-counter poke build",
+   "why": "Pair with a spear or halberd to block safely and guard-counter — its balanced elemental negation keeps chip damage manageable while countering.",
+   "statFocus": "STR"
+  }
+ ],
+ "_verify": [
+  "region"
+ ]
+}

@@ -1,0 +1,24 @@
+{
+ "location": "Purchased for 3,800 runes from the Nomadic Merchant camped beside the Forest-Spanning Greatbridge in Altus Plateau.",
+ "region": "Altus Plateau",
+ "source": {
+  "type": "merchant",
+  "name": "Nomadic Merchant (Forest-Spanning Greatbridge)"
+ },
+ "tactics": [
+  "The merchant sits at a campfire on the east side of the broken bridge, right next to the Forest-Spanning Greatbridge site of grace — no combat needed, just runes.",
+  "He also stocks Stonesword Keys and other shields/armor, so budget extra runes if you want his full inventory."
+ ],
+ "nearbyGraces": [
+  "Forest-Spanning Greatbridge"
+ ],
+ "lore": "A plain iron greatshield large enough to cover the whole body, stamped with the image of two old, interleaving trees.",
+ "builds": [
+  {
+   "name": "Early full-block Strength tank",
+   "why": "100% physical damage negation at a reasonable Strength requirement, purchasable as soon as you reach Altus Plateau without any farming.",
+   "statFocus": "STR"
+  }
+ ],
+ "_verify": []
+}

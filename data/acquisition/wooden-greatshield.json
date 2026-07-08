@@ -1,0 +1,30 @@
+{
+ "location": "Found on a corpse in the guardhouse of Stormveil Castle's heavily guarded main courtyard — entering from the main gate side, the guardhouse is on the opposite side from the room containing the 'Prophecy' painting. The nearest checkpoint is the Liftside Chamber Site of Grace.",
+ "region": "Limgrave",
+ "source": {
+  "type": "drop",
+  "name": "Corpse, Stormveil Castle guardhouse"
+ },
+ "tactics": [
+  "This is a different pickup from the Manor Towershield, which is found elsewhere inside the same castle — finding one doesn't mean you've already found the other.",
+  "The main courtyard is heavily guarded by soldiers and at least one large enemy; picking foes off from range before pushing in makes the grab much safer.",
+  "Careful routing from Liftside Chamber grace lets you reach the guardhouse while fighting as few enemies as possible."
+ ],
+ "nearbyGraces": [
+  "Liftside Chamber"
+ ],
+ "lore": "A simple wooden greatshield reinforced with metal fittings — humble in construction, but sturdy enough to see a new Tarnished through Stormveil's early gauntlet.",
+ "builds": [
+  {
+   "name": "Early lightweight turtle",
+   "why": "Tied for the lightest greatshield in the game (8.0 weight) with only a 14 Strength requirement, giving full physical block almost immediately.",
+   "statFocus": "STR"
+  },
+  {
+   "name": "Guard-counter starter build",
+   "why": "Can be infused with an Ash of War (unlike several other greatshields), letting a new character pair it with a guard-counter or buff skill early on.",
+   "statFocus": "STR"
+  }
+ ],
+ "_verify": []
+}

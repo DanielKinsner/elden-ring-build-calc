@@ -1,0 +1,30 @@
+{
+ "location": "Random drop (around 1% chance) from helmeted, Greatshield-wielding Fallen Hawk Soldiers stationed around the Nokron, Eternal City Site of Grace — in the nearby gazebo, by a tree to the northeast, on some stairs, inside a building, and behind a wall to the south.",
+ "region": "Nokron, Eternal City",
+ "source": {
+  "type": "enemy",
+  "name": "Fallen Hawk Soldier (Greatshield, helmeted)"
+ },
+ "tactics": [
+  "Only helmeted Fallen Hawk Soldiers who carry a shield on their back can drop this — unhelmeted or spear-only soldiers don't count.",
+  "Roughly eight qualifying soldiers spawn around the Nokron grace, so resting and returning lets you re-farm the whole group.",
+  "The drop rate is low (~1%), so expect several clears; a Discovery-boosting talisman helps a lot here."
+ ],
+ "nearbyGraces": [
+  "Nokron, Eternal City"
+ ],
+ "lore": "A body-length iron tower shield stamped with an inverted hawk crest — standard-issue armament for the Fallen Hawk soldiers who patrol the buried city of Nokron.",
+ "builds": [
+  {
+   "name": "Lightweight STR turtle",
+   "why": "At 16.0 weight it's lighter than most greatshields for full physical negation, useful for Strength builds watching equip load.",
+   "statFocus": "STR"
+  },
+  {
+   "name": "Guard-counter poke build",
+   "why": "Solid all-round negation and a 65 guard boost support a block-then-counter playstyle with a spear.",
+   "statFocus": "STR"
+  }
+ ],
+ "_verify": []
+}

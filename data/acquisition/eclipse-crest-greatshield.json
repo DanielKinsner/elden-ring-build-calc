@@ -1,0 +1,25 @@
+{
+ "location": "Rare (~4%) drop from greatsword-wielding Mausoleum Knights. The most reliable single farm spot is the knight standing with its back turned just outside the entrance to Black Knife Catacombs, northeast of Ruined Labyrinth in Liurnia of the Lakes.",
+ "region": "Liurnia of the Lakes",
+ "source": {
+  "type": "enemy",
+  "name": "Mausoleum Knight"
+ },
+ "tactics": [
+  "The knight outside Black Knife Catacombs has its back turned, so open with a plunge attack or backstab before rolling for the drop.",
+  "Mausoleum Knights also spawn beside Wandering Mausoleums in Deeproot Depths and Consecrated Snowfield if you want alternate farming spots.",
+  "Don't confuse this enemy with the Black Knife Assassin NPC invader that also lurks near the catacombs entrance — that's a separate, far more dangerous fight."
+ ],
+ "nearbyGraces": [
+  "Ruined Labyrinth"
+ ],
+ "lore": "A metal greatshield painted with a sun in eclipse, carried by the headless Mausoleum Knights — the eclipsed sun is meant to shield soulless demigods from Destined Death.",
+ "builds": [
+  {
+   "name": "Status-resistant Strength tank",
+   "why": "Passively boosts Focus, Immunity, and Robustness while equipped, giving broad resistance to sleep, poison, and frostbite/scarlet rot buildup while turtling.",
+   "statFocus": "STR"
+  }
+ ],
+ "_verify": []
+}

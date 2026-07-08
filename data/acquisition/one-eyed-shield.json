@@ -1,0 +1,30 @@
+{
+ "location": "Guaranteed drop from the mini-boss Chief Guardian Arghanthy, found atop the rampart of Guardians' Garrison in the Mountaintops of the Giants.",
+ "region": "Mountaintops of the Giants",
+ "source": {
+  "type": "boss",
+  "name": "Chief Guardian Arghanthy"
+ },
+ "tactics": [
+  "Arghanthy wields a giant-sized weapon and hits very hard in melee — respect the wind-up on his swings and don't get greedy for extra hits.",
+  "The fight takes place atop a narrow rampart — watch your footing and avoid being knocked toward the edge.",
+  "Torrent (spirit steed) is usable here, and Spirit Ashes can help split his aggro if you're struggling solo."
+ ],
+ "nearbyGraces": [
+  "Whiteridge Road"
+ ],
+ "lore": "A deceptive white stone shield carved into the likeness of a deformed one-eyed god once worshipped by the giants, said to have been slain by Queen Marika herself. A hidden barrel juts from its open mouth to spit flame.",
+ "builds": [
+  {
+   "name": "Fire-poke hybrid",
+   "why": "Its innate Flame Spit skill gives a Strength turtle build ranged fire offense without swapping weapons.",
+   "statFocus": "STR"
+  },
+  {
+   "name": "Heavy STR turtle",
+   "why": "Very high physical attack power (175) for a greatshield and near-full physical negation reward committing hard to Strength and equip load.",
+   "statFocus": "STR"
+  }
+ ],
+ "_verify": []
+}

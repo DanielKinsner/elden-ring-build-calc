@@ -1,0 +1,30 @@
+{
+ "location": "Picked up from a corpse inside a ruined building at Woodfolk Ruins, east of the Minor Erdtree in Altus Plateau.",
+ "region": "Altus Plateau",
+ "source": {
+  "type": "drop",
+  "name": "Corpse, Woodfolk Ruins"
+ },
+ "tactics": [
+  "Woodfolk Ruins is patrolled by worm-like cultist enemies (Wormfaces) that ambush from underground — approach carefully rather than walking straight through.",
+  "The shield sits on a corpse inside the northernmost ruined building; it's often possible to dash in, grab it, and retreat without a full fight.",
+  "A separate underground chamber beneath the ruins (guarded by more Wormfaces) leads to a chest with the Wrath of Gold incantation — don't confuse that pickup with this one."
+ ],
+ "nearbyGraces": [],
+ "lore": "A shield painted with a devotional scene and blessed by a tear from the Erdtree, evoking the golden age when the Erdtree's blessing was abundant. The painted invocation itself acts as a standing prayer, slowly mending its bearer's wounds.",
+ "builds": [
+  {
+   "name": "Sustain tank",
+   "why": "Passive 3 HP/second regeneration is a flat bonus that doesn't scale with upgrades but stacks with other healing sources, supporting a self-sustaining turtle playstyle.",
+   "statFocus": "STR"
+  },
+  {
+   "name": "Early greatshield pickup",
+   "why": "Only 22 Strength to wield one-handed, making full-block viable well before most other greatshields are accessible.",
+   "statFocus": "STR"
+  }
+ ],
+ "_verify": [
+  "nearbyGraces"
+ ]
+}

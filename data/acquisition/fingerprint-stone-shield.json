@@ -1,0 +1,27 @@
+{
+ "location": "Sitting at the bottom of a coffin-filled pit beyond a hidden passage behind the altar in the Cathedral of the Forsaken, deep in the Subterranean Shunning-Grounds beneath Leyndell.",
+ "region": "Leyndell, Royal Capital",
+ "source": {
+  "type": "chest",
+  "name": "Hidden pit beyond the altar, Cathedral of the Forsaken"
+ },
+ "tactics": [
+  "Reach the Subterranean Shunning-Grounds via the well beneath Leyndell: from Avenue Balcony grace, go down and left past a greatbow-wielding Leyndell Knight, then drop into the well in the northern corner.",
+  "Defeat the optional boss Mohg, the Omen (a weaker preview fight against the same character later fought as Mohg, Lord of Blood) to unlock the Cathedral of the Forsaken grace beyond his arena — picking up Mohg's Shackle earlier in the dungeon makes this fight much easier.",
+  "At the Cathedral of the Forsaken, strike the large altar behind the nearby chest to slowly open a hidden passage down into a coffin-lined chasm.",
+  "Carefully drop from wooden beam to coffin to stone slab to reach the bottom without falling to your death — the shield sits at the end of the path."
+ ],
+ "nearbyGraces": [
+  "Cathedral of the Forsaken",
+  "Forsaken Depths"
+ ],
+ "lore": "One of the heaviest greatshields in the Lands Between, carved from stone and marked with a fingerprint — said to be a relic from an ancient god's tomb that carries that god's message, and driving those who bear it toward madness.",
+ "builds": [
+  {
+   "name": "Max-load pure Strength tank",
+   "why": "Extremely heavy with a 48 Strength one-handed requirement, but offers top-tier guard stats across every damage type for players building around high equip load.",
+   "statFocus": "STR"
+  }
+ ],
+ "_verify": []
+}

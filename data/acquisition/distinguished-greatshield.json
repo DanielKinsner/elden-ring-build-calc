@@ -1,0 +1,25 @@
+{
+ "location": "Purchased for 5,500 runes from the Hermit Merchant, who only appears at night, at Hermit Merchant's Shack in Capital Outskirts.",
+ "region": "Capital Outskirts",
+ "source": {
+  "type": "merchant",
+  "name": "Hermit Merchant (Capital Outskirts)"
+ },
+ "tactics": [
+  "From the Outer Wall Battleground grace, head northeast and up the cliff to reach the shack; there's a grace right at the shack itself.",
+  "The Hermit Merchant only sets up shop at night — if he's not there, rest at a nearby grace to skip to nightfall."
+ ],
+ "nearbyGraces": [
+  "Hermit Merchant's Shack",
+  "Outer Wall Battleground"
+ ],
+ "lore": "An ornately decorated greatshield favored by the scions of great noble houses — some say its oversized bulk was less about protection and more a way for cowards to avoid ever earning a scar in battle.",
+ "builds": [
+  {
+   "name": "Full-block Strength tank",
+   "why": "Straightforward 100% physical negation greatshield with no gimmicks, good as a reliable purchase-only pick for a pure Strength build.",
+   "statFocus": "STR"
+  }
+ ],
+ "_verify": []
+}

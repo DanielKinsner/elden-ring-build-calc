@@ -1,0 +1,30 @@
+{
+ "location": "Dropped (4% chance) by one specific Greatsword-wielding Haligtree Knight standing near the northern side of a chapel in the graveyard at the bottom of Elphael, Brace of the Haligtree, below the Drainage Channel Site of Grace. No other Haligtree Knight in the area carries this shield.",
+ "region": "Miquella's Haligtree",
+ "source": {
+  "type": "enemy",
+  "name": "Haligtree Knight (Greatsword, chapel graveyard)"
+ },
+ "tactics": [
+  "From Drainage Channel grace, head back outside and use the exposed tree trunk to climb down, then use a stone arch to reach a lower trunk leading into the chapel graveyard.",
+  "Only the Greatsword-wielding Haligtree Knight near the chapel drops it — other Haligtree Knights patrolling Elphael do not, so don't waste time farming the wrong ones.",
+  "Haligtree Knights hit very hard in melee; consider baiting this one away from the group or softening it with ranged attacks first."
+ ],
+ "nearbyGraces": [
+  "Drainage Channel"
+ ],
+ "lore": "A metal greatshield inlaid with pure gold in the shape of the Haligtree, carried by knights sworn to protect Miquella's sanctuary. Its sacred craftsmanship grants it unusually strong resistance to holy damage.",
+ "builds": [
+  {
+   "name": "Holy-resistant turtle",
+   "why": "79% holy negation is among the best of any greatshield, making it a strong pick for tanking holy-heavy fights and incantations.",
+   "statFocus": "STR"
+  },
+  {
+   "name": "Guard-counter poke build",
+   "why": "A high guard boost (71) lets you absorb sustained pressure and counter safely with a spear or thrusting weapon.",
+   "statFocus": "STR"
+  }
+ ],
+ "_verify": []
+}

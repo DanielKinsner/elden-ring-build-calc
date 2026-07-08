@@ -1,0 +1,27 @@
+{
+ "location": "A chest in a side room off the western upper walkway of Nokstella, Eternal City. From the site of grace, go west and up the first flight of stairs; before the big arch, duck left into a side room where a Nox Swordstress guards a large chest — ignore that one and open the smaller chest next to it, which holds the shield.",
+ "region": "Ainsel River",
+ "source": {
+  "type": "chest",
+  "name": "Small chest, Nokstella side room"
+ },
+ "tactics": [
+  "From the Nokstella, Eternal City grace, head west and climb the first staircase.",
+  "Turn left into the side room before the large archway; a Nox Swordstress guards the big chest there but the shield is in the smaller chest beside it, no fight required if you're careful.",
+  "This is Nokstella (reached via Ainsel River), a different 'Eternal City' from Nokron reached via Siofra River — easy to mix the two up when following guides.",
+  "Unique Tier 3 Hardness means even greatswords and colossal weapons bounce off this shield when blocked, unlike any other greatshield in the game."
+ ],
+ "nearbyGraces": [
+  "Nokstella, Eternal City",
+  "Nokstella Waterfall Basin"
+ ],
+ "lore": "Fashioned whole from the skull of one of the giant venomous ants that burrow through the Lands Between's underground rivers, the shield still carries a trace of its owner's poison, granting the wielder some resistance to it.",
+ "builds": [
+  {
+   "name": "Poison-immune Strength tank",
+   "why": "D-rank Strength scaling greatshield with 100% physical block and a built-in Immunity boost, good for players tanking through Caelid or other poison-heavy areas.",
+   "statFocus": "STR"
+  }
+ ],
+ "_verify": []
+}

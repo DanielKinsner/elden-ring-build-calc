@@ -1,0 +1,30 @@
+{
+ "location": "Found on a broken wagon beside two corpses, surrounded by four hostile Jellyfish, directly north of the Foot of the Four Belfries Site of Grace in northwest Liurnia of the Lakes.",
+ "region": "Liurnia of the Lakes",
+ "source": {
+  "type": "drop",
+  "name": "Corpse on wagon, north of Foot of the Four Belfries"
+ },
+ "tactics": [
+  "The four Jellyfish guarding the wagon burst with a damaging AoE when killed at close range — don't stand next to one as it dies.",
+  "Pick the jellies off from range or one at a time rather than wading in as a group; they're slow but punishing together.",
+  "Despite good physical block, the shield's own description warns it offers essentially no protection against piercing/thrusting attacks — don't rely on it there."
+ ],
+ "nearbyGraces": [
+  "Foot of the Four Belfries"
+ ],
+ "lore": "The translucent head of a spirit jellyfish — creatures often seen drifting above sacred ground across the Lands Between — used more or less as-is for a shield. Its gossamer flesh weighs almost nothing, but does little to stop anything sharp.",
+ "builds": [
+  {
+   "name": "Buff-and-block build",
+   "why": "Its innate Contagious Fury skill boosts all damage output for 30 seconds just by keeping the shield equipped, useful to pop before a boss fight.",
+   "statFocus": "STR / DEX"
+  },
+  {
+   "name": "Lightweight turtle",
+   "why": "Tied for the lightest greatshield in the game at 8.0 weight, letting a STR/DEX build carry full block capability cheaply.",
+   "statFocus": "STR"
+  }
+ ],
+ "_verify": []
+}

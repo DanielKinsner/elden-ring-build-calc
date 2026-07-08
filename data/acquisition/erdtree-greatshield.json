@@ -1,0 +1,25 @@
+{
+ "location": "Guaranteed drop from the Tree Sentinel Duo, fought at the top of the stairs leading to the Outer Wall Phantom Tree grace, the southern gate into Capital Outskirts.",
+ "region": "Altus Plateau",
+ "source": {
+  "type": "boss",
+  "name": "Tree Sentinel Duo"
+ },
+ "tactics": [
+  "Two Tree Sentinels fight together — one wields a shield and lance, the other a torch and lance; run past them to reach the Outer Wall Phantom Tree grace first, then pull them apart to fight one at a time.",
+  "Lightning damage is especially effective against both Sentinels.",
+  "The kill also awards a Hero's Rune and 20,000 runes on top of the shield."
+ ],
+ "nearbyGraces": [
+  "Outer Wall Phantom Tree"
+ ],
+ "lore": "A golden greatshield blessed as a living rampart of the Erdtree, standard-issue equipment for the towering Tree Sentinels that guard its approaches.",
+ "builds": [
+  {
+   "name": "Strength/Faith paladin build",
+   "why": "Its Golden Retaliation skill parries an incoming spell (including the wielder's own) and fires back a burst of holy damage, making it a strong pairing with Faith-based sorceries/incantations.",
+   "statFocus": "STR/FAI"
+  }
+ ],
+ "_verify": []
+}

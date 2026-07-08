@@ -1,0 +1,30 @@
+{
+ "location": "Looted from a corpse pinned under a Golem, west of the Deep Siofra Well Site of Grace in northern Caelid.",
+ "region": "Caelid",
+ "source": {
+  "type": "drop",
+  "name": "Corpse under Golem, west of Deep Siofra Well"
+ },
+ "tactics": [
+  "A Golem enemy guards the corpse directly — either fight it or bait it away before looting; Golems hit extremely hard with large sweeping attacks.",
+  "Deep Siofra Well itself is reached via a lift requiring two Stonesword Keys, accessed from the Below the River Well Site of Grace in Siofra River, so have those keys ready.",
+  "The shield's guard negation (95% physical) is a notch below most other greatshields, so it leans more toward an aggressive bash playstyle than pure turtling."
+ ],
+ "nearbyGraces": [
+  "Deep Siofra Well"
+ ],
+ "lore": "A crude wooden shield studded with iron spikes — light to carry but weaker at blocking than most greatshields, better suited to bashing and gouging foes than turtling behind. Soldiers reportedly nicknamed it the \"pard shield\" for the holes its bash leaves behind.",
+ "builds": [
+  {
+   "name": "Bleed shield-bash build",
+   "why": "Innate Bloodloss buildup (70) on its bash lets a Strength build proc hemorrhage without carrying a separate bleed weapon.",
+   "statFocus": "STR"
+  },
+  {
+   "name": "Lightweight aggressive turtle",
+   "why": "Lighter than most greatshields while offering high physical attack for a shield (116), rewarding a more offense-leaning Strength build.",
+   "statFocus": "STR"
+  }
+ ],
+ "_verify": []
+}

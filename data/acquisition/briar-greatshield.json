@@ -1,0 +1,27 @@
+{
+ "location": "Guaranteed drop from the boss Elemer of the Briar, fought on the roof at the very top of the Shaded Castle.",
+ "region": "Altus Plateau",
+ "source": {
+  "type": "boss",
+  "name": "Elemer of the Briar"
+ },
+ "tactics": [
+  "Fast-travel to Erdtree-Gazing Hill, head east, and drop into the valley to reach the Shaded Castle; work through Shaded Castle Ramparts and Inner Gate graces before climbing to the roof.",
+  "Elemer fights with a curved greatsword and a bleed-inflicting flail-like weapon skill, throwing out wide sweeping combos and an occasional ranged fire attack — stay aggressive and close the distance to limit the fire option.",
+  "He also drops the Marais Executioner's Sword alongside this shield, so you get two items from one kill."
+ ],
+ "nearbyGraces": [
+  "Shaded Castle Ramparts",
+  "Shaded Castle Inner Gate",
+  "Castellan's Hall"
+ ],
+ "lore": "A greatshield carried from Eochaid, a distant land of proudly solitary ascetics, wound about with iron thorns — Elemer of the Briar bore it as his own before his fall from grace.",
+ "builds": [
+  {
+   "name": "Bleed/Arcane greatshield build",
+   "why": "Its innate bleed buildup on shield bash scales up further with Arcane-scaling affinities like Blood or Occult, letting an Arcane build proc hemorrhage from behind full guard.",
+   "statFocus": "STR/ARC"
+  }
+ ],
+ "_verify": []
+}

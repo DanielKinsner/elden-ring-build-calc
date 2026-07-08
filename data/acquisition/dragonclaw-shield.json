@@ -1,0 +1,26 @@
+{
+ "location": "Guaranteed drop from the Draconic Tree Sentinel boss, fought at Capital Rampart on the road into Leyndell from the Outer Wall Battleground grace.",
+ "region": "Capital Outskirts",
+ "source": {
+  "type": "boss",
+  "name": "Draconic Tree Sentinel"
+ },
+ "tactics": [
+  "A mounted golden knight wielding lightning magic and a huge lance; its horse charges are the most dangerous attack — stay to its side or rear to avoid being run down.",
+  "It's optional — you can run past it to reach Leyndell — but killing it also drops the Dragon Greatclaw curved sword and Malformed Dragon armor set alongside this shield.",
+  "Most of its magic damage is lightning-based, so lightning resistance gear helps if you're struggling."
+ ],
+ "nearbyGraces": [
+  "Outer Wall Battleground",
+  "Capital Rampart"
+ ],
+ "lore": "Whittled from the claw of a great, ancient dragon and imbued with lightning, carried by the grotesque Tree Sentinels who still serve the Erdtree.",
+ "builds": [
+  {
+   "name": "Anti-dragon Strength/Dex build",
+   "why": "Deals bonus damage (+30% vs dragons, +15% vs ancient dragons) when used as a weapon, useful against Farum Azula's dragon roster and other named dragons.",
+   "statFocus": "STR/DEX"
+  }
+ ],
+ "_verify": []
+}

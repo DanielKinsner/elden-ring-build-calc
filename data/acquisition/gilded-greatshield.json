@@ -1,0 +1,26 @@
+{
+ "location": "Rare (~4%) drop from shield-wielding Godrick Knights. The easiest single target is the spear-wielding Godrick Knight patrolling Gatefront Ruins in Limgrave.",
+ "region": "Limgrave",
+ "source": {
+  "type": "enemy",
+  "name": "Godrick Knight"
+ },
+ "tactics": [
+  "Gatefront Ruins sits just northeast of the Church of Elleh, right at the Gatefront grace where you first meet Melina — the Godrick Knight patrols there with a squad of lesser Godrick Soldiers.",
+  "An alternate farm spot is the Godrick Soldier camp between Warmaster's Shack and Deathtouched Catacombs in Weeping Peninsula, which has two more shield-carrying Godrick Knights.",
+  "The knight's spear thrusts are slow and telegraphed — punish after a whiff rather than trading hits."
+ ],
+ "nearbyGraces": [
+  "Gatefront",
+  "Church of Elleh"
+ ],
+ "lore": "A metal greatshield coated in gold, carried by knights loyal to Godrick the Grafted — its faint red tinge said to come from the same primordial matter that gave rise to the Erdtree, a mark of longing for a lost home.",
+ "builds": [
+  {
+   "name": "Earliest 100% block Strength tank",
+   "why": "One of the first fully physical-blocking greatshields reachable in the game, making it a popular early pick for a Strength-focused turtle build straight out of Limgrave.",
+   "statFocus": "STR"
+  }
+ ],
+ "_verify": []
+}

@@ -1,0 +1,33 @@
+{
+ "location": "Found in a chest inside an underground treasure room below Caelem Ruins in northwestern Caelid, guarded by the Mad Pumpkin Head Duo boss fight. Caelem Ruins sits along the Caelid Highway east of the Shack of the Rotting; take the stairs down on the ruins' east side to reach the cellar.",
+ "region": "Caelid",
+ "source": {
+  "type": "boss",
+  "name": "Mad Pumpkin Head Duo"
+ },
+ "tactics": [
+  "Two Pumpkin Head enemies fight you together in a small, enclosed cellar — use the confined space to your advantage but expect both to gang up at once.",
+  "Torrent can be summoned for this fight; buffing incantations like Golden Vow or Flame, Grant Me Strength help push through their high health pools.",
+  "Caelem Ruins' own Site of Grace is known to be buggy (it won't appear on the map or allow fast travel), so route in from Rotview Balcony or Smoldering Wall instead."
+ ],
+ "nearbyGraces": [
+  "Rotview Balcony",
+  "Smoldering Wall"
+ ],
+ "lore": "A bronze trick-shield cast in the likeness of a Fire Giant's face, its gaping mouth bristling with tongues of flame — crafted as a grim, almost instructional reminder of what it means to face down one of the giants.",
+ "builds": [
+  {
+   "name": "Fire-poke hybrid",
+   "why": "Its innate Tongues of Fire skill sprays continuous fire damage while still allowing block, and 81% fire negation makes it strong in fire matchups.",
+   "statFocus": "STR"
+  },
+  {
+   "name": "Heavy STR turtle",
+   "why": "High physical attack (186) and guard boost (75) reward a dedicated Strength build willing to meet its 44 Strength requirement.",
+   "statFocus": "STR"
+  }
+ ],
+ "_verify": [
+  "nearbyGraces"
+ ]
+}

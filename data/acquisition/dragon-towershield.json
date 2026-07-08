@@ -1,0 +1,25 @@
+{
+ "location": "Found in a chest in Crumbling Farum Azula, guarded by a Banished Knight.",
+ "region": "Crumbling Farum Azula",
+ "source": {
+  "type": "chest",
+  "name": "Chest guarded by Banished Knight, Crumbling Farum Azula"
+ },
+ "tactics": [
+  "From the Dragon Temple Rooftop grace, drop down past the area where the Ancient Dragon roams and work down through the floating rock platforms toward a building to the southeast.",
+  "Pass through the building, climb the ladder outside, and head to the east edge of that upper area — the chest sits there, guarded by a Banished Knight.",
+  "Banished Knights are tough sword-and-shield fighters with parry-punishing combos; fight them in open space rather than on the narrow ledges around the chest."
+ ],
+ "nearbyGraces": [
+  "Dragon Temple Rooftop"
+ ],
+ "lore": "A heavy tower shield engraved with a dragon as a symbol of protection, harking back to the age before the Erdtree when the great dragons themselves served as living ramparts for their lieges.",
+ "builds": [
+  {
+   "name": "Balanced elemental Strength tank",
+   "why": "Solid all-round elemental guard alongside full physical block makes it a dependable choice for the elementally varied fights inside Crumbling Farum Azula and beyond.",
+   "statFocus": "STR"
+  }
+ ],
+ "_verify": []
+}

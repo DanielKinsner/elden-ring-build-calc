@@ -1,0 +1,27 @@
+{
+ "location": "Guaranteed drop from the Grafted Scion boss in the Chapel of Anticipation, the tutorial area the game begins in.",
+ "region": "Limgrave",
+ "source": {
+  "type": "boss",
+  "name": "Grafted Scion"
+ },
+ "tactics": [
+  "You first meet this fight in the opening minutes of the game — it's deliberately overtuned for a level 1 character, so most players are meant to flee or die rather than win here.",
+  "To fight it properly and get the drop, obtain the Imbued Key during Ranni's questline (from Renna's Rise) and use it on the northeast waygate at the Four Belfries to return to the Chapel of Anticipation.",
+  "On a return visit, treat the Scion like a mid-game boss rather than a tutorial pushover — it wields two blades and a shield with fast multi-hit combos."
+ ],
+ "nearbyGraces": [
+  "Four Belfries"
+ ],
+ "lore": "A shield of dulled gold bearing the crest of Serosh, an aged counselor said to guide the golden lineage — lighter than most greatshields and correspondingly easier to wield.",
+ "builds": [
+  {
+   "name": "Lightweight Strength tank",
+   "why": "One of the lightest greatshields with full physical block and the second-lowest Strength requirement in its class, useful for quality/lower-investment Strength builds.",
+   "statFocus": "STR"
+  }
+ ],
+ "_verify": [
+  "region"
+ ]
+}

@@ -1,0 +1,30 @@
+{
+ "location": "Random drop (4% chance) from Redmane Knights across Caelid. A reliable target is the horseback knight northwest of the Impassable Greatbridge Site of Grace — follow the cliff edge past the sword monument, drop down a small ledge, then continue west.",
+ "region": "Caelid",
+ "source": {
+  "type": "enemy",
+  "name": "Redmane Knight"
+ },
+ "tactics": [
+  "The horseback knight near Impassable Greatbridge charges and jousts aggressively — knocking it off its mount or baiting the charge into an obstacle can make the fight safer.",
+  "Redmane Knights appear in multiple spots across Caelid, so any of them can drop the shield if this particular one doesn't cooperate.",
+  "Caelid's rot swamps nearby can inflict Scarlet Rot buildup — stay alert to your surroundings while farming."
+ ],
+ "nearbyGraces": [
+  "Impassable Greatbridge"
+ ],
+ "lore": "A fang-shaped greatshield bearing the crest of a red-maned lion, carried by the Redmane Knights who rode to war at General Radahn's side.",
+ "builds": [
+  {
+   "name": "Fire-resistant turtle",
+   "why": "70% fire negation is unusually high for a greatshield, useful against Caelid's fire-heavy enemies and fire-attuned bosses.",
+   "statFocus": "STR"
+  },
+  {
+   "name": "Guard-counter poke build",
+   "why": "Balanced negation and a lighter-than-average weight (14.0) support a mobile block-and-counter playstyle.",
+   "statFocus": "STR"
+  }
+ ],
+ "_verify": []
+}

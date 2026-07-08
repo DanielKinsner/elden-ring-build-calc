@@ -1,0 +1,30 @@
+{
+ "location": "Found on a corpse inside Stormveil Castle's guarded storage area. From the Secluded Cell Site of Grace, backtrack west and up the ramp past the Living Jars, cross to a wooden platform/ledge, follow it through the archways into a storage room, climb the stairs to the walkway above, then head into a larger storeroom full of Commoners — the shield is tucked under the second staircase there.",
+ "region": "Limgrave",
+ "source": {
+  "type": "drop",
+  "name": "Corpse, Stormveil Castle storeroom"
+ },
+ "tactics": [
+  "This is a different pickup from the Wooden Greatshield, which is found elsewhere in the same castle — grabbing one doesn't mean you already have the other.",
+  "The Living Jars along the route explode when approached; keep distance or bait them before crossing.",
+  "The storeroom holding the shield is full of Commoner enemies — clear or sneak past before looting under the stairs."
+ ],
+ "nearbyGraces": [
+  "Secluded Cell"
+ ],
+ "lore": "A body-covering iron tower shield engraved with an image of the Roundtable Hold, the gathering place where Tarnished champions once convened.",
+ "builds": [
+  {
+   "name": "Strength greatshield turtle",
+   "why": "Solid all-around negation at a mid-tier 30 Strength requirement makes it an accessible full-block option early on.",
+   "statFocus": "STR"
+  },
+  {
+   "name": "Guard-counter poke build",
+   "why": "Decent guard boost supports blocking through Stormveil's soldiers while countering with a spear.",
+   "statFocus": "STR"
+  }
+ ],
+ "_verify": []
+}

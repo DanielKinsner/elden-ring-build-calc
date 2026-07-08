@@ -1,0 +1,27 @@
+{
+ "location": "Guaranteed drop from the Crucible Knight patrolling the bridges of the Siofra Aqueduct, reached from Nokron, Eternal City via the Aqueduct-Facing Cliffs grace north of Hallowhorn Grounds.",
+ "region": "Siofra River",
+ "source": {
+  "type": "enemy",
+  "name": "Crucible Knight (Siofra Aqueduct)"
+ },
+ "tactics": [
+  "Climb the cliff path north of Hallowhorn Grounds in Nokron, Eternal City to reach the Aqueduct-Facing Cliffs grace, then head into the aqueduct itself.",
+  "This lone Crucible Knight fights like the Crucible Knight duo bosses elsewhere in Nokron — sword-and-shield stance with jumping horn-thrust and tail-whip attacks — but is fought solo here.",
+  "Don't confuse this with the two Crucible Knight bosses guarding Nokron's main plaza; those drop different Crucible armor/weapons, not this shield."
+ ],
+ "nearbyGraces": [
+  "Aqueduct-Facing Cliffs"
+ ],
+ "lore": "Set with a great horn said to carry ancient holiness — when its wielder slams the shield into a foe, that horn skewers them.",
+ "builds": [
+  {
+   "name": "Strength tank with strong scaling growth",
+   "why": "Strength scaling improves quickly from D at base to C at +3 and B at +10, giving solid attack power for a defensive greatshield as you upgrade it.",
+   "statFocus": "STR"
+  }
+ ],
+ "_verify": [
+  "region"
+ ]
+}

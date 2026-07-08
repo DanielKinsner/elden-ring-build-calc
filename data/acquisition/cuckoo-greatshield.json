@@ -1,0 +1,25 @@
+{
+ "location": "Random (~4%) drop from Cuckoo Knights patrolling Bellum Highway, the road running northeast from the East Raya Lucaria Gate toward Bellum Church.",
+ "region": "Liurnia of the Lakes",
+ "source": {
+  "type": "enemy",
+  "name": "Cuckoo Knight"
+ },
+ "tactics": [
+  "Several Cuckoo Knights patrol on and beside the highway near East Raya Lucaria Gate; pull them one at a time rather than the whole group at once.",
+  "Rest at the grace and return repeatedly to reroll the drop chance — they hit hard with greatswords and halberds, so fight carefully while farming.",
+  "Its high Magic guard makes it especially good for pushing through Raya Lucaria Academy's sorcerer enemies and Rennala's fight."
+ ],
+ "nearbyGraces": [
+  "East Raya Lucaria Gate"
+ ],
+ "lore": "A metal greatshield painted with a watchful cuckoo, carried by the enchanted knights sworn to Raya Lucaria Academy and well-suited to hunting down sorcerers.",
+ "builds": [
+  {
+   "name": "Magic-resistant Strength tank",
+   "why": "Strong Magic damage negation on top of full physical block makes it a top pick against Liurnia's many caster enemies and magic-heavy bosses.",
+   "statFocus": "STR"
+  }
+ ],
+ "_verify": []
+}
