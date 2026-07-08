@@ -1,0 +1,545 @@
+[
+ {
+  "id": "battle-hammer",
+  "name": "Battle Hammer",
+  "type": "Great Hammer",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 26,
+   "DEX": 8
+  },
+  "weight": 10,
+  "passive": null,
+  "base": {
+   "physical": 320,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 118,
+   "DEX": 21,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "beastclaw-greathammer",
+  "name": "Beastclaw Greathammer",
+  "type": "Great Hammer",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 20,
+   "DEX": 10,
+   "FAI": 18
+  },
+  "weight": 9,
+  "passive": null,
+  "base": {
+   "physical": 284,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 183
+  },
+  "scaling": {
+   "STR": 77,
+   "DEX": 68,
+   "INT": 0,
+   "FAI": 54,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ],
+   "FAI": [
+    "holy"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "black-steel-greathammer",
+  "name": "Black Steel Greathammer",
+  "type": "Great Hammer",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 25,
+   "DEX": 11,
+   "FAI": 17
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 343,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 102
+  },
+  "scaling": {
+   "STR": 98,
+   "DEX": 8,
+   "INT": 0,
+   "FAI": 63,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ],
+   "FAI": [
+    "holy"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "brick-hammer",
+  "name": "Brick Hammer",
+  "type": "Great Hammer",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 31
+  },
+  "weight": 12.5,
+  "passive": null,
+  "base": {
+   "physical": 298,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 144,
+   "DEX": 0,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "celebrant-s-skull",
+  "name": "Celebrant's Skull",
+  "type": "Great Hammer",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 18,
+   "DEX": 12
+  },
+  "weight": 8.5,
+  "passive": null,
+  "base": {
+   "physical": 338,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 63,
+   "DEX": 63,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "cranial-vessel-candlestand",
+  "name": "Cranial Vessel Candlestand",
+  "type": "Great Hammer",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 26,
+   "DEX": 8,
+   "FAI": 22
+  },
+  "weight": 12.5,
+  "passive": null,
+  "base": {
+   "physical": 240,
+   "magic": 0,
+   "fire": 240,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 99,
+   "DEX": 27,
+   "INT": 0,
+   "FAI": 99,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ],
+   "FAI": [
+    "fire"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "curved-great-club",
+  "name": "Curved Great Club",
+  "type": "Great Hammer",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 24,
+   "DEX": 10
+  },
+  "weight": 10,
+  "passive": null,
+  "base": {
+   "physical": 355,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 74,
+   "DEX": 52,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "devourer-s-scepter",
+  "name": "Devourer's Scepter",
+  "type": "Great Hammer",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 24,
+   "DEX": 20,
+   "FAI": 25
+  },
+  "weight": 11.5,
+  "passive": null,
+  "base": {
+   "physical": 274,
+   "magic": 0,
+   "fire": 169,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 86,
+   "DEX": 86,
+   "INT": 0,
+   "FAI": 67,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ],
+   "FAI": [
+    "fire"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "envoy-s-long-horn",
+  "name": "Envoy's Long Horn",
+  "type": "Great Hammer",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 23,
+   "DEX": 11,
+   "FAI": 18
+  },
+  "weight": 9.5,
+  "passive": null,
+  "base": {
+   "physical": 294,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 191
+  },
+  "scaling": {
+   "STR": 68,
+   "DEX": 49,
+   "INT": 0,
+   "FAI": 108,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ],
+   "FAI": [
+    "holy"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "great-mace",
+  "name": "Great Mace",
+  "type": "Great Hammer",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 28
+  },
+  "weight": 11.5,
+  "passive": null,
+  "base": {
+   "physical": 328,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 120,
+   "DEX": 0,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "great-stars",
+  "name": "Great Stars",
+  "type": "Great Hammer",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 22,
+   "DEX": 12
+  },
+  "weight": 10,
+  "passive": "Blood loss (55)",
+  "base": {
+   "physical": 330,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 80,
+   "DEX": 55,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {
+   "bleed": 55
+  },
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "greathorn-hammer",
+  "name": "Greathorn Hammer",
+  "type": "Great Hammer",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 22,
+   "DEX": 10
+  },
+  "weight": 10,
+  "passive": null,
+  "base": {
+   "physical": 328,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 82,
+   "DEX": 58,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "large-club",
+  "name": "Large Club",
+  "type": "Great Hammer",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 22
+  },
+  "weight": 8.5,
+  "passive": null,
+  "base": {
+   "physical": 320,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 111,
+   "DEX": 0,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "pickaxe",
+  "name": "Pickaxe",
+  "type": "Great Hammer",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 22,
+   "DEX": 10
+  },
+  "weight": 10,
+  "passive": null,
+  "base": {
+   "physical": 352,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 82,
+   "DEX": 38,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "rotten-battle-hammer",
+  "name": "Rotten Battle Hammer",
+  "type": "Great Hammer",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 26,
+   "DEX": 8
+  },
+  "weight": 10,
+  "passive": "Scarlet Rot (65)",
+  "base": {
+   "physical": 308,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 118,
+   "DEX": 22,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {
+   "rot": 65
+  },
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "smithscript-greathammer",
+  "name": "Smithscript Greathammer",
+  "type": "Great Hammer",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 20,
+   "DEX": 10,
+   "INT": 11,
+   "FAI": 11
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 345,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 87,
+   "DEX": 24,
+   "INT": 9,
+   "FAI": 9,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ }
+]
