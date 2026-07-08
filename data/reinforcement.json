@@ -1,0 +1,20 @@
+{
+  "_comment": "Upgrade reinforcement fractions. Weapon dataset stores values at MAX upgrade; these fractions scale DOWN to lower levels. See docs/02-reinforcement.md.",
+  "regular": {
+    "maxLevel": 25,
+    "baseFracPerLevel": 0.058,
+    "_baseFrac": "baseFrac(level) = (1 + 0.058*level) / 2.45   [CONFIRMED shape, 2.45x total at +25]",
+    "scalingFracMin": 0.60,
+    "_scalingFrac": "scalingFrac(level) = 0.60 + 0.40*(level/25)   [MODELED]"
+  },
+  "somber": {
+    "maxLevel": 10,
+    "baseFracPerLevel": 0.145,
+    "_baseFrac": "baseFrac(level) = (1 + 0.145*level) / 2.45   [CONFIRMED shape, 2.45x total at +10]",
+    "scalingFracMin": 0.60,
+    "_scalingFrac": "scalingFrac(level) = 0.60 + 0.40*(level/10)   [MODELED]"
+  },
+  "totalMultiplierAtMax": 2.45,
+  "unmetRequirementPenalty": 0.40,
+  "_penalty": "If a weapon's attribute requirement is unmet, scaling for deficient stats is reduced ~40%. [CONFIRMED behavior, magnitude MODELED]"
+}
