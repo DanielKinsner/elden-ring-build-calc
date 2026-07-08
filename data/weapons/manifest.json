@@ -1,5 +1,5 @@
 {
-  "_comment": "Weapon data files by source. base = base game, dlc = Shadow of the Erdtree. All at max upgrade, from datamined regulation.",
+  "_comment": "Weapon data by source. base = base game, dlc = SOTE. Max upgrade, datamined. Infusable weapons carry an affinities map.",
   "base": [
     "base/axes.json",
     "base/claws.json",
