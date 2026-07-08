@@ -1,0 +1,525 @@
+[
+ {
+  "id": "club",
+  "name": "Club",
+  "type": "Hammer",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 10
+  },
+  "weight": 3.5,
+  "passive": null,
+  "base": {
+   "physical": 252,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 112,
+   "DEX": 0,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "curved-club",
+  "name": "Curved Club",
+  "type": "Hammer",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 11,
+   "DEX": 7
+  },
+  "weight": 5,
+  "passive": null,
+  "base": {
+   "physical": 279,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 93,
+   "DEX": 30,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "envoy-s-horn",
+  "name": "Envoy's Horn",
+  "type": "Hammer",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 10,
+   "DEX": 12,
+   "FAI": 16
+  },
+  "weight": 4,
+  "passive": null,
+  "base": {
+   "physical": 235,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 151
+  },
+  "scaling": {
+   "STR": 67,
+   "DEX": 79,
+   "INT": 0,
+   "FAI": 67,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ],
+   "FAI": [
+    "holy"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "flowerstone-gavel",
+  "name": "Flowerstone Gavel",
+  "type": "Hammer",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 14,
+   "DEX": 8,
+   "ARC": 15
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 296,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 70,
+   "DEX": 45,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 70
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "hammer",
+  "name": "Hammer",
+  "type": "Hammer",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 14,
+   "DEX": 7
+  },
+  "weight": 6.5,
+  "passive": null,
+  "base": {
+   "physical": 303,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 90,
+   "DEX": 38,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "mace",
+  "name": "Mace",
+  "type": "Hammer",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 12,
+   "DEX": 7
+  },
+  "weight": 4.5,
+  "passive": null,
+  "base": {
+   "physical": 281,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 82,
+   "DEX": 52,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "marika-s-hammer",
+  "name": "Marika's Hammer",
+  "type": "Hammer",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 20,
+   "DEX": 12,
+   "FAI": 19
+  },
+  "weight": 6,
+  "passive": null,
+  "base": {
+   "physical": 247,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 159
+  },
+  "scaling": {
+   "STR": 99,
+   "DEX": 56,
+   "INT": 0,
+   "FAI": 72,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ],
+   "FAI": [
+    "holy"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "monk-s-flamemace",
+  "name": "Monk's Flamemace",
+  "type": "Hammer",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 13,
+   "DEX": 13
+  },
+  "weight": 6,
+  "passive": null,
+  "base": {
+   "physical": 308,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 30,
+   "DEX": 90,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "morning-star",
+  "name": "Morning Star",
+  "type": "Hammer",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 12,
+   "DEX": 8
+  },
+  "weight": 5,
+  "passive": "Blood loss (50)",
+  "base": {
+   "physical": 289,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 70,
+   "DEX": 55,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {
+   "bleed": 50
+  },
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "nox-flowing-hammer",
+  "name": "Nox Flowing Hammer",
+  "type": "Hammer",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 17,
+   "DEX": 7
+  },
+  "weight": 6.5,
+  "passive": null,
+  "base": {
+   "physical": 298,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 124,
+   "DEX": 36,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "ringed-finger",
+  "name": "Ringed Finger",
+  "type": "Hammer",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 15,
+   "DEX": 9
+  },
+  "weight": 4.5,
+  "passive": null,
+  "base": {
+   "physical": 296,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 108,
+   "DEX": 45,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "scepter-of-the-all-knowing",
+  "name": "Scepter of the All-Knowing",
+  "type": "Hammer",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 12,
+   "DEX": 18,
+   "INT": 21
+  },
+  "weight": 4.5,
+  "passive": null,
+  "base": {
+   "physical": 242,
+   "magic": 156,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 36,
+   "DEX": 85,
+   "INT": 85,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ],
+   "INT": [
+    "magic"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "spiked-club",
+  "name": "Spiked Club",
+  "type": "Hammer",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 12,
+   "DEX": 7
+  },
+  "weight": 5,
+  "passive": "Blood loss (50)",
+  "base": {
+   "physical": 279,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 81,
+   "DEX": 63,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {
+   "bleed": 50
+  },
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "stone-club",
+  "name": "Stone Club",
+  "type": "Hammer",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 16,
+   "DEX": 8
+  },
+  "weight": 7,
+  "passive": null,
+  "base": {
+   "physical": 298,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 112,
+   "DEX": 22,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "varr-s-bouquet",
+  "name": "Varré's Bouquet",
+  "type": "Hammer",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 8,
+   "DEX": 16,
+   "ARC": 24
+  },
+  "weight": 2,
+  "passive": "Blood loss (65)",
+  "base": {
+   "physical": 112,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 18,
+   "DEX": 72,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 117
+  },
+  "status": {
+   "bleed": 65
+  },
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "warpick",
+  "name": "Warpick",
+  "type": "Hammer",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 11,
+   "DEX": 9
+  },
+  "weight": 2.5,
+  "passive": null,
+  "base": {
+   "physical": 264,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 62,
+   "DEX": 62,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ }
+]
