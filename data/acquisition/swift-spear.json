@@ -1,0 +1,33 @@
+{
+ "location": "On a corpse beside the road, guarded by three Messmer Soldiers, along the upper southeast road leaving Castle Front — just before a wooden blockade, on the approach toward Castle Ensis.",
+ "region": "Gravesite Plain",
+ "source": {
+  "type": "drop",
+  "name": "Corpse guarded by 3 Messmer Soldiers on the road southeast of Castle Front"
+ },
+ "tactics": [
+  "From the Castle Front Grace (east side of the Ellac Greatbridge in Gravesite Plain), summon Torrent and head southeast, sticking to the left/upper path.",
+  "The corpse holding the spear sits just before a wooden blockade; three Messmer Soldiers patrol around it.",
+  "No arena locks you in — you can fight the soldiers or simply ride up on Torrent, grab the item, and retreat if you'd rather not fight three at once.",
+  "Castle Front has a second southeast route that drops into a swamp valley with skirmishing giants — that lower path does not lead to this pickup, so stay on the upper road."
+ ],
+ "nearbyGraces": [
+  "Castle Front"
+ ],
+ "lore": "Rather than being hammered out on an anvil, this spear's shaft is cast from metal using a refined molding technique, giving it an unusually light, slender build. That lightness is what lets it fire off quick, repeated thrusts that heavier spears can't match.",
+ "builds": [
+  {
+   "name": "Dexterity poke build",
+   "why": "Scales primarily with Dexterity and weighs only 3.0, favoring fast, spammable jabs for a nimble Dex-focused spear build.",
+   "statFocus": "Dexterity"
+  },
+  {
+   "name": "Early rapid-thrust spear",
+   "why": "Modest requirements (10 Str / 26 Dex) and a unique quick-thrust moveset make it a strong early-DLC pick for poke-and-retreat play before heavier spears are found.",
+   "statFocus": "Dexterity (light Strength)"
+  }
+ ],
+ "_verify": [
+  "tactics"
+ ]
+}

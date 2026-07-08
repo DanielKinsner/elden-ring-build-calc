@@ -1,0 +1,33 @@
+{
+ "location": "A corpse in the first main chamber of the Ruined Forge of Starfall Past dungeon (southwest of Moorth Ruins), on the far side of the small bridge, before the lever that opens the iron door below. A Smithing Stone [2] sits with it.",
+ "region": "Scadu Altus",
+ "source": {
+  "type": "drop",
+  "name": "Corpse in the first chamber of Ruined Forge of Starfall Past"
+ },
+ "tactics": [
+  "Enter the dungeon via the ladder hole at the back of the ruined structure southwest of Moorth Ruins; light the 'Ruined Forge of Starfall Past' Grace just inside.",
+  "In the first main chamber, cross the small bridge — the spear and a Smithing Stone [2] are on the ground on the far side, before you pull the lever that opens the iron door below.",
+  "Golem Smiths and Molten Tears patrol the forge, and exposed lava is a constant hazard throughout the dungeon.",
+  "No boss fight is required for this pickup. Don't confuse it with the dungeon's real challenge — a hidden path deeper in leads to a forge altar that grants the separate Ancient Meteoric Ore Greatsword."
+ ],
+ "nearbyGraces": [
+  "Ruined Forge of Starfall Past",
+  "Moorth Ruins",
+  "Fort of Reprimand"
+ ],
+ "lore": "This spear bears a smithscript inscription marking it as one of the throwing armaments born from the same arcane smithing arts that animate the golem constructs guarding the ruined forge. Rather than being used purely in melee, it's meant to be hurled point-first at a foe on a strong attack and then return to the wielder's hand, blending javelin and relic weapon.",
+ "builds": [
+  {
+   "name": "Smithscript throw-poke",
+   "why": "Its strong attacks launch the spear as a free (0 FP) ranged projectile that returns to hand, letting a quality Str/Dex build harass from range between melee pokes.",
+   "statFocus": "Strength/Dexterity quality build (Smithing Talisman boosts the thrown hit)"
+  },
+  {
+   "name": "Low-investment hybrid poke",
+   "why": "Even D/D/E/E scaling across Str/Dex/Int/Fai with low stat requirements (9/12/11/11) makes it usable off almost any early stat spread without heavy investment.",
+   "statFocus": "Even Strength/Dexterity spread, minor Intelligence/Faith"
+  }
+ ],
+ "_verify": []
+}
