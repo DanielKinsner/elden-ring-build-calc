@@ -1,0 +1,74 @@
+[
+ {
+  "id": "carian-thrusting-shield",
+  "name": "Carian Thrusting Shield",
+  "type": "Thrusting Shield",
+  "source": "dlc",
+  "category": "regular",
+  "infusable": true,
+  "requirements": {
+   "STR": 17,
+   "DEX": 13,
+   "INT": 15
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 298,
+   "magic": 88,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 62,
+   "DEX": 62,
+   "INT": 54,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ],
+   "INT": [
+    "magic"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "dueling-shield",
+  "name": "Dueling Shield",
+  "type": "Thrusting Shield",
+  "source": "dlc",
+  "category": "regular",
+  "infusable": true,
+  "requirements": {
+   "STR": 15,
+   "DEX": 14
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 306,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 52,
+   "DEX": 75,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ }
+]
