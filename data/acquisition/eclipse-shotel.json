@@ -1,0 +1,27 @@
+{
+ "location": "Sitting in front of the altar inside the Church of the Eclipse, a small chapel on the upper level of Castle Sol, in the northern Mountaintops of the Giants.",
+ "region": "Mountaintops of the Giants",
+ "source": {
+  "type": "drop",
+  "name": "altar item, Church of the Eclipse (Castle Sol)"
+ },
+ "tactics": [
+  "Reach Castle Sol in the northern Mountaintops of the Giants; a Tibia Mariner boat-enemy patrols the valley leading in, so be ready for it",
+  "From the Castle Sol Main Gate grace, work up through the castle interior to the church, a side room off the main hall",
+  "No fight is needed for the sword itself, but continuing through the castle leads to the boss Commander Niall",
+  "Don't confuse this with the plain 'Shotel' — a cheaper, differently-scaling weapon sold by a merchant in Siofra River — the two look similar but play very differently"
+ ],
+ "nearbyGraces": [
+  "Castle Sol Main Gate",
+  "Church of the Eclipse"
+ ],
+ "lore": "A treasured blade of Castle Sol, engraved with the image of a sun in eclipse and drained of all color. Those who lay eyes on it are said to feel an inexplicable dread.",
+ "builds": [
+  {
+   "name": "Faith/Dexterity death-flare build",
+   "why": "Splits D-tier scaling between Dexterity and Faith and carries the Death Flare skill, buffing Holy damage while stacking Death blight for a burst execute.",
+   "statFocus": "Faith/Dexterity"
+  }
+ ],
+ "_verify": []
+}

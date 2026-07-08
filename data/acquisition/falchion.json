@@ -1,0 +1,26 @@
+{
+ "location": "Dropped by Falchion-wielding Demi-Humans. The best farming group is under the large ruin below where the NPC Kenneth Haight is first found, just north of the Mistwood Outskirts Site of Grace in eastern Limgrave.",
+ "region": "Limgrave",
+ "source": {
+  "type": "enemy",
+  "name": "Demi-Human (Falchion-wielding)"
+ },
+ "tactics": [
+  "Rest at Mistwood Outskirts grace, then head north to the ruin near where Kenneth Haight stands (an NPC tied to the Castle Morne questline — don't fight him, he's not the target)",
+  "The Demi-Humans fight as a pack and can swarm you; pull them toward a chokepoint rather than wading into the whole group",
+  "About 6 of the roughly 9 Demi-Humans here carry the Falchion, which helps offset its low (~2%) individual drop chance",
+  "The same enemy/weapon combo also appears in several other regions (Mountaintops of the Giants, Cerulean Coast, etc.) if this spot is inconvenient"
+ ],
+ "nearbyGraces": [
+  "Mistwood Outskirts"
+ ],
+ "lore": "A simple single-edged curved blade suited to quick slashing strikes; it cuts cleanly through unarmored flesh but struggles to bite through heavy plate or thick scaled hide.",
+ "builds": [
+  {
+   "name": "Early Strength/Dexterity quality pick",
+   "why": "Low stat requirements (9 Str / 13 Dex) and even D/D scaling make it a cheap, immediately usable quality weapon early on.",
+   "statFocus": "Strength/Dexterity"
+  }
+ ],
+ "_verify": []
+}

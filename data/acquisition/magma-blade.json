@@ -1,0 +1,27 @@
+{
+ "location": "Dropped by fire-sword-wielding Man-Serpent enemies patrolling the walkways of Volcano Manor, just north of the Temple of Eiglay Site of Grace — reachable via the wooden elevator outside.",
+ "region": "Mt. Gelmir",
+ "source": {
+  "type": "enemy",
+  "name": "Man-Serpent (Magma Blade-wielding)"
+ },
+ "tactics": [
+  "From Temple of Eiglay grace, take the wooden elevator up; two Man-Serpents on this path carry the blade — one down a hallway, another through the first archway on the right",
+  "Man-Serpents swing their flaming curved swords in fast, wide arcs — bait an attack and punish the recovery rather than trading hits",
+  "Drop chance is very low (about 1%), so raising Discovery (Arcane investment, Silver Scarab talisman, Silver-Pickled Fowl Foot) is close to essential for a reasonable farm",
+  "Fast traveling cancels the Silver-Pickled Fowl Foot's buff, so walk back to reset the area instead of teleporting"
+ ],
+ "nearbyGraces": [
+  "Temple of Eiglay",
+  "Volcano Manor"
+ ],
+ "lore": "Its blade is cast directly from Mt. Gelmir's own molten lava — a weapon of the man-serpents that no human craftsman could replicate, carrying the fire of its making into every strike.",
+ "builds": [
+  {
+   "name": "Strength/Faith fire build",
+   "why": "D-tier scaling split between Strength and Faith, plus a large chunk of innate Fire damage, lets it slot into a Strength/Faith fire build without needing an Ash of War.",
+   "statFocus": "Strength/Faith"
+  }
+ ],
+ "_verify": []
+}

@@ -1,0 +1,27 @@
+{
+ "location": "On a corpse behind (east of) the giant Land Octopus atop the canopy in Ruin-Strewn Precipice, Liurnia of the Lakes, shortly before the Overlook Site of Grace.",
+ "region": "Liurnia of the Lakes",
+ "source": {
+  "type": "drop",
+  "name": "corpse pickup, Ruin-Strewn Precipice (behind the Land Octopus)"
+ },
+ "tactics": [
+  "Enter Ruin-Strewn Precipice from the Ravine-Veiled Village area (an alternate route up to the Altus Plateau that bypasses the Grand Lift of Dectus)",
+  "From the Ruin-Strewn Precipice grace, take the elevator down, continue forward, and climb the ladder up to a rooftop/canopy area",
+  "A Giant Land Octopus sits on this ledge — its grab attacks hit hard and can combo, but you don't have to kill it; you can circle around and loot the corpse behind it",
+  "This dungeon's Overlook grace comes right after this point, just before the Magma Wyrm Makar boss room"
+ ],
+ "nearbyGraces": [
+  "Ruin-Strewn Precipice",
+  "Ruin-Strewn Precipice Overlook"
+ ],
+ "lore": "Modeled after an ancient serpent deity, this blade once served a since-forgotten faith practiced on Mt. Gelmir that used it in sacrificial rites — some of that old power lingers, restoring a sliver of the wielder's health with every kill.",
+ "builds": [
+  {
+   "name": "Strength-leaning sustain build",
+   "why": "Its passive heal-on-kill effect (a flat amount plus a percentage of max HP) rewards an aggressive, kill-chaining playstyle in both PvE clears and invasions.",
+   "statFocus": "Strength"
+  }
+ ],
+ "_verify": []
+}

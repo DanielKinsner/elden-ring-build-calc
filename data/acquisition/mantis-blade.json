@@ -1,0 +1,26 @@
+{
+ "location": "Dropped by a Lesser Cemetery Shade in a hidden clearing below the chariot path inside Gelmir Hero's Grave, Mt. Gelmir.",
+ "region": "Mt. Gelmir",
+ "source": {
+  "type": "enemy",
+  "name": "Lesser Cemetery Shade"
+ },
+ "tactics": [
+  "Reach Gelmir Hero's Grave from the First Mt. Gelmir Campsite grace (a Stonesword Key is needed to fully unseal the dungeon)",
+  "Time your drop off the crossed wooden rafters over the chariot track to land in the clearing below, where the Lesser Cemetery Shade waits",
+  "This is a one-time-only drop: if you kill it, walk away, or reload without grabbing the sword, it will not respawn on that playthrough — don't get distracted by the nearby Grave Glovewort pickup and forget the weapon",
+  "The Shade itself isn't very dangerous alone, but lingering on the chariot track risks getting run over"
+ ],
+ "nearbyGraces": [
+  "Gelmir Hero's Grave"
+ ],
+ "lore": "Wielded by the insect-infested Cemetery Shades who guard the old graves, this sword carries a thin, sharp edge at each end; its strong attack unfurls the blade outward for a slash with unusual reach.",
+ "builds": [
+  {
+   "name": "Reach-focused Strength/Dexterity build",
+   "why": "Its unfolding strong attacks give it the longest effective reach of any curved sword despite a short base blade, rewarding a spacing-heavy playstyle.",
+   "statFocus": "Strength/Dexterity"
+  }
+ ],
+ "_verify": []
+}

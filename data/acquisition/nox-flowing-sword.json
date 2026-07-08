@@ -1,0 +1,29 @@
+{
+ "location": "Dropped by defeating the Nox Swordstress & Nox Priest duo boss, in a sealed chamber in the northwest of Sellia, Town of Sorcery, eastern Caelid.",
+ "region": "Caelid",
+ "source": {
+  "type": "boss",
+  "name": "Nox Swordstress & Nox Priest"
+ },
+ "tactics": [
+  "Light the rooftop braziers around Sellia, Town of Sorcery to dispel the barrier — specifically the one on the southwest tower reached from near the Sellia Backstreets grace, which opens the fog door to this fight",
+  "The Nox Swordstress is a fast dual-curved-sword duelist while the Nox Priest supports from range — isolating and focusing the Priest first stops it from buffing/healing its partner",
+  "It's a two-on-one fight in a fairly tight room, so avoid getting pinned between both enemies at once",
+  "Fan sources disagree on the second enemy's exact name ('Nox Priest' vs 'Nox Monk') — both refer to the same encounter"
+ ],
+ "nearbyGraces": [
+  "Sellia Backstreets",
+  "Char-Crypt of Sellia"
+ ],
+ "lore": "Wielded by the swordsmen of the long-buried Eternal City, this shotel's needle-thin blade was cast from the liquid metal of a Silver Tear and hardened through tempering. In battle it can briefly revert to its molten state and lash out in a wide, whip-like sweep.",
+ "builds": [
+  {
+   "name": "Dexterity build with an AoE skill",
+   "why": "Nearly pure Dexterity scaling paired with the Flowing Form skill (a wide liquefied sweep) makes it a strong crowd-control option for a Dex build.",
+   "statFocus": "Dexterity"
+  }
+ ],
+ "_verify": [
+  "source"
+ ]
+}

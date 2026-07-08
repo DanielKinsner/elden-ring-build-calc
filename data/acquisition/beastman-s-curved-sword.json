@@ -1,0 +1,26 @@
+{
+ "location": "Dropped by Azula Beastman enemies found in the two rooms directly past the Crumbling Beast Grave Site of Grace in Crumbling Farum Azula — turn right on leaving the grace room. Seven Beastmen carry the weapon across both rooms.",
+ "region": "Crumbling Farum Azula",
+ "source": {
+  "type": "enemy",
+  "name": "Azula Beastman"
+ },
+ "tactics": [
+  "From the Crumbling Beast Grave grace, turn right; the Beastmen are split across the next two rooms",
+  "Four of them are crouched eating and stay passive until you attack or approach their heads, letting you pick off targets one at a time",
+  "They hit hard and can gang up fast in the tight rooms — fight from a doorway/chokepoint rather than out in the open",
+  "Drop rate is low (roughly 2%), so plan on resting at the grace and re-clearing the rooms several times"
+ ],
+ "nearbyGraces": [
+  "Crumbling Beast Grave"
+ ],
+ "lore": "Cast from plain, dull iron and carried by the beastmen native to Farum Azula, this sword is heavier than most curved blades but well-balanced enough that it's surprisingly approachable given the damage it deals.",
+ "builds": [
+  {
+   "name": "Strength-forward curved sword",
+   "why": "Rare C-scaling in Strength (with only E in Dexterity) makes it one of the few curved swords that actually rewards a Strength-heavy investment instead of Dexterity.",
+   "statFocus": "Strength"
+  }
+ ],
+ "_verify": []
+}

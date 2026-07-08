@@ -1,0 +1,26 @@
+{
+ "location": "Dropped by armored dual-wielding 'Bandit' Skeletons (and Bestial Skeletons). The most reliable single farming spot is the graveyard just outside the Church of Pilgrimage, at the northern tip of the Weeping Peninsula.",
+ "region": "Weeping Peninsula",
+ "source": {
+  "type": "enemy",
+  "name": "Bandit Skeleton (armored, dual-wielding) / Bestial Skeleton"
+ },
+ "tactics": [
+  "Rest at the Church of Pilgrimage grace and head into the graveyard right outside it — several armored skeletons there dual-wield this sword",
+  "These skeletons reassemble after being knocked down unless finished off or hit with fire/holy; you may need to re-kill the same ones repeatedly while farming",
+  "Drop chance is low per source, and it can drop twice from a single enemy since they carry two, so bring Arcane/Discovery boosts (Silver Scarab talisman) if farming",
+  "The exact same enemy type and weapon also spawn in Caelid, Altus Plateau, and Crumbling Farum Azula, in case you'd rather farm one of those instead"
+ ],
+ "nearbyGraces": [
+  "Church of Pilgrimage"
+ ],
+ "lore": "A light, crescent-bladed sword favored by the bandits who preyed on the chaos after the Shattering. Years of neglect have left the blade rusted and dark, but it can still serve a nimble-handed wielder well enough.",
+ "builds": [
+  {
+   "name": "Early Strength/Dexterity quality pick",
+   "why": "Even D/D scaling and modest 11 Str / 13 Dex requirements make it an easy, no-fuss quality-build weapon for the opening hours.",
+   "statFocus": "Strength/Dexterity"
+  }
+ ],
+ "_verify": []
+}

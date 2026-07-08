@@ -1,0 +1,27 @@
+{
+ "location": "On a corpse atop a rock pillar deep inside Highroad Cave, in northern Limgrave, being fed on by Giant Bats.",
+ "region": "Limgrave",
+ "source": {
+  "type": "drop",
+  "name": "corpse pickup, Highroad Cave"
+ },
+ "tactics": [
+  "From the Saintsbridge grace, drop into the water beneath the bridge and head north to find the unmarked cave entrance in the west cliff wall — bring a torch, it's dark inside",
+  "Giant Land Octopi lurk near the entrance in the water; take care crossing that section",
+  "Deep inside, Giant Bats swarm the corpse holding the sword atop a tall interior pillar — climbing up while they harass you risks a fall",
+  "This is an optional, fairly early-accessible cave, not required for main progression"
+ ],
+ "nearbyGraces": [
+  "Saintsbridge",
+  "Highroad Cave"
+ ],
+ "lore": "A curved sword with an unusually long, thin blade that stays light despite its size, letting its wielder chain together quick, successive slicing strikes.",
+ "builds": [
+  {
+   "name": "Fast Strength/Dexterity poke build",
+   "why": "Above-average reach for a curved sword combined with quick, rapid-fire slashing attacks suits a build built around whittling down stamina with fast strings.",
+   "statFocus": "Strength/Dexterity"
+  }
+ ],
+ "_verify": []
+}

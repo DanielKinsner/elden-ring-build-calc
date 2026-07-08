@@ -1,0 +1,26 @@
+{
+ "location": "Starting weapon (x2) of the Warrior class. If playing another class, buy it from the Twin Maiden Husks at the Roundtable Hold, or farm it as a rare drop from Scimitar-and-shield Skeletons in various catacombs.",
+ "region": "Roundtable Hold",
+ "source": {
+  "type": "merchant",
+  "name": "Twin Maiden Husks (Roundtable Hold)"
+ },
+ "tactics": [
+  "Warrior-class characters already start with two Scimitars — no travel needed",
+  "Otherwise, once you can access Roundtable Hold, find the Twin Maiden Husks shop in the alcove near Corhyn and buy it for 600 runes",
+  "It's also a low-odds (~2%) drop from Scimitar-and-Iron-Roundshield Skeletons in catacombs such as Deathtouched Catacombs, if you'd rather farm than buy",
+  "Twin Maiden Husks are the only fixed seller of this weapon — don't mix them up with other traveling merchants around the map"
+ ],
+ "nearbyGraces": [
+  "Table of Lost Grace"
+ ],
+ "lore": "A compact, single-edged curved sword suited to quick slashing strikes; like many blades of its kind it cuts cleanly through flesh but struggles against heavy armor or tough scaled hide.",
+ "builds": [
+  {
+   "name": "Lightweight early Dexterity pick",
+   "why": "One of the lightest curved swords with the lowest Strength requirement (7) in its class, making it an efficient low-investment weapon for a fast, aggressive build.",
+   "statFocus": "Dexterity"
+  }
+ ],
+ "_verify": []
+}

@@ -1,0 +1,26 @@
+{
+ "location": "On a corpse in a wagon near the First Mt. Gelmir Campsite Site of Grace, close to the ladder where the Grafted Scion boss lands after dropping in.",
+ "region": "Mt. Gelmir",
+ "source": {
+  "type": "drop",
+  "name": "corpse pickup, First Mt. Gelmir Campsite wagon"
+ },
+ "tactics": [
+  "From First Mt. Gelmir Campsite grace, head northwest through the ruined encampment toward a stone bridge",
+  "A Grafted Scion ambushes players near the ladder by the corpse — it hits very hard for this stage of the game, so be ready to retreat rather than fight it head-on",
+  "The sword sits on the corpse near that ladder; you can often grab it and pull back without fully committing to the Scion fight",
+  "Only one copy is obtainable per playthrough"
+ ],
+ "nearbyGraces": [
+  "First Mt. Gelmir Campsite"
+ ],
+ "lore": "Its edge is notched like a row of shark's teeth — a scavenged, battle-worn blade favored by the corpse-pillagers who pick over old battlefields for anything of value.",
+ "builds": [
+  {
+   "name": "Arcane bleed build",
+   "why": "Innate Blood Loss buildup that scales with Arcane, and being the only infusable curved sword with a built-in status effect, makes it a strong base for a Blood- or Occult-infused bleed build.",
+   "statFocus": "Arcane/Dexterity"
+  }
+ ],
+ "_verify": []
+}

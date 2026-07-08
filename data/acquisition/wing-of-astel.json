@@ -1,0 +1,27 @@
+{
+ "location": "In a chest atop stone ruins in southern Uhl Palace Ruins, reached by following the cliffside path east from the Nokstella, Eternal City Site of Grace in Ainsel River.",
+ "region": "Ainsel River",
+ "source": {
+  "type": "chest",
+  "name": "Uhl Palace Ruins, Ainsel River"
+ },
+ "tactics": [
+  "Ainsel River Main (the area this chest is in) opens up either by giving Ranni the Fingerslayer Blade during her questline and using the waygate atop Renna's Rise, or by riding the coffin in northwestern Deeproot Depths — the Liurnia well entrance to Ainsel River alone won't get you here",
+  "From the Nokstella, Eternal City grace, look east toward the waterfall, move forward, and climb the ladder on the right into Uhl Palace Ruins",
+  "Follow the cliffside path east, past a fork guarded by a Giant Ant, to reach the stone structure with the chest on top",
+  "Purely a platforming pickup — no boss fight, but there's real fall-damage risk along the route"
+ ],
+ "nearbyGraces": [
+  "Nokstella, Eternal City",
+  "Ainsel River Main"
+ ],
+ "lore": "Forged from a fragile wing and steeped in stellar magic, this blade is said to be crafted from a remnant of the void-born entity that once struck at the Eternal City; its heavy attack sends out a wave of enchanted starlight.",
+ "builds": [
+  {
+   "name": "Intelligence/Dexterity hybrid",
+   "why": "Splits D-tier scaling between Dexterity and Intelligence, with a no-FP-cost Magic-damage strong attack (Nebula), making it a natural sidearm for an Intelligence-focused build.",
+   "statFocus": "Intelligence/Dexterity"
+  }
+ ],
+ "_verify": []
+}

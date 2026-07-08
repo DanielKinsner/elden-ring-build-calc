@@ -1,0 +1,28 @@
+{
+ "location": "Dropped by a Skeleton wielding it just past the entrance Site of Grace inside Tombsward Catacombs, behind a door sealed by an Imp Statue that requires a Stonesword Key; more copies can drop from Skeletons deeper in.",
+ "region": "Weeping Peninsula",
+ "source": {
+  "type": "enemy",
+  "name": "Skeleton (Grossmesser-wielding)"
+ },
+ "tactics": [
+  "Reach Tombsward Catacombs by heading south from Church of Pilgrimage toward the Minor Erdtree, then finding the doorway hidden behind a stone pillar",
+  "The first Grossmesser-wielding Skeleton is right past the entrance grace, but a locked door there needs a Stonesword Key to open",
+  "Skeletons here reanimate after death unless finished with a follow-up strike or fire damage; the ~2% drop rate means repeat kills are likely",
+  "The same weapon also drops from Skeletons in several other catacombs/hero's graves (Liurnia, Caelid, Altus Plateau, Mt. Gelmir) if you want a different farm spot"
+ ],
+ "nearbyGraces": [
+  "Tombsward Catacombs",
+  "Tombsward",
+  "Church of Pilgrimage"
+ ],
+ "lore": "A broad-bladed curved sword built to put its own weight behind every cut. Once a wielder gets a feel for its particular heft, it becomes a dependable, no-frills weapon.",
+ "builds": [
+  {
+   "name": "Strength-leaning curved sword",
+   "why": "A slightly higher Strength requirement (14) than most curved swords, with even D/D scaling, lets it fit a Strength-forward quality build.",
+   "statFocus": "Strength/Dexterity"
+  }
+ ],
+ "_verify": []
+}

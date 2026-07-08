@@ -1,0 +1,29 @@
+{
+ "location": "Sold by a traveling merchant camped in central Siofra River, found by an unlit campfire reached via scaffolding and wooden walkways southwest/northwest of the Worshippers' Woods Site of Grace.",
+ "region": "Siofra River",
+ "source": {
+  "type": "merchant",
+  "name": "Nomadic Merchant (Siofra River, near Worshippers' Woods)"
+ },
+ "tactics": [
+  "From Worshippers' Woods grace, climb the scaffolding and follow the wooden walkways to find the merchant playing music by the campfire",
+  "A flower-type miniboss with a mob of smaller flower enemies patrols nearby on the way — you can usually skirt around it rather than fight",
+  "Costs 2,500 runes — no fight is required to obtain the weapon itself",
+  "Don't confuse this base Shotel with the visually similar but higher-tier Eclipse Shotel found separately in Castle Sol — they have very different scaling and effects"
+ ],
+ "nearbyGraces": [
+  "Worshippers' Woods",
+  "Siofra River Bank"
+ ],
+ "lore": "A curved sword with a deeply hooked blade, purpose-built to slip past a raised guard — reportedly designed specifically for hunting down other humans.",
+ "builds": [
+  {
+   "name": "Guard-punish Dexterity build",
+   "why": "Its attacks ignore a large portion of blocked damage negation, letting a Dexterity build punish shield-turtling enemies (and players) even through a raised guard.",
+   "statFocus": "Dexterity"
+  }
+ ],
+ "_verify": [
+  "source"
+ ]
+}

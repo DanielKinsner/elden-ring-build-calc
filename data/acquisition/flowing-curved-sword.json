@@ -1,0 +1,26 @@
+{
+ "location": "Inside a chest at the back of a Great Coffin — a wagon hauled by two Trolls — trundling through the middle of the Consecrated Snowfield, starting southwest of the Inner Consecrated Snowfield Site of Grace.",
+ "region": "Consecrated Snowfield",
+ "source": {
+  "type": "chest",
+  "name": "Great Coffin carriage, Consecrated Snowfield"
+ },
+ "tactics": [
+  "From Inner Consecrated Snowfield grace, head southwest to intercept the moving carriage escorted by two Trolls",
+  "At night, two Night's Cavalry riders also guard the carriage — visit during daytime to skip that extra fight",
+  "The Trolls are slow and can often be avoided or outrun rather than fought head-on",
+  "Open the chest at the rear of the carriage to claim the sword"
+ ],
+ "nearbyGraces": [
+  "Inner Consecrated Snowfield"
+ ],
+ "lore": "Legend tells of a swordmaster clad in blue whose technique flowed like water; this blade was patterned after that style, its strong attacks stringing together into a rapid, dance-like series of strikes.",
+ "builds": [
+  {
+   "name": "Quality Strength/Dexterity build",
+   "why": "Even D/D scaling and a naturally fast, flowing moveset make it a solid pick for a balanced quality build.",
+   "statFocus": "Strength/Dexterity"
+  }
+ ],
+ "_verify": []
+}
