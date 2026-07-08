@@ -1,0 +1,726 @@
+[
+ {
+  "id": "anvil-hammer",
+  "name": "Anvil Hammer",
+  "type": "Colossal Weapon",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 39,
+   "DEX": 10,
+   "INT": 11,
+   "FAI": 20
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 320,
+   "magic": 0,
+   "fire": 208,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 117,
+   "DEX": 18,
+   "INT": 18,
+   "FAI": 54,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ],
+   "INT": [
+    "physical"
+   ],
+   "FAI": [
+    "physical",
+    "fire"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "axe-of-godfrey",
+  "name": "Axe of Godfrey",
+  "type": "Colossal Weapon",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 42,
+   "DEX": 14
+  },
+  "weight": 18,
+  "passive": null,
+  "base": {
+   "physical": 404,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 85,
+   "DEX": 54,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "bloodfiend-s-arm",
+  "name": "Bloodfiend's Arm",
+  "type": "Colossal Weapon",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 28,
+   "DEX": 11,
+   "ARC": 16
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 360,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 64,
+   "DEX": 15,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 77
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "devonia-s-hammer",
+  "name": "Devonia's Hammer",
+  "type": "Colossal Weapon",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 30,
+   "DEX": 13,
+   "FAI": 19
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 360,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 107
+  },
+  "scaling": {
+   "STR": 126,
+   "DEX": 36,
+   "INT": 0,
+   "FAI": 63,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ],
+   "FAI": [
+    "holy"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "dragon-greatclaw",
+  "name": "Dragon Greatclaw",
+  "type": "Colossal Weapon",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 30,
+   "DEX": 14
+  },
+  "weight": 16,
+  "passive": null,
+  "base": {
+   "physical": 294,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 191,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 81,
+   "DEX": 63,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical",
+    "lightning"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "duelist-greataxe",
+  "name": "Duelist Greataxe",
+  "type": "Colossal Weapon",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 30,
+   "DEX": 10
+  },
+  "weight": 20,
+  "passive": null,
+  "base": {
+   "physical": 416,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 26,
+   "DEX": 87,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "envoy-s-greathorn",
+  "name": "Envoy's Greathorn",
+  "type": "Colossal Weapon",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 28,
+   "DEX": 12,
+   "FAI": 24
+  },
+  "weight": 19.5,
+  "passive": null,
+  "base": {
+   "physical": 296,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 191
+  },
+  "scaling": {
+   "STR": 86,
+   "DEX": 86,
+   "INT": 0,
+   "FAI": 54,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ],
+   "FAI": [
+    "holy"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "fallingstar-beast-jaw",
+  "name": "Fallingstar Beast Jaw",
+  "type": "Colossal Weapon",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 34,
+   "DEX": 12,
+   "INT": 20
+  },
+  "weight": 21.5,
+  "passive": null,
+  "base": {
+   "physical": 320,
+   "magic": 208,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 74,
+   "DEX": 74,
+   "INT": 36,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ],
+   "INT": [
+    "magic"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "gazing-finger",
+  "name": "Gazing Finger",
+  "type": "Colossal Weapon",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 20,
+   "DEX": 8,
+   "INT": 20,
+   "FAI": 14
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 325,
+   "magic": 210,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 119,
+   "DEX": 0,
+   "INT": 54,
+   "FAI": 18,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "INT": [
+    "magic"
+   ],
+   "FAI": [
+    "magic"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "ghiza-s-wheel",
+  "name": "Ghiza's Wheel",
+  "type": "Colossal Weapon",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 28,
+   "DEX": 18
+  },
+  "weight": 19,
+  "passive": "Blood loss (70)",
+  "base": {
+   "physical": 382,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 76,
+   "DEX": 76,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {
+   "bleed": 70
+  },
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "giant-crusher",
+  "name": "Giant-Crusher",
+  "type": "Colossal Weapon",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 60
+  },
+  "weight": 26.5,
+  "passive": null,
+  "base": {
+   "physical": 379,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 129,
+   "DEX": 0,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "golem-s-halberd",
+  "name": "Golem's Halberd",
+  "type": "Colossal Weapon",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 36,
+   "DEX": 14
+  },
+  "weight": 21.5,
+  "passive": null,
+  "base": {
+   "physical": 387,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 87,
+   "DEX": 39,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "great-club",
+  "name": "Great Club",
+  "type": "Colossal Weapon",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 35
+  },
+  "weight": 17,
+  "passive": null,
+  "base": {
+   "physical": 377,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 112
+  },
+  "scaling": {
+   "STR": 122,
+   "DEX": 0,
+   "INT": 0,
+   "FAI": 36,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "FAI": [
+    "holy"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "prelate-s-inferno-crozier",
+  "name": "Prelate's Inferno Crozier",
+  "type": "Colossal Weapon",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 45,
+   "DEX": 8
+  },
+  "weight": 23.5,
+  "passive": null,
+  "base": {
+   "physical": 382,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 114,
+   "DEX": 15,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "rotten-greataxe",
+  "name": "Rotten Greataxe",
+  "type": "Colossal Weapon",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 30,
+   "DEX": 10
+  },
+  "weight": 20,
+  "passive": "Scarlet Rot (65)",
+  "base": {
+   "physical": 396,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 26,
+   "DEX": 90,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {
+   "rot": 65
+  },
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "rotten-staff",
+  "name": "Rotten Staff",
+  "type": "Colossal Weapon",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 34,
+   "DEX": 8
+  },
+  "weight": 18,
+  "passive": "Scarlet Rot (75)",
+  "base": {
+   "physical": 404,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 95,
+   "DEX": 36,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {
+   "rot": 75
+  },
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "shadow-sunflower-blossom",
+  "name": "Shadow Sunflower Blossom",
+  "type": "Colossal Weapon",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 24,
+   "DEX": 8,
+   "FAI": 25
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 279,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 279
+  },
+  "scaling": {
+   "STR": 81,
+   "DEX": 9,
+   "INT": 0,
+   "FAI": 99,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ],
+   "FAI": [
+    "holy"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "staff-of-the-avatar",
+  "name": "Staff of the Avatar",
+  "type": "Colossal Weapon",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 34,
+   "DEX": 8,
+   "FAI": 24
+  },
+  "weight": 20,
+  "passive": null,
+  "base": {
+   "physical": 276,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 178
+  },
+  "scaling": {
+   "STR": 151,
+   "DEX": 36,
+   "INT": 0,
+   "FAI": 90,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ],
+   "FAI": [
+    "holy"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "troll-s-hammer",
+  "name": "Troll's Hammer",
+  "type": "Colossal Weapon",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 28,
+   "DEX": 8,
+   "FAI": 10
+  },
+  "weight": 16,
+  "passive": null,
+  "base": {
+   "physical": 374,
+   "magic": 0,
+   "fire": 110,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 105,
+   "DEX": 22,
+   "INT": 0,
+   "FAI": 45,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ],
+   "FAI": [
+    "fire"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "watchdog-s-staff",
+  "name": "Watchdog's Staff",
+  "type": "Colossal Weapon",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 34,
+   "DEX": 10
+  },
+  "weight": 19,
+  "passive": null,
+  "base": {
+   "physical": 404,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 86,
+   "DEX": 54,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ }
+]
