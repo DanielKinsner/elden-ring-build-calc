@@ -1,0 +1,16 @@
+{
+ "location": "A farmable drop from Lesser Mad Pumpkin Head enemies, scattered across several spots in Liurnia rather than one fixed location.",
+ "region": "Liurnia of the Lakes",
+ "source": { "type": "enemy", "name": "Lesser Mad Pumpkin Head" },
+ "tactics": [
+  "Known spawn clusters: north of Foot of the Four Belfries, southwest of Road of Iniquity Side Path, and just outside Fort Haight (before the fort is cleared)",
+  "Lesser Mad Pumpkin Heads aren't especially dangerous — a reasonable early/mid Liurnia farm target",
+  "No boss fight required — repeat kills until it drops"
+ ],
+ "nearbyGraces": ["Foot of the Four Belfries", "Road of Iniquity Side Path", "Fort Haight"],
+ "lore": "An oversized, heavy iron flail favored by the Mad Pumpkin Heads — bulkier than a standard Flail, built to be swung with brute force rather than finesse.",
+ "builds": [
+  { "name": "Pure Strength", "why": "The only Flail with real Strength scaling (C Strength / E Dexterity, pushed further with Heavy affinity) — for a pure Strength build that still wants Flail hyperarmor and unparryable strikes", "statFocus": "STR" }
+ ],
+ "_verify": []
+}

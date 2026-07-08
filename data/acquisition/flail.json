@@ -1,0 +1,17 @@
+{
+ "location": "A chest on the back of the southern of two parked carriages at Gatefront Ruins, guarded by a group of soldiers. (A second carriage nearby holds a Lordsworn's Greatsword instead — easy to conflate the two.)",
+ "region": "Limgrave",
+ "source": { "type": "chest", "name": "Gatefront Ruins carriage chest" },
+ "tactics": [
+  "Head to Gatefront Ruins, west of Agheel Lake North grace, early in Limgrave",
+  "Two carriages sit here — the chest with the Flail is on the southern one",
+  "A handful of Lordsworn soldiers guard the ruins; fight them or sneak/sprint past",
+  "No boss fight required — a straightforward early pickup"
+ ],
+ "nearbyGraces": ["Agheel Lake North", "Gatefront Ruins", "Warmaster's Shack"],
+ "lore": "A crude bludgeoning weapon favored by common soldiers — a spiked iron ball on a chain that tears flesh on impact rather than cutting, a nasty answer to armored or parry-happy enemies.",
+ "builds": [
+  { "name": "Early hybrid quality", "why": "D Strength / D Dexterity — an even split works as an early quality or stopgap bleed pick before better flails show up", "statFocus": "STR / DEX" }
+ ],
+ "_verify": ["nearbyGraces"]
+}

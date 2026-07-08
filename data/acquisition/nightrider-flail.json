@@ -1,0 +1,16 @@
+{
+ "location": "Dropped by a Night's Cavalry (mounted spectral rider) that patrols at night near Castle Morne. Night's Cavalry only spawn during the in-game night cycle — rest at a grace and wait for nightfall if none is active.",
+ "region": "Weeping Peninsula",
+ "source": { "type": "enemy", "name": "Night's Cavalry (near Castle Morne)" },
+ "tactics": [
+  "Wait for nightfall near Castle Morne — this is one of the earliest, most convenient Night's Cavalry fights in the game",
+  "These riders hit hard and are mounted — knocking them off their horse or fighting in tight terrain limits their speed",
+  "It's a farmable regular enemy, not a unique boss, so you can retry if you die"
+ ],
+ "nearbyGraces": ["Castle Morne Rampart", "Isolated Merchant's Shack", "Tombsward Ruins"],
+ "lore": "The signature weapon of the Night's Cavalry, spectral horsemen who ride burning steeds after dark — its extra spiked heads make it a heavier, more vicious cousin of the standard Flail.",
+ "builds": [
+  { "name": "Dexterity bleed", "why": "E Strength / C Dexterity — notably better than the base Flail, a strong pick for a Dex bleed build especially with a Keen affinity", "statFocus": "DEX" }
+ ],
+ "_verify": ["location"]
+}

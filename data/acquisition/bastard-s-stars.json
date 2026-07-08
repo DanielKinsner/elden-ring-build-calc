@@ -1,0 +1,18 @@
+{
+ "location": "Not a field pickup — traded to Finger Reader Enia at Roundtable Hold for the Remembrance of the Naturalborn, dropped by the boss Astel, Naturalborn of the Void, reached via a coffin ride in the Grand Cloister beneath Lake of Rot. (A separate boss, Astel, Stars of Darkness in Consecrated Snowfield, does not give this remembrance — easy to mix up.)",
+ "region": "Liurnia of the Lakes (Lake of Rot / Grand Cloister) for the boss; Roundtable Hold for the reward",
+ "source": { "type": "boss", "name": "Astel, Naturalborn of the Void (remembrance, redeemed at Roundtable Hold)" },
+ "tactics": [
+  "Reach Grand Cloister grace, head west and drop down broken ledges to the floor below",
+  "Cross the Scarlet Rot river, follow it west then south to find a coffin — riding it carries you to Astel's fog gate",
+  "Astel alternates a slow, telegraphed melee phase with burst ranged laser/homing-projectile phases — stay aggressive during the melee phase to limit exposure",
+  "This boss sits on Ranni's questline path toward the Age of the Stars ending, so many players fight it during main progression",
+  "Trade the Remembrance of the Naturalborn with Enia at Roundtable Hold, choosing Bastard's Stars over the alternate reward"
+ ],
+ "nearbyGraces": ["Grand Cloister"],
+ "lore": "Formed from the same iridescent star-matter that made up Astel's body, this Flail channels a fragment of the void-born entity's cosmic nature into a weapon that strikes with magic rather than steel.",
+ "builds": [
+  { "name": "Intelligence caster-melee", "why": "E Strength / D Dexterity / C Intelligence — a dedicated Int investment gives a Flail-moveset alternative to staff-only caster builds", "statFocus": "INT" }
+ ],
+ "_verify": []
+}

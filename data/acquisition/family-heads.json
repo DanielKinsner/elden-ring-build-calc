@@ -1,0 +1,17 @@
+{
+ "location": "Dropped by Necromancer Garris, an enemy fought behind an illusory wall inside the treasure room of Sage's Cave (a separate encounter from the cave's other optional fight, a Black Knife Assassin).",
+ "region": "Altus Plateau (Sage's Cave, south of Wyndham Ruins)",
+ "source": { "type": "enemy", "name": "Necromancer Garris (Sage's Cave)" },
+ "tactics": [
+  "Sage's Cave sits in the western cliffs of Altus Plateau, reachable from Abandoned Coffin grace",
+  "Watch for illusory walls — Garris's fog gate is hidden behind one in the loot room, not out in the open",
+  "He fights with ranged sorceries and summons — close the distance quickly to avoid being kited",
+  "Don't confuse this with the cave's other fog gate, which leads to a separate Black Knife Assassin fight"
+ ],
+ "nearbyGraces": ["Abandoned Coffin"],
+ "lore": "A disturbing personal weapon — three copper flail-heads shaped by Necromancer Garris to resemble the faces of his dead wife and children, turning private grief into an instrument of violence.",
+ "builds": [
+  { "name": "Dex/Int hybrid", "why": "Scaling shifts toward Dexterity/Intelligence as it's upgraded — suits a caster-melee hybrid build", "statFocus": "DEX / INT" }
+ ],
+ "_verify": ["nearbyGraces"]
+}
