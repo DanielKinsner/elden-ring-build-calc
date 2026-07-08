@@ -130,6 +130,12 @@ a:hover { text-decoration: underline; }
 .meta-block .v { margin-top: 4px; font-size: 13px; }
 
 .ar-box { text-align: center; padding: 18px 0 14px; position: relative; }
+.ar-box::before {
+  content: ''; position: absolute; left: 50%; top: 50%; width: 210px; height: 210px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(201,162,39,.14) 0%, rgba(201,162,39,.05) 45%, transparent 70%);
+  border: 1px solid rgba(201,162,39,.12); border-radius: 50%; pointer-events: none;
+}
 .ar-label { color: var(--gold-dim); font: 600 11px var(--serif); letter-spacing: .22em; text-transform: uppercase; }
 .ar { font: 700 60px/1 var(--serif-num); color: var(--gold-2); text-shadow: 0 0 26px rgba(201,162,39,.35); margin-top: 4px; }
 
