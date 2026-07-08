@@ -13,8 +13,12 @@
   (14.5 / 5.8 = 2.5), so both reach the same **2.45×** total at max.
 - **Scaling values also grow with upgrades** — a weapon commonly goes D/D at +0 → B/B or A/A at
   max in STR/DEX. So both `baseDamage` and `scalingValue` must be reinforced, not just base.
-- Confirmed anchor: standard +25 `baseAtkRate` = 4.000 (internal param; our per-level model targets
-  the 2.45× display total).
+- Confirmed anchor: standard +25 `physicsAtkRate` = 2.45 — this **is** the weapon base-damage
+  multiplier the engine targets. (`baseAtkRate` is a *different* param that governs Ash-of-War/skill
+  flat damage, not weapon base damage — not applicable here.)
+- Verified against wiki upgrade tables: Uchigatana physical 115 (+0) → 148 → 181 → 215 → 248 → 281
+  (+25), a flat +33 per 5 levels, ratio 281/115 = 2.443×. Rivers of Blood (somber) 76 (+0) → 131
+  (+5) → 186 (+10), ratio 2.447×. Both confirm the 2.45× total and linear per-level growth.
 
 Source: [Upgrades — Fextralife](https://eldenring.wiki.fextralife.com/Upgrades),
 [How Weapon Damage is Calculated — Steam](https://steamcommunity.com/sharedfiles/filedetails/?id=3476225321).

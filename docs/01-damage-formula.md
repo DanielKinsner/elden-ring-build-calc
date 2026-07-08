@@ -95,7 +95,7 @@ scaling values by per-level reinforcement multipliers, which differ by upgrade p
 - **Somber weapons**: +0 → +10 (10 levels). Upgraded with Somber Smithing Stones.
 
 The full reinforcement multiplier tables (base-damage rate and scaling rate per level) are in
-`docs/02-reinforcement.md`. **[CONFIRMED]** anchor: standard +25 `baseAtkRate` = 4.000.
+`docs/02-reinforcement.md`. **[CONFIRMED]** anchor: standard +25 `physicsAtkRate` = 2.45×.
 
 ---
 
@@ -176,7 +176,7 @@ and scaling, never its passive status buildup.
 
 ## Sources
 
-- [How Weapon Damage is Calculated — Steam guide](https://steamcommunity.com/sharedfiles/filedetails/?id=3476225321) — formula, grade→value thresholds, CalcCorrectGraph anchor points, reinforcement `baseAtkRate`.
+- [How Weapon Damage is Calculated — Steam guide](https://steamcommunity.com/sharedfiles/filedetails/?id=3476225321) — formula, grade→value thresholds, CalcCorrectGraph anchor points, reinforcement `physicsAtkRate`.
 - [Stat Breakpoints aka "Soft Caps" — Steam guide](https://steamcommunity.com/sharedfiles/filedetails/?id=2765060616) — soft-cap breakpoint locations, two-hand STR multiplier.
 - [Stats — Elden Ring Wiki (Fextralife)](https://eldenring.wiki.fextralife.com/Stats) — stat definitions and soft-cap summary.
 - [Calculating Damage — Elden Ring Wiki (Fextralife)](https://eldenring.wiki.fextralife.com/Calculating+Damage) — mitigation / defense side (used later).
