@@ -153,7 +153,7 @@ a:hover { text-decoration: underline; }
 .softcap-head .stat-name { font: 600 15px var(--serif); color: var(--text); }
 .softcap-head .per { font: 600 24px var(--serif-num); color: var(--gold-2); margin: 2px 0; }
 .softcap-head .zone.eff { color: var(--green); } .softcap-head .zone.past { color: var(--red); }
-.softcap-chart { width: 100%; height: 130px; display: block; margin: 4px 0 6px; }
+.softcap-chart { width: 100%; height: 150px; display: block; margin: 4px 0 6px; }
 
 .breakpoints { display: flex; flex-direction: column; gap: 6px; margin-top: 6px; }
 .brow { display: flex; align-items: center; justify-content: space-between; font-size: 13px; }

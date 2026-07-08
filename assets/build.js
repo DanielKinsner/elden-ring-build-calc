@@ -195,28 +195,51 @@
   function drawChart(stat, softCaps) {
     var curve = ERCalc.softCapCurve(build, current, stat, { upgradeLevel: upgradeLevel, twoHanded: twoHanded, affinity: affinity });
     var pts = curve.points; // {level, perPoint}
-    var W = 300, H = 150, padL = 6, padR = 6, padT = 10, padB = 16;
+    var W = 300, H = 170, padL = 30, padR = 8, padT = 12, padB = 28;
     var maxP = Math.max.apply(null, pts.map(function (p){ return p.perPoint; }).concat([0.1]));
     function x(lv){ return padL + (lv - 1) / 98 * (W - padL - padR); }
     function y(v){ return H - padB - (v / maxP) * (H - padT - padB); }
-    var line = pts.map(function (p, i){ return (i?'L':'M') + x(p.level).toFixed(1) + ' ' + y(p.perPoint).toFixed(1); }).join(' ');
-    var svg = '';
-    // soft cap markers
-    softCaps.forEach(function (c) {
-      svg += '<line x1="'+x(c)+'" y1="'+padT+'" x2="'+x(c)+'" y2="'+(H-padB)+'" stroke="#3a5a2a" stroke-dasharray="3 3" stroke-width="1"/>';
-      svg += '<text x="'+x(c)+'" y="'+(padT+8)+'" fill="#6f8f4f" font-size="8" text-anchor="middle">'+c+'</text>';
-    });
-    // efficient zone shading up to first major cap
+
     var major = softCaps.length ? softCaps[softCaps.length-2] || softCaps[0] : 99;
-    svg += '<rect x="'+x(1)+'" y="'+padT+'" width="'+(x(major)-x(1))+'" height="'+(H-padT-padB)+'" fill="rgba(134,173,92,.08)"/>';
-    // curve
-    svg += '<path d="'+line+'" fill="none" stroke="#e8c96a" stroke-width="2"/>';
+
+    var svg = '';
+
+    // Y-axis gridlines + labels (0 .. maxP in 4 steps)
+    for (var g = 0; g <= 4; g++) {
+      var gv = maxP * g / 4, gy = y(gv);
+      svg += '<line x1="'+padL+'" y1="'+gy+'" x2="'+(W-padR)+'" y2="'+gy+'" stroke="var(--line-2)" stroke-width="1"/>';
+      svg += '<text x="'+(padL-4)+'" y="'+(gy+3)+'" fill="var(--dim)" font-size="7" text-anchor="end">'+gv.toFixed(1)+'</text>';
+    }
+    svg += '<text x="'+(padL-4)+'" y="'+(padT-2)+'" fill="var(--dim)" font-size="6.5" text-anchor="end" letter-spacing="0.5">AR/PT</text>';
+
+    // soft-cap markers (dashed green line + "Soft Cap" label on the major one)
+    softCaps.forEach(function (c) {
+      var isMajor = c === major;
+      svg += '<line x1="'+x(c)+'" y1="'+padT+'" x2="'+x(c)+'" y2="'+(H-padB)+'" stroke="var(--green)" stroke-dasharray="3 3" stroke-width="'+(isMajor?1.4:1)+'" opacity="'+(isMajor?0.9:0.5)+'"/>';
+      svg += '<text x="'+x(c)+'" y="'+(H-padB+10)+'" fill="var(--dim)" font-size="7" text-anchor="middle">'+c+'</text>';
+      if (isMajor) svg += '<text x="'+x(c)+'" y="'+(padT-3)+'" fill="var(--green)" font-size="7" text-anchor="middle">Soft Cap</text>';
+    });
+
+    // efficient zone shading (before the major cap — where a stat point is still cheap)
+    svg += '<rect x="'+x(1)+'" y="'+padT+'" width="'+(x(major)-x(1))+'" height="'+(H-padT-padB)+'" fill="var(--green)" opacity="0.09"/>';
+
+    // curve: solid up to the major soft cap, dashed past it (diminishing-returns zone)
+    var solidPts = pts.filter(function (p){ return p.level <= major; });
+    var dashedPts = pts.filter(function (p){ return p.level >= major; });
+    function pathFor(list) { return list.map(function (p, i){ return (i?'L':'M') + x(p.level).toFixed(1) + ' ' + y(p.perPoint).toFixed(1); }).join(' '); }
+    if (solidPts.length) svg += '<path d="'+pathFor(solidPts)+'" fill="none" stroke="var(--gold-2)" stroke-width="2"/>';
+    if (dashedPts.length) svg += '<path d="'+pathFor(dashedPts)+'" fill="none" stroke="var(--gold-2)" stroke-width="2" stroke-dasharray="5 3" opacity="0.75"/>';
+
     // current position
     var cur = pts[build[stat]-1];
-    if (cur) svg += '<circle cx="'+x(cur.level)+'" cy="'+y(cur.perPoint)+'" r="3.5" fill="#e8c96a" stroke="#241d10" stroke-width="1"/>';
-    // axis labels
-    svg += '<text x="'+x(1)+'" y="'+(H-4)+'" fill="#9c916f" font-size="8">1</text>';
-    svg += '<text x="'+x(99)+'" y="'+(H-4)+'" fill="#9c916f" font-size="8" text-anchor="end">99</text>';
+    if (cur) svg += '<circle cx="'+x(cur.level)+'" cy="'+y(cur.perPoint)+'" r="3.5" fill="var(--gold-2)" stroke="#241d10" stroke-width="1"/>';
+
+    // X-axis labels + title
+    [1, 99].concat(softCaps).forEach(function (lv) {
+      if (lv === 1 || lv === 99) svg += '<text x="'+x(lv)+'" y="'+(H-padB+10)+'" fill="var(--dim)" font-size="7" text-anchor="'+(lv===1?'start':'end')+'">'+lv+'</text>';
+    });
+    svg += '<text x="'+((padL+W-padR)/2)+'" y="'+(H-4)+'" fill="var(--dim)" font-size="7.5" text-anchor="middle" letter-spacing="1">'+STAT_LABEL[stat].toUpperCase()+'</text>';
+
     $('softcapChart').innerHTML = svg;
   }
 
