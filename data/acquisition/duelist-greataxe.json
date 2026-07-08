@@ -1,0 +1,28 @@
+{
+ "location": "Random drop from a Grave Warden Duelist patrolling the road near the West Capital Rampart Site of Grace in Leyndell, Royal Capital, beneath the tree root past the Black Blade Kindred, on the way toward the Colosseum.",
+ "region": "Leyndell, Royal Capital",
+ "source": {
+  "type": "enemy",
+  "name": "Grave Warden Duelist"
+ },
+ "tactics": [
+  "Only one Duelist along this stretch carries the weapon — rest at the nearby grace and re-approach to reroll the drop if it doesn't appear",
+  "This farm spot is only available while Leyndell is still the Royal Capital; enemy placement changes once the capital turns to ash after Maliketh",
+  "The Duelist swings the same greataxe aggressively, so bring a shield or be ready to roll through its charge attack",
+  "Don't mix it up with the differently-equipped duelists guarding the Colosseum entrance further down the road"
+ ],
+ "nearbyGraces": [
+  "West Capital Rampart"
+ ],
+ "lore": "A greataxe built for the arena, carried by duelists who were cast out of the Colosseum in disgrace; its unusually powerful charged attack still reflects the showmanship of gladiatorial combat.",
+ "builds": [
+  {
+   "name": "Early/mid-game filler colossal",
+   "statFocus": "Strength (low investment)",
+   "why": "Its Strength/Dexterity requirements are unusually low for a colossal weapon, making it a usable stopgap before you can afford a heavier commitment."
+  }
+ ],
+ "_verify": [
+  "tactics"
+ ]
+}

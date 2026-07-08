@@ -1,0 +1,32 @@
+{
+ "location": "Dropped by the Draconic Tree Sentinel, an optional mounted boss guarding the main road into Leyndell just before the Capital Rampart gate.",
+ "region": "Leyndell, Royal Capital",
+ "source": {
+  "type": "boss",
+  "name": "Draconic Tree Sentinel"
+ },
+ "tactics": [
+  "This fight is skippable — you can instead reach Leyndell through Deeproot Depths via Fia's questline if you want to avoid it",
+  "Don't confuse this with the standard Tree Sentinel duo fought earlier at Stormveil Castle; this version is faster, hits harder, and rides alone",
+  "Target the horse's legs to stagger the mount, and stay in close to disrupt its long lightning-charged lance combos",
+  "A Stake of Marika is nearby for a second attempt if your first run fails"
+ ],
+ "nearbyGraces": [
+  "Outer Wall Battleground",
+  "Capital Rampart"
+ ],
+ "lore": "Carved from the talon of a colossal, ancient dragon, this weapon was given to the grotesque Tree Sentinels who still stand guard for the Erdtree; wreathed in crackling lightning, it is especially lethal against dragons and their diminished descendants.",
+ "builds": [
+  {
+   "name": "Anti-dragon quality build",
+   "statFocus": "Strength/Dexterity",
+   "why": "Innate lightning damage plus a sizable bonus against dragon-type foes makes it a strong pick for Caelid's dragons, Bokoh, and other draconic fights."
+  },
+  {
+   "name": "No-infusion lightning stick",
+   "statFocus": "Strength/Dexterity",
+   "why": "It cannot be infused or buffed, but its baked-in 78 lightning attack power is competitive on its own for a low-maintenance quality build."
+  }
+ ],
+ "_verify": []
+}

@@ -1,0 +1,27 @@
+{
+ "location": "Dropped by an Erdtree Avatar patrolling near the Great Waterfall Crest Site of Grace in Deeproot Depths.",
+ "region": "Deeproot Depths",
+ "source": {
+  "type": "enemy",
+  "name": "Erdtree Avatar"
+ },
+ "tactics": [
+  "Reach Deeproot Depths by defeating the Valiant Gargoyle duo in the tunnel off Siofra River, then lying on the coffin at the back of that boss arena",
+  "The Avatar is slow but hits hard with sweeping arm slams and can summon smaller allies to swarm you",
+  "Don't confuse it with the Putrid (rotted) Erdtree Avatar in Elphael/Haligtree, which drops the similar-looking Rotten Staff instead"
+ ],
+ "nearbyGraces": [
+  "Great Waterfall Crest"
+ ],
+ "lore": "A ceremonial staff carved in the Erdtree's image at the height of its glory, carried by the Avatars who watch over the Minor Erdtrees scattered through the world's depths.",
+ "builds": [
+  {
+   "name": "Strength/Faith hybrid stat-stick",
+   "statFocus": "Strength/Faith",
+   "why": "Strength scaling plus D-rank Faith and an innate holy edge let it double as a melee weapon and incantation catalyst for a Strength/Faith build."
+  }
+ ],
+ "_verify": [
+  "tactics"
+ ]
+}

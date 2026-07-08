@@ -1,0 +1,25 @@
+{
+ "location": "One-time guaranteed drop from the Fire Prelate boss inside Fort Laiedd, a fortress on Mt. Gelmir near the Seethewater Terminus Site of Grace.",
+ "region": "Mt. Gelmir",
+ "source": {
+  "type": "boss",
+  "name": "Fire Prelate"
+ },
+ "tactics": [
+  "Fort Laiedd is full of Fire Monks before you reach the Prelate — clear a path or run past them to the fog gate",
+  "The Fire Prelate swings its own colossal hammer in wide, fire-infused arcs and can knock you off elevated ground, so fight it on open, flat footing",
+  "Unlike most named colossal weapons, this one can be infused with a different Ash of War if you don't want to keep its innate Prelate's Charge skill"
+ ],
+ "nearbyGraces": [
+  "Seethewater Terminus"
+ ],
+ "lore": "A colossal hammer wreathed in the look of roiling flame, carried by the Prelates who lead the Fire Monks; its sheer mass is enough to send anyone it strikes flying into the air.",
+ "builds": [
+  {
+   "name": "Pure Strength colossal build",
+   "statFocus": "Strength",
+   "why": "C-scaling Strength with a low Dexterity requirement, plus the option to re-infuse it thanks to its rare buffable status among named colossals."
+  }
+ ],
+ "_verify": []
+}

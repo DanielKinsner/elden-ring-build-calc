@@ -1,0 +1,30 @@
+{
+ "location": "Defeat Hoarah Loux, Warrior — the second phase of the Godfrey, First Elden Lord fight at the Elden Throne in Leyndell (fought once the capital has become the Ashen Capital) — then trade the Remembrance of Hoarah Loux to Finger Reader Enia at Roundtable Hold to receive the axe.",
+ "region": "Leyndell, Royal Capital",
+ "source": {
+  "type": "boss",
+  "name": "Hoarah Loux, Warrior (2nd phase of Godfrey, First Elden Lord)"
+ },
+ "tactics": [
+  "Only reachable after ringing both Great Bells and progressing far enough that Leyndell has turned to ash; you first fight Godfrey's golden illusion, who transforms into the bare-fisted Hoarah Loux partway through",
+  "Hoarah Loux grapples and throws huge poise-breaking punches, and his Regal Roar war cry unleashes an unblockable shockwave — dodge through it rather than blocking",
+  "The axe itself only arrives after you carry the Remembrance back to Roundtable Hold and pick it over the alternate reward (Hero's Rune) at Enia's shop"
+ ],
+ "nearbyGraces": [
+  "Elden Throne"
+ ],
+ "lore": "Once carried by Godfrey during his march across the Lands Between as First Elden Lord, the axe was broken in that campaign; it stands as a symbol of the discipline he held to even after his exile and transformation into the savage warrior Hoarah Loux.",
+ "builds": [
+  {
+   "name": "Quality colossal strike build",
+   "statFocus": "Strength/Dexterity",
+   "why": "Even D/D scaling across Strength and Dexterity, plus a two-handed Regal Roar buff, make it a solid stance-breaking pick for a balanced quality character."
+  },
+  {
+   "name": "Buff-stacked burst build",
+   "statFocus": "Strength + buff spells",
+   "why": "Regal Roar's temporary attack boost stacks with buffs like Golden Vow or Flame Grant Me Strength for high-damage burst windows against bosses."
+  }
+ ],
+ "_verify": []
+}

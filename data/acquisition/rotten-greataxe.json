@@ -1,0 +1,25 @@
+{
+ "location": "Dropped by a lone Rotten Duelist standing at a cliff edge northwest of Ordina, Liturgical Town in the Consecrated Snowfield.",
+ "region": "Consecrated Snowfield",
+ "source": {
+  "type": "enemy",
+  "name": "Rotten Duelist"
+ },
+ "tactics": [
+  "From the Ordina, Liturgical Town Site of Grace, ride west/northwest clear of the town buildings, then turn north to spot the Duelist near the cliff",
+  "It can inflict Scarlet Rot two ways — a breath attack and its axe swings — so bring rot resistance or be ready to cure it",
+  "It also drops the matching Rotten Duelist Greaves, so one kill nets two items"
+ ],
+ "nearbyGraces": [
+  "Ordina, Liturgical Town"
+ ],
+ "lore": "A gladiator's greataxe once wielded by duelists exiled from the Colosseum, now left to fester with Scarlet Rot after long exposure to the blighted Consecrated Snowfield.",
+ "builds": [
+  {
+   "name": "Dex-leaning rot quality build",
+   "statFocus": "Dexterity/Strength",
+   "why": "Unusually for a colossal weapon it scales better with Dexterity (C) than Strength (E), and its built-in Scarlet Rot buildup rewards a rot-application playstyle."
+  }
+ ],
+ "_verify": []
+}

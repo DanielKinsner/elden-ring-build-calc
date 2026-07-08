@@ -1,0 +1,25 @@
+{
+ "location": "Inside a chest on the back of a horse-drawn carriage at a guarded camp south of the Outer Wall Phantom Tree Site of Grace in Altus Plateau.",
+ "region": "Altus Plateau",
+ "source": {
+  "type": "chest",
+  "name": "Carriage chest at the Altus Plateau camp"
+ },
+ "tactics": [
+  "Approaching the camp triggers a Lesser Ulcerated Tree Spirit, which bursts from the ground and can wreck the camp's soldiers itself — be ready to fight or dodge past it",
+  "You can bypass the fight entirely by skirting the camp and jumping straight onto the back of the carriage to open the chest",
+  "The camp's regular soldiers are also a threat if you engage head-on instead of taking the stealth route"
+ ],
+ "nearbyGraces": [
+  "Outer Wall Phantom Tree"
+ ],
+ "lore": "A hammer hewn from a single boulder, once used in the ancient war against the Giants; after their fall, humanity turned to fighting itself and mostly forgot such weapons, having grown far weaker than its ancestors.",
+ "builds": [
+  {
+   "name": "Pure Strength colossal build",
+   "statFocus": "Strength",
+   "why": "C-scaling Strength and one of the highest base attack values among strike colossals make it a top pick for a maximum-Strength, stance-breaking build."
+  }
+ ],
+ "_verify": []
+}

@@ -1,0 +1,25 @@
+{
+ "location": "On a corpse behind an illusory wall beneath the entry staircase of Road's End Catacombs in Liurnia of the Lakes.",
+ "region": "Liurnia of the Lakes",
+ "source": {
+  "type": "drop",
+  "name": "Corpse behind illusory wall (Road's End Catacombs)"
+ },
+ "tactics": [
+  "From the entrance Site of Grace, go down both staircase flights, turn around, and strike the illusory wall beneath the grassy platform between the stairs",
+  "The dungeon is built around seven illusory walls in total, so it's easy to walk past hidden passages without noticing",
+  "You don't need to fight through to the dungeon's boss for this pickup — it's in the early illusory-wall section"
+ ],
+ "nearbyGraces": [
+  "Road's End Catacombs"
+ ],
+ "lore": "A large stone staff studded with glintstone shards, wielded by the Erdtree Burial Watchdogs who guard the catacombs; worn down by their long vigil, these watchdogs are said to even command the imps within.",
+ "builds": [
+  {
+   "name": "Strength build with a ranged option",
+   "statFocus": "Strength/Dexterity",
+   "why": "D/D physical scaling plus the built-in Sorcery of the Crozier skill gives a Strength character a colossal weapon with an auto-tracking magic projectile, no Intelligence investment needed."
+  }
+ ],
+ "_verify": []
+}

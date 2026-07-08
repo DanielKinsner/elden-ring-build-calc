@@ -1,0 +1,25 @@
+{
+ "location": "Reward for defeating the Stonedigger Troll boss inside Old Altus Tunnel, a mini-dungeon in Altus Plateau sealed by an Imp Statue that requires 2 Stonesword Keys.",
+ "region": "Altus Plateau",
+ "source": {
+  "type": "boss",
+  "name": "Stonedigger Troll"
+ },
+ "tactics": [
+  "Approach from Erdtree-Gazing Hill Grace, drop into the valley, and follow the cliff north to find the fogged entrance, past a spectral rider and a hidden giant",
+  "The dungeon's only Site of Grace sits at the bottom of the entry lift — rest there before pushing on to the boss fog further in",
+  "The Troll's Hammer, a separate colossal weapon, sits on a corpse earlier in the same tunnel — don't assume you're done after picking that up"
+ ],
+ "nearbyGraces": [
+  "Old Altus Tunnel"
+ ],
+ "lore": "A colossal club said to be a withered but unbreakable branch of the Erdtree itself, sanctified with holy power; wielding it effectively takes raw brute strength rather than any real finesse.",
+ "builds": [
+  {
+   "name": "Strength/Faith Godclub build",
+   "statFocus": "Strength/Faith",
+   "why": "C-scaling Strength with a side of Faith and innate holy damage make it a natural fit for a Strength/Faith hybrid, backed by its Golden Land skill."
+  }
+ ],
+ "_verify": []
+}

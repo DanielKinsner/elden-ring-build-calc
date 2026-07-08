@@ -1,0 +1,31 @@
+{
+ "location": "Rare drop from a Giant Oracle Envoy found on the upper tree branches of Miquella's Haligtree; from the Haligtree Canopy Site of Grace, head up and along the branches past the smaller Oracle Envoys to reach it.",
+ "region": "Miquella's Haligtree",
+ "source": {
+  "type": "enemy",
+  "name": "Giant Oracle Envoy"
+ },
+ "tactics": [
+  "The route is narrow branch platforming with real fall-damage/fall-off risk — take it slow",
+  "Drop rate is low, so expect to farm: kill the Giant Oracle Envoy, rest at Haligtree Canopy, and repeat; a Discovery-boosting talisman speeds this up",
+  "Don't mistake the smaller, regular-sized Oracle Envoys nearby for the source — only the lone Giant Oracle Envoy carries the horn"
+ ],
+ "nearbyGraces": [
+  "Haligtree Canopy",
+  "Haligtree Town"
+ ],
+ "lore": "A huge golden horn carried by the Oracle Envoys, so heavy that no ordinary person could lift it, let alone sound it as the instrument it was originally meant to be.",
+ "builds": [
+  {
+   "name": "Strength/Faith holy build",
+   "statFocus": "Strength/Faith",
+   "why": "Innate holy damage and D-scaling Faith let it double as a melee weapon for a faith-leaning strength build."
+  },
+  {
+   "name": "Ranged holy option",
+   "statFocus": "Faith",
+   "why": "The built-in Great Oracular Bubble skill launches a slow-tracking holy projectile, giving a Faith build a colossal weapon with genuine ranged utility."
+  }
+ ],
+ "_verify": []
+}

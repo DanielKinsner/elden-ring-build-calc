@@ -1,0 +1,28 @@
+{
+ "location": "Guaranteed drop from Inquisitor Ghiza, a red phantom invader who ambushes you in the upstairs dining hall of Volcano Manor, above the manor's main Site of Grace.",
+ "region": "Mt. Gelmir",
+ "source": {
+  "type": "enemy",
+  "name": "Inquisitor Ghiza"
+ },
+ "tactics": [
+  "Ghiza invades automatically as you cross the long dining hall — there's no fog gate, so be ready for the ambush mid-room",
+  "The wheel's spinning attacks build blood loss quickly; avoid getting boxed in against the dining tables lining the hall",
+  "This is a one-time guaranteed drop, so no repeat farming is needed once you've won"
+ ],
+ "nearbyGraces": [
+  "Volcano Manor",
+  "Guest Hall"
+ ],
+ "lore": "Originally an instrument of torture — a great iron wheel lined with skin-flaying blades meant to inflict slow, bleeding agony — the design was later adopted by the Iron Virgins as their signature weapon.",
+ "builds": [
+  {
+   "name": "Bleed-focused quality build",
+   "statFocus": "Strength/Dexterity + Arcane accessories",
+   "why": "Its built-in hemorrhage buildup pairs well with bleed-boosting talismans like Lord of Blood's Exultation for burst procs, even without weapon Arcane scaling."
+  }
+ ],
+ "_verify": [
+  "source"
+ ]
+}

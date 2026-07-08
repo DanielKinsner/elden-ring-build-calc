@@ -1,0 +1,25 @@
+{
+ "location": "Dropped by the Putrid Avatar, a boss-tier enemy patrolling a bridge east of the Prayer Room Site of Grace in Elphael, Brace of the Haligtree.",
+ "region": "Miquella's Haligtree",
+ "source": {
+  "type": "enemy",
+  "name": "Putrid Avatar"
+ },
+ "tactics": [
+  "The Avatar is escorted by Haligtree Knights, turning this into a group fight — try to pull enemies apart if possible",
+  "Ballistas mounted on a ledge to the north can snipe you while you cross the bridge — use cover or push through quickly",
+  "Don't confuse it with the non-rotted Erdtree Avatar in Deeproot Depths, which drops the similar-looking Staff of the Avatar instead"
+ ],
+ "nearbyGraces": [
+  "Prayer Room"
+ ],
+ "lore": "A ceremonial staff shaped in the image of the Erdtree's former radiance, now rotted through with Scarlet Rot; once carried by the avatar-guardians who watched over the Minor Erdtrees.",
+ "builds": [
+  {
+   "name": "Strength melee stat-stick",
+   "statFocus": "Strength",
+   "why": "C-scaling Strength with no Faith requirement lets a pure-Strength character use it as a heavy melee weapon with built-in rot buildup, without investing in a casting stat."
+  }
+ ],
+ "_verify": []
+}

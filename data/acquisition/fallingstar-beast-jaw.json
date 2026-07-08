@@ -1,0 +1,25 @@
+{
+ "location": "Reward for defeating the Full-Grown Fallingstar Beast, an optional boss in a large crater south of the Ninth Mt. Gelmir Campsite Site of Grace; reach the crater by spiritspring jump or the ladder down the mountainside.",
+ "region": "Mt. Gelmir",
+ "source": {
+  "type": "boss",
+  "name": "Full-Grown Fallingstar Beast"
+ },
+ "tactics": [
+  "The beast is a large gravity-wielding creature with a heavy pounce/slam and ranged gravity magic — keep moving and use the crater's open space",
+  "It has a sizable health pool for an open-world boss, so come prepared for a long fight",
+  "The weapon's own Gravity Bolt skill is noted to work especially well against the Stonedigger Troll boss later in Old Altus Tunnel, if you already have it by then"
+ ],
+ "nearbyGraces": [
+  "Ninth Mt. Gelmir Campsite"
+ ],
+ "lore": "Fashioned from a shard of a Fallingstar Beast's jaw — creatures said to have fallen from the sky — the weapon retains a trace of that meteoric power, letting its wielder call down crashing bolts of gravity magic.",
+ "builds": [
+  {
+   "name": "Strength/Dex hybrid with a light Int dip",
+   "statFocus": "Strength/Dexterity (+Intelligence)",
+   "why": "D/D physical scaling carries the melee side, while a small Intelligence investment strengthens the innate Gravity Bolt skill for a gravity-magic themed build."
+  }
+ ],
+ "_verify": []
+}

@@ -1,0 +1,29 @@
+{
+ "location": "Random drop (roughly 10%) from Guardian Golem enemies; the earliest reliable farm is the trio of golems (two halberd-wielders plus an archer) on the bridge to the Divine Tower of Limgrave, reachable from the Limgrave Tower Bridge Site of Grace.",
+ "region": "Limgrave",
+ "source": {
+  "type": "enemy",
+  "name": "Guardian Golem"
+ },
+ "tactics": [
+  "Guardian Golems also appear in Weeping Peninsula, Stormhill, Caelid, Liurnia, Capital Outskirts, Leyndell, and the Mountaintops of the Giants, but the Limgrave bridge trio respawns right next to a grace, making it the go-to farm",
+  "Fighting three golems at once this early is dangerous — bait the Archer Golem's shots into its melee companions, or pull them one at a time if you can",
+  "Target the golems' legs; it staggers them faster than attacking the body"
+ ],
+ "nearbyGraces": [
+  "Limgrave Tower Bridge",
+  "Divine Tower of Limgrave"
+ ],
+ "lore": "A great halberd of black stone, made by a civilization long since lost to ruin, now wielded by the towering Guardian Golems that watch over roads and bridges across the Lands Between.",
+ "builds": [
+  {
+   "name": "Strength/Dex mobility build",
+   "statFocus": "Strength/Dexterity",
+   "why": "It comes pre-equipped with the Charge Forth skill, normally exclusive to halberds, giving a colossal weapon unusual gap-closing mobility for a quality build."
+  }
+ ],
+ "_verify": [
+  "region",
+  "location"
+ ]
+}

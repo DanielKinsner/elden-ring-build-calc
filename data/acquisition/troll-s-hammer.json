@@ -1,0 +1,25 @@
+{
+ "location": "Found lying on a corpse inside Old Altus Tunnel in Altus Plateau — the same 2-Stonesword-Key dungeon as the Great Club, but picked up on the way to the boss rather than earned by defeating it.",
+ "region": "Altus Plateau",
+ "source": {
+  "type": "drop",
+  "name": "Corpse in Old Altus Tunnel"
+ },
+ "tactics": [
+  "Uses the same fogged, Imp Statue entrance (2 Stonesword Keys) as the Great Club, off the valley northeast of Erdtree-Gazing Hill Grace",
+  "The corpse holding it sits along the path before the Stonedigger Troll boss fog — easy to walk past in the dark tunnel",
+  "It carries innate Fire damage but, unusually for an elemental colossal, can still be affected by external buffs"
+ ],
+ "nearbyGraces": [
+  "Old Altus Tunnel"
+ ],
+ "lore": "Originally a mining tool used by stonedigger trolls — descendants of the giants — to crack open bedrock; some say such tools once doubled as ceremonial smithing implements from an age when smithing itself was treated as sacred.",
+ "builds": [
+  {
+   "name": "Strength/Faith fire build",
+   "statFocus": "Strength/Faith",
+   "why": "C-scaling Strength, some Faith scaling, and innate Fire damage that still accepts buffs make it a strong pick for a Strength/Faith fire-themed build."
+  }
+ ],
+ "_verify": []
+}
