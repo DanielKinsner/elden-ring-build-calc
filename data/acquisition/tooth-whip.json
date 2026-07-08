@@ -1,0 +1,33 @@
+{
+ "location": "Lying on a corpse on the floor inside the Whipping Hut, a small ruined shack east of Bonny Village. From the Bonny Village Site of Grace, head east through the village, cross the wooden bridge, and the hut sits right at the cliff edge just past it. A non-hostile spirit (a Stranded Soul) stands just outside the hut door — it's flavor/lore only, not a fight, so don't mistake it for something you need to kill to get the weapon.",
+ "region": "Scadu Altus",
+ "source": {
+  "type": "drop",
+  "name": "Corpse in the Whipping Hut"
+ },
+ "tactics": [
+  "No combat is required — you can ride Torrent straight past Bonny Village's enemies (ghost hounds, Greater Potentates) to reach the bridge.",
+  "From the Bonny Village grace, go east through the village to the bridge; cross it and look immediately to the cliffside hut on the right.",
+  "The whip is just an item pickup on the corpse inside — easy to walk past since the hut looks like an unremarkable ruined shack from outside.",
+  "Talk to the spirit outside the hut for a bit of Hornsent lore if you want it, but it has no bearing on getting the weapon."
+ ],
+ "nearbyGraces": [
+  "Bonny Village"
+ ],
+ "lore": "The whip is strung with rotten, disease-ridden teeth that poison anything they strike. It ties into Bonny Village's grim backstory, where the Hornsent stuffed shamans into jars as part of a twisted ritual meant to manufacture saints.",
+ "builds": [
+  {
+   "name": "Dexterity whip poker",
+   "why": "Its scaling is almost entirely Dexterity (104) against a token 27 Strength, so a Dex-focused character gets the most raw AR out of it while enjoying the whip's long, wide multi-hit reach.",
+   "statFocus": "Dexterity"
+  },
+  {
+   "name": "Off-hand poison applicator",
+   "why": "The 66 poison buildup is flat and has zero Arcane scaling, so it doesn't matter what your main build's stats are — you can carry this purely to stack guaranteed Deadly Poison procs before swapping to your primary weapon.",
+   "statFocus": "Any build (poison buildup doesn't scale with Arcane)"
+  }
+ ],
+ "_verify": [
+  "location"
+ ]
+}
