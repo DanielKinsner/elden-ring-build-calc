@@ -1,0 +1,17 @@
+[
+  {
+    "id": "uchigatana",
+    "name": "Uchigatana",
+    "type": "Katana",
+    "source": "base",
+    "category": "regular",
+    "infusable": true,
+    "requirements": { "STR": 11, "DEX": 15 },
+    "weight": 5.5,
+    "passive": "Blood loss (45)",
+    "base": { "physical": 281, "magic": 0, "fire": 0, "lightning": 0, "holy": 0 },
+    "scaling": { "STR": 54, "DEX": 82, "INT": 0, "FAI": 0, "ARC": 0 },
+    "status": { "bleed": 45, "frost": 0, "poison": 0, "rot": 0, "sleep": 0, "madness": 0 },
+    "arcStatusScaling": 0
+  }
+]
