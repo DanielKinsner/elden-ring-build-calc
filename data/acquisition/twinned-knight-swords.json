@@ -1,0 +1,18 @@
+{
+ "location": "Looted from a corpse beneath a burning pile at the center of a ring of Celebrants (dancing villager-type enemies) at East Windmill Pasture, alongside pieces of the Noble's Set armor.",
+ "region": "Altus Plateau (north, near a large windmill)",
+ "source": { "type": "drop", "name": "Burning corpse pile, East Windmill Pasture" },
+ "tactics": [
+  "Head to East Windmill Pasture in northern Altus Plateau, near a large windmill and run-down shack",
+  "Clear the ring of Celebrants and Burning Putrid Corpses around the bonfire — pull them a few at a time or use AoE",
+  "Loot the corpse at the center of the burning pile for the Twinned Knight Swords",
+  "No boss fight is involved — this is a field/enemy-camp pickup, not a remembrance reward"
+ ],
+ "nearbyGraces": ["Windmill Heights", "Windmill Village", "Road of Iniquity Side Path"],
+ "lore": "Its flavor text frames it as belonging to a knight who valued formal, one-on-one dueling tradition — yet paradoxically it's built to be swung two-handed in a wide spinning flurry rather than used elegantly one-handed, a small contradiction between the 'civilized' ideal it represents and how brutally it actually fights.",
+ "builds": [
+  { "name": "Strength-primary", "why": "D-to-C Strength scaling with weaker E-to-D Dexterity — dump points into Strength, meet the Dex requirement and stop", "statFocus": "STR" },
+  { "name": "Heavy-infused pure Strength", "why": "Maximizes the stronger scaling stat for a two-handed spin-flurry playstyle", "statFocus": "STR" }
+ ],
+ "_verify": ["nearbyGraces"]
+}

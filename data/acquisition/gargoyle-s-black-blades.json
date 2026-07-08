@@ -1,0 +1,17 @@
+{
+ "location": "Dropped by the Black Blade Kindred — a single enemy dual-wielding a twinblade and a greataxe — on the stairway path in the Forbidden Lands, just before the Grand Lift of Rold. A guaranteed field drop alongside its partner weapon, Gargoyle's Black Axe. Not the same weapon as the Enia-remembrance Gargoyle's Twinblade, and not the similarly-named Gargoyle's Blackblade from a different Black Blade Kindred variant in Caelid.",
+ "region": "Forbidden Lands (between Altus Plateau and Mountaintops of the Giants)",
+ "source": { "type": "boss", "name": "Black Blade Kindred (Forbidden Lands)" },
+ "tactics": [
+  "From the Forbidden Lands grace, follow the path toward the Grand Lift of Rold stairway",
+  "The Black Blade Kindred alternates fast twinblade combos with heavy, wide greataxe swings — respect the axe's reach even though it's a single enemy",
+  "A shield with strong holy/physical negation, or ranged spacing, helps avoid being caught between its two movesets at once",
+  "Defeating it nets both Gargoyle's Black Blades and Gargoyle's Black Axe plus a large rune reward — no remembrance step needed"
+ ],
+ "nearbyGraces": ["Forbidden Lands", "Grand Lift of Rold"],
+ "lore": "These Gargoyle-kin enforcers model themselves after Maliketh, the Black Blade — corpse-wax-mended twinblades marked with holy power standing in for the death-affinity their master carries, as if honor guards holding the line before the climb to the Mountaintops.",
+ "builds": [
+  { "name": "Strength/Faith holy knight", "why": "C-to-B Strength scaling with D Faith and fixed innate holy damage — dump levels into Strength for AR, meet the Faith requirement and stop", "statFocus": "STR / FAI" }
+ ],
+ "_verify": []
+}

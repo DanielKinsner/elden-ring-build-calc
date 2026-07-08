@@ -1,0 +1,18 @@
+{
+ "location": "Inside a chest in an underground cellar beneath Dragon-Burnt Ruins — mount Torrent and double-jump over a crumbled wall on the south side of the ruins to drop into a walled enclosure leading down to the basement.",
+ "region": "Limgrave (Dragon-Burnt Ruins, shore of Agheel Lake)",
+ "source": { "type": "chest", "name": "Dragon-Burnt Ruins basement" },
+ "tactics": [
+  "Ride Torrent to Dragon-Burnt Ruins and find the ruined building on its south side that can't be entered on foot",
+  "Double-jump on Torrent over the crumbled wall into the enclosure to expose the basement entrance",
+  "Make sure it's the basement room without rats — a nearby rat-filled room instead holds a teleporter-trap chest",
+  "No boss guards the cellar itself; open the chest for the Twinblade"
+ ],
+ "nearbyGraces": ["Agheel Lake North", "Agheel Lake South"],
+ "lore": "A double-edged blade balanced on both ends of its hilt, built for wielders skilled enough to keep it spinning without cutting themselves — a plain battlefield relic of Limgrave rather than tied to any named character.",
+ "builds": [
+  { "name": "Dex-leaning quality", "why": "Dexterity scaling (C) is noticeably better than Strength (D) at max standard upgrade", "statFocus": "DEX" },
+  { "name": "Early Bleed carrier", "why": "Low requirements (10 Str / 18 Dex) make it a common early Blood-infusion pick for bleed builds", "statFocus": "DEX" }
+ ],
+ "_verify": ["nearbyGraces"]
+}

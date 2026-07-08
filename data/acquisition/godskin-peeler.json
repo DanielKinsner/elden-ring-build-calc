@@ -1,0 +1,18 @@
+{
+ "location": "A guaranteed drop from the Godskin Apostle field boss at the top of Dominula, Windmill Village, in northern Altus Plateau.",
+ "region": "Altus Plateau",
+ "source": { "type": "boss", "name": "Godskin Apostle (Dominula, Windmill Village)" },
+ "tactics": [
+  "From Road of Iniquity Side Path grace, head toward the elevated windmill settlement in the north of the region",
+  "Fight through groups of Celebrant dancer-type enemies climbing up through the village before reaching the boss arena",
+  "The Godskin Apostle is weak to Hemorrhage and Frost and takes extra Slash damage — infusing accordingly helps a lot",
+  "Past ~50% HP his body stretches, massively extending his attack range — keep distance during this phase and punish slow recovery windows"
+ ],
+ "nearbyGraces": ["Windmill Village", "Road of Iniquity Side Path", "Windmill Heights"],
+ "lore": "The Godskin sect are fanatical, near-immortal warrior-priests who worship the burning of flesh and the erasure of the self; the Peeler is one of their signature twin-bladed weapons, built for flaying and boring into an opponent's body rather than clean cutting.",
+ "builds": [
+  { "name": "Dexterity twinblade", "why": "E Strength / C Dexterity scaling — a fast, aggressive dual-slash build dumping most points into Dex with just enough Str to meet the requirement", "statFocus": "DEX" },
+  { "name": "Bleed/Frost infusion", "why": "Carries no innate status of its own, so a Blood or Frost infusion turns it into a proc weapon that also exploits the very boss it drops from", "statFocus": "DEX" }
+ ],
+ "_verify": []
+}

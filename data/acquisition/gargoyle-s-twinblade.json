@@ -1,0 +1,18 @@
+{
+ "location": "Dropped directly by the Valiant Gargoyle duo boss fight inside Siofra Aqueduct, a sub-dungeon off the upper Siofra River area. A guaranteed field-boss drop, not a chest or remembrance.",
+ "region": "Siofra River / Nokron, Eternal City (underground, reached after defeating Starscourge Radahn)",
+ "source": { "type": "boss", "name": "Valiant Gargoyle duo (Siofra Aqueduct)" },
+ "tactics": [
+  "Defeat Starscourge Radahn first — this triggers the meteor that opens Nokron, Eternal City",
+  "From Ancestral Woods grace, head to Aqueduct-Facing Cliffs, then east and drop down onto the aqueduct to enter",
+  "One Gargoyle (greatsword) starts alone; a second (twinblade) joins around half health — lure the first away from the entrance to fight them separately",
+  "Watch for the poison breath attack (sprint away rather than out-heal it); several big swings whiff if you stay close/roll under them"
+ ],
+ "nearbyGraces": ["Aqueduct-Facing Cliffs", "Ancestral Woods", "Great Waterfall Basin"],
+ "lore": "Belonged to the Valiant Gargoyles, stone guardians who fought alongside — and eventually as substitutes for — fallen champions, their bodies patched together with corpse wax to keep fighting long after their original wielders died.",
+ "builds": [
+  { "name": "Strength / Heavy", "why": "C Strength scaling (pushed toward A with Heavy affinity) gives it the highest base AR of any twinblade", "statFocus": "STR" },
+  { "name": "Blood/Poison Arcane hybrid", "why": "A strong bleed-infusion twinblade at high Arcane investment, per community reporting", "statFocus": "STR / ARC" }
+ ],
+ "_verify": []
+}

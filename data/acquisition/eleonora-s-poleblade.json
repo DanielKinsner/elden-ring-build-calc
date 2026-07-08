@@ -1,0 +1,17 @@
+{
+ "location": "Dropped by defeating the NPC invader Eleonora, Violet Bloody Finger, who ambushes the player at the Second Church of Marika (tied to Bloody Finger Hunter Yura's questline — if his questline hasn't progressed far enough, a regular enemy spawns in her place instead).",
+ "region": "Altus Plateau",
+ "source": { "type": "boss", "name": "Eleonora, Violet Bloody Finger (Second Church of Marika)" },
+ "tactics": [
+  "Travel to Second Church of Marika, north of the Grand Lift of Dectus, via the road north from Altus Highway Junction",
+  "Her invasion requires Bloody Finger Hunter Yura's questline to have reached this point — advancing too far past this church can end his questline early and skip the fight",
+  "She uses dragon communion incantations (Agheel's Flame, Greyoll's Roar) for wide AoE plus fast bleed-focused poleblade combos — punish incantation recovery windows",
+  "Don't over-commit to long combos; she can heal once mid-fight"
+ ],
+ "nearbyGraces": ["Altus Highway Junction"],
+ "lore": "Eleonora once wielded her twinned poleblade with such speed and grace that witnesses compared her fighting style to a whirlwind. Something has since corrupted her — she now stalks the Second Church of Marika as a blood-hungry invader.",
+ "builds": [
+  { "name": "Dex/Arcane bleed hybrid", "why": "Heavy Dex (72) and Arcane (54) scaling over Strength, with 55 innate bleed buildup and Arcane-boosted fire damage", "statFocus": "DEX / ARC" }
+ ],
+ "_verify": ["nearbyGraces"]
+}
