@@ -1,0 +1,27 @@
+{
+ "location": "Dropped by Vulgar Militia enemies wielding it. Easiest farmed along the road between the Farum Greatbridge Site of Grace and Bestial Sanctum in Dragonbarrow, Caelid — ridable on Torrent for quick reset laps.",
+ "region": "Caelid",
+ "source": {
+  "type": "enemy",
+  "name": "Vulgar Militia"
+ },
+ "tactics": [
+  "Ride the Farum Greatbridge-to-Bestial Sanctum road on Torrent, killing Vulgar Militia along the way, then loop back to reset at the grace.",
+  "Drop rate is low (around 2%), so expect several passes before it appears.",
+  "The optional boss Flying Dragon Greyll guards the bridge near Farum Greatbridge — be ready for an aerial ambush if farming nearby.",
+  "Shadow Militiamen, a variant enemy, can also drop this weapon at a similar rate if encountered elsewhere."
+ ],
+ "nearbyGraces": [
+  "Farum Greatbridge",
+  "Bestial Sanctum"
+ ],
+ "lore": "A hook-bladed polearm carried by the Vulgar Militia, unglamorous soldiers who hold thankless, scorched battlegrounds no one else dares approach. Its curved tip is shaped to slip past a raised shield.",
+ "builds": [
+  {
+   "name": "Dexterity Guard-Piercing Halberd",
+   "why": "C scaling in Dexterity plus an innate guard-slipping property on its attacks make it a solid Dexterity pick for pressuring shielded or turtling enemies.",
+   "statFocus": "Dexterity"
+  }
+ ],
+ "_verify": []
+}

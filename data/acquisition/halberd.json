@@ -1,0 +1,25 @@
+{
+ "location": "Starting equipment for the Vagabond class. Otherwise purchasable for 1,200 Runes from the Nomadic Merchant camped east of the Saintsbridge Site of Grace in northern Limgrave.",
+ "region": "Limgrave",
+ "source": {
+  "type": "merchant",
+  "name": "Nomadic Merchant (Northern Limgrave)"
+ },
+ "tactics": [
+  "No fight required if buying it — just have 1,200 Runes and talk to the merchant by the roadside campfire (approaching stops the music he's playing).",
+  "Starting as Vagabond is the free alternative, skipping the purchase entirely.",
+  "Shares its base moveset and stats with the Banished Knight's Halberd, just without the engraved knightly look."
+ ],
+ "nearbyGraces": [
+  "Saintsbridge"
+ ],
+ "lore": "A long-handled polearm that combines the reach of a spear with the cleaving edge of an axe, equally suited to pressing a single foe with thrusts or sweeping through a crowd.",
+ "builds": [
+  {
+   "name": "Beginner Strength/Dexterity Quality",
+   "why": "Even D/D scaling and generous reach make it a forgiving early-game weapon for learning poise-trading and spacing.",
+   "statFocus": "Strength & Dexterity"
+  }
+ ],
+ "_verify": []
+}

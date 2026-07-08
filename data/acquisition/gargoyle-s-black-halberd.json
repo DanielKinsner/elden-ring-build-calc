@@ -1,0 +1,27 @@
+{
+ "location": "Dropped (together with the Gargoyle's Blackblade) by defeating the Black Blade Kindred, a Valiant Gargoyle mini-boss that stands guard directly outside the entrance to Bestial Sanctum, in the far northeast of Dragonbarrow, Caelid.",
+ "region": "Caelid",
+ "source": {
+  "type": "boss",
+  "name": "Black Blade Kindred"
+ },
+ "tactics": [
+  "The Kindred dual-wields a halberd and a greatsword and switches between them mid-combo — both weapons drop together on defeat, guaranteed.",
+  "A waygate near the Third Church of Marika can teleport you inside the Sanctum behind the boss, skipping the fight entirely — don't take that route if you want the drop.",
+  "Standing on the ledge to its right limits the angles from which its wide swings can reach you.",
+  "Hits noticeably harder than the ordinary Valiant Gargoyle duo fought in Leyndell — don't underestimate it because of the similar name."
+ ],
+ "nearbyGraces": [
+  "Bestial Sanctum",
+  "Third Church of Marika"
+ ],
+ "lore": "A bronze halberd carried by the Valiant Gargoyles, its broken pieces mended with blackened corpse wax. It strikes with holy power and marks its bearer as one of those sworn to serve Maliketh, the Black Blade.",
+ "builds": [
+  {
+   "name": "Strength/Faith Holy Quality",
+   "why": "D/D Strength-Dexterity plus D Faith scaling and innate holy damage suit a Strength/Faith hybrid, especially against rot- or undead-heavy enemies.",
+   "statFocus": "Strength & Faith"
+  }
+ ],
+ "_verify": []
+}

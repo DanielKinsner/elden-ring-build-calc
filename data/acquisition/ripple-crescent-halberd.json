@@ -1,0 +1,28 @@
+{
+ "location": "Dropped by weapon-wielding Albinauric enemies. A group of three sits at a ruin east of the Fallen Ruins of the Lake Site of Grace in Liurnia of the Lakes (two at ground level, one perched above). An alternate cluster is near a shoreline tree close to the Palace Approach Ledge-Road grace in Mohgwyn Palace.",
+ "region": "Liurnia of the Lakes",
+ "source": {
+  "type": "enemy",
+  "name": "Albinauric"
+ },
+ "tactics": [
+  "At the Liurnia ruin, two Albinaurics wait at ground level and a third stands on top of the structure — clear the ground pair first so you're not fighting all three at once.",
+  "The Mohgwyn Palace cluster near the shoreline tree is only reachable after progressing far enough to access that region (or via the Deeproot Depths shortcut).",
+  "Drop rate is low and reportedly inconsistent — reset at the nearest grace and repeat kills."
+ ],
+ "nearbyGraces": [
+  "Fallen Ruins of the Lake",
+  "Palace Approach Ledge-Road"
+ ],
+ "lore": "A curved blade favored by young Albinaurics, shaped to resemble a partial ripple. Its power draws less from raw muscle and more from the wielder's arcane bent.",
+ "builds": [
+  {
+   "name": "Arcane Bleed/Status Halberd",
+   "why": "B scaling in Arcane (rare for a halberd) plus D/D Strength-Dexterity make it one of the best halberds for an Arcane status or bleed build, especially with blood or poison grease.",
+   "statFocus": "Arcane"
+  }
+ ],
+ "_verify": [
+  "location"
+ ]
+}

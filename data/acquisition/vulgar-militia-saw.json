@@ -1,0 +1,25 @@
+{
+ "location": "Dropped by Vulgar Militia enemies wielding it. The most convenient farm is just outside Cliffbottom Catacombs in eastern Liurnia of the Lakes — hop the low rock wall from the grace and head uphill to find 5-6 Vulgar Militia, several carrying the saw.",
+ "region": "Liurnia of the Lakes",
+ "source": {
+  "type": "enemy",
+  "name": "Vulgar Militia"
+ },
+ "tactics": [
+  "Rest at Cliffbottom Catacombs, clear the uphill group, then return and reset — an item-discovery boost like the Silver-Pickled Fowl Foot speeds this up.",
+  "An alternate cluster of Vulgar Militia carrying the saw spawns near Bestial Sanctum in Dragonbarrow, Caelid, useful if farming other Vulgar Militia drops there too.",
+  "The saw inflicts strong blood loss buildup, so getting hit repeatedly by one risks a bleed proc."
+ ],
+ "nearbyGraces": [
+  "Cliffbottom Catacombs"
+ ],
+ "lore": "A saw blade lashed to a long grip, brandished by the Vulgar Militia. Its serrated edge is brutally effective at opening wounds — rumor holds the militia also use it to butcher bodies for food, though no one has lived to confirm it.",
+ "builds": [
+  {
+   "name": "Bleed Quality Halberd",
+   "why": "D/D Strength-Dexterity scaling combined with innate blood loss buildup makes it a strong budget bleed-build halberd.",
+   "statFocus": "Strength & Dexterity (Bleed)"
+  }
+ ],
+ "_verify": []
+}

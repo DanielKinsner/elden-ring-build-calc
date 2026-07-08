@@ -1,0 +1,28 @@
+{
+ "location": "Dropped, together with Ash of War: Giant Hunt, by a Night's Cavalry rider that only spawns after dark, just north of the East Raya Lucaria Gate Site of Grace in Liurnia of the Lakes.",
+ "region": "Liurnia of the Lakes",
+ "source": {
+  "type": "enemy",
+  "name": "Night's Cavalry"
+ },
+ "tactics": [
+  "Night's Cavalry only appears at night — rest at a grace and wait for nightfall if it's daytime.",
+  "The rider hits hard and can dismount to keep chasing on foot if unhorsed.",
+  "It disappears at dawn, so engage promptly once spotted rather than delaying.",
+  "Multiple Night's Cavalry spawn across the map, but this one near East Raya Lucaria Gate is a commonly used early-game source."
+ ],
+ "nearbyGraces": [
+  "East Raya Lucaria Gate"
+ ],
+ "lore": "A jet-black glaive as weighty as a bludgeon, carried by the Night's Cavalry — ghostly riders who patrol on their funeral steeds after dark, favoring crushing slash attacks that hit even harder from horseback.",
+ "builds": [
+  {
+   "name": "Strength Halberd (Mounted Combat)",
+   "why": "C Strength scaling plus a passive damage bonus while mounted make it one of the stronger halberds for Torrent-based combat builds.",
+   "statFocus": "Strength"
+  }
+ ],
+ "_verify": [
+  "tactics"
+ ]
+}

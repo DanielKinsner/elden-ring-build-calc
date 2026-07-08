@@ -1,0 +1,29 @@
+{
+ "location": "Guaranteed drop from the Tree Sentinel, the mounted golden knight boss patrolling the road between The First Step Site of Grace and Church of Elleh in northern Limgrave — often one of the very first bosses new players encounter.",
+ "region": "Limgrave",
+ "source": {
+  "type": "boss",
+  "name": "Tree Sentinel"
+ },
+ "tactics": [
+  "This fight is deliberately over-tuned for a fresh level 1 character — most players are meant to run past the Tree Sentinel on their first visit rather than fight it.",
+  "It fights mounted with lance charges and a trampling attack; staying close to its side reduces how often it can line up a full charge.",
+  "Comes with the Golden Vow Ash of War already attached, giving an attack/defense buff usable from level 1.",
+  "Guaranteed, one-time drop — no farming needed."
+ ],
+ "nearbyGraces": [
+  "The First Step",
+  "Church of Elleh"
+ ],
+ "lore": "A weighty halberd forged of gold, wielded by the heavily armored Order of Tree Sentinels. Masterfully crafted and imbued with holy power, but too dense for one of merely human strength to wield with ease.",
+ "builds": [
+  {
+   "name": "Strength/Faith Holy Support",
+   "why": "D Strength/E Dexterity/D Faith scaling with holy damage and the built-in Golden Vow buff skill suit an early Strength/Faith build wanting a self-buff option.",
+   "statFocus": "Strength & Faith"
+  }
+ ],
+ "_verify": [
+  "tactics"
+ ]
+}

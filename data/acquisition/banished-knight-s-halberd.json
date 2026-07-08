@@ -1,0 +1,32 @@
+{
+ "location": "A guaranteed +8 copy (pre-equipped with the Spinning Strikes Ash of War) drops from defeating the hostile NPC invader Edgar the Revenger at Revenger's Shack in southwest Liurnia of the Lakes. An unenchanted copy also has a percentage chance to drop from regular Banished Knight enemies (the halberd-and-shield variety) inside Stormveil Castle in Limgrave.",
+ "region": "Liurnia of the Lakes",
+ "source": {
+  "type": "npc",
+  "name": "Edgar the Revenger"
+ },
+ "tactics": [
+  "Edgar only appears as the hostile 'Revenger' at Revenger's Shack after Irina of Morne dies during her questline in the Weeping Peninsula — he's friendly earlier in Castle Morne, hostile here.",
+  "He fights with the same halberd and a shield, leaning on guard-into-thrust punishes; stay mobile rather than trading blows.",
+  "For an unupgraded copy earlier in the run, farm regular Banished Knights around Stormveil Castle instead — it's a percentage drop, so expect repeat kills.",
+  "Don't mistake his earlier friendly appearance atop the Castle Morne tower for a second source — it's the same NPC, and only the Revenger's Shack fight drops the halberd."
+ ],
+ "nearbyGraces": [
+  "Revenger's Shack",
+  "Converted Tower"
+ ],
+ "lore": "A finely engraved halberd carried by knights who were cast out from their homes, whether through disgrace or simple misfortune. Most of these knights were exiled to desolate frontiers, left to start over with nothing but despair for company.",
+ "builds": [
+  {
+   "name": "Strength/Dexterity Quality",
+   "why": "Even D/D scaling on both Strength and Dexterity with solid base attack makes it a straightforward reach weapon for quality builds.",
+   "statFocus": "Strength & Dexterity"
+  },
+  {
+   "name": "Spinning Strikes utility pick",
+   "why": "The guaranteed +8 drop comes pre-loaded with the Spinning Strikes skill, giving quick multi-hit poise damage without farming a separate Ash of War.",
+   "statFocus": "Strength & Dexterity"
+  }
+ ],
+ "_verify": []
+}

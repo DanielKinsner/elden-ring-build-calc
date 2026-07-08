@@ -1,0 +1,28 @@
+{
+ "location": "Guaranteed drop from defeating Commander O'Neil, a field boss found in a large clearing within the Swamp of Aeonia in eastern Caelid, just south of the Inner Aeonia Site of Grace.",
+ "region": "Caelid",
+ "source": {
+  "type": "boss",
+  "name": "Commander O'Neil"
+ },
+ "tactics": [
+  "Head south from Inner Aeonia grace into the swamp clearing — scarlet rot buildup from standing in the swamp is as dangerous as the fight itself, so watch your rot meter or bring resistance.",
+  "O'Neil is a large armored halberd-wielder; give him space and watch for his wide sweeping swings and jumping slam.",
+  "The summon sign for the friendly NPC Polyanna, Adopted Daughter appears near Inner Aeonia grace and can help with this fight.",
+  "Guaranteed, one-time drop — no farming needed."
+ ],
+ "nearbyGraces": [
+  "Inner Aeonia"
+ ],
+ "lore": "A weathered halberd with a tattered red battle standard tied around it. Even after the lord he served fled, Commander O'Neil kept raising this flag over the rot-eaten battlefield, the last soldier still honoring a fight everyone else abandoned.",
+ "builds": [
+  {
+   "name": "Strength Halberd with party buff",
+   "why": "D/D Strength-Dexterity scaling plus the Rallying Standard skill (attack and defense buff for self and nearby allies) make it strong for co-op or summon-heavy builds.",
+   "statFocus": "Strength"
+  }
+ ],
+ "_verify": [
+  "tactics"
+ ]
+}

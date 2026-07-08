@@ -1,0 +1,27 @@
+{
+ "location": "Dropped by Lesser Kindred of Rot enemies. The easiest farm is the pair standing right outside Church of the Plague near Sellia, Caelid; a much larger cluster (roughly a dozen) inhabits the Grand Cloister at the south end of Lake of Rot, reached via Ranni's questline path beneath Liurnia.",
+ "region": "Caelid",
+ "source": {
+  "type": "enemy",
+  "name": "Lesser Kindred of Rot"
+ },
+ "tactics": [
+  "The Church of the Plague pair is low-risk and quick to reset by resting at the nearby grace — best for a short farming session.",
+  "The Grand Cloister has far more Kindred of Rot per lap, but scarlet rot buildup from the surrounding Lake of Rot is a real hazard — bring rot resistance.",
+  "Drop rate is low, so expect to need multiple kills at either spot."
+ ],
+ "nearbyGraces": [
+  "Church of the Plague"
+ ],
+ "lore": "A glaive fashioned from a hardened shell, carried by the rot-born pests that crawl out of the Swamp of Aeonia. Something in its make offers the wielder a slight edge against non-physical harm.",
+ "builds": [
+  {
+   "name": "Low-Investment Early Halberd",
+   "why": "Low Strength/Dexterity requirements (13/13) make it usable very early, and its passive slightly boosts non-physical damage negation while equipped.",
+   "statFocus": "Strength & Dexterity"
+  }
+ ],
+ "_verify": [
+  "region"
+ ]
+}

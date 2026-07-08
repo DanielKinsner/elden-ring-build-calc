@@ -1,0 +1,25 @@
+{
+ "location": "Dropped by Graveyard Skeleton enemies wielding it around Sellia, Town of Sorcery in Caelid — one patrols the road near the Sellia Backstreets Site of Grace, on the path toward Church of the Plague.",
+ "region": "Caelid",
+ "source": {
+  "type": "enemy",
+  "name": "Graveyard Skeleton"
+ },
+ "tactics": [
+  "Skeletons in this area can revive after being knocked down unless finished off cleanly — don't assume a downed one is dead for good.",
+  "Drop rate is low (roughly single-digit percent), so plan on farming several kills, resetting at Sellia Backstreets grace.",
+  "Nearby Skeletal Executioners can also drop the Glaive at a low chance, giving extra opportunities in the same area."
+ ],
+ "nearbyGraces": [
+  "Sellia Backstreets"
+ ],
+ "lore": "A long-hafted blade that began as a sickle before being adapted into a weapon of war — its reach and curved edge make it especially effective at sweeping slashes.",
+ "builds": [
+  {
+   "name": "Early Strength/Dexterity Quality",
+   "why": "Balanced D/D Strength-Dexterity scaling and decent base attack make it a solid budget quality halberd for early-to-mid Caelid.",
+   "statFocus": "Strength & Dexterity"
+  }
+ ],
+ "_verify": []
+}

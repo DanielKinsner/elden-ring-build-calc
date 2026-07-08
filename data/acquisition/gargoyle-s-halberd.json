@@ -1,0 +1,26 @@
+{
+ "location": "Guaranteed, one-time drop from a single Valiant Gargoyle found praying beside an Erdtree sapling near the West Capital Rampart Site of Grace in Leyndell, Royal Capital. This enemy does not respawn once defeated.",
+ "region": "Leyndell, Royal Capital",
+ "source": {
+  "type": "enemy",
+  "name": "Valiant Gargoyle"
+ },
+ "tactics": [
+  "The gargoyle stands with three Oracle Envoys near the sapling — pull it away individually if you don't want to fight all four at once.",
+  "Awkward stairs near the West Capital Rampart grace can make positioning tricky; try to fight on flatter ground.",
+  "This gargoyle does not respawn, so once it's dead the halberd is gone from this spot for that playthrough.",
+  "This encounter becomes unavailable later in the story after the Erdtree is burned — get it beforehand if following a late-game route."
+ ],
+ "nearbyGraces": [
+  "West Capital Rampart"
+ ],
+ "lore": "The standard bronze halberd of the Valiant Gargoyles, likewise mended with corpse wax — a patchwork weapon fitting for the patchwork guardians who carry it.",
+ "builds": [
+  {
+   "name": "Pure Strength Halberd",
+   "why": "C scaling in Strength (higher than most halberds) with only a minor Dexterity requirement makes it one of the stronger pure-Strength picks in the class.",
+   "statFocus": "Strength"
+  }
+ ],
+ "_verify": []
+}

@@ -1,0 +1,29 @@
+{
+ "location": "Guaranteed drop from Loretta, Knight of the Haligtree, an optional boss fought in the ruined promenade near the Haligtree Promenade Site of Grace — climb down from the Haligtree Town Site of Grace in Miquella's Haligtree to reach the arena.",
+ "region": "Miquella's Haligtree",
+ "source": {
+  "type": "boss",
+  "name": "Loretta, Knight of the Haligtree"
+ },
+ "tactics": [
+  "Her first phase is mounted on a spectral steed, using ranged magic sickle throws and sweeping charges — stay mobile to avoid getting run down.",
+  "After she dismounts, the fight becomes faster, more aggressive melee — don't relax once the horse disappears.",
+  "You must defeat her to open the path into Elphael, Brace of the Haligtree and reach Malenia, so most players obtain this weapon on the way to that questline's final boss.",
+  "Not to be confused with the earlier illusory Loretta fight at Carian Study Hall in Liurnia — that encounter does not drop this weapon."
+ ],
+ "nearbyGraces": [
+  "Haligtree Promenade",
+  "Haligtree Town"
+ ],
+ "lore": "An ornate silver war sickle once carried by Loretta as a bodyguard in service to Carian royalty. Its original blue glintstone was later replaced with unalloyed gold, a mark of her fall from that royal service.",
+ "builds": [
+  {
+   "name": "Strength/Dexterity/Intelligence Hybrid",
+   "why": "Even D scaling across Strength, Dexterity, and Intelligence lets it fit an Int-leaning quality build, and it keeps a unique magic-infused skill without needing an Ash of War.",
+   "statFocus": "Strength, Dexterity & Intelligence"
+  }
+ ],
+ "_verify": [
+  "tactics"
+ ]
+}

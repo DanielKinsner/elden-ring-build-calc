@@ -1,0 +1,25 @@
+{
+ "location": "Low-percentage drop (~2%) from Erdtree Guardian enemies guarding Minor Erdtree sites across the map. The most convenient farm is the cluster of Guardians around the Minor Erdtree in the Weeping Peninsula, reached south from the Tombsward Catacombs Site of Grace.",
+ "region": "Weeping Peninsula",
+ "source": {
+  "type": "enemy",
+  "name": "Erdtree Guardian"
+ },
+ "tactics": [
+  "Rest at Tombsward Catacombs, head to the nearby Minor Erdtree, kill the patrolling Guardians, then return to reset and repeat.",
+  "A denser cluster of roughly six Erdtree Guardians is also farmable around Minor Erdtree Church in Altus Plateau, for a second location.",
+  "Guardians have large health pools and hit hard in melee; jump or plunge attacks on their back/head help speed up kills."
+ ],
+ "nearbyGraces": [
+  "Tombsward Catacombs"
+ ],
+ "lore": "A long-hafted, broad-bladed weapon carved from the hard wood of old trees, wielded by the guardian warriors who protect the Minor Erdtrees scattered across the realm and are drilled experts in its use.",
+ "builds": [
+  {
+   "name": "Dexterity Halberd",
+   "why": "C scaling in Dexterity with only E in Strength is unusually Dex-heavy for a halberd, making it one of the class's better Dexterity-focused picks.",
+   "statFocus": "Dexterity"
+  }
+ ],
+ "_verify": []
+}

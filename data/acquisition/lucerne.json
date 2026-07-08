@@ -1,0 +1,25 @@
+{
+ "location": "A ground pickup, no fight required — found beside a broken, overturned supply wagon with spilled sacks, north of the Liurnia Highway North Site of Grace in Liurnia of the Lakes.",
+ "region": "Liurnia of the Lakes",
+ "source": {
+  "type": "drop",
+  "name": "Battlefield wreckage (ground item)"
+ },
+ "tactics": [
+  "No enemy guards this exact spot, though roaming soldier patrols nearby on Liurnia's eastern battlefield roads warrant caution.",
+  "It's easy to miss since it blends visually with the other wreckage and scattered sacks around the wagon.",
+  "Liurnia Highway North grace is the closest fast-travel point if you need to reorient."
+ ],
+ "nearbyGraces": [
+  "Liurnia Highway North"
+ ],
+ "lore": "A polearm topped with a hardened, beak-shaped spike built to punch through armor. Though meant chiefly for thrusting, its long haft can also hook around a raised guard with a sideways swing.",
+ "builds": [
+  {
+   "name": "Dexterity-leaning Halberd",
+   "why": "C scaling in Dexterity with lighter weight (7.0) than most halberds makes it a nimble early pick for Dexterity or hybrid quality builds.",
+   "statFocus": "Dexterity"
+  }
+ ],
+ "_verify": []
+}

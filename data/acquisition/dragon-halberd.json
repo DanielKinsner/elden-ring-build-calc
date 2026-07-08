@@ -1,0 +1,28 @@
+{
+ "location": "Dropped by the Dragonkin Soldier mini-boss found on a separate plateau of Siofra River, reached through a hidden waygate. From the Worshippers' Woods Site of Grace, head south to a collapsed pillar with an Ancestral Follower archer perched atop it; climb the pillar to find the waygate, which teleports you near a waterfall where the Dragonkin Soldier lies dormant on the ground.",
+ "region": "Siofra River",
+ "source": {
+  "type": "boss",
+  "name": "Dragonkin Soldier"
+ },
+ "tactics": [
+  "The Dragonkin Soldier appears inert/'dormant' until you approach — closing the distance wakes it into an aggressive fight.",
+  "It's fast for its size with sweeping tail attacks and a charged elemental beam; staying to its side or rear is safer than the front.",
+  "This is a different Dragonkin Soldier from the one fought later in Deeproot Depths — this Siofra River encounter is the one that drops the halberd."
+ ],
+ "nearbyGraces": [
+  "Worshippers' Woods"
+ ],
+ "lore": "A halberd shaped like a dragon and wreathed in both ice and lightning, wielded by the Dragonkin Soldiers — failed attempts at crafting true dragons that never attained immortality, living on as brittle, mortal echoes of their skyborn kin.",
+ "builds": [
+  {
+   "name": "Strength Halberd with elemental proc",
+   "why": "D/D Strength-Dexterity scaling plus an innate skill that adds lightning damage and builds frostbite gives it a status edge over plain Strength halberds.",
+   "statFocus": "Strength"
+  }
+ ],
+ "_verify": [
+  "nearbyGraces",
+  "tactics"
+ ]
+}
