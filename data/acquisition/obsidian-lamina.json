@@ -1,0 +1,35 @@
+{
+ "location": "A quest reward from Sir Ansbach, obtained only by completing his full companion questline through the DLC (culminating at the Specimen Storehouse, then summoning him for the final boss). After defeating Promised Consort Radahn in Enir-Ilim, Ansbach's body is found slumped against the wall just to the left of the arena exit; interact with it to receive Obsidian Lamina along with his armor set.",
+ "region": "Enir-Ilim",
+ "source": {
+  "type": "npc",
+  "name": "Sir Ansbach (quest reward)"
+ },
+ "tactics": [
+  "Talk to Ansbach at the Main Gate Cross grace outside Belurat to start his arc, then keep checking in with him as you unlock Miquella's Crosses and break Miquella's Great Rune",
+  "Find him again in Shadow Keep's Specimen Storehouse (lower floor) — speak to Redmane Freyja on the 7th floor BEFORE handing Ansbach the Secret Rite Scroll (found on a desk behind bookshelves on the 4th floor), or her questline can lock out",
+  "When Needle Knight Leda moves against Ansbach back on the Storehouse 1st floor, use the GOLD summon sign to fight for him — the RED sign instead helps Leda and gets Ansbach killed, which forfeits this weapon",
+  "Place his summon sign outside the fog gate at Enir-Ilim's Divine Gate Front Staircase grace before entering the Promised Consort Radahn fight; after the win, loot his body near the exit rather than missing it while celebrating"
+ ],
+ "nearbyGraces": [
+  "Divine Gate Front Staircase",
+  "Gate of Divinity",
+  "Cleansing Chamber Anteroom"
+ ],
+ "lore": "This slender obsidian scythe belonged to Ansbach, a Pureblood Knight of St. Trina who abandoned his lord's cause. Unlike showier weapons, it's described as needing no trickery — just a skilled hand to open foes up and paint the ground red.",
+ "builds": [
+  {
+   "name": "Dex/Arcane Bleed",
+   "statFocus": "DEX / ARC",
+   "why": "C-scaling Dexterity with D-scaling Arcane and 55 innate blood loss buildup — Arcane boosts both the status buildup and the weapon's own damage, so it rewards a dedicated bleed-Arcane build rather than a pure quality one"
+  },
+  {
+   "name": "Arcane bleed hybrid off-hand",
+   "statFocus": "ARC",
+   "why": "Pairs naturally with other Arcane bleed tools (talismans, Seppuku, Rivers of Blood-style builds) since it can't be infused but already carries strong innate blood loss"
+  }
+ ],
+ "_verify": [
+  "nearbyGraces"
+ ]
+}
