@@ -1,0 +1,34 @@
+{
+ "location": "Guaranteed drop from the Wind-aspected Divine Beast Warrior (the enemy players commonly call a 'Horned Warrior') that patrols the rooftops north of the Cleansing Chamber Anteroom Site of Grace, near the very end of Enir-Ilim — the last stretch before the Needle Knight Leda gauntlet fight. This specific enemy is a one-time encounter and does not respawn.",
+ "region": "Enir-Ilim",
+ "source": {
+  "type": "enemy",
+  "name": "Wind-aspected Divine Beast Warrior"
+ },
+ "tactics": [
+  "Push through Enir-Ilim's rooftop path (past Spiral Rise) toward Cleansing Chamber Anteroom; the Wind-aspected Divine Beast Warrior is found roaming just north of that grace",
+  "Two other Divine Beast Warrior variants look identical but drop nothing unique — Lightning-aspected (east of Spiral Rise) and Ice-aspected (on the rooftops between Spiral Rise and Cleansing Chamber Anteroom) — only the Wind one carries this greatsword",
+  "These enemies hit extremely hard, have very high poise, and hover in place to channel elemental attacks before unleashing them — bait the slow wind-up, or whittle it down with ranged attacks, sleep arrows, or bleed/status buildup rather than trading blows",
+  "The weapon's Ash of War (Horn Calling: Storm) is fixed and cannot be swapped, and the weapon itself cannot be infused with Ashes of War or buffed with spells/consumables"
+ ],
+ "nearbyGraces": [
+  "Cleansing Chamber Anteroom",
+  "Spiral Rise"
+ ],
+ "lore": "Carried by the horned guardians who watch over Enir-Ilim's tower, this hefty curved blade was forged to put its wielders' blend of raw strength and agility to devastating use. The tangle of horns fused along the blade isn't just ornamental — it doubles as a conduit for the guardians' horn-calling.",
+ "builds": [
+  {
+   "name": "Strength/Dexterity quality build",
+   "why": "Even D/D scaling in both Strength and Dexterity with modest requirements (19 STR one-handed, 16 DEX) lets a standard quality build wield it as an alternate curved greatsword with no respeccing needed.",
+   "statFocus": "Strength & Dexterity"
+  },
+  {
+   "name": "Faith hybrid melee build",
+   "why": "Its D-scaling in Faith (13 required) is unusual for a curved greatsword, letting Faith/incantation-focused characters dip into solid melee damage without diluting their build, backed by the fixed long-range Horn Calling: Storm skill.",
+   "statFocus": "Strength/Dexterity/Faith hybrid"
+  }
+ ],
+ "_verify": [
+  "nearbyGraces"
+ ]
+}

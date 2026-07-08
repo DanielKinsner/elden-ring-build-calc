@@ -1,0 +1,35 @@
+{
+ "location": "Looted from Redmane Freyja's corpse after defeating her as an NPC-invader ally of Needle Knight Leda in the 'Leda and Allies' gauntlet fight, accessed via the red summon sign just east of the Cleansing Chamber Anteroom Site of Grace in Enir-Ilim (this only happens if you gave her Ansbach's 'Letter for Freyja' earlier during her questline at Shadow Keep, and didn't kill her as a friendly NPC). If the letter was never delivered, she instead dies off-screen once the DLC's final boss is defeated, and the sword can be looted from her body back at the Storehouse, Seventh Floor Site of Grace in Shadow Keep.",
+ "region": "Enir-Ilim",
+ "source": {
+  "type": "boss",
+  "name": "Redmane Freyja (Leda and Allies fight)"
+ },
+ "tactics": [
+  "To fight her for the drop, give Freyja the 'Letter for Freyja' (obtained via Ansbach) before finishing her questline/reaching the DLC ending — this reroutes her into the Leda gauntlet instead of dying passively at Shadow Keep",
+  "In the gauntlet, allies spawn one at a time (Freyja first, then Hornsent, Moore, Dryleaf Dane, then Leda) — kill Freyja quickly before the next ally joins to avoid being swarmed",
+  "She alternates one-handing her greatsword with a shield and two-handing it; when two-handed she winds up the 3-hit Savage Lion's Claw skill, which is slow to start and easy to dodge and punish",
+  "If you skip the letter entirely, don't look for a fight — just return to Shadow Keep's Storehouse, Seventh Floor grace after the DLC's final boss to loot her corpse and full Redmane armor set"
+ ],
+ "nearbyGraces": [
+  "Cleansing Chamber Anteroom",
+  "Shadow Keep - Storehouse, Seventh Floor"
+ ],
+ "lore": "This greatsword belonged to Freyja, one of the Redmane knights who once served General Radahn; its shaggy, mane-like ornamentation echoes the weapons carried by her old liege. Something of her training still lingers in the blade, sharpening the Redmane battle arts for whoever wields it.",
+ "builds": [
+  {
+   "name": "Strength curved greatsword",
+   "why": "Low requirements (25 STR one-handed, 14 DEX) paired with C-scaling Strength make it an easy, hard-hitting pickup for a Strength or quality build that wants a sweeping curved-greatsword moveset instead of a straight greatsword.",
+   "statFocus": "Strength"
+  },
+  {
+   "name": "Radahn/Redmane homage build",
+   "why": "Its passive boosts the damage of Redmane Ashes of War (Lion's Claw, Flame of the Redmanes, Roaring Bash, Savage Lion's Claw) by 10% in PvE while equipped, so it pairs naturally with a build running one of those skills on a second weapon.",
+   "statFocus": "Strength + Ash of War synergy"
+  }
+ ],
+ "_verify": [
+  "source",
+  "nearbyGraces"
+ ]
+}
