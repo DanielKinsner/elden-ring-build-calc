@@ -1060,47 +1060,5 @@
     }
    }
   }
- },
- {
-  "id": "serpent-flail",
-  "name": "Serpent Flail",
-  "type": "Flail",
-  "source": "base",
-  "category": "somber",
-  "infusable": false,
-  "requirements": {
-   "STR": 10,
-   "DEX": 24,
-   "FAI": 21
-  },
-  "weight": null,
-  "passive": null,
-  "base": {
-   "physical": 188,
-   "magic": 0,
-   "fire": 225,
-   "lightning": 0,
-   "holy": 0
-  },
-  "scaling": {
-   "STR": 9,
-   "DEX": 81,
-   "INT": 0,
-   "FAI": 90,
-   "ARC": 0
-  },
-  "elementScaling": {
-   "STR": [
-    "physical"
-   ],
-   "DEX": [
-    "physical"
-   ],
-   "FAI": [
-    "fire"
-   ]
-  },
-  "status": {},
-  "arcStatusScaling": 0
  }
 ]

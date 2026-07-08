@@ -37,6 +37,7 @@
   "dlc": [
     "dlc/axes.json",
     "dlc/backhand-blades.json",
+    "dlc/ballistae.json",
     "dlc/beast-claws.json",
     "dlc/claws.json",
     "dlc/colossal-swords.json",
@@ -45,6 +46,7 @@
     "dlc/curved-swords.json",
     "dlc/daggers.json",
     "dlc/fists.json",
+    "dlc/flails.json",
     "dlc/great-hammers.json",
     "dlc/great-katanas.json",
     "dlc/great-spears.json",
