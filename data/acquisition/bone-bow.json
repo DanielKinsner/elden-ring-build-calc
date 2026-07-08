@@ -1,0 +1,34 @@
+{
+ "location": "On a corpse at the bottom floor of the tower with the broken spiral staircase, in the northwestern part of Belurat, Tower Settlement — guarded by two giant Spider-Scorpions.",
+ "region": "Land of Shadow — Belurat, Tower Settlement (Shadow of the Erdtree DLC; NOT a base-game region — see _verify note)",
+ "source": {
+  "type": "drop",
+  "name": "Corpse in Belurat, Tower Settlement (guarded by 2 Spider-Scorpions)"
+ },
+ "tactics": [
+  "From the Belurat, Tower Settlement Site of Grace, head left and ride the elevator shortcut up, then go left again to enter the base of the spiral staircase tower.",
+  "The bow sits at the bottom of that tower, defended by two large Spider-Scorpions — they poison on hit and are faster than they look, so fight them one at a time if you can bait them apart.",
+  "This is Shadow of the Erdtree DLC content reachable only after entering the Land of Shadow via the Mohgwyn Palace altar — there is no base-game copy of this weapon."
+ ],
+ "nearbyGraces": [
+  "Belurat, Tower Settlement",
+  "Main Gate Cross"
+ ],
+ "lore": "Roughly carved from bone by the tower's Hornsent inhabitants, this shortbow served as a conduit for calling on vengeful spirits — a relic of the settlement's ancient hexing traditions.",
+ "builds": [
+  {
+   "name": "Status/bleed archer",
+   "why": "Rancor Shot rapid-fires tracking arrows, good for stacking status-effect arrows onto a moving target from range.",
+   "statFocus": "Dexterity (minimal investment)"
+  },
+  {
+   "name": "Cheap secondary ranged tool",
+   "why": "E/E scaling and low 8 Str/11 Dex requirement make it an easy pickup for any build wanting a pull/poke option.",
+   "statFocus": "Any, low investment"
+  }
+ ],
+ "_verify": [
+  "region",
+  "location"
+ ]
+}

@@ -1,0 +1,31 @@
+{
+ "location": "Reward for solving the 'Champion's Song' Painting puzzle. Examine the painting inside a poison-flooded wooden barn on the eastern side of The Shaded Castle, then travel to the ridge near the Rampartside Path Site of Grace in Altus Plateau and approach the ghostly Painter figure overlooking the Lesser Erdtree.",
+ "region": "Altus Plateau",
+ "source": {
+  "type": "npc",
+  "name": "Painter's spirit (Champion's Song painting puzzle)"
+ },
+ "tactics": [
+  "First find and examine the Champion's Song painting itself, in a small flooded wooden barn on the east side of The Shaded Castle — easy to miss since most players beeline for the castle's boss and loot.",
+  "From Rampartside Path grace, follow the path west while hugging the base of the hill on your left, then once the hill meets flat ground, turn and climb up toward the top near a large rock overlooking the Lesser Erdtree.",
+  "Approaching the painter figure makes it vanish and drop the bow — no combat involved.",
+  "Because it's classed as a 'special' weapon like a boss weapon, it upgrades with Somber Smithing Stones to a max of +10, not regular Smithing Stones to +25 like the other Light Bows — don't waste materials trying the normal upgrade path."
+ ],
+ "nearbyGraces": [
+  "Rampartside Path"
+ ],
+ "lore": "A minstrel's harp reworked into a bow, its strings still humming with music when an arrow is loosed — evoking wandering troubadours who sang of champions, both those loyal to the Erdtree and one who turned from honor to blasphemy.",
+ "builds": [
+  {
+   "name": "Low-investment/low-level archer",
+   "why": "Lightest weight and lowest requirements (9 Str/9 Dex) of any Light Bow, letting minimally-invested or low-level characters carry a working bow.",
+   "statFocus": "Minimal Strength/Dexterity"
+  },
+  {
+   "name": "Hybrid caster utility ranged",
+   "why": "Its low weight lets spellcasters carry a bow purely as a pull/utility tool without eating into equip load needed for spell tools.",
+   "statFocus": "Low Dexterity, Intelligence/Faith primary"
+  }
+ ],
+ "_verify": []
+}

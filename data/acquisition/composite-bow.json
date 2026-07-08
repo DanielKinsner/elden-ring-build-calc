@@ -1,0 +1,30 @@
+{
+ "location": "Sold by a Nomadic Merchant tucked past a hole in the ground just downhill/north of Bellum Church, in northern Liurnia of the Lakes, for 3,500 runes.",
+ "region": "Liurnia of the Lakes",
+ "source": {
+  "type": "merchant",
+  "name": "Nomadic Merchant (North Liurnia, near Bellum Church)"
+ },
+ "tactics": [
+  "No fight required — reach Bellum Church, then look for the hole/incline leading down past the church to find the merchant sitting by a fire.",
+  "It's the priciest Light Bow to buy (3,500 runes) and has the highest overall stat requirement of the group (15 Str/15 Dex), so early-game characters may need to two-hand it or level up first.",
+  "Don't confuse this Nomadic Merchant with other traveling merchants elsewhere in Liurnia — this specific one by Bellum Church is the only source."
+ ],
+ "nearbyGraces": [
+  "Bellum Church"
+ ],
+ "lore": "Layered together from multiple materials for reinforcement, this composite bow punishes an unpracticed archer but rewards one with the raw attributes to draw it properly.",
+ "builds": [
+  {
+   "name": "Dexterity-focused archer",
+   "why": "Has the highest Dexterity scaling (D) of any Light Bow, paired with the higher-cost Mighty Shot skill for real sustained arrow damage.",
+   "statFocus": "Dexterity"
+  },
+  {
+   "name": "Quality (Str/Dex) secondary ranged",
+   "why": "Its balanced 15/15 requirement slots naturally into a quality-stat melee build that's already investing in both Strength and Dexterity.",
+   "statFocus": "Strength/Dexterity balanced"
+  }
+ ],
+ "_verify": []
+}

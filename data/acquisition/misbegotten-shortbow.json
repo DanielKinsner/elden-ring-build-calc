@@ -1,0 +1,31 @@
+{
+ "location": "Rare drop from Winged Misbegotten enemies. The most reliable farming spot is a cluster of three flying Misbegotten on the cliffs southeast of the Ailing Village Outskirts Site of Grace in Weeping Peninsula.",
+ "region": "Weeping Peninsula",
+ "source": {
+  "type": "enemy",
+  "name": "Winged Misbegotten"
+ },
+ "tactics": [
+  "From Ailing Village Outskirts grace, head to the cliff edge southeast where three flying Misbegotten cluster together — much faster than hunting isolated ones elsewhere.",
+  "They dive-bomb and slash with a spinning double-weapon attack while airborne, which makes them awkward to punish; stay near the cliff edge since they tend to circle back into range.",
+  "Drop rate is only around 2%, so expect to reset the area (rest at a grace) and repeat several times.",
+  "Winged Misbegotten also appear later near Leyndell and in Miquella's Haligtree if you'd rather farm against tougher versions once you're stronger."
+ ],
+ "nearbyGraces": [
+  "Ailing Village Outskirts"
+ ],
+ "lore": "Carried by the winged Misbegotten and matted with their own fur, this shortbow trades range for extra stopping power, hitting harder up close at the cost of reach.",
+ "builds": [
+  {
+   "name": "Pure Strength archer",
+   "why": "The only Light Bow with Strength as its primary scaling stat (D), making it the natural ranged pick for a Strength-focused character.",
+   "statFocus": "Strength"
+  },
+  {
+   "name": "Colossal weapon + bow hybrid",
+   "why": "Strength builds already carrying a greatsword or colossal weapon can slot this in as a ranged pull tool without spending points on Dexterity.",
+   "statFocus": "Strength"
+  }
+ ],
+ "_verify": []
+}

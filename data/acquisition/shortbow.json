@@ -1,0 +1,31 @@
+{
+ "location": "Purchased for 600 runes from a Nomadic Merchant camped beneath a collapsed stone structure southeast of the Coastal Cave entrance, in western Limgrave.",
+ "region": "Limgrave",
+ "source": {
+  "type": "merchant",
+  "name": "Nomadic Merchant (West Limgrave, near Coastal Cave)"
+ },
+ "tactics": [
+  "No fight needed — just reach the merchant's fire beneath the collapsed structure down the beach from Coastal Cave.",
+  "Bandit-class characters already start with a Shortbow in their inventory, so they never need to buy one.",
+  "It's also a rare (2%) drop from bow-wielding Marionette Soldiers if you'd rather not spend runes.",
+  "It's the cheapest, lowest-requirement Light Bow, useful as an early poke/pull tool for almost any build, and usable on horseback."
+ ],
+ "nearbyGraces": [
+  "Coastal Cave"
+ ],
+ "lore": "A basic, unadorned hunting bow valued for how quickly it can loose successive arrows, and for how well it handles when fired from horseback.",
+ "builds": [
+  {
+   "name": "Starter/any-class ranged utility",
+   "why": "Cheap, low-requirement, and workable from horseback, making it a fine early pulling or poke tool for nearly any build.",
+   "statFocus": "Minimal Strength/Dexterity"
+  },
+  {
+   "name": "Bandit rogue archer",
+   "why": "Native starting weapon of the Bandit class, pairing naturally with its high starting Dexterity and stealth-oriented kit.",
+   "statFocus": "Dexterity"
+  }
+ ],
+ "_verify": []
+}

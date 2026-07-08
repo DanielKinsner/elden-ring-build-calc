@@ -1,0 +1,31 @@
+{
+ "location": "Drops from Page enemies. The earliest reliable spot is the underground hall beneath Tombsward Ruins in Weeping Peninsula, defended by two Pages.",
+ "region": "Weeping Peninsula",
+ "source": {
+  "type": "enemy",
+  "name": "Page"
+ },
+ "tactics": [
+  "At the center of Tombsward Ruins, stairs lead down into a dark hall guarded by two Pages — clear them for a shot at the bow.",
+  "That same underground room ends in a chest containing the Winged Scythe — don't mistake grabbing that chest for getting the bow; the bow is a Page drop, not the chest item.",
+  "Pages look fragile but fight in pairs and poke with fast rapier thrusts; try to pull them one at a time back up the stairs rather than engaging both at once.",
+  "Drop rate is only about 4%, and Pages/Noble Pages elsewhere (Caria Manor, Raya Lucaria Academy, Redmane Castle, Shaded Castle, Leyndell) can also drop it if the early roll doesn't land."
+ ],
+ "nearbyGraces": [
+  "Church of Pilgrimage"
+ ],
+ "lore": "A finely polished bow of red wood, crafted by a skilled artisan and issued to the pages who serve the throne — built to reward a steady hand over brute strength.",
+ "builds": [
+  {
+   "name": "Early Dexterity archer",
+   "why": "D scaling in Dexterity with only 8 Strength required makes it one of the strongest low-level Dex bows available early on.",
+   "statFocus": "Dexterity"
+  },
+  {
+   "name": "Bleed/Dex rogue hybrid",
+   "why": "Light weight and Dex scaling complement a dagger or katana Bleed build wanting a cheap ranged poke option.",
+   "statFocus": "Dexterity"
+  }
+ ],
+ "_verify": []
+}
