@@ -1,0 +1,32 @@
+{
+ "location": "Obtained by trading the Remembrance of the Twin Moon Knight to Finger Reader Enia at the Roundtable Hold; the remembrance itself is dropped by Rellana, Twin Moon Knight, at the end of the Castle Ensis legacy dungeon.",
+ "region": "Gravesite Plain",
+ "source": {
+  "type": "boss",
+  "name": "Rellana, Twin Moon Knight"
+ },
+ "tactics": [
+  "Push through Castle Ensis to the Castle-Lord's Chamber grace, the last checkpoint before Rellana's arena.",
+  "Phase one is almost entirely physical: she is fast and aggressive with long dual-blade combos and glintblade volleys that force continuous rolling as she closes the gap.",
+  "Partway through the fight she imbues both swords with glintstone magic and Messmer's flame, adding fire trails that can explode after a delay and a flame-jet version of her thrusting combo.",
+  "Her Twin Moons attack drops two moons and then Rellana herself onto the arena in sequence, each landing with an arena-wide shockwave - move away from the landing zones rather than trying to tank the hits."
+ ],
+ "nearbyGraces": [
+  "Castle-Lord's Chamber",
+  "Ensis Moongazing Grounds"
+ ],
+ "lore": "Rellana's paired blades reflect her split allegiance: one sword etched with blue glintstone recalls her origins as a Carian royal steeped in sorcery, while the other carries Messmer's scarlet flame from the Fire Knights she later served. Wielded together, the weapon is said to unite moon and fire, two forces normally kept apart.",
+ "builds": [
+  {
+   "name": "Int/Faith Spellblade",
+   "statFocus": "Intelligence, Faith",
+   "why": "The weapon deals innate magic and fire damage split across its two blades and scales D in both Intelligence and Faith (improving to C at +8), so investing in both stats boosts damage without needing a separate catalyst."
+  },
+  {
+   "name": "Four-stat hybrid quality",
+   "statFocus": "Strength, Dexterity, Intelligence, Faith",
+   "why": "All four attributes scale D at base (C at +8), so a spread-stat build can extract respectable damage from every point invested, unlike most weapons that punish spreading stats thin."
+  }
+ ],
+ "_verify": []
+}

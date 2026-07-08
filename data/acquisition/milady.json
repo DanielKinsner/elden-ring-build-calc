@@ -1,0 +1,34 @@
+{
+ "location": "Found inside a chest atop a watchtower in Castle Ensis, reached early via a route from the Castle Front site of grace - across the bridge, up stairs past a giant and dog-handler soldiers, then up a ladder to the tower's top.",
+ "region": "Gravesite Plain",
+ "source": {
+  "type": "chest",
+  "name": "Watchtower chest, Castle Ensis"
+ },
+ "tactics": [
+  "From Castle Front, cross the bridge into the castle - a giant guards the entrance and can be fought or run past.",
+  "Head north up the only stairway, clearing (or avoiding) two soldiers with attack dogs, then look southwest for a ladder leading up the tower.",
+  "The chest sits at the top with no guardians directly on it.",
+  "This is one of the first pickups available in Castle Ensis, well before reaching Rellana's boss arena deeper in the castle - don't mistake it for the exclusive Wing Stance skill book, which is found elsewhere in the same dungeon."
+ ],
+ "nearbyGraces": [
+  "Castle Front",
+  "Castle Ensis Checkpoint"
+ ],
+ "lore": "Milady is a full greatsword-length blade deliberately forged light, earning its name as a nod to the elegant noblewomen who could wield it. Its reduced weight lets a skilled user swing it with something close to straight-sword speed despite the long blade.",
+ "builds": [
+  {
+   "name": "Quality Str/Dex",
+   "statFocus": "Strength, Dexterity",
+   "why": "Both scaling stats sit at D, so a balanced Strength/Dexterity quality build extracts even value from the weapon without overinvesting in either stat."
+  },
+  {
+   "name": "Status infusion greatsword",
+   "statFocus": "Arcane or elemental stat (via infusion)",
+   "why": "Milady is the only Light Greatsword that accepts Ashes of War and affinities, so it's the go-to pick for Blood, Frost, or other status infusions on this weapon class, backed by its exclusive Wing Stance skill."
+  }
+ ],
+ "_verify": [
+  "nearbyGraces"
+ ]
+}

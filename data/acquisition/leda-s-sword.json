@@ -1,0 +1,32 @@
+{
+ "location": "Dropped by Needle Knight Leda after the mandatory 'Leda and Allies' gauntlet fight, encountered on the ascent through Enir-Ilim just past the Cleansing Chamber Anteroom, shortly before the final Divine Gate boss room.",
+ "region": "Enir-Ilim",
+ "source": {
+  "type": "boss",
+  "name": "Needle Knight Leda (Leda and Allies)"
+ },
+ "tactics": [
+  "Reach the Cleansing Chamber Anteroom grace near the top of Enir-Ilim and continue up the stairs to trigger the fight automatically - it cannot be skipped on the path to the final boss.",
+  "Leda's 'allies' arrive one at a time as NPC-style invaders - Redmane Freyja, then Hornsent, then Moore, then Dryleaf Dane - before Leda herself joins last, so it's a war of attrition on stamina and FP rather than one duel.",
+  "You can place summon signs for Ansbach and Thiollier before starting to help thin out the earlier waves.",
+  "Don't confuse this with the two earlier optional Leda invasions (in Shadow Keep, and later near Ansbach's questline) - those are skippable side fights; only this final Enir-Ilim gauntlet drops the sword."
+ ],
+ "nearbyGraces": [
+  "Cleansing Chamber Anteroom",
+  "Divine Gate Front Staircase"
+ ],
+ "lore": "This gleaming, gold-inlaid greatsword belonged to Leda, leader of the Needle Knights, and deals holy damage alongside physical. Its mirror polish can't fully hide what it implies: Leda used it to cut down her own knightly comrades during Miquella's purge of dissenters.",
+ "builds": [
+  {
+   "name": "Dex/Faith Needle Knight",
+   "statFocus": "Dexterity, Faith",
+   "why": "Scales C in Dexterity and D in Faith with only E in Strength, so a dex-faith build gets the most attack power per point invested, and the holy portion of its damage benefits from the Faith scaling too."
+  },
+  {
+   "name": "Anti-buff disruptor",
+   "statFocus": "Dexterity",
+   "why": "Its innate Needle Piercer skill fires ten needles that strip buffs and status effects from anyone hit, making it a niche pick for invasions or fights against buff-stacking enemies and players."
+  }
+ ],
+ "_verify": []
+}
