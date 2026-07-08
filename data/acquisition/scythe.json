@@ -1,0 +1,18 @@
+{
+ "location": "A body pickup on the upper floor of Cliffbottom Catacombs, in a room guarded by stone Imps.",
+ "region": "Liurnia of the Lakes (southeast, cliffside on the eastern edge)",
+ "source": { "type": "chest", "name": "Cliffbottom Catacombs" },
+ "tactics": [
+  "From Liurnia Highway North grace, head down the slope on the outer eastern cliff and follow the trail south to the entrance",
+  "Light the dungeon's own Site of Grace just inside before pushing forward",
+  "The Scythe sits on a corpse on the upper floor, reachable without fighting the dungeon's boss (Erdtree Burial Watchdog)",
+  "Watch for the stone Imps guarding the body — pull them one at a time if possible"
+ ],
+ "nearbyGraces": ["Liurnia Highway North"],
+ "lore": "A slender, wickedly long-bladed scythe built purely to reap — fast enough to slip past a raised guard and open deep bleeding wounds, rewarding a nimble, dexterous wielder.",
+ "builds": [
+  { "name": "Pure Dex bleed", "why": "Scaling is overwhelmingly Dexterity over Strength", "statFocus": "DEX" },
+  { "name": "Arcane/Dex hybrid", "why": "The Blood affinity variant adds Arcane scaling for players already running bleed talismans", "statFocus": "DEX / ARC" }
+ ],
+ "_verify": ["nearbyGraces"]
+}

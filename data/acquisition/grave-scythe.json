@@ -1,0 +1,17 @@
+{
+ "location": "Not a fixed pickup — an enemy drop from Skeleton Mages (and occasionally Giant Beast Skeletons) found across several graveyard/catacomb areas. Easiest early farm: Skeleton Mages between Saint's Bridge and Summonwater Village, and inside Summonwater Village itself.",
+ "region": "Limgrave (best early farm spot; the enemy type also appears in Liurnia and Crumbling Farum Azula)",
+ "source": { "type": "enemy", "name": "Skeleton Mage" },
+ "tactics": [
+  "Farm Skeleton Mages specifically — regular skeletons don't carry it (~2% base drop chance)",
+  "Rest at Saint's Bridge or Summonwater Village grace, kill the mage(s), reset at grace, repeat",
+  "Boost item discovery (Silver-Pickled Fowl Foot, Arcane, or a discovery talisman) to speed up the roll",
+  "Alternate farm spots near Lake-Facing Cliffs and southeast of Caria Manor if Limgrave spawns feel slow"
+ ],
+ "nearbyGraces": ["Saint's Bridge", "Summonwater Village"],
+ "lore": "An old grave-keeper's tool as much as a weapon — a heavy blade lashed to a bent stave, once used by those who tended the Lands Between's forgotten burial grounds and believed to ward off restless spirits.",
+ "builds": [
+  { "name": "Str/Dex hybrid bleed", "why": "Base scaling favors Strength over Dexterity; Heavy affinity pushes it into a pure-Strength bleed stick, Keen converts it into a Dexterity one instead", "statFocus": "STR" }
+ ],
+ "_verify": []
+}

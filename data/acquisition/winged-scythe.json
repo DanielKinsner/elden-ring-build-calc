@@ -1,0 +1,17 @@
+{
+ "location": "Inside a chest in a small underground chamber at Tombsward Ruins, past two crossbow-armed Page enemies in a dark corridor reached via the central staircase.",
+ "region": "Weeping Peninsula (western, north of the Weeping Evergaol)",
+ "source": { "type": "chest", "name": "Tombsward Ruins" },
+ "tactics": [
+  "Bring a torch or light source for the dark underground corridor",
+  "Two crossbow-armed Pages guard the hallway — consider luring them back outside into open space rather than fighting in the cramped dark",
+  "No Site of Grace exists at the ruins itself, so approach from a nearby grace",
+  "An Incantation Scarab (Divine Fortification) sits on the surface near the ruins, worth grabbing on the same trip"
+ ],
+ "nearbyGraces": ["Church of Pilgrimage", "Fourth Church of Marika"],
+ "lore": "A scythe styled after a pair of white wings, said in old pagan belief to belong to gentle envoys of Death — a quietly unsettling pairing of holy imagery with a weapon built for reaping lives.",
+ "builds": [
+  { "name": "Faith bleed/holy hybrid", "why": "Faith is its largest scaling stat, ahead of Dexterity and Strength, and its Angel's Wings skill blocks the target's flask use for 30 seconds", "statFocus": "FAI" }
+ ],
+ "_verify": ["nearbyGraces"]
+}

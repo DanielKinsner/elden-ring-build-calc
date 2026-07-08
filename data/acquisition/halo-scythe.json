@@ -1,0 +1,17 @@
+{
+ "location": "A rare drop from scythe-wielding Lesser Cleanrot Knights (not the sword-wielders). Best-known farm spot is just south of the Heart of Aeonia grace in Caelid; the same enemy type also appears later in Elphael, Brace of the Haligtree.",
+ "region": "Caelid (early/mid-game farm) or Elphael, Brace of the Haligtree (late-game alternative)",
+ "source": { "type": "enemy", "name": "Lesser Cleanrot Knight (scythe-wielding)" },
+ "tactics": [
+  "Rest at Heart of Aeonia grace, face west, and wait 8-10 seconds for a scythe-wielding Lesser Cleanrot Knight to patrol by",
+  "Only the scythe-wielders drop it — the nearby sword-wielding Cleanrot Knights do not, so target carefully",
+  "Kill, return to grace, repeat (~2% base drop chance) — a well-known grace-reset farm loop",
+  "Boost Discovery (Silver-Pickled Fowl Foot, Arcane, discovery talismans) to cut down the grind"
+ ],
+ "nearbyGraces": ["Heart of Aeonia"],
+ "lore": "A war-scythe once carried by commanders in Malenia's Cleanrot army, its half-halo blade echoing the shape of Miquella's Great Rune and dealing holy damage in her honor.",
+ "builds": [
+  { "name": "Dex/Faith hybrid", "why": "Scaling leans Dexterity first with a real secondary Faith investment worth building around for its Faith-scaling holy skill, Miquella's Ring of Light", "statFocus": "DEX / FAI" }
+ ],
+ "_verify": []
+}
