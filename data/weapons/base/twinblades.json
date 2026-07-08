@@ -1,0 +1,293 @@
+[
+ {
+  "id": "black-steel-twinblade",
+  "name": "Black Steel Twinblade",
+  "type": "Twinblade",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 18,
+   "DEX": 15,
+   "FAI": 13
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 274,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 80
+  },
+  "scaling": {
+   "STR": 38,
+   "DEX": 82,
+   "INT": 0,
+   "FAI": 54,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ],
+   "FAI": [
+    "holy"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "eleonora-s-poleblade",
+  "name": "Eleonora's Poleblade",
+  "type": "Twinblade",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 12,
+   "DEX": 21,
+   "ARC": 19
+  },
+  "weight": 6,
+  "passive": "Blood loss (55)",
+  "base": {
+   "physical": 176,
+   "magic": 0,
+   "fire": 176,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 18,
+   "DEX": 72,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 54
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ],
+   "ARC": [
+    "physical",
+    "fire"
+   ]
+  },
+  "status": {
+   "bleed": 55
+  },
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "euporia",
+  "name": "Euporia",
+  "type": "Twinblade",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 16,
+   "DEX": 16,
+   "FAI": 24
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 205,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 245
+  },
+  "scaling": {
+   "STR": 45,
+   "DEX": 45,
+   "INT": 0,
+   "FAI": 90,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ],
+   "FAI": [
+    "holy"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "gargoyle-s-black-blades",
+  "name": "Gargoyle's Black Blades",
+  "type": "Twinblade",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 18,
+   "DEX": 15,
+   "FAI": 22
+  },
+  "weight": 8.5,
+  "passive": null,
+  "base": {
+   "physical": 198,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 237
+  },
+  "scaling": {
+   "STR": 119,
+   "DEX": 18,
+   "INT": 0,
+   "FAI": 45,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ],
+   "FAI": [
+    "holy"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "gargoyle-s-twinblade",
+  "name": "Gargoyle's Twinblade",
+  "type": "Twinblade",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 18,
+   "DEX": 15
+  },
+  "weight": 8.5,
+  "passive": null,
+  "base": {
+   "physical": 301,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 99,
+   "DEX": 15,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "godskin-peeler",
+  "name": "Godskin Peeler",
+  "type": "Twinblade",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 17,
+   "DEX": 22
+  },
+  "weight": 8,
+  "passive": null,
+  "base": {
+   "physical": 296,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 29,
+   "DEX": 90,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "twinblade",
+  "name": "Twinblade",
+  "type": "Twinblade",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 10,
+   "DEX": 18
+  },
+  "weight": 7,
+  "passive": null,
+  "base": {
+   "physical": 291,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 52,
+   "DEX": 64,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "twinned-knight-swords",
+  "name": "Twinned Knight Swords",
+  "type": "Twinblade",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 16,
+   "DEX": 18
+  },
+  "weight": 8,
+  "passive": null,
+  "base": {
+   "physical": 298,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 81,
+   "DEX": 36,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ }
+]
