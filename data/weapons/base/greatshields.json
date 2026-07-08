@@ -1,0 +1,813 @@
+[
+ {
+  "id": "ant-s-skull-plate",
+  "name": "Ant's Skull Plate",
+  "type": "Greatshield",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 28
+  },
+  "weight": null,
+  "passive": "Poison (90)",
+  "base": {
+   "physical": 262,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 90,
+   "DEX": 0,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {
+   "poison": 90
+  },
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "black-steel-greatshield",
+  "name": "Black Steel Greatshield",
+  "type": "Greatshield",
+  "source": "base",
+  "category": "regular",
+  "infusable": true,
+  "requirements": {
+   "STR": 35
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 291,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 90,
+   "DEX": 0,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "briar-greatshield",
+  "name": "Briar Greatshield",
+  "type": "Greatshield",
+  "source": "base",
+  "category": "regular",
+  "infusable": true,
+  "requirements": {
+   "STR": 21
+  },
+  "weight": null,
+  "passive": "Blood loss (70)",
+  "base": {
+   "physical": 240,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 90,
+   "DEX": 0,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {
+   "bleed": 70
+  },
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "crossed-tree-towershield",
+  "name": "Crossed-Tree Towershield",
+  "type": "Greatshield",
+  "source": "base",
+  "category": "regular",
+  "infusable": true,
+  "requirements": {
+   "STR": 30
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 271,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 90,
+   "DEX": 0,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "crucible-hornshield",
+  "name": "Crucible Hornshield",
+  "type": "Greatshield",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 26
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 282,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 90,
+   "DEX": 0,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "cuckoo-greatshield",
+  "name": "Cuckoo Greatshield",
+  "type": "Greatshield",
+  "source": "base",
+  "category": "regular",
+  "infusable": true,
+  "requirements": {
+   "STR": 32
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 269,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 90,
+   "DEX": 0,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "distinguished-greatshield",
+  "name": "Distinguished Greatshield",
+  "type": "Greatshield",
+  "source": "base",
+  "category": "regular",
+  "infusable": true,
+  "requirements": {
+   "STR": 32
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 274,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 90,
+   "DEX": 0,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "dragon-towershield",
+  "name": "Dragon Towershield",
+  "type": "Greatshield",
+  "source": "base",
+  "category": "regular",
+  "infusable": true,
+  "requirements": {
+   "STR": 30
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 281,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 90,
+   "DEX": 0,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "dragonclaw-shield",
+  "name": "Dragonclaw Shield",
+  "type": "Greatshield",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 28,
+   "DEX": 12
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 227,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 147,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 72,
+   "DEX": 36,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical",
+    "lightning"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "eclipse-crest-greatshield",
+  "name": "Eclipse Crest Greatshield",
+  "type": "Greatshield",
+  "source": "base",
+  "category": "regular",
+  "infusable": true,
+  "requirements": {
+   "STR": 32
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 269,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 90,
+   "DEX": 0,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "erdtree-greatshield",
+  "name": "Erdtree Greatshield",
+  "type": "Greatshield",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 30,
+   "FAI": 12
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 229,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 149
+  },
+  "scaling": {
+   "STR": 90,
+   "DEX": 0,
+   "INT": 0,
+   "FAI": 54,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "FAI": [
+    "holy"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "fingerprint-stone-shield",
+  "name": "Fingerprint Stone Shield",
+  "type": "Greatshield",
+  "source": "base",
+  "category": "regular",
+  "infusable": true,
+  "requirements": {
+   "STR": 48
+  },
+  "weight": null,
+  "passive": "Madness (70)",
+  "base": {
+   "physical": 340,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 90,
+   "DEX": 0,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {
+   "madness": 70
+  },
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "gilded-greatshield",
+  "name": "Gilded Greatshield",
+  "type": "Greatshield",
+  "source": "base",
+  "category": "regular",
+  "infusable": true,
+  "requirements": {
+   "STR": 36
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 281,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 90,
+   "DEX": 0,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "golden-beast-crest-shield",
+  "name": "Golden Beast Crest Shield",
+  "type": "Greatshield",
+  "source": "base",
+  "category": "regular",
+  "infusable": true,
+  "requirements": {
+   "STR": 24
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 254,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 90,
+   "DEX": 0,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "golden-greatshield",
+  "name": "Golden Greatshield",
+  "type": "Greatshield",
+  "source": "base",
+  "category": "regular",
+  "infusable": true,
+  "requirements": {
+   "STR": 34
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 276,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 90,
+   "DEX": 0,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "haligtree-crest-greatshield",
+  "name": "Haligtree Crest Greatshield",
+  "type": "Greatshield",
+  "source": "base",
+  "category": "regular",
+  "infusable": true,
+  "requirements": {
+   "STR": 36
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 284,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 90,
+   "DEX": 0,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "icon-shield",
+  "name": "Icon Shield",
+  "type": "Greatshield",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 22
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 255,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 90,
+   "DEX": 0,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "inverted-hawk-towershield",
+  "name": "Inverted Hawk Towershield",
+  "type": "Greatshield",
+  "source": "base",
+  "category": "regular",
+  "infusable": true,
+  "requirements": {
+   "STR": 30
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 271,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 90,
+   "DEX": 0,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "jellyfish-shield",
+  "name": "Jellyfish Shield",
+  "type": "Greatshield",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 20,
+   "DEX": 14
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 236,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 90,
+   "DEX": 0,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "lordsworn-s-shield",
+  "name": "Lordsworn's Shield",
+  "type": "Greatshield",
+  "source": "base",
+  "category": "regular",
+  "infusable": true,
+  "requirements": {
+   "STR": 16
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 242,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 90,
+   "DEX": 0,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "manor-towershield",
+  "name": "Manor Towershield",
+  "type": "Greatshield",
+  "source": "base",
+  "category": "regular",
+  "infusable": true,
+  "requirements": {
+   "STR": 30
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 271,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 90,
+   "DEX": 0,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "one-eyed-shield",
+  "name": "One-Eyed Shield",
+  "type": "Greatshield",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 36
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 335,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 90,
+   "DEX": 0,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "redmane-greatshield",
+  "name": "Redmane Greatshield",
+  "type": "Greatshield",
+  "source": "base",
+  "category": "regular",
+  "infusable": true,
+  "requirements": {
+   "STR": 30
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 264,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 90,
+   "DEX": 0,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "spiked-palisade-shield",
+  "name": "Spiked Palisade Shield",
+  "type": "Greatshield",
+  "source": "base",
+  "category": "regular",
+  "infusable": true,
+  "requirements": {
+   "STR": 20
+  },
+  "weight": null,
+  "passive": "Blood loss (70)",
+  "base": {
+   "physical": 284,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 90,
+   "DEX": 0,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {
+   "bleed": 70
+  },
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "verdigris-greatshield",
+  "name": "Verdigris Greatshield",
+  "type": "Greatshield",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 49
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 372,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 90,
+   "DEX": 0,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "visage-shield",
+  "name": "Visage Shield",
+  "type": "Greatshield",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 44
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 356,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 90,
+   "DEX": 0,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "wooden-greatshield",
+  "name": "Wooden Greatshield",
+  "type": "Greatshield",
+  "source": "base",
+  "category": "regular",
+  "infusable": true,
+  "requirements": {
+   "STR": 14
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 232,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 90,
+   "DEX": 0,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ }
+]
