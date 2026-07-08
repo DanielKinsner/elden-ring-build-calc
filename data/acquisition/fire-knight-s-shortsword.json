@@ -1,0 +1,34 @@
+{
+ "location": "Not a fixed pickup — it's a rare (~4%) drop from dual-dagger-wielding Fire Knights in the Specimen Storehouse area of Shadow Keep. The most commonly recommended farming spot is the Fire Knight found just across the humped bridge northeast of the Storehouse, Seventh Floor Site of Grace; another dual-dagger Fire Knight can be found below the Storehouse, Loft grace.",
+ "region": "Shadow Keep",
+ "source": {
+  "type": "enemy",
+  "name": "Fire Knight (dual-shortsword/dagger variant)"
+ },
+ "tactics": [
+  "Only the dual-dagger/shortsword-wielding Fire Knight variant drops this weapon — the greatsword-wielding and incantation-casting Fire Knight variants elsewhere in Shadow Keep do not, so make sure you're farming the right one.",
+  "Drop rate is only about 4%, so plan to rest at the grace and re-approach the same Fire Knight repeatedly rather than expecting it on the first kill.",
+  "Fire Knights are aggressive melee fighters with fast combos and fire-infused attacks; fight them in the open rather than in tight corridors so you have room to dodge.",
+  "Storehouse, Seventh Floor grace is a short, direct run to the target enemy, making it a more efficient reset loop than the Loft grace alternative."
+ ],
+ "nearbyGraces": [
+  "Storehouse, Seventh Floor",
+  "Storehouse, Loft"
+ ],
+ "lore": "The blade is fashioned to flicker and ripple like a living flame, carrying a fire incantation woven directly into the steel. That built-in blessing means the sword's fire damage grows even further when paired with additional flame-boosting effects or infusions.",
+ "builds": [
+  {
+   "name": "Dex/Faith Flame Duelist",
+   "statFocus": "Dexterity + Faith",
+   "why": "Base (uninfused) scaling favors Dexterity most heavily (75) with strong secondary Faith (54) feeding its innate fire damage, suiting a fast dagger build that leans on Quickstep mobility and flame pressure rather than pure physical output."
+  },
+  {
+   "name": "Occult Arcane Bleed Off-hand",
+   "statFocus": "Arcane",
+   "why": "Reinfusing to Occult affinity shifts scaling almost entirely onto Arcane (167), turning it into a viable parry/bleed-proc off-hand pick for arcane-bleed builds despite its fire-flavored base kit."
+  }
+ ],
+ "_verify": [
+  "location"
+ ]
+}
