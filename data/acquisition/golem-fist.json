@@ -1,0 +1,29 @@
+{
+ "location": "NOT OBTAINABLE IN THE BASE GAME. This weapon is exclusive to the Shadow of the Erdtree DLC — it's a random drop from rock-throwing Golem Smith enemies at Taylew's Ruined Forge in Rauh Base, in the Land of Shadow. There is no base-game source.",
+ "region": "Rauh Base (Shadow of the Erdtree DLC — not a base-game region)",
+ "source": {
+  "type": "enemy",
+  "name": "Golem Smith (ranged/rock-throwing variant)"
+ },
+ "tactics": [
+  "Flag for the data owner: base/fists.json lists this as base-game content, but every source (wiki.gg and Fextralife) confirms it debuted in the Shadow of the Erdtree DLC with no base-game equivalent.",
+  "In the DLC, only golems that throw rocks (not the melee-only ones) can drop it, at roughly a 3% drop rate.",
+  "Farming benefits from higher Arcane or Item Discovery gear (e.g. Silver Scarab talisman)."
+ ],
+ "nearbyGraces": [],
+ "lore": "Described in-game as \"a giant fist of fractured rock,\" its smithscript engravings let the wielder launch the whole fist forward in one heavy punch.",
+ "builds": [
+  {
+   "name": "Heavy Strength brawler",
+   "why": "24 Str one-handed (16 two-handed) and 110 base physical damage make it one of the hardest-hitting pure-Strength fist weapons.",
+   "statFocus": "Strength"
+  }
+ ],
+ "_verify": [
+  "location",
+  "region",
+  "source",
+  "nearbyGraces",
+  "tactics"
+ ]
+}
