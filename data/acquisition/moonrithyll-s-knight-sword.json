@@ -1,0 +1,28 @@
+{
+ "location": "Drops from Moonrithyll, Carian Knight, an unmarked optional boss-tier enemy inside Castle Ensis on the Gravesite Plain, who guards the passage toward Rellana, Twin Moon Knight.",
+ "region": "Gravesite Plain",
+ "source": {
+  "type": "boss",
+  "name": "Moonrithyll, Carian Knight"
+ },
+ "tactics": [
+  "From the Castle Ensis Checkpoint site of grace, drop down the cliff to the south, cross to the far side of the closed gate via the ladder beside the river, then cross the bridge to reach her arena",
+  "She wields a colossal greatsword with slow but heavy overhead strikes, can summon a Glintblade Phalanx, and heals herself mid-fight, so don't let the fight drag on",
+  "Weak to Pierce and Lightning, and highly resistant to Slash, Magic, and status buildup (bleed, etc.) — she is also not parryable",
+  "Don't confuse her with Moongrum, Carian Knight, a similarly-named boss guarding Rennala's elevator back in the base game's Raya Lucaria — different fight, different region"
+ ],
+ "nearbyGraces": [
+  "Castle Ensis Checkpoint"
+ ],
+ "lore": "Set with a shard of blue glintstone, this greatsword was the signature weapon of Moonrithyll, an unwavering Carian knight who served as chamberlain to Rellana, Twin Moon Knight, and followed her into the Shadow Realm at the outset of Messmer's crusade.",
+ "builds": [
+  {
+   "name": "Str/Dex/Int quality-int hybrid",
+   "why": "D/D/D scaling identical to the base-game Troll Knight's Sword it's built from, but its unique Tremendous Phalanx skill launches homing magic blades for safe poke and stagger damage at range",
+   "statFocus": "STR / DEX / INT"
+  }
+ ],
+ "_verify": [
+  "nearbyGraces"
+ ]
+}

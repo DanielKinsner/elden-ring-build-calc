@@ -1,0 +1,29 @@
+{
+ "location": "Not a world pickup — dropped as the Remembrance of a God and a Lord by Promised Consort Radahn, the DLC's final boss, atop Enir-Ilim, then traded to Finger Reader Enia at Roundtable Hold. Enia offers one reward per remembrance copy: Greatsword of Radahn (Lord), Greatsword of Radahn (Light), or the Light of Miquella incantation — getting more than one in the same playthrough requires duplicating the remembrance at a Remembrance Duplication Coffin in the Realm of Shadow first.",
+ "region": "Enir-Ilim",
+ "source": {
+  "type": "boss",
+  "name": "Promised Consort Radahn (remembrance, redeemed at Roundtable Hold)"
+ },
+ "tactics": [
+  "Promised Consort Radahn's fog gate is directly up the stairs from the Divine Gate Front Staircase site of grace, near the top of Enir-Ilim",
+  "This is the DLC's mandatory final boss — a brutal two-phase fight combining Radahn's gravity-and-blade combos with Miquella's holy magic in phase two, so stack Scadutree Fragments before attempting it",
+  "At Enia, pick Greatsword of Radahn (Light) if you want the Lightspeed Slash skill's chargeable ranged Holy-beam follow-up rather than the (Lord) variant's pure melee combo",
+  "Defeating the boss also unlocks the Gate of Divinity grace just past the arena"
+ ],
+ "nearbyGraces": [
+  "Divine Gate Front Staircase",
+  "Gate of Divinity"
+ ],
+ "lore": "A pair of black-steel, lion-maned greatswords Radahn carried in his youth, before he ever leaned on gravity sorcery — proof his monstrous prowess began as pure swordsmanship. This copy is charged with a shard of Miquella's light, letting its wielder move faster than sight for an instant.",
+ "builds": [
+  {
+   "name": "Str/Dex/Int hybrid caster",
+   "why": "D/D/E scaling across Strength, Dexterity, and Intelligence; Lightspeed Slash's charged follow-up beams scale off Intelligence and deal Holy damage, rewarding INT investment beyond the bare minimum",
+   "statFocus": "STR / DEX / INT"
+  }
+ ],
+ "_verify": [
+  "tactics"
+ ]
+}

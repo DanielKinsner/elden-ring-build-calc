@@ -1,0 +1,32 @@
+{
+ "location": "A 4% random drop from Fire Knights who wield a greatsword (as opposed to the shortsword-carrying variant) on the upper levels of Shadow Keep, reached via the Storehouse/Church District. The most reliable target is the Fire Knight stationed right before the elevator up to the Storehouse, First Floor site of grace — it starts with its back turned, so it's a free backstab plus an easy grace-reset loop.",
+ "region": "Shadow Keep",
+ "source": {
+  "type": "enemy",
+  "name": "Fire Knight (greatsword-wielding variant)"
+ },
+ "tactics": [
+  "Only the greatsword-carrying Fire Knights drop this weapon — the shortsword-wielding ones on the lower floors carry something else, so double-check which one you're farming",
+  "Fastest loop: rest at Storehouse, First Floor grace, take the elevator down, backstab the Fire Knight waiting there (its back is turned), then reset at the grace and repeat",
+  "Alternate route: from Main Gate Plaza grace (after the Golden Hippo fight), take the stairs opposite the Fire Knight and open the shortcut door back toward the boss arena — hug the left wall to avoid pulling the nearby Shadow Militiamen",
+  "Equip an Item Discovery talisman (e.g. Silver Scarab) to speed up the ~4% drop rate"
+ ],
+ "nearbyGraces": [
+  "Storehouse, First Floor",
+  "Main Gate Plaza"
+ ],
+ "lore": "A long, wave-shaped blade issued to the Fire Knights of the Shadow Realm and consecrated with a flame incantation, so that every strike burns as much as it cuts.",
+ "builds": [
+  {
+   "name": "Quality/Faith fire hybrid",
+   "why": "D/D/D scaling across Strength, Dexterity, and Faith with room to infuse — the weapon carries innate fire damage even before an affinity change",
+   "statFocus": "STR / DEX / FAI"
+  },
+  {
+   "name": "Flame Art faith build",
+   "why": "Flame Art affinity dumps most of the scaling into Faith, pushing roughly 70% of its damage into fire and turning it into a near-incantation-grade colossal sword",
+   "statFocus": "FAI"
+  }
+ ],
+ "_verify": []
+}

@@ -1,0 +1,29 @@
+{
+ "location": "Not a world pickup — dropped as the Remembrance of a God and a Lord by Promised Consort Radahn, the DLC's final boss, atop Enir-Ilim, then traded to Finger Reader Enia at Roundtable Hold. Enia offers one reward per remembrance copy: Greatsword of Radahn (Lord), Greatsword of Radahn (Light), or the Light of Miquella incantation — getting more than one in the same playthrough requires duplicating the remembrance at a Remembrance Duplication Coffin in the Realm of Shadow first.",
+ "region": "Enir-Ilim",
+ "source": {
+  "type": "boss",
+  "name": "Promised Consort Radahn (remembrance, redeemed at Roundtable Hold)"
+ },
+ "tactics": [
+  "Promised Consort Radahn's fog gate is directly up the stairs from the Divine Gate Front Staircase site of grace, near the top of Enir-Ilim",
+  "This is the DLC's mandatory final boss — a brutal two-phase fight combining Radahn's gravity-and-blade combos with Miquella's holy magic in phase two, so stack Scadutree Fragments before attempting it",
+  "At Enia, pick Greatsword of Radahn (Lord) for the Promised Consort skill's three-hit melee combo (with Holy light pillars) if you plan to stay in close range, rather than the (Light) variant's ranged beam follow-up",
+  "Duplicate the remembrance at a Remembrance Duplication Coffin first if you also want the (Light) greatsword or the Light of Miquella incantation in the same playthrough"
+ ],
+ "nearbyGraces": [
+  "Divine Gate Front Staircase",
+  "Gate of Divinity"
+ ],
+ "lore": "The same black-steel, lion-maned pair Radahn wielded in his youth before he leaned on gravity magic. This copy is charged with Miquella's light, letting its wielder call down pillars of holy radiance as the promised consort standing beside his god.",
+ "builds": [
+  {
+   "name": "Str/Dex/Int melee combo build",
+   "why": "Same D/D/E scaling as the (Light) variant, but Promised Consort is a pure close-range three-hit combo plus Holy light pillars rather than a ranged beam, favoring builds that commit to melee trades",
+   "statFocus": "STR / DEX / INT"
+  }
+ ],
+ "_verify": [
+  "tactics"
+ ]
+}

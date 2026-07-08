@@ -1,0 +1,29 @@
+{
+ "location": "Inside the Ruined Forge of Starfall Past, a small dungeon in Scadu Altus — examine the altar on the dungeon's second level to obtain the sword plus an Ancient Dragon Smithing Stone. No boss guards it: pull the lever near the entrance to raise an iron door, then use that raised door as a platform to jump across to the altar room.",
+ "region": "Scadu Altus",
+ "source": {
+  "type": "chest",
+  "name": "Ruined Forge of Starfall Past — altar"
+ },
+ "tactics": [
+  "Scadu Altus only opens up after defeating Rellana, Twin Moon Knight at the end of Castle Ensis",
+  "The forge entrance sits southwest of Moorth — follow Moorth Highway south, then cut west; it's also visible from Castle Ensis's balcony",
+  "No boss fight, but Golem Smiths patrol the interior and lava pools cover much of the floor — watch your footing as much as the enemies",
+  "Pull the lever near the entrance first to raise the iron door, then jump onto it to bridge the gap up to the second-level altar"
+ ],
+ "nearbyGraces": [
+  "Ruined Forge of Starfall Past",
+  "Moorth Highway South"
+ ],
+ "lore": "Forged from a shard of an ancient meteoric arrowhead that was once part of the Golden Order's arsenal, this colossal blade tapers to a sharp point built more for thrusting than wide swings, still carrying a trace of the old gods' light within it.",
+ "builds": [
+  {
+   "name": "Strength/Arcane thrust build",
+   "why": "D Strength / E Dexterity / D Arcane scaling paired with an unusual piercing/thrust moveset for a colossal sword, plus the White Light Charge skill that detonates a magic-light explosion on a charged dash attack",
+   "statFocus": "STR / ARC"
+  }
+ ],
+ "_verify": [
+  "nearbyGraces"
+ ]
+}
