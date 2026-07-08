@@ -1,0 +1,33 @@
+{
+ "location": "Dropped by the Ancient Dragon-Man boss at the bottom of the Dragon's Pit cave dungeon in Gravesite Plain. The dungeon entrance is south-southwest of the Pillar Path Waypoint Site of Grace; the boss arena is deep in a candle-lit pit reached after passing an optional Magma Wyrm chamber.",
+ "region": "Gravesite Plain",
+ "source": {
+  "type": "boss",
+  "name": "Ancient Dragon-Man"
+ },
+ "tactics": [
+  "The Ancient Dragon-Man actually appears twice in the area — first as a field invader on the road south of Pillar Path Waypoint (near the NPC Igon), and again as the real boss at the bottom of Dragon's Pit. Only the dungeon boss fight drops the katana.",
+  "His most dangerous move is Dragonmaw, where he summons a giant disembodied dragon head that bites forward for massive damage — don't try to trade, just run away or get clear.",
+  "He dodge-rolls out of most punish windows since he has low poise/stamina; cornering him against a wall lets you combo more reliably, and he tries to chug a healing flask around 50% HP, which is a big punish window.",
+  "An optional Magma Wyrm occupies an upper chamber of the dungeon before the boss room — it is not the boss and can be avoided/skipped."
+ ],
+ "nearbyGraces": [
+  "Pillar Path Waypoint",
+  "Dragon's Pit",
+  "Dragon's Pit Terminus"
+ ],
+ "lore": "This katana belonged to the Ancient Dragon-Man, once a Dragon Communion warrior who served as arbiter over who was fit to face the Dread Dragon. Its stone-spined blade and bonus damage against dragons reflect its original purpose as a dedicated dragon-hunting weapon.",
+ "builds": [
+  {
+   "name": "Quality Bleed Hybrid",
+   "statFocus": "STR/DEX (even split, 67/67 scaling)",
+   "why": "Its scaling is identical on both Strength and Dexterity, so raising both stats evenly maximizes attack rating while still applying its heavy innate bleed buildup."
+  },
+  {
+   "name": "Dragon-slayer novelty pick",
+   "statFocus": "STR/DEX quality",
+   "why": "Carries bonus damage vs Dragons and Ancient Dragons, making it a thematic (if situational) choice against the DLC's dragon-heavy boss roster."
+  }
+ ],
+ "_verify": []
+}

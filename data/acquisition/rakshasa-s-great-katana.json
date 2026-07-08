@@ -1,0 +1,28 @@
+{
+ "location": "Dropped by the boss Rakshasa inside the Eastern Nameless Mausoleum, a small enclosed tomb tucked under a cliff overhang at a waterfall along Recluses' River. From Recluses' River Downstream Site of Grace, follow the river/cliffside path to the mausoleum entrance.",
+ "region": "Scadu Altus",
+ "source": {
+  "type": "boss",
+  "name": "Rakshasa"
+ },
+ "tactics": [
+  "Do not confuse this with the Western Nameless Mausoleum elsewhere in Scadu Altus — that is a different location entirely; only the Eastern one holds Rakshasa.",
+  "Reaching Recluses' River requires dropping down via the coffin/ladder route from Shadow Keep down to Castle Watering Hole, then working south along the river to the Downstream grace before continuing to the mausoleum.",
+  "Rakshasa has hyper armor on nearly all her attacks, so light pokes won't stagger her, and her combos can chunk or one-shot low-vigor characters — all attacks except her Leaping Slash are parryable, making a parry-focused approach much safer than trading blows.",
+  "She is weak to Lightning and highly resistant to Bleed, Poison, Rot, and Frost, so status-bleed builds underperform here; she cannot be summoned against with Spirit Ashes, though co-op summons are allowed."
+ ],
+ "nearbyGraces": [
+  "Recluses' River Downstream"
+ ],
+ "lore": "The blade's tempering pattern is permanently stained red, marking it as belonging to Rakshasa, a devouring, berserker-like spirit. It is built for a fighting style that shrugs off incoming hits and answers with relentless, sweeping offense rather than careful defense.",
+ "builds": [
+  {
+   "name": "Pure Dexterity Bleed",
+   "statFocus": "DEX-heavy (110 DEX scaling, only 12 STR required)",
+   "why": "Near-total Dexterity scaling with a very low Strength requirement makes it a premier pure-DEX bleed stick, especially since its skill and affinity are fixed and cannot be changed."
+  }
+ ],
+ "_verify": [
+  "tactics"
+ ]
+}

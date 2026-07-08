@@ -1,0 +1,25 @@
+{
+ "location": "Lying on a corpse in the shallow lake on northern Gravesite Plain, directly in front of a sleeping (inactive) Ghostflame Dragon. It sits west of the Abandoned Ailing Village Site of Grace — no fight is required, you can walk up and grab it, then leave without waking the dragon.",
+ "region": "Gravesite Plain",
+ "source": {
+  "type": "drop",
+  "name": "Corpse beside the sleeping Ghostflame Dragon (world pickup, no fight required)"
+ },
+ "tactics": [
+  "You do NOT need to defeat the Ghostflame Dragon guarding the spot — it's asleep, and the weapon is simply lying on a corpse nearby; grab it and retreat if you don't want the fight.",
+  "Approach carefully if you want to avoid aggroing the dragon; sprinting straight through the water can wake it.",
+  "Comes pre-equipped with the Ash of War Overhead Stance, which is otherwise unavailable on this weapon since it's the only one of the three Great Katanas that can be reforged/infused with a different affinity."
+ ],
+ "nearbyGraces": [
+  "Abandoned Ailing Village"
+ ],
+ "lore": "A large, heavy-bladed katana associated with warriors of a homeland called the Land of Reeds. It rewards committing your whole body into each swing rather than finesse, and its slashes build blood loss.",
+ "builds": [
+  {
+   "name": "Dexterity Bleed",
+   "statFocus": "DEX-primary (75 DEX scaling vs 45 STR)",
+   "why": "DEX scaling far outweighs STR, so a DEX-focused bleed build extracts the most attack rating; being infusable also lets it take Occult or other affinities for status-stacking builds."
+  }
+ ],
+ "_verify": []
+}
