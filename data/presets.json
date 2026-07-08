@@ -1,0 +1,37 @@
+{
+  "_comment": "Build presets for the UI. `stats` are attribute levels; `loadout` is an optional default weapon/affinity/upgrade to select with the preset.",
+  "presets": [
+    {
+      "id": "vera-aletheia",
+      "name": "Vera Aletheia",
+      "description": "Dan's samurai — Dex/Arcane bleed, two-handed Rivers of Blood.",
+      "stats": { "VIG": 60, "MND": 20, "END": 30, "STR": 24, "DEX": 58, "INT": 9, "FAI": 15, "ARC": 40 },
+      "twoHanded": true,
+      "loadout": { "weaponId": "rivers-of-blood", "affinity": "Standard", "upgradeLevel": 10 }
+    },
+    {
+      "id": "quality",
+      "name": "Quality",
+      "description": "Balanced Strength/Dexterity — flexible across most weapons.",
+      "stats": { "VIG": 60, "MND": 12, "END": 30, "STR": 55, "DEX": 55, "INT": 9, "FAI": 9, "ARC": 9 },
+      "twoHanded": false,
+      "loadout": { "weaponId": "uchigatana", "affinity": "Quality", "upgradeLevel": 25 }
+    },
+    {
+      "id": "dex-faith",
+      "name": "Dex Faith",
+      "description": "Dexterity + Faith — sacred/lightning infusions and incantation support.",
+      "stats": { "VIG": 60, "MND": 20, "END": 25, "STR": 16, "DEX": 55, "INT": 9, "FAI": 45, "ARC": 9 },
+      "twoHanded": false,
+      "loadout": { "weaponId": "uchigatana", "affinity": "Sacred", "upgradeLevel": 25 }
+    },
+    {
+      "id": "arcane-bleed",
+      "name": "Arcane Bleed",
+      "description": "Dexterity + Arcane — occult/blood infusions, maximum hemorrhage.",
+      "stats": { "VIG": 60, "MND": 15, "END": 25, "STR": 18, "DEX": 45, "INT": 9, "FAI": 9, "ARC": 55 },
+      "twoHanded": false,
+      "loadout": { "weaponId": "rivers-of-blood", "affinity": "Standard", "upgradeLevel": 10 }
+    }
+  ]
+}
