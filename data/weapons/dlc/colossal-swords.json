@@ -1,0 +1,213 @@
+[
+ {
+  "id": "ancient-meteoric-ore-greatsword",
+  "name": "Ancient Meteoric Ore Greatsword",
+  "type": "Colossal Sword",
+  "source": "dlc",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 35,
+   "DEX": 10,
+   "ARC": 19
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 377,
+   "magic": 112,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 90,
+   "DEX": 9,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 47
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ],
+   "ARC": [
+    "physical",
+    "magic"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "fire-knight-s-greatsword",
+  "name": "Fire Knight's Greatsword",
+  "type": "Colossal Sword",
+  "source": "dlc",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 22,
+   "DEX": 18,
+   "FAI": 12
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 360,
+   "magic": 0,
+   "fire": 107,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 42,
+   "DEX": 70,
+   "INT": 0,
+   "FAI": 45,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ],
+   "FAI": [
+    "fire"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "greatsword-of-radahn-light",
+  "name": "Greatsword of Radahn (Light)",
+  "type": "Colossal Sword",
+  "source": "dlc",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 32,
+   "DEX": 24,
+   "INT": 15
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 311,
+   "magic": 200,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 81,
+   "DEX": 65,
+   "INT": 36,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ],
+   "INT": [
+    "magic"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "greatsword-of-radahn-lord",
+  "name": "Greatsword of Radahn (Lord)",
+  "type": "Colossal Sword",
+  "source": "dlc",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 32,
+   "DEX": 24,
+   "INT": 15
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 311,
+   "magic": 200,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 81,
+   "DEX": 65,
+   "INT": 36,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ],
+   "INT": [
+    "magic"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "moonrithyll-s-knight-sword",
+  "name": "Moonrithyll's Knight Sword",
+  "type": "Colossal Sword",
+  "source": "dlc",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 20,
+   "DEX": 14,
+   "INT": 18
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 303,
+   "magic": 196,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 81,
+   "DEX": 81,
+   "INT": 54,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ],
+   "INT": [
+    "magic"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ }
+]
