@@ -1,0 +1,25 @@
+{
+ "location": "On the ground behind a building in the far west of Academy Gate Town, in Liurnia of the Lakes — just before and to the left of the bridge leading to the locked main gate of the Academy of Raya Lucaria.",
+ "region": "Liurnia of the Lakes",
+ "source": {
+  "type": "drop",
+  "name": "Ground item behind a building, Academy Gate Town"
+ },
+ "tactics": [
+  "Academy Gate Town is a partially sunken settlement crawling with Land Octopi and scarabs — approach the western buildings carefully rather than beelining across open water.",
+  "The pickup sits just short of the bridge to the Academy's locked main gate, which itself needs the Academy Glintstone Key questline to open — you don't need that key for this shield.",
+  "It's easy to walk right past this corner of town if you're focused on the bridge ahead — hug the western building line instead."
+ ],
+ "nearbyGraces": [
+  "Academy Gate Town"
+ ],
+ "lore": "A light wooden roundshield reinforced with metal bands, valued for being easy to handle even though it can't block as much as a true metal shield. Its design is meant to evoke a starry night sky said to foretell fate.",
+ "builds": [
+  {
+   "name": "Early Strength parry shield",
+   "statFocus": "Strength",
+   "why": "Only requires 8 Strength with no other stat investment, making it a viable, weightless-feeling off-hand block/parry option for almost any early build."
+  }
+ ],
+ "_verify": []
+}

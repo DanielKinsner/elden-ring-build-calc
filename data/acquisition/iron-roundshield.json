@@ -1,0 +1,24 @@
+{
+ "location": "Purchased from a Nomadic Merchant sitting beneath a collapsed structure southeast of Coastal Cave, in western Limgrave, for 900 Runes.",
+ "region": "Limgrave",
+ "source": {
+  "type": "merchant",
+  "name": "Nomadic Merchant (southeast of Coastal Cave)"
+ },
+ "tactics": [
+  "The merchant is outside Coastal Cave, not inside it — you don't need to clear the cave's dungeon (or its Erdtree Burial Watchdog boss) to buy this shield.",
+  "It has no passive effect, making it a safe, no-frills baseline block/parry shield rather than a build-defining pick."
+ ],
+ "nearbyGraces": [
+  "Coastal Cave"
+ ],
+ "lore": "A plain iron roundshield, heavier to carry than a wooden one but offering noticeably better damage negation in return.",
+ "builds": [
+  {
+   "name": "Generic Strength off-hand",
+   "statFocus": "Strength",
+   "why": "Pure Strength scaling with solid all-around negation and no passive makes it a fine placeholder shield for any early Strength-based build."
+  }
+ ],
+ "_verify": []
+}

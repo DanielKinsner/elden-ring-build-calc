@@ -1,0 +1,28 @@
+{
+ "location": "Inside a chest in a hidden cellar beneath the southernmost building of the Demi-Human Forest Ruins, Weeping Peninsula — before reaching the ruin's main structure (where a Demi-Human Chief mini-boss waits), find a gap in the exterior wall and jump or ride Torrent over it to reach stairs leading down into the cellar.",
+ "region": "Weeping Peninsula",
+ "source": {
+  "type": "chest",
+  "name": "Chest in cellar, Demi-Human Forest Ruins"
+ },
+ "tactics": [
+  "The cellar entrance is easy to miss — it's a gap in the outer wall reached by jumping over it, not a door through the main building.",
+  "You do not need to fight the Demi-Human Chief mini-boss in the main ruin building to reach this chest.",
+  "The shield inflicts Blood Loss buildup on hits, and that buildup scales further with Blood or Occult affinity plus Arcane investment."
+ ],
+ "nearbyGraces": [
+  "South of the Lookout Tower",
+  "Church of Pilgrimage"
+ ],
+ "lore": "A shield made to venerate a maiden whose eyes were crushed by the Briars of Sin before she was reborn in the Lands Between — carrying it grants the wielder a touch of extra focus.",
+ "builds": [
+  {
+   "name": "Bleed/Arcane off-hand",
+   "statFocus": "Strength with Arcane bleed scaling",
+   "why": "Built-in Blood Loss buildup that improves further with Blood or Occult affinity and Arcane investment makes it a strong companion piece for a bleed-focused build."
+  }
+ ],
+ "_verify": [
+  "nearbyGraces"
+ ]
+}

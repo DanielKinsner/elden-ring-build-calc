@@ -1,0 +1,26 @@
+{
+ "location": "Dropped by Perfumer enemies. In the base game, farmable from Perfumers patrolling or sitting near the Perfumer's Grotto Site of Grace in Altus Plateau, or from three Depraved Perfumers near the Shaded Castle Inner Gate Site of Grace, also in Altus Plateau.",
+ "region": "Altus Plateau",
+ "source": {
+  "type": "enemy",
+  "name": "Perfumer / Depraved Perfumer"
+ },
+ "tactics": [
+  "Drop rate is only around 2% per kill, so expect to rest and re-kill several times at either farm spot.",
+  "At Perfumer's Grotto, both the Perfumer patrolling the lower area and the one seated by a Giant Miranda Sprout can drop it — you don't need to fight the dungeon's Miranda the Blighted Bloom miniboss just to farm this.",
+  "The Depraved Perfumers at Shaded Castle Inner Gate throw poison/scarlet rot bombs from range — close the distance quickly or pick them off from range yourself."
+ ],
+ "nearbyGraces": [
+  "Perfumer's Grotto",
+  "Shaded Castle Inner Gate"
+ ],
+ "lore": "A gilded shield once issued to the perfumers of Leyndell for military service — light enough for even the physically weak to wield, and it grants added resistance to poison and rot.",
+ "builds": [
+  {
+   "name": "Low-Strength poison/rot resistant off-hand",
+   "statFocus": "Strength",
+   "why": "Extremely light at 1.5 weight with only 8 Strength required and a built-in Immunity boost, it suits low-Strength casters who still want cheap poison/rot protection."
+  }
+ ],
+ "_verify": []
+}

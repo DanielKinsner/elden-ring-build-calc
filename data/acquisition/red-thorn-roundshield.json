@@ -1,0 +1,24 @@
+{
+ "location": "Starting equipment for the Samurai class. Also sold by the Nomadic Merchant stationed at the Castle Morne Rampart Site of Grace, southern Weeping Peninsula, for 600 Runes.",
+ "region": "Weeping Peninsula",
+ "source": {
+  "type": "merchant",
+  "name": "Nomadic Merchant (Castle Morne Rampart)"
+ },
+ "tactics": [
+  "The merchant sits right at the Castle Morne Rampart grace, the same staging point you use before pushing into Castle Morne and its Leonine Misbegotten boss.",
+  "Samurai characters already start with this equipped, so it's mainly other classes who need to make the trip to buy it."
+ ],
+ "nearbyGraces": [
+  "Castle Morne Rampart"
+ ],
+ "lore": "A wooden roundshield bearing an old thorn motif. It's unremarkable as protection, but carries slightly better fire resistance than most wooden shields.",
+ "builds": [
+  {
+   "name": "Budget fire-resistant parry shield",
+   "statFocus": "Strength",
+   "why": "Above-average fire negation for a wooden shield makes it a cheap early pick for a Strength/Dexterity build heading through fire-heavy areas like Mt. Gelmir."
+  }
+ ],
+ "_verify": []
+}

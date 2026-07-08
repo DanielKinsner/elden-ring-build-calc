@@ -1,0 +1,25 @@
+{
+ "location": "Inside Gaol Cave, Caelid — the entrance is sealed behind an imp statue requiring 2 Stonesword Keys. Past the lever that unlocks the cell doors, drop down and enter the first opened cell on the north side; the shield lies on a corpse alongside the Old Fang curved sword.",
+ "region": "Caelid",
+ "source": {
+  "type": "drop",
+  "name": "Corpse in unlocked cell, Gaol Cave"
+ },
+ "tactics": [
+  "Bring 2 Stonesword Keys before heading here — the entrance seal won't open without them.",
+  "The lever near the entrance unlocks several cells at once, and the Pillory Shield's cell also contains the Old Fang curved sword — grab both while inside.",
+  "Gaol Cave itself is fairly low-threat once past the sealed door, even though the surrounding Caelid region is dangerous for low-level characters."
+ ],
+ "nearbyGraces": [
+  "Gaol Cave"
+ ],
+ "lore": "A wooden pillory once used to shackle and publicly punish serious criminals, crudely repurposed as a shield — sturdy enough to block with, but really just a makeshift tool rather than proper war gear.",
+ "builds": [
+  {
+   "name": "Budget Strength tank shield",
+   "statFocus": "Strength",
+   "why": "Solid raw block stats for only 10 Strength make it a cheap, thematic off-hand for a tanky early Strength build exploring Caelid."
+  }
+ ],
+ "_verify": []
+}

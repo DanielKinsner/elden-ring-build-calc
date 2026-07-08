@@ -1,0 +1,26 @@
+{
+ "location": "Rare drop from sword-and-shield-wielding Man-Serpents in and around Volcano Manor, Mt. Gelmir. A commonly used farm spot is the single Man-Serpent patrolling just outside the Guest Hall Site of Grace; another is the Man-Serpent found west of Prison Town Church.",
+ "region": "Mt. Gelmir",
+ "source": {
+  "type": "enemy",
+  "name": "Man-Serpent (sword-and-shield variant)"
+ },
+ "tactics": [
+  "Drop rate is low (roughly 3–4%) — resting at Guest Hall and repeatedly killing the one nearby patrolling Man-Serpent is one of the faster resets.",
+  "Only the sword-and-shield Man-Serpents can drop this — the spear- and Magma Blade-wielding variants elsewhere in the dungeon cannot.",
+  "Don't confuse it with the visually similar Smoldering Shield, which is a static ground pickup on the same dungeon level rather than an enemy drop."
+ ],
+ "nearbyGraces": [
+  "Guest Hall",
+  "Prison Town Church"
+ ],
+ "lore": "A small domed copper shield carried by the man-serpents native to Mt. Gelmir. Said to have been tempered in lava, it grants strong resistance to fire.",
+ "builds": [
+  {
+   "name": "Fire-resistant Strength tank",
+   "statFocus": "Strength",
+   "why": "Second-highest fire negation of any small shield behind only the Smoldering Shield, making it a strong pick for surviving Volcano Manor and the Rykard fight."
+  }
+ ],
+ "_verify": []
+}

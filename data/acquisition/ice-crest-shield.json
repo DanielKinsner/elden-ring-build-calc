@@ -1,0 +1,27 @@
+{
+ "location": "On a corpse on a rocky outcropping near a Sorcery Scarab, along the right-hand wall shortly after entering Caria Manor in northern Liurnia of the Lakes.",
+ "region": "Liurnia of the Lakes",
+ "source": {
+  "type": "drop",
+  "name": "Corpse near Sorcery Scarab, Caria Manor entrance"
+ },
+ "tactics": [
+  "Fingercreepers (grasping, spider-like hands) ambush along the same wall on the way in — fight them in the open rather than letting them corner and grab you.",
+  "Caria Manor is reachable early via a hidden tunnel connecting Limgrave and Liurnia, so low-level characters can grab this shield well ahead of the manor's normal progression point.",
+  "A Sorcery Scarab (a crafting pickup) sits right beside the shield's corpse — easy to grab both at once."
+ ],
+ "nearbyGraces": [
+  "Main Caria Manor Gate"
+ ],
+ "lore": "A frost-touched crest said to originate with a Carian princess. Its enchantment is faint, but it grants extra magic damage negation along with resistance to frost.",
+ "builds": [
+  {
+   "name": "Magic-resistant caster off-hand",
+   "statFocus": "Strength",
+   "why": "Only 9 Strength required alongside the best magic negation of any small shield makes it a strong pick for casters worried about mage matchups without wanting to invest in a block stat."
+  }
+ ],
+ "_verify": [
+  "nearbyGraces"
+ ]
+}

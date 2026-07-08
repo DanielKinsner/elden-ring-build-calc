@@ -1,0 +1,26 @@
+{
+ "location": "Starting equipment for the Prophet class. Also an uncommon drop (about 2%) from sword-and-shield demi-humans found across several regions — a reliable base-game farm spot is the group of four demi-humans found between the Forest Lookout Tower and South of the Lookout Tower Sites of Grace in Weeping Peninsula. Another group carrying it sits on a cliff guarded by a Rune Bear, northwest of Mistwood Ruins in Limgrave.",
+ "region": "Weeping Peninsula",
+ "source": {
+  "type": "enemy",
+  "name": "Sword-and-shield Demi-Human"
+ },
+ "tactics": [
+  "The Weeping Peninsula camp has four demi-humans fighting together, several carrying this shield — expect a small group fight, not a lone enemy.",
+  "The Limgrave alternative near Mistwood is guarded by a Rune Bear, a much bigger threat than the demi-human corpses sitting near it.",
+  "At 1.0 weight, it's the lightest small shield in the game — its appeal is equip-load efficiency, not its block stats."
+ ],
+ "nearbyGraces": [
+  "Forest Lookout Tower",
+  "South of the Lookout Tower"
+ ],
+ "lore": "A creaky old wooden shield crudely bound together with vines. The item's own in-game text jokes that it's barely worth equipping given how many better shields are readily available.",
+ "builds": [
+  {
+   "name": "Featherweight parry build",
+   "statFocus": "Strength",
+   "why": "Its negligible 1.0 weight makes it ideal for a dagger/bleed dual-wield build that wants a Parry option without sacrificing much equip load."
+  }
+ ],
+ "_verify": []
+}

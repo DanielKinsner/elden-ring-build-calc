@@ -1,0 +1,25 @@
+{
+ "location": "Starting equipment for the Astrologer class. Also an uncommon drop (about 2%) from scimitar-and-shield Skeletons found in several catacombs; most easily farmed at Deathtouched Catacombs in Limgrave, where one Skeleton stands just past the entrance grace and another near the second staircase.",
+ "region": "Limgrave",
+ "source": {
+  "type": "enemy",
+  "name": "Skeleton (scimitar-and-shield variant)"
+ },
+ "tactics": [
+  "These skeletons can resurrect once knocked down unless you land a follow-up hit or use a holy-infused weapon — don't turn your back on a 'dead' one too soon.",
+  "The same shield-carrying skeleton type also appears in Auriza Hero's Grave, Black Knife Catacombs, Gelmir Hero's Grave, Tombsward Catacombs, and Stone Coffin Fissure, so any of those work as alternate farm spots.",
+  "You don't need to reach Deathtouched Catacombs' boss, the Erdtree Burial Watchdog, to farm the skeletons near the entrance."
+ ],
+ "nearbyGraces": [
+  "Deathtouched Catacombs"
+ ],
+ "lore": "A small wooden roundshield etched with ancient cipher markings around its rim — the engravings grant a modest boost to holy damage negation despite the shield's otherwise humble construction.",
+ "builds": [
+  {
+   "name": "Holy-resistant Strength shield",
+   "statFocus": "Strength",
+   "why": "Best holy negation among the plain wooden shields for only 8 Strength, useful early protection against undead and holy-damage enemies."
+  }
+ ],
+ "_verify": []
+}

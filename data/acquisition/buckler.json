@@ -1,0 +1,27 @@
+{
+ "location": "Sold by Gatekeeper Gostoc, who sets up shop in the gatehouse room beside Stormveil Castle's main entrance — but only after Godrick the Grafted has been defeated. Price is 1,500 Runes. It is also the starting shield for the Bandit class.",
+ "region": "Limgrave (Stormveil Castle)",
+ "source": {
+  "type": "merchant",
+  "name": "Gatekeeper Gostoc"
+ },
+ "tactics": [
+  "Gostoc initially only talks to you near the main gate and won't sell anything — you must beat Godrick the Grafted at the top of the castle before he reappears in the gatehouse as a merchant.",
+  "If you killed Gostoc earlier instead of sparing him, his Bell Bearing can be handed to the Twin Maidens at Roundtable Hold to unlock the same wares there.",
+  "The Buckler comes with its own innate Buckler Parry skill (0 FP), which recovers slightly faster than the standard dagger Parry — useful if you're building around parries."
+ ],
+ "nearbyGraces": [
+  "Stormveil Main Gate"
+ ],
+ "lore": "A small metal roundshield with a raised boss at its center built specifically for parrying — a well-timed block with it staggers an attacker and opens them up for a critical riposte.",
+ "builds": [
+  {
+   "name": "Dexterity parry build",
+   "statFocus": "Dexterity",
+   "why": "Its scaling leans heavily Dexterity over Strength, and its built-in fast parry skill makes it the go-to shield for players who want to parry without relying on a dagger."
+  }
+ ],
+ "_verify": [
+  "nearbyGraces"
+ ]
+}

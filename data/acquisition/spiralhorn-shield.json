@@ -1,0 +1,25 @@
+{
+ "location": "On a corpse hanging off a cliff south of a Wandering Mausoleum's pond, near Uld Palace Ruins in northern Liurnia of the Lakes. From the Ruined Labyrinth Site of Grace, head north to the Mausoleum, then follow the cliff edge to the left/south.",
+ "region": "Liurnia of the Lakes",
+ "source": {
+  "type": "drop",
+  "name": "Corpse on cliff ledge, Uld Palace Ruins"
+ },
+ "tactics": [
+  "The nearby Wandering Mausoleum is a mobile mini-dungeon/boss encounter — you don't need to fight it, just use it as a landmark to find the ledge.",
+  "Watch your footing near the cliff edge while grabbing the corpse; a misstep means a long fall.",
+  "Its Blood Loss passive scales further with Blood or Occult affinity and Arcane investment, similar to the Shield of the Guilty."
+ ],
+ "nearbyGraces": [
+  "Ruined Labyrinth"
+ ],
+ "lore": "A small shield built from antlers arranged in a spiraling, eddy-like pattern, once given to a Tarnished warrior who had grown close to the ancestral spirit-followers of that lineage.",
+ "builds": [
+  {
+   "name": "Bleed/Arcane off-hand",
+   "statFocus": "Strength/Dexterity with Arcane bleed scaling",
+   "why": "Built-in Blood Loss buildup with Arcane-affinity scaling, plus a Dexterity requirement, suits a bleed-focused Dex/Arcane build wanting an on-theme off-hand."
+  }
+ ],
+ "_verify": []
+}

@@ -1,0 +1,25 @@
+{
+ "location": "On a corpse near tombstones in the Prison Town graveyard, at lava level inside Volcano Manor, Mt. Gelmir. From the Prison Town Church Site of Grace, exit and cross several rooftops (past a long-necked serpent) down to ground level, then continue to the graveyard.",
+ "region": "Mt. Gelmir",
+ "source": {
+  "type": "drop",
+  "name": "Corpse in graveyard, Volcano Manor (Prison Town)"
+ },
+ "tactics": [
+  "The route involves several sequential rooftop drops — go slowly, since a wrong drop can send you to a different part of Prison Town or near lava hazards.",
+  "It requires Strength, Dexterity, and Faith simultaneously, one of the few small shields with a triple-stat requirement.",
+  "Don't confuse it with the visually similar Man-Serpent's Shield, which drops from enemies elsewhere in the same dungeon rather than being a static ground pickup."
+ ],
+ "nearbyGraces": [
+  "Prison Town Church"
+ ],
+ "lore": "A small shield said to be forged from lava that never fully cooled. Its lingering heat grants both an innate fire attack and resistance to frost and blood loss.",
+ "builds": [
+  {
+   "name": "Faith/fire hybrid off-hand",
+   "statFocus": "Faith with Strength support",
+   "why": "Faith scaling drives both its physical and fire attack via elemental scaling, and its Shield Bash skill gives a Faith-based build an active fire option instead of pure blocking."
+  }
+ ],
+ "_verify": []
+}

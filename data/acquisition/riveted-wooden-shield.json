@@ -1,0 +1,24 @@
+{
+ "location": "Starting equipment for the Warrior class. Also sold by the Nomadic Merchant camped in Mistwood, east Limgrave, near Fort Haight, for 600 Runes.",
+ "region": "Limgrave",
+ "source": {
+  "type": "merchant",
+  "name": "Nomadic Merchant (Mistwood, near Fort Haight)"
+ },
+ "tactics": [
+  "The merchant sits along the road north of the Fort Haight West grace — easy to pick up alongside other early Mistwood business, such as starting the Bloodhound's Fang quest chain.",
+  "It has no passive effect, so treat it as filler until you find a shield with a bonus that matters for your build."
+ ],
+ "nearbyGraces": [
+  "Fort Haight West"
+ ],
+ "lore": "A small wooden roundshield reinforced with metal rivets, its central emblem meant to represent both blade and tree together.",
+ "builds": [
+  {
+   "name": "Generic Strength starter shield",
+   "statFocus": "Strength",
+   "why": "Cheap 8 Strength requirement and solid baseline negation make it a fine no-frills block option in the opening hours."
+  }
+ ],
+ "_verify": []
+}

@@ -1,0 +1,25 @@
+{
+ "location": "On a corpse in the small graveyard just west of the Church of Pilgrimage, at the northern tip of Weeping Peninsula — from the Sacred Tear body inside the church, head almost due west to the westernmost grave.",
+ "region": "Weeping Peninsula",
+ "source": {
+  "type": "drop",
+  "name": "Corpse in graveyard, Church of Pilgrimage"
+ },
+ "tactics": [
+  "The Church of Pilgrimage also holds a Sacred Tear (a permanent flask-boosting item) on a body inside — grab both in the same stop.",
+  "No enemies guard the graveyard itself, so this is a safe, quick early pickup.",
+  "It looks and plays almost identically to the Iron Roundshield sold by a Limgrave merchant — the main difference is its noticeably better holy damage negation."
+ ],
+ "nearbyGraces": [
+  "Church of Pilgrimage"
+ ],
+ "lore": "An ordinary iron roundshield dressed up with a layer of gold leaf. Most of the gilding has flaked away and its effect is faint, but it still grants a bit of extra holy damage negation.",
+ "builds": [
+  {
+   "name": "Holy-resistant Strength shield",
+   "statFocus": "Strength",
+   "why": "Pure Strength scaling with the best holy negation among the plain metal shields makes it a solid early pick against holy-damage clerics and undead."
+  }
+ ],
+ "_verify": []
+}

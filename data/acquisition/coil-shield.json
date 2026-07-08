@@ -1,0 +1,25 @@
+{
+ "location": "On a corpse inside Volcano Cave, Mt. Gelmir — from the Ninth Mt. Gelmir Campsite Site of Grace, enter the large chamber ahead and take the right-hand (northwest) tunnel to its end, drop down onto a small ledge, then follow the tunnel into a room where the shield lies on a body.",
+ "region": "Mt. Gelmir",
+ "source": {
+  "type": "drop",
+  "name": "Corpse guarded by demi-humans, Volcano Cave"
+ },
+ "tactics": [
+  "Four demi-humans ambush around the corpse, two of them wielding heavy spiked clubs that hit hard — try to pull them into the connecting tunnel rather than fighting all four in the open room.",
+  "This is a Somber-upgrade weapon, so it cannot take a regular Ashes of War infusion, but it comes with its own Viper Bite skill for a poison burst attack.",
+  "Don't confuse the minor dungeon Volcano Cave with the much larger Volcano Manor legacy dungeon elsewhere in Mt. Gelmir — different location, different loot."
+ ],
+ "nearbyGraces": [
+  "Ninth Mt. Gelmir Campsite"
+ ],
+ "lore": "A showy bronze shield made for gladiatorial combat, cast in the shape of a coiled, venomous snake — carrying it boosts the wielder's own resistance to poison.",
+ "builds": [
+  {
+   "name": "Poison proc off-hand",
+   "statFocus": "Strength",
+   "why": "The innate Viper Bite skill applies a heavy poison buildup on demand, giving a pure Strength build a way to inflict poison without needing a separate infused weapon."
+  }
+ ],
+ "_verify": []
+}

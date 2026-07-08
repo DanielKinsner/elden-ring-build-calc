@@ -1,0 +1,24 @@
+{
+ "location": "Starting equipment for the Prisoner class. Also sold by a Nomadic Merchant found on a path beneath Bellum Church, in northern Liurnia of the Lakes, for 1,800 Runes.",
+ "region": "Liurnia of the Lakes",
+ "source": {
+  "type": "merchant",
+  "name": "Nomadic Merchant (beneath Bellum Church)"
+ },
+ "tactics": [
+  "The merchant sits underneath the church structure itself, not inside it — from the Bellum Church grace, look for the path leading down and under the building.",
+  "It grants +40 Focus, a passive most other small shields lack, giving mild resistance to Madness and Sleep buildup while equipped."
+ ],
+ "nearbyGraces": [
+  "Bellum Church"
+ ],
+ "lore": "A small metal roundshield stamped with an unsettling rift design — an old charm said to unnerve enemies by glaring back at them, and it sharpens the wielder's own focus.",
+ "builds": [
+  {
+   "name": "Prisoner-style Int/Str hybrid off-hand",
+   "statFocus": "Strength",
+   "why": "Cheap Strength requirement plus a Madness/Sleep-resisting Focus passive makes it a reasonable generic block option for casters who don't want to dedicate a shield slot to negation stats alone."
+  }
+ ],
+ "_verify": []
+}
