@@ -1,0 +1,182 @@
+[
+ {
+  "id": "bone-bow",
+  "name": "Bone Bow",
+  "type": "Light Bow",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 8,
+   "DEX": 11
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 161,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 27,
+   "DEX": 33,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "composite-bow",
+  "name": "Composite Bow",
+  "type": "Light Bow",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 15,
+   "DEX": 15
+  },
+  "weight": 3,
+  "passive": null,
+  "base": {
+   "physical": 159,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 22,
+   "DEX": 42,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "harp-bow",
+  "name": "Harp Bow",
+  "type": "Light Bow",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 9,
+   "DEX": 9
+  },
+  "weight": 2,
+  "passive": null,
+  "base": {
+   "physical": 151,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 22,
+   "DEX": 27,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "misbegotten-shortbow",
+  "name": "Misbegotten Shortbow",
+  "type": "Light Bow",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 16,
+   "DEX": 8
+  },
+  "weight": 3,
+  "passive": null,
+  "base": {
+   "physical": 166,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 39,
+   "DEX": 21,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "red-branch-shortbow",
+  "name": "Red Branch Shortbow",
+  "type": "Light Bow",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 8,
+   "DEX": 16
+  },
+  "weight": 2.5,
+  "passive": null,
+  "base": {
+   "physical": 159,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 21,
+   "DEX": 39,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "shortbow",
+  "name": "Shortbow",
+  "type": "Light Bow",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 8,
+   "DEX": 10
+  },
+  "weight": 2.5,
+  "passive": null,
+  "base": {
+   "physical": 159,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 26,
+   "DEX": 26,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ }
+]
