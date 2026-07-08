@@ -1,0 +1,33 @@
+{
+ "location": "Looted from Dryleaf Dane's corpse in the arena beyond the Cleansing Chamber Anteroom in Enir-Ilim, after clearing the mandatory 'Leda and Allies' gauntlet (also called the Miquellan Loyalists fight), which ends with Needle Knight Leda herself. Only reachable after burning the Sealing Tree to open Enir-Ilim's final stretch.",
+ "region": "Enir-Ilim",
+ "source": {
+  "type": "boss",
+  "name": "Leda and Allies gauntlet (item drops from Dryleaf Dane's corpse)"
+ },
+ "tactics": [
+  "Burn the Sealing Tree to open the final stretch of Enir-Ilim, reach the Cleansing Chamber Anteroom grace, then head east to the red summon sign for the 'Leda and Allies' gauntlet",
+  "Enemies appear one at a time before Leda herself — Redmane Freyja, Hornsent, and Moore only join the fight depending on earlier story choices you made with them; Dryleaf Dane and Leda always fight you",
+  "Dane mixes flying punch/kick combos with a boomerang-style 'Discus of Light' throw if you keep your distance — he has low poise, so bleed or stagger-heavy weapons drop him fast before Leda arrives",
+  "Leda is the real threat and can kill in 2-3 hits — use the gold summon signs for Ansbach and Thiollier just outside the fog wall to soak pressure, then loot Dane's Footwork off Dane's own corpse in the arena afterward, separate from Leda's drops"
+ ],
+ "nearbyGraces": [
+  "Cleansing Chamber Anteroom",
+  "Spiral Rise",
+  "First Rise"
+ ],
+ "lore": "Dryleaf Dane's personal refinement of hand-to-hand fighting, built around powerful kicks. He's said to have developed the style by training beneath a waterfall, letting the falling water condition and toughen his body over time.",
+ "builds": [
+  {
+   "name": "Str/Dex Quality Brawler",
+   "statFocus": "STR / DEX",
+   "why": "Both Strength and Dexterity sit at D scaling off an 8/8 requirement, so even investment raises AR efficiently on a fast, multi-hit fists weapon; its kick-heavy jump attacks reportedly synergize with the Shattered Stone Talisman"
+  },
+  {
+   "name": "Status Infusion Brawler",
+   "statFocus": "ARC (Blood) or matching status stat",
+   "why": "Keeps its fixed Palm Blast skill but can still take standard affinities like Blood, Frost, or Poison, letting its rapid multi-hit combos stack status buildup quickly"
+  }
+ ],
+ "_verify": []
+}

@@ -1,0 +1,33 @@
+{
+ "location": "Won from Dryleaf Dane in a friendly 1v1 duel at Moorth Ruins in Scadu Altus, where he stands near the Moorth Ruins Site of Grace and the Miquella's Cross landmark. Triggered by performing the 'May the Best Win' gesture directly in front of him; that gesture (packaged with the Monk's Missive) is picked up separately near the Highroad Cross Site of Grace, north of Castle Ensis.",
+ "region": "Scadu Altus",
+ "source": {
+  "type": "npc",
+  "name": "Dryleaf Dane (duel reward at Moorth Ruins)"
+ },
+ "tactics": [
+  "Pick up the 'May the Best Win' gesture and Monk's Missive near the Highroad Cross Site of Grace, north of Castle Ensis, before heading north to Moorth Ruins",
+  "Find Dryleaf Dane standing near the Moorth Ruins grace/Miquella's Cross and perform the gesture facing him to start a fair 1v1 duel — this is not a stealth kill or ambush, and multiplayer/spirit ashes are not needed",
+  "Do this duel before clearing Enir-Ilim's 'Leda and Allies' gauntlet — beating that fight first makes Dane leave Moorth Ruins for good, permanently missing this duel and its rewards (Dryleaf Arts and Dane's Hat)",
+  "Dane fights the same way here as in the later Enir-Ilim gauntlet — aggressive punch/kick combos plus an occasional boomerang 'Discus of Light' — but solo he's far more manageable"
+ ],
+ "nearbyGraces": [
+  "Moorth Ruins",
+  "Highroad Cross",
+  "Bonny Village"
+ ],
+ "lore": "The core unarmed fighting style of the Dryleaf Sect, a group of ascetic spiritual seekers, blending fist strikes with kicks. Tradition holds the sect only passes these teachings to those who prove their valor and character worthy — likely why Dane insists on a duel before handing it down.",
+ "builds": [
+  {
+   "name": "Str/Dex Quality Brawler",
+   "statFocus": "STR / DEX",
+   "why": "Identical D/D scaling off an 8/8 requirement to Dane's Footwork, so even Strength/Dexterity investment raises AR efficiently on a fast, combo-heavy fists weapon"
+  },
+  {
+   "name": "Status Infusion Brawler",
+   "statFocus": "ARC (Blood) or matching status stat",
+   "why": "Keeps its fixed Palm Blast skill but accepts standard affinities like Blood, Frost, or Poison, so its rapid multi-hit combos build status effects quickly"
+  }
+ ],
+ "_verify": []
+}
