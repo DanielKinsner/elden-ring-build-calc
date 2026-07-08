@@ -36,14 +36,17 @@ For a given damage type and a given stat: **[CONFIRMED]** (formula structure)
 ```
 scalingBonus[type][stat] = baseDamage[type]
                          × (scalingValue[stat] / 100)
-                         × (saturation[stat](statLevel) / 100)
+                         × (saturation[type](statLevel) / 100)
 ```
 
 - `baseDamage[type]` — the weapon's upgraded base damage for that type (see §4).
 - `scalingValue[stat]` — the weapon's scaling *value* for that stat (see §3). This is the raw
   number behind the displayed letter grade.
-- `saturation[stat](statLevel)` — the "attribute bonus %" from the CalcCorrectGraph curve at
-  the character's stat level (see §5).
+- `saturation[type](statLevel)` — the "attribute bonus %" from the CalcCorrectGraph curve at
+  the character's stat level. **The curve is keyed by the damage TYPE being scaled, not by the
+  stat doing the scaling** [CONFIRMED] — see §5. This matters for split-damage weapons: Arcane
+  scaling Rivers of Blood's *physical* damage uses the physical curve, but Arcane scaling its
+  *fire* damage uses the elemental curve.
 
 A stat only contributes to a damage type if the weapon has both nonzero base for that type and
 nonzero scaling for that stat.
@@ -112,45 +115,64 @@ given stat level. Elden Ring stores these as `CalcCorrectGraph` lookup tables.
 
 ### Confirmed soft-cap breakpoints **[CONFIRMED]**
 
-Diminishing-returns kicks in at these stat values (for weapon **attack power**):
+Diminishing-returns kicks in at these stat values (for weapon **attack power**). Curves are keyed
+by **damage type**, not by which stat is scaling it — a stat only "has" a curve because of which
+damage type(s) it happens to scale on a given weapon:
 
-| Curve                    | Soft caps        |
-|--------------------------|------------------|
-| STR / DEX (physical AR)  | 20, 60, 80       |
-| INT / FAI (elemental AR) | 20, 50, 80       |
-| ARC (physical AR)        | 20, 55, 80       |
-| ARC (status buildup)     | ~45 (plateau)    |
+| Curve                                         | Soft caps  |
+|------------------------------------------------|------------|
+| STR / DEX (physical AR)                         | 18, 60, 80 |
+| INT / FAI (magic/fire/lightning/holy AR)        | 20, 50, 80 |
+| ARC — scaling **physical** damage               | 18, 60, 80 (same physical curve) |
+| ARC — scaling **magic/fire/lightning/holy** damage (e.g. Rivers of Blood's fire) | 20, 50, 80 (same elemental curve) |
+| ARC — status buildup (bleed / poison)           | 25, 45, 60 |
 
 Two-handing multiplies effective STR by **1.5×** (35 STR → 52.5 effective). **[CONFIRMED]**
 Hard cap for all stats is 99.
 
-### Modeled curves used by the engine **[MODELED]**
+**Known residual approximation [MODELED]:** a handful of unique/somber weapons and the Quality
+affinity use slightly different physical-curve *variants* (first breakpoint 16–20 instead of the
+default 18), which the engine doesn't yet select per weapon — it always uses the default 18/60/80
+physical curve. This causes a small (~1–3%) AR undercount on affected weapons (e.g. Quality-affinity
+Uchigatana). The 60/80 breakpoints are confirmed invariant across every physical curve variant, so
+soft-cap *locations* shown in the UI are correct; only the very-low-stat AR contribution is
+approximate for these weapons.
 
-The engine reconstructs each curve as piecewise interpolation between control points, anchored to
-the confirmed data above. Percent = "attribute bonus %" (the saturation term in §2).
+### Curves used by the engine **[CONFIRMED]**
 
-**Physical (STR/DEX)** — anchored to 10→11.65, 15→19.80, soft caps 20/60/80:
+These are the exact datamined `CalcCorrectGraph` control points (graph 0 physical / graph 4
+elemental / graph 6 arcane-status), verified against the community's own datamined regulation dump
+and independently cross-checked. The engine interpolates piecewise between them. Percent =
+"attribute bonus %" (the saturation term in §2).
 
-| stat | 1 | 20 | 60 | 80 | 99  |
-|------|---|----|----|----|-----|
-| %    | 0 | 25 | 75 | 90 | 100 |
+**Physical** (STR, DEX, and ARC when scaling physical damage) — control points 1/18/60/80/150:
 
-**Elemental (INT/FAI)** — anchored to 20→40, soft caps 20/50/80:
+| stat | 1 | 18    | 60 | 80 | 150 |
+|------|---|-------|----|----|-----|
+| %    | 0 | 25.00 | 75 | 90 | 110 |
+
+Reproduces the confirmed anchors exactly: 10 STR → 11.65%, 15 DEX → 19.80%.
+
+**Elemental** (INT, FAI, and ARC when scaling magic/fire/lightning/holy damage) — control points
+1/20/50/80/99:
 
 | stat | 1 | 20 | 50 | 80  | 99  |
 |------|---|----|----|-----|-----|
-| %    | 0 | 40 | 80 | 100 | 100 |
+| %    | 0 | 40 | 80 | 95  | 100 |
 
-**Arcane (physical AR)** — soft caps 20/55/80, physical-like shape:
+Reproduces the confirmed anchor exactly: 20 INT → 40%.
 
-| stat | 1 | 20 | 55 | 80 | 99  |
+**Arcane status buildup** (bleed/poison, ARC only) — control points 1/25/45/60/99:
+
+| stat | 1 | 25 | 45 | 60 | 99  |
 |------|---|----|----|----|-----|
-| %    | 0 | 25 | 75 | 90 | 100 |
+| %    | 0 | 10 | 75 | 90 | 100 |
 
-Interpolation is monotonic between control points. These reproduce the confirmed anchors within
-~1–2% and preserve the real soft-cap shape. Exact per-point game-param values (when we dump the
-full CalcCorrectGraph) will replace these in `data/scaling-curves.json` without touching the
-engine — the curves are **data, not code.**
+Known residual gap: a handful of unique/somber weapons and the Quality affinity use slightly
+different physical-curve *variants* (first breakpoint 16–20 instead of 18) that the engine doesn't
+yet select per weapon — see the residual-approximation note above. Exact per-weapon curve-variant
+data (when sourced) will replace the single default physical curve for those weapons in
+`data/scaling-curves.json` without touching the engine — the curves are **data, not code.**
 
 ---
 

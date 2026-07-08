@@ -1,9 +1,10 @@
 {
   "_comment": "CalcCorrectGraph saturation curves — EXACT datamined game params (not modeled). Each point: {stat, growth, adjPt}. Between points a,b: growth = a.growth + (b.growth-a.growth) * ratio^a.adjPt, where ratio=(stat-a.stat)/(b.stat-a.stat); if adjPt<0 use 1-(1-ratio)^(-adjPt). See docs/01-damage-formula.md.",
   "_source": "Datamined CalcCorrectGraph (game regulation). graph 0 = physical (STR/DEX), graph 4 = elemental (INT/FAI), graph 6 = arcane status buildup.",
+  "_curveSelection": "Curves are keyed by DAMAGE TYPE, not by scaling stat [CONFIRMED] — e.g. Arcane scaling a weapon's fire/magic/lightning/holy damage (Rivers of Blood's fire) uses the elemental curve, even though Arcane's effect on physical AR uses the physical curve. See engine.js TYPE_CURVE.",
   "curves": {
     "physical": {
-      "_uses": ["STR", "DEX", "ARC-on-physical"],
+      "_uses": ["STR", "DEX", "ARC (when scaling physical damage)"],
       "_graph": 0,
       "points": [
         { "stat": 1, "growth": 0, "adjPt": 1.2 },
@@ -14,7 +15,7 @@
       ]
     },
     "elemental": {
-      "_uses": ["INT", "FAI"],
+      "_uses": ["INT", "FAI", "ARC (when scaling magic/fire/lightning/holy damage)"],
       "_graph": 4,
       "points": [
         { "stat": 1, "growth": 0, "adjPt": 1 },

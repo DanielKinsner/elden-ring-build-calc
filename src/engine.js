@@ -28,7 +28,14 @@
   };
   CURVES.arcanePhysical = CURVES.physical; // arcane scaling on physical AR uses the physical graph
 
-  // Which curve each stat uses for weapon-attack scaling.
+  // Which curve each DAMAGE TYPE uses — the game keys CalcCorrectGraph by damage type, not by the
+  // scaling stat [CONFIRMED]. So Arcane scaling a weapon's fire/magic/lightning/holy damage (e.g.
+  // Rivers of Blood's fire) uses the elemental curve, not the physical one, even though Arcane's
+  // effect on *physical* AR does use the physical curve.
+  var TYPE_CURVE = { physical: 'physical', magic: 'elemental', fire: 'elemental', lightning: 'elemental', holy: 'elemental' };
+
+  // Which curve represents each stat for DISPLAY (soft-cap chart / breakpoints panel) — a stat can
+  // straddle two curves on a split-damage weapon, so this picks the stat's typical/primary one.
   var STAT_CURVE = { STR: 'physical', DEX: 'physical', INT: 'elemental', FAI: 'elemental', ARC: 'arcanePhysical' };
 
   // Soft-cap breakpoints per curve (the CalcCorrectGraph control points).
@@ -137,7 +144,7 @@
         if (sv <= 0) continue;
         // If elementScaling is present, a stat only scales the damage types it's mapped to.
         if (variant.elementScaling && variant.elementScaling[stat] && variant.elementScaling[stat].indexOf(type) < 0) continue;
-        var sat = saturation(STAT_CURVE[stat], effStats[stat]);
+        var sat = saturation(TYPE_CURVE[type], effStats[stat]);
         var penalty = (deficientStats && deficientStats[stat]) ? (1 - UNMET_REQ_PENALTY) : 1;
         var bonus = b * (sv / 100) * sat * penalty;
         typeTotal += bonus;
