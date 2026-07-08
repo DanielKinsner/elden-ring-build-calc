@@ -1,0 +1,96 @@
+[
+ {
+  "id": "backhand-blade",
+  "name": "Backhand Blade",
+  "type": "Backhand Blade",
+  "source": "dlc",
+  "category": "regular",
+  "infusable": true,
+  "requirements": {
+   "STR": 10,
+   "DEX": 13
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 257,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 68,
+   "DEX": 82,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "curseblade-s-cirque",
+  "name": "Curseblade's Cirque",
+  "type": "Backhand Blade",
+  "source": "dlc",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 9,
+   "DEX": 22
+  },
+  "weight": null,
+  "passive": "Blood loss (45)",
+  "base": {
+   "physical": 264,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 36,
+   "DEX": 135,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {
+   "bleed": 45
+  },
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "smithscript-cirque",
+  "name": "Smithscript Cirque",
+  "type": "Backhand Blade",
+  "source": "dlc",
+  "category": "regular",
+  "infusable": true,
+  "requirements": {
+   "STR": 9,
+   "DEX": 14,
+   "INT": 11,
+   "FAI": 11
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 245,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 52,
+   "DEX": 75,
+   "INT": 18,
+   "FAI": 18,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ }
+]
