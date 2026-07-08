@@ -1,0 +1,26 @@
+{
+ "location": "Dropped by Commoner enemies throughout the game — reliable early spots are Ailing Village in the Weeping Peninsula, and a room of roughly ten sleeping Commoners above the Living Jars in Stormveil Castle.",
+ "region": "Weeping Peninsula",
+ "source": {
+  "type": "enemy",
+  "name": "Commoner"
+ },
+ "tactics": [
+  "In Ailing Village, several frenzy-maddened Commoners gather around a central pyre and can drop the sword.",
+  "In Stormveil Castle, from the Secluded Cell grace head west and up the ramp toward the Living Jars, then hug the left wall along the wooden balcony to find a room with roughly ten sleeping Commoners.",
+  "Base drop rate is around 2%, so expect a handful of repeat kills to get one."
+ ],
+ "nearbyGraces": [
+  "Ailing Village Outskirts",
+  "Secluded Cell"
+ ],
+ "lore": "A short, wide-bladed straight sword once known as 'the sword of the people' for its simplicity — faint Erdtree engravings remain on its surface, but time has worn it down to a shadow of what it used to be.",
+ "builds": [
+  {
+   "name": "Beginner Str/Dex",
+   "why": "Even D/D scaling and easy farmability make it a solid free early replacement or backup weapon.",
+   "statFocus": "Strength/Dexterity"
+  }
+ ],
+ "_verify": []
+}

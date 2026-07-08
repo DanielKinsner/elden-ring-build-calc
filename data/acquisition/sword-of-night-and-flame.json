@@ -1,0 +1,25 @@
+{
+ "location": "In a locked chest inside a hidden room off the rooftops of Caria Manor, Liurnia of the Lakes. From the Manor Lower Level Site of Grace, cross the stone walkways east, navigate the rooftop junctions, then drop down to a platform with a ladder leading to the chest.",
+ "region": "Liurnia of the Lakes",
+ "source": {
+  "type": "chest",
+  "name": "Locked chamber off the rooftops, Caria Manor"
+ },
+ "tactics": [
+  "From the Manor Lower Level grace, head out onto the stone walkways/rooftops toward the east side of the manor.",
+  "Watch for Raya Lucaria Soldier puppets patrolling the walkways — they can knock you off narrow ledges.",
+  "Drop down through the roof opening onto the interior platform to reach the chest and its ladder."
+ ],
+ "nearbyGraces": [
+  "Manor Lower Level"
+ ],
+ "lore": "One of the storied treasures of Caria Manor, said to trace back to ancient astrologers who made their home atop distant mountains and thought nothing of living alongside Fire Giants.",
+ "builds": [
+  {
+   "name": "Int/Faith dual-caster",
+   "why": "D Intelligence / D Faith scaling plus the unique Night-and-Flame Stance (a Comet Azur-style beam and a sweeping fire burst) make it a premier stat-check weapon for Int/Faith hybrid builds.",
+   "statFocus": "Intelligence/Faith"
+  }
+ ],
+ "_verify": []
+}

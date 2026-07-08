@@ -1,0 +1,25 @@
+{
+ "location": "Dropped by Warhawks in Stormveil Castle — four spawn immediately outside the door from the Rampart Tower Site of Grace. Can also drop from Warhawks at Castle Sol, Mountaintops of the Giants.",
+ "region": "Limgrave",
+ "source": {
+  "type": "enemy",
+  "name": "Warhawk (Stormveil Castle)"
+ },
+ "tactics": [
+  "From the Rampart Tower grace in Stormveil Castle, step outside to find four Warhawks perched nearby that dive-bomb with fast talon strikes.",
+  "Base drop rate is only about 2%, so expect to rest and re-farm the same four hawks repeatedly.",
+  "A second, later-game farming spot exists at Castle Sol in the Mountaintops of the Giants."
+ ],
+ "nearbyGraces": [
+  "Rampart Tower"
+ ],
+ "lore": "A blade adapted from the talon-blades strapped to war-trained hawks, kept thin and light so as not to hamper the bird's flight — repurposed here into a fast, agile weapon for human hands.",
+ "builds": [
+  {
+   "name": "Pure Dex poke",
+   "why": "D Strength / C Dexterity scaling makes it one of the more Dexterity-leaning straight swords, well suited to a fast poke-and-punish playstyle.",
+   "statFocus": "Dexterity"
+  }
+ ],
+ "_verify": []
+}

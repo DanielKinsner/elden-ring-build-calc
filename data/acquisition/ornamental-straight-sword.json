@@ -1,0 +1,23 @@
+{
+ "location": "Dropped by the Grafted Scion boss in the Chapel of Anticipation tutorial area — either by beating it on your very first attempt at the start of the game, or by refighting it later via the 'Precipice of Anticipation' Waygate at the Four Belfries, western Liurnia of the Lakes.",
+ "region": "Limgrave",
+ "source": {
+  "type": "boss",
+  "name": "Grafted Scion"
+ },
+ "tactics": [
+  "In the opening tutorial fight, the Grafted Scion is intentionally brutal for a level-1 starting character — most players are expected to die rather than win here.",
+  "To fight it again once you're stronger, find the Waygate marked 'Precipice of Anticipation' at the Four Belfries in western Liurnia of the Lakes.",
+  "Defeating it drops both the Ornamental Straight Sword and the Golden Beast Crest Shield."
+ ],
+ "nearbyGraces": [],
+ "lore": "A slender straight sword patterned after an antique heirloom, traditionally wielded one in each hand by especially skilled swordsmen — a remnant of the golden lineage's fading nobility.",
+ "builds": [
+  {
+   "name": "Dual-wield Dex/Holy",
+   "why": "D Dexterity scaling plus a dedicated paired dual-wield moveset and a Holy-infused Golden Tempering skill make it a strong dual-wielding option.",
+   "statFocus": "Dexterity"
+  }
+ ],
+ "_verify": []
+}

@@ -1,0 +1,28 @@
+{
+ "location": "Looted from a corpse in a sealed room behind a Stonesword Key Imp Statue seal, near the entrance of Auriza Hero's Grave, Capital Outskirts (east of Leyndell, on the way into Altus Plateau).",
+ "region": "Altus Plateau",
+ "source": {
+  "type": "drop",
+  "name": "Corpse behind the Imp Statue seal, Auriza Hero's Grave entrance"
+ },
+ "tactics": [
+  "From the Outer Wall Battleground grace, head east/southeast through the bear-infested open area to reach the dungeon entrance.",
+  "Use a Stonesword Key on the Imp Statue seal just past the entrance grace to unlock the room.",
+  "Two Basilisks guard the corpse and can stack Frostbite fast — pull them one at a time rather than fighting both together."
+ ],
+ "nearbyGraces": [
+  "Outer Wall Battleground",
+  "Auriza Hero's Grave"
+ ],
+ "lore": "Forged to commemorate Godwyn the Golden, the first demigod to fall, the blade carries the plea of a grieving brother begging him to finally die a true death and be freed from undeath.",
+ "builds": [
+  {
+   "name": "Anti-undead Faith build",
+   "why": "D/D/D scaling in Strength/Dexterity/Faith plus a built-in 30% damage bonus against Undead enemies and its Last Rites skill make it a strong niche pick against skeletons and undead-heavy areas.",
+   "statFocus": "Faith"
+  }
+ ],
+ "_verify": [
+  "region"
+ ]
+}

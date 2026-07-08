@@ -1,0 +1,25 @@
+{
+ "location": "Looted from a corpse beside the stairwell just south of the West Capital Rampart Site of Grace, Leyndell, Royal Capital. Still obtainable in Leyndell, Ashen Capital via the same stairwell, reached past the dragon corpse's wing.",
+ "region": "Leyndell, Royal Capital",
+ "source": {
+  "type": "drop",
+  "name": "Corpse near the West Capital Rampart stairwell"
+ },
+ "tactics": [
+  "From the West Capital Rampart grace, exit south and descend the flight of stairs to the floor below.",
+  "Make a full U-turn at the bottom of the stairs to find the corpse holding the sword.",
+  "If you're in the burned Ashen Capital, reach the same spot by heading west toward the dragon corpse's wing, climbing through the broken wall and up the ladder."
+ ],
+ "nearbyGraces": [
+  "West Capital Rampart"
+ ],
+ "lore": "Once the beloved sword of an aging knight, repurposed into a walking cane after age robbed him of the strength to raise it properly — its worn tip shows just how much weight he leaned on it.",
+ "builds": [
+  {
+   "name": "Early lightweight Dex",
+   "why": "D Dexterity scaling and a slightly faster rolling attack than other straight swords make it a cheap, agile Dex option.",
+   "statFocus": "Dexterity"
+  }
+ ],
+ "_verify": []
+}

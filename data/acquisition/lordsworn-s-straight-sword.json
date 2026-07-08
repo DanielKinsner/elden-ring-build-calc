@@ -1,0 +1,25 @@
+{
+ "location": "Dropped by Godrick Soldiers patrolling Gatefront Ruins, Limgrave — the earliest and easiest farming spot. Also dropped by soldier-type enemies of every major faction throughout the game (Raya Lucaria, Radahn, Leyndell, Mausoleum, and Haligtree Soldiers).",
+ "region": "Limgrave",
+ "source": {
+  "type": "enemy",
+  "name": "Godrick Soldier (Gatefront Ruins)"
+ },
+ "tactics": [
+  "From the Gatefront Site of Grace, patrolling soldiers carry this sword with roughly a 2% drop chance each.",
+  "It's one of the most common weapon drops in the game, so any straight-sword-wielding soldier faction can substitute if you'd rather farm elsewhere.",
+  "No boss or special mechanic involved — just repeatedly kill and rest to respawn soldiers."
+ ],
+ "nearbyGraces": [
+  "Gatefront"
+ ],
+ "lore": "A well-made straight sword of once-fine craftsmanship, carried by rank-and-file soldiers of a lord's army — its blade is scarred and blackened from hard use, much like the mindless men who still wield it.",
+ "builds": [
+  {
+   "name": "Beginner Str/Dex",
+   "why": "Even D/D scaling and near-universal availability make it a solid throwaway early weapon before committing to a build.",
+   "statFocus": "Strength/Dexterity"
+  }
+ ],
+ "_verify": []
+}

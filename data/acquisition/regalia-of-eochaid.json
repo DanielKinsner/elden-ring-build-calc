@@ -1,0 +1,28 @@
+{
+ "location": "On a ledge on the coastline bordering Limgrave and Caelid, east of the Third Church of Marika. Reached by clearing Gaol Cave (entrance in Caelid, needs 2 Stonesword Keys) and exiting onto the cliffside, or by using Torrent to double-jump directly up the cliff face from the beach.",
+ "region": "Limgrave",
+ "source": {
+  "type": "drop",
+  "name": "Ledge above the coastline at the Gaol Cave exit"
+ },
+ "tactics": [
+  "Standard route: clear Gaol Cave (2 Stonesword Keys needed to open the sealed entrance) and defeat its boss to reach the cliff exit where the sword sits.",
+  "Shortcut: from the Third Church of Marika, ride Torrent along the red-hued cliffside and chain double-jumps to scale it directly, skipping the dungeon.",
+  "Gaol Cave is one of the more key-expensive dungeons in the game — don't confuse it with cheaper nearby caves."
+ ],
+ "nearbyGraces": [
+  "Third Church of Marika",
+  "Gaol Cave"
+ ],
+ "lore": "The treasured sword of Eochaid, a minor and long-vanished kingdom — its copper sheen isn't rust but a conduit letting its wielder move the blade by will alone, making it dance through the air in combat.",
+ "builds": [
+  {
+   "name": "Arcane poke/bleed",
+   "why": "D Dexterity / D Arcane scaling on both its physical and magic damage make it a solid Arcane build weapon, especially paired with attack-boosting talismans that trigger on its multi-hit Dancing Blade skill.",
+   "statFocus": "Arcane"
+  }
+ ],
+ "_verify": [
+  "region"
+ ]
+}

@@ -1,0 +1,25 @@
+{
+ "location": "Inside a chest guarded by three Lesser Crystallians, past a mass of tree roots just south of the Elphael Inner Wall Site of Grace, Elphael, Brace of the Haligtree.",
+ "region": "Miquella's Haligtree",
+ "source": {
+  "type": "chest",
+  "name": "Chest guarded by 3 Lesser Crystallians, Elphael Inner Wall"
+ },
+ "tactics": [
+  "From the Elphael Inner Wall grace, head south down the stairs and turn left past the large root formation to find the chest.",
+  "Three Lesser Crystallians guard it and can inflict Scarlet Rot — consider pulling them one at a time or picking them off at range.",
+  "It's a straightforward chest, not a mimic — just a well-guarded pickup."
+ ],
+ "nearbyGraces": [
+  "Elphael Inner Wall"
+ ],
+ "lore": "A sword of pure crystal — a construction impossible for human hands — left to fester with scarlet rot, its magic-infused blade carrying the same corruption that plagues the Haligtree itself.",
+ "builds": [
+  {
+   "name": "Int/Rot status hybrid",
+   "why": "D Strength / E Dexterity / D Intelligence scaling plus built-in Scarlet Rot buildup on every hit make it a strong status-application weapon for Intelligence builds.",
+   "statFocus": "Intelligence"
+  }
+ ],
+ "_verify": []
+}

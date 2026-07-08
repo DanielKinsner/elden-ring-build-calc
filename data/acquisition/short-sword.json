@@ -1,0 +1,26 @@
+{
+ "location": "Starting weapon of the Astrologer class; also purchasable for 600 runes from the Nomadic Merchant sitting at a campfire east of Saintsbridge, North Limgrave, and droppable from Highwaymen (notably in Murkwater Cave).",
+ "region": "Limgrave",
+ "source": {
+  "type": "merchant",
+  "name": "Nomadic Merchant (North Limgrave, east of Saintsbridge)"
+ },
+ "tactics": [
+  "Start as the Astrologer class to have it equipped from the beginning.",
+  "Otherwise buy it from the merchant camped east across the bridge from the Saintsbridge Site of Grace for 600 runes.",
+  "Alternatively farm Highwaymen in Murkwater Cave, who wield it with a modest drop chance."
+ ],
+ "nearbyGraces": [
+  "Saintsbridge",
+  "Warmaster's Shack"
+ ],
+ "lore": "A humble straight sword with a short blade — light and simple to wield, trading raw power for handy piercing thrusts that make it an easy pick for less battle-hardened Tarnished.",
+ "builds": [
+  {
+   "name": "Beginner Int/Dex placeholder",
+   "why": "D/D Strength-Dexterity scaling, low weight, and Astrologer's high starting Intelligence/Mind make it a fine placeholder weapon while leveling into a caster build.",
+   "statFocus": "Dexterity"
+  }
+ ],
+ "_verify": []
+}

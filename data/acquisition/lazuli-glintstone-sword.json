@@ -1,0 +1,25 @@
+{
+ "location": "Dropped by Lazuli Glintstone Sorcerers around Raya Lucaria Academy and Caria Manor; the most reliable farming spot is directly south of the Schoolhouse Classroom Site of Grace, just before the Red Wolf of Radagon boss fog.",
+ "region": "Liurnia of the Lakes",
+ "source": {
+  "type": "enemy",
+  "name": "Lazuli Glintstone Sorcerer"
+ },
+ "tactics": [
+  "From the Schoolhouse Classroom grace, head south to find Lazuli Sorcerers casting glintstone spells at range.",
+  "Drop rate is only around 2%, so expect to rest and re-farm several times — they're squishy and die fast.",
+  "Don't push too far south too early — you'll run into the Red Wolf of Radagon boss fog just beyond the farming spot."
+ ],
+ "nearbyGraces": [
+  "Schoolhouse Classroom"
+ ],
+ "lore": "A sword set with a glintstone in its handguard, wielded as a scholar's tool by students of the Lazuli Conspectus studying Carian sorcery — carved from wood, it still functions as a makeshift staff.",
+ "builds": [
+  {
+   "name": "Int/Quality hybrid",
+   "why": "D Strength / E Dexterity / D Intelligence scaling plus an innate Glintstone Pebble skill make it a cheap, zero-investment sorcery option for a physically-focused Int build.",
+   "statFocus": "Intelligence"
+  }
+ ],
+ "_verify": []
+}

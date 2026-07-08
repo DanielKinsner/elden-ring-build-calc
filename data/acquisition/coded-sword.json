@@ -1,0 +1,27 @@
+{
+ "location": "Resting on the throne inside the Throne Room on the upper floor of the Fortified Manor, Leyndell, Royal Capital — the room mirrors the layout of the Roundtable Hold's Two Fingers chamber.",
+ "region": "Leyndell, Royal Capital",
+ "source": {
+  "type": "drop",
+  "name": "Throne in the Fortified Manor Throne Room"
+ },
+ "tactics": [
+  "From the Fortified Manor, First Floor grace, work up to the second floor via the stable rooftops or interior stairs.",
+  "Head to the central throne room southwest of the map (the one echoing the Roundtable Hold's layout) — the sword sits directly on the throne, unguarded.",
+  "Must be collected before defeating Maliketh, the Black Blade — it becomes unreachable once Leyndell burns into the Ashen Capital."
+ ],
+ "nearbyGraces": [
+  "Fortified Manor, First Floor"
+ ],
+ "lore": "A concealed blade once entrusted to a Tarnished of the Round Table by the Two Fingers — its edge is nothing but a formless cipher that cuts with holy force no shield can turn aside.",
+ "builds": [
+  {
+   "name": "Pure Faith caster-sword",
+   "why": "B Faith scaling with zero physical scaling and 85 pure Holy damage make it a Faith build's answer to physical damage negation.",
+   "statFocus": "Faith"
+  }
+ ],
+ "_verify": [
+  "source"
+ ]
+}

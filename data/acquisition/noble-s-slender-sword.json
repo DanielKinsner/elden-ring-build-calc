@@ -1,0 +1,26 @@
+{
+ "location": "Dropped by sword-wielding Wandering Nobles — most reliably from the troll-pulled caravan traveling the road north of Agheel Lake South (near Waypoint Ruins), Limgrave. Also drops from Wandering Nobles elsewhere (Raya Lucaria Academy courtyard, a Caelid graveyard, the road to Church of Pilgrimage, and east of the Bridge of Iniquity).",
+ "region": "Limgrave",
+ "source": {
+  "type": "enemy",
+  "name": "Wandering Noble (sword-wielding, Aristocrat Garb)"
+ },
+ "tactics": [
+  "Stop the troll-pulled carriage caravan on the road near Agheel Lake by attacking one of the two trolls pulling it first.",
+  "Only Wandering Nobles wielding a sword and wearing Aristocrat Garb (Altered)/Aristocrat Boots drop it — nobles dual-wielding a sword-and-torch will not.",
+  "Base drop rate is a very low 0.5%, so expect a long farming session; resting at a grace respawns the caravan."
+ ],
+ "nearbyGraces": [
+  "Agheel Lake South",
+  "Waypoint Ruins Cellar"
+ ],
+ "lore": "A slender, gold-plated blade carried by wealthy nobles wandering the Lands Between — light and easy to wield, prized as much for its craftsmanship as its combat use.",
+ "builds": [
+  {
+   "name": "Pure Dex poke",
+   "why": "E Strength / C Dexterity scaling and the longest reach of any straight sword in the game make it a strong pure-Dexterity thrusting option.",
+   "statFocus": "Dexterity"
+  }
+ ],
+ "_verify": []
+}

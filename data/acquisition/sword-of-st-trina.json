@@ -1,0 +1,25 @@
+{
+ "location": "Inside a chest in the cellar of the Forsaken Ruins, Caelid, just below the Rotview Balcony Site of Grace, behind an Imp Statue seal.",
+ "region": "Caelid",
+ "source": {
+  "type": "chest",
+  "name": "Forsaken Ruins Cellar chest"
+ },
+ "tactics": [
+  "From Rotview Balcony grace, the ruins are visible just below the ledge — drop down or path around to reach the entrance.",
+  "Use 1 Stonesword Key on the Imp Statue seal beside the cellar entrance to remove the fog blocking it.",
+  "Aggressive crows patrol the ruins above ground; you can often sprint past them straight to the sealed cellar door."
+ ],
+ "nearbyGraces": [
+  "Rotview Balcony"
+ ],
+ "lore": "A straight sword carried by clerics devoted to the enigmatic Saint Trina, whose gender and true nature remain a mystery — its crossguard is shaped like a pair of Trina's Lilies in her honor.",
+ "builds": [
+  {
+   "name": "Sleep-proc Dex build",
+   "why": "D Strength / D Dexterity / E Intelligence scaling plus built-in Sleep buildup, amplified further by its Mists of Slumber skill, make it a strong status-application weapon for a Dexterity build.",
+   "statFocus": "Dexterity"
+  }
+ ],
+ "_verify": []
+}

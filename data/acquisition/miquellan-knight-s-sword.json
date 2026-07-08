@@ -1,0 +1,25 @@
+{
+ "location": "Atop a bell tower in Elphael, Brace of the Haligtree. From the Prayer Room Site of Grace, head out past a seated Haligtree Soldier, cross a parapet on the right onto a tower, loop around its outer ledge to a ladder, and climb to the top.",
+ "region": "Miquella's Haligtree",
+ "source": {
+  "type": "drop",
+  "name": "Top of the bell tower, Elphael, Brace of the Haligtree"
+ },
+ "tactics": [
+  "From the Prayer Room grace, proceed toward the seated Haligtree Soldier-type enemy near the tower approach.",
+  "Take the parapet on the right leading onto the tower, then follow its outer rim around to find a ladder on the far side.",
+  "Climb the ladder to the very top of the tower to find the sword — no fight required at the pickup itself, but nearby Haligtree enemies are dangerous."
+ ],
+ "nearbyGraces": [
+  "Prayer Room"
+ ],
+ "lore": "Crafted by servants of Miquella's Haligtree in the image of Carian knight swords, but set with Haligtree amber instead of glintstone — a beautiful blade that, tragically, was never given to any knight to bear.",
+ "builds": [
+  {
+   "name": "Faith/Dex hybrid",
+   "why": "D/D Strength-Dexterity scaling plus E Faith and a Holy-infused Sacred Blade skill let it pair well with a light Faith investment for extra holy burst damage.",
+   "statFocus": "Faith/Dexterity"
+  }
+ ],
+ "_verify": []
+}

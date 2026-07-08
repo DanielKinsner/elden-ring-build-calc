@@ -1,0 +1,27 @@
+{
+ "location": "Starting weapon of the Vagabond class; otherwise purchasable anytime from Twin Maiden Husks at the Roundtable Hold for 1,000 runes.",
+ "region": "Roundtable Hold",
+ "source": {
+  "type": "merchant",
+  "name": "Twin Maiden Husks (Roundtable Hold)"
+ },
+ "tactics": [
+  "Start as the Vagabond class to have it equipped from the very beginning.",
+  "Otherwise, buy it anytime from Twin Maiden Husks in the Roundtable Hold for 1,000 runes.",
+  "No combat or exploration required — a straightforward hub purchase."
+ ],
+ "nearbyGraces": [
+  "Roundtable Hold"
+ ],
+ "lore": "A double-edged straight sword balancing solid slashes with sharp piercing thrusts — an unremarkable but reliable soldier's blade.",
+ "builds": [
+  {
+   "name": "Beginner Str/Dex",
+   "why": "Even D/D Strength-Dexterity scaling paired with Vagabond's naturally high starting Vigor/Strength/Dexterity make it a strong zero-investment starter weapon.",
+   "statFocus": "Strength/Dexterity"
+  }
+ ],
+ "_verify": [
+  "region"
+ ]
+}

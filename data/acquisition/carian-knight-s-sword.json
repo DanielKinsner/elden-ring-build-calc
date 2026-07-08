@@ -1,0 +1,25 @@
+{
+ "location": "Inside a chest in the back of a carriage pulled by two trolls, on the road north of the Foot of the Four Belfries Site of Grace, northwest Liurnia of the Lakes.",
+ "region": "Liurnia of the Lakes",
+ "source": {
+  "type": "chest",
+  "name": "Troll-drawn carriage north of Foot of the Four Belfries"
+ },
+ "tactics": [
+  "From Foot of the Four Belfries grace, ride Torrent north up the road to intercept the troll-pulled carriage.",
+  "Attacking one of the two Trolls halts the carriage so you can deal with escorts and reach the chest safely.",
+  "Watch for aggressive knight/soldier escorts traveling alongside the carriage before looting."
+ ],
+ "nearbyGraces": [
+  "Foot of the Four Belfries"
+ ],
+ "lore": "A straight sword set with a shard of blue glintstone, carried by knights sworn to Carian royalty — despite numbering fewer than twenty, their sorcery-augmented swordplay let them stand toe-to-toe with the Golden Order's champions.",
+ "builds": [
+  {
+   "name": "Int/melee hybrid",
+   "why": "Even D/D/D scaling across Strength, Dexterity and Intelligence, plus the Carian Grandeur charged-projectile skill, make it a strong pick for a caster who still wants to swing steel.",
+   "statFocus": "Intelligence/Dexterity"
+  }
+ ],
+ "_verify": []
+}

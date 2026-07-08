@@ -1,0 +1,25 @@
+{
+ "location": "On a body just past the wooden bridge in the Village of the Albinaurics, Liurnia of the Lakes.",
+ "region": "Liurnia of the Lakes",
+ "source": {
+  "type": "drop",
+  "name": "Corpse across the bridge, Village of the Albinaurics"
+ },
+ "tactics": [
+  "From the Village of the Albinaurics grace, cross the well area and the wooden bridge over the water.",
+  "The body holding the sword sits near the edge just past the bridge.",
+  "Low-level Albinauric villagers patrol the area — easy to avoid or dispatch."
+ ],
+ "nearbyGraces": [
+  "Village of the Albinaurics"
+ ],
+ "lore": "Fashioned from pure crystal in a way no human craftsman could replicate, this blade hums with intelligence-based sorcery — likely a relic of the reclusive Crystalians, who are said to still await their creator's return.",
+ "builds": [
+  {
+   "name": "Int/Str hybrid",
+   "why": "D Strength / D Intelligence scaling lets it double as a serviceable magic damage dealer while still hitting reasonably hard in melee.",
+   "statFocus": "Intelligence"
+  }
+ ],
+ "_verify": []
+}

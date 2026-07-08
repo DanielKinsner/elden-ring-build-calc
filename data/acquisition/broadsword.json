@@ -1,0 +1,25 @@
+{
+ "location": "Purchased for 1,800 runes from the Nomadic Merchant camped under a collapsed stone ruin on the beach southeast of Coastal Cave, West Limgrave. Also the starting weapon of the Confessor class.",
+ "region": "Limgrave",
+ "source": {
+  "type": "merchant",
+  "name": "Nomadic Merchant (Coastal Cave, West Limgrave)"
+ },
+ "tactics": [
+  "Fast travel to the Coastal Cave Site of Grace, then follow the beach south/southeast to the merchant's campfire under the broken ruin.",
+  "Costs 1,800 runes unless you started as Confessor, who has it equipped from the beginning.",
+  "No combat required — it's a straightforward shop purchase."
+ ],
+ "nearbyGraces": [
+  "Coastal Cave"
+ ],
+ "lore": "A standard-issue straight sword with a wide blade meant for broad slashing strikes — an unremarkable but dependable soldier's weapon rather than anything exceptional.",
+ "builds": [
+  {
+   "name": "Early Str/Dex quality",
+   "why": "D Strength / E Dexterity scaling and solid base attack power make it a cheap, no-fuss opener before you find a signature weapon.",
+   "statFocus": "Strength/Dexterity"
+  }
+ ],
+ "_verify": []
+}
