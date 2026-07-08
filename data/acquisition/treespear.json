@@ -1,0 +1,30 @@
+{
+ "location": "Inside a treasure chest on an abandoned carriage at the edge of a collapsed bridge, south of the Liurnia Highway South Site of Grace in Liurnia of the Lakes; a wandering Troll patrols the area.",
+ "region": "Liurnia of the Lakes",
+ "source": {
+  "type": "chest",
+  "name": "Chest on the carriage near the collapsed bridge"
+ },
+ "tactics": [
+  "From the Liurnia Highway South grace, follow the road south toward the collapsed bridge and abandoned carriage.",
+  "A Troll patrols nearby - it's slow, so you can grab the chest and retreat rather than fighting it if you're underleveled.",
+  "The chest is a simple ground pickup with no fog gate or boss required, making it an easy early-game grab."
+ ],
+ "nearbyGraces": [
+  "Liurnia Highway South"
+ ],
+ "lore": "A gilded, tree-shaped spear issued to the knights who guard Leyndell's royal palaces, carrying holy damage befitting its ceremonial origin as elite capital-guard equipment.",
+ "builds": [
+  {
+   "name": "Dexterity/Faith Holy Build",
+   "statFocus": "DEX/FAI",
+   "why": "Dexterity carries the highest scaling on this spear, and its unusual rapid thrust combo rewards a nimble Dex/Faith build chasing holy damage."
+  },
+  {
+   "name": "Quality-Faith Tri-Stat",
+   "statFocus": "STR/DEX/FAI",
+   "why": "Modest requirements in all three stats suit a balanced quality-faith build wanting holy damage without committing fully to a pure caster."
+  }
+ ],
+ "_verify": []
+}

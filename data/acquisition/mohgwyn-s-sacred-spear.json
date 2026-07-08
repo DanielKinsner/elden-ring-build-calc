@@ -1,0 +1,33 @@
+{
+ "location": "Boss remembrance reward: defeat Mohg, Lord of Blood atop the Mohgwyn Dynasty Mausoleum in Mohgwyn Palace, then trade the Remembrance of the Blood Lord to Finger Reader Enia at Roundtable Hold.",
+ "region": "Mohgwyn Palace",
+ "source": {
+  "type": "boss",
+  "name": "Mohg, Lord of Blood"
+ },
+ "tactics": [
+  "Reach Mohgwyn Palace either through White Mask Varre's questline (accept his Bloody Finger and let him drag you in) or via the hidden portal in the Consecrated Snowfield.",
+  "From the Dynasty Mausoleum Midpoint grace, fight past a group of Albinaurics and a Sanguine Noble, then take the lift straight up to Mohg's arena.",
+  "In phase 2 Mohg sprouts wings and unleashes the Bloodboon Ritual, an arena-wide blood haze that drains your HP to heal him - have a Purifying Crystal Tear ready or be prepared to burst him down fast once it starts.",
+  "After the kill, choose the spear over the alternate reward (Bloodfiend's Arm Ash of War) when trading the Remembrance with Enia."
+ ],
+ "nearbyGraces": [
+  "Palace Approach Ledge-Road",
+  "Dynasty Mausoleum Midpoint",
+  "Cocoon of the Empyrean"
+ ],
+ "lore": "Mohg's own trident-spear, forged as an emblem of the blood dynasty he intends to found. It doubles as an instrument for communing with the outer god whose power sustains his followers' accursed blood.",
+ "builds": [
+  {
+   "name": "Arcane Bleed Ritualist",
+   "statFocus": "ARC",
+   "why": "Arcane scales the weapon's physical and fire damage identically to Strength while also boosting its built-in 55 bleed buildup, making it a premier arcane/bleed pick with the AoE Bloodboon Ritual skill."
+  },
+  {
+   "name": "Strength/Arcane Hybrid",
+   "statFocus": "STR/ARC",
+   "why": "Because Strength and Arcane scale equally, splitting points between the two maximizes raw output without wasted investment."
+  }
+ ],
+ "_verify": []
+}

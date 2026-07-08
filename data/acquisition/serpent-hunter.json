@@ -1,0 +1,31 @@
+{
+ "location": "On a corpse immediately to the left as you pass through the fog gate into Rykard, Lord of Blasphemy's boss arena, inside Volcano Manor. It must be picked up before defeating Rykard or it is lost for that playthrough.",
+ "region": "Mt. Gelmir",
+ "source": {
+  "type": "drop",
+  "name": "Corpse at the entrance to Rykard's boss arena"
+ },
+ "tactics": [
+  "Reach the Audience Pathway grace by progressing through Volcano Manor, or shortcut there by completing Tanith's assassination questline and accepting her offer to see her Lord.",
+  "Enter the fog gate and immediately veer left to grab the Serpent-Hunter before walking toward the center of the room, which triggers the fight.",
+  "The spear fires extended wind-beam slashes, letting you hit Rykard/the God-Devouring Serpent from outside the lava pool at his feet instead of standing in melee range of his eruption attacks.",
+  "This is a corpse pickup, not Rykard's own boss drop (the Great Rune of the Unborn and Remembrance of the Blasphemous) - don't assume you'll get it automatically after the fight."
+ ],
+ "nearbyGraces": [
+  "Audience Pathway"
+ ],
+ "lore": "Part greatsword, part spear, this weapon was said to have hunted an immortal serpent in ages past and still manifests a blade of light when turned on such a creature. Its description hints it was forged by knights seeking a way to bring down their own lord after his ambition curdled into raw greed.",
+ "builds": [
+  {
+   "name": "Pure Strength Colossal-Spear",
+   "statFocus": "STR",
+   "why": "B-grade Strength scaling and zero stat requirements mean almost any build can wield it immediately for outsized physical damage."
+  },
+  {
+   "name": "Early/Low-Level Strength Dip",
+   "statFocus": "STR",
+   "why": "With no requirements to meet, it lets low-level or early-game characters use a hard-hitting great spear long before they'd normally qualify for one."
+  }
+ ],
+ "_verify": []
+}

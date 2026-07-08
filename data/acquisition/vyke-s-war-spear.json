@@ -1,0 +1,31 @@
+{
+ "location": "Dropped by Festering Fingerprint Vyke, an NPC invader fought outside the Church of Inhibition in northeastern Liurnia of the Lakes, past the Village of the Frenzied Flame.",
+ "region": "Liurnia of the Lakes",
+ "source": {
+  "type": "boss",
+  "name": "Festering Fingerprint Vyke"
+ },
+ "tactics": [
+  "Head toward the Church of Inhibition past the Village of the Frenzied Flame; Vyke invades if you linger near the church ruins too long.",
+  "Sprint inside to rest at the Church of Inhibition grace first if you want the checkpoint locked in before fighting him.",
+  "Vyke fights with fire-and-madness thrusts (Frenzyflame Thrust) that build Madness on hit and include an aerial spinning attack - avoid standing in the lingering flame.",
+  "Don't confuse him with the separate mini-boss version of Vyke fought later in the Lord Contender's Evergaol near the First Church of Marika in the Mountaintops of the Giants - only this Liurnia invader drops the War Spear."
+ ],
+ "nearbyGraces": [
+  "Church of Inhibition"
+ ],
+ "lore": "The war spear of Vyke, a Knight of the Roundtable Hold, left scorched and blistered by his exposure to the yellow flame of frenzy - a corruption that lingers in the weapon as combined fire and madness damage.",
+ "builds": [
+  {
+   "name": "Dexterity/Faith Madness-Fire",
+   "statFocus": "DEX/FAI",
+   "why": "C-tier Dexterity scaling plus a built-in Madness buildup and fire damage make this a strong fast-hitting Dex/Faith weapon, especially potent in PvP where madness procs stun opponents."
+  },
+  {
+   "name": "Faith Frenzied-Flame Hybrid",
+   "statFocus": "FAI",
+   "why": "Faith scaling boosts the spear's fire damage directly, letting a Faith-leaning build pair its own fire/madness proc with fire incantations for a frenzied-flame-themed kit."
+  }
+ ],
+ "_verify": []
+}

@@ -1,0 +1,33 @@
+{
+ "location": "On a corpse hanging off the southeastern corner of a squarish ruin inside an undead soldier camp (Undead Soldiers, Zombie Dogs, and a mounted Godrick Knight patrol it), northeast of Warmaster's Shack and southwest of the Deathtouched Catacombs, in northern Limgrave.",
+ "region": "Limgrave",
+ "source": {
+  "type": "drop",
+  "name": "Corpse on the ruin near Deathtouched Catacombs"
+ },
+ "tactics": [
+  "Fast travel to Warmaster's Shack, then head northeast along the road toward the ruined camp.",
+  "Ride Torrent up onto the cliffs above the ruin and double-jump down onto the square structure below to avoid most of the camp's enemies.",
+  "Loot the corpse hanging off the ruin's southeastern corner - no fight is required if you don't aggro the camp.",
+  "Don't wander into the Deathtouched Catacombs entrance just to the east by mistake - the Lance is on the surface ruin, not inside the dungeon."
+ ],
+ "nearbyGraces": [
+  "Warmaster's Shack",
+  "Saintsbridge",
+  "Deathtouched Catacombs"
+ ],
+ "lore": "A blade-less spear built entirely around a long piercing point, bulky and awkward to wield for its size. Its shape suggests it was designed for cavalry charges, though oddly it gets no bonus when actually used on horseback.",
+ "builds": [
+  {
+   "name": "Strength Charge Knight",
+   "statFocus": "STR",
+   "why": "The Heavy affinity dumps nearly all scaling into Strength, letting a pure-Strength build lean on its high base damage and Charge Forth skill for hard-hitting pierce attacks."
+  },
+  {
+   "name": "Keen Dex Duelist",
+   "statFocus": "DEX",
+   "why": "The Keen affinity shifts scaling almost entirely onto Dexterity, turning the Lance into a fast, Dex-scaling thrusting weapon while keeping great-spear reach."
+  }
+ ],
+ "_verify": []
+}

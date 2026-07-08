@@ -1,0 +1,31 @@
+{
+ "location": "Guaranteed drop from Crucible Knight Siluria, who guards a giant hollow tree trunk reached by heading northwest from The Nameless Eternal City grace in Deeproot Depths, looping west and north around the sunken ruins.",
+ "region": "Deeproot Depths",
+ "source": {
+  "type": "boss",
+  "name": "Crucible Knight Siluria"
+ },
+ "tactics": [
+  "From The Nameless Eternal City grace, head northwest into the lower wetlands, then loop west/northwest around the ruined building toward the hollow tree trunk.",
+  "Siluria is weak to Fire and Lightning and has low poise, so parries or fire/lightning-infused weapons stagger her quickly.",
+  "Stay close and roll through her combos rather than backing away - her spinning Siluria's Woe skill and holy explosions have a long recovery you can punish.",
+  "In phase 2 she gains an airborne version of Siluria's Woe; give her space to whiff it before punishing."
+ ],
+ "nearbyGraces": [
+  "The Nameless Eternal City"
+ ],
+ "lore": "Carried by one of the two knights held highest among the Crucible Knights, this spear is shaped after the Erdtree's primordial form and carries an old, holy potency befitting its guardian.",
+ "builds": [
+  {
+   "name": "Strength/Faith Holy Build",
+   "statFocus": "STR/FAI",
+   "why": "Roughly even D-tier scaling in both Strength and Faith drives its matched physical and holy damage lines at once, making it strong for STR/FAI holy builds without needing an affinity change."
+  },
+  {
+   "name": "Faith Caster-Hybrid",
+   "statFocus": "FAI",
+   "why": "Leaning Faith-heavy still raises both damage lines while keeping access to Incantations, since the weapon can't be reforged with a different affinity."
+  }
+ ],
+ "_verify": []
+}
