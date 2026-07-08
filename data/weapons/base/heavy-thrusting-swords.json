@@ -1,0 +1,206 @@
+[
+ {
+  "id": "bloody-helice",
+  "name": "Bloody Helice",
+  "type": "Heavy Thrusting Sword",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 16,
+   "DEX": 19,
+   "ARC": 17
+  },
+  "weight": 8,
+  "passive": "Blood loss (55)",
+  "base": {
+   "physical": 296,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 18,
+   "DEX": 63,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 90
+  },
+  "status": {
+   "bleed": 55
+  },
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "dragon-king-s-cragblade",
+  "name": "Dragon King's Cragblade",
+  "type": "Heavy Thrusting Sword",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 18,
+   "DEX": 37
+  },
+  "weight": 8,
+  "passive": null,
+  "base": {
+   "physical": 225,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 144,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 41,
+   "DEX": 103,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical",
+    "lightning"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "godskin-stitcher",
+  "name": "Godskin Stitcher",
+  "type": "Heavy Thrusting Sword",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 14,
+   "DEX": 17
+  },
+  "weight": 7,
+  "passive": null,
+  "base": {
+   "physical": 311,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 63,
+   "DEX": 63,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "great-p-e",
+  "name": "Great Épée",
+  "type": "Heavy Thrusting Sword",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 15,
+   "DEX": 16
+  },
+  "weight": 6.5,
+  "passive": null,
+  "base": {
+   "physical": 303,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 57,
+   "DEX": 70,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "queelign-s-greatsword",
+  "name": "Queelign's Greatsword",
+  "type": "Heavy Thrusting Sword",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 14,
+   "DEX": 18,
+   "FAI": 12
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 298,
+   "magic": 0,
+   "fire": 88,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 45,
+   "DEX": 68,
+   "INT": 0,
+   "FAI": 45,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ],
+   "FAI": [
+    "fire"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "sword-lance",
+  "name": "Sword Lance",
+  "type": "Heavy Thrusting Sword",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 21,
+   "DEX": 11
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 323,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 98,
+   "DEX": 12,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ }
+]
