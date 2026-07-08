@@ -12,7 +12,7 @@
   var presets = await ERData.loadPresets('../data/');
 
   var build = { VIG:60, MND:20, END:30, STR:24, DEX:58, INT:9, FAI:15, ARC:40 };
-  var twoHanded = true, upgradeLevel = null, focusStat = 'DEX', showDlc = true;
+  var twoHanded = true, upgradeLevel = null, focusStat = 'DEX', showDlc = true, affinity = 'Standard';
   function pool(){ return showDlc ? weapons : weapons.filter(function(w){ return w.source !== 'dlc'; }); }
   var current = weapons.find(function (w){ return w.id === 'rivers-of-blood'; }) || weapons[0];
   var compareIds = [];
@@ -47,8 +47,12 @@
     twoHanded = !!p.twoHanded; $('twoHand').checked = twoHanded;
     if (p.loadout) {
       var w = weapons.find(function (x){ return x.id === p.loadout.weaponId; });
-      if (w) { current = w; fillUpgrade(); }
+      if (w) { current = w; fillUpgrade(); fillAffinity(); }
       upgradeLevel = p.loadout.upgradeLevel; if (upgradeLevel != null) $('upgrade').value = upgradeLevel;
+      var wantAff = p.loadout.affinity;
+      if (wantAff && (wantAff === 'Standard' || (current.affinities && current.affinities[wantAff]))) {
+        affinity = wantAff; $('affinity').value = wantAff;
+      }
     }
     render();
   }
@@ -65,15 +69,18 @@
   list.addEventListener('click', function (e) {
     var id = e.target.closest('[data-id]'); if (!id) return;
     current = weapons.find(function (w){ return w.id === id.getAttribute('data-id'); });
-    upgradeLevel = null; search.value = ''; list.hidden = true; fillUpgrade(); render();
+    upgradeLevel = null; search.value = ''; list.hidden = true; fillUpgrade(); fillAffinity(); render();
   });
 
   /* ---- affinity + upgrade ---- */
   function fillAffinity() {
-    // Only Standard until infused-variant data lands.
-    $('affinity').innerHTML = '<option>Standard</option>';
-    $('affinity').disabled = true;
+    var opts = ['Standard'];
+    if (current.infusable && current.affinities) opts = opts.concat(Object.keys(current.affinities));
+    $('affinity').innerHTML = opts.map(function (a){ return '<option>'+a+'</option>'; }).join('');
+    $('affinity').disabled = opts.length < 2;
+    affinity = 'Standard'; $('affinity').value = 'Standard';
   }
+  $('affinity').addEventListener('change', function () { affinity = this.value; render(); });
   function fillUpgrade() {
     var max = current.category === 'somber' ? 10 : 25;
     $('upgrade').innerHTML = '';
@@ -92,7 +99,7 @@
   function bar(v, max) { var p = max ? Math.max(0, Math.min(100, v / max * 100)) : 0; return '<div class="bar"><i style="width:'+p+'%"></i></div>'; }
 
   function render() {
-    var r = ERCalc.computeAR(build, current, { upgradeLevel: upgradeLevel, twoHanded: twoHanded });
+    var r = ERCalc.computeAR(build, current, { upgradeLevel: upgradeLevel, twoHanded: twoHanded, affinity: affinity });
 
     $('level').textContent = ERCalc.characterLevel(build);
     $('statTotal').textContent = STATS.reduce(function (s,k){ return s + build[k]; }, 0);
@@ -185,7 +192,7 @@
   }
 
   function drawChart(stat, softCaps) {
-    var curve = ERCalc.softCapCurve(build, current, stat, { upgradeLevel: upgradeLevel, twoHanded: twoHanded });
+    var curve = ERCalc.softCapCurve(build, current, stat, { upgradeLevel: upgradeLevel, twoHanded: twoHanded, affinity: affinity });
     var pts = curve.points; // {level, perPoint}
     var W = 300, H = 150, padL = 6, padR = 6, padT = 10, padB = 16;
     var maxP = Math.max.apply(null, pts.map(function (p){ return p.perPoint; }).concat([0.1]));
