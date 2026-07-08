@@ -1,0 +1,525 @@
+[
+ {
+  "id": "caestus",
+  "name": "Caestus",
+  "type": "Whip",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 8,
+   "DEX": 8
+  },
+  "weight": 1.5,
+  "passive": null,
+  "base": {
+   "physical": 220,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 72,
+   "DEX": 64,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "cipher-pata",
+  "name": "Cipher Pata",
+  "type": "Whip",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "FAI": 30
+  },
+  "weight": 0,
+  "passive": null,
+  "base": {
+   "physical": 0,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 208
+  },
+  "scaling": {
+   "STR": 0,
+   "DEX": 0,
+   "INT": 0,
+   "FAI": 144,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "clinging-bone",
+  "name": "Clinging Bone",
+  "type": "Whip",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 8,
+   "DEX": 22,
+   "ARC": 16
+  },
+  "weight": 2.5,
+  "passive": null,
+  "base": {
+   "physical": 196,
+   "magic": 58,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 18,
+   "DEX": 117,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 63
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ],
+   "ARC": [
+    "physical",
+    "magic"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "golem-fist",
+  "name": "Golem Fist",
+  "type": "Whip",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 24,
+   "DEX": 8,
+   "INT": 11,
+   "FAI": 11
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 269,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 90,
+   "DEX": 8,
+   "INT": 9,
+   "FAI": 9,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "grafted-dragon",
+  "name": "Grafted Dragon",
+  "type": "Whip",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 20,
+   "DEX": 14,
+   "FAI": 16
+  },
+  "weight": 2.5,
+  "passive": null,
+  "base": {
+   "physical": 218,
+   "magic": 0,
+   "fire": 139,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 72,
+   "DEX": 45,
+   "INT": 0,
+   "FAI": 54,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ],
+   "FAI": [
+    "fire"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "iron-ball",
+  "name": "Iron Ball",
+  "type": "Whip",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 11,
+   "DEX": 8
+  },
+  "weight": 2.5,
+  "passive": null,
+  "base": {
+   "physical": 247,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 84,
+   "DEX": 30,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "katar",
+  "name": "Katar",
+  "type": "Whip",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 8,
+   "DEX": 10
+  },
+  "weight": 2.5,
+  "passive": null,
+  "base": {
+   "physical": 237,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 45,
+   "DEX": 68,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "madding-hand",
+  "name": "Madding Hand",
+  "type": "Whip",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 8,
+   "DEX": 8,
+   "INT": 13,
+   "FAI": 20
+  },
+  "weight": null,
+  "passive": "Madness (55)",
+  "base": {
+   "physical": 129,
+   "magic": 0,
+   "fire": 154,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 59,
+   "DEX": 31,
+   "INT": 31,
+   "FAI": 31,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical",
+    "fire"
+   ],
+   "DEX": [
+    "physical",
+    "fire"
+   ],
+   "INT": [
+    "fire"
+   ],
+   "FAI": [
+    "fire"
+   ]
+  },
+  "status": {
+   "madness": 55
+  },
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "pata",
+  "name": "Pata",
+  "type": "Whip",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 11,
+   "DEX": 15
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 254,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 40,
+   "DEX": 63,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "poisoned-hand",
+  "name": "Poisoned Hand",
+  "type": "Whip",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 8,
+   "DEX": 8,
+   "ARC": 28
+  },
+  "weight": null,
+  "passive": "Poison (60)",
+  "base": {
+   "physical": 186,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 18,
+   "DEX": 0,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 144
+  },
+  "status": {
+   "poison": 60
+  },
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "spiked-caestus",
+  "name": "Spiked Caestus",
+  "type": "Whip",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 8,
+   "DEX": 10
+  },
+  "weight": 2,
+  "passive": "Blood loss (45)",
+  "base": {
+   "physical": 222,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 72,
+   "DEX": 64,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {
+   "bleed": 45
+  },
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "star-fist",
+  "name": "Star Fist",
+  "type": "Whip",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 12,
+   "DEX": 8
+  },
+  "weight": 3,
+  "passive": "Blood loss (45)",
+  "base": {
+   "physical": 257,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 84,
+   "DEX": 26,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {
+   "bleed": 45
+  },
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "thiollier-s-hidden-needle",
+  "name": "Thiollier's Hidden Needle",
+  "type": "Whip",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 10,
+   "DEX": 22,
+   "INT": 15
+  },
+  "weight": null,
+  "passive": "Sleep (42)",
+  "base": {
+   "physical": 171,
+   "magic": 110,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 27,
+   "DEX": 121,
+   "INT": 72,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ],
+   "INT": [
+    "magic"
+   ]
+  },
+  "status": {
+   "sleep": 42
+  },
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "unarmed",
+  "name": "Unarmed",
+  "type": "Whip",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {},
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 20,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 50,
+   "DEX": 50,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "veteran-s-prosthesis",
+  "name": "Veteran's Prosthesis",
+  "type": "Whip",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 15,
+   "DEX": 12
+  },
+  "weight": 4,
+  "passive": null,
+  "base": {
+   "physical": 203,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 129,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 76,
+   "DEX": 59,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical",
+    "lightning"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ }
+]
