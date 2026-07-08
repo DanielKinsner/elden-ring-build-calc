@@ -1,0 +1,846 @@
+[
+ {
+  "id": "broadsword",
+  "name": "Broadsword",
+  "type": "Straight Sword",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 10,
+   "DEX": 10
+  },
+  "weight": 4,
+  "passive": null,
+  "base": {
+   "physical": 286,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 82,
+   "DEX": 33,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "cane-sword",
+  "name": "Cane Sword",
+  "type": "Straight Sword",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 8,
+   "DEX": 11
+  },
+  "weight": 2.5,
+  "passive": null,
+  "base": {
+   "physical": 235,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 30,
+   "DEX": 82,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "carian-knight-s-sword",
+  "name": "Carian Knight's Sword",
+  "type": "Straight Sword",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 10,
+   "DEX": 10,
+   "INT": 18
+  },
+  "weight": 4,
+  "passive": null,
+  "base": {
+   "physical": 215,
+   "magic": 215,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 63,
+   "DEX": 47,
+   "INT": 58,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ],
+   "INT": [
+    "magic"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "coded-sword",
+  "name": "Coded Sword",
+  "type": "Straight Sword",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "FAI": 20
+  },
+  "weight": 2.5,
+  "passive": null,
+  "base": {
+   "physical": 0,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 208
+  },
+  "scaling": {
+   "STR": 0,
+   "DEX": 0,
+   "INT": 0,
+   "FAI": 171,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "crystal-sword",
+  "name": "Crystal Sword",
+  "type": "Straight Sword",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 13,
+   "DEX": 10,
+   "INT": 15
+  },
+  "weight": 4.5,
+  "passive": null,
+  "base": {
+   "physical": 259,
+   "magic": 166,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 81,
+   "DEX": 27,
+   "INT": 58,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ],
+   "INT": [
+    "magic"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "golden-epitaph",
+  "name": "Golden Epitaph",
+  "type": "Straight Sword",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 12,
+   "DEX": 10,
+   "FAI": 14
+  },
+  "weight": 3.5,
+  "passive": null,
+  "base": {
+   "physical": 208,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 208
+  },
+  "scaling": {
+   "STR": 54,
+   "DEX": 54,
+   "INT": 0,
+   "FAI": 68,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ],
+   "FAI": [
+    "holy"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "lazuli-glintstone-sword",
+  "name": "Lazuli Glintstone Sword",
+  "type": "Straight Sword",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 8,
+   "DEX": 9,
+   "INT": 13
+  },
+  "weight": 3.5,
+  "passive": null,
+  "base": {
+   "physical": 193,
+   "magic": 230,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 68,
+   "DEX": 27,
+   "INT": 54,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ],
+   "INT": [
+    "magic"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "longsword",
+  "name": "Longsword",
+  "type": "Straight Sword",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 10,
+   "DEX": 10
+  },
+  "weight": 3.5,
+  "passive": null,
+  "base": {
+   "physical": 269,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 75,
+   "DEX": 50,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "lordsworn-s-straight-sword",
+  "name": "Lordsworn's Straight Sword",
+  "type": "Straight Sword",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 10,
+   "DEX": 10
+  },
+  "weight": 3.5,
+  "passive": null,
+  "base": {
+   "physical": 281,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 54,
+   "DEX": 54,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "miquellan-knight-s-sword",
+  "name": "Miquellan Knight's Sword",
+  "type": "Straight Sword",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 11,
+   "DEX": 11,
+   "FAI": 16
+  },
+  "weight": 3.5,
+  "passive": null,
+  "base": {
+   "physical": 257,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 166
+  },
+  "scaling": {
+   "STR": 52,
+   "DEX": 52,
+   "INT": 0,
+   "FAI": 36,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ],
+   "FAI": [
+    "holy"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "noble-s-slender-sword",
+  "name": "Noble's Slender Sword",
+  "type": "Straight Sword",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 8,
+   "DEX": 11
+  },
+  "weight": 3.5,
+  "passive": null,
+  "base": {
+   "physical": 247,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 18,
+   "DEX": 105,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "ornamental-straight-sword",
+  "name": "Ornamental Straight Sword",
+  "type": "Straight Sword",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 10,
+   "DEX": 14
+  },
+  "weight": 3,
+  "passive": null,
+  "base": {
+   "physical": 247,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 36,
+   "DEX": 99,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "regalia-of-eochaid",
+  "name": "Regalia of Eochaid",
+  "type": "Straight Sword",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 12,
+   "DEX": 18,
+   "ARC": 15
+  },
+  "weight": 5.5,
+  "passive": null,
+  "base": {
+   "physical": 218,
+   "magic": 139,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 27,
+   "DEX": 67,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 67
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ],
+   "ARC": [
+    "physical",
+    "magic"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "rotten-crystal-sword",
+  "name": "Rotten Crystal Sword",
+  "type": "Straight Sword",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 13,
+   "DEX": 10,
+   "INT": 15
+  },
+  "weight": 4.5,
+  "passive": "Scarlet Rot (50)",
+  "base": {
+   "physical": 249,
+   "magic": 161,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 79,
+   "DEX": 27,
+   "INT": 58,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ],
+   "INT": [
+    "magic"
+   ]
+  },
+  "status": {
+   "rot": 50
+  },
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "short-sword",
+  "name": "Short Sword",
+  "type": "Straight Sword",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 8,
+   "DEX": 10
+  },
+  "weight": 3,
+  "passive": null,
+  "base": {
+   "physical": 249,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 55,
+   "DEX": 72,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "stone-sheathed-sword",
+  "name": "Stone-Sheathed Sword",
+  "type": "Straight Sword",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 16,
+   "DEX": 8
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 218,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 117,
+   "DEX": 54,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "sword-of-darkness",
+  "name": "Sword of Darkness",
+  "type": "Straight Sword",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 14,
+   "DEX": 11,
+   "FAI": 24
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 227,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 227
+  },
+  "scaling": {
+   "STR": 63,
+   "DEX": 36,
+   "INT": 0,
+   "FAI": 41,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ],
+   "FAI": [
+    "holy"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "sword-of-light",
+  "name": "Sword of Light",
+  "type": "Straight Sword",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 14,
+   "DEX": 11,
+   "FAI": 24
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 227,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 227
+  },
+  "scaling": {
+   "STR": 63,
+   "DEX": 36,
+   "INT": 0,
+   "FAI": 41,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ],
+   "FAI": [
+    "holy"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "sword-of-night-and-flame",
+  "name": "Sword of Night and Flame",
+  "type": "Straight Sword",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 12,
+   "DEX": 12,
+   "INT": 24,
+   "FAI": 24
+  },
+  "weight": 4,
+  "passive": null,
+  "base": {
+   "physical": 213,
+   "magic": 137,
+   "fire": 137,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 25,
+   "DEX": 25,
+   "INT": 90,
+   "FAI": 90,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ],
+   "INT": [
+    "magic"
+   ],
+   "FAI": [
+    "fire"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "sword-of-st-trina",
+  "name": "Sword of St. Trina",
+  "type": "Straight Sword",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 10,
+   "DEX": 12,
+   "INT": 14
+  },
+  "weight": null,
+  "passive": "Sleep (66)",
+  "base": {
+   "physical": 262,
+   "magic": 78,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 50,
+   "DEX": 72,
+   "INT": 36,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ],
+   "INT": [
+    "magic"
+   ]
+  },
+  "status": {
+   "sleep": 66
+  },
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "velvet-sword-of-st-trina",
+  "name": "Velvet Sword of St. Trina",
+  "type": "Straight Sword",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 10,
+   "DEX": 12,
+   "INT": 14
+  },
+  "weight": null,
+  "passive": "Sleep (42)",
+  "base": {
+   "physical": 232,
+   "magic": 149,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 36,
+   "DEX": 59,
+   "INT": 43,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ],
+   "INT": [
+    "magic"
+   ]
+  },
+  "status": {
+   "sleep": 42
+  },
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "warhawk-s-talon",
+  "name": "Warhawk's Talon",
+  "type": "Straight Sword",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 10,
+   "DEX": 16
+  },
+  "weight": 3,
+  "passive": null,
+  "base": {
+   "physical": 247,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 42,
+   "DEX": 90,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "weathered-straight-sword",
+  "name": "Weathered Straight Sword",
+  "type": "Straight Sword",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 7,
+   "DEX": 10
+  },
+  "weight": 3,
+  "passive": null,
+  "base": {
+   "physical": 252,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 51,
+   "DEX": 66,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ }
+]
