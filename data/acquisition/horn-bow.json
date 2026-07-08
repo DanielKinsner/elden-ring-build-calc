@@ -1,0 +1,28 @@
+{
+ "location": "On a corpse in Siofra River, tucked beneath the stairway leading up to Hallowhorn Grounds, close to the Siofra River Bank Site of Grace.",
+ "region": "Siofra River",
+ "source": {
+  "type": "drop",
+  "name": "corpse pickup, below Hallowhorn Grounds stairs"
+ },
+ "tactics": [
+  "Descend into Siofra River via the Siofra River Well lift in eastern Limgrave (Mistwood)",
+  "From Siofra River Bank grace, find the stairway leading up toward Hallowhorn Grounds, but go underneath/left of the stairs to a lower platform where the corpse sits",
+  "Hallowhorn Grounds itself just holds the deer-carcass warp point for the optional Ancestor Spirit boss — that fight is unrelated to this pickup"
+ ],
+ "nearbyGraces": [
+  "Siofra River Bank",
+  "Siofra River Well Depths"
+ ],
+ "lore": "Carved from animal horn and carried by the master hunters among Nokron's ancestral followers, this bow was made to laden every arrow it fires with magic.",
+ "builds": [
+  {
+   "name": "Int/Dex hybrid",
+   "why": "Splits its base damage between physical and magic and pairs strongly with Int-scaling arrow types like Dwelling Arrows, which get a notable bonus specifically from this bow",
+   "statFocus": "Intelligence / Dexterity"
+  }
+ ],
+ "_verify": [
+  "nearbyGraces"
+ ]
+}

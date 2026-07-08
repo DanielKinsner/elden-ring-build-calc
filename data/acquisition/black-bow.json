@@ -1,0 +1,30 @@
+{
+ "location": "On a corpse atop the Lower Leyndell rooftops, reached from the Avenue Balcony Site of Grace in Leyndell, Royal Capital. Only obtainable before Maliketh, the Black Blade is defeated — once he falls and the capital is buried in ash, this rooftop route becomes unreachable.",
+ "region": "Leyndell, Royal Capital",
+ "source": {
+  "type": "drop",
+  "name": "corpse pickup, Lower Leyndell rooftops"
+ },
+ "tactics": [
+  "From Avenue Balcony grace, head down and out onto the rooftops, then jump/climb northeast across several roofs",
+  "The corpse sits on a roof to the southwest of the route — footing is tight and a bad jump can send you falling into the streets below",
+  "Time-limited: grab it before progressing far enough to reach Maliketh, or it's gone for that playthrough",
+  "The same general rooftop network also hides the separate Bolt of Gransax pickup — don't assume they're the same item"
+ ],
+ "nearbyGraces": [
+  "Avenue Balcony",
+  "West Capital Rampart",
+  "East Capital Rampart"
+ ],
+ "lore": "Carved from dark timber into a blade-like silhouette, this longbow trades raw power for agility, letting its wielder loose arrows mid-jump or mid-roll — deceptively hard to use well despite the flashy handling.",
+ "builds": [
+  {
+   "name": "Agile Dex bow",
+   "why": "Despite being classified a longbow, it uses the light bow moveset (jump shots, roll shots, fast recovery), so pure Dex investment maximizes both damage and mobility",
+   "statFocus": "Dexterity"
+  }
+ ],
+ "_verify": [
+  "nearbyGraces"
+ ]
+}

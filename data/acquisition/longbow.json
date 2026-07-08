@@ -1,0 +1,25 @@
+{
+ "location": "Sold by Twin Maiden Husks in Roundtable Hold for 1,200 Runes, available as soon as you reach the hub. Also the default starting weapon for the Samurai class, and an uncommon drop from Skeletal Archers in catacombs/dungeons.",
+ "region": "Roundtable Hold",
+ "source": {
+  "type": "merchant",
+  "name": "Twin Maiden Husks"
+ },
+ "tactics": [
+  "Simplest route for any class: buy it outright from Twin Maiden Husks once you reach Roundtable Hold — no farming required",
+  "Samurai starting class begins with one already equipped",
+  "For an even earlier copy, Skeletal Archers in early catacombs (Deathtouched Catacombs is a reliable spot) drop it uncommonly, but finish them off with a follow-up hit or holy/fire damage so they don't reanimate"
+ ],
+ "nearbyGraces": [
+  "Table of Lost Grace"
+ ],
+ "lore": "A standard military longbow, built to outrange and outdamage a simple shortbow at the cost of quicker handling.",
+ "builds": [
+  {
+   "name": "Generic Dex bow",
+   "why": "Plain Str/Dex physical scaling with no gimmick makes it a reliable low-investment ranged poke or pull tool for any early build",
+   "statFocus": "Dexterity"
+  }
+ ],
+ "_verify": []
+}

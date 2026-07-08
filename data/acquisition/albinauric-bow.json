@@ -1,0 +1,26 @@
+{
+ "location": "Dropped by Albinauric Wolfback Archers south-southwest of the Ordina, Liturgical Town Site of Grace in the Consecrated Snowfield — a cluster of four archers (one mounted on a wolf, three seated together). The stationary rooftop archers inside the nearby Ordina Evergaol also drop it.",
+ "region": "Consecrated Snowfield",
+ "source": {
+  "type": "enemy",
+  "name": "Albinauric Wolfback Archer"
+ },
+ "tactics": [
+  "From Ordina, Liturgical Town grace, head south-southwest to find the archer group — one rides a wolf, three sit together nearby",
+  "It's a rare drop (roughly 4% base at 100 Discovery) — expect to kill several, or use a Discovery-boosting item/talisman to speed things up",
+  "The stationary archers on rooftops inside the Ordina Evergaol are a separate, easier-to-repeat source — don't mix them up with the evergaol's actual boss fight (Divine Beast Dancing Lion)",
+  "The wolf-mounted archer can outrun you on foot — chase on Torrent or bait it into range"
+ ],
+ "nearbyGraces": [
+  "Ordina, Liturgical Town"
+ ],
+ "lore": "A finely silver-worked longbow carried by the mounted archers of the Albinauric people who patrol the Consecrated Snowfield, built for accurate fire at range rather than raw stopping power.",
+ "builds": [
+  {
+   "name": "Dex Bow build",
+   "why": "Pure Str/Dex physical scaling with no elemental split means Dex investment carries both damage and handling; a Keen affinity pushes Dex scaling further",
+   "statFocus": "Dexterity"
+  }
+ ],
+ "_verify": []
+}

@@ -1,0 +1,26 @@
+{
+ "location": "On a sitting corpse atop a siege/archery tower near the First Mt. Gelmir Campsite Site of Grace, north of Gelmir Hero's Grave.",
+ "region": "Mt. Gelmir",
+ "source": {
+  "type": "drop",
+  "name": "corpse pickup, archery tower near First Mt. Gelmir Campsite"
+ },
+ "tactics": [
+  "Reach Mt. Gelmir via the rope-ladder path up from northern Altus Plateau to First Mt. Gelmir Campsite grace",
+  "Look for the tall archery/siege tower near the campsite and climb it to the top for the corpse",
+  "Watch for Abductor Virgins patrolling the cliffside approach — their grab attack is an instant kill if it connects"
+ ],
+ "nearbyGraces": [
+  "First Mt. Gelmir Campsite",
+  "Gelmir Hero's Grave"
+ ],
+ "lore": "A mechanically intricate longbow rigged with pulleys and a doubled string, its construction demanding real mathematical and engineering skill — built to send arrows farther and truer than an ordinary bow.",
+ "builds": [
+  {
+   "name": "Quality Str/Dex bow",
+   "why": "One of the only bows with D-grade Strength scaling instead of the usual E, plus extended range — fits a Str/Dex quality build better than most bows",
+   "statFocus": "Strength / Dexterity"
+  }
+ ],
+ "_verify": []
+}

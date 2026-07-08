@@ -1,0 +1,29 @@
+{
+ "location": "A reward from siding with (or defeating for) Sir Ansbach during his invasion clash with Needle Knight Leda on the first floor of the Specimen Storehouse, Shadow Keep. NOTE: this is Shadow of the Erdtree DLC content — it does not exist in the base game, despite being filed under this project's base/bows.json.",
+ "region": "Shadow Keep",
+ "source": {
+  "type": "npc",
+  "name": "Sir Ansbach (invasion reward)"
+ },
+ "tactics": [
+  "Flag: this weapon requires the Shadow of the Erdtree DLC and cannot be obtained without it — worth double-checking why it's classified as a base-game weapon in this project's data",
+  "Advance both Needle Knight Leda's and Sir Ansbach's questlines in parallel (starting near Main Gate Cross/Highroad Cross) until Leda grows suspicious of Ansbach; retrieve the Secret Rite Scroll in the Specimen Storehouse and hand it to him",
+  "Critical fork: if you help the Hornsent defeat Leda earlier in the chain, Leda never invades Ansbach and this reward is lost for that playthrough",
+  "When the invasion triggers back at the Storehouse, use the summon sign to fight for Ansbach (or Leda) to claim the bow — this is separate from Ansbach's later, endgame-only reward (Obsidian Lamina at Enir-Ilim)"
+ ],
+ "nearbyGraces": [
+  "Storehouse, First Floor"
+ ],
+ "lore": "An unconventional longbow built from two bow-bodies and two strings; despite its longbow classification it can be drawn and fired with a light bow's speed, but only by an archer with truly exceptional dexterity.",
+ "builds": [
+  {
+   "name": "Extreme Dex bow",
+   "why": "43 Dexterity requirement (the highest of any bow) with D scaling, plus the Fan Shot skill firing eight arrows in a spread — built for high-Dex arrow-spam builds",
+   "statFocus": "Dexterity"
+  }
+ ],
+ "_verify": [
+  "region",
+  "nearbyGraces"
+ ]
+}

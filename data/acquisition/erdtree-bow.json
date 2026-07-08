@@ -1,0 +1,26 @@
+{
+ "location": "In a chest on the second floor of the building attached to the Erdtree Sanctuary Site of Grace, Leyndell, Royal Capital. The Erdtree Sanctuary grace only appears after defeating Godfrey, First Elden Lord.",
+ "region": "Leyndell, Royal Capital",
+ "source": {
+  "type": "chest",
+  "name": "Erdtree Sanctuary building, 2nd floor"
+ },
+ "tactics": [
+  "Beat Godfrey, First Elden Lord (fog gate off the throne room) to spawn the Erdtree Sanctuary grace",
+  "From that grace, exit east and climb the root on the left, which loops back up into the building's second floor",
+  "Go through the doorway, jump onto a rooftop, then enter through a broken window to find the chest",
+  "Don't confuse this with the separate Erdtree Greatbow, a different ultra-greatbow-class weapon found elsewhere"
+ ],
+ "nearbyGraces": [
+  "Erdtree Sanctuary"
+ ],
+ "lore": "Styled after the Erdtree itself, this longbow dates to an age when religious devotion and warfare were one and the same — originally crafted as a companion piece to the Golden Arrow.",
+ "builds": [
+  {
+   "name": "Faith holy-arrow build",
+   "why": "Uniquely scales all fired arrow damage with Faith, so pairing it with Holy-affinity or Golden Arrows turns Faith investment directly into ranged holy damage",
+   "statFocus": "Faith"
+  }
+ ],
+ "_verify": []
+}

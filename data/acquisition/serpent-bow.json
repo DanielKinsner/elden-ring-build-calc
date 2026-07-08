@@ -1,0 +1,27 @@
+{
+ "location": "On a corpse half-submerged in a Scarlet Rot pool inside the Abandoned Cave, Caelid (Dragonbarrow) — the same cave also holds the Venomous Fang.",
+ "region": "Caelid",
+ "source": {
+  "type": "drop",
+  "name": "corpse pickup, Abandoned Cave rot pool"
+ },
+ "tactics": [
+  "From Smoldering Wall grace, ride Torrent across the tree-limb bridge over the ravine to reach the Abandoned Cave entrance",
+  "Equip poison/rot resistance (Preserving Boluses, a rot-resist talisman) before exploring — the interior is soaked in Scarlet Rot with erupting geysers",
+  "The bow sits in one of the small rot-pool alcoves; the cave also holds the Venomous Fang and a Golden Scarab, so it's worth fully clearing",
+  "Aged Servants of Rot patrol the swamp and can quickly stack Scarlet Rot buildup on you — don't linger in the pools"
+ ],
+ "nearbyGraces": [
+  "Smoldering Wall",
+  "Abandoned Cave"
+ ],
+ "lore": "Twisted into the shape of two coiled, venomous snakes, this bow was once wielded by the shadowy assassins known as the Formless Serpents, and laces every arrow fired from it with pagan poison magic.",
+ "builds": [
+  {
+   "name": "Arcane poison bow",
+   "why": "Adds a flat 15 poison buildup to every arrow and scales that buildup with Arcane rather than boosting physical damage, rewarding a dedicated poison/Arcane status build",
+   "statFocus": "Arcane"
+  }
+ ],
+ "_verify": []
+}
