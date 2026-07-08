@@ -1,0 +1,28 @@
+{
+ "location": "Guaranteed drop from Demi-Human Queen Marigga, an optional field boss found at a beached/crashed ship at the far northwest end of a coastal ravine on the Cerulean Coast.",
+ "region": "Cerulean Coast",
+ "source": {
+  "type": "boss",
+  "name": "Demi-Human Queen Marigga"
+ },
+ "tactics": [
+  "From the Cerulean Coast West Site of Grace, head into the narrow canyon/ravine to the north, take the left fork, and continue until the coastline with the wrecked ship comes into view.",
+  "The beach is crowded with demi-human mobs — approaching Marigga directly can cause her to summon them all at once, so clear stragglers individually first if possible.",
+  "She mixes ranged glintstone sorceries with a melee sword moveset; staying in close range limits her mostly to the more telegraphed melee swings.",
+  "A separate, weaker demi-human swordsman elsewhere on the beach carries a visually identical Star-Lined Sword but only drops Starlight Shards — don't mistake killing it for the boss fight."
+ ],
+ "nearbyGraces": [
+  "Cerulean Coast West"
+ ],
+ "lore": "The blade is studded with a line of star-shaped glintstone shards and was the mark of a demi-human swordsman in Marigga's service. Receiving it from their queen bound the wielder to an oath: to follow the line of stars to whatever truth waited at its end.",
+ "builds": [
+  {
+   "name": "Dex/Int hybrid bleed katana",
+   "statFocus": "Dexterity, Intelligence",
+   "why": "Scales C in Dexterity and D in Intelligence with a built-in 45 hemorrhage buildup, so it rewards a dex-leaning build that's also dipped into Intelligence rather than a pure strength or pure dex katana user."
+  }
+ ],
+ "_verify": [
+  "nearbyGraces"
+ ]
+}

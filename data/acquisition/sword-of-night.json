@@ -1,0 +1,27 @@
+{
+ "location": "Received from Jolán, Swordhand of Night at the Cathedral of Manus Metyr after finishing Count Ymir's questline. Once Ymir is defeated, rest at the Cathedral's Site of Grace, return inside to find Jolán slumped against a pillar, and give her the Iris of Occultation (not the Iris of Grace) to obtain the sword.",
+ "region": "Scadu Altus",
+ "source": {
+  "type": "npc",
+  "name": "Jolán, Swordhand of Night"
+ },
+ "tactics": [
+  "Complete Count Ymir's full questline first: ring the bell at Finger Ruins of Rhia, then blow the horn at Finger Ruins of Dheo, then descend the secret ladder hidden under Ymir's throne into Finger Ruins of Miyr.",
+  "In Finger Ruins of Miyr, Swordhand of Night Anna invades and drops the similarly named but different Claws of Night — don't confuse this fight/drop with the one that yields the Sword of Night.",
+  "Back at the Cathedral, interact with Ymir's throne again to trigger a second invasion by Jolán herself, then defeat Count Ymir in the boss fight that follows.",
+  "You'll need an Iris of Occultation beforehand: at Fort of Reprimand, drop through the hole in the courtyard floor and defeat the Omenkiller-type enemy below to get one. Giving Jolán the Iris of Grace instead turns her into a spirit-ash summon and permanently forfeits the katana for that playthrough."
+ ],
+ "nearbyGraces": [
+  "Cathedral of Manus Metyr",
+  "Church District Highroad"
+ ],
+ "lore": "Jolán's katana is described as an all-consuming black that swallows even the light that touches it. Its blade is only half-real, so a raised shield cannot fully stop it from cutting through.",
+ "builds": [
+  {
+   "name": "Pure-dex bleed/anti-turtle katana",
+   "statFocus": "Dexterity",
+   "why": "Single C-rank Dexterity scaling (improving to B at +6) with no Strength/Int/Faith/Arcane investment needed, plus 45 hemorrhage buildup and a passive that ignores roughly half of guarded damage negation — strong for a dex bleed build that wants to punish shield turtling."
+  }
+ ],
+ "_verify": []
+}
