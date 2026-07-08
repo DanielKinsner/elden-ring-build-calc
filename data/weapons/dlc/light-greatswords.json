@@ -1,0 +1,120 @@
+[
+ {
+  "id": "leda-s-sword",
+  "name": "Leda's Sword",
+  "type": "Light Greatsword",
+  "source": "dlc",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 11,
+   "DEX": 22,
+   "FAI": 19
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 247,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 159
+  },
+  "scaling": {
+   "STR": 27,
+   "DEX": 108,
+   "INT": 0,
+   "FAI": 54,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ],
+   "FAI": [
+    "holy"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "milady",
+  "name": "Milady",
+  "type": "Light Greatsword",
+  "source": "dlc",
+  "category": "regular",
+  "infusable": true,
+  "requirements": {
+   "STR": 12,
+   "DEX": 17
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 284,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 45,
+   "DEX": 82,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "rellana-s-twin-blades",
+  "name": "Rellana's Twin Blades",
+  "type": "Light Greatsword",
+  "source": "dlc",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 13,
+   "DEX": 16,
+   "INT": 16,
+   "FAI": 16
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 252,
+   "magic": 161,
+   "fire": 161,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 67,
+   "DEX": 67,
+   "INT": 61,
+   "FAI": 61,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ],
+   "INT": [
+    "magic"
+   ],
+   "FAI": [
+    "fire"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ }
+]
