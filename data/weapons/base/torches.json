@@ -1,0 +1,325 @@
+[
+ {
+  "id": "beast-repellent-torch",
+  "name": "Beast-Repellent Torch",
+  "type": "Torch",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 12,
+   "DEX": 8
+  },
+  "weight": 2.5,
+  "passive": null,
+  "base": {
+   "physical": 142,
+   "magic": 0,
+   "fire": 254,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 92,
+   "DEX": 27,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "ghostflame-torch",
+  "name": "Ghostflame Torch",
+  "type": "Torch",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 10,
+   "DEX": 10,
+   "INT": 14
+  },
+  "weight": 2.5,
+  "passive": "Frostbite (65)",
+  "base": {
+   "physical": 122,
+   "magic": 220,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 30,
+   "DEX": 30,
+   "INT": 81,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ],
+   "INT": [
+    "magic"
+   ]
+  },
+  "status": {
+   "frost": 65
+  },
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "lamenting-visage",
+  "name": "Lamenting Visage",
+  "type": "Torch",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 9
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 173,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 173,
+   "DEX": 0,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "nanaya-s-torch",
+  "name": "Nanaya's Torch",
+  "type": "Torch",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 10,
+   "DEX": 10,
+   "INT": 14,
+   "FAI": 16
+  },
+  "weight": null,
+  "passive": "Madness (65)",
+  "base": {
+   "physical": 134,
+   "magic": 0,
+   "fire": 242,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 23,
+   "DEX": 23,
+   "INT": 23,
+   "FAI": 23,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical",
+    "fire"
+   ],
+   "DEX": [
+    "physical",
+    "fire"
+   ],
+   "INT": [
+    "fire"
+   ],
+   "FAI": [
+    "fire"
+   ]
+  },
+  "status": {
+   "madness": 65
+  },
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "sentry-s-torch",
+  "name": "Sentry's Torch",
+  "type": "Torch",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 15,
+   "DEX": 8,
+   "FAI": 15
+  },
+  "weight": 5,
+  "passive": null,
+  "base": {
+   "physical": 137,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 245
+  },
+  "scaling": {
+   "STR": 45,
+   "DEX": 18,
+   "INT": 0,
+   "FAI": 85,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ],
+   "FAI": [
+    "holy"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "st-trina-s-torch",
+  "name": "St. Trina's Torch",
+  "type": "Torch",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 10,
+   "DEX": 10,
+   "FAI": 14
+  },
+  "weight": 3,
+  "passive": "Sleep (72)",
+  "base": {
+   "physical": 124,
+   "magic": 0,
+   "fire": 222,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 27,
+   "DEX": 45,
+   "INT": 0,
+   "FAI": 81,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ],
+   "FAI": [
+    "fire"
+   ]
+  },
+  "status": {
+   "sleep": 72
+  },
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "steel-wire-torch",
+  "name": "Steel-Wire Torch",
+  "type": "Torch",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 10,
+   "DEX": 8
+  },
+  "weight": 3,
+  "passive": null,
+  "base": {
+   "physical": 149,
+   "magic": 0,
+   "fire": 267,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 52,
+   "DEX": 98,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "torch",
+  "name": "Torch",
+  "type": "Torch",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 5,
+   "DEX": 5
+  },
+  "weight": 1.5,
+  "passive": null,
+  "base": {
+   "physical": 132,
+   "magic": 0,
+   "fire": 237,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 75,
+   "DEX": 52,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ }
+]
