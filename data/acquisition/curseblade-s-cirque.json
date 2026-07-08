@@ -1,0 +1,29 @@
+{
+ "location": "An uncommon drop from Curseblade enemies (masked, dual-wielding cirque users), who spawn in several places across the Realm of Shadow. The most commonly recommended farming spot is next to the Stagefront Site of Grace in Belurat, Tower Settlement, just before the Divine Beast Dancing Lion boss fog gate — a Curseblade patrols the stairway right by the grace and respawns each time you rest. A second Curseblade also spawns northeast of the very first Gravesite Plain Site of Grace.",
+ "region": "Belurat, Tower Settlement (Gravesite Plain sub-region, Realm of Shadow, Shadow of the Erdtree DLC)",
+ "source": {
+  "type": "enemy",
+  "name": "Curseblade (masked dual-cirque enemy, uncommon drop)"
+ },
+ "tactics": [
+  "From the Stagefront grace in Belurat, Tower Settlement, turn back down the stairs you climbed — a Curseblade patrols there and respawns after resting at the grace, making it a repeatable farm spot",
+  "Curseblades are fast, hyperarmored, and attack almost nonstop with bleed-inflicting combos — punish gaps after their combo strings rather than trading hits, or bait attacks and backstab",
+  "The drop isn't guaranteed (reported roughly 2-5% depending on source/Discovery stat) — rest and re-engage repeatedly, and use Arcane-boosting talismans or item-discovery buffs to speed up the farm",
+  "Stagefront sits directly before the Divine Beast Dancing Lion boss door — don't walk through the double doors behind the grace by accident while farming, or you'll trigger the boss fight"
+ ],
+ "nearbyGraces": [
+  "Stagefront",
+  "Belurat, Tower Settlement"
+ ],
+ "lore": "A circular blade with a serrated, wave-like edge designed to tear flesh and trigger heavy bleeding. Ascetics who once sought to ascend into tutelary godhood used it as a ceremonial implement in self-punishing ritual dances.",
+ "builds": [
+  {
+   "name": "Dexterity bleed",
+   "why": "Heavy Dexterity scaling combined with a strong innate blood-loss buildup makes this a top pure-DEX bleed weapon; its fixed Deadly Dance skill (the weapon can't be infused or skill-swapped) launches a mobile spinning flurry that procs bleed quickly.",
+   "statFocus": "DEX"
+  }
+ ],
+ "_verify": [
+  "tactics"
+ ]
+}

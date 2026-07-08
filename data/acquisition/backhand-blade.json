@@ -1,0 +1,31 @@
+{
+ "location": "Lying on the ground directly in front of a stone coffin inside a small mausoleum/gazebo, due north of the Scorched Ruins Site of Grace in Gravesite Plain. It's a free pickup — no fight is required to grab it, though a group of Inquisitor enemies patrols the surrounding graveyard.",
+ "region": "Gravesite Plain (Realm of Shadow, Shadow of the Erdtree DLC)",
+ "source": {
+  "type": "drop",
+  "name": "ground pickup near a Mausoleum coffin, Gravesite Plain"
+ },
+ "tactics": [
+  "From Scorched Ruins grace, head almost due north across the open graveyard toward a small mausoleum/gazebo visible in the distance",
+  "The blade sits on the ground right in front of the coffin — you can walk in, grab it, and leave without fighting anything",
+  "Inquisitor enemies (spear-wielding cultist group enemies) roam this area and can gang up if you linger or get spotted",
+  "Don't confuse this with the two other Backhand Blade-type weapons (Curseblade's Cirque, Smithscript Cirque) found elsewhere — this is the base/starter version, the only one requiring just STR 10 / DEX 13"
+ ],
+ "nearbyGraces": [
+  "Scorched Ruins"
+ ],
+ "lore": "A backhand-gripped curved blade the Hornsent have carried for generations; its associated fighting style favors spinning slashes and gouging thrusts rather than conventional swordplay.",
+ "builds": [
+  {
+   "name": "Pure Dexterity",
+   "why": "Its Dexterity scaling improves dramatically with a Keen affinity at higher upgrade levels, making it one of the harder-hitting pure-DEX backhand blades; pairs naturally with the innate Blind Spot skill's side-stepping gap closer.",
+   "statFocus": "DEX"
+  },
+  {
+   "name": "Quality (STR/DEX)",
+   "why": "Base scaling leans DEX-heavy but keeps meaningful STR scaling too, so a split quality investment isn't wasted if you want a fast off-hand option alongside a heavier main-hand weapon.",
+   "statFocus": "STR/DEX"
+  }
+ ],
+ "_verify": []
+}

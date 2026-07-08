@@ -1,0 +1,34 @@
+{
+ "location": "On a corpse beside a sewage waterfall deep inside the Ruined Forge of Starfall Past, a small dungeon in southern Scadu Altus southwest of Moorth Ruins. Reached by fighting through the dungeon's Golem Smiths and pulling a lever to open an iron gate partway in.",
+ "region": "Scadu Altus (Realm of Shadow, Shadow of the Erdtree DLC)",
+ "source": {
+  "type": "drop",
+  "name": "corpse pickup, Ruined Forge of Starfall Past (beside the sewage waterfall)"
+ },
+ "tactics": [
+  "From Moorth Ruins grace, head southwest to the forge entrance (two stacked buildings with lit braziers out front), then climb down the ladder to the Ruined Forge of Starfall Past grace just inside",
+  "Fight or run past the Misbegotten guarding the first bridge, then pull the lever to open the iron door below and continue through, watching for fire-slinging Golem Smiths and Molten Tear enemies along the way",
+  "The corpse with the Cirque sits in a mid-sized room with two more Golem Smiths flanking left and right near the waterfall/drop-off — grab the item and disengage rather than fighting both head-on",
+  "Don't stop after grabbing the Cirque: a separate lever further into the dungeon opens an iron gate you can jump above as it rises, leading to a hidden altar room with the Ancient Meteoric Ore Greatsword and an Ancient Dragon Smithing Stone — an easy-to-miss second reward in the same dungeon"
+ ],
+ "nearbyGraces": [
+  "Ruined Forge of Starfall Past",
+  "Moorth Ruins"
+ ],
+ "lore": "A circular blade etched with smithing script that lets it double as a thrown weapon: a strong attack hurls it along a curving flight path instead of striking with it directly, a product of the DLC's smithing-arts weapon line.",
+ "builds": [
+  {
+   "name": "Quality (STR/DEX)",
+   "why": "Its two dominant scaling stats are Strength and Dexterity, so a standard quality build covers most of its damage while its strong-attack throw skill adds a ranged poke option quality builds usually lack.",
+   "statFocus": "STR/DEX"
+  },
+  {
+   "name": "Hybrid DEX with INT/FAI dip",
+   "why": "The 11 INT / 11 FAI requirements are cheap enough to meet on a DEX-leaning hybrid build, unlocking its secondary Intelligence and Faith scaling for a small extra damage bump without reshaping the whole build.",
+   "statFocus": "DEX (+INT/FAI dip)"
+  }
+ ],
+ "_verify": [
+  "nearbyGraces"
+ ]
+}
