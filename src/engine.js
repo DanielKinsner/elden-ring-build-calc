@@ -101,13 +101,14 @@
       return {
         base: v.base || weapon.base,
         scaling: v.scaling || weapon.scaling,
+        elementScaling: v.elementScaling || weapon.elementScaling,
         status: v.status || weapon.status,
         arcStatusScaling: v.arcStatusScaling != null ? v.arcStatusScaling : weapon.arcStatusScaling
       };
     }
     return {
-      base: weapon.base, scaling: weapon.scaling, status: weapon.status,
-      arcStatusScaling: weapon.arcStatusScaling
+      base: weapon.base, scaling: weapon.scaling, elementScaling: weapon.elementScaling,
+      status: weapon.status, arcStatusScaling: weapon.arcStatusScaling
     };
   }
 
@@ -134,6 +135,8 @@
         var stat = STATS[s];
         var sv = ((variant.scaling && variant.scaling[stat]) || 0) * rein.scalingFrac;
         if (sv <= 0) continue;
+        // If elementScaling is present, a stat only scales the damage types it's mapped to.
+        if (variant.elementScaling && variant.elementScaling[stat] && variant.elementScaling[stat].indexOf(type) < 0) continue;
         var sat = saturation(STAT_CURVE[stat], effStats[stat]);
         var penalty = (deficientStats && deficientStats[stat]) ? (1 - UNMET_REQ_PENALTY) : 1;
         var bonus = b * (sv / 100) * sat * penalty;
