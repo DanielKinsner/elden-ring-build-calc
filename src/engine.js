@@ -29,6 +29,9 @@
   // Which curve each stat uses for weapon-attack scaling.
   var STAT_CURVE = { STR: 'physical', DEX: 'physical', INT: 'elemental', FAI: 'elemental', ARC: 'arcanePhysical' };
 
+  // Documented soft-cap breakpoints per curve (NOT the accuracy-anchor control points).
+  var SOFT_CAPS = { physical: [20, 60, 80], elemental: [20, 50, 80], arcanePhysical: [20, 55, 80], arcaneStatus: [45] };
+
   var GRADE = [ ['S',175], ['A',140], ['B',90], ['C',60], ['D',25], ['E',1] ];
 
   // --- Reinforcement (mirror data/reinforcement.json) ---
@@ -187,11 +190,12 @@
       var bumped = {}; for (var k in eff) bumped[k] = eff[k];
       bumped[stat] = clampStat(eff[stat] + 1);
       var after = rawAR(variant, bumped, rein, deficient);
-      var curve = CURVES[STAT_CURVE[stat]];
-      var lastSoftCap = curve[curve.length - 2].s; // second-to-last control point
+      var caps = SOFT_CAPS[STAT_CURVE[stat]];
+      var majorSoftCap = caps[caps.length - 2]; // e.g. 60 for physical, 50 for elemental
       softCaps[stat] = {
         perPoint: Math.round((after.total - main.total) * 100) / 100,
-        pastSoftCap: eff[stat] >= lastSoftCap
+        pastSoftCap: eff[stat] >= majorSoftCap,
+        softCaps: caps
       };
     }
 
@@ -218,6 +222,27 @@
 
   function roundMap(m) { var o = {}; for (var k in m) o[k] = Math.round(m[k]); return o; }
 
+  /**
+   * softCapCurve(build, weapon, stat, opts)
+   * Per-point AR gain for `stat` across its whole range — feeds the soft-cap graph.
+   * @returns { stat, softCaps:[...], points:[ {level, ar, perPoint} , ...] }
+   *          perPoint[level] = AR(level+1) - AR(level).
+   */
+  function softCapCurve(build, weapon, stat, opts) {
+    opts = opts || {};
+    var b = {}; for (var k in build) b[k] = build[k];
+    var points = [];
+    var prev = null;
+    for (var lv = 1; lv <= 99; lv++) {
+      b[stat] = lv;
+      var ar = computeAR(b, weapon, opts).totalAR;
+      if (prev !== null) points[points.length - 1].perPoint = Math.round((ar - prev) * 100) / 100;
+      points.push({ level: lv, ar: ar, perPoint: 0 });
+      prev = ar;
+    }
+    return { stat: stat, softCaps: (SOFT_CAPS[STAT_CURVE[stat]] || []).slice(), points: points };
+  }
+
   // Rough character level from attribute totals (Wretch baseline: 8x10 = level 1).
   function characterLevel(build) {
     var keys = ['VIG', 'MND', 'END', 'STR', 'DEX', 'INT', 'FAI', 'ARC'];
@@ -227,6 +252,7 @@
 
   return {
     computeAR: computeAR,
+    softCapCurve: softCapCurve,
     saturation: saturation,
     gradeFor: gradeFor,
     reinforce: reinforce,
