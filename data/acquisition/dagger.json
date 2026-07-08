@@ -1,0 +1,30 @@
+{
+ "location": "Sold by the Twin Maiden Husks at Roundtable Hold for 400 runes; also a rare (roughly 4%) drop from dagger-wielding Highwaymen and various region Foot Soldiers.",
+ "region": "Roundtable Hold",
+ "source": {
+  "type": "merchant",
+  "name": "Twin Maiden Husks"
+ },
+ "tactics": [
+  "Simplest route is buying it at Roundtable Hold as soon as you first reach the hub — no fight or quest needed.",
+  "If farming instead, Highwaymen in Murkwater Cave (Limgrave) are a reliable early source for the drop.",
+  "Don't confuse it with the Bandit class's starting weapon, the visually similar but mechanically distinct Great Knife — this is the plain straight-bladed Dagger."
+ ],
+ "nearbyGraces": [
+  "Roundtable Hold"
+ ],
+ "lore": "An unassuming dagger with a straight blade — short on reach and raw damage, but light enough to jab repeatedly and land unusually strong critical hits.",
+ "builds": [
+  {
+   "name": "Bleed/backstab tool",
+   "statFocus": "Dexterity",
+   "why": "Near S-tier Dexterity scaling with Keen affinity and a very high (130) critical multiplier make it a premier riposte/backstab dagger for a pure-dex build."
+  },
+  {
+   "name": "Universal affinity test bed",
+   "statFocus": "Dexterity",
+   "why": "Cheap, widely available, and freely infusable, so it's commonly used to sample bleed/poison/frost builds before committing to a signature weapon."
+  }
+ ],
+ "_verify": []
+}

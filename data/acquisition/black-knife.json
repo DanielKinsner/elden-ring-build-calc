@@ -1,0 +1,31 @@
+{
+ "location": "Dropped by the (unique/boss) Black Knife Assassin who guards the surface entrance to the Sainted Hero's Grave catacombs on the Altus Plateau — fought in the open, not inside the catacombs.",
+ "region": "Altus Plateau",
+ "source": {
+  "type": "boss",
+  "name": "Black Knife Assassin (Sainted Hero's Grave, Altus Plateau)"
+ },
+ "tactics": [
+  "Found directly west of the Rampartside Path Site of Grace — fast travel there and walk over rather than clearing the catacombs first.",
+  "She blinks/teleports into combo strings and her own dagger skill drains health through rolls, so block or create distance rather than trading hits.",
+  "A known cheese: stand behind the nearby lift — she swings twice at most then despawns, letting you land a free backstab and repeat.",
+  "Don't confuse her with the many ordinary Black Knife Assassins reused as regular enemies in other catacombs/caves (e.g. Sage's Cave) — only this specific boss-tier one guarding Sainted Hero's Grave drops the unique weapon."
+ ],
+ "nearbyGraces": [
+  "Rampartside Path"
+ ],
+ "lore": "Carried by one of the assassins responsible for the Night of the Black Knives, the killing of the demigod Godwyn the Golden. The blade was ritually charged with a stolen fragment of the Rune of Death, letting it sap life even from a target that dodges the hit.",
+ "builds": [
+  {
+   "name": "Faith/Dex holy poke",
+   "statFocus": "Faith/Dexterity",
+   "why": "D/D scaling in Dexterity and Faith plus innate holy damage let a faith-leaning dex build add burst via the Blade of Death skill, whose percentage health drain ignores i-frames."
+  },
+  {
+   "name": "Anti-evasion PvP tool",
+   "statFocus": "Faith/Dexterity",
+   "why": "Low weight and a skill that punishes rolling make it a strong pick against slippery, evasive opponents in duels."
+  }
+ ],
+ "_verify": []
+}

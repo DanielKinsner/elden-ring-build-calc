@@ -1,0 +1,30 @@
+{
+ "location": "On a corpse at the bottom of a long platforming descent down the cliff west of the Bestial Sanctum, at the northern tip of Caelid.",
+ "region": "Caelid",
+ "source": {
+  "type": "drop",
+  "name": "Corpse below Bestial Sanctum's west cliff"
+ },
+ "tactics": [
+  "From the cliff west of Bestial Sanctum, work your way down through roots, pillar tops, and rock outcrops — throwing Rainbow Stones ahead helps mark safe landing spots.",
+  "The Dragoncrest Shield Talisman sits at the same lower level, so grab both items on one careful descent.",
+  "Falling from too high kills you outright — treat this as a patience puzzle, not a speed run."
+ ],
+ "nearbyGraces": [
+  "Bestial Sanctum"
+ ],
+ "lore": "A ceremonial short blade once issued to high-ranking clergy of Farum Azula, said to boost the potency of bestial incantations. Its five-fingered hilt design symbolizes an intelligence once believed to have been granted to beasts.",
+ "builds": [
+  {
+   "name": "Bestial incantation booster",
+   "statFocus": "Faith/Arcane (as equip-only buff)",
+   "why": "Passively boosts Bestial incantation damage by 10% just by being equipped (up to 21% paired with the Clawmark Seal), making it a go-to off-hand for a beast-incantation build even without swinging it."
+  },
+  {
+   "name": "Early Strength quality dagger",
+   "statFocus": "Strength",
+   "why": "High base physical damage and D Strength scaling make it a solid pure-melee pickup needing only 10 Strength / 10 Dexterity."
+  }
+ ],
+ "_verify": []
+}

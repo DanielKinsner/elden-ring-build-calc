@@ -1,0 +1,30 @@
+{
+ "location": "Inside a locked cell in Gaol Cave, northwest Caelid; pull the lever that unlocks the cells to access it, alongside a Stonesword Key and a Golden Rune.",
+ "region": "Caelid",
+ "source": {
+  "type": "drop",
+  "name": "Unlocked cell in Gaol Cave"
+ },
+ "tactics": [
+  "Gaol Cave requires two Stonesword Keys just to get through its sealed Imp Statue entrance — budget for that before heading in.",
+  "Inside, find and pull the cell-release lever; the Wakizashi is in one of the now-open cells along with a Stonesword Key and a Golden Rune.",
+  "The dungeon also holds the Regalia of Eochaid helm — worth grabbing while you're already inside."
+ ],
+ "nearbyGraces": [],
+ "lore": "A short, tempered blade carried as a companion piece to a full-length katana by warriors from a land far across the sea — famously wielded alongside its longer partner by the demonic swordsman Bloody Finger Okina.",
+ "builds": [
+  {
+   "name": "Str/Dex bleed quality",
+   "statFocus": "Strength/Dexterity",
+   "why": "Even D/D Strength/Dexterity scaling, high base physical damage, and 38 innate bleed buildup make it a strong quality bleed pick, especially when two-handed for extra damage."
+  },
+  {
+   "name": "Light backup blade",
+   "statFocus": "Dexterity",
+   "why": "Only 3.0 weight for its damage output makes it an efficient secondary weapon for a dex-heavy loadout."
+  }
+ ],
+ "_verify": [
+  "nearbyGraces"
+ ]
+}

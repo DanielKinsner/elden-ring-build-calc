@@ -1,0 +1,30 @@
+{
+ "location": "Rare drop from Fierce Demi-Human Chiefs in the Weeping Peninsula; one such Chief can be found asleep near the bridge west of the South of the Lookout Tower Site of Grace.",
+ "region": "Weeping Peninsula",
+ "source": {
+  "type": "enemy",
+  "name": "Fierce Demi-Human Chief"
+ },
+ "tactics": [
+  "Only a 2% drop chance, so target the sleeping Chief west of the South of the Lookout Tower grace for a repeatable, low-risk farm — sneak attack, rest, repeat.",
+  "Fierce/Chief demi-humans hit far harder than the small ones nearby — don't mistake this fight for the easy variety.",
+  "A Silver Scarab talisman or other Discovery boosts speed up the farm given the low drop rate."
+ ],
+ "nearbyGraces": [
+  "South of the Lookout Tower"
+ ],
+ "lore": "A dagger whose blade grew sharper the more it was used — repeated slashing and stabbing left it darkened and hardened with crusted blood, and that same buildup is what makes it so effective at tearing flesh now.",
+ "builds": [
+  {
+   "name": "Early Strength bleed",
+   "statFocus": "Strength",
+   "why": "C-tier Strength scaling and a hefty 38 innate bleed buildup make it one of the stronger very-early bleed daggers before Arcane-scaling options open up."
+  },
+  {
+   "name": "Heavy-infusion bleed poke",
+   "statFocus": "Strength (Heavy affinity)",
+   "why": "Its Strength lean rewards a Heavy infusion for a str-focused bleed build without needing Arcane investment."
+  }
+ ],
+ "_verify": []
+}

@@ -1,0 +1,30 @@
+{
+ "location": "Starting weapon of the Bandit class; also a rare drop from small Demi-Humans, most efficiently farmed from a group of four hidden among sheep just north of the Craftsman's Shack Site of Grace on Mt. Gelmir.",
+ "region": "Mt. Gelmir",
+ "source": {
+  "type": "enemy",
+  "name": "Demi-Human"
+ },
+ "tactics": [
+  "If not playing Bandit, farm the four Demi-Humans hidden among sheep just north of Craftsman's Shack — a fast, repeatable rest-and-kill loop.",
+  "A single Demi-Human also drops it in Lakeside Crystal Cave (Liurnia), tucked in a bush near the dungeon entrance, if you're passing through earlier instead.",
+  "Its very high Dexterity scaling (C, near S-tier with Keen) makes it worth grabbing even outside a Bandit playthrough."
+ ],
+ "nearbyGraces": [
+  "Craftsman's Shack"
+ ],
+ "lore": "A broad, curved knife built for slashing rather than stabbing, meant to open wounds that keep bleeding rather than land one clean puncture.",
+ "builds": [
+  {
+   "name": "Pure Dex bleed",
+   "statFocus": "Dexterity",
+   "why": "C-tier native Dexterity scaling (near S with Keen) plus 38 innate bleed buildup make it one of the best low-investment pure-dex bleed daggers in the game."
+  },
+  {
+   "name": "Bandit starting-class carry weapon",
+   "statFocus": "Dexterity/Arcane",
+   "why": "Usable from level 5 as the Bandit's default weapon, and pairing it with early Arcane investment boosts its bleed buildup further."
+  }
+ ],
+ "_verify": []
+}

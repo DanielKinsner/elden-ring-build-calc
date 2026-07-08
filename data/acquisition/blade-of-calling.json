@@ -1,0 +1,32 @@
+{
+ "location": "In a hidden room reachable only during the elevator ride down to the Forbidden Lands Site of Grace — face southwest and jump off partway down through a gap instead of riding to the bottom; the same room holds the Official's Attire armor.",
+ "region": "Mountaintops of the Giants",
+ "source": {
+  "type": "drop",
+  "name": "Table pickup in the hidden Forbidden Lands elevator room (no enemy)"
+ },
+ "tactics": [
+  "Only reachable while riding the Forbidden Lands elevator down — jump off partway rather than continuing to the bottom.",
+  "No combat needed, but the timing/platforming off a moving elevator can be fiddly; falling wrong just resets you to the top of the ride.",
+  "You'll also pick up the Official's Attire set in the same room, so it's a two-for-one detour."
+ ],
+ "nearbyGraces": [
+  "Forbidden Lands"
+ ],
+ "lore": "A dagger once carried by a kindling maiden — commonly identified as Melina — who set out long ago on a duty of her own. Warmth from her golden flame still lingers in the blade, and its engraving hints that both she and the wielder are walking toward the same appointed death.",
+ "builds": [
+  {
+   "name": "Faith/Dex hybrid duelist",
+   "statFocus": "Faith/Dexterity",
+   "why": "C Faith scaling plus D/D Strength/Dexterity and innate holy damage make it a strong faith-hybrid dagger, and its Blade of Gold skill adds a ranged holy sweep."
+  },
+  {
+   "name": "Faith-buff synergy poke",
+   "statFocus": "Faith",
+   "why": "Its holy damage split scales well with faith buffs/talismans, giving a fast off-hand option for faith-focused melee builds."
+  }
+ ],
+ "_verify": [
+  "lore"
+ ]
+}

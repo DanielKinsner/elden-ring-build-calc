@@ -1,0 +1,30 @@
+{
+ "location": "In a chest inside the second room of the Raya Lucaria Crystal Tunnel, past the first elevator descent and a wooden beam crossing, guarded by two Marionette Soldiers.",
+ "region": "Liurnia of the Lakes",
+ "source": {
+  "type": "chest",
+  "name": "Chest in Raya Lucaria Crystal Tunnel"
+ },
+ "tactics": [
+  "The Marionette Soldiers guarding the chest room are inactive until you get close — you can often sneak past or pick them off one at a time rather than waking both at once.",
+  "The dungeon is full of Crystalians that split into smaller copies when their limbs are severed — don't fight them like a normal enemy or you'll multiply your problems.",
+  "Worth grabbing on an Intelligence-leaning run even though the dungeon is otherwise melee-enemy-heavy."
+ ],
+ "nearbyGraces": [],
+ "lore": "Ground from raw crystal rather than forged from steel, this was the everyday tool of Raya Lucaria's glintstone miners, originally meant for chipping glintstone out of rock before being put to use as a weapon.",
+ "builds": [
+  {
+   "name": "Hybrid Intelligence dagger",
+   "statFocus": "Intelligence",
+   "why": "D scaling in Strength/Dexterity plus Intelligence, with split physical/magic damage, gives sorcery builds a decent melee backup without heavy stat investment."
+  },
+  {
+   "name": "Tri-scaling utility pick",
+   "statFocus": "Strength/Dexterity/Intelligence",
+   "why": "Its even three-way scaling suits hybrid casters who've put some points into physical stats as well as Intelligence."
+  }
+ ],
+ "_verify": [
+  "nearbyGraces"
+ ]
+}

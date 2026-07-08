@@ -1,0 +1,30 @@
+{
+ "location": "Rare drop from the blue-robed Dominula Dancers (Celebrants) found east of the Windmill Village Site of Grace, in Dominula on the Altus Plateau.",
+ "region": "Altus Plateau",
+ "source": {
+  "type": "enemy",
+  "name": "Dominula Dancer (Celebrant)"
+ },
+ "tactics": [
+  "Only about a 0.5% drop chance — farm the pair of dancers just east of the Windmill Village grace, resting and re-engaging.",
+  "Don't wade into the whole festival crowd at once — Dominula has more dancers plus tougher patrolling enemies; isolate the two nearest the grace.",
+  "Its skill ignores half of a blocking enemy's damage negation, making it especially good against shield-turtling NPCs and invaders."
+ ],
+ "nearbyGraces": [
+  "Windmill Village"
+ ],
+ "lore": "A sickle decorated with flowers and colored fabric, used as a ceremonial dance prop during Dominula's festivals — carved from human bone despite its decorative appearance.",
+ "builds": [
+  {
+   "name": "Pure Dex poke",
+   "statFocus": "Dexterity",
+   "why": "Near S-tier Dexterity scaling with a Keen affinity and low stat requirements make it one of the strongest early-to-mid pure-dex daggers."
+  },
+  {
+   "name": "Anti-block invader tool",
+   "statFocus": "Dexterity",
+   "why": "Its 50% guard-negation-ignore passive rewards using it specifically against blocking enemies and shield-heavy PvP opponents."
+  }
+ ],
+ "_verify": []
+}

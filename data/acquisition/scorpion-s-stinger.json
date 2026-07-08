@@ -1,0 +1,30 @@
+{
+ "location": "In a chest inside the Grand Cloister, at the bottom of Lake of Rot in the Ainsel River area (reached via Nokstella, Eternal City).",
+ "region": "Ainsel River",
+ "source": {
+  "type": "chest",
+  "name": "Chest in the Grand Cloister"
+ },
+ "tactics": [
+  "Cross the rot-infested swamp of Lake of Rot to reach the Grand Cloister's large statue entrance, then use interior ledges to drop down to the bottom floor.",
+  "The Cloister is crowded with Kindred of Rot casting Pest Threads — don't linger in the open or multiple casters will overwhelm you with rot buildup.",
+  "Head west from the bottom of the drop to reach the chest; nearby corpses in the same room also carry Golden Runes worth grabbing."
+ ],
+ "nearbyGraces": [
+  "Grand Cloister"
+ ],
+ "lore": "Fashioned from the tail of a great scorpion and left glistening with scarlet rot, this dagger served as a ceremonial tool for heretics working with a relic drawn from a sealed Outer God.",
+ "builds": [
+  {
+   "name": "Scarlet Rot applicator",
+   "statFocus": "Dexterity",
+   "why": "Innate 120 Scarlet Rot buildup and its Repeating Thrust skill make it one of the fastest ways to proc rot on tough single targets, including dragons."
+  },
+  {
+   "name": "Dex quality dagger with rot utility",
+   "statFocus": "Dexterity/Strength",
+   "why": "Solid C-tier Dexterity and D Strength scaling let it double as a competent physical dagger even outside dedicated rot builds."
+  }
+ ],
+ "_verify": []
+}

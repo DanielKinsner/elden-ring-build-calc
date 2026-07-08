@@ -1,0 +1,30 @@
+{
+ "location": "On a corpse behind the stone coffin next to the hidden NPC Old Albus, up the hill east of the Village of the Albinaurics Site of Grace in Liurnia.",
+ "region": "Liurnia of the Lakes",
+ "source": {
+  "type": "drop",
+  "name": "Corpse behind the stone coffin near Old Albus"
+ },
+ "tactics": [
+  "From the Village of the Albinaurics grace, head east and uphill past two houses; striking the suspicious pot here reveals the hidden NPC Old Albus.",
+  "Check behind the stone coffin right next to Albus for the corpse holding the sickle — easy to miss while focused on talking to him.",
+  "No boss fight or enemy required, just a short detour off the path toward the village's boss arena."
+ ],
+ "nearbyGraces": [
+  "Village of the Albinaurics"
+ ],
+ "lore": "A sickle carved from ivory, carried by elderly Albinaurics as a token of their devotion to the Haligtree — a holy place none of them had actually lived to reach in person.",
+ "builds": [
+  {
+   "name": "Intelligence/Dex hybrid poke",
+   "statFocus": "Intelligence/Dexterity",
+   "why": "D scaling in both Dexterity and Intelligence with split physical/magic damage gives a sorcery-leaning dex build a lightweight melee option."
+  },
+  {
+   "name": "Early Liurnia caster dagger",
+   "statFocus": "Intelligence",
+   "why": "Low stat requirements (6/11/13) make it an easy pickup right as Intelligence builds start touring Liurnia's academy content."
+  }
+ ],
+ "_verify": []
+}

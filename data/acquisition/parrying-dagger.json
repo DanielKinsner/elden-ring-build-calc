@@ -1,0 +1,30 @@
+{
+ "location": "Sold by Patches once he sets up his merchant stall inside Murkwater Cave in Limgrave after surrendering mid-fight; also purchasable later from the Twin Maiden Husks at Roundtable Hold once you obtain Patches' Bell Bearing.",
+ "region": "Limgrave",
+ "source": {
+  "type": "merchant",
+  "name": "Patches"
+ },
+ "tactics": [
+  "Fight Patches in Murkwater Cave; once he drops to roughly half health he'll beg for mercy — accept, and he opens a shop right there in the cave.",
+  "If you kill him instead (or otherwise obtain his Bell Bearing), his full stock including this dagger becomes purchasable from the Twin Maiden Husks at Roundtable Hold.",
+  "Its innate Parry skill makes it worth grabbing early even outside a dagger build, just as a dedicated parry tool."
+ ],
+ "nearbyGraces": [
+  "Murkwater Cave"
+ ],
+ "lore": "A knife fitted with curved handguards, built specifically to catch and turn aside an incoming blow — rewarding a duelist who can read and counter an opponent's strike rather than simply out-trade them.",
+ "builds": [
+  {
+   "name": "Dedicated parry build",
+   "statFocus": "Dexterity",
+   "why": "Its default Parry skill offers a faster, more forgiving window than the standard small-shield parry, making it a top pick for a punish-focused riposte build."
+  },
+  {
+   "name": "Pure Dex quality poke",
+   "statFocus": "Dexterity",
+   "why": "C Dexterity scaling and low requirements (5/14) let it double as a cheap early dex weapon outside of its parry gimmick."
+  }
+ ],
+ "_verify": []
+}

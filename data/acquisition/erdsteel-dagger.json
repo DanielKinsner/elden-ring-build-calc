@@ -1,0 +1,32 @@
+{
+ "location": "Given by the NPC Kenneth Haight after clearing out Fort Haight for him, in Limgrave. A second copy is separately found on a corpse in a pit beneath a fire-spitting Gargoyle statue in Leyndell's sewers, northwest of the Avenue Balcony Site of Grace.",
+ "region": "Limgrave",
+ "source": {
+  "type": "npc",
+  "name": "Kenneth Haight"
+ },
+ "tactics": [
+  "Find Kenneth Haight standing atop the ruined bridge between the Mistwood Outskirts and Third Church of Marika graces, and agree to clear Fort Haight for him.",
+  "After defeating the fort's enemies, rest at the Fort Haight West grace so he can invite you back, then return to him to be knighted and receive the dagger.",
+  "The Leyndell sewer copy is a separate, much later pickup — useful mainly if you skipped or missed Kenneth's quest earlier."
+ ],
+ "nearbyGraces": [
+  "Fort Haight West",
+  "Third Church of Marika",
+  "Mistwood Outskirts"
+ ],
+ "lore": "A finely crafted dagger engraved with a grass crest, once carried by Erdtree royalty for personal defense in peacetime. Despite its craftsmanship it's an awkward weapon to wield, and unusually for a dagger its power grows with Faith rather than just Strength or Dexterity.",
+ "builds": [
+  {
+   "name": "Faith/Dex hybrid poke",
+   "statFocus": "Faith/Dexterity",
+   "why": "Even D scaling across Strength, Dexterity and Faith, plus a Faith-affinity bonus well above other infusion options, make it a solid faith-hybrid backup dagger."
+  },
+  {
+   "name": "Early Flame Art/Sacred carrier",
+   "statFocus": "Faith",
+   "why": "Flame Art and Sacred affinities hit especially hard on this weapon, giving faith builds an early elemental dagger option."
+  }
+ ],
+ "_verify": []
+}

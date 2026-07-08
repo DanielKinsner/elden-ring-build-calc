@@ -1,0 +1,30 @@
+{
+ "location": "Reward from Sorceress Sellen for siding with her against Witch-Hunter Jerren at the climax of her questline, fought at the Raya Lucaria Grand Library.",
+ "region": "Liurnia of the Lakes",
+ "source": {
+  "type": "npc",
+  "name": "Sorceress Sellen"
+ },
+ "tactics": [
+  "Requires committing to Sellen's full questline (helping her research, defeating Radahn to enable her revival, then returning to the Grand Library) rather than siding with Jerren.",
+  "At the Grand Library grace, two summon signs appear — the gold sign joins the fight to help Sellen against Jerren; the red sign instead sides with Jerren and locks you out of this dagger.",
+  "Siding with Jerren instead nets different rewards (Sellen's Bell Bearing, Witch's Glintstone Crown) — the two paths are mutually exclusive in a single playthrough."
+ ],
+ "nearbyGraces": [
+  "Raya Lucaria Grand Library"
+ ],
+ "lore": "A ceremonial dagger the Academy of Raya Lucaria once gifted to Leyndell to mark a truce between them, its wavy blade and gilded Erdtree filigree referencing an old ritual rather than practical combat design.",
+ "builds": [
+  {
+   "name": "Intelligence/Dex sorcery dagger",
+   "statFocus": "Intelligence",
+   "why": "D Intelligence and D Dexterity scaling with split physical/magic damage give Intelligence builds a melee option that doesn't waste their stat investment."
+  },
+  {
+   "name": "Glintstone Dart backup nuke",
+   "statFocus": "Intelligence",
+   "why": "Its innate chargeable Glintstone Dart skill gives casters a cheap (10 FP) ranged poke without needing to swap to a staff."
+  }
+ ],
+ "_verify": []
+}

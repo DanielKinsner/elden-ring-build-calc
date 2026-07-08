@@ -1,0 +1,30 @@
+{
+ "location": "On a corpse in an armory behind a Stonesword Key fog wall inside Stormveil Castle, reached from the Rampart Tower Site of Grace elevator down into the Grafted Scion's room, then left through two doors.",
+ "region": "Limgrave",
+ "source": {
+  "type": "drop",
+  "name": "Corpse in the Stormveil armory (behind Stonesword Key door)"
+ },
+ "tactics": [
+  "Take the lift down from Rampart Tower grace into the room patrolled by the wandering Grafted Scion — you can usually slip past it to the doors on the left rather than fighting it.",
+  "Use a Stonesword Key on the fogged armory door; inside are axe-wielding guards, so fight them in the doorway rather than getting surrounded.",
+  "The dagger sits on a corpse in the room's north corner alongside a Hawk Crest Wooden Shield and an Iron Whetblade — grab all three in one trip."
+ ],
+ "nearbyGraces": [
+  "Rampart Tower"
+ ],
+ "lore": "Favored by battlefield physicians for its precision, this dagger's hard, needle-like point is built to land brutally effective finishing strikes — a blunt reminder that mercy on a battlefield often looks like a killing blow.",
+ "builds": [
+  {
+   "name": "Critical/backstab specialist",
+   "statFocus": "Dexterity",
+   "why": "Highest critical multiplier of any dagger (140) makes it the go-to choice for backstab- and riposte-focused dex builds."
+  },
+  {
+   "name": "Early quality poke",
+   "statFocus": "Dexterity/Strength",
+   "why": "Solid base physical damage and low requirements (7/12) make it a strong pickup right out of Stormveil for almost any melee build."
+  }
+ ],
+ "_verify": []
+}

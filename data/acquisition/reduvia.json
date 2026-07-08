@@ -1,0 +1,30 @@
+{
+ "location": "Dropped by the invading NPC Bloody Finger Nerijus, who ambushes you along the riverbed near Murkwater Cave in Limgrave (the same stretch the Night's Cavalry rides at night).",
+ "region": "Limgrave",
+ "source": {
+  "type": "npc",
+  "name": "Bloody Finger Nerijus"
+ },
+ "tactics": [
+  "Head north from Lake Agheel along the stream toward Murkwater Cave; Nerijus invades partway down, before you reach the cave entrance.",
+  "He fights with a pair of Reduvia daggers, mixing fast melee slashes with a ranged blood-blade projectile — both inflict bleed, so watch your Hemorrhage buildup.",
+  "Spirit Ashes can't be used in this fight, but the NPC Yura shows up to help partway through — let him draw hits while you punish openings."
+ ],
+ "nearbyGraces": [],
+ "lore": "A jagged, curl-bladed dagger favored by the Lord of Blood's loyal servants — its shape is built to tear on the way in, inflicting bleed with unpleasant efficiency.",
+ "builds": [
+  {
+   "name": "Arcane bleed build",
+   "statFocus": "Arcane",
+   "why": "D Dexterity/D Arcane scaling and 50 innate bleed buildup make it a cornerstone early weapon for Arcane bleed builds, and its Ash of War — a ranged bleeding blood-blade projectile — is strong enough to be used on other weapons too."
+  },
+  {
+   "name": "Ranged poke supplement",
+   "statFocus": "Arcane/Dexterity",
+   "why": "Its skill throws a bleeding projectile, giving melee arcane builds free ranged bleed chip damage."
+  }
+ ],
+ "_verify": [
+  "nearbyGraces"
+ ]
+}
