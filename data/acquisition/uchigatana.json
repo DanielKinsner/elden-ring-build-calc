@@ -1,0 +1,21 @@
+{
+ "location": "Deathtouched Catacombs — pull the lever near the entrance to open a hidden door; the katana hangs from a corpse behind it. No boss fight required for this item (the catacombs' boss, Black Knife Assassin, guards a separate reward further in).",
+ "region": "Limgrave",
+ "source": { "type": "drop", "name": "Deathtouched Catacombs (Stormhill, west of Saintsbridge)" },
+ "tactics": [
+  "Head to Stormhill, west of Saintsbridge, to find the catacombs entrance",
+  "Pull the lever just past the entrance to open the hidden door — the Uchigatana is on a corpse behind it",
+  "You can leave immediately with the weapon; the optional boss (Black Knife Assassin, starts at reduced HP) is deeper in and guards a talisman, not the katana"
+ ],
+ "nearbyGraces": [
+  "Stormhill Shack",
+  "Saintsbridge",
+  "Warmaster's Shack"
+ ],
+ "lore": "A curved blade of the katana style, favored for a heavy attack that draws blood. One of the most commonly recommended early/mid-game weapons for its low stat requirements and innate Bleed passive.",
+ "builds": [
+  { "name": "Quality Katana", "why": "Even STR/DEX split via the Quality affinity — this repo's own \"Quality\" preset uses it at +25", "statFocus": "STR / DEX" },
+  { "name": "Bleed Katana", "why": "Blood affinity + high ARC stacks the innate Bloodloss passive on top of scaling bleed buildup", "statFocus": "DEX / ARC" }
+ ],
+ "_verify": ["nearbyGraces", "lore"]
+}
