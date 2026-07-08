@@ -1,0 +1,17 @@
+{
+ "location": "Inside a chest at the top of the Forest Lookout Tower, a ruined tower over a cliff edge southwest of the Bridge of Sacrifice.",
+ "region": "Weeping Peninsula",
+ "source": { "type": "chest", "name": "Forest Lookout Tower" },
+ "tactics": [
+  "From Bridge of Sacrifice grace, head south past a sacked caravan to a fork, then north to reach the tower",
+  "Enter through a broken stone-wall gap at the base and climb the interior ladder",
+  "An archer/soldier enemy guards the top platform — expect ranged harassment on the way up",
+  "The chest holds the Hand Ballista plus 5 Ballista Bolts — grab both, the weapon is useless without ammo"
+ ],
+ "nearbyGraces": ["Bridge of Sacrifice"],
+ "lore": "A crude siege weapon repurposed for solo use — a portable castle-breaker better suited to reckless one-man assaults than tactical warfare.",
+ "builds": [
+  { "name": "Any build (utility)", "why": "Zero stat scaling — just STR/DEX requirements to wield — so it fits any build as a heavy-hitting, guard-breaking sidearm against tough single enemies rather than a primary scaling weapon", "statFocus": "N/A" }
+ ],
+ "_verify": []
+}

@@ -1,0 +1,17 @@
+{
+ "location": "Inside a chest at the top of Rabbath's Rise, a glintstone tower — requires breaking a hidden wall in the study (marked by two arches) to reveal a Spiritspring, then riding Torrent up the wind current to the peak.",
+ "region": "Scadu Altus (Realm of Shadow, Shadow of the Erdtree DLC)",
+ "source": { "type": "chest", "name": "Rabbath's Rise" },
+ "tactics": [
+  "From Church District Highroad grace, head east to the tower (or approach from Bonny Village, crossing two bridges northeast)",
+  "Enter via the left door and climb the spiral stairs to the study room",
+  "Strike the wall segment with two arches to reveal a hidden Spiritspring",
+  "Exit onto the balcony, use the Spiritspring jump, then carefully follow the exterior stairs up to the chest — no boss fight, pure platforming/puzzle"
+ ],
+ "nearbyGraces": ["Church District Highroad"],
+ "lore": "Credited to a named 'Spellmachinist,' this cannon embeds glintstones around its barrel that add magic damage to its bolts and give them a homing pull toward locked-on targets — a more refined, magic-augmented cousin of the cruder Jar Cannon.",
+ "builds": [
+  { "name": "Any build (utility)", "why": "Zero stat scaling; its bolts home in on a locked-on target and split physical/magic damage, useful against flying/fast enemies or high-physical-resist foes in any build", "statFocus": "N/A" }
+ ],
+ "_verify": []
+}

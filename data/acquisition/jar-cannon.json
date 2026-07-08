@@ -1,0 +1,17 @@
+{
+ "location": "Dropped by the boss Demi-Human Queen Margot at the end of Volcano Cave, a small cave dungeon in the cliffs north of Mt. Gelmir.",
+ "region": "Mt. Gelmir (Altus Plateau area)",
+ "source": { "type": "boss", "name": "Demi-Human Queen Margot (Volcano Cave)" },
+ "tactics": [
+  "From Ninth Mt. Gelmir Campsite grace, cross the nearby bridge and follow the cliff path north past soldiers and demi-humans to the cave mouth",
+  "Clear demi-human groups inside, then push through to the fog gate",
+  "Margot's staff-based ranged phase is heavily telegraphed — keep distance and punish openings between casts",
+  "She eventually drops the staff for melee swipes/slams — stay mobile in the roomy cavern and watch for a punishing grab attack"
+ ],
+ "nearbyGraces": ["Ninth Mt. Gelmir Campsite"],
+ "lore": "An experimental, explosive-powered jar-cannon that ended up at the Volcano Manor assault — its unwieldy, slow-reload design suggests nobody on hand really knew how to operate it properly.",
+ "builds": [
+  { "name": "Any build (utility)", "why": "Zero stat scaling — a heavy single-shot guard-breaker or burst option that just needs the STR/DEX requirement met, not stat investment", "statFocus": "N/A" }
+ ],
+ "_verify": []
+}
