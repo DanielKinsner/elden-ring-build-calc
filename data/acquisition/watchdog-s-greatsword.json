@@ -1,0 +1,29 @@
+{
+ "location": "A rare drop from sword-wielding Erdtree Burial Watchdogs. Most reliably farmed from the Watchdog guarding the Giant-Conquering Hero's Grave in Mountaintops of the Giants, reached via a lift west of the Giant's Gravepost Site of Grace; a second sword-wielding Watchdog in the Consecrated Snowfield Catacombs can also drop it.",
+ "region": "Mountaintops of the Giants",
+ "source": {
+  "type": "drop",
+  "name": "Erdtree Burial Watchdog (sword-wielding)"
+ },
+ "tactics": [
+  "From the Giant's Gravepost grace, head west to a large tomb and take the lift down into the Giant-Conquering Hero's Grave to find a farmable Watchdog.",
+  "These Watchdogs are slow but hit hard with sweeping stone-sword swings and a stunning roar — stay patient and punish after their telegraphed overheads.",
+  "It's a low-percentage random drop, not guaranteed, so expect to fight the same Watchdog many times (a Discovery/Item Discovery boost helps a lot).",
+  "The Consecrated Snowfield Catacombs has an alternate sword-wielding Watchdog guarding its boss room if you want a second farming spot."
+ ],
+ "nearbyGraces": [
+  "Giant's Gravepost",
+  "Zamor Ruins"
+ ],
+ "lore": "A stone greatsword carried by the Erdtree's burial watchdogs, originally set with a watching eye that graverobbers long ago pried loose, leaving behind an unseeing lump of carved rock.",
+ "builds": [
+  {
+   "name": "Strength Infusion Colossal",
+   "why": "Strength dominates its scaling and, unlike most named colossal swords, its default Ash of War can be swapped out, making it a flexible base for any Strength-focused loadout.",
+   "statFocus": "Strength"
+  }
+ ],
+ "_verify": [
+  "tactics"
+ ]
+}

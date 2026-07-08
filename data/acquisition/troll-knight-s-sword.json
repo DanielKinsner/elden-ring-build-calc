@@ -1,0 +1,26 @@
+{
+ "location": "Guaranteed drop from the Troll Knight patrolling the gardens below the Manor Upper Level Site of Grace in Caria Manor, Liurnia of the Lakes.",
+ "region": "Liurnia of the Lakes",
+ "source": {
+  "type": "enemy",
+  "name": "Troll Knight (Caria Manor)"
+ },
+ "tactics": [
+  "From the Manor Upper Level grace, head outside and down the stairs into the gardens, then go north and west toward a stairwell where the Troll Knight patrols.",
+  "It's large and slow but hits very hard — bait its telegraphed overhead swings and punish the long recovery afterward.",
+  "Two Spectral Troll Knights guarding the path to the Four Belfries can also drop this sword, but only at a low chance, so the Caria Manor troll is the reliable source.",
+  "Don't push further up the same staircases while distracted — that route leads to the Royal Knight Loretta boss arena, a separate and much harder fight."
+ ],
+ "nearbyGraces": [
+  "Manor Upper Level"
+ ],
+ "lore": "A greatsword set with a shard of blue glintstone, issued to the trolls bound into Caria's service after Queen Rennala called in an old oath, treating the beasts as true knights of her court.",
+ "builds": [
+  {
+   "name": "Quality/Int Hybrid Colossal",
+   "why": "Strength and Dexterity scale almost identically here, with a meaningful Intelligence contribution feeding both its magic damage split and the shouted Troll's Roar skill.",
+   "statFocus": "Strength + Dexterity + Intelligence"
+  }
+ ],
+ "_verify": []
+}

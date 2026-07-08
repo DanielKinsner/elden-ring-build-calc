@@ -1,0 +1,30 @@
+{
+ "location": "Purchased for 3,500 Runes from the Isolated Merchant at his shack on the western edge of the Weeping Peninsula.",
+ "region": "Weeping Peninsula",
+ "source": {
+  "type": "merchant",
+  "name": "Isolated Merchant (Weeping Peninsula)"
+ },
+ "tactics": [
+  "Cross the bridge south from Limgrave onto Weeping Peninsula, then follow the coast west to reach the merchant's hut and grace — no fight required, just Runes.",
+  "Its low Strength requirement and light weight make it an easy first colossal sword for almost any early build.",
+  "Its Dexterity scaling actually outpaces Strength, so it pairs surprisingly well with a bleed Ash of War far earlier than most other colossal swords."
+ ],
+ "nearbyGraces": [
+  "Isolated Merchant's Shack (Weeping Peninsula)"
+ ],
+ "lore": "About as large a blade as an ordinary person can manage, meant to be swung with both hands — even those with decent strength will find it a handful to wield properly.",
+ "builds": [
+  {
+   "name": "Early Dex/Bleed Colossal",
+   "why": "Its Dexterity scaling actually outpaces Strength, and its low 19/11 requirements let a bleed- or Dexterity-leaning character wield a colossal sword straight out of Limgrave.",
+   "statFocus": "Dexterity"
+  },
+  {
+   "name": "Budget Strength Starter",
+   "why": "Cheap and available almost immediately, it's a solid stopgap Strength weapon while farming for a better colossal sword.",
+   "statFocus": "Strength"
+  }
+ ],
+ "_verify": []
+}

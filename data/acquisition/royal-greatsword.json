@@ -1,0 +1,25 @@
+{
+ "location": "Guaranteed drop from Blaidd the Half-Wolf, who turns hostile and attacks outside Ranni's Rise (Three Sisters, Liurnia of the Lakes) once Ranni's questline has been fully completed. Killing him before finishing her questline gives no reward.",
+ "region": "Liurnia of the Lakes",
+ "source": {
+  "type": "boss",
+  "name": "Blaidd the Half-Wolf"
+ },
+ "tactics": [
+  "Complete Ranni the Witch's entire questline first; approaching Ranni's Rise afterward triggers Blaidd waiting outside, already hostile.",
+  "He fights fast with sweeping greatsword combos and a jumping strike — punish after his combo strings end rather than trading blows mid-combo.",
+  "There's no way to avoid the fight peacefully once flagged; you must defeat him to finish his arc and claim his gear."
+ ],
+ "nearbyGraces": [
+  "Ranni's Rise"
+ ],
+ "lore": "A greatsword styled after Carian royal fashion, once carried by Blaidd the Half-Wolf. Its blade was said to be infused with cold magic the instant he swore his oath of service to Ranni.",
+ "builds": [
+  {
+   "name": "Frost Int/Strength Hybrid",
+   "why": "Intelligence is its single highest-scaling stat, only narrowly ahead of Strength, and Wolf's Assault's ice explosion applies heavy frostbite on top of solid magic damage.",
+   "statFocus": "Intelligence + Strength"
+  }
+ ],
+ "_verify": []
+}

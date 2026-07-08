@@ -1,0 +1,33 @@
+{
+ "location": "Inside a treasure chest at the Divine Tower of Caelid, in the room directly behind the Godskin Apostle boss arena in the tower's basement. The tower has no ground-level door — it's reached by riding Torrent up exterior roots/ledges from the Dragonbarrow West area.",
+ "region": "Caelid",
+ "source": {
+  "type": "boss",
+  "name": "Godskin Apostle"
+ },
+ "tactics": [
+  "From the Dragonbarrow West grace, head northeast on Torrent to the tower's base and climb the external roots, ledges and ladders — there's no conventional entrance.",
+  "Rest at the Divine Tower of Caelid: Center grace, then head east and down the steps into the basement to find the Godskin Apostle.",
+  "The Apostle stretches into whip-like slashes and a spinning Black Flame Whirlwind that expands outward from its position — hold mid-range and only close in during its recovery windows.",
+  "It's notably weak to bleed, magic damage, and Sleep; the chest with the greatsword sits in the room right behind the arena, easy to miss if you don't explore past the fog."
+ ],
+ "nearbyGraces": [
+  "Dragonbarrow West",
+  "Divine Tower of Caelid: Center",
+  "Divine Tower of Caelid: Basement"
+ ],
+ "lore": "Once the sacred blade of the Gloam-Eyed Queen, who commanded the Godskin Apostles before Maliketh cut her down. The black flame the Apostles wield is said to trace back to this very sword.",
+ "builds": [
+  {
+   "name": "Dex/Faith Black Flame Duelist",
+   "why": "Its scaling actually favors Dexterity over Strength, and Faith fuels the exclusive Queen's Black Flame skill, which burns for a percentage of the target's max HP — a strong tool against bosses with huge health pools.",
+   "statFocus": "Dexterity + Faith"
+  },
+  {
+   "name": "Quality-Faith Hybrid",
+   "why": "The near-even 20/22/20 Str/Dex/Fai requirements let a balanced quality-faith character equip it comfortably alongside Faith incantations and other Str/Dex gear.",
+   "statFocus": "Strength + Dexterity + Faith"
+  }
+ ],
+ "_verify": []
+}

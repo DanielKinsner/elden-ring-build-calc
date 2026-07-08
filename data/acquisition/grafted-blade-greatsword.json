@@ -1,0 +1,32 @@
+{
+ "location": "Guaranteed drop from the Leonine Misbegotten boss, fought at the Morne Moangrave arena at the southern tip of Castle Morne, Weeping Peninsula.",
+ "region": "Weeping Peninsula",
+ "source": {
+  "type": "boss",
+  "name": "Leonine Misbegotten"
+ },
+ "tactics": [
+  "Head to the very south of Limgrave, cross onto Weeping Peninsula, and clear into Castle Morne — a golem archer near the gate can snipe you from range on the approach.",
+  "From the Beside the Rampart Gaol grace, cross the wooden bridge southwest; the boss's mist gate is visible from the tower there.",
+  "The Misbegotten is extremely aggressive with long lunging combos — rolling toward it rather than away usually finds safer footing between strikes, and it's vulnerable to bleed.",
+  "Wait out its full attack strings before punishing; it has a brief but reliable recovery window after each combo ends."
+ ],
+ "nearbyGraces": [
+  "Morne Moangrave",
+  "Beside the Rampart Gaol"
+ ],
+ "lore": "A vengeance-fueled blade tied to Castle Morne, said to have been assembled by the last survivor of an annihilated people who welded together the swords of his entire fallen clan rather than let them be forgotten. It carries the weight of that grief.",
+ "builds": [
+  {
+   "name": "Pure Strength Colossal",
+   "why": "Strength is by far its dominant scaling stat, and its already-massive base attack power rewards heavy Strength investment more than any hybrid split.",
+   "statFocus": "Strength"
+  },
+  {
+   "name": "Buff-and-Brawl Bruiser",
+   "why": "Oath of Vengeance grants +5 to every stat plus several seconds of hyperarmor, letting a Strength build tank through a boss's swing to land a huge buffed hit.",
+   "statFocus": "Strength"
+  }
+ ],
+ "_verify": []
+}

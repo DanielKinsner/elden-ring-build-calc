@@ -1,0 +1,26 @@
+{
+ "location": "Guaranteed drop from the Misbegotten Warrior + Crucible Knight duo boss fight in Redmane Castle Plaza, Caelid, entered from the Chamber Outside the Plaza Site of Grace. Only accessible while the Radahn Festival is inactive.",
+ "region": "Caelid",
+ "source": {
+  "type": "boss",
+  "name": "Misbegotten Warrior & Crucible Knight"
+ },
+ "tactics": [
+  "Rest at Chamber Outside the Plaza, then head right through the fog wall into the plaza to start the fight — this is only open before the Radahn Festival begins, or after beating Radahn and exhausting Witch-Hunter Jerren's dialogue.",
+  "The fight starts as Misbegotten Warrior alone; the Crucible Knight joins once the Warrior drops to roughly half health, so rush the Warrior down first.",
+  "Once split apart, take on the Crucible Knight one-on-one — both bosses telegraph their swings clearly, so wait for openings rather than trading.",
+  "Don't confuse this fog wall with the nearby lift down to Wailing Dunes for the Radahn fight itself — they're accessed from the same grace area but lead to different encounters."
+ ],
+ "nearbyGraces": [
+  "Chamber Outside the Plaza"
+ ],
+ "lore": "Hewn from a chunk of rubble that fell from the sky when a great ruin collapsed, this fragment was later shaped into a weapon that still carries a trace of the destructive force behind that fall.",
+ "builds": [
+  {
+   "name": "Ultra-Heavy Strength Colossal",
+   "why": "Strength scaling dwarfs every other stat here (reaching S-tier at +10), and its huge base attack power makes it one of the hardest single swings available to a pure-Strength build.",
+   "statFocus": "Strength"
+  }
+ ],
+ "_verify": []
+}

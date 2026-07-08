@@ -1,0 +1,26 @@
+{
+ "location": "Inside a chest on a black carriage within a Leyndell soldier encampment on the Altus Plateau, between the Erdtree-Gazing Hill and Altus Highway Junction Sites of Grace.",
+ "region": "Altus Plateau",
+ "source": {
+  "type": "chest",
+  "name": "Carriage chest (Leyndell soldier camp)"
+ },
+ "tactics": [
+  "From Erdtree-Gazing Hill, head along the road toward Altus Highway Junction; the carriage sits in a soldier encampment between the two graces.",
+  "Several Leyndell soldiers guard the camp and will aggro if they spot you looting — clear them out or sneak in depending on your build.",
+  "Altus Plateau has multiple similar carriages scattered around, so make sure you're on the stretch specifically between these two graces."
+ ],
+ "nearbyGraces": [
+  "Erdtree-Gazing Hill",
+  "Altus Highway Junction"
+ ],
+ "lore": "Issued to the lesser giants who once fought for the Erdtree in the ancient war against the giants. Long since driven mad, the survivors still cling to these swords, now battered and stripped of most of their gold plating.",
+ "builds": [
+  {
+   "name": "Strength Colossal",
+   "why": "Strength scaling clearly outpaces Dexterity, and its high base attack power makes it a strong, easy-to-reach pure-Strength option found relatively early on the Altus Plateau.",
+   "statFocus": "Strength"
+  }
+ ],
+ "_verify": []
+}

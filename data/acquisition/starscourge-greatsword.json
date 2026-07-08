@@ -1,0 +1,28 @@
+{
+ "location": "Defeat Starscourge Radahn at Wailing Dunes (reached from Redmane Castle, Caelid, during the Radahn Festival) to earn the Remembrance of the Starscourge, then trade it to Enia at Roundtable Hold and choose this weapon (the alternative reward is the Lion Greatbow).",
+ "region": "Caelid",
+ "source": {
+  "type": "boss",
+  "name": "Starscourge Radahn"
+ },
+ "tactics": [
+  "Bring the festival's NPC allies (Blaidd, Jerren, and others) into the fight to split Radahn's aggro — this is one of the largest health-pool bosses in the game.",
+  "At range he fires gravity-charged arrows, including a tracking volley from above and a five-arrow scattershot — watch the sky, not just his position.",
+  "Once he sheathes his bow he switches to relentless wide sweeping dual-greatsword combos; circle toward his back during the gaps between combos.",
+  "After winning, you must go to Roundtable Hold and specifically pick this greatsword when trading the remembrance with Enia, since the bow reward is mutually exclusive."
+ ],
+ "nearbyGraces": [
+  "Chamber Outside the Plaza",
+  "Starscourge Radahn",
+  "War-Dead Catacombs"
+ ],
+ "lore": "One of twin black-steel blades wielded by General Radahn, decorated with a lion-mane motif and etched with a gravity crest recalling his days as a war hero gifted with control over the stars.",
+ "builds": [
+  {
+   "name": "Quality/Gravity Duelist",
+   "why": "Strength leads its scaling with a solid Dexterity contribution from the dual-blade moveset, plus minor Intelligence scaling that feeds Starcaller Cry's gravity pull-and-explosion skill.",
+   "statFocus": "Strength + Dexterity"
+  }
+ ],
+ "_verify": []
+}

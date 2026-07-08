@@ -1,0 +1,27 @@
+{
+ "location": "Defeat Maliketh, the Black Blade (the second phase of the Beast Clergyman fight) in the sanctum of Crumbling Farum Azula, southeast of the Beside the Great Bridge grace, to earn the Remembrance of the Black Blade. Trade the remembrance to Enia at Roundtable Hold and choose this weapon (the alternative reward is the Black Blade Incantation).",
+ "region": "Crumbling Farum Azula",
+ "source": {
+  "type": "boss",
+  "name": "Maliketh, the Black Blade"
+ },
+ "tactics": [
+  "This is a mandatory two-stage fight: Beast Clergyman is a warm-up phase before Maliketh himself takes over.",
+  "Phase two adds extremely fast, tracking combo strings and a Destined Death attack that permanently cuts your max HP until you rest at a grace — dodge rather than trade.",
+  "From the Beside the Great Bridge grace, head west then south up the stairs and past the Draconic Tree Sentinel to reach the fog gate.",
+  "Don't leave the remembrance unused — you must trade it at Roundtable Hold with Enia and pick the greatsword specifically, since the incantation is a separate, mutually exclusive reward."
+ ],
+ "nearbyGraces": [
+  "Beside the Great Bridge",
+  "Maliketh, the Black Blade"
+ ],
+ "lore": "What remains of the black sword Maliketh once bound within his own flesh to keep the Rune of Death from being stolen a second time. Wielding it now feels like holding a faded shadow of the power it used to carry.",
+ "builds": [
+  {
+   "name": "Strength/Faith Death Blade",
+   "why": "Strength is the primary scaling stat with Faith close behind, and the exclusive Destined Death skill adds Faith-scaled magic damage that's devastating against bosses and in PvP.",
+   "statFocus": "Strength + Faith"
+  }
+ ],
+ "_verify": []
+}

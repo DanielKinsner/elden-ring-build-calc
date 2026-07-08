@@ -1,0 +1,30 @@
+{
+ "location": "Inside a chest on the back of a stranded carriage along the road northwest of the Caelem Ruins Site of Grace in Caelid, guarded by Giant Dogs.",
+ "region": "Caelid",
+ "source": {
+  "type": "chest",
+  "name": "Carriage chest (guarded by Giant Dogs)"
+ },
+ "tactics": [
+  "From the Caelem Ruins grace, follow the road northwest until you spot the parked carriage.",
+  "One or more Giant Dogs guard the wagon — they hit hard and travel in packs, so deal with them before or while looting the chest.",
+  "Caelid has several similar roadside carriages; make sure you're northwest of Caelem Ruins and not confusing it with wagons south near the Minor Erdtree."
+ ],
+ "nearbyGraces": [
+  "Caelem Ruins"
+ ],
+ "lore": "A crude, heavy slab of an ultra-greatsword, valued less for craftsmanship than for the sheer weight it carries through a swing, mowing down anything in its path.",
+ "builds": [
+  {
+   "name": "Early Pure-Strength Beater",
+   "why": "High base attack power and strong Strength scaling make it a reliable, easy-to-find Strength weapon well before rarer colossal swords turn up.",
+   "statFocus": "Strength"
+  },
+  {
+   "name": "Infusion Testbed",
+   "why": "Unlike most named colossal swords it accepts any Ash of War and any affinity, making it a flexible platform for Quality, Keen, or elemental colossal-sword builds.",
+   "statFocus": "Build-dependent (any infusion)"
+  }
+ ],
+ "_verify": []
+}
