@@ -1,0 +1,77 @@
+[
+ {
+  "id": "poleblade-of-the-bud",
+  "name": "Poleblade of the Bud",
+  "type": "Halberd",
+  "source": "dlc",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 14,
+   "DEX": 22,
+   "ARC": 20
+  },
+  "weight": null,
+  "passive": "Scarlet Rot (55)",
+  "base": {
+   "physical": 320,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 9,
+   "DEX": 45,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 90
+  },
+  "status": {
+   "rot": 55
+  },
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "spirit-glaive",
+  "name": "Spirit Glaive",
+  "type": "Halberd",
+  "source": "dlc",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 14,
+   "DEX": 17,
+   "INT": 16
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 296,
+   "magic": 88,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 54,
+   "DEX": 86,
+   "INT": 54,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ],
+   "INT": [
+    "magic"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ }
+]
