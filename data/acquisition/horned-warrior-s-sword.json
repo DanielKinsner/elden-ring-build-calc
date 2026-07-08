@@ -1,0 +1,27 @@
+{
+ "location": "Dropped by Horned Warrior enemies (dual curved-sword-wielding elites); the most reliable farm is the Horned Warrior patrolling the stairwell doorway right next to the Small Private Altar Site of Grace in Belurat, Tower Settlement.",
+ "region": "Gravesite Plain",
+ "source": {
+  "type": "enemy",
+  "name": "Horned Warrior"
+ },
+ "tactics": [
+  "From the Small Private Altar grace in Belurat, Tower Settlement, go through the nearby doorway and up the stairs to find a dual-wielding Horned Warrior — a resettable farm spot since it's steps from a grace.",
+  "Drop rate is low, so plan on resting and refighting it several times.",
+  "Horned Warriors dual-wield curved swords with fast combos and can slam one into the ground for a holy horn burst (their own Horn Calling) — don't stand still after their combo strings end.",
+  "Other Horned Warriors carrying the same sword patrol the Belurat swamp and near the Ravine North grace in the Ancient Ruins of Rauh, as backup farm spots."
+ ],
+ "nearbyGraces": [
+  "Small Private Altar",
+  "Belurat Tower Settlement"
+ ],
+ "lore": "A curved sword carried by the horned tower-guardians of Belurat, its tangle of ornamental horns doubling as a focus for their horn-calling rite — letting the wielder slam the blade down and summon horns up from the earth.",
+ "builds": [
+  {
+   "name": "Quality Strength/Dexterity",
+   "why": "D scaling in both Strength and Dexterity with low requirements (11/14) makes it an easy early pickup for a quality build, and it auto-equips a matching second blade when two-handed.",
+   "statFocus": "Strength/Dexterity"
+  }
+ ],
+ "_verify": []
+}

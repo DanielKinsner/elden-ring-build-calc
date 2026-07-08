@@ -1,0 +1,26 @@
+{
+ "location": "Lies on the ground inside a demi-human camp in a triangular ravine behind a stranded coffin boat, northeast of the Cerulean Coast West Site of Grace — no boss fight, just navigate past the demi-humans guarding it.",
+ "region": "Cerulean Coast",
+ "source": {
+  "type": "drop",
+  "name": "Field pickup guarded by Demi-Humans"
+ },
+ "tactics": [
+  "From the Cerulean Coast West grace, head northeast to find the entrance of a triangular ravine near a stranded coffin boat.",
+  "The sword sits in the ravine's lower-right corner, watched over by a demi-human camp including a demi-human swordsman — pick them off from range or dash in and grab the item.",
+  "No boss fight needed, just navigation through the ravine and past the demi-human pack.",
+  "Don't confuse it with the similarly named Spirit Glaive, a different weapon type found elsewhere in the DLC."
+ ],
+ "nearbyGraces": [
+  "Cerulean Coast West"
+ ],
+ "lore": "A blade bent into a strange, twisted shape from long years of use around the gravesite, said to serve as a conduit for communing with wandering spirits.",
+ "builds": [
+  {
+   "name": "Intelligence/Dexterity hybrid",
+   "why": "D scaling in both Dexterity and Intelligence plus innate magic attack (59) lets it deal solid melee damage on an Intelligence-focused build without needing a separate buff, since it can't be enchanted anyway.",
+   "statFocus": "Intelligence/Dexterity"
+  }
+ ],
+ "_verify": []
+}

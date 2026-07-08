@@ -1,0 +1,27 @@
+{
+ "location": "Dropped by the Dancer of Ranah after defeating her in the hidden arena inside the Southern Nameless Mausoleum, on a small island reached via an underground tunnel south of Cerulean Coast West.",
+ "region": "Cerulean Coast",
+ "source": {
+  "type": "boss",
+  "name": "Dancer of Ranah"
+ },
+ "tactics": [
+  "From the Cerulean Coast West grace, head south along the cliffs to a large withered tree guarded by a Cemetery Shade; a narrow ledge below/behind the tree hides a drop into a cave.",
+  "Follow the cave west until it opens onto the island holding the Southern Nameless Mausoleum arena.",
+  "Dancer of Ranah alternates a double-spinning sword charge (dodge twice, or punish after the second hit) with a wide flame explosion from her Perfumed Oil of Ranah — roll away repeatedly to clear it.",
+  "She backs off to self-heal at low HP; close the gap fast to interrupt, and watch for a jumping slash on approach."
+ ],
+ "nearbyGraces": [
+  "Cerulean Coast West",
+  "Cerulean Coast"
+ ],
+ "lore": "A pair of decorative curved swords wreathed in passionate red flame, used by the dancers of Ranah for a long, sustained dance. Legend holds that the most devoted dancers never let their fiery dance end, losing even their own names as they dance on forever.",
+ "builds": [
+  {
+   "name": "Pure Dexterity curved sword",
+   "why": "B scaling in Dexterity with only 9 Strength/20 Dexterity required makes it one of the best pure-Dex paired curved swords, especially paired with its fast Unending Dance weapon skill.",
+   "statFocus": "Dexterity"
+  }
+ ],
+ "_verify": []
+}

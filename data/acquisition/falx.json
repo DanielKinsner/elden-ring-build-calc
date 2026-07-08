@@ -1,0 +1,32 @@
+{
+ "location": "Not a fixed pickup — dropped by the NPC Hornsent when killed in combat. Most naturally obtained by summoning Hornsent to help against Messmer, the Impaler in Shadow Keep; if he survives, he later invades you near the Church of the Bud Site of Grace in the Ancient Ruins of Rauh. Alternatively he can be invaded directly inside Shadow Keep while aiding Needle Knight Leda, or looted from his corpse during the late-game Leda-and-allies fight in Enir-Ilim.",
+ "region": "Ancient Ruins of Rauh",
+ "source": {
+  "type": "npc",
+  "name": "Hornsent"
+ },
+ "tactics": [
+  "Summon Hornsent's spirit-ash-style aid during the Messmer, the Impaler boss fight in Shadow Keep so he survives to invade you later.",
+  "After Messmer falls, head toward the Church of the Bud in the Ancient Ruins of Rauh; Hornsent ambushes you near that grace — defeat him for the Falx plus his full armor set.",
+  "Skipped that path? You can instead invade him directly in Shadow Keep while helping Needle Knight Leda, or loot his corpse if he shows up (and dies) during the endgame Leda-and-allies fight in Enir-Ilim.",
+  "Don't confuse it with the visually similar Horned Warrior's Sword — the Falx is Hornsent-exclusive with a Strength/Dex bleed skill (Revenger's Blade), not the holy Horn Calling art."
+ ],
+ "nearbyGraces": [
+  "Church of the Bud, Main Entrance",
+  "Church of the Bud"
+ ],
+ "lore": "A pair of long, sickle-bladed swords said to have been forged by a Hornsent consumed by vengeance, etched with a vow to answer the flames that scarred his people with his own blade.",
+ "builds": [
+  {
+   "name": "Strength/Dexterity Bleed",
+   "why": "D scaling in both Strength and Dexterity plus a hefty 55 innate blood-loss buildup and the dash-in Revenger's Blade skill make it a strong quality-bleed dual-wield pick.",
+   "statFocus": "Strength/Dexterity + Bleed"
+  }
+ ],
+ "_verify": [
+  "location",
+  "region",
+  "source",
+  "nearbyGraces"
+ ]
+}
