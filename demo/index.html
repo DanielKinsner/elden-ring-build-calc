@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ER Build Calc — engine demo</title>
+<style>
+  :root { --gold:#c9a227; --gold2:#e6c760; --bg:#14110c; --panel:#1e1a12; --line:#3a3020; --text:#e8e0cc; --dim:#9a8f76; --red:#d05a4a; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--text); font:14px/1.5 system-ui,sans-serif; }
+  h1 { font:600 22px/1.2 Georgia,serif; color:var(--gold2); letter-spacing:.06em; margin:0; }
+  .sub { color:var(--dim); font-size:12px; margin:2px 0 0; }
+  header { padding:18px 22px; border-bottom:1px solid var(--line); }
+  .wrap { display:grid; grid-template-columns:280px 1fr 300px; gap:16px; padding:16px 22px; }
+  @media (max-width:900px){ .wrap{ grid-template-columns:1fr; } }
+  .panel { background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:14px; }
+  .panel h2 { font:600 12px/1 system-ui; letter-spacing:.14em; text-transform:uppercase; color:var(--gold); margin:0 0 12px; }
+  .stat { display:grid; grid-template-columns:70px 1fr 40px; align-items:center; gap:8px; margin:6px 0; }
+  .stat label { color:var(--dim); font-size:12px; }
+  .stat input[type=range]{ width:100%; accent-color:var(--gold); }
+  .stat .val { text-align:right; font-variant-numeric:tabular-nums; }
+  select, input[type=search]{ width:100%; background:#100d09; color:var(--text); border:1px solid var(--line); border-radius:6px; padding:8px; }
+  .row { display:flex; gap:8px; align-items:center; justify-content:space-between; margin:8px 0; }
+  .ar { font:700 56px/1 Georgia,serif; color:var(--gold2); text-align:center; margin:6px 0 2px; }
+  .arlbl { text-align:center; color:var(--dim); text-transform:uppercase; letter-spacing:.14em; font-size:11px; }
+  .bar { height:8px; background:#100d09; border-radius:4px; overflow:hidden; }
+  .bar > i { display:block; height:100%; background:linear-gradient(90deg,var(--gold),var(--gold2)); }
+  .line { display:grid; grid-template-columns:90px 1fr 60px; gap:8px; align-items:center; margin:5px 0; font-size:13px; }
+  .dim { color:var(--dim); }
+  .met { color:#7fae5f; } .unmet { color:var(--red); }
+  .sug { display:flex; justify-content:space-between; padding:6px 8px; border:1px solid var(--line); border-radius:6px; margin:5px 0; cursor:default; }
+  .sug.bad { opacity:.5; }
+  .toggle { cursor:pointer; user-select:none; }
+  .presets button { background:#100d09; color:var(--text); border:1px solid var(--line); border-radius:6px; padding:6px 10px; margin:3px 3px 0 0; cursor:pointer; font-size:12px; }
+  .presets button:hover { border-color:var(--gold); color:var(--gold2); }
+  code { color:var(--gold2); }
+</style>
+</head>
+<body>
+<header>
+  <h1>ELDEN RING · Build Calc — engine demo</h1>
+  <p class="sub">Plain reference harness wiring <code>computeAR()</code> / <code>softCapCurve()</code> / <code>suggestWeapons()</code>. The real UI lives at <code>/</code>.</p>
+</header>
+<div class="wrap">
+  <!-- CHARACTER -->
+  <div class="panel">
+    <h2>Character</h2>
+    <div class="row"><span class="dim">Level</span><strong id="level">—</strong></div>
+    <div class="row"><span class="toggle" id="twoHand">Two-Handed: <strong id="thState">off</strong></span></div>
+    <div id="stats"></div>
+    <div class="row"><span class="dim">Stat total</span><strong id="statTotal">—</strong></div>
+    <div class="presets" id="presets" style="margin-top:12px"></div>
+  </div>
+
+  <!-- WEAPON + OUTPUT -->
+  <div class="panel">
+    <h2>Weapon</h2>
+    <select id="weapon"></select>
+    <div class="row">
+      <span class="dim">Upgrade</span>
+      <select id="upgrade" style="width:120px"></select>
+    </div>
+    <div id="reqs" style="margin:8px 0"></div>
+    <div class="arlbl">Total Attack Rating</div>
+    <div class="ar" id="ar">—</div>
+    <h2 style="margin-top:16px">Damage breakdown</h2>
+    <div id="byType"></div>
+    <h2 style="margin-top:16px">Status</h2>
+    <div id="status"></div>
+  </div>
+
+  <!-- ANALYSIS -->
+  <div class="panel">
+    <h2>Per-stat contribution</h2>
+    <div id="byStat"></div>
+    <h2 style="margin-top:16px">Soft-cap analysis</h2>
+    <div id="softcaps"></div>
+    <h2 style="margin-top:16px">Suggested weapons</h2>
+    <div id="suggest"></div>
+  </div>
+</div>
+
+<script src="../src/engine.js"></script>
+<script src="../src/data-loader.js"></script>
+<script>
+(async function () {
+  var STATS = ['VIG','MND','END','STR','DEX','INT','FAI','ARC'];
+  var build = { VIG:60, MND:20, END:30, STR:24, DEX:58, INT:9, FAI:15, ARC:40 };
+  var twoHanded = true, upgradeLevel = null;
+
+  var weapons = await ERData.loadWeapons('../data/');
+  var presets = await ERData.loadPresets('../data/');
+  var curWeapon = weapons[0];
+
+  // build stat sliders
+  var statsEl = document.getElementById('stats');
+  STATS.forEach(function (k) {
+    var d = document.createElement('div'); d.className = 'stat';
+    d.innerHTML = '<label>'+k+'</label><input type="range" min="1" max="99" value="'+build[k]+'" data-k="'+k+'"><span class="val" id="v-'+k+'">'+build[k]+'</span>';
+    statsEl.appendChild(d);
+  });
+  statsEl.addEventListener('input', function (e) {
+    var k = e.target.getAttribute('data-k'); if (!k) return;
+    build[k] = +e.target.value; document.getElementById('v-'+k).textContent = build[k]; render();
+  });
+
+  document.getElementById('twoHand').addEventListener('click', function () {
+    twoHanded = !twoHanded; document.getElementById('thState').textContent = twoHanded ? 'on' : 'off'; render();
+  });
+  document.getElementById('thState').textContent = twoHanded ? 'on' : 'off';
+
+  // weapon select
+  var wsel = document.getElementById('weapon');
+  weapons.forEach(function (w, i) { var o = document.createElement('option'); o.value = i; o.textContent = w.name + ' ('+w.type+')'; wsel.appendChild(o); });
+  wsel.addEventListener('change', function () { curWeapon = weapons[+wsel.value]; upgradeLevel = null; fillUpgrade(); render(); });
+
+  var usel = document.getElementById('upgrade');
+  usel.addEventListener('change', function () { upgradeLevel = +usel.value; render(); });
+  function fillUpgrade() {
+    var max = curWeapon.category === 'somber' ? 10 : 25; usel.innerHTML = '';
+    for (var i = 0; i <= max; i++) { var o = document.createElement('option'); o.value = i; o.textContent = '+'+i; usel.appendChild(o); }
+    usel.value = max;
+  }
+
+  // presets
+  var pEl = document.getElementById('presets');
+  presets.forEach(function (p) {
+    var b = document.createElement('button'); b.textContent = p.name;
+    b.addEventListener('click', function () {
+      STATS.forEach(function (k) { build[k] = p.stats[k]; var r = statsEl.querySelector('[data-k="'+k+'"]'); if (r){ r.value = build[k]; document.getElementById('v-'+k).textContent = build[k]; } });
+      twoHanded = !!p.twoHanded; document.getElementById('thState').textContent = twoHanded ? 'on' : 'off';
+      if (p.loadout) { var idx = weapons.findIndex(function (w){ return w.id === p.loadout.weaponId; }); if (idx>=0){ curWeapon = weapons[idx]; wsel.value = idx; } upgradeLevel = p.loadout.upgradeLevel; fillUpgrade(); if(upgradeLevel!=null) usel.value = upgradeLevel; }
+      render();
+    });
+    pEl.appendChild(b);
+  });
+
+  function bar(v, max) { var p = Math.max(0, Math.min(100, max ? v/max*100 : 0)); return '<div class="bar"><i style="width:'+p+'%"></i></div>'; }
+
+  function render() {
+    var r = ERCalc.computeAR(build, curWeapon, { upgradeLevel: upgradeLevel, twoHanded: twoHanded });
+    document.getElementById('ar').textContent = r.totalAR;
+    document.getElementById('level').textContent = ERCalc.characterLevel(build);
+    document.getElementById('statTotal').textContent = STATS.reduce(function (s,k){ return s+build[k]; }, 0);
+
+    // requirements
+    var reqs = curWeapon.requirements || {}, rh = '';
+    Object.keys(reqs).forEach(function (k) {
+      var have = build[k] || 1, ok = have >= reqs[k];
+      rh += '<span class="'+(ok?'met':'unmet')+'" style="margin-right:10px">'+k+' '+reqs[k]+' ('+have+')</span>';
+    });
+    document.getElementById('reqs').innerHTML = rh + (r.requirementsMet ? '' : ' <span class="unmet">— scaling penalized</span>');
+
+    // byType
+    var maxT = Math.max.apply(null, ['physical','magic','fire','lightning','holy'].map(function(t){return r.byType[t]||0;}).concat([1]));
+    document.getElementById('byType').innerHTML = ['physical','magic','fire','lightning','holy'].filter(function(t){return r.byType[t];}).map(function (t) {
+      return '<div class="line"><span class="dim">'+t+'</span>'+bar(r.byType[t],maxT)+'<span style="text-align:right">'+r.byType[t]+'</span></div>';
+    }).join('') || '<span class="dim">—</span>';
+
+    // status
+    var st = Object.keys(r.status||{});
+    document.getElementById('status').innerHTML = st.length ? st.map(function(k){ return '<div class="line"><span class="dim">'+k+'</span>'+bar(r.status[k],120)+'<span style="text-align:right">'+r.status[k]+'</span></div>'; }).join('') : '<span class="dim">none</span>';
+
+    // byStat + grades
+    document.getElementById('byStat').innerHTML = ['STR','DEX','INT','FAI','ARC'].map(function (k) {
+      return '<div class="row"><span class="dim">'+k+' <small>('+r.grades[k]+')</small></span><strong>+'+(r.byStat[k]||0)+'</strong></div>';
+    }).join('');
+
+    // soft caps
+    document.getElementById('softcaps').innerHTML = Object.keys(r.softCaps).map(function (k) {
+      var sc = r.softCaps[k];
+      return '<div class="row"><span class="dim">+1 '+k+'</span><span>+'+sc.perPoint+' AR '+(sc.pastSoftCap?'<small class="unmet">(past soft cap)</small>':'<small class="met">(efficient)</small>')+'</span></div>';
+    }).join('');
+
+    // suggestions
+    var sug = ERCalc.suggestWeapons(build, weapons, { twoHanded: twoHanded, limit: 6 });
+    document.getElementById('suggest').innerHTML = sug.map(function (s) {
+      return '<div class="sug'+(s.requirementsMet?'':' bad')+'"><span>'+s.weapon.name+'</span><strong>'+s.ar+(s.requirementsMet?'':' ⚠')+'</strong></div>';
+    }).join('');
+  }
+
+  fillUpgrade(); render();
+})();
+</script>
+</body>
+</html>
