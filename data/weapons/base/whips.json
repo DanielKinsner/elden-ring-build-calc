@@ -5,7 +5,7 @@
   "type": "Whip",
   "source": "base",
   "category": "regular",
-  "infusable": false,
+  "infusable": true,
   "requirements": {
    "STR": 8,
    "DEX": 8
@@ -27,7 +27,281 @@
    "ARC": 0
   },
   "status": {},
-  "arcStatusScaling": 0
+  "arcStatusScaling": 0,
+  "affinities": {
+   "Heavy": {
+    "base": {
+     "physical": 202,
+     "magic": 0,
+     "fire": 0,
+     "lightning": 0,
+     "holy": 0
+    },
+    "scaling": {
+     "STR": 148,
+     "DEX": 0,
+     "INT": 0,
+     "FAI": 0,
+     "ARC": 0
+    },
+    "status": {}
+   },
+   "Keen": {
+    "base": {
+     "physical": 202,
+     "magic": 0,
+     "fire": 0,
+     "lightning": 0,
+     "holy": 0
+    },
+    "scaling": {
+     "STR": 23,
+     "DEX": 137,
+     "INT": 0,
+     "FAI": 0,
+     "ARC": 0
+    },
+    "status": {}
+   },
+   "Quality": {
+    "base": {
+     "physical": 176,
+     "magic": 0,
+     "fire": 0,
+     "lightning": 0,
+     "holy": 0
+    },
+    "scaling": {
+     "STR": 114,
+     "DEX": 114,
+     "INT": 0,
+     "FAI": 0,
+     "ARC": 0
+    },
+    "status": {}
+   },
+   "Fire": {
+    "base": {
+     "physical": 146,
+     "magic": 0,
+     "fire": 146,
+     "lightning": 0,
+     "holy": 0
+    },
+    "scaling": {
+     "STR": 80,
+     "DEX": 22,
+     "INT": 0,
+     "FAI": 0,
+     "ARC": 0
+    },
+    "status": {},
+    "elementScaling": {
+     "STR": [
+      "physical",
+      "fire"
+     ],
+     "DEX": [
+      "physical"
+     ]
+    }
+   },
+   "Flame Art": {
+    "base": {
+     "physical": 172,
+     "magic": 0,
+     "fire": 172,
+     "lightning": 0,
+     "holy": 0
+    },
+    "scaling": {
+     "STR": 25,
+     "DEX": 22,
+     "INT": 0,
+     "FAI": 103,
+     "ARC": 0
+    },
+    "status": {},
+    "elementScaling": {
+     "STR": [
+      "physical"
+     ],
+     "DEX": [
+      "physical"
+     ],
+     "FAI": [
+      "fire"
+     ]
+    }
+   },
+   "Lightning": {
+    "base": {
+     "physical": 149,
+     "magic": 0,
+     "fire": 0,
+     "lightning": 149,
+     "holy": 0
+    },
+    "scaling": {
+     "STR": 22,
+     "DEX": 80,
+     "INT": 0,
+     "FAI": 0,
+     "ARC": 0
+    },
+    "status": {},
+    "elementScaling": {
+     "STR": [
+      "physical"
+     ],
+     "DEX": [
+      "physical",
+      "lightning"
+     ]
+    }
+   },
+   "Sacred": {
+    "base": {
+     "physical": 172,
+     "magic": 0,
+     "fire": 0,
+     "lightning": 0,
+     "holy": 172
+    },
+    "scaling": {
+     "STR": 25,
+     "DEX": 22,
+     "INT": 0,
+     "FAI": 103,
+     "ARC": 0
+    },
+    "status": {},
+    "elementScaling": {
+     "STR": [
+      "physical"
+     ],
+     "DEX": [
+      "physical"
+     ],
+     "FAI": [
+      "holy"
+     ]
+    }
+   },
+   "Magic": {
+    "base": {
+     "physical": 172,
+     "magic": 172,
+     "fire": 0,
+     "lightning": 0,
+     "holy": 0
+    },
+    "scaling": {
+     "STR": 18,
+     "DEX": 16,
+     "INT": 110,
+     "FAI": 0,
+     "ARC": 0
+    },
+    "status": {},
+    "elementScaling": {
+     "STR": [
+      "physical"
+     ],
+     "DEX": [
+      "physical"
+     ],
+     "INT": [
+      "magic"
+     ]
+    }
+   },
+   "Cold": {
+    "base": {
+     "physical": 154,
+     "magic": 124,
+     "fire": 0,
+     "lightning": 0,
+     "holy": 0
+    },
+    "scaling": {
+     "STR": 82,
+     "DEX": 72,
+     "INT": 90,
+     "FAI": 0,
+     "ARC": 0
+    },
+    "status": {
+     "frost": 66
+    },
+    "elementScaling": {
+     "STR": [
+      "physical"
+     ],
+     "DEX": [
+      "physical"
+     ],
+     "INT": [
+      "magic"
+     ]
+    }
+   },
+   "Poison": {
+    "base": {
+     "physical": 184,
+     "magic": 0,
+     "fire": 0,
+     "lightning": 0,
+     "holy": 0
+    },
+    "scaling": {
+     "STR": 82,
+     "DEX": 72,
+     "INT": 0,
+     "FAI": 0,
+     "ARC": 44
+    },
+    "status": {
+     "poison": 66
+    }
+   },
+   "Blood": {
+    "base": {
+     "physical": 184,
+     "magic": 0,
+     "fire": 0,
+     "lightning": 0,
+     "holy": 0
+    },
+    "scaling": {
+     "STR": 82,
+     "DEX": 72,
+     "INT": 0,
+     "FAI": 0,
+     "ARC": 44
+    },
+    "status": {
+     "bleed": 57
+    }
+   },
+   "Occult": {
+    "base": {
+     "physical": 193,
+     "magic": 0,
+     "fire": 0,
+     "lightning": 0,
+     "holy": 0
+    },
+    "scaling": {
+     "STR": 29,
+     "DEX": 26,
+     "INT": 0,
+     "FAI": 0,
+     "ARC": 139
+    },
+    "status": {}
+   }
+  }
  },
  {
   "id": "cipher-pata",
@@ -107,7 +381,7 @@
   "type": "Whip",
   "source": "base",
   "category": "regular",
-  "infusable": false,
+  "infusable": true,
   "requirements": {
    "STR": 24,
    "DEX": 8,
@@ -131,7 +405,310 @@
    "ARC": 0
   },
   "status": {},
-  "arcStatusScaling": 0
+  "arcStatusScaling": 0,
+  "affinities": {
+   "Heavy": {
+    "base": {
+     "physical": 228,
+     "magic": 0,
+     "fire": 0,
+     "lightning": 0,
+     "holy": 0
+    },
+    "scaling": {
+     "STR": 148,
+     "DEX": 0,
+     "INT": 5,
+     "FAI": 5,
+     "ARC": 0
+    },
+    "status": {}
+   },
+   "Keen": {
+    "base": {
+     "physical": 244,
+     "magic": 0,
+     "fire": 0,
+     "lightning": 0,
+     "holy": 0
+    },
+    "scaling": {
+     "STR": 20,
+     "DEX": 115,
+     "INT": 5,
+     "FAI": 5,
+     "ARC": 0
+    },
+    "status": {}
+   },
+   "Quality": {
+    "base": {
+     "physical": 213,
+     "magic": 0,
+     "fire": 0,
+     "lightning": 0,
+     "holy": 0
+    },
+    "scaling": {
+     "STR": 97,
+     "DEX": 97,
+     "INT": 5,
+     "FAI": 5,
+     "ARC": 0
+    },
+    "status": {}
+   },
+   "Fire": {
+    "base": {
+     "physical": 176,
+     "magic": 0,
+     "fire": 176,
+     "lightning": 0,
+     "holy": 0
+    },
+    "scaling": {
+     "STR": 55,
+     "DEX": 18,
+     "INT": 5,
+     "FAI": 5,
+     "ARC": 0
+    },
+    "status": {},
+    "elementScaling": {
+     "STR": [
+      "physical",
+      "fire"
+     ],
+     "DEX": [
+      "physical"
+     ],
+     "INT": [
+      "physical"
+     ],
+     "FAI": [
+      "physical",
+      "fire"
+     ]
+    }
+   },
+   "Flame Art": {
+    "base": {
+     "physical": 208,
+     "magic": 0,
+     "fire": 208,
+     "lightning": 0,
+     "holy": 0
+    },
+    "scaling": {
+     "STR": 22,
+     "DEX": 2,
+     "INT": 5,
+     "FAI": 60,
+     "ARC": 0
+    },
+    "status": {},
+    "elementScaling": {
+     "STR": [
+      "physical"
+     ],
+     "DEX": [
+      "physical"
+     ],
+     "INT": [
+      "physical"
+     ],
+     "FAI": [
+      "physical",
+      "fire"
+     ]
+    }
+   },
+   "Lightning": {
+    "base": {
+     "physical": 180,
+     "magic": 0,
+     "fire": 0,
+     "lightning": 180,
+     "holy": 0
+    },
+    "scaling": {
+     "STR": 13,
+     "DEX": 57,
+     "INT": 5,
+     "FAI": 5,
+     "ARC": 0
+    },
+    "status": {},
+    "elementScaling": {
+     "STR": [
+      "physical"
+     ],
+     "DEX": [
+      "physical",
+      "lightning"
+     ],
+     "INT": [
+      "physical"
+     ],
+     "FAI": [
+      "physical"
+     ]
+    }
+   },
+   "Sacred": {
+    "base": {
+     "physical": 208,
+     "magic": 0,
+     "fire": 0,
+     "lightning": 0,
+     "holy": 208
+    },
+    "scaling": {
+     "STR": 22,
+     "DEX": 2,
+     "INT": 5,
+     "FAI": 60,
+     "ARC": 0
+    },
+    "status": {},
+    "elementScaling": {
+     "STR": [
+      "physical"
+     ],
+     "DEX": [
+      "physical"
+     ],
+     "INT": [
+      "physical"
+     ],
+     "FAI": [
+      "physical",
+      "holy"
+     ]
+    }
+   },
+   "Magic": {
+    "base": {
+     "physical": 208,
+     "magic": 208,
+     "fire": 0,
+     "lightning": 0,
+     "holy": 0
+    },
+    "scaling": {
+     "STR": 16,
+     "DEX": 1,
+     "INT": 66,
+     "FAI": 5,
+     "ARC": 0
+    },
+    "status": {},
+    "elementScaling": {
+     "STR": [
+      "physical"
+     ],
+     "DEX": [
+      "physical"
+     ],
+     "INT": [
+      "physical",
+      "magic"
+     ],
+     "FAI": [
+      "physical"
+     ]
+    }
+   },
+   "Cold": {
+    "base": {
+     "physical": 187,
+     "magic": 158,
+     "fire": 0,
+     "lightning": 0,
+     "holy": 0
+    },
+    "scaling": {
+     "STR": 93,
+     "DEX": 8,
+     "INT": 52,
+     "FAI": 5,
+     "ARC": 0
+    },
+    "status": {
+     "frost": 66
+    },
+    "elementScaling": {
+     "STR": [
+      "physical"
+     ],
+     "DEX": [
+      "physical"
+     ],
+     "INT": [
+      "physical",
+      "magic"
+     ],
+     "FAI": [
+      "physical"
+     ]
+    }
+   },
+   "Poison": {
+    "base": {
+     "physical": 223,
+     "magic": 0,
+     "fire": 0,
+     "lightning": 0,
+     "holy": 0
+    },
+    "scaling": {
+     "STR": 91,
+     "DEX": 8,
+     "INT": 6,
+     "FAI": 6,
+     "ARC": 44
+    },
+    "status": {
+     "poison": 66
+    }
+   },
+   "Blood": {
+    "base": {
+     "physical": 223,
+     "magic": 0,
+     "fire": 0,
+     "lightning": 0,
+     "holy": 0
+    },
+    "scaling": {
+     "STR": 91,
+     "DEX": 8,
+     "INT": 6,
+     "FAI": 6,
+     "ARC": 44
+    },
+    "status": {
+     "bleed": 57
+    }
+   },
+   "Occult": {
+    "base": {
+     "physical": 234,
+     "magic": 0,
+     "fire": 0,
+     "lightning": 0,
+     "holy": 0
+    },
+    "scaling": {
+     "STR": 36,
+     "DEX": 3,
+     "INT": 4,
+     "FAI": 4,
+     "ARC": 119
+    },
+    "status": {}
+   }
+  }
  },
  {
   "id": "grafted-dragon",
@@ -181,7 +758,7 @@
   "type": "Whip",
   "source": "base",
   "category": "regular",
-  "infusable": false,
+  "infusable": true,
   "requirements": {
    "STR": 11,
    "DEX": 8
@@ -203,7 +780,281 @@
    "ARC": 0
   },
   "status": {},
-  "arcStatusScaling": 0
+  "arcStatusScaling": 0,
+  "affinities": {
+   "Heavy": {
+    "base": {
+     "physical": 211,
+     "magic": 0,
+     "fire": 0,
+     "lightning": 0,
+     "holy": 0
+    },
+    "scaling": {
+     "STR": 151,
+     "DEX": 0,
+     "INT": 0,
+     "FAI": 0,
+     "ARC": 0
+    },
+    "status": {}
+   },
+   "Keen": {
+    "base": {
+     "physical": 225,
+     "magic": 0,
+     "fire": 0,
+     "lightning": 0,
+     "holy": 0
+    },
+    "scaling": {
+     "STR": 20,
+     "DEX": 115,
+     "INT": 0,
+     "FAI": 0,
+     "ARC": 0
+    },
+    "status": {}
+   },
+   "Quality": {
+    "base": {
+     "physical": 196,
+     "magic": 0,
+     "fire": 0,
+     "lightning": 0,
+     "holy": 0
+    },
+    "scaling": {
+     "STR": 97,
+     "DEX": 97,
+     "INT": 0,
+     "FAI": 0,
+     "ARC": 0
+    },
+    "status": {}
+   },
+   "Fire": {
+    "base": {
+     "physical": 163,
+     "magic": 0,
+     "fire": 163,
+     "lightning": 0,
+     "holy": 0
+    },
+    "scaling": {
+     "STR": 65,
+     "DEX": 18,
+     "INT": 0,
+     "FAI": 0,
+     "ARC": 0
+    },
+    "status": {},
+    "elementScaling": {
+     "STR": [
+      "physical",
+      "fire"
+     ],
+     "DEX": [
+      "physical"
+     ]
+    }
+   },
+   "Flame Art": {
+    "base": {
+     "physical": 192,
+     "magic": 0,
+     "fire": 192,
+     "lightning": 0,
+     "holy": 0
+    },
+    "scaling": {
+     "STR": 29,
+     "DEX": 11,
+     "INT": 0,
+     "FAI": 69,
+     "ARC": 0
+    },
+    "status": {},
+    "elementScaling": {
+     "STR": [
+      "physical"
+     ],
+     "DEX": [
+      "physical"
+     ],
+     "FAI": [
+      "fire"
+     ]
+    }
+   },
+   "Lightning": {
+    "base": {
+     "physical": 167,
+     "magic": 0,
+     "fire": 0,
+     "lightning": 167,
+     "holy": 0
+    },
+    "scaling": {
+     "STR": 18,
+     "DEX": 65,
+     "INT": 0,
+     "FAI": 0,
+     "ARC": 0
+    },
+    "status": {},
+    "elementScaling": {
+     "STR": [
+      "physical"
+     ],
+     "DEX": [
+      "physical",
+      "lightning"
+     ]
+    }
+   },
+   "Sacred": {
+    "base": {
+     "physical": 192,
+     "magic": 0,
+     "fire": 0,
+     "lightning": 0,
+     "holy": 192
+    },
+    "scaling": {
+     "STR": 29,
+     "DEX": 11,
+     "INT": 0,
+     "FAI": 69,
+     "ARC": 0
+    },
+    "status": {},
+    "elementScaling": {
+     "STR": [
+      "physical"
+     ],
+     "DEX": [
+      "physical"
+     ],
+     "FAI": [
+      "holy"
+     ]
+    }
+   },
+   "Magic": {
+    "base": {
+     "physical": 192,
+     "magic": 192,
+     "fire": 0,
+     "lightning": 0,
+     "holy": 0
+    },
+    "scaling": {
+     "STR": 21,
+     "DEX": 8,
+     "INT": 85,
+     "FAI": 0,
+     "ARC": 0
+    },
+    "status": {},
+    "elementScaling": {
+     "STR": [
+      "physical"
+     ],
+     "DEX": [
+      "physical"
+     ],
+     "INT": [
+      "magic"
+     ]
+    }
+   },
+   "Cold": {
+    "base": {
+     "physical": 172,
+     "magic": 138,
+     "fire": 0,
+     "lightning": 0,
+     "holy": 0
+    },
+    "scaling": {
+     "STR": 95,
+     "DEX": 34,
+     "INT": 60,
+     "FAI": 0,
+     "ARC": 0
+    },
+    "status": {
+     "frost": 66
+    },
+    "elementScaling": {
+     "STR": [
+      "physical"
+     ],
+     "DEX": [
+      "physical"
+     ],
+     "INT": [
+      "magic"
+     ]
+    }
+   },
+   "Poison": {
+    "base": {
+     "physical": 206,
+     "magic": 0,
+     "fire": 0,
+     "lightning": 0,
+     "holy": 0
+    },
+    "scaling": {
+     "STR": 101,
+     "DEX": 36,
+     "INT": 0,
+     "FAI": 0,
+     "ARC": 44
+    },
+    "status": {
+     "poison": 66
+    }
+   },
+   "Blood": {
+    "base": {
+     "physical": 206,
+     "magic": 0,
+     "fire": 0,
+     "lightning": 0,
+     "holy": 0
+    },
+    "scaling": {
+     "STR": 101,
+     "DEX": 36,
+     "INT": 0,
+     "FAI": 0,
+     "ARC": 44
+    },
+    "status": {
+     "bleed": 57
+    }
+   },
+   "Occult": {
+    "base": {
+     "physical": 216,
+     "magic": 0,
+     "fire": 0,
+     "lightning": 0,
+     "holy": 0
+    },
+    "scaling": {
+     "STR": 33,
+     "DEX": 12,
+     "INT": 0,
+     "FAI": 0,
+     "ARC": 115
+    },
+    "status": {}
+   }
+  }
  },
  {
   "id": "katar",
@@ -211,7 +1062,7 @@
   "type": "Whip",
   "source": "base",
   "category": "regular",
-  "infusable": false,
+  "infusable": true,
   "requirements": {
    "STR": 8,
    "DEX": 10
@@ -233,7 +1084,281 @@
    "ARC": 0
   },
   "status": {},
-  "arcStatusScaling": 0
+  "arcStatusScaling": 0,
+  "affinities": {
+   "Heavy": {
+    "base": {
+     "physical": 218,
+     "magic": 0,
+     "fire": 0,
+     "lightning": 0,
+     "holy": 0
+    },
+    "scaling": {
+     "STR": 120,
+     "DEX": 0,
+     "INT": 0,
+     "FAI": 0,
+     "ARC": 0
+    },
+    "status": {}
+   },
+   "Keen": {
+    "base": {
+     "physical": 218,
+     "magic": 0,
+     "fire": 0,
+     "lightning": 0,
+     "holy": 0
+    },
+    "scaling": {
+     "STR": 20,
+     "DEX": 123,
+     "INT": 0,
+     "FAI": 0,
+     "ARC": 0
+    },
+    "status": {}
+   },
+   "Quality": {
+    "base": {
+     "physical": 190,
+     "magic": 0,
+     "fire": 0,
+     "lightning": 0,
+     "holy": 0
+    },
+    "scaling": {
+     "STR": 101,
+     "DEX": 101,
+     "INT": 0,
+     "FAI": 0,
+     "ARC": 0
+    },
+    "status": {}
+   },
+   "Fire": {
+    "base": {
+     "physical": 158,
+     "magic": 0,
+     "fire": 158,
+     "lightning": 0,
+     "holy": 0
+    },
+    "scaling": {
+     "STR": 65,
+     "DEX": 18,
+     "INT": 0,
+     "FAI": 0,
+     "ARC": 0
+    },
+    "status": {},
+    "elementScaling": {
+     "STR": [
+      "physical",
+      "fire"
+     ],
+     "DEX": [
+      "physical"
+     ]
+    }
+   },
+   "Flame Art": {
+    "base": {
+     "physical": 186,
+     "magic": 0,
+     "fire": 186,
+     "lightning": 0,
+     "holy": 0
+    },
+    "scaling": {
+     "STR": 16,
+     "DEX": 23,
+     "INT": 0,
+     "FAI": 76,
+     "ARC": 0
+    },
+    "status": {},
+    "elementScaling": {
+     "STR": [
+      "physical"
+     ],
+     "DEX": [
+      "physical"
+     ],
+     "FAI": [
+      "fire"
+     ]
+    }
+   },
+   "Lightning": {
+    "base": {
+     "physical": 161,
+     "magic": 0,
+     "fire": 0,
+     "lightning": 161,
+     "holy": 0
+    },
+    "scaling": {
+     "STR": 18,
+     "DEX": 65,
+     "INT": 0,
+     "FAI": 0,
+     "ARC": 0
+    },
+    "status": {},
+    "elementScaling": {
+     "STR": [
+      "physical"
+     ],
+     "DEX": [
+      "physical",
+      "lightning"
+     ]
+    }
+   },
+   "Sacred": {
+    "base": {
+     "physical": 186,
+     "magic": 0,
+     "fire": 0,
+     "lightning": 0,
+     "holy": 186
+    },
+    "scaling": {
+     "STR": 16,
+     "DEX": 23,
+     "INT": 0,
+     "FAI": 76,
+     "ARC": 0
+    },
+    "status": {},
+    "elementScaling": {
+     "STR": [
+      "physical"
+     ],
+     "DEX": [
+      "physical"
+     ],
+     "FAI": [
+      "holy"
+     ]
+    }
+   },
+   "Magic": {
+    "base": {
+     "physical": 186,
+     "magic": 186,
+     "fire": 0,
+     "lightning": 0,
+     "holy": 0
+    },
+    "scaling": {
+     "STR": 12,
+     "DEX": 17,
+     "INT": 87,
+     "FAI": 0,
+     "ARC": 0
+    },
+    "status": {},
+    "elementScaling": {
+     "STR": [
+      "physical"
+     ],
+     "DEX": [
+      "physical"
+     ],
+     "INT": [
+      "magic"
+     ]
+    }
+   },
+   "Cold": {
+    "base": {
+     "physical": 167,
+     "magic": 133,
+     "fire": 0,
+     "lightning": 0,
+     "holy": 0
+    },
+    "scaling": {
+     "STR": 51,
+     "DEX": 76,
+     "INT": 66,
+     "FAI": 0,
+     "ARC": 0
+    },
+    "status": {
+     "frost": 66
+    },
+    "elementScaling": {
+     "STR": [
+      "physical"
+     ],
+     "DEX": [
+      "physical"
+     ],
+     "INT": [
+      "magic"
+     ]
+    }
+   },
+   "Poison": {
+    "base": {
+     "physical": 199,
+     "magic": 0,
+     "fire": 0,
+     "lightning": 0,
+     "holy": 0
+    },
+    "scaling": {
+     "STR": 53,
+     "DEX": 80,
+     "INT": 0,
+     "FAI": 0,
+     "ARC": 44
+    },
+    "status": {
+     "poison": 66
+    }
+   },
+   "Blood": {
+    "base": {
+     "physical": 199,
+     "magic": 0,
+     "fire": 0,
+     "lightning": 0,
+     "holy": 0
+    },
+    "scaling": {
+     "STR": 53,
+     "DEX": 80,
+     "INT": 0,
+     "FAI": 0,
+     "ARC": 44
+    },
+    "status": {
+     "bleed": 57
+    }
+   },
+   "Occult": {
+    "base": {
+     "physical": 209,
+     "magic": 0,
+     "fire": 0,
+     "lightning": 0,
+     "holy": 0
+    },
+    "scaling": {
+     "STR": 18,
+     "DEX": 27,
+     "INT": 0,
+     "FAI": 0,
+     "ARC": 113
+    },
+    "status": {}
+   }
+  }
  },
  {
   "id": "pata",
@@ -241,7 +1366,7 @@
   "type": "Whip",
   "source": "base",
   "category": "regular",
-  "infusable": false,
+  "infusable": true,
   "requirements": {
    "STR": 11,
    "DEX": 15
@@ -263,7 +1388,281 @@
    "ARC": 0
   },
   "status": {},
-  "arcStatusScaling": 0
+  "arcStatusScaling": 0,
+  "affinities": {
+   "Heavy": {
+    "base": {
+     "physical": 232,
+     "magic": 0,
+     "fire": 0,
+     "lightning": 0,
+     "holy": 0
+    },
+    "scaling": {
+     "STR": 115,
+     "DEX": 0,
+     "INT": 0,
+     "FAI": 0,
+     "ARC": 0
+    },
+    "status": {}
+   },
+   "Keen": {
+    "base": {
+     "physical": 232,
+     "magic": 0,
+     "fire": 0,
+     "lightning": 0,
+     "holy": 0
+    },
+    "scaling": {
+     "STR": 17,
+     "DEX": 104,
+     "INT": 0,
+     "FAI": 0,
+     "ARC": 0
+    },
+    "status": {}
+   },
+   "Quality": {
+    "base": {
+     "physical": 202,
+     "magic": 0,
+     "fire": 0,
+     "lightning": 0,
+     "holy": 0
+    },
+    "scaling": {
+     "STR": 91,
+     "DEX": 91,
+     "INT": 0,
+     "FAI": 0,
+     "ARC": 0
+    },
+    "status": {}
+   },
+   "Fire": {
+    "base": {
+     "physical": 168,
+     "magic": 0,
+     "fire": 168,
+     "lightning": 0,
+     "holy": 0
+    },
+    "scaling": {
+     "STR": 55,
+     "DEX": 12,
+     "INT": 0,
+     "FAI": 0,
+     "ARC": 0
+    },
+    "status": {},
+    "elementScaling": {
+     "STR": [
+      "physical",
+      "fire"
+     ],
+     "DEX": [
+      "physical"
+     ]
+    }
+   },
+   "Flame Art": {
+    "base": {
+     "physical": 198,
+     "magic": 0,
+     "fire": 198,
+     "lightning": 0,
+     "holy": 0
+    },
+    "scaling": {
+     "STR": 11,
+     "DEX": 18,
+     "INT": 0,
+     "FAI": 62,
+     "ARC": 0
+    },
+    "status": {},
+    "elementScaling": {
+     "STR": [
+      "physical"
+     ],
+     "DEX": [
+      "physical"
+     ],
+     "FAI": [
+      "fire"
+     ]
+    }
+   },
+   "Lightning": {
+    "base": {
+     "physical": 172,
+     "magic": 0,
+     "fire": 0,
+     "lightning": 172,
+     "holy": 0
+    },
+    "scaling": {
+     "STR": 12,
+     "DEX": 55,
+     "INT": 0,
+     "FAI": 0,
+     "ARC": 0
+    },
+    "status": {},
+    "elementScaling": {
+     "STR": [
+      "physical"
+     ],
+     "DEX": [
+      "physical",
+      "lightning"
+     ]
+    }
+   },
+   "Sacred": {
+    "base": {
+     "physical": 198,
+     "magic": 0,
+     "fire": 0,
+     "lightning": 0,
+     "holy": 198
+    },
+    "scaling": {
+     "STR": 9,
+     "DEX": 14,
+     "INT": 0,
+     "FAI": 62,
+     "ARC": 0
+    },
+    "status": {},
+    "elementScaling": {
+     "STR": [
+      "physical"
+     ],
+     "DEX": [
+      "physical"
+     ],
+     "FAI": [
+      "holy"
+     ]
+    }
+   },
+   "Magic": {
+    "base": {
+     "physical": 198,
+     "magic": 198,
+     "fire": 0,
+     "lightning": 0,
+     "holy": 0
+    },
+    "scaling": {
+     "STR": 8,
+     "DEX": 13,
+     "INT": 63,
+     "FAI": 0,
+     "ARC": 0
+    },
+    "status": {},
+    "elementScaling": {
+     "STR": [
+      "physical"
+     ],
+     "DEX": [
+      "physical"
+     ],
+     "INT": [
+      "magic"
+     ]
+    }
+   },
+   "Cold": {
+    "base": {
+     "physical": 178,
+     "magic": 151,
+     "fire": 0,
+     "lightning": 0,
+     "holy": 0
+    },
+    "scaling": {
+     "STR": 44,
+     "DEX": 68,
+     "INT": 48,
+     "FAI": 0,
+     "ARC": 0
+    },
+    "status": {
+     "frost": 66
+    },
+    "elementScaling": {
+     "STR": [
+      "physical"
+     ],
+     "DEX": [
+      "physical"
+     ],
+     "INT": [
+      "magic"
+     ]
+    }
+   },
+   "Poison": {
+    "base": {
+     "physical": 212,
+     "magic": 0,
+     "fire": 0,
+     "lightning": 0,
+     "holy": 0
+    },
+    "scaling": {
+     "STR": 44,
+     "DEX": 68,
+     "INT": 0,
+     "FAI": 0,
+     "ARC": 44
+    },
+    "status": {
+     "poison": 66
+    }
+   },
+   "Blood": {
+    "base": {
+     "physical": 212,
+     "magic": 0,
+     "fire": 0,
+     "lightning": 0,
+     "holy": 0
+    },
+    "scaling": {
+     "STR": 44,
+     "DEX": 68,
+     "INT": 0,
+     "FAI": 0,
+     "ARC": 44
+    },
+    "status": {
+     "bleed": 57
+    }
+   },
+   "Occult": {
+    "base": {
+     "physical": 222,
+     "magic": 0,
+     "fire": 0,
+     "lightning": 0,
+     "holy": 0
+    },
+    "scaling": {
+     "STR": 15,
+     "DEX": 24,
+     "INT": 0,
+     "FAI": 0,
+     "ARC": 104
+    },
+    "status": {}
+   }
+  }
  },
  {
   "id": "spiked-caestus",
@@ -271,7 +1670,7 @@
   "type": "Whip",
   "source": "base",
   "category": "regular",
-  "infusable": false,
+  "infusable": true,
   "requirements": {
    "STR": 8,
    "DEX": 10
@@ -295,7 +1694,301 @@
   "status": {
    "bleed": 45
   },
-  "arcStatusScaling": 0
+  "arcStatusScaling": 0,
+  "affinities": {
+   "Heavy": {
+    "base": {
+     "physical": 204,
+     "magic": 0,
+     "fire": 0,
+     "lightning": 0,
+     "holy": 0
+    },
+    "scaling": {
+     "STR": 148,
+     "DEX": 0,
+     "INT": 0,
+     "FAI": 0,
+     "ARC": 0
+    },
+    "status": {
+     "bleed": 45
+    }
+   },
+   "Keen": {
+    "base": {
+     "physical": 204,
+     "magic": 0,
+     "fire": 0,
+     "lightning": 0,
+     "holy": 0
+    },
+    "scaling": {
+     "STR": 23,
+     "DEX": 137,
+     "INT": 0,
+     "FAI": 0,
+     "ARC": 0
+    },
+    "status": {
+     "bleed": 45
+    }
+   },
+   "Quality": {
+    "base": {
+     "physical": 178,
+     "magic": 0,
+     "fire": 0,
+     "lightning": 0,
+     "holy": 0
+    },
+    "scaling": {
+     "STR": 114,
+     "DEX": 114,
+     "INT": 0,
+     "FAI": 0,
+     "ARC": 0
+    },
+    "status": {
+     "bleed": 45
+    }
+   },
+   "Fire": {
+    "base": {
+     "physical": 147,
+     "magic": 0,
+     "fire": 147,
+     "lightning": 0,
+     "holy": 0
+    },
+    "scaling": {
+     "STR": 80,
+     "DEX": 22,
+     "INT": 0,
+     "FAI": 0,
+     "ARC": 0
+    },
+    "status": {
+     "bleed": 45
+    },
+    "elementScaling": {
+     "STR": [
+      "physical",
+      "fire"
+     ],
+     "DEX": [
+      "physical"
+     ]
+    }
+   },
+   "Flame Art": {
+    "base": {
+     "physical": 174,
+     "magic": 0,
+     "fire": 174,
+     "lightning": 0,
+     "holy": 0
+    },
+    "scaling": {
+     "STR": 25,
+     "DEX": 22,
+     "INT": 0,
+     "FAI": 103,
+     "ARC": 0
+    },
+    "status": {
+     "bleed": 45
+    },
+    "elementScaling": {
+     "STR": [
+      "physical"
+     ],
+     "DEX": [
+      "physical"
+     ],
+     "FAI": [
+      "fire"
+     ]
+    }
+   },
+   "Lightning": {
+    "base": {
+     "physical": 151,
+     "magic": 0,
+     "fire": 0,
+     "lightning": 151,
+     "holy": 0
+    },
+    "scaling": {
+     "STR": 22,
+     "DEX": 80,
+     "INT": 0,
+     "FAI": 0,
+     "ARC": 0
+    },
+    "status": {
+     "bleed": 45
+    },
+    "elementScaling": {
+     "STR": [
+      "physical"
+     ],
+     "DEX": [
+      "physical",
+      "lightning"
+     ]
+    }
+   },
+   "Sacred": {
+    "base": {
+     "physical": 174,
+     "magic": 0,
+     "fire": 0,
+     "lightning": 0,
+     "holy": 174
+    },
+    "scaling": {
+     "STR": 25,
+     "DEX": 22,
+     "INT": 0,
+     "FAI": 103,
+     "ARC": 0
+    },
+    "status": {
+     "bleed": 45
+    },
+    "elementScaling": {
+     "STR": [
+      "physical"
+     ],
+     "DEX": [
+      "physical"
+     ],
+     "FAI": [
+      "holy"
+     ]
+    }
+   },
+   "Magic": {
+    "base": {
+     "physical": 174,
+     "magic": 174,
+     "fire": 0,
+     "lightning": 0,
+     "holy": 0
+    },
+    "scaling": {
+     "STR": 18,
+     "DEX": 16,
+     "INT": 110,
+     "FAI": 0,
+     "ARC": 0
+    },
+    "status": {
+     "bleed": 45
+    },
+    "elementScaling": {
+     "STR": [
+      "physical"
+     ],
+     "DEX": [
+      "physical"
+     ],
+     "INT": [
+      "magic"
+     ]
+    }
+   },
+   "Cold": {
+    "base": {
+     "physical": 156,
+     "magic": 126,
+     "fire": 0,
+     "lightning": 0,
+     "holy": 0
+    },
+    "scaling": {
+     "STR": 82,
+     "DEX": 72,
+     "INT": 90,
+     "FAI": 0,
+     "ARC": 0
+    },
+    "status": {
+     "bleed": 38,
+     "frost": 66
+    },
+    "elementScaling": {
+     "STR": [
+      "physical"
+     ],
+     "DEX": [
+      "physical"
+     ],
+     "INT": [
+      "magic"
+     ]
+    }
+   },
+   "Poison": {
+    "base": {
+     "physical": 187,
+     "magic": 0,
+     "fire": 0,
+     "lightning": 0,
+     "holy": 0
+    },
+    "scaling": {
+     "STR": 82,
+     "DEX": 72,
+     "INT": 0,
+     "FAI": 0,
+     "ARC": 44
+    },
+    "status": {
+     "bleed": 38,
+     "poison": 66
+    }
+   },
+   "Blood": {
+    "base": {
+     "physical": 187,
+     "magic": 0,
+     "fire": 0,
+     "lightning": 0,
+     "holy": 0
+    },
+    "scaling": {
+     "STR": 82,
+     "DEX": 72,
+     "INT": 0,
+     "FAI": 0,
+     "ARC": 44
+    },
+    "status": {
+     "bleed": 57
+    }
+   },
+   "Occult": {
+    "base": {
+     "physical": 195,
+     "magic": 0,
+     "fire": 0,
+     "lightning": 0,
+     "holy": 0
+    },
+    "scaling": {
+     "STR": 29,
+     "DEX": 26,
+     "INT": 0,
+     "FAI": 0,
+     "ARC": 139
+    },
+    "status": {
+     "bleed": 38
+    }
+   }
+  }
  },
  {
   "id": "star-fist",
@@ -303,7 +1996,7 @@
   "type": "Whip",
   "source": "base",
   "category": "regular",
-  "infusable": false,
+  "infusable": true,
   "requirements": {
    "STR": 12,
    "DEX": 8
@@ -327,7 +2020,301 @@
   "status": {
    "bleed": 45
   },
-  "arcStatusScaling": 0
+  "arcStatusScaling": 0,
+  "affinities": {
+   "Heavy": {
+    "base": {
+     "physical": 220,
+     "magic": 0,
+     "fire": 0,
+     "lightning": 0,
+     "holy": 0
+    },
+    "scaling": {
+     "STR": 146,
+     "DEX": 0,
+     "INT": 0,
+     "FAI": 0,
+     "ARC": 0
+    },
+    "status": {
+     "bleed": 45
+    }
+   },
+   "Keen": {
+    "base": {
+     "physical": 235,
+     "magic": 0,
+     "fire": 0,
+     "lightning": 0,
+     "holy": 0
+    },
+    "scaling": {
+     "STR": 18,
+     "DEX": 112,
+     "INT": 0,
+     "FAI": 0,
+     "ARC": 0
+    },
+    "status": {
+     "bleed": 45
+    }
+   },
+   "Quality": {
+    "base": {
+     "physical": 204,
+     "magic": 0,
+     "fire": 0,
+     "lightning": 0,
+     "holy": 0
+    },
+    "scaling": {
+     "STR": 93,
+     "DEX": 93,
+     "INT": 0,
+     "FAI": 0,
+     "ARC": 0
+    },
+    "status": {
+     "bleed": 45
+    }
+   },
+   "Fire": {
+    "base": {
+     "physical": 170,
+     "magic": 0,
+     "fire": 170,
+     "lightning": 0,
+     "holy": 0
+    },
+    "scaling": {
+     "STR": 63,
+     "DEX": 17,
+     "INT": 0,
+     "FAI": 0,
+     "ARC": 0
+    },
+    "status": {
+     "bleed": 45
+    },
+    "elementScaling": {
+     "STR": [
+      "physical",
+      "fire"
+     ],
+     "DEX": [
+      "physical"
+     ]
+    }
+   },
+   "Flame Art": {
+    "base": {
+     "physical": 200,
+     "magic": 0,
+     "fire": 200,
+     "lightning": 0,
+     "holy": 0
+    },
+    "scaling": {
+     "STR": 29,
+     "DEX": 9,
+     "INT": 0,
+     "FAI": 67,
+     "ARC": 0
+    },
+    "status": {
+     "bleed": 45
+    },
+    "elementScaling": {
+     "STR": [
+      "physical"
+     ],
+     "DEX": [
+      "physical"
+     ],
+     "FAI": [
+      "fire"
+     ]
+    }
+   },
+   "Lightning": {
+    "base": {
+     "physical": 174,
+     "magic": 0,
+     "fire": 0,
+     "lightning": 174,
+     "holy": 0
+    },
+    "scaling": {
+     "STR": 17,
+     "DEX": 63,
+     "INT": 0,
+     "FAI": 0,
+     "ARC": 0
+    },
+    "status": {
+     "bleed": 45
+    },
+    "elementScaling": {
+     "STR": [
+      "physical"
+     ],
+     "DEX": [
+      "physical",
+      "lightning"
+     ]
+    }
+   },
+   "Sacred": {
+    "base": {
+     "physical": 200,
+     "magic": 0,
+     "fire": 0,
+     "lightning": 0,
+     "holy": 200
+    },
+    "scaling": {
+     "STR": 29,
+     "DEX": 9,
+     "INT": 0,
+     "FAI": 67,
+     "ARC": 0
+    },
+    "status": {
+     "bleed": 45
+    },
+    "elementScaling": {
+     "STR": [
+      "physical"
+     ],
+     "DEX": [
+      "physical"
+     ],
+     "FAI": [
+      "holy"
+     ]
+    }
+   },
+   "Magic": {
+    "base": {
+     "physical": 200,
+     "magic": 200,
+     "fire": 0,
+     "lightning": 0,
+     "holy": 0
+    },
+    "scaling": {
+     "STR": 21,
+     "DEX": 6,
+     "INT": 82,
+     "FAI": 0,
+     "ARC": 0
+    },
+    "status": {
+     "bleed": 45
+    },
+    "elementScaling": {
+     "STR": [
+      "physical"
+     ],
+     "DEX": [
+      "physical"
+     ],
+     "INT": [
+      "magic"
+     ]
+    }
+   },
+   "Cold": {
+    "base": {
+     "physical": 180,
+     "magic": 144,
+     "fire": 0,
+     "lightning": 0,
+     "holy": 0
+    },
+    "scaling": {
+     "STR": 95,
+     "DEX": 28,
+     "INT": 58,
+     "FAI": 0,
+     "ARC": 0
+    },
+    "status": {
+     "bleed": 38,
+     "frost": 66
+    },
+    "elementScaling": {
+     "STR": [
+      "physical"
+     ],
+     "DEX": [
+      "physical"
+     ],
+     "INT": [
+      "magic"
+     ]
+    }
+   },
+   "Poison": {
+    "base": {
+     "physical": 215,
+     "magic": 0,
+     "fire": 0,
+     "lightning": 0,
+     "holy": 0
+    },
+    "scaling": {
+     "STR": 101,
+     "DEX": 30,
+     "INT": 0,
+     "FAI": 0,
+     "ARC": 44
+    },
+    "status": {
+     "bleed": 38,
+     "poison": 66
+    }
+   },
+   "Blood": {
+    "base": {
+     "physical": 215,
+     "magic": 0,
+     "fire": 0,
+     "lightning": 0,
+     "holy": 0
+    },
+    "scaling": {
+     "STR": 101,
+     "DEX": 30,
+     "INT": 0,
+     "FAI": 0,
+     "ARC": 44
+    },
+    "status": {
+     "bleed": 57
+    }
+   },
+   "Occult": {
+    "base": {
+     "physical": 225,
+     "magic": 0,
+     "fire": 0,
+     "lightning": 0,
+     "holy": 0
+    },
+    "scaling": {
+     "STR": 33,
+     "DEX": 9,
+     "INT": 0,
+     "FAI": 0,
+     "ARC": 112
+    },
+    "status": {
+     "bleed": 38
+    }
+   }
+  }
  },
  {
   "id": "unarmed",
