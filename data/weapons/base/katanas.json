@@ -1,80 +1,375 @@
 [
-  {
-    "id": "uchigatana",
-    "name": "Uchigatana",
-    "type": "Katana",
-    "source": "base",
-    "category": "regular",
-    "infusable": true,
-    "requirements": { "STR": 11, "DEX": 15 },
-    "weight": 5.5,
-    "passive": "Blood loss (45)",
-    "base": { "physical": 281, "magic": 0, "fire": 0, "lightning": 0, "holy": 0 },
-    "scaling": { "STR": 54, "DEX": 82, "INT": 0, "FAI": 0, "ARC": 0 },
-    "status": { "bleed": 45, "frost": 0, "poison": 0, "rot": 0, "sleep": 0, "madness": 0 },
-    "arcStatusScaling": 0
+ {
+  "id": "dragonscale-blade",
+  "name": "Dragonscale Blade",
+  "type": "Katana",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 12,
+   "DEX": 20
   },
-  {
-    "id": "nagakiba",
-    "name": "Nagakiba",
-    "type": "Katana",
-    "source": "base",
-    "category": "regular",
-    "infusable": true,
-    "requirements": { "STR": 18, "DEX": 22 },
-    "weight": 7,
-    "passive": "Blood loss (45)",
-    "base": { "physical": 281, "magic": 0, "fire": 0, "lightning": 0, "holy": 0 },
-    "scaling": { "STR": 40, "DEX": 90, "INT": 0, "FAI": 0, "ARC": 0 },
-    "status": { "bleed": 45, "frost": 0, "poison": 0, "rot": 0, "sleep": 0, "madness": 0 },
-    "arcStatusScaling": 0
+  "weight": 5.5,
+  "passive": null,
+  "base": {
+   "physical": 269,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
   },
-  {
-    "id": "rivers-of-blood",
-    "name": "Rivers of Blood",
-    "type": "Katana",
-    "source": "base",
-    "category": "somber",
-    "infusable": false,
-    "requirements": { "STR": 12, "DEX": 18, "ARC": 20 },
-    "weight": 6.5,
-    "passive": "Blood loss (50)",
-    "base": { "physical": 218, "magic": 0, "fire": 218, "lightning": 0, "holy": 0 },
-    "scaling": { "STR": 20, "DEX": 97, "INT": 0, "FAI": 0, "ARC": 48 },
-    "status": { "bleed": 50, "frost": 0, "poison": 0, "rot": 0, "sleep": 0, "madness": 0 },
-    "arcStatusScaling": 0,
-    "_verify": "base = api +0 x2.45 (validated); max scaling values estimated from +10 grades E/B/D"
+  "scaling": {
+   "STR": 54,
+   "DEX": 108,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
   },
-  {
-    "id": "moonveil",
-    "name": "Moonveil",
-    "type": "Katana",
-    "source": "base",
-    "category": "somber",
-    "infusable": false,
-    "requirements": { "STR": 12, "DEX": 18, "INT": 23 },
-    "weight": 6.5,
-    "passive": null,
-    "base": { "physical": 179, "magic": 213, "fire": 0, "lightning": 0, "holy": 0 },
-    "scaling": { "STR": 15, "DEX": 48, "INT": 79, "FAI": 0, "ARC": 0 },
-    "status": { "bleed": 0, "frost": 0, "poison": 0, "rot": 0, "sleep": 0, "madness": 0 },
-    "arcStatusScaling": 0,
-    "_verify": "base = api +0 x2.45 (validated); max scaling values estimated from +10 grades E/D/C"
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "hand-of-malenia",
+  "name": "Hand of Malenia",
+  "type": "Katana",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 16,
+   "DEX": 48
   },
-  {
-    "id": "hand-of-malenia",
-    "name": "Hand of Malenia",
-    "type": "Katana",
-    "source": "base",
-    "category": "somber",
-    "infusable": false,
-    "requirements": { "STR": 16, "DEX": 48 },
-    "weight": 7,
-    "passive": null,
-    "base": { "physical": 287, "magic": 0, "fire": 0, "lightning": 0, "holy": 0 },
-    "scaling": { "STR": 20, "DEX": 145, "INT": 0, "FAI": 0, "ARC": 0 },
-    "status": { "bleed": 0, "frost": 0, "poison": 0, "rot": 0, "sleep": 0, "madness": 0 },
-    "arcStatusScaling": 0,
-    "_verify": "base = api +0 x2.45 (validated); max scaling values estimated from +10 grades E/A"
-  }
+  "weight": 7,
+  "passive": "Blood loss (50)",
+  "base": {
+   "physical": 286,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 9,
+   "DEX": 135,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {
+   "bleed": 50
+  },
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "meteoric-ore-blade",
+  "name": "Meteoric Ore Blade",
+  "type": "Katana",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 15,
+   "DEX": 14,
+   "INT": 18
+  },
+  "weight": 7.5,
+  "passive": "Blood loss (50)",
+  "base": {
+   "physical": 274,
+   "magic": 176,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 81,
+   "DEX": 31,
+   "INT": 65,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ],
+   "INT": [
+    "magic"
+   ]
+  },
+  "status": {
+   "bleed": 50
+  },
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "moonveil",
+  "name": "Moonveil",
+  "type": "Katana",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 12,
+   "DEX": 18,
+   "INT": 23
+  },
+  "weight": 6.5,
+  "passive": "Blood loss (50)",
+  "base": {
+   "physical": 178,
+   "magic": 213,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 22,
+   "DEX": 90,
+   "INT": 108,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ],
+   "INT": [
+    "magic"
+   ]
+  },
+  "status": {
+   "bleed": 50
+  },
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "nagakiba",
+  "name": "Nagakiba",
+  "type": "Katana",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 18,
+   "DEX": 22
+  },
+  "weight": 7,
+  "passive": "Blood loss (45)",
+  "base": {
+   "physical": 281,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 40,
+   "DEX": 90,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {
+   "bleed": 45
+  },
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "rivers-of-blood",
+  "name": "Rivers of Blood",
+  "type": "Katana",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 12,
+   "DEX": 18,
+   "ARC": 20
+  },
+  "weight": 6.5,
+  "passive": "Blood loss (50)",
+  "base": {
+   "physical": 186,
+   "magic": 0,
+   "fire": 186,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 18,
+   "DEX": 90,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 59
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ],
+   "ARC": [
+    "physical",
+    "fire"
+   ]
+  },
+  "status": {
+   "bleed": 50
+  },
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "serpentbone-blade",
+  "name": "Serpentbone Blade",
+  "type": "Katana",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 11,
+   "DEX": 22
+  },
+  "weight": 6,
+  "passive": "Poison (66)",
+  "base": {
+   "physical": 294,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 15,
+   "DEX": 112,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {
+   "poison": 66
+  },
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "star-lined-sword",
+  "name": "Star-Lined Sword",
+  "type": "Katana",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 10,
+   "DEX": 23,
+   "INT": 21
+  },
+  "weight": null,
+  "passive": "Blood loss (45)",
+  "base": {
+   "physical": 200,
+   "magic": 200,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 27,
+   "DEX": 135,
+   "INT": 54,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ],
+   "INT": [
+    "magic"
+   ]
+  },
+  "status": {
+   "bleed": 45
+  },
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "sword-of-night",
+  "name": "Sword of Night",
+  "type": "Katana",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 11,
+   "DEX": 20
+  },
+  "weight": null,
+  "passive": "Blood loss (45)",
+  "base": {
+   "physical": 269,
+   "magic": 80,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 0,
+   "DEX": 113,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "DEX": [
+    "physical",
+    "magic"
+   ]
+  },
+  "status": {
+   "bleed": 45
+  },
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "uchigatana",
+  "name": "Uchigatana",
+  "type": "Katana",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 11,
+   "DEX": 15
+  },
+  "weight": 5.5,
+  "passive": "Blood loss (45)",
+  "base": {
+   "physical": 281,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 54,
+   "DEX": 82,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {
+   "bleed": 45
+  },
+  "arcStatusScaling": 0
+ }
 ]
