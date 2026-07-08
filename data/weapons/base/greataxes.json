@@ -1,0 +1,463 @@
+[
+ {
+  "id": "axe-of-godrick",
+  "name": "Axe of Godrick",
+  "type": "Greataxe",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 34,
+   "DEX": 22
+  },
+  "weight": 11,
+  "passive": null,
+  "base": {
+   "physical": 347,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 86,
+   "DEX": 72,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "bonny-butchering-knife",
+  "name": "Bonny Butchering Knife",
+  "type": "Greataxe",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 16,
+   "DEX": 20
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 328,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 108,
+   "DEX": 54,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "butchering-knife",
+  "name": "Butchering Knife",
+  "type": "Greataxe",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 16,
+   "DEX": 20
+  },
+  "weight": 8.5,
+  "passive": null,
+  "base": {
+   "physical": 328,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 22,
+   "DEX": 110,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "crescent-moon-axe",
+  "name": "Crescent Moon Axe",
+  "type": "Greataxe",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 25,
+   "DEX": 15
+  },
+  "weight": 12.5,
+  "passive": null,
+  "base": {
+   "physical": 357,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 58,
+   "DEX": 74,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "death-knight-s-longhaft-axe",
+  "name": "Death Knight's Longhaft Axe",
+  "type": "Greataxe",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 23,
+   "DEX": 10,
+   "FAI": 18
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 276,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 178,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 99,
+   "DEX": 18,
+   "INT": 0,
+   "FAI": 54,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ],
+   "FAI": [
+    "lightning"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "executioner-s-greataxe",
+  "name": "Executioner's Greataxe",
+  "type": "Greataxe",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 34,
+   "DEX": 8
+  },
+  "weight": 15,
+  "passive": null,
+  "base": {
+   "physical": 367,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 96,
+   "DEX": 18,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "gargoyle-s-black-axe",
+  "name": "Gargoyle's Black Axe",
+  "type": "Greataxe",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 24,
+   "DEX": 8,
+   "FAI": 22
+  },
+  "weight": 8.5,
+  "passive": null,
+  "base": {
+   "physical": 245,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 294
+  },
+  "scaling": {
+   "STR": 85,
+   "DEX": 18,
+   "INT": 0,
+   "FAI": 54,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ],
+   "FAI": [
+    "holy"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "gargoyle-s-great-axe",
+  "name": "Gargoyle's Great Axe",
+  "type": "Greataxe",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 24,
+   "DEX": 8
+  },
+  "weight": 0,
+  "passive": null,
+  "base": {
+   "physical": 301,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 126,
+   "DEX": 11,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "great-omenkiller-cleaver",
+  "name": "Great Omenkiller Cleaver",
+  "type": "Greataxe",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 23,
+   "DEX": 12
+  },
+  "weight": 11,
+  "passive": "Blood loss (55)",
+  "base": {
+   "physical": 347,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 82,
+   "DEX": 52,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {
+   "bleed": 55
+  },
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "greataxe",
+  "name": "Greataxe",
+  "type": "Greataxe",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 30,
+   "DEX": 8
+  },
+  "weight": 13,
+  "passive": null,
+  "base": {
+   "physical": 369,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 82,
+   "DEX": 46,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "longhaft-axe",
+  "name": "Longhaft Axe",
+  "type": "Greataxe",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 24,
+   "DEX": 8
+  },
+  "weight": 12.5,
+  "passive": null,
+  "base": {
+   "physical": 357,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 75,
+   "DEX": 58,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "putrescence-cleaver",
+  "name": "Putrescence Cleaver",
+  "type": "Greataxe",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 28,
+   "DEX": 10,
+   "ARC": 15
+  },
+  "weight": null,
+  "passive": "Frostbite (55)",
+  "base": {
+   "physical": 345,
+   "magic": 102,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 81,
+   "DEX": 18,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 63
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ],
+   "ARC": [
+    "physical",
+    "magic"
+   ]
+  },
+  "status": {
+   "frost": 55
+  },
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "rusted-anchor",
+  "name": "Rusted Anchor",
+  "type": "Greataxe",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 26,
+   "DEX": 9
+  },
+  "weight": 12.5,
+  "passive": null,
+  "base": {
+   "physical": 360,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 102,
+   "DEX": 21,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "winged-greathorn",
+  "name": "Winged Greathorn",
+  "type": "Greataxe",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 30,
+   "DEX": 20
+  },
+  "weight": 11,
+  "passive": null,
+  "base": {
+   "physical": 318,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 90,
+   "DEX": 90,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ }
+]
