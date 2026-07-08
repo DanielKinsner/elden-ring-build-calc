@@ -1,0 +1,34 @@
+[
+ {
+  "id": "smithscript-dagger",
+  "name": "Smithscript Dagger",
+  "type": "Throwing Blade",
+  "source": "dlc",
+  "category": "regular",
+  "infusable": true,
+  "requirements": {
+   "STR": 5,
+   "DEX": 11,
+   "INT": 11,
+   "FAI": 11
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 151,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 30,
+   "DEX": 98,
+   "INT": 18,
+   "FAI": 18,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ }
+]
