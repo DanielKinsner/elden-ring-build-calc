@@ -1,0 +1,267 @@
+[
+ {
+  "id": "albinauric-bow",
+  "name": "Albinauric Bow",
+  "type": "Bow",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 7,
+   "DEX": 18
+  },
+  "weight": 4.5,
+  "passive": null,
+  "base": {
+   "physical": 200,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 22,
+   "DEX": 52,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "ansbach-s-longbow",
+  "name": "Ansbach's Longbow",
+  "type": "Bow",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 9,
+   "DEX": 43
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 181,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 36,
+   "DEX": 45,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "black-bow",
+  "name": "Black Bow",
+  "type": "Bow",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 9,
+   "DEX": 20
+  },
+  "weight": 4,
+  "passive": null,
+  "base": {
+   "physical": 171,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 32,
+   "DEX": 47,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "erdtree-bow",
+  "name": "Erdtree Bow",
+  "type": "Bow",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 8,
+   "DEX": 12,
+   "FAI": 14
+  },
+  "weight": 4,
+  "passive": null,
+  "base": {
+   "physical": 98,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 122
+  },
+  "scaling": {
+   "STR": 22,
+   "DEX": 27,
+   "INT": 0,
+   "FAI": 54,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ],
+   "FAI": [
+    "holy"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "horn-bow",
+  "name": "Horn Bow",
+  "type": "Bow",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 10,
+   "DEX": 14,
+   "INT": 12
+  },
+  "weight": 4.5,
+  "passive": null,
+  "base": {
+   "physical": 159,
+   "magic": 73,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 32,
+   "DEX": 39,
+   "INT": 18,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ],
+   "INT": [
+    "magic"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "longbow",
+  "name": "Longbow",
+  "type": "Bow",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 9,
+   "DEX": 14
+  },
+  "weight": 4,
+  "passive": null,
+  "base": {
+   "physical": 196,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 30,
+   "DEX": 39,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "pulley-bow",
+  "name": "Pulley Bow",
+  "type": "Bow",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 11,
+   "DEX": 11
+  },
+  "weight": 5,
+  "passive": null,
+  "base": {
+   "physical": 188,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 49,
+   "DEX": 49,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "serpent-bow",
+  "name": "Serpent Bow",
+  "type": "Bow",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 8,
+   "DEX": 15,
+   "ARC": 11
+  },
+  "weight": 3.5,
+  "passive": null,
+  "base": {
+   "physical": 183,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 27,
+   "DEX": 54,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 54
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ }
+]
