@@ -20,7 +20,7 @@
 
   // --- CalcCorrectGraph saturation curves (mirror data/scaling-curves.json) ---
   var CURVES = {
-    physical:       [ {s:1,p:0}, {s:20,p:25}, {s:60,p:75}, {s:80,p:90}, {s:99,p:100} ],
+    physical:       [ {s:1,p:0}, {s:10,p:11.65}, {s:15,p:19.80}, {s:20,p:25}, {s:60,p:75}, {s:80,p:90}, {s:99,p:100} ],
     elemental:      [ {s:1,p:0}, {s:20,p:40}, {s:50,p:80}, {s:80,p:100}, {s:99,p:100} ],
     arcanePhysical: [ {s:1,p:0}, {s:20,p:25}, {s:55,p:75}, {s:80,p:90}, {s:99,p:100} ],
     arcaneStatus:   [ {s:1,p:0}, {s:45,p:100}, {s:99,p:115} ]

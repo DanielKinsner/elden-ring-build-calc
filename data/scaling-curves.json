@@ -9,6 +9,8 @@
       "_note": "CalcCorrectGraph 0. Anchors: 10->11.65, 15->19.80.",
       "points": [
         { "stat": 1, "pct": 0 },
+        { "stat": 10, "pct": 11.65 },
+        { "stat": 15, "pct": 19.80 },
         { "stat": 20, "pct": 25 },
         { "stat": 60, "pct": 75 },
         { "stat": 80, "pct": 90 },
