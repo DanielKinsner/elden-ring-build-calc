@@ -28,5 +28,21 @@
     "scaling": { "STR": 40, "DEX": 90, "INT": 0, "FAI": 0, "ARC": 0 },
     "status": { "bleed": 45, "frost": 0, "poison": 0, "rot": 0, "sleep": 0, "madness": 0 },
     "arcStatusScaling": 0
+  },
+  {
+    "id": "rivers-of-blood",
+    "name": "Rivers of Blood",
+    "type": "Katana",
+    "source": "base",
+    "category": "somber",
+    "infusable": false,
+    "requirements": { "STR": 12, "DEX": 18, "ARC": 20 },
+    "weight": 6.5,
+    "passive": "Blood loss (50)",
+    "base": { "physical": 218, "magic": 0, "fire": 218, "lightning": 0, "holy": 0 },
+    "scaling": { "STR": 20, "DEX": 97, "INT": 0, "FAI": 0, "ARC": 48 },
+    "status": { "bleed": 50, "frost": 0, "poison": 0, "rot": 0, "sleep": 0, "madness": 0 },
+    "arcStatusScaling": 0,
+    "_verify": "base = api +0 x2.45 (validated); max scaling values estimated from +10 grades E/B/D"
   }
 ]
