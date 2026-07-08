@@ -1,0 +1,27 @@
+{
+ "location": "Looted from a body inside the Leyndell, Royal Capital colosseum (added by the free Colosseum update). From West Capital Rampart grace, head south past the giant tree branches up into the colosseum structure; the body is in the last opening on the left side.",
+ "region": "Leyndell, Royal Capital",
+ "source": {
+  "type": "drop",
+  "name": "corpse inside the Leyndell Colosseum"
+ },
+ "tactics": [
+  "Two Duelist NPCs patrol the approach to the colosseum — sneak past or fight them one at a time rather than pulling both at once.",
+  "The same pickup also exists in the late-game \"Leyndell, Ashen Capital\" version of the map, in case you miss it the first time through.",
+  "Don't confuse with the visually similar Spiked Caestus — Star Fist hits harder but builds less blood loss."
+ ],
+ "nearbyGraces": [
+  "West Capital Rampart"
+ ],
+ "lore": "A spiked iron hand-wrap built for brutal pugilist duels, its spikes meant to open cuts and cause blood loss with every punch.",
+ "builds": [
+  {
+   "name": "Strength bleed brawler",
+   "why": "Among the highest raw physical output of the base-game fist weapons, plus built-in blood loss buildup, fits a Strength-forward bleed build.",
+   "statFocus": "Strength"
+  }
+ ],
+ "_verify": [
+  "nearbyGraces"
+ ]
+}

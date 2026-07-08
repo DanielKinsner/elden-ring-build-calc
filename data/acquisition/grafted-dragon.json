@@ -1,0 +1,33 @@
+{
+ "location": "Not found in the world directly — traded to Finger Reader Enia at Roundtable Hold in exchange for the Remembrance of the Grafted, dropped by Godrick the Grafted after his defeat in Stormveil Castle. The remembrance can only be exchanged for one of two weapons (this or the Axe of Godrick) unless duplicated via a Wandering Mausoleum bell.",
+ "region": "Limgrave",
+ "source": {
+  "type": "boss",
+  "name": "Godrick the Grafted"
+ },
+ "tactics": [
+  "Phase 1: Godrick fights with a greataxe plus his already-grafted troll leg, using wide sweeping combos and AoE stomps/roars.",
+  "Phase 2 (~50-60% HP): he severs his own arm and grafts on a dragon head, gaining fire breath and fire-infused sweeps — when he rears the head up to breathe fire, sprint to his side/behind him to punish safely.",
+  "Summon Nepheli Loux's sign just before the fog gate to split his aggro.",
+  "Trade the resulting Remembrance of the Grafted with Enia at Roundtable Hold, not any vendor in the field."
+ ],
+ "nearbyGraces": [
+  "Liftside Chamber",
+  "Godrick the Grafted",
+  "Table of Lost Grace"
+ ],
+ "lore": "Grown from the dragon's head Godrick grafted onto his own arm, this fist turns the wielder's limb into a small, vicious dragon that can spew flame from its jaws.",
+ "builds": [
+  {
+   "name": "Strength/Faith fire brawler",
+   "why": "D/D/D scaling across Strength, Dexterity and Faith with innate fire damage suits a quality-faith hybrid build.",
+   "statFocus": "Strength/Faith"
+  },
+  {
+   "name": "Dragon-hunter swap weapon",
+   "why": "Deals bonus damage specifically to Dragon and Ancient Dragon enemies, useful as a situational swap for dragon fights.",
+   "statFocus": "Strength/Faith"
+  }
+ ],
+ "_verify": []
+}

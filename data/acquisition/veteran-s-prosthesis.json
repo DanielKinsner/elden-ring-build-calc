@@ -1,0 +1,27 @@
+{
+ "location": "Guaranteed drop from Commander Niall after defeating him atop Castle Sol.",
+ "region": "Mountaintops of the Giants",
+ "source": {
+  "type": "boss",
+  "name": "Commander Niall"
+ },
+ "tactics": [
+  "Phase 1: Niall summons two Banished Knight spirits (one sword-and-shield, one dual-wielding) that inflict frostbite; killing both early forces phase 2 regardless of his own HP.",
+  "Phase 2 (~50% HP or after both knights die): he becomes much faster, using an electrified leaping leg strike (roll the instant he lands) and halberd spins that spread a frost cloud (back away on the windup).",
+  "Frost and Lightning resistance/negation are both useful, as he mixes both damage types heavily.",
+  "Defeating him also unlocks a Site of Grace in his arena and a chest containing the Haligtree Secret Medallion (Left), needed for the Consecrated Snowfield."
+ ],
+ "nearbyGraces": [
+  "Castle Sol Main Gate",
+  "Church of the Eclipse"
+ ],
+ "lore": "A bladed prosthetic leg wreathed in lightning, repurposed onto the fist. Niall reportedly traded this very prosthesis for the lives of knights he'd defeated, then led them on as an army loyal to no nation.",
+ "builds": [
+  {
+   "name": "Lightning brawler",
+   "why": "Innate 53 lightning damage on top of D/D Strength/Dexterity scaling gives a ready-made elemental fist weapon with no infusion needed.",
+   "statFocus": "Strength/Dexterity"
+  }
+ ],
+ "_verify": []
+}

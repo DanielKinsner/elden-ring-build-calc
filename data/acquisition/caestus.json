@@ -1,0 +1,34 @@
+{
+ "location": "Sold by Gatekeeper Gostoc at the Stormveil Castle gatehouse for 800 runes. If Gostoc is killed instead of spoken to, his Bell Bearing can later be given to the Twin Maiden Husks at Roundtable Hold to buy it there.",
+ "region": "Limgrave",
+ "source": {
+  "type": "merchant",
+  "name": "Gatekeeper Gostoc"
+ },
+ "tactics": [
+  "Gostoc is found in the gatehouse room beside Stormveil's main gate, reachable right after landing in Limgrave, no boss needed to meet him.",
+  "Sources disagree on the exact unlock trigger for his full shop (talking to him vs. progressing past Margit/Godrick) — treat this as slightly uncertain.",
+  "If you kill him (e.g. throw him off the wall) before buying, get his Bell Bearing and buy from Twin Maiden Husks at Roundtable Hold instead."
+ ],
+ "nearbyGraces": [
+  "Stormveil Main Gate",
+  "Gatefront",
+  "Table of Lost Grace"
+ ],
+ "lore": "A simple pair of leather fist-wraps studded with iron rivets, built for straightforward bare-knuckle brawling rather than any special technique.",
+ "builds": [
+  {
+   "name": "Starting quality brawler",
+   "why": "Only 8 Str/8 Dex needed and very light, so it's a cheap, low-investment punch weapon for almost any early build.",
+   "statFocus": "Strength/Dexterity"
+  },
+  {
+   "name": "Caster's backup fist",
+   "why": "Near-zero weight lets spellcasters carry it as a free melee option without hurting equip load.",
+   "statFocus": "Strength/Dexterity (minimal investment)"
+  }
+ ],
+ "_verify": [
+  "location"
+ ]
+}

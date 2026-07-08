@@ -1,0 +1,33 @@
+{
+ "location": "Dropped by Ensha of the Royal Remains, who ambushes you as an NPC invader at Roundtable Hold once you're holding either half of the Haligtree Secret Medallion. After winning, walk to where Ensha originally stood (beside Gideon Ofnir's room) to actually collect the drop.",
+ "region": "Roundtable Hold",
+ "source": {
+  "type": "npc",
+  "name": "Ensha of the Royal Remains"
+ },
+ "tactics": [
+  "Won't trigger until you've picked up a Haligtree Secret Medallion half (from Castle Sol or Village of the Albinaurics) — don't expect him before that.",
+  "He dual-wields a fist weapon and a staff, mixing melee combos with Rock Sling and Collapsing Stars sorceries.",
+  "Using the hold's furniture/chairs to block his approach makes the fight easy; the invasion starts the moment you spawn in, so be ready immediately.",
+  "The loot doesn't drop automatically — you must walk back to his original standing spot to pick it up."
+ ],
+ "nearbyGraces": [
+  "Table of Lost Grace"
+ ],
+ "lore": "A grim weapon made from the hardened, skeletal forearm of a deposed royal, engraved with the line \"a king relinquishes not the hand\" — the last trace of the identity Ensha lost.",
+ "builds": [
+  {
+   "name": "Arcane/bleed brawler",
+   "why": "D-scaling Arcane plus its Lifesteal Fist skill (drains HP from human-type foes) fits an arcane-leaning bleed build.",
+   "statFocus": "Dexterity/Arcane"
+  },
+  {
+   "name": "PvP sustain fist",
+   "why": "Built-in HP-steal on its skill gives melee duelists free healing mid-fight.",
+   "statFocus": "Dexterity"
+  }
+ ],
+ "_verify": [
+  "source"
+ ]
+}

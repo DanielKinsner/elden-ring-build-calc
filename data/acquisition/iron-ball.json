@@ -1,0 +1,33 @@
+{
+ "location": "Dropped by Blackguard Big Boggart when killed. He starts as a non-hostile merchant NPC at Boilprawn Shack in Liurnia of the Lakes, and later relocates outside Leyndell's north wall (Capital Outskirts) if his questline progresses further.",
+ "region": "Liurnia of the Lakes",
+ "source": {
+  "type": "npc",
+  "name": "Blackguard Big Boggart"
+ },
+ "tactics": [
+  "He's peaceful until attacked — you must deliberately fight and kill him to get the weapon, which forecloses his questline (which otherwise leads into the Dung Eater storyline and a Seedbed Curse).",
+  "If missed at Boilprawn Shack, he can be found later relocated near Leyndell's Capital Outskirts with more HP.",
+  "Comes pre-equipped with the exclusive Braggart's Roar Ash of War, which cannot be obtained any other way.",
+  "Entering Volcano Manor before speaking with Rya can lock you out of his quest and wares entirely."
+ ],
+ "nearbyGraces": [
+  "Boilprawn Shack",
+  "Scenic Isle",
+  "Academy Gate Town"
+ ],
+ "lore": "A spherical iron fist weapon favored by Big Boggart himself, its sheer weight described as enough to shatter bone in a single blow.",
+ "builds": [
+  {
+   "name": "Strength brawler",
+   "why": "D/E Strength/Dexterity scaling with a high 101 base physical damage suits a pure Strength punch build.",
+   "statFocus": "Strength"
+  },
+  {
+   "name": "Braggart's Roar buff-bot",
+   "why": "The only source of the Braggart's Roar Ash of War, which boosts poise/attack and taunts enemies, useful for co-op tanking or gimmick builds.",
+   "statFocus": "Strength"
+  }
+ ],
+ "_verify": []
+}

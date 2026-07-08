@@ -1,0 +1,29 @@
+{
+ "location": "NOT OBTAINABLE IN THE BASE GAME. This weapon is exclusive to the Shadow of the Erdtree DLC — found on a corpse on a ledge near the entrance to the Church of Benediction, Gravesite Plain, in the Land of Shadow (very close to where players first arrive in the DLC). There is no base-game source.",
+ "region": "Gravesite Plain (Shadow of the Erdtree DLC — not a base-game region)",
+ "source": {
+  "type": "drop",
+  "name": "corpse near the Church of Benediction"
+ },
+ "tactics": [
+  "Flag for the data owner: base/fists.json lists this as base-game content, but every source confirms it debuted in the Shadow of the Erdtree DLC with no base-game equivalent — do not confuse it with the base-game Cipher Pata, which is a wholly different item.",
+  "It is the longest fist weapon in its class and retains a running-heavy-into-standing-heavy true combo that the older Katar had removed.",
+  "It's found essentially at the DLC's opening area, very early in a Shadow of the Erdtree playthrough."
+ ],
+ "nearbyGraces": [],
+ "lore": "A straight, double-edged blade fixed to a substantial hand guard, worn by Oathseeker Knights so it can be swung fist-like or thrust like a straight sword.",
+ "builds": [
+  {
+   "name": "Reach quality brawler",
+   "why": "Longest fist weapon available with matched D/D Strength/Dexterity scaling, good for a quality build wanting extra range.",
+   "statFocus": "Strength/Dexterity"
+  }
+ ],
+ "_verify": [
+  "location",
+  "region",
+  "source",
+  "nearbyGraces",
+  "tactics"
+ ]
+}

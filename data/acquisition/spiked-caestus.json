@@ -1,0 +1,26 @@
+{
+ "location": "Sold by the Isolated Merchant at his shack on the northwestern edge of Greyoll's Dragonbarrow (overlooking the Great-Jar), for 4,000 runes. Also purchasable later from Twin Maiden Husks at Roundtable Hold after giving them his Bell Bearing.",
+ "region": "Caelid (Dragonbarrow)",
+ "source": {
+  "type": "merchant",
+  "name": "Isolated Merchant (Dragonbarrow)"
+ },
+ "tactics": [
+  "Dragonbarrow is a high-level, dragon-infested area — approach on horseback and be ready to flee rather than fight.",
+  "Don't confuse with the plain Caestus sold by Gostoc in Limgrave — visually similar, but this one has built-in blood loss.",
+  "If the merchant is killed or missed, his Bell Bearing lets Twin Maiden Husks sell it instead."
+ ],
+ "nearbyGraces": [
+  "Isolated Merchant's Shack (Dragonbarrow)",
+  "Dragonbarrow West"
+ ],
+ "lore": "A standard caestus with its iron rivets swapped for blood-letting spikes, still worn as a pair like its plain counterpart.",
+ "builds": [
+  {
+   "name": "Bleed brawler",
+   "why": "Innate blood loss buildup on a light, D/D Strength/Dexterity weapon makes it a natural pick for a Strength/Dex bleed build.",
+   "statFocus": "Strength/Dexterity"
+  }
+ ],
+ "_verify": []
+}

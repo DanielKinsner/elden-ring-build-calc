@@ -1,0 +1,27 @@
+{
+ "location": "Not found anywhere — it's the default combat state whenever no weapon is equipped in either hand, available to every character from the very start of the game.",
+ "region": "None — always available regardless of region",
+ "source": {
+  "type": "drop",
+  "name": "None (innate default state, no source to acquire)"
+ },
+ "tactics": [
+  "No location or acquisition is needed — it's simply what happens when both weapon slots are empty.",
+  "Every starting class can throw unarmed strikes and kicks immediately, no tutorial gating.",
+  "Useful as a zero-weight panic option if out of stamina/weapons, or as the basis for meme/challenge 'fist only' runs."
+ ],
+ "nearbyGraces": [],
+ "lore": "The game states it plainly: \"No armament equipped. Bare fists will be used to attack.\" There's no legend behind it, just the Tarnished's own knuckles.",
+ "builds": [
+  {
+   "name": "Challenge/naked run",
+   "why": "Zero weight, zero stat requirements, always available, the natural base for no-weapon or no-armor challenge runs.",
+   "statFocus": "None (no scaling)"
+  }
+ ],
+ "_verify": [
+  "location",
+  "region",
+  "source"
+ ]
+}

@@ -1,0 +1,30 @@
+{
+ "location": "On a burnt corpse in a side room of Roundtable Hold. From the main stairs, jump over the balcony railing, go through the door on the left, and follow the left side of the rooms to the back; loot the body on the bed.",
+ "region": "Roundtable Hold",
+ "source": {
+  "type": "drop",
+  "name": "burnt corpse in a Roundtable Hold side room"
+ },
+ "tactics": [
+  "The route requires jumping off the hold's upper balcony rather than using a normal door, easy to walk past without noticing.",
+  "No enemies guard it, it's a pure exploration pickup inside the player hub.",
+  "Don't confuse with the plain Pata weapon (a different, DLC-only item) — they only share part of the name."
+ ],
+ "nearbyGraces": [
+  "Table of Lost Grace"
+ ],
+ "lore": "A weapon tied to the Two Fingers, its blade formed from a shifting cipher of light rather than steel, said to speak the same language of light the Two Fingers use, and unblockable by any shield.",
+ "builds": [
+  {
+   "name": "Pure Faith melee",
+   "why": "C-scaling Faith with 85 innate holy damage and no physical requirement lets a faith caster punch as hard as they cast.",
+   "statFocus": "Faith"
+  },
+  {
+   "name": "Anti-turtle PvP",
+   "why": "Its skill has top-tier hardness that bypasses all shields, punishing block-happy opponents.",
+   "statFocus": "Faith"
+  }
+ ],
+ "_verify": []
+}

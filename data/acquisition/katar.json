@@ -1,0 +1,31 @@
+{
+ "location": "Inside a chest at Fort Gael in southwestern Caelid. Past the fort's entrance, follow the tree roots to a ladder leading up above the Lion Guardian's area, cross the long beam, then drop down to a door opening into a dark room containing the chest.",
+ "region": "Caelid",
+ "source": {
+  "type": "chest",
+  "name": "chest in Fort Gael"
+ },
+ "tactics": [
+  "You don't need to fight the Lion Guardian below — the ladder/beam route lets you bypass it entirely by going up and over.",
+  "Fort Gael is patrolled by soldiers, knights, and a flaming chariot — approach from Fort Gael North grace and pick off stragglers rather than pulling the whole fort.",
+  "Caelid's Scarlet Rot swamp is nearby, watch rot buildup while exploring the area."
+ ],
+ "nearbyGraces": [
+  "Fort Gael North",
+  "Rotview Balcony"
+ ],
+ "lore": "An imported dagger reshaped with a distinctive fist-guard handle so its blade swings like a punch rather than a stab.",
+ "builds": [
+  {
+   "name": "Dex quality bleed",
+   "why": "Matched D/D Strength/Dexterity scaling and a high 110 critical multiplier make it a strong base for a Blood-infused bleed build via ash of war swap.",
+   "statFocus": "Dexterity"
+  },
+  {
+   "name": "Riposte/critical build",
+   "why": "High critical damage rewards backstab- and riposte-focused playstyles.",
+   "statFocus": "Dexterity"
+  }
+ ],
+ "_verify": []
+}
