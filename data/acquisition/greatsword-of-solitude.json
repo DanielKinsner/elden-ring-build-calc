@@ -1,0 +1,32 @@
+{
+ "location": "Guaranteed drop from defeating the boss Knight of the Solitary Gaol (this boss was renamed from its original launch name, 'Blackgaol Knight' — both names refer to the same fight), found in the undercroft of the Western Nameless Mausoleum.",
+ "region": "Gravesite Plain",
+ "source": {
+  "type": "boss",
+  "name": "Knight of the Solitary Gaol"
+ },
+ "tactics": [
+  "From the Scorched Ruins Site of Grace, head west past withered trees and large gravestones; the mausoleum entrance is marked by two lit braziers, guarded by nearby Blue Worm enemies.",
+  "The boss itself wields this exact greatsword one-handed alongside a repeating crossbow in the other, alternating between an up-to-10-shot arrow barrage at range and heavy overhead/spinning slashes up close — listen for its reload sound to time dodges.",
+  "It's weak to Lightning damage, is parryable and backstabbable, and drinks a healing flask mid-fight that can be interrupted with a stagger; leveling Scadutree Blessing before the attempt is strongly recommended, as it hits very hard early.",
+  "There is no Site of Grace at the mausoleum itself, only a Stake of Marika and a summoning pool at the entrance for respawning/co-op."
+ ],
+ "nearbyGraces": [
+  "Scorched Ruins",
+  "Gravesite Plain"
+ ],
+ "lore": "Forged for the Knights of the Solitary Gaol, who are said to have surrendered their own hearts through a secret rite in exchange for greater battle prowess. Each blade carries two engraved crests — one for the light of birth, the other for solitude.",
+ "builds": [
+  {
+   "name": "Pure Strength heavy-hitter",
+   "statFocus": "STR",
+   "why": "B-grade Strength scaling with a 27 STR requirement (18 two-handed) makes it a top-tier pick for pure Strength builds, and its guard stats rival colossal weapons despite being a two-handed sword."
+  },
+  {
+   "name": "Strength/Dex hybrid tank",
+   "statFocus": "STR / DEX",
+   "why": "A minor Dex scaling on top of its Strength base, paired with the highest guard boost of any greatsword, suits a hybrid build that wants to block confidently while still swinging a real damage weapon."
+  }
+ ],
+ "_verify": []
+}

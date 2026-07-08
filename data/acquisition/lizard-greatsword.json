@@ -1,0 +1,35 @@
+{
+ "location": "A 2% chance drop from Greatsword-wielding, lion-headed Imps. The two confirmed spawns are inside Fog Rift Catacombs (the very first Imp encountered there, reachable via a short northwest path from the Castle Front Site of Grace and down a lift, is the commonly farmed one) and inside Scorpion River Catacombs. Note: a few secondary guides (Game8, GameRant) also claim a guaranteed pickup near a staircase in Darklight Catacombs, but this could not be confirmed on either wiki.gg or Fextralife, whose item lists for that dungeon do not include it — treat that claim with caution.",
+ "region": "Gravesite Plain",
+ "source": {
+  "type": "enemy",
+  "name": "Lion-headed (Greatsword) Imp"
+ },
+ "tactics": [
+  "Fog Rift Catacombs is reached from the Castle Front Site of Grace by heading northwest past a small enemy encampment and along a trail of gravestones to two lit braziers marking the entrance.",
+  "Kill the first Lion Imp inside for a shot at the drop, then rest at the Fog Rift Catacombs interior grace (down the entrance lift) to reset and repeat; gear that boosts Item Discovery (Silver Tear Mask, Silver-Pickled Fowl Foot, Gold Scarab talisman) speeds up the farm considerably.",
+  "The same enemy type also spawns in Scorpion River Catacombs, in the Ancient Ruins of Rauh region far to the north, if you'd rather farm there instead — it has its own grace just inside the entrance.",
+  "Only the lion-headed Imps actually carrying a greatsword drop this weapon — don't waste time farming the smaller unarmed or dagger-wielding Imp variants found throughout the same dungeons."
+ ],
+ "nearbyGraces": [
+  "Castle Front",
+  "Fog Rift Catacombs"
+ ],
+ "lore": "An oddity favored by Imps: a greatsword smithed into the shape of a fork-tongued lizard. Its strong attacks let the wielder fire the lizard's forked tongue out as a projectile alongside the swing.",
+ "builds": [
+  {
+   "name": "Dex/Str Blood hybrid",
+   "statFocus": "DEX / STR",
+   "why": "Base scaling leans Dexterity over Strength and the weapon is fully infusable, so a Blood affinity lets a Dex-leaning build stack bleed procs from both the melee swing and its ranged tongue projectile."
+  },
+  {
+   "name": "Keen Dex zoner",
+   "statFocus": "DEX",
+   "why": "Keen affinity pushes Dexterity scaling especially high, giving the best overall damage of any greatsword build while its unique heavy-attack projectile offers poke/zoning most greatswords lack."
+  }
+ ],
+ "_verify": [
+  "location",
+  "region"
+ ]
+}

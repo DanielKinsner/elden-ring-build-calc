@@ -1,0 +1,35 @@
+{
+ "location": "Not found in the open world — obtained by trading the \"Remembrance of the Lord of Frenzied Flame\" to Finger Reader Enia at Roundtable Hold. That remembrance is dropped by defeating the boss Midra, Lord of Frenzied Flame, who is fought in the upper boss chamber of Midra's Manse. A Wandering Mausoleum can duplicate the remembrance once per playthrough if you want both DLC rewards.",
+ "region": "Abyssal Woods",
+ "source": {
+  "type": "boss",
+  "name": "Midra, Lord of Frenzied Flame"
+ },
+ "tactics": [
+  "From the Divided Falls Site of Grace, head south through Abyssal Woods to reach Midra's Manse's gate — the woods are patrolled by dangerous Aging Untouchable and Hornsent Inquisitor enemies, so sneak or bypass rather than fight through them.",
+  "Phase 1 is short and comparatively low-HP; at roughly 60% health Midra decapitates himself and rises as a floating fireball-headed 'Lord of Frenzied Flame' for phase 2, which adds fire-imbued swings and a screen-filling explosion — run to the arena edge and roll forward through it when it triggers.",
+  "He's vulnerable to Bleed and to poise breaks from jump/charged attacks; his frenzy attacks build Madness, which can chunk a large chunk of your HP if it procs, so keep health topped up and consider Focus-boosting gear like the Clarifying Horn Talisman.",
+  "The remembrance is not the weapon itself — you must return to Enia at Roundtable Hold and choose the Greatsword of Damnation from the trade menu rather than the alternative remembrance reward."
+ ],
+ "nearbyGraces": [
+  "Second Floor Chamber",
+  "Manse Hall",
+  "Discussion Chamber"
+ ],
+ "lore": "This golden greatsword is, in fact, the very blade that once pierced Midra himself, the manse's master — a weapon the hornsent used to carry out an especially cruel form of execution. Barbs that once impaled the condemned are wound gently around the length of the blade.",
+ "builds": [
+  {
+   "name": "Strength/Faith Quality",
+   "statFocus": "STR / FAI",
+   "why": "Its scaling is split fairly evenly between Strength and Faith with a solid Holy base attack, so a two-stat quality-style investment grows both physical and holy damage together."
+  },
+  {
+   "name": "Faith-leaning Holy burst",
+   "statFocus": "FAI",
+   "why": "A high fixed Holy base (193) means even a moderate Faith investment (helped by two-handing for the Strength requirement) yields strong Holy AR for casters who want a viable melee option."
+  }
+ ],
+ "_verify": [
+  "nearbyGraces"
+ ]
+}
