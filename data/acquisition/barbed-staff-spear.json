@@ -1,0 +1,35 @@
+{
+ "location": "Guaranteed drop from the boss Jori, Elder Inquisitor, fought in the arena at the very bottom of Darklight Catacombs (a dungeon in Scadu Altus). Jori guards the sealed entrance into the Abyssal Woods, so this fight is mandatory to reach that region.",
+ "region": "Scadu Altus",
+ "source": {
+  "type": "boss",
+  "name": "Jori, Elder Inquisitor"
+ },
+ "tactics": [
+  "Jori waits in the final chamber of Darklight Catacombs — you must beat him to unlock passage into the Abyssal Woods.",
+  "He fights using the same golden-arc, blood-loss-inflicting skill this spear has, mixed with aggressive close-range spear thrusts and combos.",
+  "The catacombs leading to him are dark, maze-like tunnels with typical catacomb hazards (imps, traps), so bring a light source and clear carefully.",
+  "Defeating him lights the Forsaken Graveyard Site of Grace just past the arena, your gateway into the toxic, disorienting Abyssal Woods region."
+ ],
+ "nearbyGraces": [
+  "Darklight Catacombs",
+  "Forsaken Graveyard"
+ ],
+ "lore": "This spear started life as a torture instrument used by hornsent inquisitors, its golden barbs symbolizing the inquisition's cruelty; those same barbs let it double as a greatspear. In the hands of a faithful wielder it channels holy power through that torturous design.",
+ "builds": [
+  {
+   "name": "Faith Holy Poke",
+   "why": "Holy attack scales at C with Faith, letting it deal high holy damage at spear range while you back it up with holy incantations.",
+   "statFocus": "Faith"
+  },
+  {
+   "name": "Faith/Bleed Hybrid",
+   "why": "Its intrinsic 55 blood-loss buildup lets it function as a bleed proc-stick even on a primarily Faith-invested build.",
+   "statFocus": "Faith (secondary bleed utility)"
+  }
+ ],
+ "_verify": [
+  "region",
+  "tactics"
+ ]
+}

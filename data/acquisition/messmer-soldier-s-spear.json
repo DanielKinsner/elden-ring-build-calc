@@ -1,0 +1,34 @@
+{
+ "location": "A random drop (roughly a 2% base chance) from spear-wielding Messmer Soldiers found at enemy camps across Scadu Altus. A reliable farming spot is the camp just west of the Moorth Ruins Site of Grace, where three spear-wielding soldiers patrol together.",
+ "region": "Scadu Altus",
+ "source": {
+  "type": "enemy",
+  "name": "Messmer Soldier (spear-wielding)"
+ },
+ "tactics": [
+  "This is a random enemy drop, not a fixed pickup — only the spear-wielding Messmer Soldiers (not the sword or other variants) can drop it.",
+  "The camp west of the Moorth Ruins Site of Grace has three spear-wielding soldiers together, making it an efficient farming loop.",
+  "Rest at Moorth Ruins and return repeatedly to respawn the soldiers for more attempts.",
+  "Equip an item-discovery talisman like the Silver Scarab to speed up the grind."
+ ],
+ "nearbyGraces": [
+  "Moorth Ruins",
+  "Highroad Cross"
+ ],
+ "lore": "Standard-issue equipment of the rank-and-file soldiers in Messmer's army, this is a well-worn steel-bladed greatspear built for relentless assault — its heavy attacks can be charged into a flurry of consecutive strikes suited to overwhelming a line of enemies.",
+ "builds": [
+  {
+   "name": "Quality Great Spear",
+   "why": "Even D/D scaling in Strength and Dexterity rewards a balanced quality build, and its reach plus multi-hit charged attack suit straightforward melee play.",
+   "statFocus": "Strength/Dexterity"
+  },
+  {
+   "name": "Infusion Flex Build",
+   "why": "It's one of only two Great Spears that can take an Ashes of War affinity, letting you reslot it into Keen, Blood, Occult, or other builds.",
+   "statFocus": "Flexible (infusable)"
+  }
+ ],
+ "_verify": [
+  "location"
+ ]
+}

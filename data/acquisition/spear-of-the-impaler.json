@@ -1,0 +1,34 @@
+{
+ "location": "Obtained by trading the Remembrance of the Impaler (dropped by Messmer the Impaler) to Finger Reader Enia at the Roundtable Hold. Messmer is fought at the top of the Shadow Keep legacy dungeon, through the door beyond the Dark Chamber Entrance Site of Grace.",
+ "region": "Shadow Keep",
+ "source": {
+  "type": "boss",
+  "name": "Messmer the Impaler"
+ },
+ "tactics": [
+  "Messmer the Impaler is the final boss of the Shadow Keep legacy dungeon, reached by climbing through the Specimen Storehouse up to the Dark Chamber Entrance Site of Grace.",
+  "The fight has two phases — his second phase erupts into a fire/serpent transformation with wide-area flame attacks, so bring fire resistance or a shield.",
+  "After the kill, take the Remembrance of the Impaler to Enia at Roundtable Hold and choose the Spear of the Impaler over the alternate reward, Messmer's Orb.",
+  "Don't confuse this with the earlier Messmer Soldier's Spear — this is the unique legendary version with innate fire damage and a throwable skill."
+ ],
+ "nearbyGraces": [
+  "Dark Chamber Entrance",
+  "Storehouse, Seventh Floor"
+ ],
+ "lore": "This is Messmer's own legendary spear, its blade twisted into the shape of living flame. After his defeat, smiths of the Shadow Realm reforged it, and it retains the ability to be hurled like a javelin and ignite on impact.",
+ "builds": [
+  {
+   "name": "Dexterity/Faith Fire Poke",
+   "why": "Dexterity is its primary scaling (C) backed by an innate high fire attack stat, with Faith (D) supporting fire incantations for a thematic Messmer-style build.",
+   "statFocus": "Dexterity/Faith"
+  },
+  {
+   "name": "Throwing Skill Build",
+   "why": "Messmer's Assault can be thrown via strong attack for burst ranged fire damage, giving it a hybrid melee-ranged playstyle.",
+   "statFocus": "Dexterity"
+  }
+ ],
+ "_verify": [
+  "tactics"
+ ]
+}

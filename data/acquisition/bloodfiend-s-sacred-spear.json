@@ -1,0 +1,34 @@
+{
+ "location": "Guaranteed drop from a Bloodfiend Hexer standing in a shallow pond near Taylew's Ruined Forge in Rauh Base. The Hexer is one of several Bloodfiends (plus a couple of dogs) gathered around the water; you must pick the item up after the kill.",
+ "region": "Ancient Ruins of Rauh",
+ "source": {
+  "type": "enemy",
+  "name": "Bloodfiend Hexer"
+ },
+ "tactics": [
+  "Find the pond near Taylew's Ruined Forge in Rauh Base — several regular Bloodfiends and a couple of dogs patrol the water alongside the Hexer.",
+  "Only the Bloodfiend Hexer (the one performing blood rituals and casting bloodflame hexes) drops the spear; the other Bloodfiends carry different weapons and won't drop it.",
+  "Fighting the whole pack at once is dangerous — try to pull enemies individually or use the pond's terrain to avoid being surrounded.",
+  "Their attacks build blood loss quickly, so watch your bleed meter or bring blood-resistant gear into the fight."
+ ],
+ "nearbyGraces": [
+  "Taylew's Ruined Forge",
+  "Ancient Ruins Base"
+ ],
+ "lore": "This is the ceremonial spear of the bloodfiend hexers, central to their blood rituals. The hexers see it as a means of communing with the Formless Mother, the outer god their tribe pledged themselves to after being spared from war and transformed into bloodfiends.",
+ "builds": [
+  {
+   "name": "Arcane Bleed",
+   "why": "Arcane scaling (C rising to B) drives both attack power and its bleed buildup, making it a strong long-reach poke for bleed-focused Arcane builds.",
+   "statFocus": "Arcane"
+  },
+  {
+   "name": "Strength/Arcane Hybrid",
+   "why": "Modest Strength and Dexterity requirements let it slot into a mixed quality-arcane build without heavy stat investment.",
+   "statFocus": "Strength/Arcane"
+  }
+ ],
+ "_verify": [
+  "location"
+ ]
+}
