@@ -1,0 +1,27 @@
+{
+ "location": "This is Shadow of the Erdtree DLC content obtained through Moore's questline in Scadu Altus, not base-game content. Depending on choices made with Moore: (a) loot his corpse on the cliffs north of the Church of the Crusade if told to 'remain sad forever'; (b) loot his corpse after he joins the fight against Leda and her allies near Enir-Ilim if instead told to 'put it behind you'; or (c) kill the Rot Pest lying on the cliff north of the Church of the Crusade before progressing his questline at all, which triggers Moore to appear early as a hostile invader dropping the shield but ends his questline prematurely.",
+ "region": "Scadu Altus",
+ "source": {
+  "type": "npc",
+  "name": "Moore"
+ },
+ "tactics": [
+  "This weapon is DLC-exclusive — it cannot be obtained in a base-game-only playthrough despite being catalogued alongside base-game greatshields.",
+  "Killing the Rot Pest near the Church of the Crusade early is the fastest route to the shield but permanently derails the rest of Moore's questline — only do this if you don't care about seeing it through.",
+  "If you want the full questline, the two dialogue branches with Moore both eventually make the shield obtainable, just from different corpses/encounters later on."
+ ],
+ "nearbyGraces": [
+  "Church of the Crusade"
+ ],
+ "lore": "Forged from a strange, greenish metal called verdigris, this shield trades away some raw damage negation for the highest guard capacity of any greatshield in the game — built so sturdily, it's said, that it goes on shielding its wielder even after they've fallen.",
+ "builds": [
+  {
+   "name": "Ultimate STR turtle",
+   "why": "Highest guard boost of any greatshield in the game (82, rising to 90 at max upgrade) rewards a maxed Strength tank build willing to carry its 28.0 weight and meet its 49 Strength requirement.",
+   "statFocus": "STR"
+  }
+ ],
+ "_verify": [
+  "location"
+ ]
+}

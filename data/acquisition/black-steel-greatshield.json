@@ -1,0 +1,29 @@
+{
+ "location": "Guaranteed drop from the mini-boss Black Knight Garrew at Fog Rift Fort. Reached by carefully cliff-dropping northwest from the Scadu Altus, West site of grace down onto the fort's towers.",
+ "region": "Gravesite Plain",
+ "source": {
+  "type": "enemy",
+  "name": "Black Knight Garrew"
+ },
+ "tactics": [
+  "This weapon is not obtainable in the base game at all — Fog Rift Fort, Scadu Altus, and Black Knight Garrew are all Shadow of the Erdtree DLC content.",
+  "From the Scadu Altus, West grace, step to the cliff edge and drop down the mountainside in stages until you land safely atop one of the fort's towers.",
+  "Black Knight Garrew is a heavily armored greatsword-and-shield mini-boss at the end of the bridge; his overhead swings are slow and telegraphed, so bait and punish rather than trading.",
+  "It's easy to confuse this with the similarly-named Black Steel items found at the Church of Consolation elsewhere in Gravesite Plain — those are different drops."
+ ],
+ "nearbyGraces": [
+  "Scadu Altus, West",
+  "Fog Rift Catacombs"
+ ],
+ "lore": "Standard-issue armor of the Black Knights who serve Messmer the Impaler — black steel trimmed with gold, carried by soldiers bred to never yield and never question their purpose.",
+ "builds": [
+  {
+   "name": "Holy-resistant Strength tank",
+   "why": "Very high base Holy guard (84%, reaching 100% with a Sacred affinity at +10) makes this a strong pick against Messmer's fire/holy-heavy DLC bosses.",
+   "statFocus": "STR"
+  }
+ ],
+ "_verify": [
+  "nearbyGraces"
+ ]
+}
