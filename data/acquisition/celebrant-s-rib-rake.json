@@ -1,0 +1,27 @@
+{
+ "location": "Very rare drop from the masked, dancing Celebrants of Dominula, Windmill Village — best odds come from the two yellow-coated Celebrants in the large group midway between the Windmill Village and Windmill Heights grace sites.",
+ "region": "Altus Plateau",
+ "source": {
+  "type": "enemy",
+  "name": "Celebrant (Dominula Dancer)"
+ },
+ "tactics": [
+  "Celebrants dance and twirl unpredictably before lunging in — their sickle-wielding cousins look nearly identical, so check the weapon before committing if you're farming this specific drop",
+  "Drop rate is very low (about 0.5%), so plan on many resets and stack Item Discovery gear",
+  "The two yellow-coated Celebrants in the big group between Windmill Village and Windmill Heights are the confirmed carriers of this weapon",
+  "A giant windmill sail sweeps through part of the village and can knock you around mid-fight — stay aware of its position"
+ ],
+ "nearbyGraces": [
+  "Windmill Village",
+  "Windmill Heights"
+ ],
+ "lore": "A rake wrapped in colorful fabric and fashioned from bone, used as a festival prop by Windmill Village's dancers rather than as a weapon of war — a strike with it skims off a trickle of runes.",
+ "builds": [
+  {
+   "name": "Low-investment Dex poke",
+   "why": "Only 8 Strength / 14 Dexterity needed for D-scaling in both, making it a cheap early spear with a built-in Barbaric Roar skill",
+   "statFocus": "Dexterity"
+  }
+ ],
+ "_verify": []
+}

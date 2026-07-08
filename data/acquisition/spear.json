@@ -1,0 +1,26 @@
+{
+ "location": "Random drop from spear-wielding Exile Soldiers around Stormveil Castle, most reliably a lone Castle Guard up the wooden stairs near Rampart Tower grace.",
+ "region": "Limgrave",
+ "source": {
+  "type": "enemy",
+  "name": "Exile Soldier"
+ },
+ "tactics": [
+  "The Rampart Tower guard is an easy, low-risk farm target — pull him alone rather than the larger group below",
+  "Killing Patches in Murkwater Cave after he begs for mercy also drops a pre-upgraded +7 copy of this same Spear — a shortcut if you're willing to lose him as a merchant",
+  "Easy to mix up with the visually similar Short Spear or Spiked Spear at a glance — check the moveset/skill (Impaling Thrust) if you're unsure which one dropped",
+  "Drop rate is a low 2%, so expect to fight through several Exile Soldiers before it appears"
+ ],
+ "nearbyGraces": [
+  "Rampart Tower"
+ ],
+ "lore": "A wholly unremarkable spear — a plain blade fixed to a long shaft, designed to be thrust out from behind a raised shield and especially effective at keeping mounted attackers at bay.",
+ "builds": [
+  {
+   "name": "Early Dex poke",
+   "why": "E Strength/D Dexterity scaling and cheap requirements make it a fine dexterity-leaning early spear before better options appear",
+   "statFocus": "Dexterity"
+  }
+ ],
+ "_verify": []
+}

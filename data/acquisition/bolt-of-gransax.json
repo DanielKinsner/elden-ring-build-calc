@@ -1,0 +1,26 @@
+{
+ "location": "Resting atop the colossal fossilized spear jutting from the rooftops below Leyndell's Erdtree Sanctuary. Exit the Sanctuary grace, ride the elevator down a floor, push past two Perfumers, then jump out onto the giant spear on your left and climb it to reach the item.",
+ "region": "Leyndell, Royal Capital",
+ "source": {
+  "type": "drop",
+  "name": "World pickup atop the giant fossil spear"
+ },
+ "tactics": [
+  "From Erdtree Sanctuary grace, exit the west door, descend the stairs, and take the elevator down one floor",
+  "Fight or run past two Perfumers on the linear path, then look left for the giant dragon-spear jutting out of the rooftop",
+  "Climb the spear carefully — its collision is janky, and a bad jump/roll can dump you a floor below, forcing a grace reset and re-climb",
+  "Must be collected before defeating Maliketh, the Black Blade — once Leyndell becomes the Ashen Capital the item is permanently gone"
+ ],
+ "nearbyGraces": [
+  "Erdtree Sanctuary"
+ ],
+ "lore": "Whittled down from the actual weapon once wielded by Gransax, the ancient dragon whose assault on Leyndell's walls is said to have kicked off the old war between men and dragons.",
+ "builds": [
+  {
+   "name": "Quality poke with a lightning nuke",
+   "why": "Even D/D Strength-Dexterity scaling keeps it viable as a plain quality weapon, while its Ancient Lightning Spear skill throws a chargeable lightning bolt that hits hard even on a low-investment build",
+   "statFocus": "Strength/Dexterity"
+  }
+ ],
+ "_verify": []
+}

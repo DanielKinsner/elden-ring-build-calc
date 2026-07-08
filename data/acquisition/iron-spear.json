@@ -1,0 +1,27 @@
+{
+ "location": "Random drop from spear-wielding Fallen Hawk Soldiers around Nokron, Eternal City — several cluster behind the church near the entrance grace, with more in the graveyard and along the path toward the Mimic Tear grace.",
+ "region": "Nokron, Eternal City",
+ "source": {
+  "type": "enemy",
+  "name": "Fallen Hawk Soldier"
+ },
+ "tactics": [
+  "Nokron is reached by falling into Starfall Crater (revealed near Mistwood after defeating Starscourge Radahn), or via the connected Siofra River underground route",
+  "Fallen Hawk Soldiers layer cold ghostflame magic on top of their spear jabs, so watch for frostbite buildup",
+  "Drop rate is a low 2%, so the cluster of three behind the entrance church is the most efficient farm spot",
+  "Don't confuse Nokron with the visually similar Siofra River area directly below it — they're connected but have separate grace networks"
+ ],
+ "nearbyGraces": [
+  "Nokron, Eternal City",
+  "Mimic Tear"
+ ],
+ "lore": "An unremarkable, rust-pitted iron spear with nothing special to its make — the kind of common arm any rank-and-file soldier might carry.",
+ "builds": [
+  {
+   "name": "Early quality build",
+   "why": "Cheap even D/D Strength-Dexterity requirements make it a solid budget quality spear for the early-to-mid game",
+   "statFocus": "Strength/Dexterity"
+  }
+ ],
+ "_verify": []
+}

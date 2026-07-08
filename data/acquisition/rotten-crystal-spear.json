@@ -1,0 +1,26 @@
+{
+ "location": "Random drop from Putrid Crystalian enemies, most reliably the pair in the room next to the Elphael Inner Wall grace in Elphael, Brace of the Haligtree.",
+ "region": "Miquella's Haligtree",
+ "source": {
+  "type": "enemy",
+  "name": "Putrid Crystalian"
+ },
+ "tactics": [
+  "Putrid Crystalians fight like regular Crystalians — tanky in their crystal form, but they break apart into weaker limbed sub-enemies once damaged enough",
+  "Drop rate is a relatively generous 8%, so the pair by Elphael Inner Wall is an efficient farm spot",
+  "Don't confuse this with the non-rotten Crystal Spear found earlier in Sellia Hideaway — they look nearly identical, but this one inflicts scarlet rot instead of dealing pure magic damage",
+  "Elphael is deep into Miquella's Haligtree, reached via Consecrated Snowfield, so this isn't accessible until well into the late game"
+ ],
+ "nearbyGraces": [
+  "Elphael Inner Wall"
+ ],
+ "lore": "Another crystal spear beyond ordinary human craft, but left to fester — its magic corrupted into something that spreads scarlet rot on contact.",
+ "builds": [
+  {
+   "name": "Rot poke build",
+   "why": "D Dexterity/E Intelligence scaling plus a hefty built-in scarlet rot buildup (55) make it a strong budget rot-status weapon",
+   "statFocus": "Intelligence/Dexterity"
+  }
+ ],
+ "_verify": []
+}

@@ -1,0 +1,26 @@
+{
+ "location": "Low-rate drop from the Godrick Knight mini-boss patrolling Gatefront Ruins in Limgrave (also drops from Redmane Knights at Fort Gael, Cuckoo Knights near Raya Lucaria Gate, Leyndell Knights, and mounted Mausoleum Knights in Deeproot Depths).",
+ "region": "Limgrave",
+ "source": {
+  "type": "enemy",
+  "name": "Godrick Knight"
+ },
+ "tactics": [
+  "Gatefront Ruins sits directly north of Church of Elleh on the road to Stormveil Castle, guarded by roughly a dozen Godrick Soldiers led by the Godrick Knight mini-boss",
+  "The Godrick Knight specifically patrols the eastern road — don't mix him up with the horn-carrying regular soldier patrolling the west road",
+  "Resting at Gatefront grace for the first time triggers Melina's introduction cutscene, so expect that interruption on a first visit",
+  "Drop rate is very low; the later Leyndell Knights or Deeproot Depths Mausoleum Knights offer denser enemy counts if you'd rather farm there instead"
+ ],
+ "nearbyGraces": [
+  "Gatefront"
+ ],
+ "lore": "A broad-tipped spear built for more than thrusting — its wide blade lets a wielder sweep it sideways to cut down several foes at once.",
+ "builds": [
+  {
+   "name": "Quality crowd-control poke",
+   "why": "Even D-scaling Strength/Dexterity plus a sweeping horizontal attack (unusual for a spear) make it a solid quality pick against groups",
+   "statFocus": "Strength/Dexterity"
+  }
+ ],
+ "_verify": []
+}

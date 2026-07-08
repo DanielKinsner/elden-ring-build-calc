@@ -1,0 +1,26 @@
+{
+ "location": "Guaranteed drop from the Abductor Virgin duo boss fight beneath Volcano Manor, reached through a cave south of the Subterranean Inquisition Chamber grace.",
+ "region": "Mt. Gelmir",
+ "source": {
+  "type": "boss",
+  "name": "Abductor Virgins (duo)"
+ },
+ "tactics": [
+  "One Virgin fights with a spinning wheel weapon, the other with a swinging sickle, and they gang up — use the room's pillars to break line of sight and isolate one at a time",
+  "Fastest access: let a regular Abductor Virgin near Raya Lucaria Academy's elevator grab you (use a Sacrificial Twig to avoid losing runes) to warp straight into this Volcano Manor arena, or approach on foot from Temple of Eiglay grace",
+  "From Subterranean Inquisition Chamber grace, jump across the pillars to the south and follow the cave to the boss fog",
+  "Their grab attacks hit extremely hard against low health/poise builds — watch for stance-break windows instead of trading blows"
+ ],
+ "nearbyGraces": [
+  "Subterranean Inquisition Chamber"
+ ],
+ "lore": "Originally an instrument of torture — its many spikes were driven into flesh and then set alight, the smell of the burning wound meant to break a victim's spirit as much as their body.",
+ "builds": [
+  {
+   "name": "Faith bleed poke",
+   "why": "D-scaling across Strength, Dexterity and Faith, innate fire damage, and a hefty built-in blood loss buildup (50) make it a solid Faith/bleed hybrid weapon",
+   "statFocus": "Faith"
+  }
+ ],
+ "_verify": []
+}

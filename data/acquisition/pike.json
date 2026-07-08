@@ -1,0 +1,26 @@
+{
+ "location": "Looted from a corpse in a heavily guarded courtyard inside Stormveil Castle, near the Liftside Chamber grace.",
+ "region": "Limgrave",
+ "source": {
+  "type": "drop",
+  "name": "Corpse in Stormveil Castle courtyard"
+ },
+ "tactics": [
+  "From Liftside Chamber grace, the courtyard is defended by multiple soldiers including flame-throwing enemies — pick them off individually rather than pulling the whole group",
+  "The Pike has one of the longest thrust ranges of any melee weapon, making it strong against Stormveil's mounted knight later in the level and for keeping Torrent duels at range",
+  "It's a guaranteed one-time pickup, not a random enemy drop, so there's no need to farm it",
+  "Watch your footing near the courtyard's edges — several drop-offs and archer sightlines punish careless approaches"
+ ],
+ "nearbyGraces": [
+  "Liftside Chamber"
+ ],
+ "lore": "An especially long-handled spear built purely for reach — its straightforward forward stabs keep foes, particularly mounted ones, at a distance, though it's clumsy in tight quarters.",
+ "builds": [
+  {
+   "name": "Anti-cavalry reach poke",
+   "why": "Even D/D Strength-Dexterity scaling combined with the longest thrust range of any melee weapon makes it excellent against mounted enemies and for safe poking",
+   "statFocus": "Strength/Dexterity"
+  }
+ ],
+ "_verify": []
+}

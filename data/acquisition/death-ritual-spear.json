@@ -1,0 +1,27 @@
+{
+ "location": "Dropped by the Death Rite Bird found on the plateau southwest of Castle Sol, Mountaintops of the Giants — notable as the only Death Rite Bird active during the day instead of only at night.",
+ "region": "Mountaintops of the Giants",
+ "source": {
+  "type": "boss",
+  "name": "Death Rite Bird (Castle Sol)"
+ },
+ "tactics": [
+  "This particular Deathbird is considered one of the hardest in the game due to late-game stat scaling combined with very high attack speed — go in at full health and punish openings rather than trade",
+  "From Castle Sol Main Gate grace, head west up onto the plateau; alternatively drop in from Snow Valley Ruins Overlook to the east",
+  "Its sweeping wing and beak attacks cover more distance than they look like they should — don't stand still to heal mid-fight",
+  "Unlike most Deathbirds this one doesn't vanish if you leave and return at a different time of day, so a safe reset is always available"
+ ],
+ "nearbyGraces": [
+  "Snow Valley Ruins Overlook",
+  "Castle Sol Main Gate"
+ ],
+ "lore": "Once carried by priests who tended the Deathbirds, the spear marked its bearer as a sworn guardian of the birds, its ritual serving as a pledge to be reborn again in some distant age.",
+ "builds": [
+  {
+   "name": "Intelligence/Dex quality poke",
+   "why": "Even D-scaling in both Dexterity and Intelligence plus its Spearcall Ritual skill (ground-based spear explosions) suits an Int/Dex battlemage, though the skill misses airborne targets",
+   "statFocus": "Intelligence/Dexterity"
+  }
+ ],
+ "_verify": []
+}

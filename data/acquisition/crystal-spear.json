@@ -1,0 +1,29 @@
+{
+ "location": "Inside a chest hidden behind an illusory wall in Sellia Hideaway — past a corpse holding Preserving Boluses, roll or attack the back wall of the small closed-off alcove to reveal the room.",
+ "region": "Caelid",
+ "source": {
+  "type": "chest",
+  "name": "Sellia Hideaway hidden room"
+ },
+ "tactics": [
+  "Reach Sellia Hideaway from Church of the Plague grace (head north, then find a secret door behind the headstone in a small graveyard) or faster via the spirit spring south of Fort Faroth",
+  "Follow the crystal cave's right-hand wall to a closed-off alcove — the back wall is illusory, not a switch",
+  "The Preserving Boluses corpse just before the hidden room is your landmark that you're in the right spot",
+  "Crystalian enemies patrol the tunnels — tanky in melee, but they break apart into weaker limbed sub-enemies once damaged enough"
+ ],
+ "nearbyGraces": [
+  "Church of the Plague",
+  "Fort Faroth"
+ ],
+ "lore": "Carved from pure crystal by hands no ordinary person could manage, and charged with enough latent magic to deal damage beyond its physical edge.",
+ "builds": [
+  {
+   "name": "Intelligence/Dex poke",
+   "why": "D Dexterity plus E Intelligence scaling and flat magic damage make it a cheap early option for a Dex/Int hybrid caster",
+   "statFocus": "Intelligence/Dexterity"
+  }
+ ],
+ "_verify": [
+  "nearbyGraces"
+ ]
+}

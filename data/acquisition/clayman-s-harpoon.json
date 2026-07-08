@@ -1,0 +1,26 @@
+{
+ "location": "Random drop from Clayman enemies patrolling the lit ruins of Siofra River (best farmed northeast of Siofra River Well grace) — also drops from Claymen at Uhl Palace Ruins in Ainsel River, though those enemies hit harder.",
+ "region": "Siofra River",
+ "source": {
+  "type": "enemy",
+  "name": "Clayman"
+ },
+ "tactics": [
+  "Claymen are slow, lumbering mud-golem enemies — easy to outrun or bait into whiffing an attack before punishing",
+  "Siofra River's Claymen are lower-level than Ainsel River's, making it the gentler farm spot of the two",
+  "Equip the Silver Scarab talisman and eat a Silver-Pickled Fowl Foot to raise the roughly 2% drop rate",
+  "From Siofra River Well grace, head northeast into the brightly lit ruins where multiple harpoon-wielding Claymen patrol or stand idle"
+ ],
+ "nearbyGraces": [
+  "Siofra River Well"
+ ],
+ "lore": "A harpoon tipped with a shard of sharpened meteorite, wielded by the Claymen who haunt the buried dynastic ruins — the shard glows faintly and cuts with magic rather than plain steel.",
+ "builds": [
+  {
+   "name": "Strength/Intelligence hybrid poke",
+   "why": "Splits D-scaling across Strength, Dexterity and Intelligence plus flat magic damage, rewarding a light Intelligence investment on an otherwise melee build",
+   "statFocus": "Intelligence/Strength"
+  }
+ ],
+ "_verify": []
+}

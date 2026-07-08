@@ -1,0 +1,26 @@
+{
+ "location": "Purchasable from the Twin Maiden Husks merchants at Roundtable Hold for 600 Runes, available as soon as you first reach the Hold. Also the default starting weapon for the Prophet class, and a rare drop from Godrick Foot Soldiers.",
+ "region": "Roundtable Hold",
+ "source": {
+  "type": "merchant",
+  "name": "Twin Maiden Husks"
+ },
+ "tactics": [
+  "Straightforward Rune purchase at Roundtable Hold — no fight required, and it's available to any class from the very start of the game",
+  "Prophet characters already start with it in their inventory and don't need to buy it",
+  "Godrick Foot Soldiers (regular spear troops around Limgrave and Stormveil Castle) can also drop it, but the merchant purchase is far more reliable",
+  "Its light weight (4.0) and Impaling Thrust skill make it a good low-commitment weapon for testing the spear moveset before investing in a heavier one"
+ ],
+ "nearbyGraces": [
+  "Roundtable Hold"
+ ],
+ "lore": "About as plain and unremarkable a spear as exists — easy to handle for a beginner, with a strong attack that chains several quick stabs together.",
+ "builds": [
+  {
+   "name": "Beginner quality poke",
+   "why": "Low even D/D Strength-Dexterity requirements (10/10) and light weight make it an accessible early weapon for any melee build",
+   "statFocus": "Strength/Dexterity"
+  }
+ ],
+ "_verify": []
+}

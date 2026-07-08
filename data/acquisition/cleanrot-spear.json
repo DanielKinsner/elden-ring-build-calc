@@ -1,0 +1,26 @@
+{
+ "location": "Random drop from spear-wielding Cleanrot Knights — most reliably the one guarding the entrance to the Prayer Room grace in Elphael, Brace of the Haligtree (spear-wielding Cleanrot Knights also appear in War-Dead Catacombs and Shaded Castle).",
+ "region": "Miquella's Haligtree",
+ "source": {
+  "type": "enemy",
+  "name": "Cleanrot Knight (Spear)"
+ },
+ "tactics": [
+  "The Cleanrot Knight guarding Prayer Room respawns every time the area reloads, making it a repeatable farm target",
+  "Their charged spear thrust glows just before it fires — roll forward the instant it lights up, since it hits hard and can inflict scarlet rot",
+  "A stout shield lets you guard-counter their combos safely instead of trading hits",
+  "Don't mix this up with the sword-wielding Cleanrot Knight variant nearby — that one drops a different weapon entirely"
+ ],
+ "nearbyGraces": [
+  "Prayer Room"
+ ],
+ "lore": "Carried by the Cleanrot Knights who fought at Malenia's side — its golden, wing-shaped blade strikes with holy force, and the small shield fixed near the tip is blessed to ward off rot.",
+ "builds": [
+  {
+   "name": "Faith quality holy poke",
+   "why": "Even D-scaling across Strength, Dexterity and Faith plus innate holy damage make it a straightforward Faith-quality pick, with its Sacred Phalanx skill throwing up a defensive wall of spears",
+   "statFocus": "Faith"
+  }
+ ],
+ "_verify": []
+}

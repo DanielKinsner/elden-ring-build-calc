@@ -1,0 +1,26 @@
+{
+ "location": "Random drop from spear-wielding Marionette Soldiers, most reliably the one posted just outside Witchbane Ruins on the Weeping Peninsula (a larger cluster of six also patrols around a separate Converted Tower elsewhere).",
+ "region": "Weeping Peninsula",
+ "source": {
+  "type": "enemy",
+  "name": "Marionette Soldier"
+ },
+ "tactics": [
+  "Witchbane Ruins sits in a poison swamp south of the Fourth Church of Marika — bring poison resistance or be ready to cure it",
+  "Marionette Soldiers here also guard the cellar holding Sorceress Sellen's questline prisoner — don't let their patrol pull you into that encounter by accident if you're just farming",
+  "Drop rate is a low 2%, so the six-soldier cluster around the Converted Tower elsewhere is a denser (if less convenient) farm alternative",
+  "Their attacks mix spear jabs with a blunt swinging strike that also builds blood loss — don't underestimate them as basic mooks"
+ ],
+ "nearbyGraces": [
+  "Fourth Church of Marika"
+ ],
+ "lore": "A spiked cylinder lashed to a long pole, built by sorcerers as a weapon for their Marionette Soldiers — swung, it deals blunt strike damage, and its spikes tear enough to draw blood.",
+ "builds": [
+  {
+   "name": "Strength/Dex bleed poke",
+   "why": "Even D/D Strength-Dexterity scaling plus built-in blood loss buildup makes it a solid budget quality-bleed spear",
+   "statFocus": "Strength/Dexterity"
+  }
+ ],
+ "_verify": []
+}

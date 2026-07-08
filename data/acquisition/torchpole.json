@@ -1,0 +1,27 @@
+{
+ "location": "Random drop from Exile Soldier courtyard guards in Stormveil Castle — farmable near Liftside Chamber grace (descend into the stockade courtyard to the south) or from a soldier near Stormveil Cliffside grace, up the wooden stairs along the wall.",
+ "region": "Limgrave",
+ "source": {
+  "type": "enemy",
+  "name": "Exile Soldier"
+ },
+ "tactics": [
+  "The Liftside Chamber courtyard has two guards carrying the Torchpole close together, making it the more efficient of the two farm spots",
+  "As a lit torch on a pole it doubles as a light source in dark areas, but it can't be held overhead, so it won't illuminate anything above head height",
+  "Drop rate is roughly 2%, so budget for repeated kills and grace resets",
+  "Don't confuse it with the plain Spear or Pike also dropped in Stormveil — the Torchpole is the one dealing fire damage"
+ ],
+ "nearbyGraces": [
+  "Liftside Chamber",
+  "Stormveil Cliffside"
+ ],
+ "lore": "Simply a torch lashed to a long pole, once carried by watchmen to light dark corners — in a fight, the flame doubles as a weapon that burns as it stabs.",
+ "builds": [
+  {
+   "name": "Fire zoning poke",
+   "why": "Even D/D Strength-Dexterity scaling plus innate fire damage make it useful against fire-weak early enemies and for keeping distance while burning through poise",
+   "statFocus": "Strength/Dexterity"
+  }
+ ],
+ "_verify": []
+}

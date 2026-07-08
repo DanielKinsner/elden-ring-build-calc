@@ -1,0 +1,27 @@
+{
+ "location": "On a corpse inside Gael Tunnel, directly below a Giant Land Octopus hanging from the cave ceiling.",
+ "region": "Caelid",
+ "source": {
+  "type": "drop",
+  "name": "Corpse beneath the Giant Land Octopus"
+ },
+ "tactics": [
+  "Gael Tunnel sits on the Caelid/Limgrave border; from Rotview Balcony grace head south past a cemetery and drop down into the tunnel entrance",
+  "The chamber holding the item is full of regular Land Octopi plus one Giant Land Octopus hanging overhead — it's slow, so grab the item and retreat rather than fight it",
+  "This is a side room well before the dungeon's Magma Wyrm boss fog and the Moonveil katana drop further in — don't push past this point expecting more loot on the same run unless you're ready for that fight too",
+  "Two Radahn Soldiers patrol just outside the tunnel entrance and will aggro if approached carelessly"
+ ],
+ "nearbyGraces": [
+  "Gael Tunnel",
+  "Gael Tunnel Rear Entrance"
+ ],
+ "lore": "A weapon from the Land of Reeds, built to be thrust like a spear but with enough blade along its haft to slash as well.",
+ "builds": [
+  {
+   "name": "Dex bleed poke",
+   "why": "C-scaling Dexterity — among the best of any base-game spear — plus built-in blood loss buildup makes it a strong dedicated Dex/bleed pick",
+   "statFocus": "Dexterity"
+  }
+ ],
+ "_verify": []
+}
