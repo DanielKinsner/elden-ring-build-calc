@@ -1,0 +1,31 @@
+{
+ "location": "Dropped by the NPC invader Swordhand of Night Anna, who ambushes the player on the path to the hanging bell inside the Finger Ruins of Miyr — a hidden chamber reached via a secret ladder behind Count Ymir's throne in the Cathedral of Manus Metyr.",
+ "region": "Scadu Altus",
+ "source": {
+  "type": "npc",
+  "name": "Swordhand of Night Anna"
+ },
+ "tactics": [
+  "Interact with Count Ymir's throne while he is not sitting on it to reveal a rope ladder down to Finger Ruins of Miyr — this only opens after progressing Ymir's questline (ring the bells at Finger Ruins of Rhia and Finger Ruins of Dheo first).",
+  "Anna invades partway along the path to the hanging bell, before you reach the bell that summons the area boss Metyr, Mother of Fingers — don't confuse the invasion fight with the Metyr boss fight further ahead.",
+  "She is fast and low-poise: closing in immediately and chaining quick attacks keeps her staggered and unable to counter; hanging back lets her punish you with her own claw strings.",
+  "Watch your stamina during aggressive strings so you still have enough to dodge or block if she breaks free of hitstun."
+ ],
+ "nearbyGraces": [
+  "Cathedral of Manus Metyr"
+ ],
+ "lore": "These claws are an inky, light-swallowing black, and were the personal weapon of Anna, the Swordhand of Night. Smithscript work on the blades lets a charged attack fling all three claws outward as returning projectiles, and the blades themselves are only half-real, letting them cut through an opponent's guard.",
+ "builds": [
+  {
+   "name": "Dex Bleed Claws",
+   "statFocus": "Dexterity",
+   "why": "Scales primarily with Dexterity (C, improvable to B) and carries high blood loss buildup (45), rewarding a fast dual-claw bleed build that strings hits together."
+  },
+  {
+   "name": "Ranged Poke Harasser",
+   "statFocus": "Dexterity",
+   "why": "The innate Scattershot Throw skill launches all three claws as zero-FP projectiles that return to hand, letting a dex build zone and punish from range between melee exchanges."
+  }
+ ],
+ "_verify": []
+}
