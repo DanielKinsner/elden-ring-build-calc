@@ -1,0 +1,27 @@
+{
+ "location": "Guaranteed drop from the Crucible Knight Ordovis boss duo fight at the bottom of Auriza Hero's Grave, a Stonesword-Key-gated catacomb in the Capital Outskirts area of Altus Plateau.",
+ "region": "Altus Plateau",
+ "source": {
+  "type": "boss",
+  "name": "Crucible Knight Ordovis"
+ },
+ "tactics": [
+  "From the Outer Wall Battleground grace, head east across broken stairs, then branch southeast up a slope past bears to find the Hero's Grave building.",
+  "It's a duo fight: the red-tinted Ordovis (wing-buffet and spin attacks) alongside a standard Crucible Knight — try to isolate and drop one before the other closes in.",
+  "The dungeon is full of rolling chariot traps considered the toughest in any Altus Plateau catacomb; a side room needs a Stonesword Key to access two Basilisks guarding extra loot.",
+  "Don't confuse this Crucible Knight duo with the similarly-styled Crucible Knight fights elsewhere (e.g. Stormveil or Sainted Hero's Grave) — this is a separate dungeon with its own boss pair."
+ ],
+ "nearbyGraces": [
+  "Auriza Hero's Grave",
+  "Outer Wall Battleground"
+ ],
+ "lore": "The personal blade of Ordovis, one of the two knights held foremost among the Crucible Knight order. It carries an ancient holy power, and its reddish tint is said to reflect primordial gold — a substance held to be closer to life itself than ordinary metal.",
+ "builds": [
+  {
+   "name": "Strength/Faith Crucible build",
+   "statFocus": "Strength & Faith",
+   "why": "C-scaling Strength with D-scaling Faith and an innate Physical/Holy split let it work as either a quality-Strength weapon or a Strength/Faith hybrid."
+  }
+ ],
+ "_verify": []
+}

@@ -1,0 +1,26 @@
+{
+ "location": "Guaranteed drop from a field-boss Tibia Mariner hidden on a small bluff on the Mountaintops of the Giants, between Castle Sol and the Snow Valley Ruins Overlook, on the plateau's northernmost ridge.",
+ "region": "Mountaintops of the Giants",
+ "source": {
+  "type": "boss",
+  "name": "Tibia Mariner (Mountaintops of the Giants)"
+ },
+ "tactics": [
+  "The Mariner sits on a small overlook halfway through the plateau's cemetery — easy to miss if you stick to the main path; head down the slope on the right from the northern ridge.",
+  "Tibia Mariners can raise nearby fallen skeletons to fight for them if the encounter drags on, so try to burst the boat/mariner down quickly.",
+  "This spot is close to a separate Death Rite Bird encounter — don't confuse the two fights when following directions.",
+  "Guaranteed drop on defeat, no farming required."
+ ],
+ "nearbyGraces": [
+  "Snow Valley Ruins Overlook"
+ ],
+ "lore": "Modeled after the black steeple of Helphen, a beacon said to guide the souls of the dead. Its glow resembles the light of a Site of Grace, but legend holds that only those who died in battle can actually see it.",
+ "builds": [
+  {
+   "name": "Strength/Intelligence Battlemage",
+   "statFocus": "Strength & Intelligence",
+   "why": "Splits damage between Physical and Magic with D scaling in both Strength and Intelligence, and its Ruinous Ghostflame skill adds bonus Frostbite/Magic damage for a hybrid melee-caster playstyle."
+  }
+ ],
+ "_verify": []
+}

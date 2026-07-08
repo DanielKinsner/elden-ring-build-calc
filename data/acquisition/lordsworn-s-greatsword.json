@@ -1,0 +1,26 @@
+{
+ "location": "Found in a chest inside a wagon/carriage on the western road out of Gatefront Ruins, just southeast of the Gatefront Site of Grace, in Limgrave.",
+ "region": "Limgrave",
+ "source": {
+  "type": "chest",
+  "name": "Carriage chest, Gatefront Ruins"
+ },
+ "tactics": [
+  "The weapon is inside a chest in the back of a horse-drawn wagon, not lying on open ground — easy to walk right past if you don't check the carriage.",
+  "A hostile soldier guards the wagon; clear it before climbing in to loot the chest.",
+  "No boss fight or key required — it's a simple early-game pickup right off the main road.",
+  "Its unusually high 110 critical modifier (versus the ~100 most Greatswords have) makes it worth grabbing early if you like backstabs or parries."
+ ],
+ "nearbyGraces": [
+  "Gatefront"
+ ],
+ "lore": "A well-made, standard-issue blade once carried by rank-and-file soldiers of a lord's army. Age and battle have blackened and scarred it, though it's stayed serviceable even as the men who once wielded it have long since lost their minds.",
+ "builds": [
+  {
+   "name": "Crit/Parry Quality build",
+   "statFocus": "Strength & Dexterity",
+   "why": "The above-average 110 critical modifier makes backstabs and riposte damage hit noticeably harder than most Greatswords, while still supporting any Ash of War infusion."
+  }
+ ],
+ "_verify": []
+}

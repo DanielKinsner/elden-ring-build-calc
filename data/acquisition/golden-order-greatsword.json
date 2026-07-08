@@ -1,0 +1,27 @@
+{
+ "location": "Guaranteed drop from the Misbegotten Crusader boss at the end of Cave of the Forlorn, a small dungeon in the Consecrated Snowfield (reached via the Grand Lift of Rold).",
+ "region": "Consecrated Snowfield",
+ "source": {
+  "type": "boss",
+  "name": "Misbegotten Crusader"
+ },
+ "tactics": [
+  "The cave entrance sits southeast of Ordina, Liturgical Town and is easy to walk past — a camouflaged Giant Land Octopus sits right in the doorway and will grab you if you're not careful.",
+  "You must spend two Stonesword Keys on the imp statue gate to get inside; follow the eastern passage as it curves north to reach the boss chamber.",
+  "Misbegotten Crusader fights like an oversized Misbegotten — jump slams and grab attacks — and is vulnerable to Bleed and Scarlet Rot.",
+  "It's a guaranteed drop, not an RNG chance, so one clean kill is all you need."
+ ],
+ "nearbyGraces": [
+  "Ordina, Liturgical Town",
+  "Inner Consecrated Snowfield"
+ ],
+ "lore": "A greatsword shaped from light itself, meant to visually embody the Elden Ring. Radagon forged it as a personal emblem of the Golden Order's doctrine, though its design is said to trace back to a gift from his first wife, Rennala.",
+ "builds": [
+  {
+   "name": "Faith Quality Greatsword",
+   "statFocus": "Faith",
+   "why": "C-scaling Faith with an innate Physical/Holy split, a strong AoE holy weapon art (Establish Order), and a built-in bonus vs. undead that also blocks skeleton revival."
+  }
+ ],
+ "_verify": []
+}

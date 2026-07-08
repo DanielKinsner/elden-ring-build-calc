@@ -1,0 +1,33 @@
+{
+ "location": "Dropped after defeating both Valiant Gargoyles in the Siofra Aqueduct, at the northern end of the underground Siofra River area beneath Nokron, Eternal City.",
+ "region": "Siofra River",
+ "source": {
+  "type": "boss",
+  "name": "Valiant Gargoyle (duo boss)"
+ },
+ "tactics": [
+  "From the Mimic Tear grace in Nokron, follow the long stone bridge, drop onto land via a broken section on the left, then head north past a cluster of Spirit Jellyfish and down through a tunnel into the Aqueduct.",
+  "This is a dual-boss fight: a Greatsword-and-Halberd Gargoyle starts it, and a second Great Axe-and-Twinblade Gargoyle joins from a waterfall once the first drops below half health.",
+  "The Gargoyle's Twinblade drops from the second gargoyle — expect to need repeat kills if you want both weapons.",
+  "After the fight, a transportation coffin at the back of the room leads onward to Deeproot Depths."
+ ],
+ "nearbyGraces": [
+  "Aqueduct-Facing Cliff",
+  "Great Waterfall Basin",
+  "Mimic Tear"
+ ],
+ "lore": "A bronze greatsword wielded by the Valiant Gargoyles, its missing pieces mended with corpse wax like its wielder — a patchwork blade built from the remains of fallen champions.",
+ "builds": [
+  {
+   "name": "Pure Strength Build",
+   "why": "C-rank Strength scaling, its best stat by a wide margin, plus heavy poise-breaking swings make it a straightforward pure-Strength greatsword.",
+   "statFocus": "Strength"
+  },
+  {
+   "name": "Heavy Two-Hander for Poise Break",
+   "why": "High base physical damage and slow, weighty swings excel at breaking enemy stance, especially two-handed for the Strength bonus.",
+   "statFocus": "Strength"
+  }
+ ],
+ "_verify": []
+}

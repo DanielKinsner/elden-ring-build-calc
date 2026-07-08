@@ -1,0 +1,29 @@
+{
+ "location": "Dropped by Dung Eater — either killed defenseless in his locked cell in the Subterranean Shunning-Grounds beneath Leyndell (requires the Sewer-Gaol Key he gives you at Roundtable Hold), or, on the mutually exclusive alternate path, defeated later as an NPC invader in the Capital Outskirts moat.",
+ "region": "Leyndell, Royal Capital",
+ "source": {
+  "type": "npc",
+  "name": "Dung Eater"
+ },
+ "tactics": [
+  "The cell route and the invasion route are mutually exclusive — using the Sewer-Gaol Key to kill him in his cell (which also grants the Omen armor set) closes off the later moat invasion, and vice versa.",
+  "To reach the cell: from Avenue Balcony grace, head down through a well and sewer tunnels to the Underground Roadside grace, then northeast through a grated aqueduct past rats and giant Miranda Sprouts to the cell room.",
+  "If pursuing the invasion route instead, he appears at the moat southeast of the Outer Wall Battleground grace in Capital Outskirts after progressing his questline further.",
+  "He carries a Blood loss weapon regardless of route, but the fight itself is trivial in the cell version since he's unable to fight back — the invasion version is a real fight."
+ ],
+ "nearbyGraces": [
+  "Underground Roadside",
+  "Avenue Balcony"
+ ],
+ "lore": "A grim blade carved from the spine of a giant named Milos, its jagged twin rows of spines running down the blade like an uneven saw. Milos was scorned even among giants for being undersized, treated as an unclean oddity by his own kind.",
+ "builds": [
+  {
+   "name": "Strength/Dexterity Bleed build",
+   "statFocus": "Strength & Dexterity",
+   "why": "Innate 55 Blood loss buildup plus even D/D physical scaling, and its Shriek of Milos weapon art strips nearby enemies' damage negation to set up burst damage."
+  }
+ ],
+ "_verify": [
+  "location"
+ ]
+}

@@ -1,0 +1,29 @@
+{
+ "location": "Appears as a pickup at the Prince of Death's Throne Site of Grace in Deeproot Depths after completing Fia's full questline (defeating Lichdragon Fortissax); alternatively obtainable earlier by killing D, Hunter of the Dead in Limgrave, giving his Twinned Armor to his brother D, Beholder of Death at the Siofra Aqueduct, then defeating that brother.",
+ "region": "Deeproot Depths",
+ "source": {
+  "type": "npc",
+  "name": "Fia (questline completion reward)"
+ },
+ "tactics": [
+  "The two routes are mutually exclusive — decide early whether you're following Fia's full questline or the shortcut through D's brother, since they lock each other out.",
+  "On the questline route, you first need to defeat Fia's five Champion invaders to unlock the Prince of Death's Throne grace, then rest there to trigger the Fortissax fight.",
+  "Prince of Death's Throne is reached from the Across the Roots grace via a tunnel through the roots.",
+  "On the shortcut route, D, Hunter of the Dead can only be killed during your very first encounter with him in Limgrave — miss that window and this path is closed for the playthrough."
+ ],
+ "nearbyGraces": [
+  "Prince of Death's Throne",
+  "Across the Roots"
+ ],
+ "lore": "An alloy of silver and gold forged specifically to hunt down the undead, wielded by the deformed twin brothers who found purpose in the Golden Order — the one faith that never rejected them for their affliction.",
+ "builds": [
+  {
+   "name": "Faith Quality / Undead Hunter",
+   "statFocus": "Strength, Dexterity & Faith",
+   "why": "C-scaling Faith plus an innate Physical/Holy split, a 20% bonus vs. Those Who Live in Death, and a skeleton-revival lockout make it excellent against undead-heavy areas."
+  }
+ ],
+ "_verify": [
+  "source"
+ ]
+}

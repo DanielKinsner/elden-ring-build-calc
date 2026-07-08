@@ -1,0 +1,35 @@
+{
+ "location": "Dropped by the Black Blade Kindred boss (a Valiant Gargoyle) guarding the entrance to the Bestial Sanctum, at the northernmost tip of Caelid's Dragonbarrow.",
+ "region": "Caelid",
+ "source": {
+  "type": "boss",
+  "name": "Black Blade Kindred"
+ },
+ "tactics": [
+  "Head to the far north of Dragonbarrow, past Farum Greatbridge, to find the Bestial Sanctum; the Black Blade Kindred guards its entrance as an optional field boss.",
+  "It shares its drop pool with the visually similar Gargoyle's Black Halberd, so you may need multiple kills to get both weapons.",
+  "Its attacks channel the Rune of Death and can drain HP directly — don't confuse this fight with the separate Black Blade Kindred rematch found later in the Forbidden Lands near Crumbling Farum Azula.",
+  "It has relatively low poise for its size, making it vulnerable to heavy Strength weapons and jump attacks."
+ ],
+ "nearbyGraces": [
+  "Bestial Sanctum",
+  "Farum Greatbridge",
+  "Dragonbarrow Fork"
+ ],
+ "lore": "A bronze greatsword carried by the Valiant Gargoyles, patched together with blackened corpse wax and marking its wielder as a servant of Maliketh, the Black Blade. Despite its grim, decayed look, it strikes with holy power.",
+ "builds": [
+  {
+   "name": "Strength/Faith Hybrid (Holy)",
+   "why": "D-rank scaling in both Strength and Faith with 122 base Holy attack power make it strong for Strength characters branching into Faith.",
+   "statFocus": "Strength / Faith"
+  },
+  {
+   "name": "Faith-Focused Holy Build",
+   "why": "The Corpse Wax Cutter skill's projectile component scales further with Faith, rewarding heavier Faith investment.",
+   "statFocus": "Faith"
+  }
+ ],
+ "_verify": [
+  "nearbyGraces"
+ ]
+}

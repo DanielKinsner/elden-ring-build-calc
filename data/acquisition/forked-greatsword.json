@@ -1,0 +1,34 @@
+{
+ "location": "A 2% drop from wolf-headed, greatsword-wielding Imps found in many catacombs across the map; the fastest farm is the Imp almost immediately down the stairs past the entrance grace in Road's End Catacombs, Liurnia of the Lakes.",
+ "region": "Liurnia of the Lakes",
+ "source": {
+  "type": "enemy",
+  "name": "Wolf-Headed Imp (Greatsword variant)"
+ },
+ "tactics": [
+  "Enter Road's End Catacombs (southwest of the southwestern Minor Erdtree in Liurnia, reached heading south from Revenger's Shack), rest at the entrance grace, and fight the Imp just down the stairs; repeat by resting.",
+  "The same enemy type and drop appears in Minor Erdtree Catacombs and War-Dead Catacombs (Caelid), Sainted Hero's Grave (Altus Plateau), Wyndham Catacombs (Mt. Gelmir), Auriza Side Tomb (Capital Outskirts), Subterranean Shunning-Grounds (Leyndell), Giant-Conquering Hero's Grave (Mountaintops of the Giants), and Consecrated Snowfield Catacombs, if you'd rather farm elsewhere.",
+  "It's a random drop, not a guaranteed pickup — expect to fight the Imp multiple times."
+ ],
+ "nearbyGraces": [
+  "Road's End Catacombs",
+  "Revenger's Shack"
+ ],
+ "lore": "An oddly shaped blade favored by imps, its rippling, forked edge is nicknamed the 'imp's tongue' and is vicious enough to tear flesh and cause heavy bleeding.",
+ "builds": [
+  {
+   "name": "Lightweight Dexterity Bleed Build",
+   "why": "Light for a greatsword (9.0 weight) with D-rank Dexterity scaling and 55 Hemorrhage buildup, suited to fast bleed-focused characters.",
+   "statFocus": "Dexterity"
+  },
+  {
+   "name": "Quality Bleed",
+   "why": "D-rank scaling in both Strength and Dexterity lets Quality builds use it as an accessible early bleed weapon.",
+   "statFocus": "Strength / Dexterity"
+  }
+ ],
+ "_verify": [
+  "location",
+  "nearbyGraces"
+ ]
+}

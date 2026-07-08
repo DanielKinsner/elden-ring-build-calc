@@ -1,0 +1,35 @@
+{
+ "location": "Obtained by trading the Remembrance of the Blasphemous to Twin Maiden Husks or Finger Reader Enia at Roundtable Hold; the Remembrance itself is dropped by Rykard, Lord of Blasphemy, the final boss of the Volcano Manor legacy dungeon in Mt. Gelmir.",
+ "region": "Mt. Gelmir",
+ "source": {
+  "type": "boss",
+  "name": "Rykard, Lord of Blasphemy"
+ },
+ "tactics": [
+  "Rykard fights from inside the belly of the God-Devouring Serpent and is invulnerable until you find and fire the cannon located in the arena down its throat.",
+  "Fastest route to the fog gate: complete all three of Tanith's assassination requests inside Volcano Manor, and she'll teleport you directly to the grace outside Rykard's boss room.",
+  "After the kill, take the Remembrance of the Blasphemous to Roundtable Hold and choose the Blasphemous Blade (the alternative reward is the Blasphemous Claw) — you can only pick one per Remembrance unless duplicated via a Walking Mausoleum.",
+  "Once defeated, the boss room's central grace becomes a fast-travel point named after Rykard himself."
+ ],
+ "nearbyGraces": [
+  "Rykard, Lord of Blasphemy",
+  "Audience Pathway",
+  "Temple of Eiglay"
+ ],
+ "lore": "Once wielded by Rykard, Lord of Blasphemy, this sword still bears the writhing remains of the countless champions he devoured. Their shared blood binds them to the blade, letting its wielder draw strength from foes who fall nearby.",
+ "builds": [
+  {
+   "name": "Strength/Faith Hybrid (Rykard Build)",
+   "why": "D-rank scaling across Strength, Dexterity, and Faith, plus the Taker's Flames skill which restores HP on nearby enemy deaths, make it a self-sustaining melee/faith hybrid.",
+   "statFocus": "Strength / Faith"
+  },
+  {
+   "name": "Aggressive Lifesteal Build",
+   "why": "Taker's Flames' HP restoration on kills rewards an aggressive playstyle, especially against groups or add-heavy encounters.",
+   "statFocus": "Faith"
+  }
+ ],
+ "_verify": [
+  "nearbyGraces"
+ ]
+}

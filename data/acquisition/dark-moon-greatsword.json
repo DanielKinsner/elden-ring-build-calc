@@ -1,0 +1,35 @@
+{
+ "location": "Awarded at the Cathedral of Manus Celes (reached via a hole beneath the Three Sisters area in Liurnia) as the final reward for completing Ranni the Witch's full questline, after giving her the Dark Moon Ring.",
+ "region": "Liurnia of the Lakes",
+ "source": {
+  "type": "npc",
+  "name": "Ranni the Witch (questline reward)"
+ },
+ "tactics": [
+  "This requires finishing Ranni's entire questline: defeat Radahn to free the stars, retrieve the Fingerslayer Blade from Nokron, return it to Ranni, defeat Astel in Ainsel River, then find the Dark Moon Ring in a chest in the Academy of Raya Lucaria's Grand Library (post-Rennala).",
+  "Take the ring down through the hole beneath the Three Sisters/Ranni's Rise area to the Cathedral of Manus Celes and speak to Ranni to conclude the quest.",
+  "This locks in Ranni's ending for that playthrough — plan around it if you want a different ending on the same save.",
+  "The grace inside the Cathedral (where Ranni sits) is where you receive the sword after resting."
+ ],
+ "nearbyGraces": [
+  "Cathedral of Manus Celes",
+  "Moonlight Altar"
+ ],
+ "lore": "Traditionally gifted by a Carian queen to her spouse, this greatsword channels the cold light of the full moon — Ranni's own sigil — letting its wielder unleash a beam of moonlight drawn from the blade itself.",
+ "builds": [
+  {
+   "name": "Intelligence Carian Sword-Sage",
+   "why": "C-rank Intelligence scaling (improving to B at +4) and an innate Moonlight Greatsword-style skill that fires a magic projectile let it serve as both melee weapon and ranged caster.",
+   "statFocus": "Intelligence"
+  },
+  {
+   "name": "Strength/Intelligence Quality-Caster Hybrid",
+   "why": "D-rank Strength and Dexterity scaling alongside its dominant Intelligence scaling supports a hybrid melee-caster build.",
+   "statFocus": "Intelligence / Strength"
+  }
+ ],
+ "_verify": [
+  "lore",
+  "nearbyGraces"
+ ]
+}

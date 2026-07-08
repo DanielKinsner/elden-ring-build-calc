@@ -1,0 +1,27 @@
+{
+ "location": "Random drop (about 4%) from sword-wielding Knight enemies (Godrick Knights, Cuckoo Knights, Leyndell Knights, Mausoleum Knights); most reliably farmed from the lone Mausoleum Knight standing with its back turned just outside the entrance to Black Knife Catacombs in Liurnia of the Lakes.",
+ "region": "Liurnia of the Lakes",
+ "source": {
+  "type": "enemy",
+  "name": "Mausoleum Knight (outside Black Knife Catacombs)"
+ },
+ "tactics": [
+  "Reach the farm spot from the Ruined Labyrinth grace, heading northeast past a Minor Erdtree; the Knight's back is turned, so a sneak backstab is a free crit each reset.",
+  "Alternate farm: two sword-wielding Godrick Knights at the camp between Warmaster's Shack and Saintsbridge grace in Limgrave, useful if you're still early-game.",
+  "Mausoleum Knights hit hard with wide sword sweeps and shield bashes if they notice you before the backstab connects.",
+  "Don't confuse the sword-wielding Knight's Greatsword drop with the separate axe-wielding Banished Knight's variants found elsewhere — only the sword-carrying knights drop this weapon."
+ ],
+ "nearbyGraces": [
+  "Black Knife Catacombs",
+  "Ruined Labyrinth"
+ ],
+ "lore": "A greatsword issued to skilled soldiers who served the demigods directly, despite the fact that none of these knights ever held any formal rank or title. Its grip is long enough to be swung comfortably two-handed against larger foes.",
+ "builds": [
+  {
+   "name": "Quality Strength/Dex",
+   "statFocus": "Strength & Dexterity",
+   "why": "Even D/D scaling with no elemental split, plus full compatibility with Heavy and Keen Ashes of War, makes it a flexible early-to-mid-game quality-build weapon."
+  }
+ ],
+ "_verify": []
+}

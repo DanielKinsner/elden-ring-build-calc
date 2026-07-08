@@ -1,0 +1,28 @@
+{
+ "location": "Obtained by trading the Elden Remembrance (dropped after defeating Radagon of the Golden Order / the Elden Beast) to Enia, the Finger Reader, at Roundtable Hold.",
+ "region": "Leyndell, Royal Capital",
+ "source": {
+  "type": "npc",
+  "name": "Enia, Finger Reader (Elden Remembrance trade)"
+ },
+ "tactics": [
+  "This requires beating the game's final boss gauntlet, so it's effectively an end-of-playthrough or New Game+ weapon rather than something you can grab mid-run.",
+  "You can duplicate the Elden Remembrance once at a Wandering Mausoleum if you'd rather keep the original for a different reward, but only one Sacred Relic Sword is obtainable per Remembrance either way.",
+  "Its Wave of Gold weapon art costs a hefty 42 FP, so it's not something you can spam without real FP investment (Flasks of Wondrous Physick, high Mind).",
+  "Roundtable Hold is reached via its own dedicated Site of Grace fast-travel option, not by walking there from the open world."
+ ],
+ "nearbyGraces": [
+  "Table of Lost Grace"
+ ],
+ "lore": "Forged from the remains of Radagon after his fusion with Marika, then taken up as a weapon by the Elden Beast itself. Its meaning is disputed in-world — some read it as a mark of ruin or grave sin, others see it as the close of one age and the dawn of the next.",
+ "builds": [
+  {
+   "name": "Faith/Dex Holy build",
+   "statFocus": "Faith & Dexterity",
+   "why": "D-scaling in both Dexterity and Faith with a large Holy damage split, plus the wide-hitting Wave of Gold weapon art for clearing groups."
+  }
+ ],
+ "_verify": [
+  "region"
+ ]
+}

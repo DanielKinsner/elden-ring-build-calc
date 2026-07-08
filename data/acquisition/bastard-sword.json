@@ -1,0 +1,30 @@
+{
+ "location": "Purchased (no combat required) from the Nomadic Merchant camped at the Castle Morne Rampart Site of Grace on the eastern side of Weeping Peninsula, for 3,000 runes.",
+ "region": "Weeping Peninsula",
+ "source": {
+  "type": "merchant",
+  "name": "Nomadic Merchant (Castle Morne Rampart)"
+ },
+ "tactics": [
+  "Simply rest at Castle Morne Rampart grace and buy it from the Nomadic Merchant's stock — no fighting needed.",
+  "Available from the very start of the game, making it one of the earliest solid Strength/Dex greatswords.",
+  "Don't confuse this merchant camp outside Castle Morne with the Claymore, which sits in a chest further inside the castle itself."
+ ],
+ "nearbyGraces": [
+  "Castle Morne Rampart"
+ ],
+ "lore": "A broad, straight-bladed sword normally wielded two-handed, though a strong enough warrior can swing it one-handed. Its wide blade is suited to sweeping strikes that can cut through several foes at once.",
+ "builds": [
+  {
+   "name": "Early-Game Quality Starter",
+   "why": "Cheap, available immediately, and carries balanced D-rank Strength/Dexterity scaling that fits almost any early build.",
+   "statFocus": "Strength / Dexterity"
+  },
+  {
+   "name": "Ash of War Carrier",
+   "why": "A generic, respectable-damage greatsword moveset makes it a flexible early host for a preferred Ash of War before a signature weapon is found.",
+   "statFocus": "Strength / Dexterity"
+  }
+ ],
+ "_verify": []
+}

@@ -1,0 +1,32 @@
+{
+ "location": "Guaranteed drop from Elemer of the Briar, the Bell Bearing Hunter boss fought atop the Shaded Castle in northern Altus Plateau.",
+ "region": "Altus Plateau",
+ "source": {
+  "type": "boss",
+  "name": "Elemer of the Briar"
+ },
+ "tactics": [
+  "From the Shaded Castle Inner Gate grace, climb the ladder to the northwest to reach Elemer's arena at the top of the castle.",
+  "Elemer's Eochaid's Dancing Blade skill is a spinning corkscrew charge that covers huge distance and hits multiple times — roll through it or get well clear rather than trying to out-space it.",
+  "He's a Bell Bearing Hunter, so he also drops a Bell Bearing tied to Volcano Manor's invasion armor sets — worth grabbing alongside the sword.",
+  "Don't confuse Shaded Castle with the similarly named Shack/other Altus Plateau ruins nearby when navigating there."
+ ],
+ "nearbyGraces": [
+  "Shaded Castle",
+  "Shaded Castle Inner Gate"
+ ],
+ "lore": "A hereditary blade of House Marais, the family of executioners who once ran Shaded Castle. Elemer of the Briar snatched it back at the very moment he was due to be executed with it, then added his own signature spinning technique learned from his homeland of Eochaid.",
+ "builds": [
+  {
+   "name": "Strength/Arcane Hybrid",
+   "statFocus": "Strength & Arcane",
+   "why": "C-scaling Strength plus D-scaling Arcane and an innate Magic damage split give it solid raw damage without needing any infusion."
+  },
+  {
+   "name": "Blood Arcane Bleed build",
+   "statFocus": "Arcane",
+   "why": "Its native Arcane scaling stacks with a Blood-affinity infusion, letting Arcane boost both bleed buildup power and attack rating at once (note: it has no innate bleed of its own)."
+  }
+ ],
+ "_verify": []
+}

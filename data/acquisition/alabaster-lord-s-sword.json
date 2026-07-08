@@ -1,0 +1,36 @@
+{
+ "location": "Dropped by an Alabaster Lord enemy at the far southern end of the Lake of Rot (beneath Liurnia), reached by riding the rising/sinking stone pillars across the scarlet-rot lake and then climbing the cliff just west of the Grand Cloister entrance to a gravitational anomaly where the Lord stands.",
+ "region": "Liurnia of the Lakes",
+ "source": {
+  "type": "enemy",
+  "name": "Alabaster Lord"
+ },
+ "tactics": [
+  "Cross the Lake of Rot via the timed rising/falling stone pillars, then climb the cliff west of the Grand Cloister entrance to reach the Lord.",
+  "Some players report the sword failing to drop if the Lord's death and the player's own near-death happen in the same instant — avoid trading a killing blow while at critical HP, just to be safe.",
+  "A second Alabaster Lord dropping the same sword exists in Yelough Anix Tunnel (Consecrated Snowfield), in a pit past the frozen elevator, as a backup if you miss this one.",
+  "Scarlet Rot buildup from wading through the lake is dangerous — use rot-negating gear or cross quickly."
+ ],
+ "nearbyGraces": [
+  "Grand Cloister",
+  "Lake of Rot Shoreside"
+ ],
+ "lore": "Forged from pale, blue-white meteoric ore, this greatsword hides gravity-manipulating magic in its blade. It once belonged to a race of stone-skinned ancients said to have been given life when the meteor that provided the ore struck the earth.",
+ "builds": [
+  {
+   "name": "Intelligence/Strength Hybrid",
+   "why": "D-rank scaling in both Strength and Intelligence plus 38 innate magic attack power let it work as a melee weapon that also hits reasonably hard for an INT-leaning build.",
+   "statFocus": "Intelligence / Strength"
+  },
+  {
+   "name": "Gravity-Magic Novelty Build",
+   "why": "Deals bonus damage against Gravity-affiliated enemies, making it a thematic pairing for a gravity-sorcery-focused Intelligence character.",
+   "statFocus": "Intelligence"
+  }
+ ],
+ "_verify": [
+  "source",
+  "region",
+  "nearbyGraces"
+ ]
+}

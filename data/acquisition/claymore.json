@@ -1,0 +1,33 @@
+{
+ "location": "Inside a chest in Castle Morne, Weeping Peninsula. From the Castle Morne Lift grace, ride the lift up into the courtyard, then work along the fortress (past burning corpses and patrolling Misbegotten) to a building where the chest is found.",
+ "region": "Weeping Peninsula",
+ "source": {
+  "type": "chest",
+  "name": "Chest in Castle Morne courtyard building"
+ },
+ "tactics": [
+  "From Castle Morne Lift grace, head up into the main courtyard; the chest room is in one of the buildings bordering the courtyard, guarded/patrolled by Misbegotten enemies.",
+  "Watch for Misbegotten on the rooftops and pile of bodies nearby — they can knock you off ledges if you're not careful.",
+  "Don't confuse this with the Bastard Sword, which is sold by the Nomadic Merchant elsewhere in the same castle area — they're two different greatswords found close together."
+ ],
+ "nearbyGraces": [
+  "Castle Morne Lift",
+  "Castle Morne Rampart"
+ ],
+ "lore": "A long, heavy straight sword meant for two-handed sweeping strikes, though it can also deliver a heavy piercing thrust, giving it more tactical versatility than most greatswords of its size.",
+ "builds": [
+  {
+   "name": "Quality Strength/Dexterity Build",
+   "why": "Even D-rank scaling in Strength and Dexterity, plus a stance offering both sweeping slashes and a heavy thrust, make it a reliable all-rounder.",
+   "statFocus": "Strength / Dexterity"
+  },
+  {
+   "name": "Ash of War Host",
+   "why": "Its straight-sword-adjacent moveset and jump attack make it a classic carrier for mobility-focused Ashes of War like Lion's Claw.",
+   "statFocus": "Strength / Dexterity"
+  }
+ ],
+ "_verify": [
+  "location"
+ ]
+}

@@ -1,0 +1,30 @@
+{
+ "location": "Dropped by the Death Rite Bird boss found across the road east of the Southern Aeonia Swamp Bank Site of Grace in Caelid; it only spawns at night.",
+ "region": "Caelid",
+ "source": {
+  "type": "boss",
+  "name": "Death Rite Bird (Caelid)"
+ },
+ "tactics": [
+  "Rest at Southern Aeonia Swamp Bank and, if it's daytime, wait/pass time at the grace until nightfall for the Death Rite Bird to spawn.",
+  "It's vulnerable to Holy damage and attacks with Magic-based ghostflame spells that can inflict Frostbite and Death Blight — bring magic resistance.",
+  "Don't confuse it with the weaker, common 'Deathbird' enemies scattered elsewhere in Caelid — only the named 'Death Rite Bird' variant drops this weapon."
+ ],
+ "nearbyGraces": [
+  "Southern Aeonia Swamp Bank"
+ ],
+ "lore": "A barbed rod carried by the Deathbirds, keepers of graveyard fires who use it to rake the ashes and bones of the dead from their cremation kilns.",
+ "builds": [
+  {
+   "name": "Frostbite Strength/Dex Build",
+   "why": "Innate Frostbite buildup combined with D-rank Strength and Dexterity scaling suits a status-effect-focused melee build.",
+   "statFocus": "Strength / Dexterity"
+  },
+  {
+   "name": "Intelligence Skill-Spam Build",
+   "why": "Its Ghostflame Ignition skill scales strongly and purely with Intelligence (useful up to roughly 50 INT) even though the weapon's own Intelligence scaling is only E-rank.",
+   "statFocus": "Intelligence"
+  }
+ ],
+ "_verify": []
+}

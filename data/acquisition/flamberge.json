@@ -1,0 +1,33 @@
+{
+ "location": "Found on a corpse atop a rampart tower in Redmane Castle, Caelid — climb the stairs east of the teleporter entry point, enter the tower, and take the ladder up to the guarded rampart.",
+ "region": "Caelid",
+ "source": {
+  "type": "chest",
+  "name": "Corpse pickup, Redmane Castle rampart tower (guarded by Mad Pumpkin Head)"
+ },
+ "tactics": [
+  "From the Redmane Castle teleporter, head east up the stairs, into the tower, and up the ladder to the rampart where the item and its Mad Pumpkin Head guard wait.",
+  "It cannot be picked up while the Radahn Festival is active — grab it before starting the festival, or return after defeating Starscourge Radahn.",
+  "Mad Pumpkin Heads hit hard with slow grab attacks; stay mobile and punish after it whiffs."
+ ],
+ "nearbyGraces": [
+  "Chamber Outside the Plaza",
+  "Impassable Greatbridge"
+ ],
+ "lore": "A greatsword with a wave-like, flame-shaped blade that shreds flesh and causes heavy bleeding. Long kept ready at Redmane Castle to hold scarlet rot at bay with fire, it eventually became the symbol of the castle and its castellan Jerren.",
+ "builds": [
+  {
+   "name": "Dexterity Bleed Build",
+   "why": "C-rank Dexterity scaling combined with high innate Hemorrhage buildup (55) makes it a strong blood-loss weapon for Dex-focused builds.",
+   "statFocus": "Dexterity"
+  },
+  {
+   "name": "Quality Bleed Hybrid",
+   "why": "D-rank Strength scaling on top of its Dexterity scaling lets Quality builds still get solid mileage while keeping the bleed proc.",
+   "statFocus": "Strength / Dexterity"
+  }
+ ],
+ "_verify": [
+  "nearbyGraces"
+ ]
+}

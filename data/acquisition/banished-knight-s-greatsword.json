@@ -1,0 +1,35 @@
+{
+ "location": "A random (4%) drop from any sword-and-shield Banished Knight; the most efficient farm is the lone Banished Knight patrolling just outside the southwestern exit of the Cathedral of Dragon Communion in Caelid.",
+ "region": "Caelid",
+ "source": {
+  "type": "enemy",
+  "name": "Banished Knight (sword-and-shield)"
+ },
+ "tactics": [
+  "Rest at the Cathedral of Dragon Communion grace, exit southwest to find the lone patrolling Banished Knight, kill it, and rest-reset to repeat.",
+  "Alternative farm spot: the Banished Knight guarding the dark room reached by descending from Stormveil Castle's Rampart Tower grace.",
+  "Dual-sword Banished Knights in Castle Sol and Crumbling Farum Azula have a much higher 7.8% drop rate but are tougher, faster fights.",
+  "Don't mistake this for the visually similar Banished Knight's Halberd or Greataxe carried by other Banished Knight variants — only the sword-and-shield type drops this greatsword."
+ ],
+ "nearbyGraces": [
+  "Cathedral of Dragon Communion",
+  "Caelid Highway South"
+ ],
+ "lore": "A finely engraved greatsword given to knights exiled from their homelands, whether for misfortune or misdeed, and sent to serve out their disgrace guarding the realm's frontier territories.",
+ "builds": [
+  {
+   "name": "Pure Strength Greatsword",
+   "why": "High base physical damage (142) with a low Dexterity requirement makes it a strong, simple two-handed Strength weapon.",
+   "statFocus": "Strength"
+  },
+  {
+   "name": "Quality Build",
+   "why": "Even D-rank scaling in both Strength and Dexterity rewards a balanced quality stat spread.",
+   "statFocus": "Strength / Dexterity"
+  }
+ ],
+ "_verify": [
+  "location",
+  "region"
+ ]
+}

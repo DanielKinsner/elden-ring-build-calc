@@ -1,0 +1,26 @@
+{
+ "location": "Random drop (about 4%) from Misbegotten Warrior enemies; most reliably farmed from the pair southeast of the East Capital Rampart Site of Grace in Leyndell, Royal Capital (an alternate lone Misbegotten north of Haligtree Town Plaza in Miquella's Haligtree also drops it).",
+ "region": "Leyndell, Royal Capital",
+ "source": {
+  "type": "enemy",
+  "name": "Misbegotten Warrior"
+ },
+ "tactics": [
+  "Drop rate is low (~4%), so expect to rest-and-reload at the East Capital Rampart grace and repeat the kill several times.",
+  "Misbegotten Warriors are fast, jumping attackers that like to close distance quickly — bait a jump attack and punish the landing recovery.",
+  "The Haligtree alternate farm spot is a much later-game area, so it's only practical if you're already there for other reasons.",
+  "No boss fight involved — it's a straightforward regular-enemy farm."
+ ],
+ "nearbyGraces": [
+  "East Capital Rampart"
+ ],
+ "lore": "A crude, unpolished slab of thick steel that's never been given the dignity of a proper finish. It's heavier than most greatswords of its kind, so every hit lands with real, obvious weight behind it.",
+ "builds": [
+  {
+   "name": "Pure Strength Bruiser",
+   "statFocus": "Strength",
+   "why": "C-scaling Strength, the highest raw weight/impact among infusible Greatswords, and cheap early availability make it a strong pure-Strength stopgap before better options appear."
+  }
+ ],
+ "_verify": []
+}
