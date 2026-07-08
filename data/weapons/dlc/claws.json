@@ -1,0 +1,34 @@
+[
+ {
+  "id": "tooth-whip",
+  "name": "Tooth Whip",
+  "type": "Claw",
+  "source": "dlc",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 10,
+   "DEX": 24
+  },
+  "weight": null,
+  "passive": "Poison (66)",
+  "base": {
+   "physical": 267,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 27,
+   "DEX": 104,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {
+   "poison": 66
+  },
+  "arcStatusScaling": 0
+ }
+]
