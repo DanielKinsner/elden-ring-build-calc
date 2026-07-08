@@ -1,0 +1,32 @@
+{
+ "location": "Found inside Fringefolk Hero's Grave, a hidden dungeon behind a fog gate at the back of the Stranded Graveyard (the tutorial death location) in Limgrave — the gate needs 2 Stonesword Keys to open. The bow itself is claimed by destroying the dungeon's runaway Chariot trap rather than picking it off the ground.",
+ "region": "Limgrave",
+ "source": {
+  "type": "enemy",
+  "name": "The Chariot, Fringefolk Hero's Grave"
+ },
+ "tactics": [
+  "Unlock the fog gate at the back of Stranded Graveyard with 2 Stonesword Keys, then head in avoiding the runaway Chariot (it one- or two-shots low-level characters) until the path narrows and you can drop to its side.",
+  "Past the imps and a fire trap you reach a room with an altar guarded by two ambushing Grafted Scions that drop from the ceiling — that room holds a different item (the Erdtree's Favor talisman), so don't mistake it for your goal; drop down the ledge instead of crossing the bridge to bypass the ambush entirely.",
+  "Take the elevator up, go up the next stairs and turn left (watch for a Dragon Knight Shade nearby), then shoot the rope holding a cluster of suspended pots so they crash onto the Chariot as it rolls past, destroying it and dropping the Erdtree Greatbow."
+ ],
+ "nearbyGraces": [
+  "Stranded Graveyard"
+ ],
+ "lore": "Styled after the Erdtree itself, this bow was made in an age when battle and faith were one and the same, designed as a companion piece to the Golden Great Arrow. It channels the wielder's Faith into every shot, hitting hardest when loaded with holy-infused arrows.",
+ "builds": [
+  {
+   "name": "Faith Archer",
+   "statFocus": "Faith",
+   "why": "D-scaling Faith dwarfs its E-scaling Strength/Dexterity, and it deals 20% bonus damage firing Golden Great Arrows, giving a Faith/incantation build a rare long-range option."
+  },
+  {
+   "name": "Str/Fai hybrid",
+   "statFocus": "Strength / Faith",
+   "why": "Modest 20 Strength / 14 Dexterity requirements let a Faith-leaning melee character carry it as a sniping option without reworking their build."
+  }
+ ],
+ "_verify": [
+  "tactics"
+ ]
+}

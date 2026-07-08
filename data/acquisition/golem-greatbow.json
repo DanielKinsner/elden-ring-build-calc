@@ -1,0 +1,34 @@
+{
+ "location": "Not a guaranteed pickup — it's a rare drop (10% base rate, improved to 17.5% with the Silver Scarab talisman at +75 Discovery) from Guardian Golems wielding a bow. The most efficient farm is the pair of Guardian Golems standing just past the top of the Grand Lift of Dectus on the Altus Plateau side — one carries a Golem Halberd, the other this Greatbow.",
+ "region": "Altus Plateau",
+ "source": {
+  "type": "enemy",
+  "name": "Guardian Golem (archer variant), Grand Lift of Dectus"
+ },
+ "tactics": [
+  "Ride the Grand Lift of Dectus up from Liurnia; the elevator drops you right behind the two Guardian Golems on the Altus side.",
+  "Ignore or bait the Halberd Golem's wide melee sweeps and focus the bow-wielding Golem — its explosive great arrows hit hard from range, so close the distance or use cover rather than trading shots.",
+  "Rest at the nearby grace to reset the encounter and repeat, since the drop is not guaranteed even after killing it."
+ ],
+ "nearbyGraces": [
+  "Altus Plateau",
+  "Altus Highway Junction"
+ ],
+ "lore": "A greatbow of black stone salvaged from an extinct civilization's Guardian Golem constructs. Its draw weight is so extreme that only a golem's inhuman strength — or an exceptionally powerful warrior — can use it as a weapon rather than a fixed siege piece.",
+ "builds": [
+  {
+   "name": "Pure Strength colossal archer",
+   "statFocus": "Strength",
+   "why": "Strength scaling starts at D and climbs to C by +5 with only E-scaling Dexterity, rewarding a heavy Strength investment the same way colossal melee weapons do."
+  },
+  {
+   "name": "Strength tank/archer hybrid",
+   "statFocus": "Strength",
+   "why": "At 14.5 weight and 24 STR/18 DEX requirements it slots naturally alongside a heavy-armor Strength melee build without needing a separate stat spread."
+  }
+ ],
+ "_verify": [
+  "nearbyGraces",
+  "tactics"
+ ]
+}

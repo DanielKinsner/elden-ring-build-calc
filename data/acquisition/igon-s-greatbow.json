@@ -1,0 +1,38 @@
+{
+ "location": "FLAG FOR REPO CORRECTION: this is a Shadow of the Erdtree DLC-exclusive weapon — it cannot be obtained in the base game, despite being tagged \"source\": \"base\" in this repo's data file. In the DLC it comes from Igon, the Bow-Wielding Dragon Hunter: either (a) kill him directly where he's first found on the eastern edge of Gravesite Plain, or (b) summon him for the Bayle the Dread fight and then loot his corpse, which appears southeast of the Foot of the Jagged Peak grace after Bayle is defeated, alongside his armor set and bell bearing.",
+ "region": "Shadow of the Erdtree DLC — Gravesite Plain / Jagged Peak (NOT a base-game region)",
+ "source": {
+  "type": "npc",
+  "name": "Igon, the Bow-Wielding Dragon Hunter"
+ },
+ "tactics": [
+  "This weapon does not exist outside the Shadow of the Erdtree DLC — flag this id for a data-source correction rather than treating the acquisition info below as base-game content.",
+  "Igon is initially met near the Pillar Path Waypoint grace in the Land of Shadow, then relocates to the Foot of the Jagged Peak once spoken to.",
+  "Simplest route: attack and kill Igon directly — he puts up little fight and drops his full armor set, bell bearing, and this bow.",
+  "Alternative: recruit him as a summon for the very difficult Bayle the Dread dragon boss, then loot his body near Foot of the Jagged Peak afterward for the same reward plus quest closure."
+ ],
+ "nearbyGraces": [
+  "Pillar Path Waypoint",
+  "Foot of the Jagged Peak"
+ ],
+ "lore": "Assembled by Igon himself from a pair of dragon bones lashed together with rough rope, its surface scarred by claw marks earned hunting drakes. His obsession with slaying dragons — and settling his score with Bayle — is bound into the weapon, amplifying his own harpoon technique.",
+ "builds": [
+  {
+   "name": "Dragon-hunter Strength build",
+   "statFocus": "Strength",
+   "why": "Strength scaling starts at D and climbs toward C at high upgrade levels with only light Dexterity (E) investment, and it synergizes with its Igon's Drake Hunt skill."
+  },
+  {
+   "name": "Str/Dex hybrid",
+   "statFocus": "Strength / Dexterity",
+   "why": "23 Strength/16 Dexterity requirements sit within reach of a standard quality build, adding a hard-hitting ranged option (120 base physical, up to 259 at +25) to a melee Str/Dex kit."
+  }
+ ],
+ "_verify": [
+  "location",
+  "region",
+  "source",
+  "nearbyGraces",
+  "tactics"
+ ]
+}

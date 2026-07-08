@@ -1,0 +1,32 @@
+{
+ "location": "Not a world pickup — dropped as the Remembrance of the Starscourge by Starscourge Radahn, then traded to Finger Reader Enia at Roundtable Hold (choosing the Lion Greatbow over the alternate reward, the Starscourge Greatsword). Radahn is fought at the Wailing Dunes arena, reached via a waygate from Redmane Castle in Caelid during the Radahn Festival.",
+ "region": "Caelid",
+ "source": {
+  "type": "boss",
+  "name": "Starscourge Radahn (remembrance, redeemed at Roundtable Hold)"
+ },
+ "tactics": [
+  "Trigger the Radahn Festival (via an Altus Plateau grace or Ranni's questline), then speak to Jerren at Redmane Castle Plaza to open the waygate to the Wailing Dunes arena.",
+  "This is a large-scale 'raid boss' fight with NPC summons — run to the yellow summon signs immediately and stay mounted on Torrent for mobility; summoning other players locks you out of your mount.",
+  "Phase 1 is ranged (homing magic arrows that can take half your HP in one hit); phase 2 is close-range spinning-slash combos ending in a jumping slam; phase 3 has him leap into the sky and crash down as a meteor — watch the sky and dodge.",
+  "He's highly vulnerable to Scarlet Rot (steadily drains his large health pool) and somewhat to Bleed if you have access to either status."
+ ],
+ "nearbyGraces": [
+  "Redmane Castle Plaza",
+  "Starscourge Radahn"
+ ],
+ "lore": "The black iron greatbow General Radahn carried into battle, its lion-mane engravings marking it as his personal weapon. Charged with the same gravitational power he wielded in life, it's said to show its true worth alongside his spear.",
+ "builds": [
+  {
+   "name": "Radahn cosplay / quality build",
+   "statFocus": "Strength / Dexterity",
+   "why": "D/D scaling mirrors the standard Greatbow, but its Radahn's Rain skill (32 FP) rains a flurry of arrows onto an area, letting a quality build recreate Radahn's own ranged pressure."
+  },
+  {
+   "name": "Gravity-themed hybrid",
+   "statFocus": "Strength / Dexterity",
+   "why": "22 Strength/18 Dexterity requirements pair naturally with other Radahn-set gear for players building a full gravity/Radahn-inspired kit."
+  }
+ ],
+ "_verify": []
+}

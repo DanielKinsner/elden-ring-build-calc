@@ -1,0 +1,31 @@
+{
+ "location": "Guaranteed pickup in a chest at the top of the Highway Lookout Tower in Altus Plateau, southeast of Dominula, Windmill Village (not the identically-named Highway Lookout Tower in Liurnia of the Lakes, which holds a different reward). Reach the top by climbing the tower's broken ramparts.",
+ "region": "Altus Plateau",
+ "source": {
+  "type": "chest",
+  "name": "Highway Lookout Tower chest (Altus Plateau)"
+ },
+ "tactics": [
+  "From the Windmill Village grace, head southeast, veering off the main Capital Outskirts road onto the plateau where the tower sits.",
+  "A mounted Leyndell Knight and several soldiers patrol the open fields around the tower — deal with or avoid them before climbing.",
+  "Jump up the tower's ruined ramparts on either side to reach the top; the chest there holds the Greatbow plus 20 Great Arrows.",
+  "If you'd rather farm than climb, Redmane Knights at Fort Gael and a Leyndell Knight near Altus Highway Junction both have a small chance to drop it instead."
+ ],
+ "nearbyGraces": [
+  "Windmill Village"
+ ],
+ "lore": "An oversized bow, built on a scale meant for giants rather than people — impossible to draw with ordinary strength, but capable of shots with extraordinary force once mastered. Only massive Great Arrows fit its draw.",
+ "builds": [
+  {
+   "name": "Quality Str/Dex archer",
+   "statFocus": "Strength / Dexterity",
+   "why": "Even D/D scaling on both stats rewards a balanced quality build, matching its even 20 Strength/20 Dexterity requirement."
+  },
+  {
+   "name": "Through and Through poke build",
+   "statFocus": "Strength / Dexterity",
+   "why": "Its native Through and Through skill punches an arrow through multiple enemies in a line, useful for thinning weaker foes at range before they close in."
+  }
+ ],
+ "_verify": []
+}
