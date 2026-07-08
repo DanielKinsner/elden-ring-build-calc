@@ -1,0 +1,31 @@
+{
+ "location": "Found as a pickup in the courtyard of the Fortified Manor in Leyndell, Royal Capital, in the area patrolled by Abductor Virgin enemies. (Copies can also be looted from Nepheli Loux under certain late-game questline circumstances, but the Leyndell courtyard is the straightforward base-game source.)",
+ "region": "Leyndell, Royal Capital",
+ "source": {
+  "type": "chest",
+  "name": "Courtyard pickup (Fortified Manor, Leyndell)"
+ },
+ "tactics": [
+  "Take the first door on the right from the Fortified Manor's main entrance; it leads down a corridor into the courtyard where the axe sits",
+  "An Abductor Virgin patrols this hallway and another waits in the courtyard — their grab attack can kill outright, so keep distance and watch for the charge-up before it rolls at you",
+  "The Fortified Manor grace is in a side room nearby, and an elevator on the courtyard's west side leads up to Divine Bridge, both useful as reset points"
+ ],
+ "nearbyGraces": [
+  "Fortified Manor",
+  "Divine Bridge"
+ ],
+ "lore": "A battle axe shaped like a hawk in flight, its wings forming the blade — carried by warriors chasing the thrill of storms far from the mountain home they left behind.",
+ "builds": [
+  {
+   "name": "Hybrid Strength/Dex quality",
+   "why": "Even D/D scaling with the highest base physical damage among base-game axes rewards a balanced Strength/Dexterity build.",
+   "statFocus": "Strength/Dexterity"
+  },
+  {
+   "name": "Thunderstorm lightning-buff build",
+   "why": "Its Thunderstorm skill wreathes the wielder in a 40-second lightning weapon buff plus a tornado area attack, useful for both single-target pressure and groups.",
+   "statFocus": "Strength/Dexterity"
+  }
+ ],
+ "_verify": []
+}

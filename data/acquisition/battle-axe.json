@@ -1,0 +1,30 @@
+{
+ "location": "Starting weapon of the Hero class. Also purchasable at any time from Twin Maiden Husks at Roundtable Hold for 800 Runes, no fight or quest needed.",
+ "region": "Roundtable Hold",
+ "source": {
+  "type": "merchant",
+  "name": "Twin Maiden Husks"
+ },
+ "tactics": [
+  "Hero-class characters start with one already equipped, so buying it is only needed for other classes",
+  "Otherwise it's a straight gold purchase from Twin Maiden Husks' shop, available as soon as you first reach Roundtable Hold",
+  "Its even D/D Strength/Dexterity split and default Wild Strikes skill make it a flexible early two-hander for almost any melee build"
+ ],
+ "nearbyGraces": [
+  "Roundtable Hold"
+ ],
+ "lore": "A thick, heavy-bladed axe on a sturdy handle — an unremarkable but dependable weapon that rewards putting real weight behind a swing, especially on charged attacks.",
+ "builds": [
+  {
+   "name": "Starting quality build",
+   "why": "Balanced D/D scaling in both Strength and Dexterity make it a flexible, no-commitment pick for a hybrid quality build from level one.",
+   "statFocus": "Strength/Dexterity"
+  },
+  {
+   "name": "Early Wild Strikes poke",
+   "why": "Its default Wild Strikes skill adds a fast alternating-swing combo useful for punishing openings before better Ashes of War are found.",
+   "statFocus": "Strength/Dexterity"
+  }
+ ],
+ "_verify": []
+}

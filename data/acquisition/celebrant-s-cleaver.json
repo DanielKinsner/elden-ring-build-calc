@@ -1,0 +1,31 @@
+{
+ "location": "A 0.5% drop from cleaver-wielding Dominula Dancers in Dominula, Windmill Village on the northern Altus Plateau. Head south from the Windmill Heights grace to find a group of four dancing women, three of whom carry the cleaver.",
+ "region": "Altus Plateau",
+ "source": {
+  "type": "enemy",
+  "name": "Dominula Dancer (cleaver-wielding)"
+ },
+ "tactics": [
+  "Drop rate is very low (0.5%), so expect to fight the same group repeatedly — Silver Scarab/Golden Scarab talismans or Silver Tear Mask raise item discovery and speed up the farm",
+  "The dancers themselves are not very dangerous alone, but the wider village has other windmill enemies and the Godskin Apostle boss patrolling nearby, so clear a safe path before settling in to farm",
+  "Don't confuse it with the visually similar Iron Cleaver, which drops from Misbegotten enemies in entirely different locations — only these specific Windmill Village dancers drop the Celebrant's Cleaver"
+ ],
+ "nearbyGraces": [
+  "Windmill Village",
+  "Windmill Heights"
+ ],
+ "lore": "A ceremonial cutting tool carved from human bone and dressed in colorful fabric, once swung by the dancers of Dominula during their rites — it still, unnervingly, drips a trickle of the runes shed by anyone it strikes.",
+ "builds": [
+  {
+   "name": "Quality Strength/Dex",
+   "why": "Even D/D scaling in Strength and Dexterity, identical in spirit to the Battle Axe, fits a balanced quality build.",
+   "statFocus": "Strength/Dexterity"
+  },
+  {
+   "name": "Rune-farming novelty pick",
+   "why": "Grants a small amount of runes on every landed hit, a minor passive that offsets rune costs while grinding weaker enemies elsewhere.",
+   "statFocus": "Strength/Dexterity"
+  }
+ ],
+ "_verify": []
+}

@@ -1,0 +1,32 @@
+{
+ "location": "Found inside a chest in a ruined bell tower in the Temple Quarter area of Liurnia of the Lakes, southwest of the Academy of Raya Lucaria — the tower sits on a small island southeast of the Temple Quarter grace, next to a ring of flowers.",
+ "region": "Liurnia of the Lakes",
+ "source": {
+  "type": "chest",
+  "name": "Chest (ruined bell tower, Temple Quarter)"
+ },
+ "tactics": [
+  "From the Temple Quarter site of grace, head toward the ring of flowers and the broken bell tower southeast of it — the chest is inside",
+  "Temple Quarter is populated by Albinauric and Glintstone Flower enemies that can grab or snipe from range, so approach carefully rather than crossing the open water in a straight line",
+  "This is a somber/legendary-tier weapon: it can't be buffed with spells or consumables, nor infused with an Ash of War, so its frostbite passive and Dex scaling are fixed as-is"
+ ],
+ "nearbyGraces": [
+  "Temple Quarter"
+ ],
+ "lore": "A hatchet fitted with a blade believed to be carved from dragon scale, wreathed in a freezing fog that bites cold into anything it cuts.",
+ "builds": [
+  {
+   "name": "Dex frostbite build",
+   "why": "Strong native Dexterity scaling (C) plus a hefty 65 Frostbite buildup per hit makes it a ready-made cold-status Dexterity weapon that needs no infusion.",
+   "statFocus": "Dexterity"
+  },
+  {
+   "name": "Hoarfrost Stomp opener",
+   "why": "Its Hoarfrost Stomp skill scales unusually well for a Dexterity weapon, useful for triggering Frostbite quickly on tougher enemies before switching to a main-hand weapon.",
+   "statFocus": "Dexterity"
+  }
+ ],
+ "_verify": [
+  "nearbyGraces"
+ ]
+}

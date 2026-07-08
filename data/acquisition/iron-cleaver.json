@@ -1,0 +1,31 @@
+{
+ "location": "A 2% drop from cleaver-wielding Misbegotten enemies. The most reliable early spot is Castle Morne in the Weeping Peninsula — from the Behind the Castle grace, head west and drop down the rocks to a ledge with several sleeping Misbegotten below the castle wall.",
+ "region": "Weeping Peninsula",
+ "source": {
+  "type": "enemy",
+  "name": "Misbegotten (cleaver-wielding)"
+ },
+ "tactics": [
+  "From the Behind the Castle grace, run west and drop off the castle wall onto the rocks below — several Misbegotten sleep here and can be backstabbed one at a time without waking the others",
+  "2% is a low drop rate, so expect to reset the area (rest and return) many times; the sleeping enemies make this a safe, low-risk repeat farm",
+  "Cleaver-wielding Misbegotten also show up later in Leyndell, Royal Capital and a few other locations, so the weapon can be picked up incidentally elsewhere if the Castle Morne farm is slow"
+ ],
+ "nearbyGraces": [
+  "Behind the Castle",
+  "Castle Morne Rampart"
+ ],
+ "lore": "A crude iron cleaver favored by the Misbegotten, swung with wild, relentless abandon by creatures who pour their outcast resentment into every strike.",
+ "builds": [
+  {
+   "name": "Pure Strength bruiser",
+   "why": "C-grade Strength scaling — among the best in the base axe roster — paired with a low Dexterity requirement makes it a dedicated Strength two-hander.",
+   "statFocus": "Strength"
+  },
+  {
+   "name": "Early Strength quality option",
+   "why": "Available very early in Weeping Peninsula, giving Strength builds a heavier axe option before even reaching Stormveil Castle.",
+   "statFocus": "Strength"
+  }
+ ],
+ "_verify": []
+}

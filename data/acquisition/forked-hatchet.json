@@ -1,0 +1,31 @@
+{
+ "location": "A 2% drop from hatchet-wielding Fanged Imp enemies. Stormfoot Catacombs in western Limgrave — reached from the Stormfoot Catacombs grace just past the entrance — is a reliable early farming spot; Imps carrying it also turn up in other catacombs such as Murkwater.",
+ "region": "Limgrave",
+ "source": {
+  "type": "enemy",
+  "name": "Fanged Imp (hatchet-wielding)"
+ },
+ "tactics": [
+  "Stormfoot Catacombs sits west and north of the Church of Elleh; Imps swarm almost immediately after entering, so fight them in the entry doorway to avoid being surrounded",
+  "2% is a low drop rate — resting at the grace and returning respawns the Imps for repeat attempts",
+  "Imps carrying different weapons look alike until they swing, so don't assume every Imp in a room is holding this specific hatchet"
+ ],
+ "nearbyGraces": [
+  "Stormfoot Catacombs",
+  "Church of Elleh"
+ ],
+ "lore": "A hatchet favored by the Lands Between's imp creatures, its blade curved into a forked shape nicknamed an 'imp's tongue' for the way it seems to lap blood from a wound.",
+ "builds": [
+  {
+   "name": "Dex bleed poke",
+   "why": "Heavy Dexterity scaling plus an innate 50 Blood Loss buildup makes it a fast status-stacking option for a Dexterity build.",
+   "statFocus": "Dexterity"
+  },
+  {
+   "name": "Keen-infused quickstep bleed",
+   "why": "Lightest axe in the base game (2.5 weight) with strong Dexterity scaling under Keen affinity, suited to a mobile quickstep-and-bleed playstyle.",
+   "statFocus": "Dexterity"
+  }
+ ],
+ "_verify": []
+}

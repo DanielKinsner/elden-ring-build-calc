@@ -1,0 +1,30 @@
+{
+ "location": "A 2% drop from axe-wielding Ancestral Follower Warriors. Several spawn just northwest of the Worshippers' Woods grace in Siofra River, the easiest early access point.",
+ "region": "Siofra River",
+ "source": {
+  "type": "enemy",
+  "name": "Ancestral Follower Warrior (axe-wielding)"
+ },
+ "tactics": [
+  "Descend to Siofra River via the Siofra River Well in Limgrave's Mistwood (or the Fringefolk Hero's Grave), then head to the Worshippers' Woods grace — several axe-wielding Ancestral Followers patrol just northwest of it",
+  "Ancestral Followers on the surrounding cliffs snipe with bows from range, so clear or break their line of sight before farming the axe-wielders on the ground",
+  "Ancestral Follower Warriors carry a mix of weapons (axes, hammers, etc.), so confirm which one is swinging an axe before committing to the fight"
+ ],
+ "nearbyGraces": [
+  "Worshippers' Woods"
+ ],
+ "lore": "An axe carved from the skull of some great herbivore, wielded by ancestral followers who spurn metal — its molar-lined edge crushes and tears rather than cuts cleanly.",
+ "builds": [
+  {
+   "name": "Strength strike-damage pick",
+   "why": "The only axe in the base game dealing Strike damage instead of Standard, giving Strength builds an edge against skeletons and heavily armored foes that resist slashing.",
+   "statFocus": "Strength"
+  },
+  {
+   "name": "Heavy-infused Strength bruiser",
+   "why": "High base Strength scaling (D, improved further under Heavy affinity) suits a dedicated two-handed Strength build.",
+   "statFocus": "Strength"
+  }
+ ],
+ "_verify": []
+}

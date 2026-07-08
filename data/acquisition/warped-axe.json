@@ -1,0 +1,30 @@
+{
+ "location": "A 4% drop from axe-wielding Omen enemies. Two can be found in Cliffbottom Catacombs in southeastern Liurnia of the Lakes, with more dropping from Omens near the Abandoned Coffin grace on the Altus Plateau and in the Subterranean Shunning-Grounds.",
+ "region": "Liurnia of the Lakes",
+ "source": {
+  "type": "enemy",
+  "name": "Omen (axe-wielding)"
+ },
+ "tactics": [
+  "Reach Cliffbottom Catacombs by heading east from the Liurnia Highway North grace along the cliffside, then down the slope past the small Vulgar Militia enemies guarding the path",
+  "Omens hit hard and can combo or grab you if surrounded — fight them in doorways or corridors one at a time rather than out in the open catacomb rooms",
+  "4% is still a low drop rate; if Cliffbottom Catacombs is slow, the Altus Plateau Omens near Abandoned Coffin or the ones in Subterranean Shunning-Grounds offer extra chances at the same drop"
+ ],
+ "nearbyGraces": [
+  "Liurnia Highway North"
+ ],
+ "lore": "An oversized, double-headed axe with a strangely melted look, as though it has weathered blow after blow without ever breaking — fittingly, it demands raw physical strength to even lift.",
+ "builds": [
+  {
+   "name": "Heavy-infused pure Strength",
+   "why": "C-grade Strength scaling with zero Dexterity scaling and the highest Strength requirement among base-game axes makes it a natural pure-Strength two-hander, especially under Heavy affinity.",
+   "statFocus": "Strength"
+  },
+  {
+   "name": "Status-infused Strength build",
+   "why": "Gains unusually high status buildup for an axe when infused with Cold, Blood, or Poison, rivaling some greataxes — a status option for a Strength-focused character.",
+   "statFocus": "Strength"
+  }
+ ],
+ "_verify": []
+}

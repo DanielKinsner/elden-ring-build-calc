@@ -1,0 +1,31 @@
+{
+ "location": "Purchased from Pidia, Carian Servant, for 3,500 Runes. Pidia is found on a balcony above the Manor Lower Level grace, on the hidden floor of Caria Manor accessible after defeating Royal Knight Loretta at Three Sisters.",
+ "region": "Liurnia of the Lakes",
+ "source": {
+  "type": "merchant",
+  "name": "Pidia, Carian Servant"
+ },
+ "tactics": [
+  "Requires clearing Caria Manor up to Three Sisters and defeating Royal Knight Loretta first — Pidia isn't reachable before then",
+  "From the Three Sisters entrance, head to Seluvis' Rise, descend the cliff near a Cerulean Tear Scarab, and follow the route down a ladder to reach Pidia's balcony",
+  "If Pidia's Bell Bearing is later obtained and given to the Twin Maiden Husks, the Ripple Blade can also be bought at Roundtable Hold instead of returning here"
+ ],
+ "nearbyGraces": [
+  "Manor Lower Level",
+  "Main Caria Manor Gate"
+ ],
+ "lore": "A blade shaped like rippling water, carried by young Albinaurics as a symbol of the ripples in a lake believed to be the origin of their kind.",
+ "builds": [
+  {
+   "name": "Pure Arcane status build",
+   "why": "Scales entirely with Arcane (A, upgrading to S at +3) instead of Strength/Dexterity — a rare case of an axe becoming a full Arcane status weapon without needing Occult infusion.",
+   "statFocus": "Arcane"
+  },
+  {
+   "name": "Bleed/Poison/Sleep hybrid",
+   "why": "High Arcane scaling combined with strong status buildup makes it excel at stacking Bleed, Poison, or Sleep quickly on a high-Arcane character.",
+   "statFocus": "Arcane"
+  }
+ ],
+ "_verify": []
+}

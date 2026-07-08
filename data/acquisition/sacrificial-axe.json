@@ -1,0 +1,30 @@
+{
+ "location": "Dropped by the Deathbird after it's defeated at night on the wall north of Castle Morne, where the wall meets the coast, in the Weeping Peninsula.",
+ "region": "Weeping Peninsula",
+ "source": {
+  "type": "boss",
+  "name": "Deathbird (Weeping Peninsula)"
+ },
+ "tactics": [
+  "The Deathbird only appears at night — rest at a grace and wait for nightfall if it isn't there yet",
+  "A non-respawning Archer Golem in the area fires arrows that can hit both you and the bird; use it as extra chip damage but stay aware it isn't picky about targets",
+  "It's weak to Strike and Holy damage — a Holy-infused weapon, the Order's Blade incantation, or Holy Water Pots all speed the fight up considerably"
+ ],
+ "nearbyGraces": [
+  "Castle Morne Rampart"
+ ],
+ "lore": "A hatchet used in an ancient rite of sacrifice, etched with the image of a Deathbird worshipped as a malevolent deity. The rite's old power still lingers, feeding the wielder a trickle of focus points whenever something nearby dies.",
+ "builds": [
+  {
+   "name": "FP-sustain quality build",
+   "why": "Restores FP whenever any nearby creature dies, not just the wielder's own kills — a handy passive for builds using FP-cost skills or spells without heavy Mind investment.",
+   "statFocus": "Strength/Dexterity"
+  },
+  {
+   "name": "Early quality pick",
+   "why": "Even D/D scaling and moderate requirements make it a solid Weeping Peninsula-tier axe upgrade for a Strength or Dexterity leaning build.",
+   "statFocus": "Strength/Dexterity"
+  }
+ ],
+ "_verify": []
+}

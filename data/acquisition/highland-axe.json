@@ -1,0 +1,30 @@
+{
+ "location": "Looted from a corpse in Stormveil Castle, resting under a large painting inside the chamber patrolled by the roaming Grafted Scion — across from the room housing the elevator shortcut up to Rampart Tower.",
+ "region": "Limgrave",
+ "source": {
+  "type": "chest",
+  "name": "Corpse (Grafted Scion's chamber, Stormveil Castle)"
+ },
+ "tactics": [
+  "The Grafted Scion here is an optional enemy that hits far harder than anything else this early — bait its slow overhead slam and roll away rather than trading hits directly",
+  "You don't have to kill the Grafted Scion to grab the axe; you can sprint around it to the painting, loot the corpse, and retreat",
+  "The Rampart Tower grace and its elevator shortcut sit directly across the hall, making it a quick spot to reset if the encounter goes wrong"
+ ],
+ "nearbyGraces": [
+  "Rampart Tower"
+ ],
+ "lore": "A single-edged battle axe carried by highland warriors who announce themselves with a roar before the fight even begins — simply holding it amplifies the power of the wielder's own battle cries.",
+ "builds": [
+  {
+   "name": "Roar/Beast build",
+   "why": "Passively boosts the strength of roar-type skills like Barbaric Roar and Beast's Roar by 10% while held in an active hand slot, stacking with Bestial talismans.",
+   "statFocus": "Strength/Dexterity"
+  },
+  {
+   "name": "Quality Strength/Dex",
+   "why": "Shares the Battle Axe's balanced D/D scaling, so it works as a straightforward quality two-hander outside of its roar niche.",
+   "statFocus": "Strength/Dexterity"
+  }
+ ],
+ "_verify": []
+}

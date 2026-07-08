@@ -1,0 +1,31 @@
+{
+ "location": "Behind a Stonesword Key-locked door in Black Knife Catacombs, northeastern Liurnia of the Lakes. From the entrance, go down the stairs and turn left twice to find an imp-statue door at the bottom; inside, the axe rests on a corpse propped against a tomb.",
+ "region": "Liurnia of the Lakes",
+ "source": {
+  "type": "chest",
+  "name": "Corpse (behind Stonesword Key door, Black Knife Catacombs)"
+ },
+ "tactics": [
+  "Requires 1 Stonesword Key to open the imp-statue door — bring one before heading down or you'll need to backtrack",
+  "Two skeleton enemies guard the room; catacomb skeletons revive unless finished with a follow-up hit or Holy/Fire damage, so don't just knock one down and walk past it",
+  "The dungeon's boss, Cemetery Shade, is down a separate path — you don't need to fight it to reach this room, only to find the correct side passage before the boss fog gate"
+ ],
+ "nearbyGraces": [
+  "Ruined Labyrinth",
+  "Black Knife Catacombs"
+ ],
+ "lore": "A ritual axe decorated with the likeness of Rosus, an usher of death said to guide the deceased safely through the Lands Between's many catacombs so they don't lose their way.",
+ "builds": [
+  {
+   "name": "Strength/Intelligence hybrid",
+   "why": "Splits scaling across Strength, Dexterity, and Intelligence with added innate magic damage, making it a viable melee option for a Strength build that's also leaning into Intelligence.",
+   "statFocus": "Strength/Intelligence"
+  },
+  {
+   "name": "Rosus's Summons skill build",
+   "why": "Its unique skill hits harder than the similar Tibia's Summons sorcery and carries a melee hitbox, giving even a non-caster build a strong burst option if they have spare Intelligence.",
+   "statFocus": "Intelligence"
+  }
+ ],
+ "_verify": []
+}

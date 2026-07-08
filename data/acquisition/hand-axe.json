@@ -1,0 +1,32 @@
+{
+ "location": "Purchased for 600 Runes from the Nomadic Merchant camped beside the road between Mistwood Ruins and Fort Haight in eastern Limgrave's Mistwood.",
+ "region": "Limgrave",
+ "source": {
+  "type": "merchant",
+  "name": "Nomadic Merchant (East Limgrave, Mistwood)"
+ },
+ "tactics": [
+  "Travel toward Fort Haight and follow the road southwest into Mistwood; the merchant sits by a campfire slightly northeast of a message marker on the roadside",
+  "Straight purchase, no fighting required — just bring 600 Runes",
+  "Several different Nomadic Merchants are scattered across the map selling different goods, so this is specifically the Mistwood one, not a generic vendor"
+ ],
+ "nearbyGraces": [
+  "Fort Haight West"
+ ],
+ "lore": "A small hatchet more at home splitting firewood than fighting a war, but its light weight lets it be swung again and again faster than a proper axe.",
+ "builds": [
+  {
+   "name": "Early quality build",
+   "why": "Low Strength/Dexterity requirements and even D/D scaling make it an easy first axe upgrade for almost any starting class.",
+   "statFocus": "Strength/Dexterity"
+  },
+  {
+   "name": "Quickstep dodge-poke",
+   "why": "Its Quickstep skill combines a dodge with a follow-up hit, useful for punishing an enemy right after evading their attack.",
+   "statFocus": "Dexterity"
+  }
+ ],
+ "_verify": [
+  "nearbyGraces"
+ ]
+}
