@@ -1,0 +1,611 @@
+[
+ {
+  "id": "ancient-meteoric-ore-greatsword",
+  "name": "Ancient Meteoric Ore Greatsword",
+  "type": "Colossal Sword",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 35,
+   "DEX": 10,
+   "ARC": 19
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 377,
+   "magic": 112,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 90,
+   "DEX": 9,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 47
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ],
+   "ARC": [
+    "physical",
+    "magic"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "fire-knight-s-greatsword",
+  "name": "Fire Knight's Greatsword",
+  "type": "Colossal Sword",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 22,
+   "DEX": 18,
+   "FAI": 12
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 360,
+   "magic": 0,
+   "fire": 107,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 42,
+   "DEX": 70,
+   "INT": 0,
+   "FAI": 45,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ],
+   "FAI": [
+    "fire"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "godslayer-s-greatsword",
+  "name": "Godslayer's Greatsword",
+  "type": "Colossal Sword",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 20,
+   "DEX": 22,
+   "FAI": 20
+  },
+  "weight": 17.5,
+  "passive": null,
+  "base": {
+   "physical": 291,
+   "magic": 0,
+   "fire": 188,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 56,
+   "DEX": 101,
+   "INT": 0,
+   "FAI": 72,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ],
+   "FAI": [
+    "fire"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "grafted-blade-greatsword",
+  "name": "Grafted Blade Greatsword",
+  "type": "Colossal Sword",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 40,
+   "DEX": 14
+  },
+  "weight": 21,
+  "passive": null,
+  "base": {
+   "physical": 396,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 113,
+   "DEX": 34,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "greatsword",
+  "name": "Greatsword",
+  "type": "Colossal Sword",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 31,
+   "DEX": 12
+  },
+  "weight": 23,
+  "passive": null,
+  "base": {
+   "physical": 401,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 92,
+   "DEX": 27,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "greatsword-of-radahn-light",
+  "name": "Greatsword of Radahn (Light)",
+  "type": "Colossal Sword",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 32,
+   "DEX": 24,
+   "INT": 15
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 311,
+   "magic": 200,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 81,
+   "DEX": 65,
+   "INT": 36,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ],
+   "INT": [
+    "magic"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "greatsword-of-radahn-lord",
+  "name": "Greatsword of Radahn (Lord)",
+  "type": "Colossal Sword",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 32,
+   "DEX": 24,
+   "INT": 15
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 311,
+   "magic": 200,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 81,
+   "DEX": 65,
+   "INT": 36,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ],
+   "INT": [
+    "magic"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "maliketh-s-black-blade",
+  "name": "Maliketh's Black Blade",
+  "type": "Colossal Sword",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 34,
+   "DEX": 12,
+   "FAI": 20
+  },
+  "weight": 22,
+  "passive": null,
+  "base": {
+   "physical": 311,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 200
+  },
+  "scaling": {
+   "STR": 112,
+   "DEX": 27,
+   "INT": 0,
+   "FAI": 90,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ],
+   "FAI": [
+    "holy"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "moonrithyll-s-knight-sword",
+  "name": "Moonrithyll's Knight Sword",
+  "type": "Colossal Sword",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 20,
+   "DEX": 14,
+   "INT": 18
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 303,
+   "magic": 196,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 81,
+   "DEX": 81,
+   "INT": 54,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ],
+   "INT": [
+    "magic"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "royal-greatsword",
+  "name": "Royal Greatsword",
+  "type": "Colossal Sword",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 26,
+   "DEX": 18,
+   "INT": 22
+  },
+  "weight": 20,
+  "passive": null,
+  "base": {
+   "physical": 274,
+   "magic": 328,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 67,
+   "DEX": 27,
+   "INT": 72,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ],
+   "INT": [
+    "magic"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "ruins-greatsword",
+  "name": "Ruins Greatsword",
+  "type": "Colossal Sword",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 50,
+   "INT": 16
+  },
+  "weight": 23,
+  "passive": null,
+  "base": {
+   "physical": 303,
+   "magic": 90,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 189,
+   "DEX": 0,
+   "INT": 36,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "INT": [
+    "magic"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "starscourge-greatsword",
+  "name": "Starscourge Greatsword",
+  "type": "Colossal Sword",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 38,
+   "DEX": 12,
+   "INT": 15
+  },
+  "weight": 20,
+  "passive": null,
+  "base": {
+   "physical": 316,
+   "magic": 203,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 94,
+   "DEX": 50,
+   "INT": 36,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ],
+   "INT": [
+    "magic"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "troll-knight-s-sword",
+  "name": "Troll Knight's Sword",
+  "type": "Colossal Sword",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 20,
+   "DEX": 14,
+   "INT": 18
+  },
+  "weight": 18,
+  "passive": null,
+  "base": {
+   "physical": 303,
+   "magic": 196,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 81,
+   "DEX": 81,
+   "INT": 54,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ],
+   "INT": [
+    "magic"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "troll-s-golden-sword",
+  "name": "Troll's Golden Sword",
+  "type": "Colossal Sword",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 29,
+   "DEX": 10
+  },
+  "weight": 19,
+  "passive": null,
+  "base": {
+   "physical": 379,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 80,
+   "DEX": 45,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "watchdog-s-greatsword",
+  "name": "Watchdog's Greatsword",
+  "type": "Colossal Sword",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 30,
+   "DEX": 10
+  },
+  "weight": 22,
+  "passive": null,
+  "base": {
+   "physical": 347,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 127,
+   "DEX": 9,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "zweihander",
+  "name": "Zweihander",
+  "type": "Colossal Sword",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 19,
+   "DEX": 11
+  },
+  "weight": 15.5,
+  "passive": null,
+  "base": {
+   "physical": 345,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 57,
+   "DEX": 80,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ }
+]
