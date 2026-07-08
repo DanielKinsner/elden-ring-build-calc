@@ -44,5 +44,37 @@
     "status": { "bleed": 50, "frost": 0, "poison": 0, "rot": 0, "sleep": 0, "madness": 0 },
     "arcStatusScaling": 0,
     "_verify": "base = api +0 x2.45 (validated); max scaling values estimated from +10 grades E/B/D"
+  },
+  {
+    "id": "moonveil",
+    "name": "Moonveil",
+    "type": "Katana",
+    "source": "base",
+    "category": "somber",
+    "infusable": false,
+    "requirements": { "STR": 12, "DEX": 18, "INT": 23 },
+    "weight": 6.5,
+    "passive": null,
+    "base": { "physical": 179, "magic": 213, "fire": 0, "lightning": 0, "holy": 0 },
+    "scaling": { "STR": 15, "DEX": 48, "INT": 79, "FAI": 0, "ARC": 0 },
+    "status": { "bleed": 0, "frost": 0, "poison": 0, "rot": 0, "sleep": 0, "madness": 0 },
+    "arcStatusScaling": 0,
+    "_verify": "base = api +0 x2.45 (validated); max scaling values estimated from +10 grades E/D/C"
+  },
+  {
+    "id": "hand-of-malenia",
+    "name": "Hand of Malenia",
+    "type": "Katana",
+    "source": "base",
+    "category": "somber",
+    "infusable": false,
+    "requirements": { "STR": 16, "DEX": 48 },
+    "weight": 7,
+    "passive": null,
+    "base": { "physical": 287, "magic": 0, "fire": 0, "lightning": 0, "holy": 0 },
+    "scaling": { "STR": 20, "DEX": 145, "INT": 0, "FAI": 0, "ARC": 0 },
+    "status": { "bleed": 0, "frost": 0, "poison": 0, "rot": 0, "sleep": 0, "madness": 0 },
+    "arcStatusScaling": 0,
+    "_verify": "base = api +0 x2.45 (validated); max scaling values estimated from +10 grades E/A"
   }
 ]
