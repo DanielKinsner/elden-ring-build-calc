@@ -1,0 +1,31 @@
+{
+ "location": "NOT OBTAINABLE IN THE BASE GAME. This is Shadow of the Erdtree DLC content, found inside Taylew's Ruined Forge, a dungeon just north of the Ancient Ruins Base Site of Grace in the Rauh Ancient Ruins (Land of Shadow). Climb the stone pillar near the entrance, jump right through a doorway, then follow the ramp up to a platform where the shield lies on a corpse.",
+ "region": "Rauh Ancient Ruins (Shadow of the Erdtree DLC — not a base-game region)",
+ "source": {
+  "type": "drop",
+  "name": "Corpse on upper platform, Taylew's Ruined Forge"
+ },
+ "tactics": [
+  "Flag for the data owner: base/small-shields.json lists this as base-game content, but wiki.gg and Fextralife both confirm it's exclusive to the Shadow of the Erdtree DLC with no base-game source — the same misfile pattern previously found with the Golem Fist.",
+  "Taylew's Ruined Forge is populated by Golem Smiths and Lava Slimes; an enemy perched on the ceiling near the shield can ambush you if you don't look up first.",
+  "Its unique Discus Hurl skill throws the shield like a spinning projectile, giving it a ranged option rather than pure blocking.",
+  "Requires investment across four stats (Strength, Dexterity, Intelligence, and Faith) to use effectively, unusually broad for a Small Shield."
+ ],
+ "nearbyGraces": [
+  "Ancient Ruins Base"
+ ],
+ "lore": "A roundshield etched with smithing script, crafted as a throwing weapon through the same arcane smithing arts used to make the other Smithscript armaments.",
+ "builds": [
+  {
+   "name": "Quadruple-stat hybrid thrower",
+   "statFocus": "Strength with light Dex/Int/Fai support",
+   "why": "Spread D/E scaling across Strength, Dexterity, Intelligence, and Faith combined with the ranged Discus Hurl skill suits an unusual hybrid build wanting a throwable off-hand rather than a standard block shield."
+  }
+ ],
+ "_verify": [
+  "location",
+  "region",
+  "source",
+  "nearbyGraces"
+ ]
+}

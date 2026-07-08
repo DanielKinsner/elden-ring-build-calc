@@ -1,0 +1,29 @@
+{
+ "location": "NOT OBTAINABLE IN THE BASE GAME. This is Shadow of the Erdtree DLC content, found in Bonny Gaol, a dungeon south of Bonny Village in Scadu Altus (Land of Shadow). It rests on a body atop a guillotine-like table on the dungeon's upper floor, reached by riding the dungeon's Jar Elevator down to the lower bridge and then staying aboard as it rises back up, rather than stepping off at the bottom.",
+ "region": "Scadu Altus (Shadow of the Erdtree DLC — not a base-game region)",
+ "source": {
+  "type": "drop",
+  "name": "Corpse on upper floor of Bonny Gaol, reached via the Jar Elevator"
+ },
+ "tactics": [
+  "Flag for the data owner: base/small-shields.json lists this as base-game content, but wiki.gg and Fextralife both confirm it's exclusive to the Shadow of the Erdtree DLC with no base-game source — the same misfile pattern previously found with the Golem Fist.",
+  "Ride the Jar Elevator down to the stone bridge below, then remain on it as it ascends again to reach the upper floor rather than disembarking at the bottom.",
+  "A Living Jar Innard guards the ledge near the corpse and should be cleared before looting.",
+  "Unusually for a Small Shield it scales with Dexterity and carries a large built-in magic attack split, functioning more like an offensive tool via its Revenge of the Night skill than a pure blocker."
+ ],
+ "nearbyGraces": [],
+ "lore": "A shield granted to the Swordhands of Night, cast in a black so deep it swallows all light. Its surface is said to be only half-substantial, giving it unusually strong resistance to non-physical damage.",
+ "builds": [
+  {
+   "name": "Dexterity/magic hybrid off-hand",
+   "statFocus": "Dexterity",
+   "why": "D-scaling Dexterity plus a large innate magic attack split gives it a caster-adjacent profile unlike any base-game small shield, suiting a Dex/Int build that wants an aggressive skill instead of pure blocking."
+  }
+ ],
+ "_verify": [
+  "location",
+  "region",
+  "source",
+  "nearbyGraces"
+ ]
+}
