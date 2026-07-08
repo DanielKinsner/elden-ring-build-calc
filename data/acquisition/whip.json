@@ -1,0 +1,31 @@
+{
+ "location": "On a corpse inside Castle Morne, Weeping Peninsula. Walk the castle's western wall to a building with a blue roof, jump onto it and then down to the cliffs below, follow the cliffs southeast to a section of the castle with a large square opening, and drop down onto the wooden beams inside — the corpse holding the whip sits against the wall in that room.",
+ "region": "Weeping Peninsula",
+ "source": {
+  "type": "drop",
+  "name": "Corpse (Castle Morne interior room)"
+ },
+ "tactics": [
+  "The room with the corpse is filled with rats and a Misbegotten enemy, so clear or carefully avoid them before looting.",
+  "Landing on the wooden beams instead of dropping straight to the floor is what lets you reach the corpse safely — a mistimed jump sends you past the room.",
+  "This is a standalone item pickup, separate from Castle Morne's Irina/Edgar questline content happening elsewhere in the same dungeon — don't assume you need to progress that quest first."
+ ],
+ "nearbyGraces": [
+  "Beside the Rampart Gaol",
+  "Castle Morne Rampart"
+ ],
+ "lore": "A plain leather lash never designed as a proper weapon — originally just a tool for inflicting pain and punishment, not for fighting.",
+ "builds": [
+  {
+   "name": "Early Strength/Dexterity poke",
+   "statFocus": "Strength / Dexterity",
+   "why": "Fairly even scaling between Strength and Dexterity plus low stat requirements make it an easy, cheap early pickup for a quality-leaning build."
+  },
+  {
+   "name": "Infused status poke",
+   "statFocus": "Arcane",
+   "why": "As a fully infusable regular weapon it can take Blood or Poison affinities early, giving a low-level character a cheap status-proc poke that also can't be parried or guarded against."
+  }
+ ],
+ "_verify": []
+}

@@ -1,0 +1,30 @@
+{
+ "location": "On a corpse hanging from a wooden ledge on a rampart below the Manor Upper Level Site of Grace, inside Caria Manor, Liurnia of the Lakes. From the Manor Upper Level grace, ride the elevator down, then look left as you step off to spot the ledge and corpse below.",
+ "region": "Liurnia of the Lakes",
+ "source": {
+  "type": "drop",
+  "name": "Corpse (rampart ledge below Manor Upper Level, Caria Manor)"
+ },
+ "tactics": [
+  "From Manor Upper Level, take the elevator down, then look left immediately — the wooden ledge and hanging corpse are visible below the rampart, not straight ahead.",
+  "The corpse is guarded by four Fingercreepers — fast, grabby crawling hands that can knock you off a narrow ledge — so bait or thin them out before committing to the drop down.",
+  "This pickup is separate from Caria Manor's other notable loot on the way to Royal Knight Loretta's rooftop arena; don't skip past it assuming it's just scenery."
+ ],
+ "nearbyGraces": [
+  "Manor Upper Level"
+ ],
+ "lore": "A blade of many thin, flexible metal strips that Nightfolk warriors wield like a lash — able to cut as a whip and thrust like a spear in the same motion.",
+ "builds": [
+  {
+   "name": "Pure Dexterity quality whip",
+   "statFocus": "Dexterity",
+   "why": "Native scaling is heavily Dexterity-weighted with Strength trailing far behind, and it's the only whip dealing Slash rather than Strike damage — useful against foes resistant to strike."
+  },
+  {
+   "name": "Keen-infused Dex endgame",
+   "statFocus": "Dexterity",
+   "why": "A Keen affinity pushes its already Dex-heavy scaling even further (reported S-rank), making it a strong pick for a pure-Dexterity build that wants whip range plus no-parry safety."
+  }
+ ],
+ "_verify": []
+}

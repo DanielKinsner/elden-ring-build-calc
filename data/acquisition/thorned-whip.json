@@ -1,0 +1,31 @@
+{
+ "location": "Random drop (roughly 4%) from a whip-wielding Fire Prelate. The commonly farmed one stands north of the Giants' Mountaintop Catacombs entrance, northeast of Zamor Ruins in the Mountaintops of the Giants, just before a long narrow bridge. (Whip-wielding Fire Prelates also appear in Mt. Gelmir and inside Giant-Conquering Hero's Grave, but the Mountaintops one next to the catacombs is the standard farming spot.)",
+ "region": "Mountaintops of the Giants",
+ "source": {
+  "type": "enemy",
+  "name": "Fire Prelate"
+ },
+ "tactics": [
+  "This Fire Prelate variant hits far harder than most field enemies — many players find it tougher than an actual boss, so don't underestimate it or fight it carelessly in the open.",
+  "Lure it to the Giants' Mountaintop Catacombs entrance doorway; it can't follow you inside, letting you chip it down safely from the doorway with a bow or ranged sorcery/incantation.",
+  "Eat a Silver-Pickled Fowl Foot (+50 Discovery for 3 minutes) right before the killing blow to cut down on repeat farming trips for the 4% drop.",
+  "Don't confuse this whip-wielding Fire Prelate with the more common hammer-wielding variant elsewhere — only the whip-wielder can drop the Thorned Whip."
+ ],
+ "nearbyGraces": [
+  "Zamor Ruins"
+ ],
+ "lore": "A heavy, thorn-wrapped lash carried by the Prelates who lead the Fire Monks, fashioned to evoke the tangled briars of sin as a tool of religious punishment and discipline.",
+ "builds": [
+  {
+   "name": "Pure Dexterity bleed",
+   "statFocus": "Dexterity",
+   "why": "Dexterity scaling dwarfs Strength, and the innate 50 blood loss buildup makes it an efficient hemorrhage weapon straight off the drop, no infusion required."
+  },
+  {
+   "name": "Blood-infused endgame bleed",
+   "statFocus": "Arcane / Dexterity",
+   "why": "As a regular, infusable weapon it can take a Blood affinity, trading some raw Dexterity scaling for Arcane scaling and pushing blood loss buildup even higher for an Arcane/bleed build."
+  }
+ ],
+ "_verify": []
+}

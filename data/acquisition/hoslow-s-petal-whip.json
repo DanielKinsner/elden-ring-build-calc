@@ -1,0 +1,31 @@
+{
+ "location": "Dropped by Juno Hoslow, Knight of Blood, when you defeat him via his red invasion summon sign on the snow near the Shack of the Lofty in the Mountaintops of the Giants. This is the final Red Letter assassination contract from Tanith, Volcano Manor Proprietress.",
+ "region": "Mountaintops of the Giants",
+ "source": {
+  "type": "npc",
+  "name": "Juno Hoslow, Knight of Blood"
+ },
+ "tactics": [
+  "His summon sign sits on the snow near Shack of the Lofty, northwest of the Grand Lift of Rold — cross the long crumbling stone bridge heading north, then head west along the frozen river.",
+  "He wields a whip with fast, oddly-angled swings and has Bloodhound Step, making him hard to punish in straight melee trades; ranged options (e.g. Rock Sling) or bleed/rot DoT weapons tend to work better.",
+  "If running 21+ Faith, the Inescapable Frenzy incantation can insta-kill him if it grabs him during the taunting gesture he performs right at the start of the fight.",
+  "This is the LAST of Tanith's assassination contracts — you must have finished her earlier ones (the first is Old Knight Istvan in Limgrave) before this Red Letter and sign become available."
+ ],
+ "nearbyGraces": [
+  "Shack of the Lofty"
+ ],
+ "lore": "A bladed metal whip whose interlocking links are shaped to resemble flower petals, an heirloom passed down through House Hoslow — a bloodline whose entire story has been written in violence.",
+ "builds": [
+  {
+   "name": "Dexterity bleed build",
+   "statFocus": "Dexterity",
+   "why": "Dexterity scaling outweighs Strength, and the whip inflicts 55 blood loss buildup by default, making it a ready-made hemorrhage weapon that needs no Blood affinity to work."
+  },
+  {
+   "name": "Anti-parry poke / PvP",
+   "statFocus": "Dexterity",
+   "why": "Like all whips it can't be parried or guarded against, which pairs well with its built-in bleed against shield-turtling players or heavily armored enemies."
+  }
+ ],
+ "_verify": []
+}

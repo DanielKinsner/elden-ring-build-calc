@@ -1,0 +1,33 @@
+{
+ "location": "Reward for trading the Remembrance of the Fire Giant to Finger Reader Enia at the Roundtable Hold. The remembrance itself drops from the Fire Giant boss after it's defeated in its arena beside the Forge of the Giants. (A Wandering Mausoleum can duplicate the remembrance once per playthrough, letting you also buy the other Fire Giant reward, Fire Giant's Torch.)",
+ "region": "Mountaintops of the Giants",
+ "source": {
+  "type": "boss",
+  "name": "Fire Giant"
+ },
+ "tactics": [
+  "Phase 1: stay tucked between the Giant's feet and mount Torrent — his attacks are built to hit a target further away, and Torrent's speed dodges most of what still reaches you. Only the left ankle (no manacle) is a real weak point; the right one is armored and blocks damage.",
+  "Around half health his ankle breaks and he tears off his own foot to begin phase 2 — the weak point moves to his left forearm and he now fights kneeling or crawling.",
+  "In phase 2 don't stand directly in front of his hand: attacking it head-on puts you in a wide fire-portal AOE. Reposition behind his legs instead and stay there.",
+  "Bring fire resistance (Flamedrake Talisman, swap in a piece or two of fire-resist armor) — phase 2 is almost entirely fire damage and shreds typical high-physical-defense builds."
+ ],
+ "nearbyGraces": [
+  "Foot of the Forge",
+  "Church of Repose",
+  "Forge of the Giants"
+ ],
+ "lore": "A massive whip plaited from the flame-red hair of a slain Fire Giant. Every member of the giant lineage is said to be red-haired — even Radagon reportedly despised his own red hair — hinting the color may carry an old curse over their kind.",
+ "builds": [
+  {
+   "name": "Strength/Faith Giant Slayer",
+   "statFocus": "Strength / Faith",
+   "why": "Native scaling leans hard into Strength and Faith almost equally, with a fixed fire attack rating baked in since the weapon is somber and can't be reforged — a natural pick for a Str/Faith build."
+  },
+  {
+   "name": "Faith caster backup melee",
+   "statFocus": "Faith",
+   "why": "Faith scaling is nearly as strong as Strength here, so a primarily Faith/incantation build can wield it as a long-reaching, fire-infused poke without diverting much investment away from spellcasting."
+  }
+ ],
+ "_verify": []
+}

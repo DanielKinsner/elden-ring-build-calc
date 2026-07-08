@@ -1,0 +1,32 @@
+{
+ "location": "Quest reward from Patches at Volcano Manor (Mt. Gelmir). After you've joined Volcano Manor and completed Tanith's first assassination contract (usually Old Knight Istvan), Patches offers a personal Letter to Patches targeting Great Horned Tragoth. That fight is a red invasion sign at Ruin-Strewn Precipice Overlook in Liurnia of the Lakes, inside Magma Wyrm Makar's former boss room. After killing Tragoth, report to Patches, then leave and reload the area and speak to him again to actually receive the whip.",
+ "region": "Mt. Gelmir",
+ "source": {
+  "type": "npc",
+  "name": "Patches"
+ },
+ "tactics": [
+  "Great Horned Tragoth's invasion sign appears at Ruin-Strewn Precipice Overlook (Liurnia), not at Volcano Manor itself — clear Magma Wyrm Makar first and rest at the grace that appears there to trigger it.",
+  "Patches will NOT hand over the whip on your first conversation after the kill — you must reload the area (fast travel out and back, or restart the game) and talk to him a second time.",
+  "This is easy to lose permanently: Patches leaves Volcano Manor for good once you defeat Rykard, Lord of Blasphemy, so finish this exchange before taking on that boss.",
+  "Don't confuse Tragoth's assassination fight with his other appearance — he can also be summoned as an NPC ally in the Magma Wyrm Makar, Radahn, or Draconic Tree Sentinel fights if you haven't assassinated him yet."
+ ],
+ "nearbyGraces": [
+  "Volcano Manor",
+  "Guest Hall"
+ ],
+ "lore": "A three-pronged ritual candlestick whose motionless magma \"flame\" becomes a set of pliant lava whips when swung in combat, channeling the volcanic heat that runs beneath Mt. Gelmir.",
+ "builds": [
+  {
+   "name": "Dexterity/Faith fire hybrid",
+   "statFocus": "Dexterity / Faith",
+   "why": "Scaling favors Dexterity over Faith, with Strength trailing well behind, and it carries a flat fire attack rating baked in — a lightweight fire whip for a Dex-leaning Faith build."
+  },
+  {
+   "name": "Low-investment Faith side-weapon",
+   "statFocus": "Faith",
+   "why": "Only modest Strength and Dexterity are required, so a primarily Faith-built character can wield it easily while still getting scaling benefit on its fire damage from Faith."
+  }
+ ],
+ "_verify": []
+}
