@@ -1,0 +1,34 @@
+{
+ "location": "Found on a corpse inside Taylew's Ruined Forge, a dungeon in the northwestern Ancient Ruins of Rauh, past a lava-pit pillar jump and guarded by a magma slime enemy.",
+ "region": "Ancient Ruins of Rauh",
+ "source": {
+  "type": "enemy",
+  "name": "Living Magma / lava slime (guarding the item)"
+ },
+ "tactics": [
+  "Reach Taylew's Ruined Forge by heading north/northeast from the Ancient Ruins Base Site of Grace (itself reached via Moorth Ruins and a cave of giant birds).",
+  "Inside, descend the stairs and ladder, then drop through the floor gap; a side room here holds a different Smithscript weapon (sources disagree whether it's the Axe or Shield) — don't grab that one by mistake.",
+  "Jump onto the large suspended stone pillar over the lava, then jump again to the far ledge and follow the corridor left to a corpse behind broken rubble/a statue — that's the Greathammer.",
+  "A lava/magma slime drops from the ceiling near the corpse and can ambush you mid-loot, so clear or dodge it first."
+ ],
+ "nearbyGraces": [
+  "Taylew's Ruined Forge",
+  "Ancient Ruins Base"
+ ],
+ "lore": "Etched with a smithscript, this greathammer was forged using smithing arts that let it double as a throwing weapon — a strong or dashing strong attack sends it spinning through the air before it flies back to the wielder's hand.",
+ "builds": [
+  {
+   "name": "Quality Hybrid Caster",
+   "why": "Its scaling touches Strength, Dexterity, Intelligence, and Faith all at once, so a spellcaster with some Strength invested can still get respectable AR out of it as a melee/ranged backup.",
+   "statFocus": "Strength, Intelligence/Faith"
+  },
+  {
+   "name": "Zero-Cost Ranged Strength Build",
+   "why": "Strong and dashing-strong attacks fling it as a free, FP-less ranged projectile that auto-returns, giving a Strength melee build a poke option without spending FP or a talisman slot.",
+   "statFocus": "Strength"
+  }
+ ],
+ "_verify": [
+  "tactics"
+ ]
+}

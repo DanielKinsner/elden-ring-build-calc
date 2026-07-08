@@ -1,0 +1,31 @@
+{
+ "location": "Guaranteed, one-time drop from the Black Knight enemy inside the Church of Consolation, a ruined church on the eastern edge of Gravesite Plain (south of the Suppressing Pillar).",
+ "region": "Gravesite Plain",
+ "source": {
+  "type": "enemy",
+  "name": "Black Knight (Church of Consolation)"
+ },
+ "tactics": [
+  "From the Gravesite Plain Site of Grace, head east/southeast along the road to the Church of Consolation.",
+  "The Black Knight patrols near the Marika statue inside; other Messmer Soldiers and a Rotten Stray are nearby, but only this specific Black Knight drops the hammer and he does not respawn once killed.",
+  "His dangerous attack is an overhead hammer slam that leaves a delayed holy-damage AOE burst on the ground a beat after impact — back off after the slam instead of punishing immediately.",
+  "Don't confuse this fight with other Black Knights elsewhere in the DLC (e.g. ones dropping Black Knight armor/shield) — this hammer is exclusive to the Church of Consolation knight."
+ ],
+ "nearbyGraces": [
+  "Gravesite Plain"
+ ],
+ "lore": "This black-steel warhammer, trimmed in gold, belongs to the Black Knights who serve Messmer the Impaler. It carries a blessing from an Erdtree incantation, so giving it a holy affinity further amplifies that power, and its guard counter releases a delayed burst of holy light that staggers anything caught in it.",
+ "builds": [
+  {
+   "name": "Strength/Faith Crusher",
+   "why": "C-scaling Strength paired with D-scaling Faith layers holy damage onto its high physical output, and the guard counter's holy explosion scales with Faith, rewarding a hybrid investment.",
+   "statFocus": "Strength, Faith"
+  },
+  {
+   "name": "Pure Strength Poise-Breaker",
+   "why": "140 base physical AR and Strike damage type make it a strong stagger weapon on Strength investment alone, without needing to fund the Faith requirement.",
+   "statFocus": "Strength"
+  }
+ ],
+ "_verify": []
+}
