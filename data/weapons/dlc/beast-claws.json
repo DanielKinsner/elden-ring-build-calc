@@ -1,0 +1,66 @@
+[
+ {
+  "id": "beast-claw",
+  "name": "Beast Claw",
+  "type": "Beast Claw",
+  "source": "dlc",
+  "category": "regular",
+  "infusable": true,
+  "requirements": {
+   "STR": 13,
+   "DEX": 11
+  },
+  "weight": null,
+  "passive": "Blood loss (45)",
+  "base": {
+   "physical": 240,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 82,
+   "DEX": 45,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {
+   "bleed": 45
+  },
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "red-bear-s-claw",
+  "name": "Red Bear's Claw",
+  "type": "Beast Claw",
+  "source": "dlc",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 20,
+   "DEX": 10
+  },
+  "weight": null,
+  "passive": "Blood loss (45)",
+  "base": {
+   "physical": 254,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 112,
+   "DEX": 32,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {
+   "bleed": 45
+  },
+  "arcStatusScaling": 0
+ }
+]
