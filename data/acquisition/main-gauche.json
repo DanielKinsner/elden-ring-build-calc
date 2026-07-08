@@ -1,0 +1,34 @@
+{
+ "location": "On a corpse in a side room guarded by a Black Knight, reached by heading up the western stairs from the Main Gate Plaza Site of Grace in Shadow Keep.",
+ "region": "Shadow Keep (Shadow of the Erdtree DLC)",
+ "source": {
+  "type": "drop",
+  "name": "Corpse guarded by a Black Knight, Shadow Keep"
+ },
+ "tactics": [
+  "This is Shadow of the Erdtree DLC content, not base-game — you need the DLC installed and access to Shadow Keep to obtain it, despite being filed here as a base dagger.",
+  "From Main Gate Plaza, head up the western stairs; a soldier ambushes you partway up, then a side room holding a Black Knight and the corpse opens on the right.",
+  "The Black Knight here hits hard in melee — consider luring it into the open corridor to fight rather than engaging in the cramped room."
+ ],
+ "nearbyGraces": [
+  "Main Gate Plaza"
+ ],
+ "lore": "A dagger built with an oversized hand guard, meant to be held in the off-hand alongside a thrusting sword or matching blade in the main hand — enabling a defensive parry-and-stab fighting style rather than serving as a primary weapon.",
+ "builds": [
+  {
+   "name": "Off-hand parry-and-poke",
+   "statFocus": "Dexterity",
+   "why": "C Dexterity scaling and an innate Parry skill make it a strong off-hand pick paired with a thrusting sword for a riposte-focused build."
+  },
+  {
+   "name": "Powerstance thrusting-sword pairing",
+   "statFocus": "Strength/Dexterity",
+   "why": "Uniquely powerstances with thrusting swords rather than other daggers, letting it slot into a rapier/estoc dual-wield build."
+  }
+ ],
+ "_verify": [
+  "location",
+  "region",
+  "source"
+ ]
+}
