@@ -1,0 +1,625 @@
+[
+ {
+  "id": "bandit-s-curved-sword",
+  "name": "Bandit's Curved Sword",
+  "type": "Curved Sword",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 11,
+   "DEX": 13
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 289,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 52,
+   "DEX": 72,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "beastman-s-curved-sword",
+  "name": "Beastman's Curved Sword",
+  "type": "Curved Sword",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 13,
+   "DEX": 11
+  },
+  "weight": 4,
+  "passive": null,
+  "base": {
+   "physical": 276,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 98,
+   "DEX": 27,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "dancing-blade-of-ranah",
+  "name": "Dancing Blade of Ranah",
+  "type": "Curved Sword",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 9,
+   "DEX": 20
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 215,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 0,
+   "DEX": 171,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "eclipse-shotel",
+  "name": "Eclipse Shotel",
+  "type": "Curved Sword",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 10,
+   "DEX": 25,
+   "FAI": 30
+  },
+  "weight": 3,
+  "passive": null,
+  "base": {
+   "physical": 188,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 188
+  },
+  "scaling": {
+   "STR": 36,
+   "DEX": 63,
+   "INT": 0,
+   "FAI": 81,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ],
+   "FAI": [
+    "holy"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "falchion",
+  "name": "Falchion",
+  "type": "Curved Sword",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 9,
+   "DEX": 13
+  },
+  "weight": 3.5,
+  "passive": null,
+  "base": {
+   "physical": 267,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 66,
+   "DEX": 66,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "falx",
+  "name": "Falx",
+  "type": "Curved Sword",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 12,
+   "DEX": 15
+  },
+  "weight": null,
+  "passive": "Blood loss (55)",
+  "base": {
+   "physical": 262,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 54,
+   "DEX": 90,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {
+   "bleed": 55
+  },
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "flowing-curved-sword",
+  "name": "Flowing Curved Sword",
+  "type": "Curved Sword",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 9,
+   "DEX": 17
+  },
+  "weight": 3.5,
+  "passive": null,
+  "base": {
+   "physical": 267,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 38,
+   "DEX": 82,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "grossmesser",
+  "name": "Grossmesser",
+  "type": "Curved Sword",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 14,
+   "DEX": 12
+  },
+  "weight": 4.5,
+  "passive": null,
+  "base": {
+   "physical": 281,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 70,
+   "DEX": 54,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "horned-warrior-s-sword",
+  "name": "Horned Warrior's Sword",
+  "type": "Curved Sword",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 11,
+   "DEX": 14,
+   "FAI": 14
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 264,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 52,
+   "DEX": 79,
+   "INT": 0,
+   "FAI": 43,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "magma-blade",
+  "name": "Magma Blade",
+  "type": "Curved Sword",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 9,
+   "DEX": 15,
+   "FAI": 16
+  },
+  "weight": 4,
+  "passive": null,
+  "base": {
+   "physical": 235,
+   "magic": 0,
+   "fire": 151,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 81,
+   "DEX": 56,
+   "INT": 0,
+   "FAI": 72,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ],
+   "FAI": [
+    "fire"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "mantis-blade",
+  "name": "Mantis Blade",
+  "type": "Curved Sword",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 10,
+   "DEX": 12
+  },
+  "weight": 4,
+  "passive": null,
+  "base": {
+   "physical": 274,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 54,
+   "DEX": 72,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "nox-flowing-sword",
+  "name": "Nox Flowing Sword",
+  "type": "Curved Sword",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 8,
+   "DEX": 15
+  },
+  "weight": 3.5,
+  "passive": null,
+  "base": {
+   "physical": 274,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 36,
+   "DEX": 90,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "scavenger-s-curved-sword",
+  "name": "Scavenger's Curved Sword",
+  "type": "Curved Sword",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 9,
+   "DEX": 14
+  },
+  "weight": 3.5,
+  "passive": "Blood loss (45)",
+  "base": {
+   "physical": 257,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 60,
+   "DEX": 75,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {
+   "bleed": 45
+  },
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "scimitar",
+  "name": "Scimitar",
+  "type": "Curved Sword",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 7,
+   "DEX": 13
+  },
+  "weight": 3,
+  "passive": null,
+  "base": {
+   "physical": 259,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 38,
+   "DEX": 86,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "serpent-god-s-curved-sword",
+  "name": "Serpent-God's Curved Sword",
+  "type": "Curved Sword",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 13,
+   "DEX": 9
+  },
+  "weight": 4,
+  "passive": null,
+  "base": {
+   "physical": 276,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 82,
+   "DEX": 30,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "shamshir",
+  "name": "Shamshir",
+  "type": "Curved Sword",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 7,
+   "DEX": 13
+  },
+  "weight": 3.5,
+  "passive": null,
+  "base": {
+   "physical": 264,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 54,
+   "DEX": 75,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "shotel",
+  "name": "Shotel",
+  "type": "Curved Sword",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 9,
+   "DEX": 19
+  },
+  "weight": 2,
+  "passive": null,
+  "base": {
+   "physical": 235,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 27,
+   "DEX": 87,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "spirit-sword",
+  "name": "Spirit Sword",
+  "type": "Curved Sword",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 8,
+   "DEX": 16,
+   "INT": 16
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 225,
+   "magic": 144,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 18,
+   "DEX": 72,
+   "INT": 72,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ],
+   "INT": [
+    "magic"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "wing-of-astel",
+  "name": "Wing of Astel",
+  "type": "Curved Sword",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 7,
+   "DEX": 17,
+   "INT": 20
+  },
+  "weight": 2.5,
+  "passive": null,
+  "base": {
+   "physical": 159,
+   "magic": 191,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 18,
+   "DEX": 81,
+   "INT": 99,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ],
+   "INT": [
+    "magic"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ }
+]
