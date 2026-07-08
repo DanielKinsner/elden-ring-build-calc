@@ -1,0 +1,60 @@
+[
+ {
+  "id": "black-steel-greatshield",
+  "name": "Black Steel Greatshield",
+  "type": "Greatshield",
+  "source": "dlc",
+  "category": "regular",
+  "infusable": true,
+  "requirements": {
+   "STR": 35
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 291,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 90,
+   "DEX": 0,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "verdigris-greatshield",
+  "name": "Verdigris Greatshield",
+  "type": "Greatshield",
+  "source": "dlc",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 49
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 372,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 90,
+   "DEX": 0,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ }
+]
