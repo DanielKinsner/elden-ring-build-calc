@@ -1,0 +1,26 @@
+{
+ "location": "Dropped by Knight (Recusant) Bernahl when defeated — easiest fought early at the Warmaster's Shack in Limgrave, or later as a hostile invader in Crumbling Farum Azula.",
+ "region": "Limgrave",
+ "source": {
+  "type": "boss",
+  "name": "Knight Bernahl / Recusant Bernahl"
+ },
+ "tactics": [
+  "Rest at the Warmaster's Shack grace (northeast of Stormhill, near where you meet Roderika), then fight Bernahl directly — treat him as a miniboss, not a trash enemy.",
+  "If missed early, he reappears as a hostile invader in Crumbling Farum Azula, but only before Maliketh has been defeated.",
+  "Once Maliketh is dead, Bernahl no longer invades in Farum Azula; New Game Plus is the only way back to that specific fight.",
+  "His moveset includes fire-infused strikes and grabs — watch for his charged jump attack and avoid greedy punishes."
+ ],
+ "nearbyGraces": [
+  "Warmaster's Shack"
+ ],
+ "lore": "A scepter shaped like a serpent devouring the world, said to depict a vision Rykard glimpsed in his final moment before the Serpent-God devoured him. That vision is channeled into a skill that drains life from everything nearby.",
+ "builds": [
+  {
+   "name": "Strength/Faith hybrid drainer",
+   "why": "D-scaling Str, Dex, and Faith plus its Devourer of Worlds skill (an AoE HP-drain ground slam) suit an aggressive Faith-hybrid build that wants group sustain built into the weapon itself.",
+   "statFocus": "Strength / Faith"
+  }
+ ],
+ "_verify": []
+}

@@ -1,0 +1,26 @@
+{
+ "location": "Random drop (about 4% chance at 100 Discovery) from Grave Warden Duelists patrolling outside the Royal Colosseum in Leyndell, Royal Capital, reachable from the West Capital Rampart grace.",
+ "region": "Leyndell, Royal Capital",
+ "source": {
+  "type": "enemy",
+  "name": "Grave Warden Duelist"
+ },
+ "tactics": [
+  "Rest at West Capital Rampart, then hunt the duelists patrolling near the colosseum walls outside the arena entrance.",
+  "Only the hammer-wielding duelists drop it — other duelists in the same patrol carry different weapons and won't.",
+  "Drop chance is low, so stack Discovery gear (Silver-Pickled Fowl Foot, Silver Scarab talisman, Gold Scarab) and rest to respawn enemies.",
+  "These enemies stop spawning permanently once Maliketh, the Black Blade is defeated, so farm before finishing that questline."
+ ],
+ "nearbyGraces": [
+  "West Capital Rampart"
+ ],
+ "lore": "A crude iron hammer built for gladiatorial combat, once wielded by duelists cast out of the Colosseum. It's heavy enough to crush armor — and the person wearing it — in a single blow.",
+ "builds": [
+  {
+   "name": "Pure Strength brawler",
+   "why": "C-scaling Strength with a negligible Dex requirement makes it a straightforward heavy hitter for a Str dump-stat build; Braggart's Roar buffs your own damage and poise before a big swing.",
+   "statFocus": "Strength"
+  }
+ ],
+ "_verify": []
+}

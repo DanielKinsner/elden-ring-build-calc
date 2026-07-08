@@ -1,0 +1,26 @@
+{
+ "location": "Reward from Gurranq, Beast Clergyman at the Bestial Sanctum after bringing him his 7th Deathroot offering.",
+ "region": "Caelid",
+ "source": {
+  "type": "npc",
+  "name": "Gurranq, Beast Clergyman"
+ },
+ "tactics": [
+  "Reach the Bestial Sanctum via the waygate hidden behind the Third Church of Marika in northeastern Caelid (the Dragonbarrow sub-area).",
+  "Gurranq wants Deathroot items, not runes — feed him one at a time to advance his reward tier; the Beastclaw Greathammer is tied specifically to the 7th offering.",
+  "Deathroot is scattered around the open world and drops from certain bosses; check a Deathroot location list if you're short on the count.",
+  "Its one-handed heavy attack has unusually strong hitstun for a Great Hammer, letting you combo into a follow-up light attack — most colossal weapons in this class can't do that."
+ ],
+ "nearbyGraces": [
+  "Bestial Sanctum"
+ ],
+ "lore": "Its striking head is shaped like five clawed beast talons, a tribute to Serosh, the Lord of Beasts who once served as regent to King Godfrey. Black claws jut out from a mane of golden fur.",
+ "builds": [
+  {
+   "name": "Strength/Faith beast incantation hybrid",
+   "why": "D-scaling in Str, Dex, and Faith plus a chunk of innate Holy damage let it pair naturally with Bestial Vow incantations and Faith-scaling talismans.",
+   "statFocus": "Strength / Faith"
+  }
+ ],
+ "_verify": []
+}

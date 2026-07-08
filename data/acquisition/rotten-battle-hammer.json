@@ -1,0 +1,25 @@
+{
+ "location": "Guaranteed drop from a Rotten Duelist enemy stationed among stone coffins west of the Consecrated Snowfield grace.",
+ "region": "Consecrated Snowfield",
+ "source": {
+  "type": "enemy",
+  "name": "Rotten Duelist"
+ },
+ "tactics": [
+  "From the Consecrated Snowfield grace, head west into the blizzard toward a cluster of stone coffins/graves; the Rotten Duelist ambushes from among them.",
+  "The Duelist wields a hammer in each hand and hits hard — its scarlet rot-infused strikes can build rot on you quickly if you trade blows carelessly.",
+  "It's a guaranteed drop, so you only need to win the fight once."
+ ],
+ "nearbyGraces": [
+  "Consecrated Snowfield"
+ ],
+ "lore": "The same crude iron gladiator's hammer as the standard Battle Hammer, left to fester with scarlet rot. Still heavy enough to crush armor and body alike — now with a rotting bite behind every blow.",
+ "builds": [
+  {
+   "name": "Strength build with innate Scarlet Rot",
+   "why": "Same C-scaling Strength as the standard Battle Hammer, but its innate Scarlet Rot buildup adds a damage-over-time layer without needing a separate rot weapon or Arcane investment.",
+   "statFocus": "Strength"
+  }
+ ],
+ "_verify": []
+}

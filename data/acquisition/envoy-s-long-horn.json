@@ -1,0 +1,26 @@
+{
+ "location": "Rare drop from Large Oracle Envoy enemies, most easily farmed in the East Capital Rampart area of Leyndell, Royal Capital.",
+ "region": "Leyndell, Royal Capital",
+ "source": {
+  "type": "enemy",
+  "name": "Large Oracle Envoy"
+ },
+ "tactics": [
+  "Rest at the East Capital Rampart grace and hunt the Large Oracle Envoys (tall, horn-wielding statue-like enemies) patrolling just south of it.",
+  "Drop rate is very low even with high Discovery — stack the Silver-Pickled Fowl Foot and Discovery-boosting talismans/gear before farming.",
+  "The same enemy type appears in Miquella's Haligtree, but they're stronger there and perched on tree branches, making that fight riskier for the same drop.",
+  "Only Large Oracle Envoys carry the horn — smaller Oracle Envoys do not drop it, despite occasional player reports otherwise."
+ ],
+ "nearbyGraces": [
+  "East Capital Rampart"
+ ],
+ "lore": "A long golden horn carried by the Oracle Envoys, far too heavy for a human hand to actually play as an instrument. Its sheer weight alone makes every swing land hard.",
+ "builds": [
+  {
+   "name": "Strength/Faith holy hybrid",
+   "why": "D-scaling Str, Dex, and Faith with a solid chunk of innate Holy damage, plus a ranged Bubble Shower skill, make it a flexible Faith-hybrid pick that can poke from range before closing in.",
+   "statFocus": "Strength / Faith"
+  }
+ ],
+ "_verify": []
+}

@@ -1,0 +1,25 @@
+{
+ "location": "Inside Giant-Conquering Hero's Grave, on a corpse behind the dungeon's second Imp Statue puzzle door.",
+ "region": "Mountaintops of the Giants",
+ "source": {
+  "type": "drop",
+  "name": "corpse in Giant-Conquering Hero's Grave"
+ },
+ "tactics": [
+  "From the Giant's Gravepost grace, head west across a jump gap to a large tomb, then ride the lift down into the catacombs.",
+  "Like other Hero's Graves, you must strike the correct Imp Statue faces to open sealed doors — the candlestand sits behind the second one you solve.",
+  "Expect rolling boulder traps and skeleton enemies typical of Hero's Grave dungeons on the way in."
+ ],
+ "nearbyGraces": [
+  "Giant's Gravepost"
+ ],
+ "lore": "A skull repurposed into a candlestand, honoring Birac, a Monk Prelate of the Giants' Flame said to have severed his own head to punish his monks for treating the sacred fire with disrespect. His devotion is said to still smolder within the hollow vessel.",
+ "builds": [
+  {
+   "name": "Strength/Faith fire hybrid",
+   "why": "D-scaling Str and Faith plus innate Fire damage let it slot into a fire-incantation hybrid build alongside spells like Flame, Grant Me Strength.",
+   "statFocus": "Strength / Faith"
+  }
+ ],
+ "_verify": []
+}

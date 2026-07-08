@@ -1,0 +1,26 @@
+{
+ "location": "Rare drop (2% chance) from pickaxe-wielding Miner enemies found in mining tunnels across the map; most efficiently farmed in the Limgrave Tunnels.",
+ "region": "Limgrave",
+ "source": {
+  "type": "enemy",
+  "name": "Miner"
+ },
+ "tactics": [
+  "Enter the Limgrave Tunnels and clear the group of five Miners near the second elevator shaft, past the first elevator, for a tight farming loop.",
+  "After killing them, jump down the elevator shaft to die and respawn at the Limgrave Tunnels grace, then repeat.",
+  "Don't confuse regular Miners with Glintstone Miners — the latter carry a Digger's Staff instead and won't drop the Pickaxe.",
+  "Unusually for a Great Hammer, the Pickaxe deals Pierce damage and uses the Greataxe moveset, so it won't stance-break the way most hammers do, and it can't be power-stanced with other Great Hammers."
+ ],
+ "nearbyGraces": [
+  "Limgrave Tunnels"
+ ],
+ "lore": "A large pickaxe made for cracking bedrock, favored by sturdy miners. It was never meant as a weapon, but its point proves surprisingly effective at punching through armor.",
+ "builds": [
+  {
+   "name": "Anti-armor pierce build",
+   "why": "D-scaling Str/Dex plus its unusual Pierce damage type (rare among Great Hammers) lets it exploit enemies resistant to Strike damage, at the cost of the usual hammer stance-break bonus.",
+   "statFocus": "Strength / Dexterity"
+  }
+ ],
+ "_verify": []
+}

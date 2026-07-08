@@ -1,0 +1,26 @@
+{
+ "location": "Looted from a chest on a troll-drawn carriage traveling the road southwest of the Road of Iniquity Side Path grace, in Altus Plateau. Also drops from the hostile invader NPC Magnus the Beast Claw at Writheblood Ruins.",
+ "region": "Altus Plateau",
+ "source": {
+  "type": "chest",
+  "name": "carriage chest on the Altus Plateau road (troll-towed caravan)"
+ },
+ "tactics": [
+  "From the Road of Iniquity Side Path grace, head southwest to intercept the carriage; a Mad Pumpkin Head and a squad of Leyndell soldiers escort it alongside the two trolls pulling it.",
+  "Clear or evade the escort, then jump onto the moving carriage's back and open the chest for the Great Stars.",
+  "Alternatively, fight the hostile invader NPC Magnus the Beast Claw at Writheblood Ruins (also in Altus Plateau) for a second copy.",
+  "Multiple troll-drawn wagons roam Altus Plateau carrying different loot — make sure it's the one on the road southwest of Road of Iniquity Side Path."
+ ],
+ "nearbyGraces": [
+  "Road of Iniquity Side Path"
+ ],
+ "lore": "A heavy bludgeon capped with three star-shaped spikes at its striking end. Despite being built to crush, those spikes are sharp enough to open wounds, and the weapon is said to draw back a little vitality with every solid hit.",
+ "builds": [
+  {
+   "name": "Strength/Dex bleed build",
+   "why": "D-scaling Str and Dex plus a high innate blood-loss buildup let it function as a bleed stance-breaker without any Arcane investment, especially paired with bleed-boosting talismans.",
+   "statFocus": "Strength / Dexterity"
+  }
+ ],
+ "_verify": []
+}

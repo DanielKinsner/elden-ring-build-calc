@@ -1,0 +1,26 @@
+{
+ "location": "On a corpse hanging over a ledge along the wine cellar's exterior rafters in Stormveil Castle. Requires the Rusty Key to unlock the door leading up to the ladder from the wine cellar's lower floor.",
+ "region": "Limgrave",
+ "source": {
+  "type": "drop",
+  "name": "corpse in Stormveil Castle's wine cellar"
+ },
+ "tactics": [
+  "From the Stormveil Cliffside grace, make your way into the castle's wine cellar; the Rusty Key needed to progress is found on a corpse in a trapped treasure room guarded by a Banished Knight on a different floor of the same cellar.",
+  "Once through the locked door, climb the ladder, turn right, hop across the gap onto the wooden platform, then follow the exterior walkway down to the corpse hanging over the ledge.",
+  "Don't confuse the Rusty Key's treasure room (Banished Knight fight, Curved Sword Talisman chest) with the hammer's location — they're separate stops on the same route.",
+  "Footing on the rafters is narrow; a fall can drop you off the level."
+ ],
+ "nearbyGraces": [
+  "Stormveil Cliffside"
+ ],
+ "lore": "Fashioned from an ordinary stone brick, this weapon was once carried by a laborer who led a rebellion and rose to become a champion in his own right. Bludgeons of this heft demand a giant's strength to swing properly.",
+ "builds": [
+  {
+   "name": "Pure Strength crusher",
+   "why": "B-scaling in Strength with no other stat requirements makes it one of the better pure-Str Great Hammers for raw attack rating.",
+   "statFocus": "Strength"
+  }
+ ],
+ "_verify": []
+}

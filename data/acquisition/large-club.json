@@ -1,0 +1,27 @@
+{
+ "location": "On a corpse guarded by a group of Demi-Humans in the woods south of the Forlorn Hound Evergaol, in southern Limgrave.",
+ "region": "Limgrave",
+ "source": {
+  "type": "drop",
+  "name": "corpse guarded by Demi-Humans, south of Forlorn Hound Evergaol"
+ },
+ "tactics": [
+  "From the Forlorn Hound Evergaol, head down the cliffs below it or loop in from the east through the woods to find the corpse.",
+  "A small pack of Demi-Humans guards it — weak individually, but they can swarm if not picked off one at a time.",
+  "Easy to miss since it's off the beaten path in the forest, away from the evergaol arena itself which many players visit only for the boss fight."
+ ],
+ "nearbyGraces": [
+  "Agheel Lake South"
+ ],
+ "lore": "Little more than a thick, solid length of wood. No finesse is needed to use it — just enough brute strength to swing it around.",
+ "builds": [
+  {
+   "name": "Early pure-Strength option",
+   "why": "C-scaling Strength and low stat requirements make it one of the earliest usable heavy Str weapons in the game, a good placeholder before finding a Brick Hammer or Great Mace.",
+   "statFocus": "Strength"
+  }
+ ],
+ "_verify": [
+  "nearbyGraces"
+ ]
+}

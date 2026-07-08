@@ -1,0 +1,26 @@
+{
+ "location": "Dropped by the larger, club-wielding Second-Generation Albinauric enemies around the Temple Quarter ruins in Liurnia of the Lakes.",
+ "region": "Liurnia of the Lakes",
+ "source": {
+  "type": "enemy",
+  "name": "Second-Generation Albinauric (larger, club-wielding variant)"
+ },
+ "tactics": [
+  "Head to the Temple Quarter grace, southwest of the Academy of Raya Lucaria; the half-sunken ruins there host several club-wielding Albinaurics.",
+  "Drop rate is low (around 4% at 100 Discovery) — rest at Temple Quarter to respawn enemies and repeat.",
+  "The same weapon also drops from red-skinned Second-Generation Albinaurics in Mohgwyn Palace, reachable quickly with the Pureblood Knight's Medal, though that area has tougher company.",
+  "Only the visibly club-wielding Albinaurics carry it — don't waste time on the small unarmed ones."
+ ],
+ "nearbyGraces": [
+  "Temple Quarter"
+ ],
+ "lore": "A large curved club of dense wood, shaped like a crescent moon. Albinaurics who lack the finesse for curved swords favor it instead, trading precision for sheer weight and destructive force.",
+ "builds": [
+  {
+   "name": "Quality Strength/Dex hitter",
+   "why": "D-scaling in both Strength and Dexterity plus one of the higher base attack ratings among Great Hammers make it a strong pick for a quality build wanting raw damage without a pure one-stat investment.",
+   "statFocus": "Strength / Dexterity"
+  }
+ ],
+ "_verify": []
+}

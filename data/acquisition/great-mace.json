@@ -1,0 +1,26 @@
+{
+ "location": "Inside a chest at the trebuchet-guarded camp on Bellum Highway, between the East Raya Lucaria Gate and the Grand Lift of Dectus, in Liurnia of the Lakes.",
+ "region": "Liurnia of the Lakes",
+ "source": {
+  "type": "chest",
+  "name": "chest at the Bellum Highway trebuchet camp"
+ },
+ "tactics": [
+  "Approach from either East Raya Lucaria Gate (south) or Grand Lift of Dectus (north) along Bellum Highway; the camp has Cuckoo Knights and footsoldiers guarding a siege trebuchet that fires on you from range.",
+  "The chest containing the Great Mace sits on the east side of the camp — clear or sneak past the guards before looting.",
+  "Stay mindful of the trebuchet's ranged bombardment while crossing the open road toward the chest."
+ ],
+ "nearbyGraces": [
+  "Grand Lift of Dectus",
+  "East Raya Lucaria Gate"
+ ],
+ "lore": "An oversized bludgeon studded with sharp protrusions, essentially a scaled-up mace. It keeps every advantage of its smaller cousin while hitting far harder against both flesh and enemy guards.",
+ "builds": [
+  {
+   "name": "Pure Strength stance-breaker",
+   "why": "C-scaling Strength and strong guard-boost stats make it a solid pure-Str pick focused on breaking enemy poise, with the Endure skill letting you trade hits without being staggered mid-combo.",
+   "statFocus": "Strength"
+  }
+ ],
+ "_verify": []
+}

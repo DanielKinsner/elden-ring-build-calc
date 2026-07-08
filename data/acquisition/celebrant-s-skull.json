@@ -1,0 +1,25 @@
+{
+ "location": "On a corpse along a narrow cliff path northeast of the Windmill Village grace, in Dominula, Windmill Village.",
+ "region": "Altus Plateau",
+ "source": {
+  "type": "drop",
+  "name": "corpse near Dominula, Windmill Village"
+ },
+ "tactics": [
+  "From the Windmill Village Site of Grace, head north past the windmill and follow the narrow ledge along the cliff to the northeast.",
+  "The corpse sits at the end of that path; no enemy directly guards it, though Windmill Village's festival enemies patrol the surrounding area.",
+  "Don't confuse it with the other 'Celebrant' weapons (Sickle, Cleaver) that drop from Festival enemies elsewhere in Dominula — this one is a guaranteed, unguarded ground pickup."
+ ],
+ "nearbyGraces": [
+  "Windmill Village"
+ ],
+ "lore": "A heavy bludgeon decked out in flowers and layered fabric, used as a ceremonial dance prop during Dominula's windmill festivities. Its oversized skull head earns the wielder a trickle of runes with every solid hit.",
+ "builds": [
+  {
+   "name": "Early quality rune-farming hammer",
+   "why": "Low D-scaling Str/Dex requirements make it wieldable early, and its passive rune gain on hit rewards aggressive, hit-heavy play before you've found a better late-game Great Hammer.",
+   "statFocus": "Strength / Dexterity"
+  }
+ ],
+ "_verify": []
+}

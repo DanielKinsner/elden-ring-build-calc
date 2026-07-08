@@ -1,0 +1,27 @@
+{
+ "location": "Dropped (2% chance) by hammer-wielding Ancestral Follower enemies near the Ancestral Woods grace in Siofra River.",
+ "region": "Siofra River",
+ "source": {
+  "type": "enemy",
+  "name": "Ancestral Follower (hammer-wielding)"
+ },
+ "tactics": [
+  "From the Ancestral Woods grace, head northeast to find two Ancestral Followers patrolling below the large 'singing' tree-spirit enemy — an easy, isolated pair to farm.",
+  "A third hammer-wielding Ancestral Follower guards a flame altar west of the Worshippers' Woods grace as a second farming spot.",
+  "Drop rate is low (2% at 100 Discovery), so rest-and-repeat farming with Discovery gear is recommended.",
+  "Ancestral Followers hit hard and can combo — don't trade blows carelessly without checking stamina and health first."
+ ],
+ "nearbyGraces": [
+  "Ancestral Woods",
+  "Worshippers' Woods"
+ ],
+ "lore": "A thick horn ringed like tree growth, repurposed into a bludgeon by the ancestral follower warriors. It's said to carry the lingering power of ancestor spirits, restoring some of the wielder's vitality on a killing blow.",
+ "builds": [
+  {
+   "name": "Aggressive Strength sustain build",
+   "why": "Strength-focused scaling plus a passive HP-restore-on-kill effect (which stacks with similar weapons like the Blasphemous Blade) rewards an aggressive, kill-chaining playstyle that stays topped up without flasks.",
+   "statFocus": "Strength"
+  }
+ ],
+ "_verify": []
+}
