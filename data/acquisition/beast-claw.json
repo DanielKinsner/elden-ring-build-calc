@@ -1,0 +1,30 @@
+{
+ "location": "Dropped by Logur, the Beast Claw, a hostile NPC boss who roams the forested area south of the main road in Gravesite Plain, generally southeast/east of the Gravesite Plain Site of Grace (near the Pillar Path Waypoint grace). He wanders rather than staying put, so guides differ slightly on the exact compass direction.",
+ "region": "Gravesite Plain",
+ "source": {
+  "type": "boss",
+  "name": "Logur, the Beast Claw"
+ },
+ "tactics": [
+  "Logur roams the woods rather than staying in a fixed spot — listen for a bird-like screech, or try visiting at night, to spot him faster.",
+  "He fights unarmored, so he has high poise and hits hard but is very vulnerable to strike-type/colossal weapons and lightning damage, which stagger him easily.",
+  "He can heal himself with a flask once mid-fight — keep pressure on to avoid giving him a second chance.",
+  "Bait out the end of his fast combo strings before punishing; he closes distance slowly, so kiting on Torrent or with ranged attacks works well."
+ ],
+ "nearbyGraces": [
+  "Gravesite Plain",
+  "Pillar Path Waypoint"
+ ],
+ "lore": "This weapon is fashioned from the claws of a flesh-eating beast, letting the wielder tear into enemies with feral slashing attacks no ordinary person could pull off. Its brutal, primal fighting style echoes a secretive claw technique associated with the Land of Shadow's horned warriors.",
+ "builds": [
+  {
+   "name": "Quality Bleed Brawler",
+   "statFocus": "Strength/Dexterity (quality) plus enough Arcane for bleed",
+   "why": "D/D scaling in both Strength and Dexterity rewards a balanced quality build, and the weapon's native 45 blood loss buildup plus the Savage Claws skill (rapid lunging flurry) turns quality investment into fast hemorrhage procs."
+  }
+ ],
+ "_verify": [
+  "location",
+  "nearbyGraces"
+ ]
+}

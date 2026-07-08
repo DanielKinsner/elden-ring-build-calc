@@ -1,0 +1,32 @@
+{
+ "location": "Guaranteed drop from defeating the NPC boss Red Bear inside the Northern Nameless Mausoleum, a small dungeon atop an isolated plateau. Reached from Temple Town Ruins by heading east/up to a sealed Spiritspring (break the stone seal on the path off to the right), then taking two consecutive Spiritspring jumps up from the Rauh Base area to the mausoleum.",
+ "region": "Scadu Altus",
+ "source": {
+  "type": "boss",
+  "name": "Red Bear"
+ },
+ "tactics": [
+  "Unlock the sealed Spiritspring near Temple Town Ruins first (destroy the stone cairn blocking it), then chain two Spiritspring jumps to reach the mausoleum plateau.",
+  "Red Bear attacks fast in bursts (2-claw combo escalating to a 4-claw combo, plus a leaping ground slam) but closes distance slowly — punish the pause after his combos end.",
+  "His big attack, the Roar of Rugalea, is a two-hit wide-area nuke — watch for the wind-up and get clear or block both hits; he never runs out of stamina, so patience matters.",
+  "Don't confuse him with Ralva/Rugalea the Great Red Bear fought elsewhere in the DLC — Red Bear is a humanoid Tarnished wearing that creature's pelt and claws as gear, not the giant bear itself. He can only heal once, after which the damage race favors you."
+ ],
+ "nearbyGraces": [
+  "Temple Town Ruins",
+  "Ancient Ruins Base"
+ ],
+ "lore": "These claws once belonged to a great red bear before a lone Redmane warrior killed it in a brutal one-on-one duel. Rather than refashion his trophy into a proper weapon, he wields the claws exactly as they were, having abandoned his own name and identity to chase the beast's raw, untamed strength.",
+ "builds": [
+  {
+   "name": "Pure Strength Bleed Build",
+   "statFocus": "Strength (heavy investment)",
+   "why": "C-tier Strength scaling (versus a weak E in Dexterity) with a fixed 45 blood loss buildup rewards dumping levels straight into Strength; the weapon can't be infused or buffed, so raw stat scaling is the only way to push its damage."
+  },
+  {
+   "name": "Hyper-Armor Trade Bleed Rush",
+   "statFocus": "Strength plus Vigor for survivability",
+   "why": "The built-in Red Bear Hunt skill is a three-hit claw swipe with strong hyper armor, letting a tanky Strength build trade through enemy attacks while stacking bleed rapidly on bosses."
+  }
+ ],
+ "_verify": []
+}
