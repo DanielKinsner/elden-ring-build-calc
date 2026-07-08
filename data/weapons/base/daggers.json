@@ -1,0 +1,626 @@
+[
+ {
+  "id": "black-knife",
+  "name": "Black Knife",
+  "type": "Dagger",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 8,
+   "DEX": 12,
+   "FAI": 18
+  },
+  "weight": 2,
+  "passive": null,
+  "base": {
+   "physical": 161,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 159
+  },
+  "scaling": {
+   "STR": 18,
+   "DEX": 99,
+   "INT": 0,
+   "FAI": 63,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ],
+   "FAI": [
+    "holy"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "blade-of-calling",
+  "name": "Blade of Calling",
+  "type": "Dagger",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 6,
+   "DEX": 13,
+   "FAI": 15
+  },
+  "weight": 1.5,
+  "passive": null,
+  "base": {
+   "physical": 173,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 105
+  },
+  "scaling": {
+   "STR": 45,
+   "DEX": 68,
+   "INT": 0,
+   "FAI": 135,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ],
+   "FAI": [
+    "holy"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "bloodstained-dagger",
+  "name": "Bloodstained Dagger",
+  "type": "Dagger",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 9,
+   "DEX": 12
+  },
+  "weight": 2,
+  "passive": "Blood loss (38)",
+  "base": {
+   "physical": 198,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 105,
+   "DEX": 30,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {
+   "bleed": 38
+  },
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "celebrant-s-sickle",
+  "name": "Celebrant's Sickle",
+  "type": "Dagger",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 6,
+   "DEX": 11
+  },
+  "weight": 1.5,
+  "passive": null,
+  "base": {
+   "physical": 193,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 22,
+   "DEX": 101,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "cinquedea",
+  "name": "Cinquedea",
+  "type": "Dagger",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 10,
+   "DEX": 10
+  },
+  "weight": 3.5,
+  "passive": null,
+  "base": {
+   "physical": 240,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 103,
+   "DEX": 31,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "crystal-knife",
+  "name": "Crystal Knife",
+  "type": "Dagger",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 8,
+   "DEX": 12,
+   "INT": 9
+  },
+  "weight": 2,
+  "passive": null,
+  "base": {
+   "physical": 200,
+   "magic": 129,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 60,
+   "DEX": 38,
+   "INT": 90,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ],
+   "INT": [
+    "magic"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "dagger",
+  "name": "Dagger",
+  "type": "Dagger",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 5,
+   "DEX": 9
+  },
+  "weight": 1.5,
+  "passive": null,
+  "base": {
+   "physical": 181,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 52,
+   "DEX": 98,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "erdsteel-dagger",
+  "name": "Erdsteel Dagger",
+  "type": "Dagger",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 7,
+   "DEX": 12,
+   "FAI": 14
+  },
+  "weight": 2,
+  "passive": null,
+  "base": {
+   "physical": 164,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 45,
+   "DEX": 45,
+   "INT": 0,
+   "FAI": 54,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "fire-knight-s-shortsword",
+  "name": "Fire Knight's Shortsword",
+  "type": "Dagger",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 8,
+   "DEX": 13,
+   "FAI": 12
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 183,
+   "magic": 0,
+   "fire": 53,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 45,
+   "DEX": 75,
+   "INT": 0,
+   "FAI": 54,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ],
+   "FAI": [
+    "fire"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "glintstone-kris",
+  "name": "Glintstone Kris",
+  "type": "Dagger",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 5,
+   "DEX": 12,
+   "INT": 16
+  },
+  "weight": 1.5,
+  "passive": null,
+  "base": {
+   "physical": 139,
+   "magic": 166,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 18,
+   "DEX": 81,
+   "INT": 72,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ],
+   "INT": [
+    "magic"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "great-knife",
+  "name": "Great Knife",
+  "type": "Dagger",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 6,
+   "DEX": 12
+  },
+  "weight": 1.5,
+  "passive": "Blood loss (38)",
+  "base": {
+   "physical": 183,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 8,
+   "DEX": 120,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {
+   "bleed": 38
+  },
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "ivory-sickle",
+  "name": "Ivory Sickle",
+  "type": "Dagger",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 6,
+   "DEX": 11,
+   "INT": 13
+  },
+  "weight": 2,
+  "passive": null,
+  "base": {
+   "physical": 147,
+   "magic": 147,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 34,
+   "DEX": 88,
+   "INT": 72,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ],
+   "INT": [
+    "magic"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "main-gauche",
+  "name": "Main-gauche",
+  "type": "Dagger",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 7,
+   "DEX": 15
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 193,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 45,
+   "DEX": 90,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "mis-ricorde",
+  "name": "Miséricorde",
+  "type": "Dagger",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 7,
+   "DEX": 12
+  },
+  "weight": 2,
+  "passive": null,
+  "base": {
+   "physical": 225,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 22,
+   "DEX": 75,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "parrying-dagger",
+  "name": "Parrying Dagger",
+  "type": "Dagger",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 5,
+   "DEX": 14
+  },
+  "weight": 1.5,
+  "passive": null,
+  "base": {
+   "physical": 183,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 24,
+   "DEX": 114,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "reduvia",
+  "name": "Reduvia",
+  "type": "Dagger",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 5,
+   "DEX": 13,
+   "ARC": 13
+  },
+  "weight": 2.5,
+  "passive": "Blood loss (50)",
+  "base": {
+   "physical": 193,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 18,
+   "DEX": 72,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 99
+  },
+  "status": {
+   "bleed": 50
+  },
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "scorpion-s-stinger",
+  "name": "Scorpion's Stinger",
+  "type": "Dagger",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 6,
+   "DEX": 12
+  },
+  "weight": 2.5,
+  "passive": "Scarlet Rot (50)",
+  "base": {
+   "physical": 193,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 54,
+   "DEX": 126,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {
+   "rot": 50
+  },
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "wakizashi",
+  "name": "Wakizashi",
+  "type": "Dagger",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 9,
+   "DEX": 13
+  },
+  "weight": 3,
+  "passive": "Blood loss (38)",
+  "base": {
+   "physical": 230,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 51,
+   "DEX": 68,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {
+   "bleed": 38
+  },
+  "arcStatusScaling": 0
+ }
+]
