@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Build Calculator · Elden Ring</title>
+<link rel="stylesheet" href="../assets/app.css">
+</head>
+<body class="build-page">
+<div class="bg"></div>
+
+<header class="topbar">
+  <a class="brand" href="../">
+    <span class="brand-mark">◈</span>
+    <span class="brand-text"><b>ELDEN RING</b><small>BUILD CALCULATOR</small></span>
+  </a>
+  <div class="topbar-right">
+    <select id="presetSelect" class="preset-select" aria-label="Load build"></select>
+    <a class="icon-btn" href="../atlas/" title="Weapon Atlas">☰</a>
+  </div>
+</header>
+
+<main class="grid">
+  <!-- CHARACTER -->
+  <section class="panel">
+    <h2>Character</h2>
+    <div class="level-row">
+      <div><div class="k">Level</div><div class="level" id="level">—</div></div>
+      <label class="two-hand"><span>Two-Handed</span><input type="checkbox" id="twoHand" checked><i></i></label>
+    </div>
+    <div id="stats" class="stat-list"></div>
+    <div class="statTotal"><span class="k">Stat Total</span><b id="statTotal">—</b></div>
+    <h2 class="mt">Presets</h2>
+    <div class="presets" id="presetBtns"></div>
+  </section>
+
+  <!-- WEAPON + RESULT -->
+  <section class="panel">
+    <h2>Weapon</h2>
+    <input type="search" id="weaponSearch" class="search" placeholder="Search weapons…" autocomplete="off">
+    <div id="weaponList" class="weapon-list" hidden></div>
+    <div class="weapon-card">
+      <div class="weapon-thumb" id="weaponThumb">⚔</div>
+      <div class="weapon-id">
+        <div class="weapon-name" id="weaponName">—</div>
+        <div class="weapon-type" id="weaponType">—</div>
+      </div>
+      <div class="weapon-selects">
+        <label>Affinity<select id="affinity"></select></label>
+        <label>Upgrade<select id="upgrade"></select></label>
+      </div>
+    </div>
+    <div class="meta-row">
+      <div class="meta-block">
+        <div class="k">Requirements</div>
+        <div id="reqs" class="reqs"></div>
+      </div>
+      <div class="meta-block">
+        <div class="k">Weight</div><div id="weight" class="v">—</div>
+        <div class="k mt6">Passive</div><div id="passive" class="v">—</div>
+      </div>
+    </div>
+    <div class="ar-box">
+      <div class="ar-label">Total Attack Rating</div>
+      <div class="ar" id="ar">—</div>
+    </div>
+    <div class="dual">
+      <div>
+        <div class="k">Damage Breakdown</div>
+        <div id="byType" class="typelist"></div>
+      </div>
+      <div>
+        <div class="k">Status Effects</div>
+        <div id="status" class="statuslist"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ANALYSIS -->
+  <section class="panel">
+    <h2>Per-Stat Contribution</h2>
+    <div id="byStat" class="contrib"></div>
+    <h2 class="mt">Soft-Cap Analysis</h2>
+    <div id="softcapHeader" class="softcap-head"></div>
+    <svg id="softcapChart" class="softcap-chart" viewBox="0 0 300 150" preserveAspectRatio="none" aria-hidden="true"></svg>
+    <div class="k mt">Breakpoints</div>
+    <div id="breakpoints" class="breakpoints"></div>
+    <button class="cta-compare" id="addCompare">Add to Compare</button>
+  </section>
+</main>
+
+<footer class="foot">
+  Attack Rating uses the documented Elden Ring scaling model —
+  <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=3476225321" target="_blank" rel="noopener">damage formula</a>,
+  <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2765060616" target="_blank" rel="noopener">soft caps</a>,
+  <a href="https://eldenring.wiki.fextralife.com/Elden+Ring+Wiki" target="_blank" rel="noopener">Fextralife</a>.
+  Values are close estimates; see <a href="https://github.com/DanielKinsner/elden-ring-build-calc/tree/main/docs" target="_blank" rel="noopener">/docs</a>.
+</footer>
+
+<script src="../src/engine.js"></script>
+<script src="../src/data-loader.js"></script>
+<script src="../assets/build.js"></script>
+</body>
+</html>
