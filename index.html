@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Elden Ring Build Calculator</title>
+<meta name="description" content="See exactly what your Elden Ring build is worth — live Attack Rating, soft-cap analysis, and weapon comparison by the numbers.">
+<link rel="stylesheet" href="assets/app.css">
+</head>
+<body class="landing">
+<div class="bg"></div>
+
+<header class="topbar">
+  <a class="brand" href="./">
+    <span class="brand-mark">◈</span>
+    <span class="brand-text"><b>ELDEN RING</b><small>BUILD CALCULATOR</small></span>
+  </a>
+  <div class="topbar-right">
+    <a class="icon-btn" href="atlas/">Weapon Atlas</a>
+    <a class="icon-btn" href="build/">Open Calculator →</a>
+  </div>
+</header>
+
+<main class="landing-grid">
+  <!-- LEFT: explainer -->
+  <section class="pitch">
+    <div class="eyebrow">The build companion for the Lands Between</div>
+    <h1>Know exactly what your build is worth.</h1>
+    <p class="lede">
+      Stop guessing at soft caps and squinting at wiki tables. Set your stats and gear,
+      watch your Attack Rating update <em>live</em>, and compare weapons head-to-head —
+      by the actual numbers.
+    </p>
+    <ul class="tldr">
+      <li><b>Live AR</b> — full damage breakdown as you move sliders</li>
+      <li><b>Soft-cap analysis</b> — see what your next stat point is really worth</li>
+      <li><b>Compare weapons</b> — ranked for <em>your</em> build, not a generic one</li>
+      <li><b>Status buildup</b> — bleed, frost, rot, and the rest</li>
+      <li><b>Real math</b> — the documented scaling model, sources linked</li>
+    </ul>
+    <div class="cta-row">
+      <a class="cta" href="build/">Open the Build Calculator →</a>
+      <a class="cta ghost" href="atlas/">Browse the Weapon Atlas</a>
+    </div>
+    <p class="fine">
+      Built on the documented Elden Ring damage model —
+      <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=3476225321" target="_blank" rel="noopener">formula</a> ·
+      <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2765060616" target="_blank" rel="noopener">soft caps</a> ·
+      <a href="https://eldenring.wiki.fextralife.com/Elden+Ring+Wiki" target="_blank" rel="noopener">Fextralife</a>.
+      Base game &amp; Shadow of the Erdtree kept separate.
+    </p>
+  </section>
+
+  <!-- RIGHT: live preview -->
+  <section class="preview">
+    <div class="screen">
+      <div class="screen-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="live">● LIVE</span></div>
+      <iframe src="build/" title="Build calculator preview" loading="lazy"></iframe>
+      <a class="screen-cover" href="build/" aria-label="Open the build calculator"><span>Open the full calculator →</span></a>
+    </div>
+  </section>
+</main>
+</body>
+</html>
