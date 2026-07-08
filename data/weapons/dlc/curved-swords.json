@@ -1,0 +1,137 @@
+[
+ {
+  "id": "dancing-blade-of-ranah",
+  "name": "Dancing Blade of Ranah",
+  "type": "Curved Sword",
+  "source": "dlc",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 9,
+   "DEX": 20
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 215,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 0,
+   "DEX": 171,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "falx",
+  "name": "Falx",
+  "type": "Curved Sword",
+  "source": "dlc",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 12,
+   "DEX": 15
+  },
+  "weight": null,
+  "passive": "Blood loss (55)",
+  "base": {
+   "physical": 262,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 54,
+   "DEX": 90,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {
+   "bleed": 55
+  },
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "horned-warrior-s-sword",
+  "name": "Horned Warrior's Sword",
+  "type": "Curved Sword",
+  "source": "dlc",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 11,
+   "DEX": 14,
+   "FAI": 14
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 264,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 52,
+   "DEX": 79,
+   "INT": 0,
+   "FAI": 43,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "spirit-sword",
+  "name": "Spirit Sword",
+  "type": "Curved Sword",
+  "source": "dlc",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 8,
+   "DEX": 16,
+   "INT": 16
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 225,
+   "magic": 144,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 18,
+   "DEX": 72,
+   "INT": 72,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ],
+   "INT": [
+    "magic"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ }
+]
