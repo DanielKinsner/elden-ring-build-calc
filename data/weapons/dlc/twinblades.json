@@ -1,0 +1,86 @@
+[
+ {
+  "id": "black-steel-twinblade",
+  "name": "Black Steel Twinblade",
+  "type": "Twinblade",
+  "source": "dlc",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 18,
+   "DEX": 15,
+   "FAI": 13
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 274,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 80
+  },
+  "scaling": {
+   "STR": 38,
+   "DEX": 82,
+   "INT": 0,
+   "FAI": 54,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ],
+   "FAI": [
+    "holy"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "euporia",
+  "name": "Euporia",
+  "type": "Twinblade",
+  "source": "dlc",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 16,
+   "DEX": 16,
+   "FAI": 24
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 205,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 245
+  },
+  "scaling": {
+   "STR": 45,
+   "DEX": 45,
+   "INT": 0,
+   "FAI": 90,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ],
+   "FAI": [
+    "holy"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ }
+]
