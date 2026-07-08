@@ -1,0 +1,207 @@
+[
+ {
+  "id": "anvil-hammer",
+  "name": "Anvil Hammer",
+  "type": "Colossal Weapon",
+  "source": "dlc",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 39,
+   "DEX": 10,
+   "INT": 11,
+   "FAI": 20
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 320,
+   "magic": 0,
+   "fire": 208,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 117,
+   "DEX": 18,
+   "INT": 18,
+   "FAI": 54,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ],
+   "INT": [
+    "physical"
+   ],
+   "FAI": [
+    "physical",
+    "fire"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "bloodfiend-s-arm",
+  "name": "Bloodfiend's Arm",
+  "type": "Colossal Weapon",
+  "source": "dlc",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 28,
+   "DEX": 11,
+   "ARC": 16
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 360,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 64,
+   "DEX": 15,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 77
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "devonia-s-hammer",
+  "name": "Devonia's Hammer",
+  "type": "Colossal Weapon",
+  "source": "dlc",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 30,
+   "DEX": 13,
+   "FAI": 19
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 360,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 107
+  },
+  "scaling": {
+   "STR": 126,
+   "DEX": 36,
+   "INT": 0,
+   "FAI": 63,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ],
+   "FAI": [
+    "holy"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "gazing-finger",
+  "name": "Gazing Finger",
+  "type": "Colossal Weapon",
+  "source": "dlc",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 20,
+   "DEX": 8,
+   "INT": 20,
+   "FAI": 14
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 325,
+   "magic": 210,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 119,
+   "DEX": 0,
+   "INT": 54,
+   "FAI": 18,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "INT": [
+    "magic"
+   ],
+   "FAI": [
+    "magic"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "shadow-sunflower-blossom",
+  "name": "Shadow Sunflower Blossom",
+  "type": "Colossal Weapon",
+  "source": "dlc",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 24,
+   "DEX": 8,
+   "FAI": 25
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 279,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 279
+  },
+  "scaling": {
+   "STR": 81,
+   "DEX": 9,
+   "INT": 0,
+   "FAI": 99,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ],
+   "FAI": [
+    "holy"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ }
+]
