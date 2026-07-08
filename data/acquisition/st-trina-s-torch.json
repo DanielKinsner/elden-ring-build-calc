@@ -1,0 +1,34 @@
+{
+ "location": "Found inside a treasure chest in a troll-drawn carriage in the southeast of Consecrated Snowfield, a hidden late-game snowfield reached via the Haligtree Secret Medallion. From the Consecrated Snowfield grace, head northeast toward a row of three large rocks visible on the map — the carriage sits near the second rock. Resting at a grace before heading out helps ensure the wandering carriage has spawned.",
+ "region": "Consecrated Snowfield",
+ "source": {
+  "type": "chest",
+  "name": "Carriage chest, southeast Consecrated Snowfield"
+ },
+ "tactics": [
+  "Reach Consecrated Snowfield via the Haligtree Secret Medallion (two halves needed) to unlock the shortcut from the Grand Lift of Rold",
+  "From Consecrated Snowfield grace, aim northeast for the second of three large rocks in a row shown on the map — the carriage is nearby",
+  "Don't confuse this with Ordina, Liturgical Town, a separate location in the same region reachable with Sentry's Torch",
+  "Along with the Sword of St. Trina, this is one of only two reusable ways to inflict Sleep — very effective against Godskin Apostles/Nobles, who are weak to it"
+ ],
+ "nearbyGraces": [
+  "Consecrated Snowfield",
+  "Consecrated Snowfield Catacombs"
+ ],
+ "lore": "A candle-holder torch carved with an unusually adult likeness of St. Trina, burning with a lilac flame that carries her narcotic touch — waving it sends out a drowsy purple mist that lulls enemies to sleep.",
+ "builds": [
+  {
+   "name": "Faith/Dexterity Sleep-status build",
+   "why": "Faith and Dexterity scaling plus a low-cost Sleep-inflicting skill (Fires of Slumber) make it one of the two reusable Sleep-proc weapons in the game, strong against Godskin enemies.",
+   "statFocus": "FAI/DEX"
+  },
+  {
+   "name": "Status-stacking hybrid",
+   "why": "Pairs well with other Sleep or Madness tools for players building around status ailments rather than raw damage.",
+   "statFocus": "FAI/DEX"
+  }
+ ],
+ "_verify": [
+  "nearbyGraces"
+ ]
+}

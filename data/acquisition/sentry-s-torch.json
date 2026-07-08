@@ -1,0 +1,31 @@
+{
+ "location": "Sold by the Hermit Merchant at Hermit Merchant's Shack for 7,000 Runes. The shack sits atop a cliff just inside Leyndell's outermost wall, in Capital Outskirts. From Outer Wall Battleground grace, climb the staircase to the east, then take a U-turn up onto the cliff to reach the shack.",
+ "region": "Altus Plateau / Capital Outskirts",
+ "source": {
+  "type": "merchant",
+  "name": "Hermit Merchant"
+ },
+ "tactics": [
+  "The shack is above the Outer Wall Battleground grace in a valley — you'll need to climb up to it, not walk straight in",
+  "Coming from Leyndell instead, head northwest from the Capital Rampart grace",
+  "Its passive reveals invisible enemies, most notably Black Knife Assassins around Ordina, Liturgical Town and Sage's Cave, and exposes players using Concealing Veil-type invisibility",
+  "You don't need to actively wield it to get the detection benefit — keep it in an unused equipment slot while two-handing your main weapon"
+ ],
+ "nearbyGraces": [
+  "Outer Wall Battleground"
+ ],
+ "lore": "Issued to the Erdtree's watchmen, this torch's flame carries a minor incantation that strips away magical concealment, letting its bearer spot assassins who would otherwise approach unseen — a precaution born from the capital's fear of a second Night of the Black Knives.",
+ "builds": [
+  {
+   "name": "Faith build off-hand",
+   "why": "Faith scaling adds to its Holy damage, giving Faith casters a melee-capable off-hand that also reveals invisible enemies.",
+   "statFocus": "FAI"
+  },
+  {
+   "name": "Strength/Faith hybrid",
+   "why": "Strength scaling alongside Faith suits quality-Faith hybrid builds wanting both physical and holy damage from the same weapon.",
+   "statFocus": "STR/FAI"
+  }
+ ],
+ "_verify": []
+}

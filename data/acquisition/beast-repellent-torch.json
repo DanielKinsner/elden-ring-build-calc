@@ -1,0 +1,31 @@
+{
+ "location": "Sold by the Isolated Merchant at his shack (Isolated Merchant's Shack, Dragonbarrow) in the northwest of Dragonbarrow, overlooking the Great-Jar, for 1,200 Runes. It is a merchant purchase, not a field pickup or drop.",
+ "region": "Caelid (Dragonbarrow)",
+ "source": {
+  "type": "merchant",
+  "name": "Isolated Merchant (Dragonbarrow)"
+ },
+ "tactics": [
+  "Dragonbarrow is a high-level sub-area north of central Caelid guarded by dragons and tough patrols — stick to the roads or use Torrent to avoid unnecessary fights on the way to the shack",
+  "The shack has its own Site of Grace, so once found you can fast-travel straight back to restock",
+  "Equip it in either hand (or on your back while two-handing another weapon) to stop wolves, dogs, boars, bears, rats and basilisks from attacking first",
+  "It does not pacify everything — Runebears, Stormhawks and Warhawks ignore it, so don't assume total safety around every beast"
+ ],
+ "nearbyGraces": [
+  "Isolated Merchant's Shack (Dragonbarrow)"
+ ],
+ "lore": "Soaked in a specially prepared incense oil rather than plain fuel, this torch's scent calms wild animals instead of scaring them off — a trick once used by those guarding treasure hidden in beast-infested caves.",
+ "builds": [
+  {
+   "name": "Strength off-hand utility",
+   "why": "Strength is its primary scaling stat, and its main value is the beast-pacifying passive for exploring animal-heavy caves and catacombs without picking unnecessary fights.",
+   "statFocus": "STR"
+  },
+  {
+   "name": "Exploration / low-combat runs",
+   "why": "Letting wolves, boars, dogs and bears ignore you enables faster, safer routes through beast-thick overworld areas, useful for min-combat or low-level playthroughs.",
+   "statFocus": "STR"
+  }
+ ],
+ "_verify": []
+}

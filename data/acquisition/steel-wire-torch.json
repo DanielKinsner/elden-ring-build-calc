@@ -1,0 +1,32 @@
+{
+ "location": "Looted from a corpse at the end of the northwest-facing parapet on Castle Morne's upper battlements (Weeping Peninsula), guarded by two Misbegotten. From the execution podium area, climb the ladder behind the Pumpkin Head enemy to reach the parapet — do not take the southwest parapet route with the flying Misbegotten, which leads to a different item.",
+ "region": "Weeping Peninsula",
+ "source": {
+  "type": "drop",
+  "name": "Corpse on the northwest parapet, Castle Morne"
+ },
+ "tactics": [
+  "From Castle Morne Lift grace, work your way up through the castle's courtyard and ramparts toward the execution podium area",
+  "Near the podium, a separate corpse on the ground drops a Furlcalling Finger Remedy — don't mistake that for the torch, which is further up on the parapet",
+  "Climb the ladder behind the Pumpkin Head enemy to reach the northwest-facing parapet where the torch's corpse sits, guarded by two Misbegotten",
+  "The southwest parapet (with winged/flying Misbegotten) is a different path leading to a different item — easy to take the wrong ladder"
+ ],
+ "nearbyGraces": [
+  "Castle Morne Lift",
+  "Beside the Rampart Gaol"
+ ],
+ "lore": "A standard torch reinforced by wrapping the head in metal wire; heavier to swing, but the heated wire filament burns hotter and pushes noticeably more fire damage into every hit.",
+ "builds": [
+  {
+   "name": "Dexterity/Strength quality off-hand",
+   "why": "Dexterity is its strongest scaling stat alongside Strength, giving it the highest raw fire attack power among the basic torches — appealing to quality builds wanting extra fire damage.",
+   "statFocus": "STR/DEX"
+  },
+  {
+   "name": "Firebreather utility",
+   "why": "Its innate Firebreather skill projects fire in a cone rather than a simple poke, and since the weapon can't be infused with a different Ash of War, this skill is its main combat identity.",
+   "statFocus": "STR/DEX"
+  }
+ ],
+ "_verify": []
+}

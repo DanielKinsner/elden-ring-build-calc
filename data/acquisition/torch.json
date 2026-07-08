@@ -1,0 +1,31 @@
+{
+ "location": "Sold by the merchant Kalé, who sits by the fire just outside Church of Elleh, for 200 Runes — one of the very first purchasable items most players encounter. Also purchasable later from Twin Maiden Husks at Roundtable Hold once you deliver Kale's Bell Bearing (found later in Liurnia of the Lakes).",
+ "region": "Limgrave",
+ "source": {
+  "type": "merchant",
+  "name": "Kalé (Church of Elleh)"
+ },
+ "tactics": [
+  "Kalé is seated at the campfire right outside Church of Elleh, one of the first landmarks reached after the tutorial cave",
+  "No combat is required — it's a straightforward 200-Rune purchase",
+  "Minimal requirements (5 Strength / 5 Dexterity) mean any starting class can wield it immediately",
+  "If you miss buying it early, Kale's Bell Bearing (obtained later) unlocks his full stock, including this torch, from Twin Maiden Husks at Roundtable Hold"
+ ],
+ "nearbyGraces": [
+  "Church of Elleh"
+ ],
+ "lore": "A simple travelers' torch — oil-soaked cloth wrapped around the head and set alight, giving a Tarnished both light to see by and a crude weapon that scorches whatever it touches.",
+ "builds": [
+  {
+   "name": "Any build (utility off-hand)",
+   "why": "Minimal STR/DEX requirements and low weight make it a free early off-hand pickup for any class — used mainly for illumination and applying extra fire damage via its Torch Attack skill rather than as a scaling weapon.",
+   "statFocus": "N/A"
+  },
+  {
+   "name": "Early Strength/Dexterity hybrid",
+   "why": "Modest Strength and Dexterity scaling gives a small AR boost to quality builds who want to two-hand it briefly for the extra fire poke, though it's outclassed quickly by dedicated early weapons.",
+   "statFocus": "STR/DEX"
+  }
+ ],
+ "_verify": []
+}

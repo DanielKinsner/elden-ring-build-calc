@@ -1,0 +1,34 @@
+{
+ "location": "Looted from a corpse on a rooftop right at the entrance to Nokron, Eternal City, reachable only after defeating Starscourge Radahn in Caelid, which opens Starfall Crater in southern Mistwood. Drop into the crater (from around Fort Haight West) and descend the platforms on its eastern side; the torch sits on a rooftop reached via a running jump across a narrow roof ledge before you reach Nokron's first Site of Grace.",
+ "region": "Siofra River / Nokron, Eternal City (underground, reached after defeating Starscourge Radahn)",
+ "source": {
+  "type": "drop",
+  "name": "Rooftop corpse near the Nokron, Eternal City entrance"
+ },
+ "tactics": [
+  "You must defeat Starscourge Radahn first — this triggers the meteor strike that opens Starfall Crater",
+  "Descend the crater's eastern platforms toward Nokron; before reaching the first Nokron grace, sprint along a thin roof segment and jump to the neighboring rooftop to reach the corpse",
+  "Keep your equip load light for this jump — an overloaded roll/jump can come up short and cause a fall to the level below with no way back up except restarting the crater descent",
+  "Don't confuse this rooftop run with the nearby corpse holding a Rune Arc on a different southern rooftop in the same starting area"
+ ],
+ "nearbyGraces": [
+  "Fort Haight West",
+  "Nokron, Eternal City"
+ ],
+ "lore": "An underground relic carried by the Fallen Hawks, scouts who explored the buried city so long that their torch oil ran dry; forced to keep moving through total darkness, they resorted to burning their own dead and inherited the pale, cold ghostflame that still clings to this weapon.",
+ "builds": [
+  {
+   "name": "Intelligence caster off-hand",
+   "why": "Its Magic damage scales with Intelligence, letting INT-focused casters add frostbite buildup and extra magic damage from an off-hand slot instead of a dedicated melee weapon.",
+   "statFocus": "INT"
+  },
+  {
+   "name": "Frostbite hybrid",
+   "why": "Notable frostbite buildup pairs well with other frost weapons/incantations, letting an INT build stack frostbite for its attack-power-down debuff.",
+   "statFocus": "INT"
+  }
+ ],
+ "_verify": [
+  "nearbyGraces"
+ ]
+}

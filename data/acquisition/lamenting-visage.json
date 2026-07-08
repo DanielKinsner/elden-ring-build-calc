@@ -1,0 +1,33 @@
+{
+ "location": "IMPORTANT DISCREPANCY FLAG: cross-checking wiki.gg and Fextralife shows this is actually a Shadow of the Erdtree DLC weapon, not a base-game item — it does not exist anywhere in the base game and cannot be obtained without owning the DLC. In the DLC, it's found on a corpse behind an illusory wall inside Lamenter's Gaol, Gravesite Plain: obtain the Gaol Upper Level Key first, use it to get the Gaol Lower Level Key, then pass through the illusory wall to unlock the final door to the corpse.",
+ "region": "Gravesite Plain — Shadow of the Erdtree DLC region (this location does NOT exist on the base-game map)",
+ "source": {
+  "type": "drop",
+  "name": "Corpse behind an illusory wall, Lamenter's Gaol (DLC)"
+ },
+ "tactics": [
+  "This weapon requires the Shadow of the Erdtree DLC — flag for review, since the source list places it in base/torches.json",
+  "Get the Gaol Upper Level Key first (elsewhere in Lamenter's Gaol), trade/use it to obtain the Gaol Lower Level Key",
+  "Look for an illusory wall guarding the final locked door — illusory walls in Elden Ring are revealed by attacking or rolling into the wall",
+  "Its unique Blindfold of Happiness skill grants roughly 15 seconds of invisibility, useful for slipping past dangerous DLC enemy clusters nearby"
+ ],
+ "nearbyGraces": [],
+ "lore": "A stone lantern shaped like a grieving human face, its hollow eyes glowing softly. Despite the tormented expression carved into the stone, the light it casts feels oddly calm — like someone who has stopped needing to see.",
+ "builds": [
+  {
+   "name": "Pure Strength build",
+   "why": "Unusually high Strength scaling for a torch makes it a legitimate physical-damage option for STR-heavy characters rather than just a light source.",
+   "statFocus": "STR"
+  },
+  {
+   "name": "Stealth exploration utility",
+   "why": "The Blindfold of Happiness skill's temporary invisibility suits any build that wants to bypass a dangerous room rather than fight through it.",
+   "statFocus": "N/A"
+  }
+ ],
+ "_verify": [
+  "location",
+  "region",
+  "nearbyGraces"
+ ]
+}

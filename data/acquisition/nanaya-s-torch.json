@@ -1,0 +1,34 @@
+{
+ "location": "IMPORTANT DISCREPANCY FLAG: cross-checking wiki.gg and Fextralife shows this is also a Shadow of the Erdtree DLC weapon, not a base-game item — it does not exist in the base game. In the DLC, it's found on a corpse in the library section of Midra's Manse, Abyssal Woods. From the Midra's Library Site of Grace, cross west over rafters/bookcases, use a lever to raise a bookcase blocking the far wall, then continue west to the corpse.",
+ "region": "Abyssal Woods — Shadow of the Erdtree DLC region (this location does NOT exist on the base-game map)",
+ "source": {
+  "type": "drop",
+  "name": "Corpse in the library, Midra's Manse (DLC)"
+ },
+ "tactics": [
+  "This weapon requires the Shadow of the Erdtree DLC — flag for review, since the source list places it in base/torches.json",
+  "From Midra's Library grace, head west across the rafters and bookcases toward the north wall of the library",
+  "Find and pull the lever that raises a bookcase, opening the path further west to the corpse",
+  "Its unique skill, Feeble Lord's Frenzied Flame, builds Madness on both the target and the user — use with caution, don't spam it on yourself"
+ ],
+ "nearbyGraces": [
+  "Midra's Library"
+ ],
+ "lore": "Built by fusing a guttering scrap of frenzied flame onto a small length of spine, this torch is a relic of a nameless man who once reached for — and failed to claim — the mantle of Lord of Frenzied Flame; what remained of him is now kept gently by someone called Nanaya.",
+ "builds": [
+  {
+   "name": "Any-build utility off-hand",
+   "why": "Equal scaling across Strength, Dexterity, Intelligence and Faith means it gains a little Attack Power from almost any stat spread, making it a flexible off-hand pick regardless of build.",
+   "statFocus": "STR/DEX/INT/FAI"
+  },
+  {
+   "name": "Madness / Frenzy hybrid",
+   "why": "Its unique skill inflicts Madness buildup on enemies, fitting a Frenzied Flame-themed or Madness-status build.",
+   "statFocus": "ARC/FAI"
+  }
+ ],
+ "_verify": [
+  "location",
+  "region"
+ ]
+}
