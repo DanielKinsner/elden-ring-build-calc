@@ -1,0 +1,33 @@
+{
+ "location": "Dropped directly by the Godskin Noble boss, fought in the Temple of Eiglay inside Volcano Manor on Mt. Gelmir.",
+ "region": "Mt. Gelmir",
+ "source": {
+  "type": "boss",
+  "name": "Godskin Noble (Temple of Eiglay, Volcano Manor)"
+ },
+ "tactics": [
+  "Reach the Temple of Eiglay from the Guest Hall grace (or Prison Town Church if you've already raised the lava-platform lever), past a Snakeman and a Blackflame Monk.",
+  "A single Sleep pot is usually enough to knock the boss out and get several free hits in before it wakes.",
+  "Below roughly 60% HP the Noble sheds the skin on its stomach for phase 2, adding a screen-filling rolling charge — sprint to the side the instant its belly visibly swells, don't try to outrun it head-on.",
+  "Its delayed forward Impaling Thrust is heavily telegraphed but devastating if it connects — sidestep on the audio cue and punish the long recovery."
+ ],
+ "nearbyGraces": [
+  "Guest Hall",
+  "Prison Town Church",
+  "Temple of Eiglay"
+ ],
+ "lore": "A pale, celadon-bladed thrusting sword carried by the Godskin Nobles, servants said to wield swordsmanship unmatched by the lowborn. Despite its size, successive strikes from this blade come faster than the eye can follow.",
+ "builds": [
+  {
+   "name": "Quality Strength/Dexterity",
+   "why": "Balanced D-grade scaling in both Strength and Dexterity makes it a straightforward, infusable quality-build weapon.",
+   "statFocus": "Strength / Dexterity"
+  },
+  {
+   "name": "Status infusion (Blood/Poison/Frost)",
+   "why": "Its unique charged heavy attack lands as a double hit with doubled stamina and status buildup, so infusing it with Blood, Poison, or Cold turns that into an unusually fast way to proc bleed, poison, or frostbite.",
+   "statFocus": "Arcane (Blood/Poison) or Intelligence (Cold), via infusion"
+  }
+ ],
+ "_verify": []
+}

@@ -1,0 +1,31 @@
+{
+ "location": "Writheblood Ruins, in a chest at the far end of the boss arena — obtained after defeating the Sanguine Noble that guards the ruins. The ruins sit east across a hanging bridge from the Bridge of Iniquity Site of Grace, north of the Sainted Hero's Grave.",
+ "region": "Altus Plateau",
+ "source": {
+  "type": "boss",
+  "name": "Sanguine Noble (Writheblood Ruins)"
+ },
+ "tactics": [
+  "Rest at Bridge of Iniquity, then head east across the hanging bridge to reach Writheblood Ruins and the boss fog gate.",
+  "The Sanguine Noble has low poise (around 65) and staggers easily to fast weapons, but every hit it lands stacks bleed on you — watch your hemorrhage meter.",
+  "When it raises its dagger into a distinct stance, back off or use ranged attacks — engaging in melee here usually eats a parry followed by a heavy stab.",
+  "It leaves pools of blood on the ground during the fight; stepping in them builds your own bleed buildup, so stay mobile and avoid the puddles."
+ ],
+ "nearbyGraces": [
+  "Bridge of Iniquity"
+ ],
+ "lore": "This corkscrew-bladed sword belongs to the elite servants of Mohg, Lord of Blood. Its winding shape is built to bore into flesh and draw blood dramatically from the wound, marking its bearer as a devoted member of the Mohgwyn bloodline.",
+ "builds": [
+  {
+   "name": "Arcane Bleed",
+   "why": "Heavy D-scaling Arcane growth stacks with the weapon's already-high innate 55 bleed buildup, making it a strong dedicated hemorrhage-proc weapon.",
+   "statFocus": "Arcane / Dexterity"
+  },
+  {
+   "name": "Dex/Arcane hybrid",
+   "why": "Decent Dexterity scaling alongside its Arcane growth means it still hits reasonably hard even for players not fully committing to a pure bleed build.",
+   "statFocus": "Dexterity / Arcane"
+  }
+ ],
+ "_verify": []
+}

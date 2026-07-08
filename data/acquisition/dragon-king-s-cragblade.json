@@ -1,0 +1,31 @@
+{
+ "location": "Not a direct pickup — obtained by giving the Remembrance of the Dragonlord to Finger Reader Enia at Roundtable Hold. The remembrance itself is dropped by Dragonlord Placidusax after defeating him in his hidden arena in Crumbling Farum Azula (a Wandering Mausoleum can duplicate the remembrance once for a second copy).",
+ "region": "Crumbling Farum Azula",
+ "source": {
+  "type": "boss",
+  "name": "Dragonlord Placidusax"
+ },
+ "tactics": [
+  "From the 'Beside the Great Bridge' grace, pass through the beastmen-filled temple to the outer cliffs, then use the 'Lie down' prompt at an empty bone cubby to warp into the arena.",
+  "Phase 1 opens with room-wide lightning strikes — push in immediately and fight near his hind legs/behind his wings to avoid wing slams and tail swipes.",
+  "Around 50% HP he takes flight and vanishes, then dive-bombs out of storm clouds — roll into the dive just before impact.",
+  "In the final phase his two heads sweep laser beams across the arena in sequence; hug his side to stay in the blind spot or strafe sideways at range to dodge them."
+ ],
+ "nearbyGraces": [
+  "Beside the Great Bridge"
+ ],
+ "lore": "Carved from Gravel Stone and charged with the primeval lightning of the ancient Dragonlord, this blade carries a fragment of Placidusax's own power — granting mastery over the lesser, mortal dragons that came after him.",
+ "builds": [
+  {
+   "name": "Pure Dexterity thrusting build",
+   "why": "Its Dexterity scaling is enormous (upgrading to B grade at +8) and dwarfs its modest Strength requirement, making it a top-tier pick for a Dex-focused piercing character.",
+   "statFocus": "Dexterity"
+  },
+  {
+   "name": "Dragon-hunter utility pick",
+   "why": "Innate lightning damage plus flat damage bonuses against Dragons and Ancient Dragons make it a purpose-built swap-in for the game's dragon fights.",
+   "statFocus": "Dexterity"
+  }
+ ],
+ "_verify": []
+}

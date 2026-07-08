@@ -1,0 +1,31 @@
+{
+ "location": "In an unguarded treasure chest atop the gravestone-covered hill east of Agheel Lake South, beside a green-and-yellow banner in front of the rightmost yellow tent of a small camp watched over by two Kaiden Sellswords.",
+ "region": "Limgrave",
+ "source": {
+  "type": "chest",
+  "name": "Hilltop camp chest near Agheel Lake"
+ },
+ "tactics": [
+  "From the Agheel Lake South Site of Grace, head due east and climb the hill dotted with gravestones to reach the camp.",
+  "The chest itself is undefended — approaching from the right angle lets you sprint straight to it without ever aggroing the two Kaiden Sellswords guarding the camp.",
+  "If you do get spotted, Kaiden Sellswords swing slow but high-poise curved weapons in hard-to-interrupt combo strings — block or space out rather than trading hits.",
+  "It's reachable within minutes of starting a new character, making it an easy first taste of the Heavy Thrusting Sword class."
+ ],
+ "nearbyGraces": [
+  "Agheel Lake South"
+ ],
+ "lore": "A large rapier with a thin, sharp blade meant for lethal one-on-one duels. Like its smaller thrusting-sword cousins, it's built around piercing attacks and can still be used defensively while a shield is equipped in the offhand.",
+ "builds": [
+  {
+   "name": "Early-game Quality Dex/Str",
+   "why": "Balanced Strength/Dexterity scaling and low weight make it an efficient, infusable pick for a Quality-leaning thrusting-sword build from the earliest hours of a run.",
+   "statFocus": "Dexterity / Strength"
+  },
+  {
+   "name": "Duelist sword-and-board",
+   "why": "Because it can guard while equipped, it suits a one-handed thrusting-sword-and-shield playstyle without giving up much offensive reach.",
+   "statFocus": "Dexterity / Strength"
+  }
+ ],
+ "_verify": []
+}
