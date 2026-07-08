@@ -1,0 +1,33 @@
+{
+ "location": "Obtained from any one of three ritual altars in the Realm of Shadow — whichever you reach first. In Fog Rift Catacombs it sits atop the third spiked-ceiling trap room, reached via a hidden lift you access from a raised platform, altar in the far right corner of the roof. In Ruins of Unte it's in the town's central courtyard, which is walled off by an inactive Furnace Golem until reactivated. In Ancient Ruins of Rauh it's on a tower reached by an invisible bridge beyond a chamber full of Kindred of Rot. Only the first altar you interact with grants the plain sword — visiting either of the other two afterward consumes it to create the Sword of Darkness or Sword of Light instead.",
+ "region": "Gravesite Plain (Fog Rift Catacombs), Scadu Altus (Ruins of Unte), or Ancient Ruins of Rauh — whichever altar you reach first",
+ "source": {
+  "type": "drop",
+  "name": "Ritual Altar (Fog Rift Catacombs, Ruins of Unte, or Ancient Ruins of Rauh)"
+ },
+ "tactics": [
+  "Fog Rift Catacombs (from Fog Rift Catacombs or Castle Front grace, Gravesite Plain): dodge the falling ceiling-spike traps to a lift, cross the third trap room to a hidden compartment, then ride it up — the altar is in the far right corner of the roof",
+  "Ruins of Unte (from Castle Watering Hole grace, Scadu Altus): the courtyard altar is blocked by a dormant Furnace Golem — throw a Hefty Furnace Pot at it from a nearby building to restart it, then fight or run past",
+  "Ancient Ruins of Rauh (from Rauh Ancient Ruins, East grace): activate the Spirit Spring and leap north-northeast past a room full of Kindred of Rot, then cross an invisible bridge to the altar's tower",
+  "Whichever altar you visit first is the one that matters — the other two later transform (and permanently consume) this sword rather than duplicating it, so pick your route before committing"
+ ],
+ "nearbyGraces": [
+  "Fog Rift Catacombs",
+  "Castle Watering Hole",
+  "Rauh Ancient Ruins, East"
+ ],
+ "lore": "A blade sealed inside a scabbard of cracked stone that no one has managed to draw free — believed to be a surviving relic of a vanished civilization that once used it in rites performed at altars devoted to both light and darkness.",
+ "builds": [
+  {
+   "name": "Quality Strike build",
+   "why": "Heavier Strength scaling with a secondary Dexterity requirement makes it a straightforward Quality-build weapon, and unlike most straight swords it deals Strike damage — extra effective against skeletal/undead-type enemies that resist Standard and Slash",
+   "statFocus": "STR / DEX"
+  },
+  {
+   "name": "Early-DLC stopgap weapon",
+   "why": "Solid raw damage and low stat requirements make it a strong placeholder while exploring the Realm of Shadow before you commit to transforming it into the Sword of Light or Darkness",
+   "statFocus": "STR"
+  }
+ ],
+ "_verify": []
+}

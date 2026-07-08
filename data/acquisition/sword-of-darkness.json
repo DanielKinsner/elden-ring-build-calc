@@ -1,0 +1,37 @@
+{
+ "location": "Created by carrying the Stone-Sheathed Sword to whichever remaining altar has the lower elevation of the pair: transform at Ruins of Unte if you first got the sword from Fog Rift Catacombs, or transform at Fog Rift Catacombs if you first got it from Ruins of Unte or Ancient Ruins of Rauh. Once obtained you can freely re-switch between the Darkness and Light forms by revisiting the two altars you didn't originally use, but the plain Stone-Sheathed Sword itself can't be reacquired until a new game cycle.",
+ "region": "Fog Rift Catacombs (Gravesite Plain) or Ruins of Unte (Scadu Altus), depending on which altar you used to obtain the Stone-Sheathed Sword",
+ "source": {
+  "type": "drop",
+  "name": "Ritual Altar (Fog Rift Catacombs or Ruins of Unte — transformation altar)"
+ },
+ "tactics": [
+  "The lower-elevation altar of the two you didn't start at always yields Darkness: start at Catacombs → transform at Unte; start at Unte or Rauh → transform at Catacombs",
+  "Reaching Fog Rift Catacombs: from Castle Front grace (Gravesite Plain), head into the dungeon and past the ceiling-spike traps",
+  "Reaching Ruins of Unte: from Castle Watering Hole grace (Scadu Altus), the courtyard altar is blocked by an inactive Furnace Golem — reactivate it with a Hefty Furnace Pot, then fight or dodge past",
+  "Deals Holy damage alongside physical and requires 24 Faith, unlike the purely physical/Strike Stone-Sheathed Sword — settle your stat allocation before committing to a transformation, since it can't be infused with an Ash of War"
+ ],
+ "nearbyGraces": [
+  "Fog Rift Catacombs",
+  "Castle Watering Hole",
+  "Rauh Ancient Ruins, East"
+ ],
+ "lore": "Freed from its stone sheath at a second altar, this blade is said to take shape from threads of shadow that well up from deep root-matter, coiling and dispersing to give the dark blade its form.",
+ "builds": [
+  {
+   "name": "Quality-Faith hybrid",
+   "why": "Fairly even scaling across Strength, Dexterity, and Faith deals both high physical and Holy damage, fitting a hybrid quality-plus-incantations build",
+   "statFocus": "STR / DEX / FAI"
+  },
+  {
+   "name": "Faith melee brawler",
+   "why": "The 24 Faith requirement and strong Faith scaling let a Confessor/Prophet-type character add a competent melee option without needing a Sacred Seal swap",
+   "statFocus": "FAI"
+  }
+ ],
+ "_verify": [
+  "location",
+  "region",
+  "tactics"
+ ]
+}

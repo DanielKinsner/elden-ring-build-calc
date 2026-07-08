@@ -1,0 +1,33 @@
+{
+ "location": "On the floor of a small cave network in Stone Coffin Fissure. From the Fissure Cross site of grace, head northwest to a giant stone coffin tipped nearly vertical, climb down to a ledge running beneath the brick platform near the grace, and follow the cave to its far end.",
+ "region": "Cerulean Coast",
+ "source": {
+  "type": "drop",
+  "name": "cave floor pickup, Stone Coffin Fissure"
+ },
+ "tactics": [
+  "Stone Coffin Fissure itself is sealed until Miquella's Great Rune is broken — the entrance chasm southwest of Cerulean Coast won't open before then",
+  "From Fissure Cross grace, go northwest to the nearly-vertical giant coffin and climb down to the ledge underneath the brick platform",
+  "The small cave holding the sword is guarded by several putrescent oozes — they're slow individually but can box you in inside the tight cave, so pull them apart rather than getting surrounded",
+  "Don't confuse this with the base-game Sword of St. Trina found in Caelid — this DLC version applies eternal (unrecoverable) sleep instead of regular sleep, has longer reach, and a higher crit modifier"
+ ],
+ "nearbyGraces": [
+  "Fissure Cross",
+  "The Fissure",
+  "Fissure Waypoint"
+ ],
+ "lore": "Once St. Trina's plain silver blade, its color changed to deep velvet after she was abandoned — the faint lavender mist she once gave off is said to have curdled into a thicker, intoxicating purple cloud that puts anyone caught in it into a sleep from which they cannot wake.",
+ "builds": [
+  {
+   "name": "INT/DEX sleep-proc build",
+   "why": "High Dexterity and Intelligence scaling plus a 42 sleep buildup and the ranged Mists of Eternal Sleep skill make it a strong status-application straight sword for magic-leaning characters",
+   "statFocus": "DEX / INT"
+  },
+  {
+   "name": "Hybrid physical-magic poke",
+   "why": "Splits high base damage between physical and magic, giving an Intelligence build a fast melee option that still benefits from Int investment alongside sorceries",
+   "statFocus": "INT / DEX"
+  }
+ ],
+ "_verify": []
+}
