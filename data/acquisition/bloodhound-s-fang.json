@@ -1,0 +1,34 @@
+{
+ "location": "Guaranteed drop from Bloodhound Knight Darriwil, an optional boss sealed inside the Forlorn Hound Evergaol. The Evergaol sits on the Limgrave side of the map, just north of the Bridge of Sacrifice — easy to overlook since it's not inside Castle Morne on the Weeping Peninsula side.",
+ "region": "Limgrave",
+ "source": {
+  "type": "boss",
+  "name": "Bloodhound Knight Darriwil"
+ },
+ "tactics": [
+  "From the Agheel Lake South grace, head south toward the Bridge of Sacrifice — the Evergaol entrance is on the Limgrave side just before the bridge, easy to ride past without noticing",
+  "Darriwil is fast and aggressive with a bleed-focused curved-sword moveset and a dangerous leaping combo; keep pressure on him rather than backing off",
+  "Can be summoned for help by Blaidd the Half-Wolf if his early questline dialogue has triggered",
+  "Beat him early in your playthrough — later story progress may swap out who occupies the Evergaol, risking the fight/weapon becoming unavailable until New Game+ (unconfirmed exact trigger)"
+ ],
+ "nearbyGraces": [
+  "Agheel Lake South",
+  "Bridge of Sacrifice"
+ ],
+ "lore": "The signature curved greatsword of the Bloodhound Knights, its blade rippling like a wave. Built to unleash vicious strikes in mid-air, it rewards a wielder who fights airborne as readily as on the ground.",
+ "builds": [
+  {
+   "name": "STR/DEX bleed",
+   "why": "D/C scaling in Strength and Dexterity plus an innate 55 bloodloss buildup makes it a strong early-to-mid bleed weapon",
+   "statFocus": "STR / DEX"
+  },
+  {
+   "name": "Jump-attack skirmisher",
+   "why": "Unusually high jump-attack motion values, plus the Bloodhound's Finesse skill — an evasive lunge with long invincibility",
+   "statFocus": "DEX"
+  }
+ ],
+ "_verify": [
+  "tactics"
+ ]
+}

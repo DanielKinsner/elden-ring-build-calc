@@ -1,0 +1,28 @@
+{
+ "location": "Random (4%) drop from curved-sword-wielding Omen enemies. A reliable one spawns in the heavily guarded courtyard of Stormveil Castle, reached from the Liftside Chamber Site of Grace.",
+ "region": "Limgrave",
+ "source": {
+  "type": "enemy",
+  "name": "Omen (curved-sword-wielding, Stormveil Castle)"
+ },
+ "tactics": [
+  "From the Liftside Chamber grace, head into the adjoining courtyard where the Omen is stationed",
+  "The Omen swings huge, slow overhead and horizontal cleaves — bait a swing and punish the long recovery",
+  "A caged beast prowls the same courtyard; equip the Beast-Repellent Torch to keep it from joining the fight while farming",
+  "Don't confuse this with the visually similar Great Omenkiller Cleaver, a different weapon dropped by Omenkiller enemies (e.g. in Volcano Manor)"
+ ],
+ "nearbyGraces": [
+  "Liftside Chamber",
+  "Secluded Cell",
+  "Gateside Chamber"
+ ],
+ "lore": "A massive, heavy-bladed curved sword handed to the Omen as an instrument of war, built to let brute strength do the talking. Its blade bears a fading engraved pattern — the last trace of a curse now nearly spent.",
+ "builds": [
+  {
+   "name": "STR/DEX quality brawler",
+   "why": "D/D scaling that slightly favors Strength, with unique two-handed heavy attacks resembling a guillotine strike",
+   "statFocus": "STR / DEX"
+  }
+ ],
+ "_verify": []
+}

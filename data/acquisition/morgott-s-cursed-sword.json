@@ -1,0 +1,27 @@
+{
+ "location": "Not a world pickup — traded to Finger Reader Enia at the Roundtable Hold in exchange for the Remembrance of the Omen King, which drops from Morgott, the Omen King after his fight at the Elden Throne in Leyndell, Royal Capital. The remembrance's alternate reward is the Regal Omen Bairn consumable, so you only get one unless you duplicate the remembrance once via a belled Wandering Mausoleum.",
+ "region": "Leyndell, Royal Capital",
+ "source": {
+  "type": "boss",
+  "name": "Morgott, the Omen King (remembrance, redeemed at Roundtable Hold)"
+ },
+ "tactics": [
+  "Reach the fight via the Queen's Bedchamber grace, then climb the southeastern stairwell to the fog gate at the Elden Throne — Melina waits just outside",
+  "Morgott's first phase mixes fast curved-sword combos with bleed-inflicting dagger throws; his second phase adds a gravity-pulling spear toss and a screen-wide dark blast",
+  "He's vulnerable to being staggered by heavy hits, and many players find Scarlet Rot buildup easier to land than out-trading his long combo strings",
+  "After the kill, take the Remembrance of the Omen King to Enia at Roundtable Hold to choose between this sword and the Regal Omen Bairn"
+ ],
+ "nearbyGraces": [
+  "Queen's Bedchamber",
+  "Elden Throne"
+ ],
+ "lore": "Formed from the very curse-blood that Morgott renounced and sealed away within himself, this blade shifts in hue as if still alive with that same accursed blood. It served as the Omen King's own weapon in his final stand beneath the Erdtree.",
+ "builds": [
+  {
+   "name": "DEX/Arcane bleed",
+   "why": "C-rank Dexterity with secondary Arcane scaling and a fixed 60 bloodloss buildup makes it a strong dedicated bleed-proc weapon",
+   "statFocus": "DEX / ARC"
+  }
+ ],
+ "_verify": []
+}

@@ -1,0 +1,28 @@
+{
+ "location": "Random (~4%) drop from Kaiden Sellsword enemies. Farmable from a camp of sellswords (some on horseback) northeast of the Agheel Lake North grace, a pair stationed due west of Warmaster's Shack, and a camp southwest of the Murkwater Coast area.",
+ "region": "Limgrave",
+ "source": {
+  "type": "enemy",
+  "name": "Kaiden Sellsword"
+ },
+ "tactics": [
+  "Best farm spot is the sellsword camp northeast of Agheel Lake North — several Sellswords patrol here, some mounted",
+  "Sellswords hit hard in groups; pull them individually or use Torrent to kite the mounted ones away from the pack",
+  "Only some Sellswords carry the Dismounter — check the weapon on their back, and rest at a grace to respawn the camp for repeat attempts",
+  "The same enemy type (and drop) also appears later on the road through Mountaintops of the Giants if you'd rather farm it there at a higher level"
+ ],
+ "nearbyGraces": [
+  "Agheel Lake North",
+  "Warmaster's Shack",
+  "Stormhill Shack"
+ ],
+ "lore": "A curved greatsword favored by the burly mercenaries of Kaiden, fusing a scimitar's sweeping edge with the heft of a hand axe. Simple and brutal, it's said to swing just as effectively from horseback as on foot.",
+ "builds": [
+  {
+   "name": "Quality STR/DEX",
+   "why": "Even D/D scaling split between Strength and Dexterity fits a balanced Quality-affinity build",
+   "statFocus": "STR / DEX"
+  }
+ ],
+ "_verify": []
+}

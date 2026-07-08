@@ -1,0 +1,27 @@
+{
+ "location": "Guaranteed drop from the boss Magma Wyrm Makar, found at the top of the Ruin-Strewn Precipice — a cave dungeon in northern Liurnia of the Lakes that climbs from Ravine-Veiled Village up toward Altus Plateau.",
+ "region": "Liurnia of the Lakes",
+ "source": {
+  "type": "boss",
+  "name": "Magma Wyrm Makar"
+ },
+ "tactics": [
+  "From the Ravine-Veiled Village grace, climb the miners' cave ladders and platforms up to the Ruin-Strewn Precipice grace, then push forward to the boss fog",
+  "Magma Wyrm Makar is very susceptible to Sleep and to multi-hit magic — sorceries and repeated strikes stagger it easily",
+  "Its main threats are a lava breath spray followed by a body-slam dash; strafe laterally rather than retreating straight back",
+  "This dungeon is also an alternate route onto Altus Plateau that skips the Grand Lift of Dectus medallion requirement, so you may arrive here earlier or later than intended"
+ ],
+ "nearbyGraces": [
+  "Ruin-Strewn Precipice",
+  "Ravine-Veiled Village"
+ ],
+ "lore": "Carried by the dragon-like Magma Wyrms, its blade is shaped like a gaping draconic jaw and armored in hardened scales. These creatures are said to have once been human heroes who broke taboo by attempting communion with dragons, and were cursed to crawl the earth as half-dragon shadows of themselves ever after.",
+ "builds": [
+  {
+   "name": "STR/Faith fire hybrid",
+   "why": "C-rank Strength plus solid Faith scaling adds innate fire damage on top of its physical hits, needing no Faith buff spells to work",
+   "statFocus": "STR / FAI"
+  }
+ ],
+ "_verify": []
+}

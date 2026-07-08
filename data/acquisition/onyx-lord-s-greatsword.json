@@ -1,0 +1,26 @@
+{
+ "location": "Guaranteed drop from the Onyx Lord boss at the bottom of the Sealed Tunnel, a mine dungeon in the Capital Outskirts area of Altus Plateau, reached from the Outer Wall Phantom Tree grace.",
+ "region": "Altus Plateau",
+ "source": {
+  "type": "boss",
+  "name": "Onyx Lord (Sealed Tunnel)"
+ },
+ "tactics": [
+  "From the Outer Wall Phantom Tree grace, head down into the moat area and south past the Land Squirts to find the Sealed Tunnel entrance",
+  "Inside, roll through an illusory wall to reach the dungeon's own Site of Grace, then find a second illusory wall nearby hiding the lift down to the mines",
+  "The Onyx Lord uses slow gravity-magic sword swings and a telegraphed ranged repulsion blast — punish after each attack rather than trading",
+  "This dungeon also leads to the Divine Tower of West Altus (for activating Rykard's Great Rune) and an unlimited Smithing Stone merchant, so it's worth clearing regardless"
+ ],
+ "nearbyGraces": [
+  "Outer Wall Phantom Tree"
+ ],
+ "lore": "Forged from golden-hued meteoric ore, this blade hides gravity-warping magic within its edge. It once belonged to the Onyx Lords, an ancient stone-skinned race said to have risen to life when a meteor struck the earth.",
+ "builds": [
+  {
+   "name": "STR/Int battlemage",
+   "why": "D-rank Strength and Intelligence scaling with innate magic damage lets it double as a melee weapon and an Int-scaling gravity skill without a separate staff",
+   "statFocus": "STR / INT"
+  }
+ ],
+ "_verify": []
+}

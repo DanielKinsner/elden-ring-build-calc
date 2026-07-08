@@ -1,0 +1,26 @@
+{
+ "location": "Rare (4%) drop from a single Fire Monk enemy hidden inside the Giant-Conquering Hero's Grave in the Mountaintops of the Giants. From the entrance grace, head downstairs and through an illusory wall on the right into a corridor with a moving flame trap; the Fire Monk waits in a cubby beyond it.",
+ "region": "Mountaintops of the Giants",
+ "source": {
+  "type": "enemy",
+  "name": "Fire Monk (Giant-Conquering Hero's Grave)"
+ },
+ "tactics": [
+  "Only one Fire Monk carrying this weapon exists in the entire game, tucked in a side room off the dungeon's opening corridor",
+  "Margit's Shackle can freeze the corridor's moving flame trap in place so you can slip past unburned",
+  "With just a 4% drop chance from a single enemy, this is widely considered one of the hardest weapons to farm in the base game — rest and re-fight repeatedly",
+  "Don't confuse this Fire Monk with the Blackflame Monks in the Divine Tower of Caelid — those enemies also wield this weapon visually but do not drop it"
+ ],
+ "nearbyGraces": [
+  "Giants' Gravepost"
+ ],
+ "lore": "A curved sword etched with a flickering flame motif, carried by the Fire Monks native to the Mountaintops of the Giants. Their order is said to have chased a fugitive who stole their sacred flame all the way down into Liurnia.",
+ "builds": [
+  {
+   "name": "DEX-leaning quality",
+   "why": "D/D scaling that favors Dexterity slightly, on one of the lightest curved greatswords, suits a fast quality build over a pure-STR one",
+   "statFocus": "DEX / STR"
+  }
+ ],
+ "_verify": []
+}

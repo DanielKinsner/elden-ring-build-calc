@@ -1,0 +1,26 @@
+{
+ "location": "Guaranteed drop from the Ancient Hero of Zamor, the boss at the end of the Giant-Conquering Hero's Grave dungeon in the Mountaintops of the Giants, reached via a lift down from the Giants' Gravepost grace.",
+ "region": "Mountaintops of the Giants",
+ "source": {
+  "type": "boss",
+  "name": "Ancient Hero of Zamor (Giant-Conquering Hero's Grave)"
+ },
+ "tactics": [
+  "From the Giants' Gravepost grace, head west to a large tomb and take the lift down into the Giant-Conquering Hero's Grave",
+  "A locked door partway through the dungeon requires a Stonesword Key to proceed",
+  "The Ancient Hero of Zamor is the dungeon's final boss — a frost-infused knight with sweeping curved-sword spins; circle to its flank to avoid the full arc of each swing",
+  "Don't confuse this dungeon-ending boss with the separate open-field 'Ancient Hero of Zamor' skirmish encounters found elsewhere in the Mountaintops/Weeping Peninsula — only this specific fight guarantees the sword"
+ ],
+ "nearbyGraces": [
+  "Giants' Gravepost"
+ ],
+ "lore": "Carried by the knights of Zamor, who earned great renown fighting in the war against the giants. Styled after a bitter winter wind, the blade carries a frost effect potent enough to freeze anything it cuts.",
+ "builds": [
+  {
+   "name": "DEX frost skirmisher",
+   "why": "D/D scaling that slightly favors Dexterity, plus a fixed 65 frostbite buildup, lets it chip away at enemy stamina/defense with every proc",
+   "statFocus": "DEX"
+  }
+ ],
+ "_verify": []
+}

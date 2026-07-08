@@ -1,0 +1,32 @@
+{
+ "location": "Rare (~2%) drop from cleaver-wielding Beastman enemies in Crumbling Farum Azula — found via the elevator down from the Beside the Great Bridge grace, and past the Dragon Temple Lift grace. Can also be farmed much earlier by using the Four Belfries' 'Crumbling Lands' waygate in Liurnia, which warps you into a Farum-Azula-scaled pocket area containing a cleaver-wielding Beastman.",
+ "region": "Crumbling Farum Azula",
+ "source": {
+  "type": "enemy",
+  "name": "Beastman of Farum Azula (cleaver-wielding)"
+ },
+ "tactics": [
+  "Farm near the Beside the Great Bridge and Dragon Temple Lift graces — take the elevator/lift down to find cleaver-wielding Beastmen",
+  "Only a ~2% drop chance, so expect to rest and re-fight repeatedly; the Four Belfries early-access route lets high-level characters grab it before reaching Farum Azula proper",
+  "Don't confuse this with the basic Beastman of Farum Azula found much earlier in Limgrave's Groveside Cave — that one carries a different weapon and won't drop the Cleaver",
+  "Farum Azula's floating, wind-swept platforms make positioning risky — fight with your back away from ledges"
+ ],
+ "nearbyGraces": [
+  "Beside the Great Bridge",
+  "Dragon Temple Lift"
+ ],
+ "lore": "A hefty curved blade hammered from crude, dull iron by the beastmen who guard the ruins of Farum Azula. Despite its brutish look, the way it's balanced hints that these beast-men grasp something about smithing beyond ordinary human understanding.",
+ "builds": [
+  {
+   "name": "Pure Strength brawler",
+   "why": "C-rank Strength-only scaling with the highest base attack power among infusable curved greatswords in the base game",
+   "statFocus": "STR"
+  },
+  {
+   "name": "Heavy-infused STR stacker",
+   "why": "Its Heavy affinity pushes Strength scaling even further, rewarding a build that dumps everything into STR and an Ash of War for range/utility",
+   "statFocus": "STR"
+  }
+ ],
+ "_verify": []
+}
