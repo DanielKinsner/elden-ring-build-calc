@@ -1,0 +1,34 @@
+{
+ "location": "Sits with a corpse in a sealed inner chamber that is physically part of Belurat, Tower Settlement but can only be reached by backtracking down through Enir-Ilim: from the Spiral Rise area take the descending side stairs (not the ones up to the grace), drop through broken ledges/archways down the tower exterior, sprint-jump through a window back into Belurat, then work down through interior rooms, an elevator, and a bridge to a pair of large double doors.",
+ "region": "Belurat, Tower Settlement",
+ "source": {
+  "type": "drop",
+  "name": "Corpse in hidden chamber below Enir-Ilim's Spiral Rise"
+ },
+ "tactics": [
+  "Start from the Spiral Rise Site of Grace in Enir-Ilim and look for the downward side stairway instead of continuing up to the grace itself.",
+  "The descent requires careful platforming along broken railings and ledges on the tower exterior, ending in a running jump through a window back into Belurat, Tower Settlement.",
+  "One indoor room holds three Inquisitors — try to pick one off with a sneak attack before the rest notice; further on a lightning-charged Divine Beast Warrior guards the path but hits extremely hard and can simply be run past rather than fought.",
+  "Ride the elevator down, cross the bridge, and open the large double doors at the end to find the corpse holding Euporia."
+ ],
+ "nearbyGraces": [
+  "Spiral Rise"
+ ],
+ "lore": "A ceremonial twinblade said to symbolize abundance and kept as the tower's secret treasure. Its golden, plant-like blades have withered and dimmed with age but regain their shine each time they strike a living foe — undead enemies don't restore the luster.",
+ "builds": [
+  {
+   "name": "Faith melee/incantation hybrid",
+   "why": "A steep 24 Faith requirement and a huge fixed 100 Holy attack power reward pure Faith investment, and the Luster passive (extra Holy damage after landing consecutive hits) rewards sustained aggression in longer fights, pairing naturally with Faith incantations on the same build.",
+   "statFocus": "Faith"
+  },
+  {
+   "name": "Quality-Faith twinblade duelist",
+   "why": "Since the weapon can't be infused or buffed and Faith is a flat requirement rather than something worth over-investing in, some players just hit the 24 Faith minimum and pour remaining points into Strength/Dexterity for faster swings and better scaling on the D-grade physical side.",
+   "statFocus": "Strength / Dexterity"
+  }
+ ],
+ "_verify": [
+  "region",
+  "source"
+ ]
+}

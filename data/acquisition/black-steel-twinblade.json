@@ -1,0 +1,35 @@
+{
+ "location": "Guaranteed drop from a unique Black Knight standing at the top of a hillside encampment on the western side of Scadu Altus, overlooking the road toward Shadow Keep (northeast of the Church of the Crusade).",
+ "region": "Scadu Altus",
+ "source": {
+  "type": "enemy",
+  "name": "Black Knight (western hill camp, Scadu Altus)"
+ },
+ "tactics": [
+  "From Highroad Cross grace, head north along the main road past a wandering Furnace Golem, then cut west and climb the hillside camp to find the Black Knight at the top.",
+  "The Black Knight is guarded by several regular soldiers in the camp, so consider thinning those out or luring the knight away before committing to the 1v1.",
+  "This particular Black Knight appears to be a unique, single spawn tied to the drop rather than a respawning enemy type, so you only need to beat it once to get the weapon.",
+  "The drop is guaranteed on defeat, so there's no need to farm it or worry about drop rate."
+ ],
+ "nearbyGraces": [
+  "Highroad Cross",
+  "Church of the Crusade",
+  "Scadu Altus, West"
+ ],
+ "lore": "Standard-issue arm of the Black Knights who serve Messmer the Impaler: twin blades of black steel trimmed in gold, carrying a built-in holy blessing from the Erdtree that grows even stronger if further sanctified by the wielder.",
+ "builds": [
+  {
+   "name": "Faith-Quality hybrid",
+   "why": "Even D-grade scaling across Strength, Dexterity and Faith, plus a flat innate Holy damage bonus, rewards spreading points across all three rather than dumping into one stat.",
+   "statFocus": "Strength / Dexterity / Faith"
+  },
+  {
+   "name": "Sacred-infused Holy burst",
+   "why": "Infusing with the Sacred affinity swaps physical scaling for pure Faith scaling and stacks with the weapon's innate Holy damage line, turning it into a high Holy-AR melee option for a Faith-heavy incantation build.",
+   "statFocus": "Faith"
+  }
+ ],
+ "_verify": [
+  "tactics"
+ ]
+}
