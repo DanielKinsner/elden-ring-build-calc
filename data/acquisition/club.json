@@ -1,0 +1,26 @@
+{
+ "location": "Purchased for 600 Runes from the Nomadic Merchant who sits under a collapsed stone structure southeast of the Coastal Cave entrance, in West Limgrave. Also the default starting weapon for the Wretch class, and a rare 2% drop from club-wielding Demi-Humans.",
+ "region": "Limgrave",
+ "source": {
+  "type": "merchant",
+  "name": "Nomadic Merchant (West Limgrave, SE of Coastal Cave)"
+ },
+ "tactics": [
+  "Buying it for 600 Runes is far more reliable than farming the 2% Demi-Human drop.",
+  "The merchant is tucked beneath a collapsed structure and easy to walk past — look southeast of the Coastal Cave entrance, west of Church of Elleh.",
+  "Starting as a Wretch skips the trip entirely — you spawn with one equipped."
+ ],
+ "nearbyGraces": [
+  "Coastal Cave",
+  "Church of Elleh"
+ ],
+ "lore": "A plain length of solid wood, no different from a caveman's cudgel — no craftsmanship involved, just brute force and persistence needed to beat something down with it.",
+ "builds": [
+  {
+   "name": "Pure Strength Bonk",
+   "why": "C-scaling Strength and no Dexterity requirement make it a zero-investment early heavy-attack weapon; its Barbaric Roar skill buffs damage and poise for a few seconds.",
+   "statFocus": "Strength"
+  }
+ ],
+ "_verify": []
+}

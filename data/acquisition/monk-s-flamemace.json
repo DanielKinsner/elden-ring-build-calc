@@ -1,0 +1,26 @@
+{
+ "location": "Dropped by the Fire Monk stationed in the encampment right at the Eastern Tableland grace, in eastern Liurnia of the Lakes. Also droppable from Fire Monks near the Giant-Conquering Hero's Grave in the Mountaintops of the Giants.",
+ "region": "Liurnia of the Lakes",
+ "source": {
+  "type": "enemy",
+  "name": "Fire Monk"
+ },
+ "tactics": [
+  "The Eastern Tableland camp also holds two Thorn Sorcerers, plus more patrolling Thorn Sorcerers and a Flame Chariot nearby — clear carefully rather than pulling everything at once.",
+  "Drop rate is modest (about 4% at 100 Discovery); resting at the grace to respawn the Monk and repeating the kill is the standard farm.",
+  "At Giant-Conquering Hero's Grave, the Monk is just down the stairs to the left of the entrance grace — an easier solo fight if you're already in that region."
+ ],
+ "nearbyGraces": [
+  "Eastern Tableland",
+  "Ainsel River Well"
+ ],
+ "lore": "A mace carried by the fire-worshipping monks stationed near the giants' territory, its head imbued with an inner flame drawn from their devotion to fire.",
+ "builds": [
+  {
+   "name": "No-Investment Fire Damage",
+   "why": "Comes with innate fire damage baked in, so a Strength/Dexterity build gets extra elemental damage without spending points in Intelligence or Faith.",
+   "statFocus": "Strength/Dexterity"
+  }
+ ],
+ "_verify": []
+}

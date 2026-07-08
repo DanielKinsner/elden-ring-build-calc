@@ -1,0 +1,27 @@
+{
+ "location": "In a chest at the bottom of the first lava-and-chariot obstacle inside Gelmir Hero's Grave, Mt. Gelmir — go down the slope and use the side rooms to avoid the rolling chariot.",
+ "region": "Mt. Gelmir",
+ "source": {
+  "type": "chest",
+  "name": "Chest in Gelmir Hero's Grave"
+ },
+ "tactics": [
+  "A rolling chariot patrols the lava corridor — duck into the side rooms rather than trying to outrun it in the open.",
+  "This chest comes early in the dungeon, before the Chariot boss room and a later Black Knife Assassin invader deeper in.",
+  "It's a Walking Mausoleum-style puzzle dungeon; Torrent's double jump helps on the pressure-plate sections if you get stuck."
+ ],
+ "nearbyGraces": [
+  "Gelmir Hero's Grave",
+  "First Mt. Gelmir Campsite",
+  "Primeval Sorcerer Azur"
+ ],
+ "lore": "A bludgeon made from a single enormous finger, wrapped in heavy rings and apparently severed from some ancestor of the Fingercreepers — unsettlingly, it's said to still carry a trace of warmth from whatever blasphemy created it.",
+ "builds": [
+  {
+   "name": "Fixed-Skill Burst Damage",
+   "why": "Cannot be infused with an Ash of War, but its innate Claw Flick skill delivers a big single hit — good for a quality build that just wants a strong panic-button attack.",
+   "statFocus": "Strength/Dexterity"
+  }
+ ],
+ "_verify": []
+}

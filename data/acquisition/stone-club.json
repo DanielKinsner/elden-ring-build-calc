@@ -1,0 +1,25 @@
+{
+ "location": "Lying on the ground just before the boss fog wall inside Academy Crystal Cave, beneath Raya Lucaria Academy in Liurnia of the Lakes. Also a 4% drop from Battlemage enemies, with extra static pickups in the graveyard in front of Sellia Hideaway (Caelid), outside West Windmill Pasture (Altus Plateau), and twice in Miquella's Haligtree.",
+ "region": "Liurnia of the Lakes",
+ "source": {
+  "type": "drop",
+  "name": "Ground item before the Crystalian boss fog wall, Academy Crystal Cave"
+ },
+ "tactics": [
+  "Strike damage (which the Stone Club deals) ignores the Crystalian boss's rock armor at the end of this dungeon — picking it up right before that fight is a natural fit.",
+  "The cave entrance needs two Stonesword Keys to open its fog gate; it's on the western cliff below Raya Lucaria Academy.",
+  "If you'd rather farm instead, the Battlemage outside West Windmill Pasture on Altus Plateau is an easy standalone target rather than hunting the drop."
+ ],
+ "nearbyGraces": [
+  "Academy Crystal Cave"
+ ],
+ "lore": "The trademark weapon of Raya Lucaria's battlemages — a lump of glintstone that's heavier than it looks and carries no magic of its own, kept around for when a sorcerer needs to settle things up close instead.",
+ "builds": [
+  {
+   "name": "Pure Strength Heavy Hitter",
+   "why": "C-scaling Strength with minimal Dexterity means nearly all upgrade points funnel into raw attack power for a Strength-focused build.",
+   "statFocus": "Strength"
+  }
+ ],
+ "_verify": []
+}

@@ -1,0 +1,28 @@
+{
+ "location": "Received from Finger Reader Enia at Roundtable Hold by trading the Elden Remembrance earned from defeating Radagon of the Golden Order and the Elden Beast — the two-phase final boss atop the Erdtree in Leyndell, Ashen Capital.",
+ "region": "Leyndell, Ashen Capital",
+ "source": {
+  "type": "boss",
+  "name": "Radagon of the Golden Order / Elden Beast (Elden Remembrance)"
+ },
+ "tactics": [
+  "This is the game's final boss — a genuine two-phase fight (Radagon, then immediately the Elden Beast) with no grace to rest at in between.",
+  "At Roundtable Hold, trading the Elden Remembrance forces a choice between Marika's Hammer and the Sacred Relic Sword — you can only pick one per Remembrance unless you duplicate it with a Walking Mausoleum's Stonesword Key mechanic.",
+  "Radagon has fast, wide-tracking melee combos; the Elden Beast that follows has huge sweeping AoE attacks — use the arena's open space to create dodge room."
+ ],
+ "nearbyGraces": [
+  "Elden Throne",
+  "Roundtable Hold"
+ ],
+ "lore": "The stone hammer forged in the distant land of the Numen, the very tool Queen Marika used to shatter the Elden Ring — and that Radagon later wielded trying to mend it, leaving it fused with fragments of rune.",
+ "builds": [
+  {
+   "name": "Endgame Faith/Quality Hybrid",
+   "why": "D/D/D scaling across Strength, Dexterity and Faith plus the high-damage Gold Breaker leap attack suit a late-game Faith-quality build looking for one big finishing hit.",
+   "statFocus": "Faith/Quality"
+  }
+ ],
+ "_verify": [
+  "region"
+ ]
+}

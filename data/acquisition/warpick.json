@@ -1,0 +1,26 @@
+{
+ "location": "Chance drop (2%) from Godrick Soldiers; the Gatefront Ruins just south of the Gatefront grace in Limgrave has three of them (one in the western corner, two in the southern corner) and is the most convenient farm spot.",
+ "region": "Limgrave",
+ "source": {
+  "type": "enemy",
+  "name": "Godrick Soldier"
+ },
+ "tactics": [
+  "About a dozen Godrick Soldiers patrol Gatefront Ruins, including a tougher Godrick Knight leader — most regular soldiers can be backstabbed one at a time.",
+  "It's only a 2% drop, so expect to reset the area at a grace and repeat if you're farming.",
+  "Soldiers carrying the same Warpick also appear later in Liurnia, Caelid, Altus Plateau, Deeproot Depths and Miquella's Haligtree if you'd rather pick it up on the way through those areas instead."
+ ],
+ "nearbyGraces": [
+  "Gatefront",
+  "Church of Elleh"
+ ],
+ "lore": "Essentially a war pick reworked for the battlefield — a hammer with a hardened beak-like spike that punches through metal armor rather than just bludgeoning it.",
+ "builds": [
+  {
+   "name": "Pierce-Damage Armor Breaker",
+   "why": "One of only two hammers dealing pure pierce damage, so it pairs with the Spear Talisman and shreds heavily armored enemies that resist strike damage.",
+   "statFocus": "Strength/Dexterity"
+  }
+ ],
+ "_verify": []
+}

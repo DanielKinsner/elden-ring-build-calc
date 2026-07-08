@@ -1,0 +1,26 @@
+{
+ "location": "Dropped by club-and-shield Albinaurics found on a fallen bridge section east of the Academy Gate Town grace, heading toward Gate Town Bridge, in Liurnia of the Lakes.",
+ "region": "Liurnia of the Lakes",
+ "source": {
+  "type": "enemy",
+  "name": "Albinauric (club-wielding)"
+ },
+ "tactics": [
+  "Several Albinaurics carry it here: two sit on the broken bridge section, a patrolling pair is further along, and one more stands on a low rooftop.",
+  "It's a random drop, not guaranteed — expect to clear the group more than once if it doesn't drop.",
+  "Individually weak, but they can gang up on the narrow bridge; pull them one at a time if you can."
+ ],
+ "nearbyGraces": [
+  "Academy Gate Town",
+  "Gate Town Bridge"
+ ],
+ "lore": "A hard, crescent-shaped club that Albinaurics carry in place of a curved sword, since not all of them have the coordination to swing a proper blade.",
+ "builds": [
+  {
+   "name": "Early Quality Filler",
+   "why": "Cheap Strength/Dexterity requirements and fast strike-type swings make it a passable stopgap hammer while leveling toward a heavier weapon.",
+   "statFocus": "Strength/Dexterity"
+  }
+ ],
+ "_verify": []
+}

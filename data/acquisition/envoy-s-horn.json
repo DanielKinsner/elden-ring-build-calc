@@ -1,0 +1,25 @@
+{
+ "location": "Chance drop from Oracle Envoy enemies patrolling the rampart west of the East Capital Rampart grace in Leyndell, Royal Capital. A second farmable group of three Envoys also appears east of the Haligtree Canopy grace in Miquella's Haligtree.",
+ "region": "Leyndell, Royal Capital",
+ "source": {
+  "type": "enemy",
+  "name": "Oracle Envoy"
+ },
+ "tactics": [
+  "Low drop rate (about 2% at 100 Discovery) — plan to fight the same Envoys repeatedly or boost item discovery first.",
+  "Oracle Envoys hit hard with holy-infused strikes for a first Capital visit; engage them one at a time along the rampart rather than in a group.",
+  "A much tougher Giant Oracle Envoy also patrols nearby, guarding a corpse with a Golden Rune — that fight is optional and separate from farming the Horn."
+ ],
+ "nearbyGraces": [
+  "East Capital Rampart"
+ ],
+ "lore": "The heavy golden horn carried by Oracle Envoys — technically an instrument, but its weight is so great that no ordinary person could ever actually play it, so it ends up being swung like a club instead.",
+ "builds": [
+  {
+   "name": "Faith Hybrid Bruiser",
+   "why": "D-scaling in Strength, Dexterity and Faith plus innate holy damage let a Faith character keep pace in melee while retaining the ranged Oracular Bubble option.",
+   "statFocus": "Faith"
+  }
+ ],
+ "_verify": []
+}

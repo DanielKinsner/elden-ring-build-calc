@@ -1,0 +1,27 @@
+{
+ "location": "On a corpse on the upper floor of the Fortified Manor in Leyndell, Royal Capital — inside the building marked with a lion crest, lying next to the Sanctified Whetblade near an anvil.",
+ "region": "Leyndell, Royal Capital",
+ "source": {
+  "type": "drop",
+  "name": "Corpse in Fortified Manor"
+ },
+ "tactics": [
+  "From the Fortified Manor, First Floor grace, exit and go right past the dog enemies, then climb the wooden scaffolding on the building's side and squeeze through the broken wall.",
+  "Alternatively, drop down from the West Capital Rampart grace onto the lion-crest building and enter through the side shack with a body hanging off its roof.",
+  "It sits right beside the Sanctified Whetblade — grab both on the same trip.",
+  "This item becomes unobtainable once the area transforms into Leyndell, Ashen Capital, so collect it before advancing the main quest past that point."
+ ],
+ "nearbyGraces": [
+  "Fortified Manor, First Floor",
+  "West Capital Rampart"
+ ],
+ "lore": "A stone head lashed to a metal haft, originally a blacksmith's tool rather than a weapon — the game notes smithing itself is said to trace back to the giants, and this tool's strikes still carry real heft.",
+ "builds": [
+  {
+   "name": "Early Quality Stance-Breaker",
+   "why": "Even D/D scaling in Strength and Dexterity plus a free Kick skill make it a reliable stagger tool for a quality build before finding a signature weapon.",
+   "statFocus": "Strength/Dexterity"
+  }
+ ],
+ "_verify": []
+}

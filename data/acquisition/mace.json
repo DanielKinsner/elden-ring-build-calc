@@ -1,0 +1,22 @@
+{
+ "location": "Purchased from Twin Maiden Husks at Roundtable Hold for 800 Runes, available as soon as you first reach the Hold.",
+ "region": "Roundtable Hold",
+ "source": {
+  "type": "merchant",
+  "name": "Twin Maiden Husks"
+ },
+ "tactics": [
+  "No combat or unlock condition needed — it's in their base stock from the start.",
+  "A cheap, no-risk way to get a hammer-class weapon in the first hour of the game."
+ ],
+ "nearbyGraces": [],
+ "lore": "A plain iron bludgeon studded with sharp points, built with guard-breaking in mind rather than elegance.",
+ "builds": [
+  {
+   "name": "Guard-Break Strength Starter",
+   "why": "High Guard Boost and stance damage from a cheap early purchase make it a solid early-game stagger stick for Strength builds.",
+   "statFocus": "Strength"
+  }
+ ],
+ "_verify": []
+}

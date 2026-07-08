@@ -1,0 +1,26 @@
+{
+ "location": "Dropped by White Mask Varré after defeating him in an invasion at his summon sign, found just before the Dynasty Mausoleum Midpoint grace in Mohgwyn Palace. Requires progressing his questline far enough for the sign to appear.",
+ "region": "Mohgwyn Palace",
+ "source": {
+  "type": "npc",
+  "name": "White Mask Varré"
+ },
+ "tactics": [
+  "His summon sign won't appear until you've advanced his questline through its earlier steps — it's not there on a fresh save.",
+  "After defeating him, exhaust his remaining dialogue before leaving; walking away too early can skip the item drop.",
+  "The Pureblood Knight's Medal he gives you earlier teleports you straight to the Dynasty Mausoleum entrance, skipping the long walk through the blood marsh."
+ ],
+ "nearbyGraces": [
+  "Dynasty Mausoleum Midpoint",
+  "Dynasty Mausoleum Entrance"
+ ],
+ "lore": "A steel mace shaped to look like a bundle of roses, each petal ground down to a cutting edge — a fitting weapon for a man like White Mask Varré, who was never quite what he appeared to be.",
+ "builds": [
+  {
+   "name": "Arcane Bleed Build",
+   "why": "C-scaling Arcane — the strongest scaling this weapon class offers — combined with high built-in blood loss buildup makes it a strong pick for a dedicated Arcane bleed build.",
+   "statFocus": "Arcane"
+  }
+ ],
+ "_verify": []
+}

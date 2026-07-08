@@ -1,0 +1,25 @@
+{
+ "location": "Dropped by Sir Gideon Ofnir, the All-Knowing, in the Erdtree Sanctuary building in Leyndell, Ashen Capital — accessible only after progressing the story through Crumbling Farum Azula.",
+ "region": "Leyndell, Ashen Capital",
+ "source": {
+  "type": "boss",
+  "name": "Sir Gideon Ofnir, the All-Knowing"
+ },
+ "tactics": [
+  "His spell list changes based on which major demigods you've already defeated — expect borrowed attacks like Comet Azur, Rykard's Rancor, or Bloodboon depending on your progress.",
+  "Heavy jump attacks interrupt him mid-cast, and he's vulnerable to parries with a critical punish afterward.",
+  "Use the room's pillars for cover against his ranged spells, and be ready to dodge or shield through Comet Azur and Black Flame Ritual specifically — his two most dangerous attacks."
+ ],
+ "nearbyGraces": [
+  "Leyndell, Ashen Capital"
+ ],
+ "lore": "Sir Gideon Ofnir's personal scepter, topped by a pearl meant to stand in for the whole world, the heavens, and a watching eye — a symbol for the many kinds of knowledge a person can chase but never fully possess.",
+ "builds": [
+  {
+   "name": "Intelligence Melee Hybrid",
+   "why": "Rare Intelligence scaling on a hammer lets a caster fight in melee without abandoning their stat spread, and Knowledge Above All strips enemy magic/holy negation for a burst damage window.",
+   "statFocus": "Intelligence"
+  }
+ ],
+ "_verify": []
+}

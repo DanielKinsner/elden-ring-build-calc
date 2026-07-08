@@ -1,0 +1,26 @@
+{
+ "location": "Inside a chest in the back of a broken carriage along the road to Castle Morne, roughly between the region's first grace and Castle Morne Rampart, in the Weeping Peninsula.",
+ "region": "Weeping Peninsula",
+ "source": {
+  "type": "chest",
+  "name": "Broken carriage chest"
+ },
+ "tactics": [
+  "A Troll and a few other enemies guard the carriage — clear them first, or sprint straight in and grab the chest if under-leveled.",
+  "No boss or invader gates this pickup, unlike a lot of Weeping Peninsula loot — it's a safe early grab.",
+  "The carriage sits right on the main road, easy to spot heading south from Bridge of Sacrifice toward Castle Morne."
+ ],
+ "nearbyGraces": [
+  "Castle Morne Rampart",
+  "Bridge of Sacrifice"
+ ],
+ "lore": "A spiked metal globe on a handle — it lands as a blunt bludgeon, but the ring of spikes around the head is sharp enough to tear flesh and draw blood.",
+ "builds": [
+  {
+   "name": "Strength Bleed Bludgeon",
+   "why": "Blunt strike damage plus a built-in bleed passive lets a pure Strength build stack blood loss on top of stance damage.",
+   "statFocus": "Strength"
+  }
+ ],
+ "_verify": []
+}

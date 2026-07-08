@@ -1,0 +1,26 @@
+{
+ "location": "On a corpse near the Mimic Tear Ashes inside Night's Sacred Ground, in Nokron, Eternal City. From the Night's Sacred Ground grace, go up the stairs into a room with two Night Maidens and a Sphere Silver Tear, climb the ladder at the back right, then find and jump through the single unbarred window on the shingled roof past the Fanged Imp Statue fog wall.",
+ "region": "Nokron, Eternal City",
+ "source": {
+  "type": "drop",
+  "name": "Corpse in Night's Sacred Ground"
+ },
+ "tactics": [
+  "Clear the room of two Night Maidens and a Sphere Silver Tear before continuing — they guard the route to the ladder.",
+  "Sphere Silver Tears roll and explode on contact; dodge sideways rather than backing straight away from them.",
+  "The window is easy to miss — it's the only unbarred one on the shingled roof section past the Fanged Imp Statue fog wall."
+ ],
+ "nearbyGraces": [
+  "Night's Sacred Ground",
+  "Ancestral Woods"
+ ],
+ "lore": "A teardrop-shaped hammer made by the night-dwelling Nox monks of the Eternal City, cast from the liquid metal of a Silver Tear and hardened through careful tempering.",
+ "builds": [
+  {
+   "name": "Heavy Strength AoE",
+   "why": "C-scaling Strength (needing real investment at 17/12) rewards a dedicated Strength build, and its Flowing Form skill gives rare whip-like crowd control for a hammer.",
+   "statFocus": "Strength"
+  }
+ ],
+ "_verify": []
+}

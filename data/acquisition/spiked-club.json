@@ -1,0 +1,27 @@
+{
+ "location": "Chance drop (2%) from large Demi-Humans; most reliably farmed from the group right outside the entrance to Volcano Cave, Mt. Gelmir, or from the large Demi-Humans just below the ledge at the start of Coastal Cave, Limgrave.",
+ "region": "Mt. Gelmir",
+ "source": {
+  "type": "enemy",
+  "name": "Large Demi-Human"
+ },
+ "tactics": [
+  "There is no guaranteed ground pickup for this weapon — it's purely a 2% chance drop, so expect to fight the same group repeatedly (resting at a grace respawns them).",
+  "The large Demi-Humans outside Volcano Cave's entrance are a tight cluster good for farming; the ones below the ledge at Coastal Cave work just as well earlier in the game.",
+  "'Large' Demi-Humans hit noticeably harder than the small ones in the same packs — don't underestimate them at low levels."
+ ],
+ "nearbyGraces": [
+  "Ninth Mt. Gelmir Campsite"
+ ],
+ "lore": "A club with rows of beast fangs bound around its striking head; demi-humans treat owning one as a mark of status, even though the fangs are really just there to tear open wounds.",
+ "builds": [
+  {
+   "name": "Early Strength Bleed",
+   "why": "D/D scaling and a built-in bleed passive make it a decent stopgap bleed-Strength weapon before better options appear.",
+   "statFocus": "Strength"
+  }
+ ],
+ "_verify": [
+  "location"
+ ]
+}
