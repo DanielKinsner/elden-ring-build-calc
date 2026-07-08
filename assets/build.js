@@ -98,6 +98,16 @@
 
   function bar(v, max) { var p = max ? Math.max(0, Math.min(100, v / max * 100)) : 0; return '<div class="bar"><i style="width:'+p+'%"></i></div>'; }
 
+  function setWeaponThumb(weapon) {
+    var thumb = $('weaponThumb');
+    thumb.textContent = weapon.name.charAt(0);
+    thumb.classList.remove('has-img');
+    var img = new Image();
+    img.onload = function () { thumb.innerHTML = ''; thumb.appendChild(img); thumb.classList.add('has-img'); };
+    img.src = '../assets/icons/weapons/' + weapon.id + '.png';
+    img.alt = weapon.name;
+  }
+
   function render() {
     var r = ERCalc.computeAR(build, current, { upgradeLevel: upgradeLevel, twoHanded: twoHanded, affinity: affinity });
 
@@ -105,7 +115,7 @@
     $('statTotal').textContent = STATS.reduce(function (s,k){ return s + build[k]; }, 0);
     $('weaponName').textContent = current.name;
     $('weaponType').textContent = current.type + (current.category === 'somber' ? ' · Somber' : '');
-    $('weaponThumb').textContent = current.name.charAt(0);
+    setWeaponThumb(current);
     $('weaponAtlasLink').href = '../atlas/weapon.html?id=' + encodeURIComponent(current.id);
     $('weight').textContent = current.weight != null ? current.weight : '—';
     $('passive').textContent = current.passive || 'None';
