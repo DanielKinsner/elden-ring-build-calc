@@ -172,11 +172,11 @@
 
   /* ---- compare tray: live-ranks added weapons for the CURRENT build ---- */
   var compareBar = document.createElement('div');
-  compareBar.className = 'compare-bar'; compareBar.hidden = true;
+  compareBar.className = 'compare-bar';
   document.body.appendChild(compareBar);
   function renderCompare() {
-    if (!compareIds.length) { compareBar.hidden = true; return; }
-    compareBar.hidden = false;
+    if (!compareIds.length) { compareBar.classList.remove('show'); return; }
+    compareBar.classList.add('show');
     var rows = compareIds.map(function (id) {
       var w = weapons.find(function (x){ return x.id === id; });
       var res = ERCalc.computeAR(build, w, { twoHanded: twoHanded });
