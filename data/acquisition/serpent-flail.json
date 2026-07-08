@@ -1,0 +1,34 @@
+{
+ "location": "Inside a chest hidden in one of the tents on the ground level of Fog Rift Fort, on the opposite side of the fort's central open area from where you enter.",
+ "region": "Gravesite Plain",
+ "source": {
+  "type": "chest",
+  "name": "Chest in a tent, Fog Rift Fort ground level"
+ },
+ "tactics": [
+  "Drop down from the cliffs northwest of the Scadu Altus, West Site of Grace onto one of Fog Rift Fort's towers to enter.",
+  "The fort is patrolled by Messmer Soldiers with fire pots/flamethrowers on the bridges and ground — clear or sneak past them before looting.",
+  "The chest is separate from Black Knight Garrew, the fort's boss found in a stone house across a side bridge — you do NOT need to fight him to get the Serpent Flail, so don't waste time hunting for it near him.",
+  "Bring fire resistance or ranged options if you're not confident clearing the flamethrower soldiers in the open ground area."
+ ],
+ "nearbyGraces": [
+  "Scadu Altus, West",
+  "Highroad Cross"
+ ],
+ "lore": "The flail's coiled snake heads channel Messmerfire, and it was used by Messmer's soldiers as a weapon of terror — searing brands of fire and fear into captured Hornsent rather than just striking them down.",
+ "builds": [
+  {
+   "name": "Faith/Fire bleed-adjacent flail build",
+   "why": "Despite its steep Dexterity requirement, it scales best with Faith, and its Flare, O Serpent skill adds a large burst of Fire attack power plus an explosion on strong attacks, making it a strong cheap Fire-damage option for Faith characters.",
+   "statFocus": "Faith primary, Dexterity secondary (24 Dex / 21 Faith requirement)"
+  },
+  {
+   "name": "Quality/Faith hybrid",
+   "why": "With E/D/D scaling in Strength, Dexterity, and Faith, it can slot into a spread quality-plus-faith build that wants a fire-infused backup weapon without needing heavy Intelligence or Arcane investment.",
+   "statFocus": "Strength/Dexterity/Faith spread"
+  }
+ ],
+ "_verify": [
+  "nearbyGraces"
+ ]
+}
