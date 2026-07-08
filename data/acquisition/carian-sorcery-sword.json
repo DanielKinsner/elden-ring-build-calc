@@ -1,0 +1,33 @@
+{
+ "location": "Inside a chest atop a free-standing section of the northern castle wall of Castle Ensis. From the Highroad Cross Site of Grace, head west to the cliff overlooking the river, follow the cliff north to a spot where you can drop into the river, then follow the river south until it reaches a waterfall. Turn west there and jump off the cliff overlooking the castle wall — the chest is visible on the wall section below; cross to it and open it.",
+ "region": "Scadu Altus",
+ "source": {
+  "type": "chest",
+  "name": "Chest atop Castle Ensis's northern wall"
+ },
+ "tactics": [
+  "You must have defeated Rellana, Twin Moon Knight (or otherwise reached Highroad Cross/Scadu Altus) before this route is accessible.",
+  "Follow the river/cliff path carefully — you're dropping down multiple ledges toward a waterfall, so take the drops in stages to avoid unnecessary fall damage.",
+  "The final jump from the cliff onto the castle wall section is the key step players miss — look west from the waterfall's edge rather than continuing to search inside the castle interior.",
+  "Don't confuse this exterior wall chest with loot inside the main Castle Ensis legacy dungeon (accessed from Gravesite Plain) — this one is only reachable from the Scadu Altus/Highroad Cross side."
+ ],
+ "nearbyGraces": [
+  "Highroad Cross"
+ ],
+ "lore": "This slender thrusting blade belonged to the Carian royal line and was carried by Carian knights of an earlier era, before their spellsword techniques reached full maturity. Even now, driving it into a strong attack channels glintstone sorcery, so the sword doubles as a crude sorcery catalyst — a relic of the knights' original, less-refined fusion of blade and magic.",
+ "builds": [
+  {
+   "name": "Carian Spellblade",
+   "statFocus": "Intelligence / Dexterity",
+   "why": "Its strong attacks are replaced by sorcery casting and it carries real sorcery scaling, letting an Int/Dex character weave spells and thrusting-sword jabs with one weapon instead of swapping to a dedicated staff."
+  },
+  {
+   "name": "Backup catalyst for pure casters",
+   "statFocus": "Intelligence",
+   "why": "At high Intelligence (reportedly strongest around 41 Int) it becomes a competent secondary sorcery catalyst with a real melee option attached, useful for casters who want a panic-button stabbing weapon without giving up spellcasting."
+  }
+ ],
+ "_verify": [
+  "region"
+ ]
+}
