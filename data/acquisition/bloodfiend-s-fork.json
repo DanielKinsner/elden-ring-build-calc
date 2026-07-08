@@ -1,0 +1,26 @@
+{
+ "location": "No fixed pickup spot — it's a random drop from Bloodfiend enemies scattered through the ruins and wrecked camp of Prospect Town (also spawns on Bloodfiends at Rivermouth Cave, Stone Coffin Fissure, and Rauh Base).",
+ "region": "Gravesite Plain",
+ "source": {
+  "type": "enemy",
+  "name": "Bloodfiend"
+ },
+ "tactics": [
+  "Bloodfiends are the naked, muscular humanoid enemies that lunge into grapple/bite attacks and can inflict blood loss themselves — punish after a whiffed grab rather than trading",
+  "Prospect Town has roughly six Bloodfiends spread across its ruined buildings and a nearby destroyed camp, giving the best odds against the low (~3%) drop chance",
+  "Equip the Silver Scarab talisman and eat a Silver-Pickled Fowl Foot to boost Item Discovery before farming",
+  "From Cliffroad Terminus grace, head south and climb the cloth-draped broken wall to reach the ruins where the Bloodfiends cluster"
+ ],
+ "nearbyGraces": [
+  "Cliffroad Terminus"
+ ],
+ "lore": "The fork served the Bloodfiends as a ritual tool for offering blood to the Formless Mother — its three bone tines were meant to pierce and bleed a victim rather than kill outright, and the cultists reportedly turned it on themselves during their rites as well.",
+ "builds": [
+  {
+   "name": "Arcane bleed poke",
+   "why": "D-scaling Arcane alongside Strength/Dexterity plus a built-in blood loss buildup means it slots directly into a bleed-focused build without needing a bleed Ash of War",
+   "statFocus": "Arcane"
+  }
+ ],
+ "_verify": []
+}
