@@ -1,0 +1,138 @@
+[
+ {
+  "id": "death-knight-s-twin-axes",
+  "name": "Death Knight's Twin Axes",
+  "type": "Axe",
+  "source": "dlc",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 14,
+   "DEX": 12,
+   "FAI": 16
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 247,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 159,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 76,
+   "DEX": 49,
+   "INT": 0,
+   "FAI": 63,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ],
+   "FAI": [
+    "lightning"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "forked-tongue-hatchet",
+  "name": "Forked-Tongue Hatchet",
+  "type": "Axe",
+  "source": "dlc",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 10,
+   "DEX": 13
+  },
+  "weight": null,
+  "passive": "Blood loss (50)",
+  "base": {
+   "physical": 306,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 50,
+   "DEX": 68,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {
+   "bleed": 50
+  },
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "messmer-soldier-s-axe",
+  "name": "Messmer Soldier's Axe",
+  "type": "Axe",
+  "source": "dlc",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 14,
+   "DEX": 10
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 325,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 62,
+   "DEX": 62,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "smithscript-axe",
+  "name": "Smithscript Axe",
+  "type": "Axe",
+  "source": "dlc",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 13,
+   "DEX": 10,
+   "INT": 11,
+   "FAI": 11
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 320,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 72,
+   "DEX": 50,
+   "INT": 9,
+   "FAI": 9,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ }
+]
