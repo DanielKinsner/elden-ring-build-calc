@@ -1,0 +1,30 @@
+{
+ "location": "Purchased from the merchant Thiollier for 6,000 Runes at the Pillar Path Cross Site of Grace in Gravesite Plain, the first place he's found in the DLC. Must be bought before he relocates (triggered by story progress such as burning the Sealing Tree behind the Church of the Bud, defeating the Golden Hippopotamus, or discovering the Fissure Depths grace).",
+ "region": "Gravesite Plain",
+ "source": {
+  "type": "merchant",
+  "name": "Thiollier"
+ },
+ "tactics": [
+  "Buy it as soon as you meet Thiollier at Pillar Path Cross — several unrelated DLC story triggers (not just his own questline) can make him relocate and pull this item from that spot.",
+  "If missed, you can still get it later: obtain Moore's Bell Bearing (from Moore in Belurat) and hand it to the Twin Maiden Husks at Roundtable Hold to unlock Thiollier's full stock there.",
+  "It's a straightforward gold purchase, not a fight — no combat required, just Runes."
+ ],
+ "nearbyGraces": [
+  "Pillar Path Cross"
+ ],
+ "lore": "This bottle was customized by Thiollier himself: after learning that some old perfuming techniques employed poison, he threw himself into mastering and personalizing those methods.",
+ "builds": [
+  {
+   "name": "Arcane Poison build",
+   "statFocus": "Arcane",
+   "why": "Arcane scaling (D rising to C) boosts both its physical attack power and poison buildup, making it a strong poison-focused backup for bleed/arcane characters."
+  },
+  {
+   "name": "Dex/Arcane hybrid",
+   "statFocus": "Dexterity / Arcane",
+   "why": "Shares the same D/C scaling split between Dex and Arcane, so it fits naturally into Dex-Arcane rogue-type builds already running poison or scarlet rot elsewhere."
+  }
+ ],
+ "_verify": []
+}

@@ -1,0 +1,29 @@
+{
+ "location": "On a corpse lying in a shallow pond northeast of the Cerulean Coast Site of Grace (and southeast of Ellac River Downstream), guarded by lightning-charged ram enemies roaming the pond.",
+ "region": "Cerulean Coast",
+ "source": {
+  "type": "drop",
+  "name": "Corpse in a pond northeast of Cerulean Coast, guarded by lightning rams"
+ },
+ "tactics": [
+  "From Castle Front, head south through the poison swamp and Ellac River Cave to Ellac River Downstream, then drop down the rocky platforms toward Cerulean Coast.",
+  "From Cerulean Coast grace, ride northeast to a pond marked by blue flowers; the corpse with the bottle sits in the middle of it.",
+  "Lightning rams patrol the pond — they usually ignore you unless approached closely, but can charge; they're not individually dangerous but can catch you off guard mid-loot.",
+  "This area borders both Gravesite Plain and Cerulean Coast proper, so don't be thrown off if a guide places it in either region."
+ ],
+ "nearbyGraces": [
+  "Cerulean Coast",
+  "Ellac River Downstream"
+ ],
+ "lore": "Yet another creation of the realm's traveling perfumers, tuned in this case to discharge crackling lightning rather than fragrance when put to use as a weapon.",
+ "builds": [
+  {
+   "name": "Dex/Faith Lightning build",
+   "statFocus": "Dexterity / Faith",
+   "why": "Even D/D scaling in Dex and Faith gives faith-leaning Dex builds a pure lightning damage option; pairs well with the Rolling Sparks Ash of War (looted from a scarab near Shadow Keep) for wide multi-hit lightning explosions against large enemies."
+  }
+ ],
+ "_verify": [
+  "region"
+ ]
+}

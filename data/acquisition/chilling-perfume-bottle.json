@@ -1,0 +1,32 @@
+{
+ "location": "Inside Lamenter's Gaol (a small dungeon in the southwest of Charo's Hidden Grave). Requires the Gaol Upper Level Key (found in a chest in the second room with Putrid Corpses) to unlock the gate. After descending the ladder, enter the room with a frozen floor on your right — a Jar Innard emerges from a side door — and loot the corpse in that room.",
+ "region": "Charo's Hidden Grave",
+ "source": {
+  "type": "drop",
+  "name": "Corpse in the frozen-floor room, Lamenter's Gaol lower level"
+ },
+ "tactics": [
+  "Get the Gaol Upper Level Key first (chest in the room with two Putrid Corpses) — you cannot reach the item without it.",
+  "After the ladder down, a Jar Innard will burst out of a side door as you enter the frost room; deal with or dodge past it, then loot the corpse for the bottle (it has no purple glow, easy to walk past).",
+  "Don't confuse this with the Gaol Lower Level Key path, which instead leads to the Lamenting Visage torch behind an illusory wall — different key, different item.",
+  "Reach the dungeon from Charo's Hidden Grave by heading northwest past the Death Rite Bird encounter, hugging the left cliff to the gaol entrance."
+ ],
+ "nearbyGraces": [
+  "Lamenter's Gaol",
+  "Charo's Hidden Grave"
+ ],
+ "lore": "Like the other bottles, it was reworked into a weapon by the realm's traveling perfumers, who habitually set out on journeys chasing new scents and flowers; this one was tuned to unleash a biting chill instead of a fragrance.",
+ "builds": [
+  {
+   "name": "Frost INT/DEX Caster",
+   "statFocus": "Intelligence / Dexterity",
+   "why": "Deals pure magic damage with even D-to-C scaling in both Int and Dex, so it slots into an intelligence-leaning caster's kit as a frostbite proc tool without needing a separate stat investment."
+  },
+  {
+   "name": "Frostbite stacker",
+   "statFocus": "Status / Frostbite buildup",
+   "why": "Fixed 60 frostbite buildup per hit makes it useful paired with other cold-infused weapons or Ranni's Dark Moon-style builds to trigger the frostbite debuff (extra damage taken) faster."
+  }
+ ],
+ "_verify": []
+}

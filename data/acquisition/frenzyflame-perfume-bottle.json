@@ -1,0 +1,29 @@
+{
+ "location": "On a corpse seated against the north wall inside the Abandoned Church, in the southeast of Abyssal Woods (an optional deep-late-game area). The Church Ruins Site of Grace is inside the same building.",
+ "region": "Abyssal Woods",
+ "source": {
+  "type": "drop",
+  "name": "Corpse against the north wall inside the Abandoned Church"
+ },
+ "tactics": [
+  "Reaching Abyssal Woods requires going through Shadow Keep's Castle Watering Hole, then Darklight Catacombs, into Forsaken Graveyard, then south through the arch into Abyssal Woods proper — a long, easy-to-get-lost optional detour.",
+  "From the Forsaken Graveyard grace, follow the dirt path south past rats to the Map: Abyss stele; the Abandoned Church sits right behind it.",
+  "No fight is required for the bottle itself — it's a plain corpse loot inside the church, near the altar where 2 Scadutree Fragments also sit.",
+  "Abyssal Woods is a fog-heavy, disorienting area with hidden threats; don't confuse the Abandoned Church with other ruined structures scattered through the woods."
+ ],
+ "nearbyGraces": [
+  "Church Ruins",
+  "Forsaken Graveyard"
+ ],
+ "lore": "Another product of the realm's wandering perfumers and their endless hunt for new aromatics, but this one was rigged to unleash the maddening Frenzied Flame instead of any pleasant scent.",
+ "builds": [
+  {
+   "name": "Universal Madness proc weapon",
+   "statFocus": "None / minimal investment",
+   "why": "Very low requirements (3/10/12/12) and flat E-D scaling mean it's cheap to wield on almost any build purely for its fixed 60 Madness buildup, useful as an off-hand status tool regardless of your main damage stat."
+  }
+ ],
+ "_verify": [
+  "nearbyGraces"
+ ]
+}

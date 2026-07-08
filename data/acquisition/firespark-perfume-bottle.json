@@ -1,0 +1,26 @@
+{
+ "location": "In a treasure chest inside a Messmer soldier encampment south of the Castle Front Site of Grace in Gravesite Plain, sitting under a tent beside barrels; the camp is held by a group of Perfumers and Messmer Soldiers.",
+ "region": "Gravesite Plain",
+ "source": {
+  "type": "chest",
+  "name": "Treasure chest under a tent in the Perfumer/Messmer Soldier camp south of Castle Front"
+ },
+ "tactics": [
+  "From Castle Front, head south to a campfire where three Perfumers are gathered — they throw ranged perfume attacks, so closing distance quickly or picking them off from range helps avoid getting swarmed.",
+  "Messmer Soldiers are mixed in with the Perfumers; expect a multi-enemy fight rather than a single target before you can loot the chest safely.",
+  "The chest is under a tent near barrels — easy to overlook amid the tents/crates, keep an eye out after clearing the camp.",
+  "This is once-per-playthrough loot inside Messmer's crusade encampment territory east of Ellac Greatbridge."
+ ],
+ "nearbyGraces": [
+  "Castle Front"
+ ],
+ "lore": "This bottle is a relic of Messmer's crusade against the Shadow Land's inhabitants — a reminder that the realm's perfumers weren't brought along to tend the wounded, but to help burn the enemy down.",
+ "builds": [
+  {
+   "name": "Pure Dex Fire build",
+   "statFocus": "Dexterity",
+   "why": "Scales only with Dexterity (C rising to B) while dealing pure fire damage, letting a Dex-focused character add elemental fire pressure without spending points in Int or Faith."
+  }
+ ],
+ "_verify": []
+}
