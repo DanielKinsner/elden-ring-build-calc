@@ -1,0 +1,32 @@
+{
+ "location": "Inside the Prayer Room of the Church District, Shadow Keep. You must first defeat Fire Knight Queelign as a hostile invader twice (once at Belurat, Tower Settlement, once at the Church of the Crusade in Scadu Altus), which drops the Prayer Room Key. Use the key to open the Prayer Room, find Queelign's body kneeling before a Marika statue, and offer him the Iris of Occultation to receive the sword.",
+ "region": "Shadow Keep",
+ "source": {
+  "type": "npc",
+  "name": "Fire Knight Queelign"
+ },
+ "tactics": [
+  "Queelign invades you as a hostile phantom, not a boss-gate fight — first near the Small Private Altar grace in Belurat, Tower Settlement, then later at the Church of the Crusade in Scadu Altus. He won't appear the second time until beaten the first.",
+  "Beating him the second time drops the Prayer Room Key and Ash of War: Flame Skewer, unlocking the northeast door in Church District.",
+  "The Iris of Occultation itself is a separate pickup, dropped by a Lesser Ulcerated Tree Spirit east of the chapel grounds in Church District — grab it before talking to Queelign's body.",
+  "Careful which item you offer: giving the Iris of Grace instead yields the Fire Knight Queelign Spirit Ash, and the two rewards are mutually exclusive on a single playthrough."
+ ],
+ "nearbyGraces": [
+  "Church District Entrance",
+  "Sunken Chapel"
+ ],
+ "lore": "Fire Knight Queelign reworked his own greatsword into the shape of a piercing lance, chasing the legacy of his liege Messmer the Impaler and hoping to become an impaler in his own right. The undulating, flame-like ripple along the blade is meant to evoke that ambition.",
+ "builds": [
+  {
+   "name": "Quality-Faith hybrid",
+   "why": "D-tier scaling spread across Strength, Dexterity, and Faith (with an innate fire attack) rewards a build that splits investment between melee stats and Faith for fire incantations.",
+   "statFocus": "Strength / Dexterity / Faith"
+  },
+  {
+   "name": "Fire spellblade",
+   "why": "It already carries 35 innate Fire attack and the Impaling Thrust skill, so it pairs naturally with fire incantations for a melee-caster hybrid without needing an elemental affinity infusion.",
+   "statFocus": "Faith with moderate Strength/Dexterity"
+  }
+ ],
+ "_verify": []
+}

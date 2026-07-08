@@ -1,0 +1,32 @@
+{
+ "location": "Dropped as the Remembrance of the Wild Boar Rider after defeating Commander Gaius, then traded to Enia at the Roundtable Hold (choosing the weapon over the alternate reward, the sorcery Blades of Stone). Gaius is fought in the open arena of Scaduview, reached by heading north/beyond the back gate from the Shadow Keep, Back Gate site of grace.",
+ "region": "Scaduview",
+ "source": {
+  "type": "boss",
+  "name": "Commander Gaius"
+ },
+ "tactics": [
+  "From the Shadow Keep, Back Gate grace, push through the gate into the open Scaduview field — Gaius, mounted on his armored boar, guards this area.",
+  "He opens with a Wild Boar Rush charge during which he's briefly invincible; roll into it at the last second rather than away.",
+  "Watch for his 5-7 hit melee combo (slashes, jabs, boar headbutts) up close, and gravity-magic attacks (a jumping Gravity Plunge slam and an AoE Gravity Thrust) that show up more from roughly 50% HP onward.",
+  "He's entirely optional and easy to miss since Scaduview branches off the main path — skip it and you also skip this weapon and its remembrance."
+ ],
+ "nearbyGraces": [
+  "Shadow Keep, Back Gate",
+  "Scaduview"
+ ],
+ "lore": "This lance-like greatsword once belonged to Commander Gaius, fusing the reach of a greatsword with the piercing force of a lance. It's built for mounted combat, showing its real strength when swung from horseback — fitting, since Gaius himself was rarely seen off his boar.",
+ "builds": [
+  {
+   "name": "Strength greatlance bruiser",
+   "why": "C-scaling Strength with only E-scaling Dexterity and a high Strength requirement (21 one-handed/14 two-handed) makes this a straightforward heavy-Strength weapon that hits hard on its shared Lance heavy-attack moveset.",
+   "statFocus": "Strength"
+  },
+  {
+   "name": "Torrent / mounted combat build",
+   "why": "It gets a unique attack-power bonus while fighting from Torrent's back and comes with Spinning Gravity Thrust for closing gaps, making it suited to a cavalry-style playstyle built around mounted fights.",
+   "statFocus": "Strength, built around fighting on Torrent"
+  }
+ ],
+ "_verify": []
+}
