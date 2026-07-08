@@ -1,0 +1,25 @@
+{
+ "location": "On a corpse inside a hut on the north side of Ailing Village in Weeping Peninsula.",
+ "region": "Weeping Peninsula",
+ "source": {
+  "type": "drop",
+  "name": "Corpse in northern hut, Ailing Village"
+ },
+ "tactics": [
+  "Approach from the Ailing Village Outskirts grace — the village is full of aggressive Frenzied Villagers gathered around a central pyre.",
+  "The shield sits in a hut on the village's north side, separate from Callu Baptismal Church at the south end (which holds different loot, including a Sacred Tear).",
+  "Don't linger near the crowd around the fire — several frenzied villagers can pile on at once."
+ ],
+ "nearbyGraces": [
+  "Ailing Village Outskirts"
+ ],
+ "lore": "A light wooden shield carried by soldiers of the Frenzy-afflicted village, its yellow flame crest meant to warn outsiders away.",
+ "builds": [
+  {
+   "name": "Cheap early Strength block",
+   "statFocus": "Strength",
+   "why": "94% physical negation for only 3.5 weight and 8 Strength — a strong disposable pick right at the start of the game."
+  }
+ ],
+ "_verify": []
+}

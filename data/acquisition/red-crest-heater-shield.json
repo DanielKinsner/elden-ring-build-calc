@@ -1,0 +1,24 @@
+{
+ "location": "Sold by the Nomadic Merchant stationed near the Forest-Spanning Greatbridge Site of Grace in Altus Plateau, for 2,500 Runes.",
+ "region": "Altus Plateau",
+ "source": {
+  "type": "merchant",
+  "name": "Nomadic Merchant (Forest-Spanning Greatbridge)"
+ },
+ "tactics": [
+  "This merchant sits right off the road near the grace — easy to reach right after crossing into Altus Plateau from the Grand Lift of Dectus or the Wyndham Ruins route.",
+  "The same merchant stocks other heater/kite shields, so check the full list before buying to avoid missing a better option in one trip."
+ ],
+ "nearbyGraces": [
+  "Forest-Spanning Greatbridge"
+ ],
+ "lore": "A medium metal shield, easier to handle than a kite shield, bearing a crest of red wings — its fire resistance the highest among heater shields.",
+ "builds": [
+  {
+   "name": "Fire-resistant Strength tank",
+   "statFocus": "Strength",
+   "why": "Highest fire negation (50) among the heater shields, useful vs. Altus/Gelmir's fire-heavy enemies and bosses."
+  }
+ ],
+ "_verify": []
+}

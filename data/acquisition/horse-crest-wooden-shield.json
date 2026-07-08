@@ -1,0 +1,27 @@
+{
+ "location": "Sold by Patches once he sets up his shop at Murkwater Cave (after being encountered/spared there), for 1,000 Runes. Also purchasable later from the Twin Maiden Husks at Roundtable Hold once you've acquired Patches' Bell Bearing.",
+ "region": "Limgrave",
+ "source": {
+  "type": "merchant",
+  "name": "Patches"
+ },
+ "tactics": [
+  "Reach Murkwater Cave from Agheel Lake North Site of Grace (it sits roughly midway between Limgrave Tunnels and Murkwater Coast graces); you must first fight and spare/survive Patches there so he opens shop.",
+  "If you killed Patches or missed him, his Bell Bearing (dropped later in the game) lets the Twin Maiden Husks sell the same shield at Roundtable Hold instead.",
+  "Murkwater Cave itself contains its own Site of Grace once entered, so no need to backtrack far to shop repeatedly."
+ ],
+ "nearbyGraces": [
+  "Murkwater Cave",
+  "Agheel Lake North",
+  "Murkwater Coast"
+ ],
+ "lore": "A tall but lightweight wooden shield, easy to wield despite its size, decorated with a circular horsehead crest meant to evoke a swift, galloping charge.",
+ "builds": [
+  {
+   "name": "Early-game Strength turtle",
+   "statFocus": "Strength",
+   "why": "Cheap D-scaling Strength shield with solid physical block (93%), good stopgap before finding a metal shield."
+  }
+ ],
+ "_verify": []
+}

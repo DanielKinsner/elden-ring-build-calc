@@ -1,0 +1,27 @@
+{
+ "location": "Ground pickup on a corpse atop the hill southeast of the Siofra River Bank Site of Grace; the hill's base starts east of the grace and climbs westward, guarded by a few enemies along the way.",
+ "region": "Siofra River",
+ "source": {
+  "type": "drop",
+  "name": "Corpse (ground loot)"
+ },
+ "tactics": [
+  "From Siofra River Bank grace, head up the slope to the east/southeast rather than toward the main ruins — it's easy to walk straight into the Siofra dungeon and miss this hilltop detour.",
+  "Two to three enemies patrol the hill; clear or run past them to reach the body.",
+  "Don't confuse this with the separate Siofra Well Depths / Ancestor Spirit area — this pickup is up on the surface hill near the entrance grace."
+ ],
+ "nearbyGraces": [
+  "Siofra River Bank"
+ ],
+ "lore": "A metal shield lighter and easier to wield than a kite shield, marked with an inverted hawk — the emblem worn by the company of slaves once sent to explore the buried Eternal City.",
+ "builds": [
+  {
+   "name": "Parry-focused Strength build",
+   "statFocus": "Strength",
+   "why": "100% physical negation with only D-rank Strength scaling and a low 10 STR requirement makes it an efficient early riposte/turtle shield."
+  }
+ ],
+ "_verify": [
+  "tactics"
+ ]
+}

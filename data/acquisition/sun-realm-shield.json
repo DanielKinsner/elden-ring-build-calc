@@ -1,0 +1,28 @@
+{
+ "location": "A common (2%) drop from sword-and-shield Skeleton enemies and shield-wielding Beast Skeletons found in several spots; the most reliable single farm is the Church of the Plague in Caelid, where roughly seven skeletons cluster across the graveyard and nearby arches.",
+ "region": "Caelid",
+ "source": {
+  "type": "enemy",
+  "name": "Skeleton (sword & shield)"
+ },
+ "tactics": [
+  "Church of the Plague is scab-covered ground crawling with Caelid's rot/scarlet-rot enemies — approach carefully and clear skeletons in small groups rather than pulling the whole graveyard.",
+  "Other viable farm spots include the road between Saintsbridge and Summonwater Village Outskirts (Liurnia) and southeast of Hermit Merchant's Shack (Altus Plateau), useful if you're passing through those regions instead.",
+  "Skeletons here reassemble after being killed unless finished with a Sacred-affinity or holy weapon, or by destroying nearby bone piles."
+ ],
+ "nearbyGraces": [
+  "Church of the Plague"
+ ],
+ "lore": "A battered shield of honor bearing the image of a sun-crowned city — a faded relic of a 'Seat of the Sun' that no longer exists.",
+ "builds": [
+  {
+   "name": "Budget Strength build",
+   "statFocus": "Strength",
+   "why": "Cheap-to-farm 92%-block Strength shield, solid filler pick for a low-level Strength or Quality build passing through Caelid."
+  }
+ ],
+ "_verify": [
+  "location",
+  "region"
+ ]
+}

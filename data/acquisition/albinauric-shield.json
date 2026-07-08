@@ -1,0 +1,28 @@
+{
+ "location": "A 2% drop from curved-sword or axe-wielding Second-Generation Albinauric enemies. The most reliable spawn is a trio of shield-wielding Albinaurics on/around a ruined church cluster northwest of Academy Gate Town in Liurnia of the Lakes; more of the same enemy type (and shield) appear later around Ordina, Liturgical Town in Consecrated Snowfield.",
+ "region": "Liurnia of the Lakes",
+ "source": {
+  "type": "drop",
+  "name": "Second-Generation Albinauric (curved sword/axe variant)"
+ },
+ "tactics": [
+  "Look for the trio of shield-wielding Albinaurics on the sunken church ruins northwest of Academy Gate Town.",
+  "Only curved-sword/axe-wielding Second-Generation Albinaurics drop this shield — the blood-red Albinaurics inside Mohgwyn Dynasty Mausoleum do not.",
+  "2% is a low drop rate, so expect to rest at a nearby grace and repeat several kills.",
+  "The same enemy type reappears near Ordina in Consecrated Snowfield later in the game if you'd rather farm there instead."
+ ],
+ "nearbyGraces": [
+  "Academy Gate Town"
+ ],
+ "lore": "A tall oval metal shield carried by young Albinaurics, its ornamentation representing the primordial dewdrop from which their kind is said to have sprung.",
+ "builds": [
+  {
+   "name": "Anti-magic Strength tank",
+   "statFocus": "Strength",
+   "why": "Plain D-scaling Strength shield, but its unusually high 66% magic negation makes it a strong pick against sorcery-heavy enemies and bosses."
+  }
+ ],
+ "_verify": [
+  "nearbyGraces"
+ ]
+}

@@ -1,0 +1,24 @@
+{
+ "location": "Purchased for 1,000 Runes from the Nomadic Merchant stationed beside the Castle Morne Rampart Site of Grace in Weeping Peninsula.",
+ "region": "Weeping Peninsula",
+ "source": {
+  "type": "merchant",
+  "name": "Nomadic Merchant (Castle Morne Rampart)"
+ },
+ "tactics": [
+  "Castle Morne Rampart grace is near the Weeping Peninsula's southern castle siege area — approach from the coast road rather than through the castle interior if you just want the merchant.",
+  "Cheap early buy; good backup shield before finding a metal one."
+ ],
+ "nearbyGraces": [
+  "Castle Morne Rampart"
+ ],
+ "lore": "A wooden roundshield reinforced with metal bands — light and easy to handle, though it can't negate damage as reliably as a true metal shield.",
+ "builds": [
+  {
+   "name": "Early Strength build",
+   "statFocus": "Strength",
+   "why": "Cheap, light (4.0 weight) Strength-scaling shield with decent 94% physical block for the Weeping Peninsula stage of the game."
+  }
+ ],
+ "_verify": []
+}

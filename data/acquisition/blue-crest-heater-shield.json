@@ -1,0 +1,24 @@
+{
+ "location": "Purchased for 1,500 Runes from the Nomadic Merchant stationed north of Bellum Church in northern Liurnia of the Lakes, reached via the path underneath the church. Also the default starting shield for the Confessor class.",
+ "region": "Liurnia of the Lakes",
+ "source": {
+  "type": "merchant",
+  "name": "Nomadic Merchant (north of Bellum Church)"
+ },
+ "tactics": [
+  "Take the path underneath/around Bellum Church rather than approaching from its front to find the merchant's camp.",
+  "Starting as a Confessor skips the purchase entirely — you begin the game with it equipped."
+ ],
+ "nearbyGraces": [
+  "Bellum Church"
+ ],
+ "lore": "An easy-to-handle, medium-sized metal shield decorated with a crest depicting a forest and a river.",
+ "builds": [
+  {
+   "name": "Faith melee starter",
+   "statFocus": "Strength",
+   "why": "Cheap D-scaling Strength shield with 100% physical block that pairs naturally with the Confessor's early Faith-leaning starting kit."
+  }
+ ],
+ "_verify": []
+}

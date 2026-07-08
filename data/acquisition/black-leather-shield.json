@@ -1,0 +1,25 @@
+{
+ "location": "Purchased for 2,500 Runes from Pidia, Carian Servant, who stands on a balcony above the Manor Lower Level Site of Grace in Caria Manor. Reached by dropping down the cliffs on the southeast side of the Three Sisters sub-area rather than through the manor's front gate.",
+ "region": "Liurnia of the Lakes",
+ "source": {
+  "type": "merchant",
+  "name": "Pidia, Carian Servant"
+ },
+ "tactics": [
+  "Drop down the cliffside from the southeastern edge of the Three Sisters area to reach Pidia's balcony rather than fighting through the front of Caria Manor.",
+  "If you miss him or he's killed, his Bell Bearing can later be given to the Twin Maiden Husks at Roundtable Hold to unlock the same purchase there.",
+  "2,500 Runes is expensive for early Liurnia — worth grabbing once you're already exploring the area rather than rushing for it."
+ ],
+ "nearbyGraces": [
+  "Manor Lower Level"
+ ],
+ "lore": "An oversized roundshield wrapped in black leather and fur-lined for warmth, decorated with a polar star picked out in gold rivets.",
+ "builds": [
+  {
+   "name": "Frost-resistant tank",
+   "statFocus": "Strength",
+   "why": "Unique 45% negation against Frostbite buildup versus the usual 22%, making it a strong situational pick against frost-heavy enemies and areas."
+  }
+ ],
+ "_verify": []
+}

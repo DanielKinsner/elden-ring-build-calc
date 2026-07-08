@@ -1,0 +1,25 @@
+{
+ "location": "In a chest inside an undead-occupied Godrick Knight camp in Stormhill, Limgrave — northeast of Warmaster's Shack and southwest of Deathtouched Catacombs.",
+ "region": "Limgrave",
+ "source": {
+  "type": "chest",
+  "name": "Chest in undead camp near Warmaster's Shack"
+ },
+ "tactics": [
+  "From the Warmaster's Shack grace, head to the nearby undead camp guarded by Undead Soldiers, zombie dogs, and a Godrick Knight.",
+  "Clear or sneak past the camp's defenders to reach the chest — this is a separate encounter from the Godrick Knight who simply patrols near the grace itself.",
+  "Requires only 10 Strength, making it a very early, cheap defensive pickup."
+ ],
+ "nearbyGraces": [
+  "Warmaster's Shack"
+ ],
+ "lore": "A shield marked with a beast crest meant to temper a warrior's passion — fight with fire, the saying goes, but never become its prisoner.",
+ "builds": [
+  {
+   "name": "Lightweight early tank",
+   "statFocus": "Strength",
+   "why": "Only 3.5 weight for 100% physical block and the highest Guard Boost among the light medium shields, a strong cheap pick right at the start of the game."
+  }
+ ],
+ "_verify": []
+}

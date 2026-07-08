@@ -1,0 +1,24 @@
+{
+ "location": "Purchased for 1,000 Runes from the Nomadic Merchant stationed beside the Liurnia Lake Shore Site of Grace at the southern edge of Liurnia's great lake.",
+ "region": "Liurnia of the Lakes",
+ "source": {
+  "type": "merchant",
+  "name": "Nomadic Merchant (Liurnia Lake Shore)"
+ },
+ "tactics": [
+  "Fast travel straight to Liurnia Lake Shore grace — the merchant sits right next to it, no exploration needed.",
+  "Bring enough runes; if short, nearby lake enemies and crafting materials can offset the cost."
+ ],
+ "nearbyGraces": [
+  "Liurnia Lake Shore"
+ ],
+ "lore": "A standard medium metal shield whose reliable ability to block physical damage while guarding made it a battlefield staple.",
+ "builds": [
+  {
+   "name": "Budget Strength tank",
+   "statFocus": "Strength",
+   "why": "100% physical negation for cheap runes, good baseline shield until something with elemental negation is found."
+  }
+ ],
+ "_verify": []
+}

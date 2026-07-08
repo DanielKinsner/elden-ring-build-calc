@@ -1,0 +1,25 @@
+{
+ "location": "Starting equipment for the Hero class. Also purchasable from Merchant Kale at the Church of Elleh for 600 Runes, or later from the Twin Maiden Husks at Roundtable Hold after obtaining Kale's Bell Bearing.",
+ "region": "Limgrave",
+ "source": {
+  "type": "merchant",
+  "name": "Merchant Kale"
+ },
+ "tactics": [
+  "Church of Elleh is one of the very first landmarks reached from the Limgrave starting area, visible at night with a fire lit near it.",
+  "Hero-class players already start with this shield equipped, so no purchase is needed for that origin.",
+  "Kale's Bell Bearing (found later, in Stormhill) unlocks the same purchase from the Twin Maiden Husks if you never bought it early."
+ ],
+ "nearbyGraces": [
+  "Church of Elleh"
+ ],
+ "lore": "A round shield wrapped in leather, one of the larger medium shields. It blocks less reliably than a metal shield but can guard against a wider spread of attack types.",
+ "builds": [
+  {
+   "name": "Starting-gear Strength build",
+   "statFocus": "Strength",
+   "why": "Very light (3.0 weight) with 91% physical block, good for early low-Strength characters before a metal shield is affordable."
+  }
+ ],
+ "_verify": []
+}

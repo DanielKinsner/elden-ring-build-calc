@@ -1,0 +1,24 @@
+{
+ "location": "On a corpse atop a rampart tower south of Oridys's Rise in Weeping Peninsula, reached from the Castle Morne Rampart Site of Grace by summoning Torrent and using a nearby spiritspring to leap onto the tower's roof.",
+ "region": "Weeping Peninsula",
+ "source": {
+  "type": "drop",
+  "name": "Corpse atop rampart tower near Castle Morne"
+ },
+ "tactics": [
+  "From the Castle Morne Rampart grace, summon Torrent and look east for the spiritspring, then jump it to reach the tower roof.",
+  "No enemy directly guards the corpse, but ranged soldiers on the surrounding rampart can knock you off balance mid-jump if you linger in the open."
+ ],
+ "nearbyGraces": [
+  "Castle Morne Rampart"
+ ],
+ "lore": "Shaped from a great turtle's shell, its natural curve well-suited to deflecting blows. The turtle is a symbol of tireless endurance, and the shield is said to speed stamina recovery in kind.",
+ "builds": [
+  {
+   "name": "Stamina-sustain tank",
+   "statFocus": "Strength",
+   "why": "Unique +3/sec stamina regeneration passive (works even while two-handing another weapon), ideal for a heavy-swinging Strength build that wants to keep attacking without running out of stamina."
+  }
+ ],
+ "_verify": []
+}

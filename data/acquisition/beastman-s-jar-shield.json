@@ -1,0 +1,25 @@
+{
+ "location": "A 2% drop from sword-and-shield Beastmen of Farum Azula. One reliable spawn is just past the Crumbling Beast Grave Depths Site of Grace, patrolling alongside a dog.",
+ "region": "Crumbling Farum Azula",
+ "source": {
+  "type": "enemy",
+  "name": "Beastman of Farum Azula (sword-and-shield variant)"
+ },
+ "tactics": [
+  "From the Crumbling Beast Grave Depths grace, push forward to find the sword-and-shield Beastman traveling with a dog companion — deal with the dog first so it doesn't harass you mid-fight.",
+  "Only the sword-and-shield variant carries this shield; the throwing-knife variant does not.",
+  "2% is a low drop rate, so plan on several grace-rest-and-repeat kills."
+ ],
+ "nearbyGraces": [
+  "Crumbling Beast Grave Depths"
+ ],
+ "lore": "Fashioned from a large broken jar, reflecting the Farum Azula beastmen's practice of firing oversized clay vessels specifically to be worn as shields.",
+ "builds": [
+  {
+   "name": "Budget elemental block",
+   "statFocus": "Strength",
+   "why": "Lightweight at 5.0 with surprisingly strong fire, lightning, and holy negation despite its middling E Strength scaling, useful as a situational elemental off-hand."
+  }
+ ],
+ "_verify": []
+}

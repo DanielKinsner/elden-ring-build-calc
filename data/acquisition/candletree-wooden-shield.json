@@ -1,0 +1,28 @@
+{
+ "location": "Inside one of four chests behind an illusory wall partway through Sage's Cave on the Altus Plateau. The illusory wall (marked by two braziers) is reached by dropping down a ledge past the cave's first waterfall.",
+ "region": "Altus Plateau",
+ "source": {
+  "type": "chest",
+  "name": "Chest behind illusory wall, Sage's Cave"
+ },
+ "tactics": [
+  "From the Abandoned Coffin grace, head north hugging the cliffside to find the Sage's Cave entrance, then rest at the grace just inside.",
+  "Push in, drop the ledge past the first waterfall, and strike the wall between the two braziers to reveal the illusory passage — four chests wait behind it.",
+  "Breaking the wall alerts nearby skeletons that charge immediately, so be ready to fight or grab-and-run as soon as it opens."
+ ],
+ "nearbyGraces": [
+  "Abandoned Coffin",
+  "Sage's Cave"
+ ],
+ "lore": "A light, easy-to-handle wooden shield marked with a lit candle-tree — a motif once forbidden for hinting at a hidden, sinful prophecy.",
+ "builds": [
+  {
+   "name": "Lightweight Strength block",
+   "statFocus": "Strength",
+   "why": "Only 3.5 weight for 93% physical negation, a good low-investment option for a Strength or quality build that doesn't want to commit much weight to its shield."
+  }
+ ],
+ "_verify": [
+  "nearbyGraces"
+ ]
+}

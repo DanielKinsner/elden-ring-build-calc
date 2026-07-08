@@ -1,0 +1,25 @@
+{
+ "location": "A 4% drop from shield-wielding Banished Knights. The most convenient farm target is the Banished Knight who spawns near/patrols just outside the Cathedral of Dragon Communion in Caelid; the same enemy type also appears in Stormveil Castle, at Castle Sol in the Mountaintops of the Giants, and in Crumbling Farum Azula.",
+ "region": "Caelid",
+ "source": {
+  "type": "enemy",
+  "name": "Banished Knight (shield-wielding, Cathedral of Dragon Communion)"
+ },
+ "tactics": [
+  "Rest at the Cathedral of Dragon Communion grace, then repeatedly fight the Banished Knight patrolling right outside for the 4% chance drop.",
+  "The same shield-wielding enemy type also spawns in Stormveil Castle, Castle Sol (Mountaintops of the Giants), and Crumbling Farum Azula if you'd rather farm elsewhere.",
+  "Banished Knights inside Fringefolk Hero's Grave do NOT drop this shield — don't waste farming runs there."
+ ],
+ "nearbyGraces": [
+  "Cathedral of Dragon Communion"
+ ],
+ "lore": "Issued to knights cast out of their homes through misfortune or misdeed, exiled to the fringes to start anew with only despair for company.",
+ "builds": [
+  {
+   "name": "Heavy Strength turtle",
+   "statFocus": "Strength",
+   "why": "Pure D-scaling Strength shield with the second-highest Guard Boost among medium shields, good for a pure block-and-punish playstyle needing only 14 Strength."
+  }
+ ],
+ "_verify": []
+}

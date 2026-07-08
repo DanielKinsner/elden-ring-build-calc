@@ -1,0 +1,26 @@
+{
+ "location": "Sold by the Nomadic Merchant near the Forest-Spanning Greatbridge Site of Grace in Altus Plateau (the same merchant stall that sells the Red Crest Heater Shield).",
+ "region": "Altus Plateau",
+ "source": {
+  "type": "merchant",
+  "name": "Nomadic Merchant (Forest-Spanning Greatbridge)"
+ },
+ "tactics": [
+  "Same merchant location as the Red Crest Heater Shield — check the full shop list so you don't miss one while buying the other.",
+  "Higher Strength requirement (12) than most early shields, so weigh it against your build before buying."
+ ],
+ "nearbyGraces": [
+  "Forest-Spanning Greatbridge"
+ ],
+ "lore": "A sturdy, well-regarded metal shield marked with a yellow scorpion — a symbol warning of sudden, surprise strikes.",
+ "builds": [
+  {
+   "name": "Strength tank build",
+   "statFocus": "Strength",
+   "why": "100% physical negation and solid guard boost (57) for a mid-game Strength-scaling turtle build."
+  }
+ ],
+ "_verify": [
+  "nearbyGraces"
+ ]
+}

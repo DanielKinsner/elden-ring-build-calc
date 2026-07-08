@@ -1,0 +1,24 @@
+{
+ "location": "Purchased for 1,000 Runes from the Nomadic Merchant camped beside the road between Mistwood Ruins and Fort Haight, in eastern Limgrave.",
+ "region": "Limgrave",
+ "source": {
+  "type": "merchant",
+  "name": "Nomadic Merchant (Mistwood, near Fort Haight)"
+ },
+ "tactics": [
+  "From the Fort Haight West grace, head north along the road to find the merchant's bonfire camp.",
+  "The Twin Maiden Husks also sell it later if you acquire this merchant's Bell Bearing."
+ ],
+ "nearbyGraces": [
+  "Fort Haight West"
+ ],
+ "lore": "A dependable, solidly-built medium metal shield decorated with an image of the Erdtree set against a blue sky.",
+ "builds": [
+  {
+   "name": "Early full-block Strength",
+   "statFocus": "Strength",
+   "why": "100% physical negation and one of the highest Guard Boost values among cheap early shields, a strong turtle-guard option for only 1,000 Runes."
+  }
+ ],
+ "_verify": []
+}

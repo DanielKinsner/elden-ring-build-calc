@@ -1,0 +1,25 @@
+{
+ "location": "On a corpse on a stone outcrop attached to the cliffside southwest of Tombsward Catacombs in Weeping Peninsula, reached via a series of drops east, then north, then west and south along the cliff edge.",
+ "region": "Weeping Peninsula",
+ "source": {
+  "type": "drop",
+  "name": "Corpse on cliffside ledge, southwest of Tombsward Catacombs"
+ },
+ "tactics": [
+  "From the Tombsward Catacombs grace, follow the cliff edge east, then north, then back west and south to the first large broken pillar.",
+  "Drop down onto the erdleaf-flower ledge below, then drop again almost due west onto the final stone platform where the corpse sits.",
+  "This involves several sequential drops rather than one simple jump — take it slow so you don't overshoot the platform."
+ ],
+ "nearbyGraces": [
+  "Tombsward Catacombs"
+ ],
+ "lore": "A medium metal shield, easier to wield than a kite shield, marked with an eclipsed sun — a symbol tied to the Wandering Mausoleums where soulless demigods lie sleeping.",
+ "builds": [
+  {
+   "name": "Balanced elemental negation",
+   "statFocus": "Strength",
+   "why": "Flat ~44% negation across magic, fire, and holy alongside 100% physical block gives even coverage for a Strength build without one specific elemental threat in mind."
+  }
+ ],
+ "_verify": []
+}

@@ -1,0 +1,25 @@
+{
+ "location": "A 2% drop from any Godrick, Raya Lucaria, Radahn, Mausoleum, Leyndell, or Haligtree Soldier who happens to be wielding it. Most reliably farmed from the four Godrick Soldiers patrolling Gatefront Ruins near the Gatefront Site of Grace in Limgrave.",
+ "region": "Limgrave",
+ "source": {
+  "type": "enemy",
+  "name": "Godrick Soldier (Gatefront Ruins)"
+ },
+ "tactics": [
+  "Rest at the Gatefront grace, then hunt the four soldiers around the ruins: one patrols the road south of the grace, two share a bonfire further south, and one more sits at a bonfire north of them.",
+  "Not every soldier carries the shield — only those spawned wielding it can drop it, so expect to rest at the grace and repeat kills.",
+  "The same soldier types (and drop) reappear in several other regions later in the game if you'd rather farm elsewhere."
+ ],
+ "nearbyGraces": [
+  "Gatefront"
+ ],
+ "lore": "An oversized medium shield with its face sheathed in brass, commonly carried by soldiers during the Shattering.",
+ "builds": [
+  {
+   "name": "Ultimate physical turtle",
+   "statFocus": "Strength",
+   "why": "Highest Guard Boost (61) of any medium shield plus 100% physical negation — the top pick for a pure block-and-punish Strength build once you can meet its 16 Strength requirement."
+  }
+ ],
+ "_verify": []
+}

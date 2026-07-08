@@ -1,0 +1,25 @@
+{
+ "location": "Looted from a corpse partway up the wooden stairway along the exterior wall of Stormveil Castle, reached by taking the secret back-entrance route (the one Gatekeeper Gostoc hints at) up from the Stormveil Cliffside area.",
+ "region": "Limgrave",
+ "source": {
+  "type": "drop",
+  "name": "Corpse (Stormveil Castle backwall stairs)"
+ },
+ "tactics": [
+  "From the Stormveil Cliffside Site of Grace, climb the slope/wooden steps on the right rather than pushing straight into the main castle gate.",
+  "This route is the same secret path used to sneak past the front gate ballista — watch for patrolling soldiers on the platforms.",
+  "Don't confuse this with the similarly-named Marred Wooden Shield, found via a different route on the opposite (Rampart Tower) side of the castle."
+ ],
+ "nearbyGraces": [
+  "Stormveil Cliffside"
+ ],
+ "lore": "A leather shield issued to Stormveil's soldiers, its surface mottled and thorn-scarred like the castle itself — a hint at the corruption Godrick's grafting has spread through his men.",
+ "builds": [
+  {
+   "name": "Bleed-support Strength build",
+   "statFocus": "Strength/Arcane",
+   "why": "Innately builds Blood Loss (50) on guard hits, pairs well with a bleed-focused weapon in the other hand."
+  }
+ ],
+ "_verify": []
+}

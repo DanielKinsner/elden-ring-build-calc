@@ -1,0 +1,27 @@
+{
+ "location": "Found on a broken pillar ledge in Stormveil Castle: from the Rampart Tower Site of Grace, cross the walkway past the explosive barrels and War Hawks, defeat the War Hawk on the western tower, drop to the ledge below, follow it north, then drop down to the pillar.",
+ "region": "Limgrave",
+ "source": {
+  "type": "drop",
+  "name": "Item pickup (Stormveil Castle rampart ledge)"
+ },
+ "tactics": [
+  "War Hawks on this walkway dive-bomb and can knock you off the edge — fight them near the center, not the rail.",
+  "The explosive barrels nearby can be shot to clear groups of soldiers before crossing.",
+  "Don't confuse with the Marred Leather Shield, found via the opposite Cliffside stairway route in the same castle."
+ ],
+ "nearbyGraces": [
+  "Rampart Tower"
+ ],
+ "lore": "A wooden shield carried by Stormveil's rank and file, mottled and overgrown with thorns just as the castle itself has been marred.",
+ "builds": [
+  {
+   "name": "Bleed-support Strength build",
+   "statFocus": "Strength/Arcane",
+   "why": "Same innate Blood Loss buildup (50) as its leather counterpart, useful cheap bleed-proc shield for early Strength/Arcane builds."
+  }
+ ],
+ "_verify": [
+  "tactics"
+ ]
+}

@@ -1,0 +1,25 @@
+{
+ "location": "A guaranteed drop from Moongrum, Carian Knight, who guards the lift up to the Grand Library in the Academy of Raya Lucaria.",
+ "region": "Liurnia of the Lakes",
+ "source": {
+  "type": "enemy",
+  "name": "Moongrum, Carian Knight"
+ },
+ "tactics": [
+  "From the Debate Parlor grace, head north up the grand staircase — magically-summoned boulders roll down at you, so time your climb carefully.",
+  "Moongrum fights with a Carian Knight's Sword and glintstone sorceries at range; closing the distance quickly limits his spellcasting.",
+  "You can run past him to the lift and ride it up, causing him to fall through the floor below, but you won't get the guaranteed shield drop unless you actually kill him."
+ ],
+ "nearbyGraces": [
+  "Debate Parlor"
+ ],
+ "lore": "A teardrop-shaped medium shield inset with blue glintstone, once carried by knights sworn to protect the Carian royal family.",
+ "builds": [
+  {
+   "name": "Magic-resistant hybrid",
+   "statFocus": "Intelligence",
+   "why": "71% magic negation plus a 15 Intelligence requirement and Int-scaled magic attack power make it a natural anti-sorcery off-hand for a Strength/Intelligence build."
+  }
+ ],
+ "_verify": []
+}

@@ -1,0 +1,25 @@
+{
+ "location": "Found inside the Apostate Derelict, a ruined church at the northernmost point of Consecrated Snowfield, beyond the Wandering Mausoleum's path — sitting in front of an NPC inside the church.",
+ "region": "Consecrated Snowfield",
+ "source": {
+  "type": "chest",
+  "name": "Apostate Derelict (ground pickup inside ruined church)"
+ },
+ "tactics": [
+  "The Apostate Derelict has its own Site of Grace right inside, so it's a safe respawn point once found.",
+  "Reaching Consecrated Snowfield first requires the Haligtree Secret Medallion (two halves) to activate the lift near Ordina, Liturgical Town.",
+  "Don't fight the NPC seated near the shield unless you intend to — she is not hostile by default."
+ ],
+ "nearbyGraces": [
+  "Apostate Derelict"
+ ],
+ "lore": "A shield of radiant silver trimmed in amber, once carried by Loretta, Knight of the Haligtree — its dewdrop shape fueling rumors about her true origins.",
+ "builds": [
+  {
+   "name": "Strength/Intelligence hybrid tank",
+   "statFocus": "Strength/Intelligence",
+   "why": "Rare dual Strength+Intelligence scaling with added magic negation (89%), a strong pick for an INT-leaning melee build wanting a shield that also blocks sorcery."
+  }
+ ],
+ "_verify": []
+}

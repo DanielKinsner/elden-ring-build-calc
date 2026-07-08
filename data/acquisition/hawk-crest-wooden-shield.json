@@ -1,0 +1,25 @@
+{
+ "location": "On the ground inside a Stonesword Key-locked room in Stormveil Castle, near the Grafted Scion arena and the elevator shortcut back to the Rampart Tower Site of Grace. Shares the room with the Miséricorde dagger and the Iron Whetblade.",
+ "region": "Limgrave",
+ "source": {
+  "type": "drop",
+  "name": "Stonesword Key-locked room near the Grafted Scion arena, Stormveil Castle"
+ },
+ "tactics": [
+  "Look for the Stonesword Key (imp statue) door near the elevator back up to Rampart Tower, close to where the Grafted Scion fight took place at the start of the game.",
+  "Bring at least one Stonesword Key — this door requires one to open.",
+  "The same room holds the Iron Whetblade and Miséricorde dagger, so it's worth the detour for three items in one stop."
+ ],
+ "nearbyGraces": [
+  "Rampart Tower"
+ ],
+ "lore": "A light, easy-handling wooden shield bearing a long-forgotten heraldic crest of Stormveil.",
+ "builds": [
+  {
+   "name": "Free early Strength block",
+   "statFocus": "Strength",
+   "why": "95% physical negation for just 3.5 weight and 8 Strength, a strong no-cost pickup very early in a Stormveil Castle run."
+  }
+ ],
+ "_verify": []
+}

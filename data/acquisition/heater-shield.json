@@ -1,0 +1,22 @@
+{
+ "location": "Purchased for 1,500 Runes from the Twin Maiden Husks at Roundtable Hold. Also the default starting shield for the Vagabond class.",
+ "region": "Roundtable Hold",
+ "source": {
+  "type": "merchant",
+  "name": "Twin Maiden Husks"
+ },
+ "tactics": [
+  "Available in the Husks' base stock as soon as you first reach Roundtable Hold — no unlock condition needed.",
+  "Starting as a Vagabond skips the purchase entirely, since you spawn with it equipped."
+ ],
+ "nearbyGraces": [],
+ "lore": "A dependable, easy-to-handle medium metal shield — metal shields have long earned battlefield trust for how well they turn aside physical blows.",
+ "builds": [
+  {
+   "name": "Universal early Strength block",
+   "statFocus": "Strength",
+   "why": "100% physical negation, D-scaling Strength, and a cheap 1,500-Rune price make it the default all-purpose shield for nearly any early Strength-capable build."
+  }
+ ],
+ "_verify": []
+}

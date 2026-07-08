@@ -1,0 +1,25 @@
+{
+ "location": "Dropped by a Deathbird enemy that spawns only at night on a hilltop east of the Hermit Merchant's Shack in the Capital Outskirts area of Altus Plateau, near a Minor Erdtree, alongside a cluster of Skeletal Snails.",
+ "region": "Altus Plateau",
+ "source": {
+  "type": "enemy",
+  "name": "Deathbird"
+ },
+ "tactics": [
+  "This Deathbird only appears at night — rest at a grace and wait for nightfall if it's daytime, or use the in-game time-skip item.",
+  "Deathbirds hit hard and fly erratically; stay mobile and bait its dive/peck attacks rather than trading in the open.",
+  "The accompanying Skeletal Snails are slow but can poison-build if ignored — clear them first or lure the bird away from the group."
+ ],
+ "nearbyGraces": [
+  "Hermit Merchant's Shack"
+ ],
+ "lore": "A shield vividly painted with a twinbird, said to be the envoy of an outer god and the mother of all Deathbirds — it rewards desperate last stands, boosting attack and defense when the wielder's health runs critically low.",
+ "builds": [
+  {
+   "name": "Aggressive low-HP Strength build",
+   "statFocus": "Strength",
+   "why": "Passive +5% attack/+10% negation below 20% HP rewards a glass-cannon playstyle that dips into critical health, pairs well with health-regen talismans."
+  }
+ ],
+ "_verify": []
+}
