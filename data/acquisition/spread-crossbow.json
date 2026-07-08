@@ -1,0 +1,28 @@
+{
+ "location": "[Shadow of the Erdtree DLC — this weapon does not appear in the base game] Gravesite Plain — on a corpse in a Messmer Soldier camp down in a ravine south of the Castle Front Site of Grace, near Ellac Greatbridge",
+ "region": "Gravesite Plain",
+ "source": {
+  "type": "chest",
+  "name": "Corpse in Messmer Soldier camp, ravine near Ellac Greatbridge"
+ },
+ "tactics": [
+  "From Castle Front grace, head toward Ellac Greatbridge and look for a path dropping down the cliff south of the bridge",
+  "Three Messmer Soldiers guard the camp around the corpse and hit hard as a group; pick them off individually rather than fighting all three at once",
+  "Easy to miss since the camp sits off the main road, down in a ravine rather than on the bridge itself"
+ ],
+ "nearbyGraces": [
+  "Castle Front"
+ ],
+ "lore": "Two crossbows welded into one, engineered to load and fire a spread of bolts simultaneously.",
+ "builds": [
+  {
+   "name": "Crowd-control status applicator",
+   "statFocus": "STR 11 / DEX 17 (requirements only, no scaling)",
+   "why": "Fires 10 bolts at once in a spread pattern, ideal for tagging groups of enemies with status bolts (poison/bleed) in a single shot"
+  }
+ ],
+ "_verify": [
+  "region",
+  "source"
+ ]
+}

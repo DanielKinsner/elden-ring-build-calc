@@ -1,0 +1,26 @@
+{
+ "location": "Academy of Raya Lucaria — inside a chest atop the bell tower, reached via a long rooftop platforming route starting from the Debate Parlor",
+ "region": "Liurnia of the Lakes",
+ "source": {
+  "type": "chest",
+  "name": "Bell tower chest, Raya Lucaria Academy rooftops"
+ },
+ "tactics": [
+  "From Debate Parlor grace, go north into the courtyard, through the northwest door past a sorcerer, then out onto the rooftops",
+  "Follow the roofs south, climb a ladder, then make a long running jump west across a wide gap — a missed jump is a fatal fall",
+  "Marionette Soldiers patrol some rooftop stretches and can knock you off with spear thrusts, approach the edges carefully",
+  "The bell tower interior has enemies clinging to the walls, clear them before the long ladder climb up to the chest"
+ ],
+ "nearbyGraces": [
+  "Debate Parlor"
+ ],
+ "lore": "An exquisitely crafted ceremonial crossbow commissioned to celebrate the marriage — and reconciliation — between the houses of the Erdtree and the Full Moon, Leyndell and Raya Lucaria; its twin rings visibly spin as it's reloaded.",
+ "builds": [
+  {
+   "name": "Caster's ranged backup",
+   "statFocus": "INT 14 (requirement only, no scaling)",
+   "why": "Deals innate magic damage alongside physical and asks for Intelligence, giving INT-focused casters a no-investment ranged poke to fall back on between spells"
+  }
+ ],
+ "_verify": []
+}

@@ -1,0 +1,28 @@
+{
+ "location": "[Shadow of the Erdtree DLC — this weapon does not appear in the base game] Scadu Altus — on a corpse in tall grass beside a burnt-out military camp on the southern stretch of Moorth Highway, directly beneath a roaming Ghostflame Dragon, north of the Moorth Highway, South Site of Grace",
+ "region": "Scadu Altus",
+ "source": {
+  "type": "chest",
+  "name": "Corpse in burnt camp, Moorth Highway"
+ },
+ "tactics": [
+  "From Moorth Highway, South grace, head north along the road; the corpse is in tall grass on the west side and easy to walk past",
+  "A Ghostflame Dragon patrols directly overhead — its breath and stomp attacks can one-shot a low-level character, so grab the item and retreat rather than engage it",
+  "Use the scorched tents and dead soldiers of the ruined camp as a landmark since the corpse itself is hard to spot in the grass"
+ ],
+ "nearbyGraces": [
+  "Moorth Highway, South"
+ ],
+ "lore": "A mechanized crossbow fitted with a fan-shaped reloading contraption that powers its unique rapid-fire battle art.",
+ "builds": [
+  {
+   "name": "Rapid-fire status/DPS build",
+   "statFocus": "STR 13 / DEX 15 (requirements only, no scaling)",
+   "why": "Its Repeating Fire skill unloads a fast burst of bolts, good for quick status buildup or burst ranged damage in one sequence"
+  }
+ ],
+ "_verify": [
+  "region",
+  "source"
+ ]
+}

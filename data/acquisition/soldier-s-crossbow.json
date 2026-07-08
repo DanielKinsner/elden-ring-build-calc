@@ -1,0 +1,29 @@
+{
+ "location": "Not a fixed pickup — random drop from Foot Soldiers and Exile Soldiers who wield it; best farmed from Godrick Foot Soldiers east of the Deathtouched Catacombs in Limgrave, or from Exile Soldiers inside Stormveil Castle",
+ "region": "Limgrave",
+ "source": {
+  "type": "drop",
+  "name": "Godrick Foot Soldier / Exile Soldier (crossbow-wielding)"
+ },
+ "tactics": [
+  "East of the Deathtouched Catacombs grace, toward the crucible/knight area, a small group of Godrick Soldiers includes a couple of crossbow-wielders",
+  "Inside Stormveil, resting at Limgrave Tower Bridge grace then heading back into the castle aggroes a group of Exile Soldiers, several of whom carry this crossbow",
+  "Drop rate is low (roughly 4% at base Discovery); expect repeated kills, and a Discovery-boosting talisman/item helps"
+ ],
+ "nearbyGraces": [
+  "Deathtouched Catacombs",
+  "Limgrave Tower Bridge"
+ ],
+ "lore": "A crudely made crossbow that anyone can pick up and fire, but one that lacks both stopping power and accuracy.",
+ "builds": [
+  {
+   "name": "Throwaway early ranged tool",
+   "statFocus": "STR 10 / DEX 8 (requirements only, no scaling)",
+   "why": "Lightest and weakest crossbow but free from farming and needs minimal stats, useful purely as an early pulling/aggro tool"
+  }
+ ],
+ "_verify": [
+  "location",
+  "region"
+ ]
+}

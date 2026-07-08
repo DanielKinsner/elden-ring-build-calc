@@ -1,0 +1,30 @@
+{
+ "location": "Stormveil Castle — on a corpse inside a walled rampart section where an Exile Soldier operates a ballista, reached by platforming across rooftops and bridges east of the Rampart Tower Site of Grace",
+ "region": "Limgrave",
+ "source": {
+  "type": "chest",
+  "name": "Corpse near ballista, Stormveil Castle ramparts"
+ },
+ "tactics": [
+  "From Rampart Tower grace, jump the rooftops/bridges east through the area with a Banished Knight and Exile Soldier to reach the ballista platform",
+  "An Exile Soldier operates the ballista here — bait its shot from cover or close the distance quickly before looting the corpse",
+  "Several jumps in this rooftop route have long fatal drops, so take it slow rather than sprinting"
+ ],
+ "nearbyGraces": [
+  "Rampart Tower"
+ ],
+ "lore": "A composite crossbow, among the largest bolt-throwers in the Lands Between — its flexible non-metal limbs let it punch bolts through steel armor that stiffer weapons couldn't pierce.",
+ "builds": [
+  {
+   "name": "Strength/Dex ranged poke",
+   "statFocus": "STR 18 / DEX 12 (requirements only, no scaling)",
+   "why": "Highest base physical damage of any standard crossbow, useful as a free stagger/chip-damage tool for melee builds since it needs no extra stat investment beyond requirements"
+  },
+  {
+   "name": "Status bolt applicator",
+   "statFocus": "None — bolt type determines added effect, weapon itself doesn't scale",
+   "why": "High flat base damage pairs well with special bolts (Poison, Bone, Explosive) for utility ranged pressure on any build"
+  }
+ ],
+ "_verify": []
+}

@@ -1,0 +1,24 @@
+{
+ "location": "Weeping Peninsula — sold by the Nomadic Merchant stationed at Castle Morne Rampart for 1,500 runes",
+ "region": "Weeping Peninsula",
+ "source": {
+  "type": "merchant",
+  "name": "Nomadic Merchant, Castle Morne Rampart"
+ },
+ "tactics": [
+  "The merchant sits right at the Castle Morne Rampart Site of Grace, easy to reach early via the Weeping Peninsula",
+  "Bring 1,500 runes; the same merchant also sells the bolts you'll need to actually fire it"
+ ],
+ "nearbyGraces": [
+  "Castle Morne Rampart"
+ ],
+ "lore": "A simple crossbow built from a bow fixed to a stock — reliable and easy to use, if slow to reload.",
+ "builds": [
+  {
+   "name": "Budget early-game ranged option",
+   "statFocus": "STR 12 / DEX 8 (requirements only, no scaling)",
+   "why": "Cheapest and lightest crossbow to acquire, a solid low-investment secondary ranged tool early in a run"
+  }
+ ],
+ "_verify": []
+}

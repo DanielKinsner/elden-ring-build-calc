@@ -1,0 +1,27 @@
+{
+ "location": "Roundtable Hold — behind the first Imp Statue seal (costs 1 Stonesword Key), down the stairs past Blacksmith Hewg's workshop; comes with 20x Black-Key Bolts",
+ "region": "Roundtable Hold",
+ "source": {
+  "type": "chest",
+  "name": "Imp Statue seal (Stonesword Key vault), Roundtable Hold"
+ },
+ "tactics": [
+  "From the Roundtable Hold entrance, head down the stairs past Hewg's smithing area and double back to find the fogged Imp Statue door",
+  "Costs 1 Stonesword Key to open — don't confuse it with other, later Imp Statue doors deeper in the Hold that need different keys",
+  "No combat involved, it's a guaranteed pickup the moment the seal is broken"
+ ],
+ "nearbyGraces": [
+  "Table of Lost Grace"
+ ],
+ "lore": "A long-stocked black crossbow that belonged to Crepus, a confessor who quietly served the Two Fingers from within the Roundtable Hold; built for sniping at long range.",
+ "builds": [
+  {
+   "name": "Long-range sniper",
+   "statFocus": "STR 14 / DEX 16 (requirements only, no scaling)",
+   "why": "Has the longest range of the standard/somber crossbows, good for picking off distant targets or landing status bolts from well outside enemy aggro range"
+  }
+ ],
+ "_verify": [
+  "region"
+ ]
+}

@@ -1,0 +1,28 @@
+{
+ "location": "Not a fixed pickup — random drop from Soldier-class enemies across several regions (Godrick, Raya Lucaria, Radahn, Mausoleum, Leyndell, Haligtree, and Messmer Soldiers); most reliably farmed from crossbow-wielding Godrick Soldiers at Gatefront Ruins in Limgrave",
+ "region": "Limgrave",
+ "source": {
+  "type": "drop",
+  "name": "Godrick Soldier (crossbow-wielding)"
+ },
+ "tactics": [
+  "At Gatefront Ruins, target Godrick Soldiers actually holding a crossbow rather than the spear-and-shield variants — only the crossbow-wielders can drop it",
+  "Base drop rate is low (roughly 2% at 100 Discovery), so expect to farm multiple kills; a Discovery-boosting item speeds this up",
+  "Most soldiers here ignore you until aggroed, so you can pick off crossbow-wielders individually instead of pulling the whole camp"
+ ],
+ "nearbyGraces": [
+  "Gatefront"
+ ],
+ "lore": "A crossbow reinforced with iron limbs for extra punch, commonly issued to rank-and-file soldiers during the Shattering.",
+ "builds": [
+  {
+   "name": "High base-damage ranged poke",
+   "statFocus": "STR 14 / DEX 10 (requirements only, no scaling)",
+   "why": "Highest physical base damage among the standard (non-Somber) crossbows, good for chip damage and stance breaks from range without any stat investment beyond requirements"
+  }
+ ],
+ "_verify": [
+  "location",
+  "region"
+ ]
+}

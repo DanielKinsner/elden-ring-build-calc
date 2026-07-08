@@ -1,0 +1,25 @@
+{
+ "location": "Mt. Gelmir — on a corpse atop a raised wooden platform right beside the Craftsman's Shack Site of Grace",
+ "region": "Mt. Gelmir",
+ "source": {
+  "type": "chest",
+  "name": "Corpse on shack platform, Craftsman's Shack"
+ },
+ "tactics": [
+  "The corpse sits on the raised shed structure right next to the grace, just a short climb, no combat required",
+  "Craftsman's Shack is reached the long way around Mt. Gelmir's volcano rim, either from Seethewater Terminus or via the Ninth Mt. Gelmir Campsite side",
+  "Fires 3 bolts per trigger pull, so bring extra ammunition — you'll burn through bolts three times as fast as a normal crossbow"
+ ],
+ "nearbyGraces": [
+  "Craftsman's Shack"
+ ],
+ "lore": "A crossbow built around pulleys and power springs, an intricate mechanism that likely demanded both mathematical genius and knowledge of Golden Order fundamentalist teachings to construct.",
+ "builds": [
+  {
+   "name": "Burst status-bolt spammer",
+   "statFocus": "STR 16 / DEX 16 (requirements only, no scaling)",
+   "why": "Firing three bolts per shot triples the status procs (poison, bleed, frost) landed per trigger pull, good for fast status buildup at range"
+  }
+ ],
+ "_verify": []
+}
