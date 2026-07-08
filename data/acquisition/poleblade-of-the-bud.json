@@ -1,0 +1,32 @@
+{
+ "location": "Not a world pickup — traded to Finger Reader Enia at the Roundtable Hold in exchange for the Remembrance of the Saint of the Bud, which drops from defeating Romina, Saint of the Bud in the Church of the Bud.",
+ "region": "Ancient Ruins of Rauh",
+ "source": {
+  "type": "boss",
+  "name": "Romina, Saint of the Bud (remembrance, redeemed at Roundtable Hold)"
+ },
+ "tactics": [
+  "Reach the Church of the Bud, Main Entrance grace in the western Ancient Ruins of Rauh — from Rauh Ancient Ruins, West, work up through the ruined building to its top floor, cross the water outside, pass through the rot-filled chamber, then take the hidden lift up to the church's stairs",
+  "A gold summon sign for NPC ally Dryleaf Dane sits right outside the fog gate — use it, this fight is much easier with backup",
+  "Stay close and roll into her rather than backing away; most of her poleblade combos and her Centipede Sweep miss entirely at close range, and her double-360 spin and rolling attacks are dodged with well-timed rolls to the left",
+  "Watch her weapon for a red/pink glow — it signals a Scarlet Rot-enchanted combo (ending in an overhead plunge) or, past 50% HP, a burst of exploding butterflies; sprint clear immediately when you see it. She's weak to fire and frostbite, has low poise, and is immune to poison/rot/sleep/madness"
+ ],
+ "nearbyGraces": [
+  "Church of the Bud, Main Entrance",
+  "Church of the Bud"
+ ],
+ "lore": "Grown from the sacred bud Romina cradled in silence while her church burned during Messmer's crusade, this poleblade binds that corrupted bloom to Scarlet Rot so that every strike spreads decay. It's effectively grafted from her own body, forged after rot and a twisted divine element remade her into the half-centipede saint she now is.",
+ "builds": [
+  {
+   "name": "Arcane rot halberd",
+   "why": "Arcane scaling is far and away the dominant stat (well ahead of Dex, with Strength barely contributing), and every hit carries a fixed 55 Scarlet Rot buildup regardless of Arcane investment — slots straight into an arcane/rot status-stacking build",
+   "statFocus": "ARC / DEX"
+  },
+  {
+   "name": "Romina's Purification skill build",
+   "why": "The unique skill coats the blade in rot for wide sweeping slashes, useful as AoE crowd control or PvP pressure for a build built around FP sustain (Mind/flask investment) rather than pure raw damage",
+   "statFocus": "ARC / MIND"
+  }
+ ],
+ "_verify": []
+}

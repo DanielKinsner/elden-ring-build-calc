@@ -1,0 +1,31 @@
+{
+ "location": "Ground pickup on a grave at the northern edge of the Gravesite Plain. From the Charo's Hidden Grave site of grace, head north through the nearby arch, turn right immediately after, and follow the path as it ramps up north to where it meets the plain's edge — the glaive rests among the tombstones there.",
+ "region": "Gravesite Plain",
+ "source": {
+  "type": "drop",
+  "name": "Corpse/grave near Charo's Hidden Grave"
+ },
+ "tactics": [
+  "Charo's Hidden Grave itself is a late-DLC area — from the Grand Altar of Dragon Communion grace, climb along the southwest wing of the nearby dragon into the red-flowered field to the south to reach it",
+  "No enemy guards the item — you can walk straight up and pick it up without a fight",
+  "A Tibia Mariner patrols a pond nearby; it's avoidable, so don't feel pressured to engage it just to grab this weapon",
+  "Don't wander onto the central lake/island in this area — it can aggro a swarm of birds plus the Death Rite Bird field boss, which has nothing to do with this pickup"
+ ],
+ "nearbyGraces": [
+  "Charo's Hidden Grave"
+ ],
+ "lore": "A glaive worn smooth from long years of use among the tombstones of the Gravesite Plain, said to serve as a channel for communing with the spirits that linger over the graves there. It carries the same Rancor Slash skill as the base game's Spirit Sword, hinting at a shared, otherworldly origin.",
+ "builds": [
+  {
+   "name": "Dex/Int hybrid glaive",
+   "why": "Dexterity scaling clearly leads (well above Strength and Intelligence, which sit even with each other), while innate magic damage and D-scaling Intelligence let it double as a melee option for INT casters without a full STR investment",
+   "statFocus": "DEX / INT"
+  },
+  {
+   "name": "Quality-Int three-stat build",
+   "why": "Roughly even Strength/Intelligence scaling under a Dexterity lead makes it workable in three-stat 'quality-int' builds that also run a sorcery loadout",
+   "statFocus": "STR / DEX / INT"
+  }
+ ],
+ "_verify": []
+}
