@@ -1,0 +1,582 @@
+[
+ {
+  "id": "blue-white-wooden-shield",
+  "name": "Blue-White Wooden Shield",
+  "type": "Small Shield",
+  "source": "base",
+  "category": "regular",
+  "infusable": true,
+  "requirements": {
+   "STR": 8
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 176,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 43,
+   "DEX": 0,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "buckler",
+  "name": "Buckler",
+  "type": "Small Shield",
+  "source": "base",
+  "category": "regular",
+  "infusable": true,
+  "requirements": {
+   "STR": 8,
+   "DEX": 13
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 166,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 18,
+   "DEX": 54,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "coil-shield",
+  "name": "Coil Shield",
+  "type": "Small Shield",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 10,
+   "DEX": 10
+  },
+  "weight": null,
+  "passive": "Poison (72)",
+  "base": {
+   "physical": 196,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 43,
+   "DEX": 0,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {
+   "poison": 72
+  },
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "gilded-iron-shield",
+  "name": "Gilded Iron Shield",
+  "type": "Small Shield",
+  "source": "base",
+  "category": "regular",
+  "infusable": true,
+  "requirements": {
+   "STR": 8
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 181,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 43,
+   "DEX": 0,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "ice-crest-shield",
+  "name": "Ice Crest Shield",
+  "type": "Small Shield",
+  "source": "base",
+  "category": "regular",
+  "infusable": true,
+  "requirements": {
+   "STR": 9
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 181,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 43,
+   "DEX": 0,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "iron-roundshield",
+  "name": "Iron Roundshield",
+  "type": "Small Shield",
+  "source": "base",
+  "category": "regular",
+  "infusable": true,
+  "requirements": {
+   "STR": 8
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 181,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 43,
+   "DEX": 0,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "man-serpent-s-shield",
+  "name": "Man-Serpent's Shield",
+  "type": "Small Shield",
+  "source": "base",
+  "category": "regular",
+  "infusable": true,
+  "requirements": {
+   "STR": 8
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 171,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 43,
+   "DEX": 0,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "perfumer-s-shield",
+  "name": "Perfumer's Shield",
+  "type": "Small Shield",
+  "source": "base",
+  "category": "regular",
+  "infusable": true,
+  "requirements": {
+   "STR": 8
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 164,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 43,
+   "DEX": 0,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "pillory-shield",
+  "name": "Pillory Shield",
+  "type": "Small Shield",
+  "source": "base",
+  "category": "regular",
+  "infusable": true,
+  "requirements": {
+   "STR": 10
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 173,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 43,
+   "DEX": 0,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "red-thorn-roundshield",
+  "name": "Red Thorn Roundshield",
+  "type": "Small Shield",
+  "source": "base",
+  "category": "regular",
+  "infusable": true,
+  "requirements": {
+   "STR": 8
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 171,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 43,
+   "DEX": 0,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "rickety-shield",
+  "name": "Rickety Shield",
+  "type": "Small Shield",
+  "source": "base",
+  "category": "regular",
+  "infusable": true,
+  "requirements": {
+   "STR": 8
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 171,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 43,
+   "DEX": 0,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "rift-shield",
+  "name": "Rift Shield",
+  "type": "Small Shield",
+  "source": "base",
+  "category": "regular",
+  "infusable": true,
+  "requirements": {
+   "STR": 8
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 171,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 43,
+   "DEX": 0,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "riveted-wooden-shield",
+  "name": "Riveted Wooden Shield",
+  "type": "Small Shield",
+  "source": "base",
+  "category": "regular",
+  "infusable": true,
+  "requirements": {
+   "STR": 8
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 176,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 43,
+   "DEX": 0,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "scripture-wooden-shield",
+  "name": "Scripture Wooden Shield",
+  "type": "Small Shield",
+  "source": "base",
+  "category": "regular",
+  "infusable": true,
+  "requirements": {
+   "STR": 8
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 171,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 43,
+   "DEX": 0,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "shield-of-night",
+  "name": "Shield of Night",
+  "type": "Small Shield",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 8,
+   "DEX": 15
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 165,
+   "magic": 107,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 0,
+   "DEX": 58,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "DEX": [
+    "physical",
+    "magic"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "shield-of-the-guilty",
+  "name": "Shield of the Guilty",
+  "type": "Small Shield",
+  "source": "base",
+  "category": "regular",
+  "infusable": true,
+  "requirements": {
+   "STR": 8
+  },
+  "weight": null,
+  "passive": "Blood loss (50)",
+  "base": {
+   "physical": 183,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 72,
+   "DEX": 0,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {
+   "bleed": 50
+  },
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "smithscript-shield",
+  "name": "Smithscript Shield",
+  "type": "Small Shield",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 10,
+   "DEX": 15,
+   "INT": 11,
+   "FAI": 11
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 176,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 63,
+   "DEX": 27,
+   "INT": 9,
+   "FAI": 9,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "smoldering-shield",
+  "name": "Smoldering Shield",
+  "type": "Small Shield",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 10,
+   "DEX": 9,
+   "FAI": 12
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 142,
+   "magic": 0,
+   "fire": 90,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 43,
+   "DEX": 0,
+   "INT": 0,
+   "FAI": 72,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "FAI": [
+    "fire"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "spiralhorn-shield",
+  "name": "Spiralhorn Shield",
+  "type": "Small Shield",
+  "source": "base",
+  "category": "regular",
+  "infusable": true,
+  "requirements": {
+   "STR": 8,
+   "DEX": 10
+  },
+  "weight": null,
+  "passive": "Blood loss (45)",
+  "base": {
+   "physical": 183,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 43,
+   "DEX": 0,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {
+   "bleed": 45
+  },
+  "arcStatusScaling": 0
+ }
+]
