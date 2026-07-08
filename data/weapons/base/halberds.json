@@ -1,0 +1,596 @@
+[
+ {
+  "id": "banished-knight-s-halberd",
+  "name": "Banished Knight's Halberd",
+  "type": "Halberd",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 14,
+   "DEX": 12
+  },
+  "weight": 8,
+  "passive": null,
+  "base": {
+   "physical": 306,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 60,
+   "DEX": 78,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "commander-s-standard",
+  "name": "Commander's Standard",
+  "type": "Halberd",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 24,
+   "DEX": 14
+  },
+  "weight": 11.5,
+  "passive": null,
+  "base": {
+   "physical": 338,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 99,
+   "DEX": 54,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "dragon-halberd",
+  "name": "Dragon Halberd",
+  "type": "Halberd",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 22,
+   "DEX": 10
+  },
+  "weight": 10.5,
+  "passive": null,
+  "base": {
+   "physical": 330,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 92,
+   "DEX": 63,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "gargoyle-s-black-halberd",
+  "name": "Gargoyle's Black Halberd",
+  "type": "Halberd",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 26,
+   "DEX": 10,
+   "FAI": 22
+  },
+  "weight": 12,
+  "passive": null,
+  "base": {
+   "physical": 252,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 301
+  },
+  "scaling": {
+   "STR": 85,
+   "DEX": 27,
+   "INT": 0,
+   "FAI": 45,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ],
+   "FAI": [
+    "holy"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "gargoyle-s-halberd",
+  "name": "Gargoyle's Halberd",
+  "type": "Halberd",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 26,
+   "DEX": 10
+  },
+  "weight": 12,
+  "passive": null,
+  "base": {
+   "physical": 320,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 111,
+   "DEX": 15,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "glaive",
+  "name": "Glaive",
+  "type": "Halberd",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 18,
+   "DEX": 15
+  },
+  "weight": 10,
+  "passive": null,
+  "base": {
+   "physical": 323,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 68,
+   "DEX": 64,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "golden-halberd",
+  "name": "Golden Halberd",
+  "type": "Halberd",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 30,
+   "DEX": 14,
+   "FAI": 12
+  },
+  "weight": 13.5,
+  "passive": null,
+  "base": {
+   "physical": 328,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 213
+  },
+  "scaling": {
+   "STR": 90,
+   "DEX": 27,
+   "INT": 0,
+   "FAI": 58,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ],
+   "FAI": [
+    "holy"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "guardian-s-swordspear",
+  "name": "Guardian's Swordspear",
+  "type": "Halberd",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 17,
+   "DEX": 16
+  },
+  "weight": 9,
+  "passive": null,
+  "base": {
+   "physical": 340,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 8,
+   "DEX": 96,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "halberd",
+  "name": "Halberd",
+  "type": "Halberd",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 14,
+   "DEX": 12
+  },
+  "weight": 8,
+  "passive": null,
+  "base": {
+   "physical": 306,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 81,
+   "DEX": 57,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "loretta-s-war-sickle",
+  "name": "Loretta's War Sickle",
+  "type": "Halberd",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 20,
+   "DEX": 15,
+   "INT": 20
+  },
+  "weight": 10,
+  "passive": null,
+  "base": {
+   "physical": 269,
+   "magic": 173,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 65,
+   "DEX": 81,
+   "INT": 72,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ],
+   "INT": [
+    "magic"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "lucerne",
+  "name": "Lucerne",
+  "type": "Halberd",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 15,
+   "DEX": 12
+  },
+  "weight": 7,
+  "passive": null,
+  "base": {
+   "physical": 296,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 45,
+   "DEX": 90,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "nightrider-glaive",
+  "name": "Nightrider Glaive",
+  "type": "Halberd",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 26,
+   "DEX": 10
+  },
+  "weight": 12,
+  "passive": null,
+  "base": {
+   "physical": 316,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 118,
+   "DEX": 8,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "pest-s-glaive",
+  "name": "Pest's Glaive",
+  "type": "Halberd",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 13,
+   "DEX": 13
+  },
+  "weight": 7,
+  "passive": null,
+  "base": {
+   "physical": 294,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 54,
+   "DEX": 88,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "poleblade-of-the-bud",
+  "name": "Poleblade of the Bud",
+  "type": "Halberd",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 14,
+   "DEX": 22,
+   "ARC": 20
+  },
+  "weight": null,
+  "passive": "Scarlet Rot (55)",
+  "base": {
+   "physical": 320,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 9,
+   "DEX": 45,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 90
+  },
+  "status": {
+   "rot": 55
+  },
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "ripple-crescent-halberd",
+  "name": "Ripple Crescent Halberd",
+  "type": "Halberd",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 12,
+   "DEX": 12,
+   "ARC": 20
+  },
+  "weight": 8.5,
+  "passive": null,
+  "base": {
+   "physical": 210,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 0,
+   "DEX": 0,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 243
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "spirit-glaive",
+  "name": "Spirit Glaive",
+  "type": "Halberd",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 14,
+   "DEX": 17,
+   "INT": 16
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 296,
+   "magic": 88,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 54,
+   "DEX": 86,
+   "INT": 54,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ],
+   "INT": [
+    "magic"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "vulgar-militia-saw",
+  "name": "Vulgar Militia Saw",
+  "type": "Halberd",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 15,
+   "DEX": 13
+  },
+  "weight": 8,
+  "passive": "Blood loss (55)",
+  "base": {
+   "physical": 308,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 52,
+   "DEX": 84,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {
+   "bleed": 55
+  },
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "vulgar-militia-shotel",
+  "name": "Vulgar Militia Shotel",
+  "type": "Halberd",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 14,
+   "DEX": 16
+  },
+  "weight": 8,
+  "passive": null,
+  "base": {
+   "physical": 296,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 15,
+   "DEX": 120,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ }
+]
