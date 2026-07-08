@@ -1,0 +1,34 @@
+{
+ "location": "Rare (4% at 100 Discovery) drop from Greataxe-wielding Giant Skeletons. A reliable base-game farm spot: the notably taller skeleton among a small graveyard due east of the South Raya Lucaria Gate grace, next to a lone tree and a collapsed tower.",
+ "region": "Liurnia of the Lakes",
+ "source": {
+  "type": "enemy",
+  "name": "Giant Skeleton (Greataxe-wielding)"
+ },
+ "tactics": [
+  "From South Raya Lucaria Gate grace, head due east to a tree and tombstones; approaching wakes several Evil Skeletons from the ground",
+  "Only the clearly taller skeleton carries the Executioner's Greataxe — the smaller ones don't drop it",
+  "These skeletons are weak to Strike and Holy damage, which speeds the farm up a lot",
+  "Similar skeleton farm spots exist west of Church of Irith and east of Church of Plague in Caelid if you'd rather farm there instead"
+ ],
+ "nearbyGraces": [
+  "South Raya Lucaria Gate"
+ ],
+ "lore": "A massive cleaver bolted to a long pole, once carried by executioners to finish off already-beaten soldiers on the battlefield — a grim history reflected in how brutally it capitalizes on critical hits.",
+ "builds": [
+  {
+   "name": "Pure Strength crit-fisher",
+   "why": "C-rank Strength scaling plus a boosted critical damage multiplier make it a strong two-handed Strength pick.",
+   "statFocus": "Strength"
+  },
+  {
+   "name": "War Cry brawler",
+   "why": "War Cry buffs attack rating for trading blows with tanky enemies and bosses.",
+   "statFocus": "Strength"
+  }
+ ],
+ "_verify": [
+  "region",
+  "location"
+ ]
+}

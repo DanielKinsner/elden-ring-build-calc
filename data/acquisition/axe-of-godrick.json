@@ -1,0 +1,32 @@
+{
+ "location": "Trade the Remembrance of the Grafted (dropped by Godrick the Grafted) to Finger Reader Enia at Roundtable Hold. A Wandering Mausoleum with a bell can be used to get a duplicate later, but only one copy total is obtainable per playthrough via either method.",
+ "region": "Limgrave",
+ "source": {
+  "type": "boss",
+  "name": "Godrick the Grafted"
+ },
+ "tactics": [
+  "Fought at the end of Stormveil Castle; rest at the Secluded Cell grace right before the fog gate, or use Liftside Chamber to restock beforehand",
+  "Phase 1 axe swings have deceptive pauses before they land — after his roll-and-leap Storm Assault, get behind him for a free hit",
+  "At roughly 60% HP he cuts off his own arm and grafts on a dragon head, adding fire breath attacks (Sweeping Flame, Striding Flame) — stand to his side, his back is open during these",
+  "Nepheli Loux's summon sign is outside the fog gate if you talk to her in her room first"
+ ],
+ "nearbyGraces": [
+  "Secluded Cell",
+  "Liftside Chamber"
+ ],
+ "lore": "Godrick the Grafted's personal greataxe, worked in gold and stamped with a beast crest — a weapon he wielded as a symbolic claim to Godfrey's might and the golden bloodline he desperately tried to graft onto his own maimed body.",
+ "builds": [
+  {
+   "name": "Strength/quality bruiser",
+   "why": "Balanced D/D Strength-Dexterity scaling on a hard-hitting two-hander with a crowd-control shockwave skill.",
+   "statFocus": "Strength/Dexterity"
+  },
+  {
+   "name": "Crowd-control caster-hybrid",
+   "why": "\"I Command Thee, Kneel!\" fires shockwaves that hit multiple enemies, useful for groups and PvP zoning.",
+   "statFocus": "Strength"
+  }
+ ],
+ "_verify": []
+}

@@ -1,0 +1,31 @@
+{
+ "location": "Inside a chest on a troll-drawn carriage traveling the road west of Waypoint Ruins in Limgrave. Both trolls pulling it must be killed to stop the carriage before the chest can be opened.",
+ "region": "Limgrave",
+ "source": {
+  "type": "chest",
+  "name": "Carriage chest (west of Waypoint Ruins)"
+ },
+ "tactics": [
+  "The carriage keeps moving until both trolls are killed; they won't chase you off, so pick them off individually",
+  "Approach from Agheel Lake North or Agheel Lake South grace toward Waypoint Ruins to find the road the carriage travels",
+  "Once the carriage stops, climb onto the wagon bed and open the chest for the Greataxe"
+ ],
+ "nearbyGraces": [
+  "Agheel Lake North",
+  "Agheel Lake South"
+ ],
+ "lore": "An unrefined slab of iron shaped into an axe, favored by chieftains of the badlands. It's heavy enough that only genuinely strong hands can swing it, but a charged blow can flatten almost anything in its path.",
+ "builds": [
+  {
+   "name": "Starting Strength build",
+   "why": "Straightforward D/D scaling two-hander that's easy to find right at the start of the game for a Strength character.",
+   "statFocus": "Strength"
+  },
+  {
+   "name": "Barbaric Roar bruiser",
+   "why": "Default skill boosts attack rating by 10% and adds combo hits to heavy attacks.",
+   "statFocus": "Strength"
+  }
+ ],
+ "_verify": []
+}

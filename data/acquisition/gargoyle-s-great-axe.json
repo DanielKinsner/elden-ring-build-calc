@@ -1,0 +1,30 @@
+{
+ "location": "Dropped by a Valiant Gargoyle that swoops down onto the long staircase northeast of the Outer Wall Phantom Tree grace in the Capital Outskirts.",
+ "region": "Altus Plateau",
+ "source": {
+  "type": "enemy",
+  "name": "Valiant Gargoyle"
+ },
+ "tactics": [
+  "From Outer Wall Phantom Tree grace, head northeast up the long stairway; the gargoyle drops in from above partway up",
+  "It dual-wields a greatsword and halberd — Vacuum Slice from the sword hits at range, and the halberd has a Storm Assault-style leaping attack, so stay mobile",
+  "This particular gargoyle has no boss health bar and doesn't respawn once killed, so there's only one chance at it per playthrough (barring NG+)"
+ ],
+ "nearbyGraces": [
+  "Outer Wall Phantom Tree"
+ ],
+ "lore": "A bronze greataxe wielded by the Valiant Gargoyles, cobbled together from mismatched parts and mended with corpse wax, much like the stitched-together guardians who carry it.",
+ "builds": [
+  {
+   "name": "Pure Strength bruiser",
+   "why": "C-rank Strength scaling with a low Dexterity requirement makes it a solid early-to-mid Strength pick.",
+   "statFocus": "Strength"
+  },
+  {
+   "name": "War Cry aggro build",
+   "why": "Default War Cry skill boosts attack rating for sustained damage windows.",
+   "statFocus": "Strength"
+  }
+ ],
+ "_verify": []
+}

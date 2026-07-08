@@ -1,0 +1,31 @@
+{
+ "location": "Dropped by the Scaly Misbegotten boss at the end of Morne Tunnel, a small dungeon in the Weeping Peninsula.",
+ "region": "Weeping Peninsula",
+ "source": {
+  "type": "boss",
+  "name": "Scaly Misbegotten"
+ },
+ "tactics": [
+  "Reach Morne Tunnel by heading west then south from the South of the Tower grace, past poisonous flowers, to the tunnel entrance; there's a Morne Tunnel grace once inside",
+  "You're automatically dismounted from Torrent inside — bring a torch for the dark sections, and expect regular Misbegotten and Miner enemies along the way",
+  "The boss telegraphs its axe swings heavily and moves slowly; jump attacks (especially to the head) interrupt it and can stagger it open for a free combo"
+ ],
+ "nearbyGraces": [
+  "South of the Tower",
+  "Morne Tunnel"
+ ],
+ "lore": "A corroded ship's anchor pressed into service as a weapon, its four sharp flukes equally good at stabbing as bludgeoning — a leftover from the vessel the Tarnished sailed in on, abandoned once they reached the Lands Between.",
+ "builds": [
+  {
+   "name": "Strength pierce build",
+   "why": "C/E scaling with an unusual Pierce damage type for a Greataxe, and pairs well with the Spear Talisman.",
+   "statFocus": "Strength"
+  },
+  {
+   "name": "Barbaric Roar aggressor",
+   "why": "Default Barbaric Roar skill for attack buffs, benefits from poise-stacking to trade favorably in melee.",
+   "statFocus": "Strength"
+  }
+ ],
+ "_verify": []
+}

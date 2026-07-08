@@ -1,0 +1,33 @@
+{
+ "location": "Trade the Remembrance of the Regal Ancestor (dropped by the Regal Ancestor Spirit) to Finger Reader Enia at Roundtable Hold. A Wandering Mausoleum can duplicate it, but only one copy total is obtainable per playthrough via either method.",
+ "region": "Siofra River",
+ "source": {
+  "type": "boss",
+  "name": "Regal Ancestor Spirit"
+ },
+ "tactics": [
+  "Found in Hallowhorn Grounds in Nokron, Eternal City — light all six obelisks on the stairway down, then interact with the glowing deer carcass to teleport into the arena",
+  "The boss shifts between deer, boar, springhare, and goat forms mid-fight, each with a different charge or hop attack, and heals itself between transitions — stay aggressive to cut its healing windows short",
+  "Nearest grace is Ancestral Woods in Nokron; the fight is entirely optional and not required for progression",
+  "The weapon itself is picked up at Roundtable Hold by trading the remembrance to Enia, not at the boss arena"
+ ],
+ "nearbyGraces": [
+  "Ancestral Woods"
+ ],
+ "lore": "A great horn steeped in the power of ancestral spirits, once used in rites that worshipped one's forebears. Old custom held it to represent an envoy's wings, sent out to claim the lives of beings that had stopped aging and growing.",
+ "builds": [
+  {
+   "name": "Debuff support weapon",
+   "why": "Soul Stifler skill reduces enemy damage negation by roughly 15% for 30 seconds, best swapped in briefly before switching to a main weapon.",
+   "statFocus": "Support/Utility"
+  },
+  {
+   "name": "Secondary Strength/Dex heavy hitter",
+   "why": "D/D scaling lets it function as a plain heavy-hitting Greataxe if you ignore the skill entirely.",
+   "statFocus": "Strength/Dexterity"
+  }
+ ],
+ "_verify": [
+  "region"
+ ]
+}

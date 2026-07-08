@@ -1,0 +1,31 @@
+{
+ "location": "Dropped by Anastasia, Tarnished-Eater when she invades you approaching the Corpse-Stench Shack on Mt. Gelmir (her second of three invasions). The weapon comes pre-infused with Sacred affinity.",
+ "region": "Mt. Gelmir",
+ "source": {
+  "type": "npc",
+  "name": "Anastasia, Tarnished-Eater"
+ },
+ "tactics": [
+  "She invades the first time you approach the Corpse-Stench Shack — clear the surrounding Rotten Strays first so you aren't fighting her and trash mobs together",
+  "You can skip most of the path's enemies by hugging the mountain's edge on the left as you approach",
+  "This is her 2nd invasion of 3 (the others happen elsewhere and later at Consecrated Snowfield) — don't mistake a different encounter for this one",
+  "She's faster and more aggressive than her bulky weapon suggests; don't expect slow greataxe-style tells"
+ ],
+ "nearbyGraces": [
+  "Bridge of Iniquity"
+ ],
+ "lore": "The signature weapon of Ogress Anastasia, an invader who hunted Tarnished while posing as a Finger Maiden. It's an oversized carving blade built for taking apart a human body, and it draws a sip of the victim's vitality with every solid hit.",
+ "builds": [
+  {
+   "name": "Dex-leaning heavy weapon",
+   "why": "Lowest Strength requirement (16/11) of any Greataxe with C-rank Dexterity scaling, letting Dex builds two-hand a heavy weapon cheaply.",
+   "statFocus": "Dexterity"
+  },
+  {
+   "name": "Aggressive lifesteal brawler",
+   "why": "Passive heals ~1% max HP per hit, which stacks well with fast multi-hit skills like Wild Strikes.",
+   "statFocus": "Dexterity/Strength"
+  }
+ ],
+ "_verify": []
+}

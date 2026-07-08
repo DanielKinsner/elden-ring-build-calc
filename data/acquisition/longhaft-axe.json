@@ -1,0 +1,31 @@
+{
+ "location": "Rare (2% at 100 Discovery) drop from axe-wielding Misbegotten. Easiest source: a sleeping Misbegotten across the bridge from the Beside the Rampart Gaol grace at Castle Morne, Weeping Peninsula.",
+ "region": "Weeping Peninsula",
+ "source": {
+  "type": "enemy",
+  "name": "Misbegotten (axe-wielding)"
+ },
+ "tactics": [
+  "From Beside the Rampart Gaol grace, cross the bridge — the Misbegotten is asleep on the left, giving you a free critical riposte to start the fight",
+  "Only a 2% drop chance, so expect to reset at the grace and repeat several times",
+  "Backup farm: two more axe Misbegotten are down the stairs north of the Windmill Village grace",
+  "A third source exists in Cave of the Forlorn in the Consecrated Snowfield, but that's a late-game area not worth using for an early farm"
+ ],
+ "nearbyGraces": [
+  "Beside the Rampart Gaol"
+ ],
+ "lore": "The weapon of choice for the abused Misbegotten, this axe's unusually long handle lets its wielder put their whole body — and, the game implies, years of pent-up resentment — behind every swing.",
+ "builds": [
+  {
+   "name": "Strength hyperarmor trader",
+   "why": "D/D scaling with above-average two-handed hyperarmor, good for trading hits directly in melee.",
+   "statFocus": "Strength"
+  },
+  {
+   "name": "War Cry bruiser",
+   "why": "Default War Cry skill for burst damage windows.",
+   "statFocus": "Strength"
+  }
+ ],
+ "_verify": []
+}

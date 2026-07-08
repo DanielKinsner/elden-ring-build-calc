@@ -1,0 +1,31 @@
+{
+ "location": "Guaranteed drop from the Omenkiller & Miranda the Blighted Bloom duo boss at the end of Perfumer's Grotto, a small dungeon in Altus Plateau. (Regular Omenkiller enemies patrolling Volcano Manor can also drop it, but only by chance.)",
+ "region": "Altus Plateau",
+ "source": {
+  "type": "boss",
+  "name": "Omenkiller & Miranda the Blighted Bloom"
+ },
+ "tactics": [
+  "Perfumer's Grotto entrance is east of Altus Highway Junction grace, guarded by a large poison flower enemy; there's a Perfumer's Grotto grace right at the entrance",
+  "The duo fight pits a fire-wielding Omenkiller against you alongside Miranda, who spreads poison/rot clouds — try to separate and drop Miranda first so you aren't fighting both in a cloud",
+  "Alternative source: Omenkiller enemies inside Volcano Manor (Mt. Gelmir) carry the same weapon but drop it only by random chance"
+ ],
+ "nearbyGraces": [
+  "Perfumer's Grotto",
+  "Altus Highway Junction"
+ ],
+ "lore": "A brutal cleaver assembled from a line of hacked-off Omen horns bolted along its edge. The jagged, broken horn fragments are sharp enough to leave wounds that keep on bleeding.",
+ "builds": [
+  {
+   "name": "Bleed/Arcane build",
+   "why": "Innate 55 Hemorrhage buildup, the only Greataxe with built-in bleed, which scales further with an Occult affinity for Arcane builds.",
+   "statFocus": "Arcane/Strength"
+  },
+  {
+   "name": "Strength/Dex quality build",
+   "why": "D/D scaling on a mid-weight Greataxe with the multi-hit Wild Strikes skill for sustained pressure.",
+   "statFocus": "Strength/Dexterity"
+  }
+ ],
+ "_verify": []
+}

@@ -1,0 +1,31 @@
+{
+ "location": "Dropped by the Black Blade Kindred guarding the path to the Grand Lift of Rold in the Forbidden Lands (not the similar Black Blade Kindred fought outside Bestial Sanctum in Caelid, which drops different items).",
+ "region": "Mountaintops of the Giants",
+ "source": {
+  "type": "boss",
+  "name": "Black Blade Kindred (Forbidden Lands)"
+ },
+ "tactics": [
+  "Rest at the Forbidden Lands grace and head northeast along the snowy path toward the Grand Lift of Rold; the boss blocks the way",
+  "Two Black Blade Kindred exist in the game — this Mountaintops one drops Gargoyle's Black Axe/Black Blades, while the Caelid one drops Gargoyle's Blackblade/Black Halberd, so double-check you're fighting the right one",
+  "Weak to Strike and Holy damage; ranged Holy attacks aimed at the head work well",
+  "A red whirlwind attack drains health fast — sprint away the instant it starts rather than trying to dodge through it; staying under its legs avoids many of its wide swings"
+ ],
+ "nearbyGraces": [
+  "Forbidden Lands"
+ ],
+ "lore": "One of the paired bronze axes carried by the Valiant Gargoyles, patched together with blackened corpse wax and charged with holy power — a mark denoting service to Maliketh, the Black Blade.",
+ "builds": [
+  {
+   "name": "Strength/Faith holy hybrid",
+   "why": "D/E/D scaling across Strength, Dexterity and Faith adds innate Holy damage on top of physical, fitting a Strength-Faith build.",
+   "statFocus": "Strength/Faith"
+  },
+  {
+   "name": "War Cry holy bruiser",
+   "why": "Innate holy damage plus War Cry's buff gives consistent damage against Holy-weak enemies.",
+   "statFocus": "Strength/Faith"
+  }
+ ],
+ "_verify": []
+}

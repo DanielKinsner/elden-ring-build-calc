@@ -1,0 +1,31 @@
+{
+ "location": "Rare (4%) drop from large, axe-wielding Exile Soldiers. Easiest source: two of them in the Stonesword Key-locked cellar room in Stormveil Castle, reached from the Rampart Tower grace. Exile Soldiers in Castle Sol (Mountaintops of the Giants) drop it too, but that area is only accessible near the end of the game.",
+ "region": "Limgrave",
+ "source": {
+  "type": "enemy",
+  "name": "Exile Soldier (Greataxe-wielding)"
+ },
+ "tactics": [
+  "From Rampart Tower grace, head toward the elevator and into the Stonesword Key-locked cellar to find two axe-wielding Exile Soldiers together",
+  "4% drop rate means multiple resets at the grace are likely needed",
+  "Fight them one at a time if you can pull them individually — two at once can stagger-lock a low-level character",
+  "Don't confuse the regular sword-and-shield Exile Soldiers nearby with the axe-wielding ones; only the axe-wielders drop this weapon"
+ ],
+ "nearbyGraces": [
+  "Rampart Tower"
+ ],
+ "lore": "Named for its wide, curved blade, this greataxe rides an unusually long shaft that lets its wielder mow through several enemies in one wide swing instead of fighting them one at a time.",
+ "builds": [
+  {
+   "name": "Strength/quality sweeper",
+   "why": "D/D scaling with heavy attacks that arc around the wielder, strong against groups of enemies.",
+   "statFocus": "Strength/Dexterity"
+  },
+  {
+   "name": "War Cry burst build",
+   "why": "Default War Cry skill buffs attack rating for short damage windows against tougher single targets.",
+   "statFocus": "Strength"
+  }
+ ],
+ "_verify": []
+}
