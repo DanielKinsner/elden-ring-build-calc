@@ -1,0 +1,34 @@
+{
+ "location": "A floor pickup at the back of a side room in Taylew's Ruined Forge, a small optional dungeon in Ancient Ruins of Rauh, guarded by a Golem-type enemy rather than a boss fight.",
+ "region": "Ancient Ruins of Rauh",
+ "source": {
+  "type": "drop",
+  "name": "floor pickup, Taylew's Ruined Forge (guarded by a Golem)"
+ },
+ "tactics": [
+  "From the Taylew's Ruined Forge grace, follow the path forward to a gap and jump across it rather than dropping down",
+  "Take the small room on the left where the Golem stands guard — the axe sits at the back of that room",
+  "No boss and no NPC here — this dungeon holds three different Smithscript weapons total, so keep exploring after grabbing this one",
+  "As a Smithscript weapon it launches a returning projectile on charged/jumping heavy attacks and cannot take buff-granting Ashes of War or consumable buffs"
+ ],
+ "nearbyGraces": [
+  "Taylew's Ruined Forge",
+  "Ancient Ruins Base"
+ ],
+ "lore": "Etched with a smithing script and built as a throwing weapon rather than a conventional melee tool, this axe is credited to Taylew, the ruined forge's golem-smith deity, rather than ordinary blacksmithing.",
+ "builds": [
+  {
+   "name": "Str/Dex quality-thrower",
+   "why": "D/D physical scaling lets it work as a normal axe while its heavy attacks add a returning ranged option at no extra investment",
+   "statFocus": "STR / DEX"
+  },
+  {
+   "name": "Occult Arcane bleed/ranged",
+   "why": "Reforging to Occult affinity grants B-rank Arcane scaling, letting an Arcane-bleed build add a thrown option without sacrificing melee damage",
+   "statFocus": "ARC"
+  }
+ ],
+ "_verify": [
+  "source"
+ ]
+}

@@ -1,0 +1,32 @@
+{
+ "location": "Guaranteed drop from the Death Knight boss fought at the end of Fog Rift Catacombs, a minor dungeon in Gravesite Plain.",
+ "region": "Gravesite Plain",
+ "source": {
+  "type": "boss",
+  "name": "Death Knight (Fog Rift Catacombs)"
+ },
+ "tactics": [
+  "From Castle Front grace, head northwest through the fortified ground beneath Fog Rift Fort to the catacombs entrance in the northern rock face, west of the Church of the Crusade",
+  "This Death Knight fights with dual lightning axes instead of the halberd other Death Knights use — melee combos telegraph with a windup, but watch for a 6-orb lightning volley (roll late) and a lightning-charged spinning whirlwind (run sideways first, then roll into it as it closes)",
+  "Around 50% HP it gains a life-draining grab attack that heals it a large amount on contact — stand behind a pillar or roll at the last instant",
+  "Lightning resistance (Boltdrake Talisman, Lightningproof Dried Liver) meaningfully softens this fight"
+ ],
+ "nearbyGraces": [
+  "Castle Front",
+  "Fog Rift Catacombs"
+ ],
+ "lore": "These paired golden axes belonged to a Death Knight who personally guarded Godwyn and watched over the corpse kept as his ritual surrogate; they still crackle with the lightning power tied to the capital's dragon-worshipping cult.",
+ "builds": [
+  {
+   "name": "Str/Faith lightning quality",
+   "why": "D/D/D scaling across Strength, Dexterity and Faith spreads investment, and Faith also boosts the weapon's innate lightning damage plus the Blinkbolt skill's burst",
+   "statFocus": "STR / FAI"
+  },
+  {
+   "name": "Mobility skill-user",
+   "why": "Blinkbolt: Twinaxe is a fast, i-framed lightning dash with a spinning follow-up — usable as a gap-closer or escape tool even without heavy stat investment",
+   "statFocus": "DEX"
+  }
+ ],
+ "_verify": []
+}

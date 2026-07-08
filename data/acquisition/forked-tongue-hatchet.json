@@ -1,0 +1,31 @@
+{
+ "location": "A random (2%) drop from hatchet-wielding Imp enemies found in several Shadow of the Erdtree catacombs. It is most reliably farmed from a near-guaranteed Imp spawn in Scorpion River Catacombs, reached by heading west from Ancient Ruins Base through Temple Town Ruins along the river. The same enemy also spawns in Darklight Catacombs (Scadu Altus) and Fog Rift Catacombs (Gravesite Plain).",
+ "region": "Ancient Ruins of Rauh",
+ "source": {
+  "type": "enemy",
+  "name": "hatchet-wielding Imp (Scorpion River Catacombs)"
+ },
+ "tactics": [
+  "From the Scorpion River Catacombs grace, head into the main chamber (watch for basilisk 'eye' traps on the floor/walls) and take the left path — the hatchet Imp drops from the ceiling in a small side room with a corpse",
+  "It's an RNG drop, not a guaranteed one — rest at grace to reset and refight the same Imp, or equip the Silver Scarab talisman for +75 Item Discovery",
+  "Don't confuse this Imp with the other weapon-type Imps nearby (dagger/sword variants) — only the hatchet-wielder drops this weapon",
+  "If you're already elsewhere in the DLC, Darklight Catacombs (Scadu Altus) or Fog Rift Catacombs (Gravesite Plain) offer the same enemy as an alternate farm"
+ ],
+ "nearbyGraces": [
+  "Ancient Ruins Base",
+  "Temple Town Ruins",
+  "Scorpion River Catacombs"
+ ],
+ "lore": "Smithed by imps in the shape of a forked dragon's tongue, the wavy split blade is nicknamed an 'imp's tongue' and is built to tear open bleeding wounds rather than deal blunt damage.",
+ "builds": [
+  {
+   "name": "Str/Dex bleed",
+   "why": "D/D scaling plus a high native 50 bleed buildup make it a plug-and-play blood-loss weapon, though it's uninfusable so its affinity/skill can't be changed",
+   "statFocus": "STR / DEX"
+  }
+ ],
+ "_verify": [
+  "location",
+  "region"
+ ]
+}

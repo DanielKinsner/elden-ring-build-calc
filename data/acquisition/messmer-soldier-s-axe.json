@@ -1,0 +1,29 @@
+{
+ "location": "A random (2%) drop from axe-wielding Messmer Soldiers. The most commonly recommended farm is a pair of axe-wielders guarding a tent southwest of Castle Front grace, just outside Castle Ensis.",
+ "region": "Gravesite Plain",
+ "source": {
+  "type": "enemy",
+  "name": "Messmer Soldier (axe-wielder), Castle Front"
+ },
+ "tactics": [
+  "From Castle Front grace, head southeast past the wooden barricades to find two axe-wielding soldiers guarding a tent; a Beast-Repellent Torch helps if patrol dogs join in",
+  "Not a guaranteed drop — rest at Castle Front to respawn the soldiers and repeat, or equip the Silver Scarab talisman for +75 Item Discovery",
+  "Messmer Soldiers carrying spears or swords look similar at a distance — check the weapon silhouette before committing to a specific enemy",
+  "The same enemy and drop chance appear across most other DLC regions (Cerulean Coast, Scadu Altus, Abyssal Woods, Charo's Hidden Grave, Ancient Ruins of Rauh) if you'd rather farm elsewhere"
+ ],
+ "nearbyGraces": [
+  "Castle Front",
+  "Castle Ensis Checkpoint"
+ ],
+ "lore": "A plain, worn steel axe standard-issued to Messmer's rank-and-file soldiers — mass-produced gear favored by troops who gave themselves over completely to their lord's war.",
+ "builds": [
+  {
+   "name": "Str/Dex quality (charge-attack)",
+   "why": "D/D scaling with a noticeably higher charged heavy-attack motion value than standard axes, rewarding a build built around charged heavies",
+   "statFocus": "STR / DEX"
+  }
+ ],
+ "_verify": [
+  "nearbyGraces"
+ ]
+}
