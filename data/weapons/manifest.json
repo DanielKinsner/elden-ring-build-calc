@@ -1,0 +1,7 @@
+{
+  "_comment": "List of weapon data files, grouped by source. The loader fetches each and flattens into one array. Append new category files here as they land.",
+  "base": [
+    "base/katanas.json"
+  ],
+  "dlc": []
+}
