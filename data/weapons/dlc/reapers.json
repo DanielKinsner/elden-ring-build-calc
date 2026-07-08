@@ -1,0 +1,35 @@
+[
+ {
+  "id": "obsidian-lamina",
+  "name": "Obsidian Lamina",
+  "type": "Reaper",
+  "source": "dlc",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 12,
+   "DEX": 25,
+   "ARC": 17
+  },
+  "weight": null,
+  "passive": "Blood loss (55)",
+  "base": {
+   "physical": 294,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 18,
+   "DEX": 108,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 45
+  },
+  "status": {
+   "bleed": 55
+  },
+  "arcStatusScaling": 0
+ }
+]
