@@ -14,6 +14,7 @@
   var build = { VIG:60, MND:20, END:30, STR:24, DEX:58, INT:9, FAI:15, ARC:40 };
   var twoHanded = true, upgradeLevel = null, focusStat = 'DEX';
   var current = weapons.find(function (w){ return w.id === 'rivers-of-blood'; }) || weapons[0];
+  var compareIds = [];
 
   /* ---- stat sliders ---- */
   $('stats').innerHTML = STATS.map(function (k) {
@@ -131,7 +132,40 @@
 
     renderSoftCap(r);
     renderBreakpoints(r);
+    renderCompare();
   }
+
+  /* ---- compare tray: live-ranks added weapons for the CURRENT build ---- */
+  var compareBar = document.createElement('div');
+  compareBar.className = 'compare-bar'; compareBar.hidden = true;
+  document.body.appendChild(compareBar);
+  function renderCompare() {
+    if (!compareIds.length) { compareBar.hidden = true; return; }
+    compareBar.hidden = false;
+    var rows = compareIds.map(function (id) {
+      var w = weapons.find(function (x){ return x.id === id; });
+      var res = ERCalc.computeAR(build, w, { twoHanded: twoHanded });
+      return { w: w, ar: res.totalAR, met: res.requirementsMet };
+    }).sort(function (a, b){ return b.ar - a.ar; });
+    var best = rows[0] ? rows[0].ar : 0;
+    compareBar.innerHTML =
+      '<div class="cmp-title">Compare · your build</div>' +
+      '<div class="cmp-cards">' + rows.map(function (x) {
+        return '<div class="cmp-card'+(x.ar===best?' win':'')+(x.met?'':' bad')+'" data-rm="'+x.w.id+'">' +
+          '<span class="cmp-x" title="remove">×</span>' +
+          '<div class="cmp-name">'+x.w.name+'</div>' +
+          '<div class="cmp-ar">'+x.ar+(x.met?'':' ⚠')+'</div></div>';
+      }).join('') + '</div>' +
+      '<button class="cmp-clear">clear</button>';
+  }
+  compareBar.addEventListener('click', function (e) {
+    if (e.target.classList.contains('cmp-clear')) { compareIds = []; renderCompare(); return; }
+    var card = e.target.closest('[data-rm]');
+    if (card && e.target.classList.contains('cmp-x')) {
+      compareIds = compareIds.filter(function (id){ return id !== card.getAttribute('data-rm'); });
+      renderCompare();
+    }
+  });
 
   function renderSoftCap(r) {
     // ensure focusStat actually scales; else pick best contributor
@@ -184,9 +218,10 @@
   }
 
   $('addCompare').addEventListener('click', function () {
-    // compare tray lands next; stub for now
-    this.textContent = current.name + ' added ✓';
-    var self = this; setTimeout(function(){ self.textContent = 'Add to Compare'; }, 1400);
+    if (compareIds.indexOf(current.id) < 0) compareIds.push(current.id);
+    renderCompare();
+    var self = this; self.textContent = current.name + ' added ✓';
+    setTimeout(function(){ self.textContent = 'Add to Compare'; }, 1200);
   });
 
   fillAffinity(); fillUpgrade(); render();

@@ -191,3 +191,19 @@ a:hover { text-decoration: underline; }
 .screen-cover span { background: rgba(201,162,39,.92); color: #17130a; padding: 12px 22px; border-radius: 8px; font: 700 13px var(--serif); letter-spacing: .08em; text-transform: uppercase; }
 .preview .screen:hover .screen-cover { opacity: 1; }
 @media (max-width: 960px){ .preview .screen { display: none; } }
+
+/* ---------- compare bar ---------- */
+.compare-bar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 20; display: flex; align-items: center; gap: 14px; padding: 12px 22px; background: rgba(14,12,8,.96); border-top: 1px solid var(--line); backdrop-filter: blur(6px); box-shadow: 0 -8px 30px rgba(0,0,0,.5); }
+.compare-bar .cmp-title { font: 600 11px var(--serif); letter-spacing: .16em; text-transform: uppercase; color: var(--gold); white-space: nowrap; }
+.cmp-cards { display: flex; gap: 10px; overflow-x: auto; flex: 1; }
+.cmp-card { position: relative; min-width: 130px; padding: 8px 12px; background: var(--panel-2); border: 1px solid var(--line-2); border-radius: 8px; }
+.cmp-card.win { border-color: var(--gold); box-shadow: 0 0 14px rgba(201,162,39,.25); }
+.cmp-card.bad { opacity: .55; }
+.cmp-name { font-size: 12px; color: var(--text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 150px; }
+.cmp-ar { font: 700 22px var(--serif-num); color: var(--gold-2); }
+.cmp-card.win .cmp-ar::after { content: ' ★'; font-size: 12px; color: var(--gold); }
+.cmp-x { position: absolute; top: 4px; right: 7px; color: var(--dim); cursor: pointer; font-size: 14px; line-height: 1; }
+.cmp-x:hover { color: var(--red); }
+.cmp-clear { background: transparent; border: 1px solid var(--line); color: var(--dim); border-radius: 6px; padding: 7px 12px; cursor: pointer; font-size: 12px; white-space: nowrap; }
+.cmp-clear:hover { border-color: var(--red); color: var(--red); }
+body.build-page { padding-bottom: 80px; }
