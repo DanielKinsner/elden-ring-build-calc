@@ -1,0 +1,242 @@
+[
+ {
+  "id": "giant-s-red-braid",
+  "name": "Giant's Red Braid",
+  "type": "Claw",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 18,
+   "DEX": 12,
+   "FAI": 21
+  },
+  "weight": 2.5,
+  "passive": null,
+  "base": {
+   "physical": 205,
+   "magic": 0,
+   "fire": 132,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 99,
+   "DEX": 45,
+   "INT": 0,
+   "FAI": 90,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ],
+   "FAI": [
+    "fire"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "hoslow-s-petal-whip",
+  "name": "Hoslow's Petal Whip",
+  "type": "Claw",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 10,
+   "DEX": 20
+  },
+  "weight": 3.5,
+  "passive": "Blood loss (55)",
+  "base": {
+   "physical": 276,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 42,
+   "DEX": 64,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {
+   "bleed": 55
+  },
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "magma-whip-candlestick",
+  "name": "Magma Whip Candlestick",
+  "type": "Claw",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 8,
+   "DEX": 16,
+   "FAI": 18
+  },
+  "weight": 2.5,
+  "passive": null,
+  "base": {
+   "physical": 181,
+   "magic": 0,
+   "fire": 181,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 36,
+   "DEX": 90,
+   "INT": 0,
+   "FAI": 68,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ],
+   "FAI": [
+    "fire"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "thorned-whip",
+  "name": "Thorned Whip",
+  "type": "Claw",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 8,
+   "DEX": 16
+  },
+  "weight": 2.5,
+  "passive": "Blood loss (50)",
+  "base": {
+   "physical": 257,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 30,
+   "DEX": 90,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {
+   "bleed": 50
+  },
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "tooth-whip",
+  "name": "Tooth Whip",
+  "type": "Claw",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 10,
+   "DEX": 24
+  },
+  "weight": null,
+  "passive": "Poison (66)",
+  "base": {
+   "physical": 267,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 27,
+   "DEX": 104,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {
+   "poison": 66
+  },
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "urumi",
+  "name": "Urumi",
+  "type": "Claw",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 10,
+   "DEX": 19
+  },
+  "weight": 3,
+  "passive": null,
+  "base": {
+   "physical": 247,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 22,
+   "DEX": 105,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "whip",
+  "name": "Whip",
+  "type": "Claw",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 8,
+   "DEX": 14
+  },
+  "weight": 2,
+  "passive": null,
+  "base": {
+   "physical": 252,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 51,
+   "DEX": 68,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ }
+]
