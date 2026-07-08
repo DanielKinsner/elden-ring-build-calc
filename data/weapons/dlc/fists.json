@@ -1,39 +1,128 @@
 [
  {
-  "id": "claws-of-night",
-  "name": "Claws of Night",
+  "id": "madding-hand",
+  "name": "Madding Hand",
   "type": "Fist",
   "source": "dlc",
   "category": "somber",
   "infusable": false,
   "requirements": {
    "STR": 8,
-   "DEX": 20
+   "DEX": 8,
+   "INT": 13,
+   "FAI": 20
   },
   "weight": null,
-  "passive": "Blood loss (45)",
+  "passive": "Madness (55)",
   "base": {
-   "physical": 193,
-   "magic": 124,
+   "physical": 129,
+   "magic": 0,
+   "fire": 154,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 59,
+   "DEX": 31,
+   "INT": 31,
+   "FAI": 31,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical",
+    "fire"
+   ],
+   "DEX": [
+    "physical",
+    "fire"
+   ],
+   "INT": [
+    "fire"
+   ],
+   "FAI": [
+    "fire"
+   ]
+  },
+  "status": {
+   "madness": 55
+  },
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "poisoned-hand",
+  "name": "Poisoned Hand",
+  "type": "Fist",
+  "source": "dlc",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 8,
+   "DEX": 8,
+   "ARC": 28
+  },
+  "weight": null,
+  "passive": "Poison (60)",
+  "base": {
+   "physical": 186,
+   "magic": 0,
    "fire": 0,
    "lightning": 0,
    "holy": 0
   },
   "scaling": {
-   "STR": 0,
-   "DEX": 128,
+   "STR": 18,
+   "DEX": 0,
    "INT": 0,
+   "FAI": 0,
+   "ARC": 144
+  },
+  "status": {
+   "poison": 60
+  },
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "thiollier-s-hidden-needle",
+  "name": "Thiollier's Hidden Needle",
+  "type": "Fist",
+  "source": "dlc",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 10,
+   "DEX": 22,
+   "INT": 15
+  },
+  "weight": null,
+  "passive": "Sleep (42)",
+  "base": {
+   "physical": 171,
+   "magic": 110,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 27,
+   "DEX": 121,
+   "INT": 72,
    "FAI": 0,
    "ARC": 0
   },
   "elementScaling": {
+   "STR": [
+    "physical"
+   ],
    "DEX": [
-    "physical",
+    "physical"
+   ],
+   "INT": [
     "magic"
    ]
   },
   "status": {
-   "bleed": 45
+   "sleep": 42
   },
   "arcStatusScaling": 0
  }
