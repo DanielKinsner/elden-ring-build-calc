@@ -1,0 +1,18 @@
+{
+ "location": "Given by Bloody Finger Hunter Yura as he lies dying at the Second Church of Marika, right after the player defeats the invader Eleonora, Violet Bloody Finger who ambushes him there. Killing Yura outright at any earlier point in his questline also drops it, with the same unique pre-installed Piercing Fang ash of war (unobtainable any other way).",
+ "region": "Altus Plateau",
+ "source": { "type": "npc", "name": "Bloody Finger Hunter Yura (quest reward, or enemy drop if killed directly)" },
+ "tactics": [
+  "Meet Yura at Seaside Ruins (Limgrave), then again near Murkwater Cave, then via his summon sign near Main Academy Gate (Liurnia) to progress his questline",
+  "Travel to the Second Church of Marika in central Altus Plateau; approaching triggers an invasion by Eleonora, Violet Bloody Finger",
+  "Defeat Eleonora — a fast dual-wielding thrusting-sword invader — then speak to Yura to receive the Nagakiba, Eleonora's Poleblade, and a Purifying Crystal Tear",
+  "Alternatively, simply kill Yura at any earlier meeting for the same weapon (with its unique ash of war), skipping the other rewards"
+ ],
+ "nearbyGraces": ["Altus Highway Junction"],
+ "lore": "The trusted blade of Yura, a wandering hunter who made it his purpose to track down and kill the corrupted 'Bloody Finger' invaders roaming the Lands Between. Its unusually long blade trades a katana's quick slashes for reach and thrust — fitting a hunter who preferred to end fights before his prey could close the distance.",
+ "builds": [
+  { "name": "Dex/Bleed poke", "why": "D Strength / C Dexterity with a long thrust-focused heavy attack and 45 innate bleed buildup — katana bleed damage without closing to melee range", "statFocus": "DEX" },
+  { "name": "Quality", "why": "Still carries D-scaling in Strength, so a balanced Str/Dex build remains viable even though Dex is clearly dominant", "statFocus": "STR / DEX" }
+ ],
+ "_verify": ["nearbyGraces"]
+}

@@ -1,0 +1,19 @@
+{
+ "location": "Not a world pickup — traded to Finger Reader Enia at the Roundtable Hold in exchange for the Remembrance of the Rot Goddess, dropped by Malenia, Blade of Miquella at the bottom of Elphael, Brace of the Haligtree. The remembrance can only be exchanged for one of two rewards (this katana or the Millicent's Prosthesis talisman) per playthrough, unless duplicated via a Wandering Mausoleum.",
+ "region": "Miquella's Haligtree (Elphael, Brace of the Haligtree)",
+ "source": { "type": "boss", "name": "Malenia, Blade of Miquella (remembrance, redeemed at Roundtable Hold)" },
+ "tactics": [
+  "Reach the Haligtree via Consecrated Snowfield: find both halves of the Haligtree Secret Medallion, then reach Ordina, Liturgical Town and complete its stealth puzzle",
+  "Fight through Elphael, Brace of the Haligtree down to the Haligtree Roots grace, then through the fog door",
+  "Malenia heals from every hit she lands — avoid trading blows blindly across her two-phase, ~33k HP fight",
+  "Her Waterfowl Dance is the most dangerous move — run away early or dodge into the final hit rather than mid-combo; she's weak to Bleed, Frost, and stagger",
+  "After defeat, trade the Remembrance of the Rot Goddess with Enia at Roundtable Hold for the Hand of Malenia"
+ ],
+ "nearbyGraces": ["Haligtree Roots"],
+ "lore": "Fused into the prosthetic arm Malenia wears in place of a lost limb, its blade carrying a strange resistance to the rot consuming her. Those who see it drawn sometimes swear they glimpse the ghost of wings — an echo of a warrior who, by her own claim, never tasted defeat.",
+ "builds": [
+  { "name": "Dex/Bleed", "why": "48 Dexterity at C scaling with a fixed 50 Hemorrhage buildup and no infusion option", "statFocus": "DEX" },
+  { "name": "Samurai hybrid", "why": "Light Strength (16 one-handed / 11 two-handed) alongside heavy Dexterity, using its native moveset plus Waterfowl Dance for burst", "statFocus": "STR / DEX" }
+ ],
+ "_verify": ["region", "nearbyGraces"]
+}

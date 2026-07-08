@@ -1,0 +1,17 @@
+{
+ "location": "A reward from Tanith, Volcano Manor's proprietress, for completing her second questline contract. Requires first finding the 'Letter from Volcano Manor' note in Knight Bernahl's room, then traveling to Altus Plateau and defeating the invader Rileigh the Idle (south of Shaded Castle, near the Bridge of Iniquity), then reporting back to Tanith.",
+ "region": "Mt. Gelmir (Volcano Manor) for the reward; Altus Plateau for the assassination step",
+ "source": { "type": "npc", "name": "Tanith, Volcano Manor Proprietress (quest reward)" },
+ "tactics": [
+  "Join the Volcano Manor faction by speaking to Tanith after unlocking the manor",
+  "Find the second 'Letter from Volcano Manor' contract note on the table in Knight Bernahl's room",
+  "Travel to Altus Plateau near the Bridge of Iniquity grace and interact with Rileigh the Idle's red invasion sign to assassinate him",
+  "Return to Tanith and speak with her to receive the Serpentbone Blade — this reward remains claimable even after finishing Rykard's questline, as long as the letter was picked up beforehand"
+ ],
+ "nearbyGraces": ["Volcano Manor", "Guest Hall", "Audience Pathway"],
+ "lore": "Carved from the bones of some serpentine creature, its ridged, spine-like teeth are steeped in a potent poison — a weapon as much about slow suffering as swift cuts, fitting the sinister, back-alley dealing of the Volcano Manor's Recusants.",
+ "builds": [
+  { "name": "Dex/Poison", "why": "C-to-B Dexterity scaling with 66 innate poison buildup and a multi-hit Double Slash skill — pairs well with poison- or multi-hit-boosting talismans", "statFocus": "DEX" }
+ ],
+ "_verify": ["nearbyGraces"]
+}

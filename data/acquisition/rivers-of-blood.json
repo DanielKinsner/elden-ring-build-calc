@@ -1,0 +1,17 @@
+{
+ "location": "A guaranteed drop from Bloody Finger Okina, an invading NPC phantom who ambushes the player near the entrance of the Church of Repose in the eastern Mountaintops of the Giants. Not a chest or remembrance — a direct kill drop.",
+ "region": "Mountaintops of the Giants (eastern, near Flame Peak / Forge of the Giants)",
+ "source": { "type": "drop", "name": "Bloody Finger Okina (invading NPC phantom)" },
+ "tactics": [
+  "Travel to the Church of Repose in the eastern Mountaintops of the Giants — Okina invades automatically near its entrance",
+  "He dual-wields a cursed katana plus a wakizashi and closes distance fast with Quickstep — his Corpse Piler combo can delete a health bar if it fully connects",
+  "Ranged classes can kite him effectively in the open area around the church; he cannot heal with Crimson Flasks like most invaders",
+  "Aggressive, poise-breaking melee (jump attacks, guard-counters, stance-breaking Ashes of War) tends to shut down his offense before he starts his combo"
+ ],
+ "nearbyGraces": ["Church of Repose"],
+ "lore": "Once belonged to Okina, a legendary swordsman from a distant land who grew so disillusioned with the world's cruelty that he renounced everything and gave himself over to bloodlust — Mohg, Lord of Blood, offered him a demon's unending hunger in exchange for loyalty, turning a master swordsman into a cursed, blood-hungry weapon.",
+ "builds": [
+  { "name": "Dex/Arcane bleed", "why": "The classic 'blood build' — Arcane investment boosts both physical and the innate fire damage on its Corpse Piler skill, punching above its D-grade letter", "statFocus": "DEX / ARC" }
+ ],
+ "_verify": []
+}

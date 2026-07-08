@@ -1,0 +1,18 @@
+{
+ "location": "Dropped by the Dragonkin Soldier field boss in Lake of Rot, an underground area reached via Ranni's questline — give her the Fingerslayer Blade to open a portal atop Renna's Rise in Liurnia, leading down through Ainsel River to Lake of Rot.",
+ "region": "Ainsel River (underground, reached via Liurnia)",
+ "source": { "type": "boss", "name": "Dragonkin Soldier (Lake of Rot)" },
+ "tactics": [
+  "Progress Ranni's questline far enough to receive the Fingerslayer Blade and give it to her — this opens a teleporter atop Renna's Rise in Liurnia",
+  "Follow Ainsel River Main down through Nokstella, Eternal City, then via Nokstella Waterfall Basin into Lake of Rot",
+  "The lake is a sea of Scarlet Rot — equip Preserving Boluses, Flame, Cleanse Me, or rot-resistant gear before entering",
+  "Step on the weighted pad on the eastern pillar near the boss to raise stone platforms out of the rot, or pull it onto them with ranged attacks"
+ ],
+ "nearbyGraces": ["Lake of Rot Shoreside", "Grand Cloister", "Nokstella Waterfall Basin"],
+ "lore": "Fashioned from a polished dragon scale said to hold a trace of the ancient dragons' immortality — though the Dragonkin Soldiers who carried blades like it never achieved that immortality themselves, becoming withered echoes of the dragons they tried to emulate.",
+ "builds": [
+  { "name": "Dex/Quality Katana", "why": "D Strength / C Dexterity scaling with a fixed Ice Lightning Sword skill that can't be swapped", "statFocus": "DEX" },
+  { "name": "Anti-Dragon pick", "why": "Carries a 20% damage bonus vs Dragon-type enemies (10% vs Ancient Dragons) — a strong niche pick for Farum Azula", "statFocus": "DEX" }
+ ],
+ "_verify": ["region"]
+}

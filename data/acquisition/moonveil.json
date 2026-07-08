@@ -1,0 +1,18 @@
+{
+ "location": "Dropped by the Magma Wyrm boss inside Gael Tunnel, a mine dungeon on the Limgrave/Caelid border reached from Rotview Balcony.",
+ "region": "Caelid (Limgrave border)",
+ "source": { "type": "boss", "name": "Magma Wyrm (Gael Tunnel)" },
+ "tactics": [
+  "From Rotview Balcony grace, head south past a camp of Caelid soldiers to the Gael Tunnel entrance",
+  "Descend to the Gael Tunnel grace at the bottom, then proceed into the boss arena",
+  "Highly vulnerable to magic damage — multi-hit sorceries break its poise fast",
+  "Watch for its lava-spew-then-dash attack; stay mobile in the fairly confined arena"
+ ],
+ "nearbyGraces": ["Rotview Balcony", "Gael Tunnel", "Gael Tunnel Rear Entrance"],
+ "lore": "Said to be forged from glintstone by a master smith of Sellia, the sorcery-obsessed town buried in Caelid's rot. Its blade is said to glow faintly with trapped moonlight when sheathed — the source of its name.",
+ "builds": [
+  { "name": "INT/Dex mage-blade", "why": "Moderate Dex plus heavy Int investment scales both its physical and magic damage, plus ranged poke from Transient Moonlight", "statFocus": "INT / DEX" },
+  { "name": "Bloodloss Dex build", "why": "Fixed 50 Bloodloss buildup and a high crit multiplier make it viable as a status weapon even with modest Int", "statFocus": "DEX" }
+ ],
+ "_verify": ["nearbyGraces"]
+}

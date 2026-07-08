@@ -1,0 +1,17 @@
+{
+ "location": "Inside a chest at the back of an underground hall beneath Caelid Waypoint Ruins, reached via steps in the ruins' northwest corner leading down into a sarcophagus-lined hall.",
+ "region": "Caelid (southwest, along the Caelid Highway)",
+ "source": { "type": "chest", "name": "Caelid Waypoint Ruins underground hall" },
+ "tactics": [
+  "Follow the Caelid Highway (western road through Caelid) south to Caelid Waypoint Ruins",
+  "Find the steps in the ruins' northwest corner leading underground",
+  "The hall is lined with sarcophagi and patrolled by Prawn Miners that can inflict Scarlet Rot — pull them one at a time rather than pushing in deep",
+  "The chest sits in a small side room at the back of the hall — no boss fight required"
+ ],
+ "nearbyGraces": ["Caelid Highway South", "Rotview Balcony", "Fort Gael North"],
+ "lore": "Said to be forged from ore that fell from the sky, shaped to strike down creatures born of meteors. Its blade carries a strange, heavy quality — wielders can drive it into the ground to warp gravity around themselves, briefly drawing enemies inward like objects caught by a small falling star.",
+ "builds": [
+  { "name": "Str/Int hybrid", "why": "D Strength / E Dexterity / D Intelligence — a near-even Str/Int split gets the most from both its physical damage and its Gravitas skill", "statFocus": "STR / INT" }
+ ],
+ "_verify": ["nearbyGraces"]
+}
