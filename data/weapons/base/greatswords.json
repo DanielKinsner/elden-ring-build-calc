@@ -1,0 +1,34 @@
+[
+  {
+    "id": "blasphemous-blade",
+    "name": "Blasphemous Blade",
+    "type": "Greatsword",
+    "source": "base",
+    "category": "somber",
+    "infusable": false,
+    "requirements": { "STR": 22, "DEX": 15, "FAI": 21 },
+    "weight": 9,
+    "passive": "Restores HP on enemy kill (Taker's Flames)",
+    "base": { "physical": 296, "magic": 0, "fire": 191, "lightning": 0, "holy": 0 },
+    "scaling": { "STR": 75, "DEX": 40, "INT": 0, "FAI": 78, "ARC": 0 },
+    "status": { "bleed": 0, "frost": 0, "poison": 0, "rot": 0, "sleep": 0, "madness": 0 },
+    "arcStatusScaling": 0,
+    "_verify": "base = api +0 x2.45 (validated); max scaling values estimated from +10 grades C/D/C"
+  },
+  {
+    "id": "dark-moon-greatsword",
+    "name": "Dark Moon Greatsword",
+    "type": "Greatsword",
+    "source": "base",
+    "category": "somber",
+    "infusable": false,
+    "requirements": { "STR": 16, "DEX": 11, "INT": 38 },
+    "weight": 10,
+    "passive": "Frostbite + magic damage buff (Moonlight Greatsword skill)",
+    "base": { "physical": 201, "magic": 240, "fire": 0, "lightning": 0, "holy": 0 },
+    "scaling": { "STR": 40, "DEX": 40, "INT": 108, "FAI": 0, "ARC": 0 },
+    "status": { "bleed": 0, "frost": 0, "poison": 0, "rot": 0, "sleep": 0, "madness": 0 },
+    "arcStatusScaling": 0,
+    "_verify": "base = api +0 x2.45 (validated); max scaling values estimated from +10 grades D/D/B"
+  }
+]
