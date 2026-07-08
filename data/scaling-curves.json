@@ -1,64 +1,43 @@
 {
-  "_comment": "CalcCorrectGraph saturation curves — 'attribute bonus %' at a given stat level. Values are the % of a weapon's scaling actually realized. See docs/01-damage-formula.md. Anchored to confirmed points (10 STR=11.65%, 15 DEX=19.80%, 20 INT=40%); intermediate points MODELED via monotonic interpolation between the control points below. Swap in exact game-param values here without touching the engine.",
-  "_output": "percent (0-100+). Engine divides by 100.",
-  "_interpolation": "piecewise-linear between control points; clamp stat to [1,99]",
+  "_comment": "CalcCorrectGraph saturation curves — EXACT datamined game params (not modeled). Each point: {stat, growth, adjPt}. Between points a,b: growth = a.growth + (b.growth-a.growth) * ratio^a.adjPt, where ratio=(stat-a.stat)/(b.stat-a.stat); if adjPt<0 use 1-(1-ratio)^(-adjPt). See docs/01-damage-formula.md.",
+  "_source": "Datamined CalcCorrectGraph (game regulation). graph 0 = physical (STR/DEX), graph 4 = elemental (INT/FAI), graph 6 = arcane status buildup.",
   "curves": {
     "physical": {
-      "_uses": ["STR", "DEX"],
-      "_softCaps": [20, 60, 80],
-      "_note": "CalcCorrectGraph 0. Anchors: 10->11.65, 15->19.80.",
+      "_uses": ["STR", "DEX", "ARC-on-physical"],
+      "_graph": 0,
       "points": [
-        { "stat": 1, "pct": 0 },
-        { "stat": 10, "pct": 11.65 },
-        { "stat": 15, "pct": 19.80 },
-        { "stat": 20, "pct": 25 },
-        { "stat": 60, "pct": 75 },
-        { "stat": 80, "pct": 90 },
-        { "stat": 99, "pct": 100 }
+        { "stat": 1, "growth": 0, "adjPt": 1.2 },
+        { "stat": 18, "growth": 0.25, "adjPt": -1.2 },
+        { "stat": 60, "growth": 0.75, "adjPt": 1 },
+        { "stat": 80, "growth": 0.9, "adjPt": 1 },
+        { "stat": 150, "growth": 1.1, "adjPt": 1 }
       ]
     },
     "elemental": {
       "_uses": ["INT", "FAI"],
-      "_softCaps": [20, 50, 80],
-      "_note": "CalcCorrectGraph 4 (magic/fire/lightning/holy). Anchor: 20->40.",
+      "_graph": 4,
       "points": [
-        { "stat": 1, "pct": 0 },
-        { "stat": 20, "pct": 40 },
-        { "stat": 50, "pct": 80 },
-        { "stat": 80, "pct": 100 },
-        { "stat": 99, "pct": 100 }
-      ]
-    },
-    "arcanePhysical": {
-      "_uses": ["ARC"],
-      "_softCaps": [20, 55, 80],
-      "_note": "Arcane scaling on physical AR (occult/arcane weapons). Physical-like shape.",
-      "points": [
-        { "stat": 1, "pct": 0 },
-        { "stat": 20, "pct": 25 },
-        { "stat": 55, "pct": 75 },
-        { "stat": 80, "pct": 90 },
-        { "stat": 99, "pct": 100 }
+        { "stat": 1, "growth": 0, "adjPt": 1 },
+        { "stat": 20, "growth": 0.4, "adjPt": 1 },
+        { "stat": 50, "growth": 0.8, "adjPt": 1 },
+        { "stat": 80, "growth": 0.95, "adjPt": 1 },
+        { "stat": 99, "growth": 1, "adjPt": 1 }
       ]
     },
     "arcaneStatus": {
-      "_uses": ["ARC"],
-      "_softCaps": [45],
-      "_note": "Arcane scaling on status buildup (bleed/poison). Rises to ~100% by ARC 45 then flattens.",
+      "_uses": ["ARC-on-status"],
+      "_graph": 6,
       "points": [
-        { "stat": 1, "pct": 0 },
-        { "stat": 45, "pct": 100 },
-        { "stat": 99, "pct": 115 }
+        { "stat": 1, "growth": 0, "adjPt": 1 },
+        { "stat": 25, "growth": 0.1, "adjPt": 1 },
+        { "stat": 45, "growth": 0.75, "adjPt": 1 },
+        { "stat": 60, "growth": 0.9, "adjPt": 1 },
+        { "stat": 99, "growth": 1, "adjPt": 1 }
       ]
     }
   },
-  "gradeThresholds": {
-    "_comment": "scalingValue -> displayed grade (MenuValueTableParam). CONFIRMED.",
-    "S": 175,
-    "A": 140,
-    "B": 90,
-    "C": 60,
-    "D": 25,
-    "E": 1
-  }
+  "scalingTiers": [
+    [1.75, "S"], [1.4, "A"], [0.9, "B"], [0.6, "C"], [0.25, "D"], [0.01, "E"]
+  ],
+  "_scalingTiers_note": "scaling coefficient -> displayed grade. coefficient = attributeScaling value (e.g. 0.825 -> C). Datamined."
 }

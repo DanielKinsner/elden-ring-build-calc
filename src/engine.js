@@ -18,19 +18,21 @@
   var DAMAGE_TYPES = ['physical', 'magic', 'fire', 'lightning', 'holy'];
   var STATUS_TYPES = ['bleed', 'frost', 'poison', 'rot', 'sleep', 'madness'];
 
-  // --- CalcCorrectGraph saturation curves (mirror data/scaling-curves.json) ---
+  // --- CalcCorrectGraph saturation curves — EXACT game params (mirror data/scaling-curves.json) ---
+  // Each point: {s: stat, g: growth fraction, adj: adjPt exponent governing the segment ABOVE it}.
+  // Source: datamined CalcCorrectGraph (graphs 0 physical / 4 elemental / 6 arcane-status).
   var CURVES = {
-    physical:       [ {s:1,p:0}, {s:10,p:11.65}, {s:15,p:19.80}, {s:20,p:25}, {s:60,p:75}, {s:80,p:90}, {s:99,p:100} ],
-    elemental:      [ {s:1,p:0}, {s:20,p:40}, {s:50,p:80}, {s:80,p:100}, {s:99,p:100} ],
-    arcanePhysical: [ {s:1,p:0}, {s:20,p:25}, {s:55,p:75}, {s:80,p:90}, {s:99,p:100} ],
-    arcaneStatus:   [ {s:1,p:0}, {s:45,p:100}, {s:99,p:115} ]
+    physical:       [ {s:1,g:0,adj:1.2}, {s:18,g:0.25,adj:-1.2}, {s:60,g:0.75,adj:1}, {s:80,g:0.9,adj:1}, {s:150,g:1.1,adj:1} ],
+    elemental:      [ {s:1,g:0,adj:1},   {s:20,g:0.4,adj:1},     {s:50,g:0.8,adj:1},  {s:80,g:0.95,adj:1}, {s:99,g:1,adj:1} ],
+    arcaneStatus:   [ {s:1,g:0,adj:1},   {s:25,g:0.1,adj:1},     {s:45,g:0.75,adj:1}, {s:60,g:0.9,adj:1},  {s:99,g:1,adj:1} ]
   };
+  CURVES.arcanePhysical = CURVES.physical; // arcane scaling on physical AR uses the physical graph
 
   // Which curve each stat uses for weapon-attack scaling.
   var STAT_CURVE = { STR: 'physical', DEX: 'physical', INT: 'elemental', FAI: 'elemental', ARC: 'arcanePhysical' };
 
-  // Documented soft-cap breakpoints per curve (NOT the accuracy-anchor control points).
-  var SOFT_CAPS = { physical: [20, 60, 80], elemental: [20, 50, 80], arcanePhysical: [20, 55, 80], arcaneStatus: [45] };
+  // Soft-cap breakpoints per curve (the CalcCorrectGraph control points).
+  var SOFT_CAPS = { physical: [18, 60, 80], elemental: [20, 50, 80], arcanePhysical: [18, 60, 80], arcaneStatus: [25, 45, 60] };
 
   var GRADE = [ ['S',175], ['A',140], ['B',90], ['C',60], ['D',25], ['E',1] ];
 
@@ -47,19 +49,23 @@
 
   function clampStat(x) { return Math.max(1, Math.min(99, x)); }
 
-  // Piecewise-linear saturation. Returns fraction (0..~1.15).
+  // CalcCorrectGraph saturation. Returns growth fraction (0..~1.1).
+  // Between control points a,b: growth = a.g + (b.g-a.g) * ratio^adj  (adj from lower point a).
+  // If adj < 0, the curve is mirrored: 1 - (1-ratio)^(-adj).
   function saturation(curveName, statLevel) {
     var pts = CURVES[curveName];
     var x = clampStat(statLevel);
-    if (x <= pts[0].s) return pts[0].p / 100;
+    if (x <= pts[0].s) return pts[0].g;
     for (var i = 1; i < pts.length; i++) {
       if (x <= pts[i].s) {
         var a = pts[i - 1], b = pts[i];
-        var t = (x - a.s) / (b.s - a.s);
-        return (a.p + t * (b.p - a.p)) / 100;
+        var ratio = (x - a.s) / (b.s - a.s);
+        var exp = a.adj == null ? 1 : a.adj;
+        var r2 = exp >= 0 ? Math.pow(ratio, exp) : 1 - Math.pow(1 - ratio, -exp);
+        return a.g + (b.g - a.g) * r2;
       }
     }
-    return pts[pts.length - 1].p / 100;
+    return pts[pts.length - 1].g;
   }
 
   // Displayed grade letter for a numeric scaling value.
