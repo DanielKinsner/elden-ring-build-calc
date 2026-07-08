@@ -101,37 +101,6 @@
   "arcStatusScaling": 0
  },
  {
-  "id": "flowerstone-gavel",
-  "name": "Flowerstone Gavel",
-  "type": "Hammer",
-  "source": "base",
-  "category": "somber",
-  "infusable": false,
-  "requirements": {
-   "STR": 14,
-   "DEX": 8,
-   "ARC": 15
-  },
-  "weight": null,
-  "passive": null,
-  "base": {
-   "physical": 296,
-   "magic": 0,
-   "fire": 0,
-   "lightning": 0,
-   "holy": 0
-  },
-  "scaling": {
-   "STR": 70,
-   "DEX": 45,
-   "INT": 0,
-   "FAI": 0,
-   "ARC": 70
-  },
-  "status": {},
-  "arcStatusScaling": 0
- },
- {
   "id": "hammer",
   "name": "Hammer",
   "type": "Hammer",

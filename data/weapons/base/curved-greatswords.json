@@ -92,67 +92,6 @@
   "arcStatusScaling": 0
  },
  {
-  "id": "freyja-s-greatsword",
-  "name": "Freyja's Greatsword",
-  "type": "Curved Greatsword",
-  "source": "base",
-  "category": "regular",
-  "infusable": false,
-  "requirements": {
-   "STR": 25,
-   "DEX": 14
-  },
-  "weight": null,
-  "passive": null,
-  "base": {
-   "physical": 357,
-   "magic": 0,
-   "fire": 0,
-   "lightning": 0,
-   "holy": 0
-  },
-  "scaling": {
-   "STR": 90,
-   "DEX": 15,
-   "INT": 0,
-   "FAI": 0,
-   "ARC": 0
-  },
-  "status": {},
-  "arcStatusScaling": 0
- },
- {
-  "id": "horned-warrior-s-greatsword",
-  "name": "Horned Warrior's Greatsword",
-  "type": "Curved Greatsword",
-  "source": "base",
-  "category": "somber",
-  "infusable": false,
-  "requirements": {
-   "STR": 19,
-   "DEX": 16,
-   "FAI": 13
-  },
-  "weight": null,
-  "passive": null,
-  "base": {
-   "physical": 318,
-   "magic": 0,
-   "fire": 0,
-   "lightning": 0,
-   "holy": 0
-  },
-  "scaling": {
-   "STR": 92,
-   "DEX": 45,
-   "INT": 0,
-   "FAI": 45,
-   "ARC": 0
-  },
-  "status": {},
-  "arcStatusScaling": 0
- },
- {
   "id": "magma-wyrm-s-scalesword",
   "name": "Magma Wyrm's Scalesword",
   "type": "Curved Greatsword",

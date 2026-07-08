@@ -32,48 +32,6 @@
   "arcStatusScaling": 0
  },
  {
-  "id": "carian-sorcery-sword",
-  "name": "Carian Sorcery Sword",
-  "type": "Thrusting Sword",
-  "source": "base",
-  "category": "regular",
-  "infusable": false,
-  "requirements": {
-   "STR": 10,
-   "DEX": 19,
-   "INT": 16
-  },
-  "weight": null,
-  "passive": null,
-  "base": {
-   "physical": 131,
-   "magic": 131,
-   "fire": 0,
-   "lightning": 0,
-   "holy": 0
-  },
-  "scaling": {
-   "STR": 15,
-   "DEX": 58,
-   "INT": 202,
-   "FAI": 0,
-   "ARC": 0
-  },
-  "elementScaling": {
-   "STR": [
-    "physical"
-   ],
-   "DEX": [
-    "physical"
-   ],
-   "INT": [
-    "magic"
-   ]
-  },
-  "status": {},
-  "arcStatusScaling": 0
- },
- {
   "id": "cleanrot-knight-s-sword",
   "name": "Cleanrot Knight's Sword",
   "type": "Thrusting Sword",

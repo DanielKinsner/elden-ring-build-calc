@@ -236,56 +236,6 @@
   "arcStatusScaling": 0
  },
  {
-  "id": "madding-hand",
-  "name": "Madding Hand",
-  "type": "Whip",
-  "source": "base",
-  "category": "somber",
-  "infusable": false,
-  "requirements": {
-   "STR": 8,
-   "DEX": 8,
-   "INT": 13,
-   "FAI": 20
-  },
-  "weight": null,
-  "passive": "Madness (55)",
-  "base": {
-   "physical": 129,
-   "magic": 0,
-   "fire": 154,
-   "lightning": 0,
-   "holy": 0
-  },
-  "scaling": {
-   "STR": 59,
-   "DEX": 31,
-   "INT": 31,
-   "FAI": 31,
-   "ARC": 0
-  },
-  "elementScaling": {
-   "STR": [
-    "physical",
-    "fire"
-   ],
-   "DEX": [
-    "physical",
-    "fire"
-   ],
-   "INT": [
-    "fire"
-   ],
-   "FAI": [
-    "fire"
-   ]
-  },
-  "status": {
-   "madness": 55
-  },
-  "arcStatusScaling": 0
- },
- {
   "id": "pata",
   "name": "Pata",
   "type": "Whip",
@@ -313,39 +263,6 @@
    "ARC": 0
   },
   "status": {},
-  "arcStatusScaling": 0
- },
- {
-  "id": "poisoned-hand",
-  "name": "Poisoned Hand",
-  "type": "Whip",
-  "source": "base",
-  "category": "somber",
-  "infusable": false,
-  "requirements": {
-   "STR": 8,
-   "DEX": 8,
-   "ARC": 28
-  },
-  "weight": null,
-  "passive": "Poison (60)",
-  "base": {
-   "physical": 186,
-   "magic": 0,
-   "fire": 0,
-   "lightning": 0,
-   "holy": 0
-  },
-  "scaling": {
-   "STR": 18,
-   "DEX": 0,
-   "INT": 0,
-   "FAI": 0,
-   "ARC": 144
-  },
-  "status": {
-   "poison": 60
-  },
   "arcStatusScaling": 0
  },
  {
@@ -409,50 +326,6 @@
   },
   "status": {
    "bleed": 45
-  },
-  "arcStatusScaling": 0
- },
- {
-  "id": "thiollier-s-hidden-needle",
-  "name": "Thiollier's Hidden Needle",
-  "type": "Whip",
-  "source": "base",
-  "category": "somber",
-  "infusable": false,
-  "requirements": {
-   "STR": 10,
-   "DEX": 22,
-   "INT": 15
-  },
-  "weight": null,
-  "passive": "Sleep (42)",
-  "base": {
-   "physical": 171,
-   "magic": 110,
-   "fire": 0,
-   "lightning": 0,
-   "holy": 0
-  },
-  "scaling": {
-   "STR": 27,
-   "DEX": 121,
-   "INT": 72,
-   "FAI": 0,
-   "ARC": 0
-  },
-  "elementScaling": {
-   "STR": [
-    "physical"
-   ],
-   "DEX": [
-    "physical"
-   ],
-   "INT": [
-    "magic"
-   ]
-  },
-  "status": {
-   "sleep": 42
   },
   "arcStatusScaling": 0
  },

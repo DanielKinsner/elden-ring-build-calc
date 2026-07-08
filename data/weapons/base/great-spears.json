@@ -1,82 +1,5 @@
 [
  {
-  "id": "barbed-staff-spear",
-  "name": "Barbed Staff-Spear",
-  "type": "Great Spear",
-  "source": "base",
-  "category": "somber",
-  "infusable": false,
-  "requirements": {
-   "STR": 14,
-   "DEX": 18,
-   "FAI": 22
-  },
-  "weight": null,
-  "passive": "Blood loss (55)",
-  "base": {
-   "physical": 210,
-   "magic": 0,
-   "fire": 0,
-   "lightning": 0,
-   "holy": 210
-  },
-  "scaling": {
-   "STR": 27,
-   "DEX": 41,
-   "INT": 0,
-   "FAI": 144,
-   "ARC": 0
-  },
-  "elementScaling": {
-   "STR": [
-    "physical"
-   ],
-   "DEX": [
-    "physical"
-   ],
-   "FAI": [
-    "holy"
-   ]
-  },
-  "status": {
-   "bleed": 55
-  },
-  "arcStatusScaling": 0
- },
- {
-  "id": "bloodfiend-s-sacred-spear",
-  "name": "Bloodfiend's Sacred Spear",
-  "type": "Great Spear",
-  "source": "base",
-  "category": "somber",
-  "infusable": false,
-  "requirements": {
-   "STR": 22,
-   "DEX": 12,
-   "ARC": 13
-  },
-  "weight": null,
-  "passive": "Blood loss (55)",
-  "base": {
-   "physical": 281,
-   "magic": 0,
-   "fire": 0,
-   "lightning": 0,
-   "holy": 0
-  },
-  "scaling": {
-   "STR": 36,
-   "DEX": 7,
-   "INT": 0,
-   "FAI": 0,
-   "ARC": 135
-  },
-  "status": {
-   "bleed": 55
-  },
-  "arcStatusScaling": 0
- },
- {
   "id": "lance",
   "name": "Lance",
   "type": "Great Spear",
@@ -99,36 +22,6 @@
   "scaling": {
    "STR": 75,
    "DEX": 60,
-   "INT": 0,
-   "FAI": 0,
-   "ARC": 0
-  },
-  "status": {},
-  "arcStatusScaling": 0
- },
- {
-  "id": "messmer-soldier-s-spear",
-  "name": "Messmer Soldier's Spear",
-  "type": "Great Spear",
-  "source": "base",
-  "category": "regular",
-  "infusable": false,
-  "requirements": {
-   "STR": 19,
-   "DEX": 16
-  },
-  "weight": null,
-  "passive": null,
-  "base": {
-   "physical": 298,
-   "magic": 0,
-   "fire": 0,
-   "lightning": 0,
-   "holy": 0
-  },
-  "scaling": {
-   "STR": 70,
-   "DEX": 70,
    "INT": 0,
    "FAI": 0,
    "ARC": 0
@@ -245,48 +138,6 @@
    ],
    "FAI": [
     "holy"
-   ]
-  },
-  "status": {},
-  "arcStatusScaling": 0
- },
- {
-  "id": "spear-of-the-impaler",
-  "name": "Spear of the Impaler",
-  "type": "Great Spear",
-  "source": "base",
-  "category": "somber",
-  "infusable": false,
-  "requirements": {
-   "STR": 14,
-   "DEX": 35,
-   "FAI": 18
-  },
-  "weight": null,
-  "passive": null,
-  "base": {
-   "physical": 208,
-   "magic": 0,
-   "fire": 249,
-   "lightning": 0,
-   "holy": 0
-  },
-  "scaling": {
-   "STR": 9,
-   "DEX": 108,
-   "INT": 0,
-   "FAI": 72,
-   "ARC": 0
-  },
-  "elementScaling": {
-   "STR": [
-    "physical"
-   ],
-   "DEX": [
-    "physical"
-   ],
-   "FAI": [
-    "fire"
    ]
   },
   "status": {},

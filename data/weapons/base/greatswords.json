@@ -440,78 +440,6 @@
   "arcStatusScaling": 0
  },
  {
-  "id": "greatsword-of-damnation",
-  "name": "Greatsword of Damnation",
-  "type": "Greatsword",
-  "source": "base",
-  "category": "somber",
-  "infusable": false,
-  "requirements": {
-   "STR": 20,
-   "DEX": 15,
-   "FAI": 20
-  },
-  "weight": null,
-  "passive": null,
-  "base": {
-   "physical": 301,
-   "magic": 0,
-   "fire": 0,
-   "lightning": 0,
-   "holy": 193
-  },
-  "scaling": {
-   "STR": 68,
-   "DEX": 38,
-   "INT": 0,
-   "FAI": 45,
-   "ARC": 0
-  },
-  "elementScaling": {
-   "STR": [
-    "physical"
-   ],
-   "DEX": [
-    "physical"
-   ],
-   "FAI": [
-    "holy"
-   ]
-  },
-  "status": {},
-  "arcStatusScaling": 0
- },
- {
-  "id": "greatsword-of-solitude",
-  "name": "Greatsword of Solitude",
-  "type": "Greatsword",
-  "source": "base",
-  "category": "somber",
-  "infusable": false,
-  "requirements": {
-   "STR": 27,
-   "DEX": 13
-  },
-  "weight": null,
-  "passive": null,
-  "base": {
-   "physical": 294,
-   "magic": 0,
-   "fire": 0,
-   "lightning": 0,
-   "holy": 0
-  },
-  "scaling": {
-   "STR": 171,
-   "DEX": 27,
-   "INT": 0,
-   "FAI": 0,
-   "ARC": 0
-  },
-  "status": {},
-  "arcStatusScaling": 0
- },
- {
   "id": "helphen-s-steeple",
   "name": "Helphen's Steeple",
   "type": "Greatsword",
@@ -648,36 +576,6 @@
   "scaling": {
    "STR": 50,
    "DEX": 66,
-   "INT": 0,
-   "FAI": 0,
-   "ARC": 0
-  },
-  "status": {},
-  "arcStatusScaling": 0
- },
- {
-  "id": "lizard-greatsword",
-  "name": "Lizard Greatsword",
-  "type": "Greatsword",
-  "source": "base",
-  "category": "regular",
-  "infusable": false,
-  "requirements": {
-   "STR": 12,
-   "DEX": 14
-  },
-  "weight": null,
-  "passive": null,
-  "base": {
-   "physical": 343,
-   "magic": 0,
-   "fire": 0,
-   "lightning": 0,
-   "holy": 0
-  },
-  "scaling": {
-   "STR": 42,
-   "DEX": 72,
    "INT": 0,
    "FAI": 0,
    "ARC": 0

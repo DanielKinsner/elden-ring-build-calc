@@ -30,36 +30,6 @@
   "arcStatusScaling": 0
  },
  {
-  "id": "bonny-butchering-knife",
-  "name": "Bonny Butchering Knife",
-  "type": "Greataxe",
-  "source": "base",
-  "category": "somber",
-  "infusable": false,
-  "requirements": {
-   "STR": 16,
-   "DEX": 20
-  },
-  "weight": null,
-  "passive": null,
-  "base": {
-   "physical": 328,
-   "magic": 0,
-   "fire": 0,
-   "lightning": 0,
-   "holy": 0
-  },
-  "scaling": {
-   "STR": 108,
-   "DEX": 54,
-   "INT": 0,
-   "FAI": 0,
-   "ARC": 0
-  },
-  "status": {},
-  "arcStatusScaling": 0
- },
- {
   "id": "butchering-knife",
   "name": "Butchering Knife",
   "type": "Greataxe",
@@ -115,48 +85,6 @@
    "INT": 0,
    "FAI": 0,
    "ARC": 0
-  },
-  "status": {},
-  "arcStatusScaling": 0
- },
- {
-  "id": "death-knight-s-longhaft-axe",
-  "name": "Death Knight's Longhaft Axe",
-  "type": "Greataxe",
-  "source": "base",
-  "category": "somber",
-  "infusable": false,
-  "requirements": {
-   "STR": 23,
-   "DEX": 10,
-   "FAI": 18
-  },
-  "weight": null,
-  "passive": null,
-  "base": {
-   "physical": 276,
-   "magic": 0,
-   "fire": 0,
-   "lightning": 178,
-   "holy": 0
-  },
-  "scaling": {
-   "STR": 99,
-   "DEX": 18,
-   "INT": 0,
-   "FAI": 54,
-   "ARC": 0
-  },
-  "elementScaling": {
-   "STR": [
-    "physical"
-   ],
-   "DEX": [
-    "physical"
-   ],
-   "FAI": [
-    "lightning"
-   ]
   },
   "status": {},
   "arcStatusScaling": 0
@@ -353,51 +281,6 @@
    "ARC": 0
   },
   "status": {},
-  "arcStatusScaling": 0
- },
- {
-  "id": "putrescence-cleaver",
-  "name": "Putrescence Cleaver",
-  "type": "Greataxe",
-  "source": "base",
-  "category": "somber",
-  "infusable": false,
-  "requirements": {
-   "STR": 28,
-   "DEX": 10,
-   "ARC": 15
-  },
-  "weight": null,
-  "passive": "Frostbite (55)",
-  "base": {
-   "physical": 345,
-   "magic": 102,
-   "fire": 0,
-   "lightning": 0,
-   "holy": 0
-  },
-  "scaling": {
-   "STR": 81,
-   "DEX": 18,
-   "INT": 0,
-   "FAI": 0,
-   "ARC": 63
-  },
-  "elementScaling": {
-   "STR": [
-    "physical"
-   ],
-   "DEX": [
-    "physical"
-   ],
-   "ARC": [
-    "physical",
-    "magic"
-   ]
-  },
-  "status": {
-   "frost": 55
-  },
   "arcStatusScaling": 0
  },
  {

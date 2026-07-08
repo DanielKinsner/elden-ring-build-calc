@@ -279,48 +279,6 @@
   "arcStatusScaling": 0
  },
  {
-  "id": "fire-knight-s-shortsword",
-  "name": "Fire Knight's Shortsword",
-  "type": "Dagger",
-  "source": "base",
-  "category": "regular",
-  "infusable": false,
-  "requirements": {
-   "STR": 8,
-   "DEX": 13,
-   "FAI": 12
-  },
-  "weight": null,
-  "passive": null,
-  "base": {
-   "physical": 183,
-   "magic": 0,
-   "fire": 53,
-   "lightning": 0,
-   "holy": 0
-  },
-  "scaling": {
-   "STR": 45,
-   "DEX": 75,
-   "INT": 0,
-   "FAI": 54,
-   "ARC": 0
-  },
-  "elementScaling": {
-   "STR": [
-    "physical"
-   ],
-   "DEX": [
-    "physical"
-   ],
-   "FAI": [
-    "fire"
-   ]
-  },
-  "status": {},
-  "arcStatusScaling": 0
- },
- {
   "id": "glintstone-kris",
   "name": "Glintstone Kris",
   "type": "Dagger",
