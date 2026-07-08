@@ -12,20 +12,14 @@
   <a class="brand" href="../"><span class="brand-mark">◈</span><span class="brand-text"><b>ELDEN RING</b><small>WEAPON ATLAS</small></span></a>
   <div class="topbar-right"><a class="icon-btn" href="../build/">Open Calculator →</a></div>
 </header>
-<main class="grid" style="grid-template-columns:1fr; max-width:820px">
+<main class="grid" style="grid-template-columns:1fr; max-width:1100px">
   <section class="panel">
-    <h2>Weapon Atlas — coming next</h2>
-    <p style="color:var(--dim); max-width:640px">
-      This is where each suggested weapon opens to its own page: <b>where it drops</b>, a
-      <b>region map</b> (placeholder for now), the <b>source mob</b>, a short list of
-      <b>kill tactics</b>, and <b>3 nearby Sites of Grace</b>.
-    </p>
-    <p style="color:var(--dim)">
-      Powered by <code style="color:var(--gold-2)">suggestWeapons(build)</code> — the calculator already
-      ranks every weapon for your build; this page turns each pick into a "go get it" guide.
-    </p>
-    <a class="cta" href="../build/" style="margin-top:10px">← Back to the Build Calculator</a>
+    <h2>Weapon Atlas</h2>
+    <input type="search" id="atlasSearch" class="search" placeholder="Search weapons…" autocomplete="off">
+    <div id="atlasGrid" class="atlas-grid"></div>
   </section>
 </main>
+<script src="../src/data-loader.js"></script>
+<script src="./index.js"></script>
 </body>
 </html>

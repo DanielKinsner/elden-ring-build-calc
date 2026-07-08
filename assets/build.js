@@ -106,6 +106,7 @@
     $('weaponName').textContent = current.name;
     $('weaponType').textContent = current.type + (current.category === 'somber' ? ' · Somber' : '');
     $('weaponThumb').textContent = current.name.charAt(0);
+    $('weaponAtlasLink').href = '../atlas/weapon.html?id=' + encodeURIComponent(current.id);
     $('weight').textContent = current.weight != null ? current.weight : '—';
     $('passive').textContent = current.passive || 'None';
 
