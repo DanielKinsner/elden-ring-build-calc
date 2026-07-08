@@ -1,0 +1,32 @@
+{
+ "location": "Guaranteed drop from the Death Knight boss at the bottom of Scorpion River Catacombs, a dungeon in a cave at the western end of the Scorpion River in Rauh Base.",
+ "region": "Ancient Ruins of Rauh",
+ "source": {
+  "type": "boss",
+  "name": "Death Knight (Scorpion River Catacombs)"
+ },
+ "tactics": [
+  "From the Ravine North grace, head northwest along the Scorpion River to the catacombs entrance; inside, a long hall patrolled by Deathblight Eyes leads to an elevator down to the boss.",
+  "There are two separate Death Knight bosses in the DLC — this one in Scorpion River Catacombs drops the Longhaft Axe, while a different Death Knight in Fog Rift Catacombs drops the Twin Axes instead. Make sure you're in the right dungeon for this weapon.",
+  "Watch for lightning crackling around his shoulders before his Lightning Dash Grab — a vanish-and-charge grab that can one-shot you and fully heal him if it connects; roll away the instant you see the tell.",
+  "He's weak to Holy damage and easily poise-broken — landing two consecutive heavy attacks in a row, or circling in for backstabs, shuts down his offense quickly."
+ ],
+ "nearbyGraces": [
+  "Ravine North",
+  "Scorpion River Catacombs"
+ ],
+ "lore": "A golden, lightning-charged poleaxe stamped with the image of a decayed ring, carried by the Death Knights who once served as Godwyn the Golden's personal guard. Its electric charge is tied to the old dragon-worshipping cult of the capital, and its bearers were specifically entrusted with watching over the Prince of Death's remains.",
+ "builds": [
+  {
+   "name": "STR/Faith lightning hybrid",
+   "why": "D-grade scaling in both Strength and Faith splits its damage between physical and lightning, and its Blinkbolt skill gives a fast, invincibility-framed gap-closer that also serves as burst damage.",
+   "statFocus": "STR / FAI"
+  },
+  {
+   "name": "Faith incantator's backup melee",
+   "why": "Characters already investing in Faith for incantations get meaningful bonus lightning damage from this axe's FAI scaling without needing much beyond the 16 Strength two-handed requirement.",
+   "statFocus": "FAI"
+  }
+ ],
+ "_verify": []
+}

@@ -1,0 +1,34 @@
+{
+ "location": "Not a world pickup — traded to Finger Reader Enia at the Roundtable Hold in exchange for the Remembrance of Putrescence, dropped by the Putrescent Knight boss in the Garden of Deep Purple at the bottom of Stone Coffin Fissure.",
+ "region": "Cerulean Coast",
+ "source": {
+  "type": "boss",
+  "name": "Putrescent Knight (remembrance, redeemed at Roundtable Hold)"
+ },
+ "tactics": [
+  "Stone Coffin Fissure's entrance, at the southwestern tip of Cerulean Coast, stays sealed behind 'Miquella's barrier' until a mid-game DLC story beat fires (reaching the area around Shadow Keep breaks Miquella's Great Rune) — if the gate won't open, that event just hasn't happened yet.",
+  "Push down through the Fissure to the Fissure Depths grace, which sits right above the boss arena; walk to the edge near the horned statue and jump down to start the fight.",
+  "The Putrescent Knight — a cleaver-wielding skeleton riding a horse — throws its cleaver like a boomerang (dodge the outgoing throw, then stay clear of its return path) and disengages often on horseback to set up surprise charges.",
+  "Around 60-70% HP it dismounts into a stationary phase 2, rising from a mound of putrescence to fling ghostflame projectiles (Vortex/Mass of Putrescence); it's extremely weak to Holy damage, which shortens this phase a lot.",
+  "After the kill, trade the Remembrance of Putrescence with Enia at the Roundtable Hold to actually receive the weapon — you can only pick one of two rewards from it per playthrough unless duplicated via a Wandering Mausoleum."
+ ],
+ "nearbyGraces": [
+  "Fissure Depths",
+  "Garden of Deep Purple",
+  "Fissure Cross"
+ ],
+ "lore": "An oversized cleaver built from hardened putrescence mounted on a frame of human bone, wielded by the horse-riding Putrescent Knight. Its power is drawn from the wielder's arcane attunement rather than raw strength, and its shape echoes a mezzaluna, the double-handled rocking knife used in real kitchens.",
+ "builds": [
+  {
+   "name": "Pure Arcane",
+   "why": "Arcane is the only scaling stat that boosts both its physical and magic damage at once (D-grade), and its flat, non-upgradable 55 Frostbite buildup means every extra point goes straight into damage rather than status investment.",
+   "statFocus": "ARC"
+  },
+  {
+   "name": "STR/ARC frost bruiser",
+   "why": "Its Strength requirement (28 one-handed / 19 two-handed) is steep enough to reward a STR/ARC split over a glass-cannon pure-Arcane build, leaning on the guaranteed Frostbite proc for reliable burst damage.",
+   "statFocus": "STR / ARC"
+  }
+ ],
+ "_verify": []
+}

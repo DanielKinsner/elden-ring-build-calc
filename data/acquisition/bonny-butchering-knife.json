@@ -1,0 +1,33 @@
+{
+ "location": "Lies on a corpse beneath a small shed outside a house on the east side of Bonny Village, just west of the village's broken central bridge.",
+ "region": "Scadu Altus",
+ "source": {
+  "type": "drop",
+  "name": "corpse pickup, Bonny Village"
+ },
+ "tactics": [
+  "From the Moorth Ruins grace, find the hole behind a collapsed building to the right of the large stone tower (near a corpse holding a Shadow Realm Rune), then drop down and follow the linear tunnel/ladder down into Bonny Village.",
+  "Bonny Village's 'Greater Potentate' mobs have red names like human invaders but can leap far higher than the player — don't assume they're harmless because they aren't hollow-looking enemies.",
+  "Ghost hounds guard loot right around the broken bridge, near where the knife's corpse sits — clear them before or while grabbing the item.",
+  "This is a plain corpse pickup, not a chest or boss reward — no fight is required to get the knife itself."
+ ],
+ "nearbyGraces": [
+  "Bonny Village",
+  "Bridge Leading to the Village",
+  "Moorth Ruins"
+ ],
+ "lore": "Once wielded by the ruling elite of Bonny Village as an oversized butcher's cleaver, used to dismember bodies while preparing corpses for the settlement's ritual jars. Despite its grim purpose, striking an enemy with it trickles back a small amount of health to the wielder.",
+ "builds": [
+  {
+   "name": "Quality Greataxe (STR/DEX)",
+   "why": "C-grade Strength scaling paired with an unusually steep 20 Dexterity requirement (rare for a greataxe) rewards a balanced STR/DEX quality spread instead of dumping everything into Strength alone.",
+   "statFocus": "STR / DEX"
+  },
+  {
+   "name": "Aggressive trade-brawler",
+   "why": "Its Hone Blade skill boosts attack power and its passive restores a small sliver of HP on every solid hit, rewarding a playstyle that stays in the opponent's face and keeps trading blows.",
+   "statFocus": "STR / DEX"
+  }
+ ],
+ "_verify": []
+}
