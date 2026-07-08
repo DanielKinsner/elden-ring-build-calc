@@ -1,0 +1,34 @@
+{
+ "location": "On a corpse past a Fire Knight on an upper floor of the Specimen Storehouse (Shadow Keep) — from the \"Storehouse, First Floor\" grace, climb multiple staircases north, then jump a walkway/buttress to the left of the Fire Knight to reach the corpse.",
+ "region": "Shadow Keep (Specimen Storehouse, Shadow of the Erdtree DLC)",
+ "source": {
+  "type": "drop",
+  "name": "Corpse past the Fire Knight above Storehouse, First Floor grace"
+ },
+ "tactics": [
+  "From Storehouse, First Floor grace, head north past the bookshelves (Sir Ansbach's reading nook is in this first room — useful landmark, not the objective) and climb the stairs",
+  "Keep climbing two to three more flights, fighting or sneaking past shadow soldiers/casters, until you reach a tall Fire Knight patrolling a wooden walkway",
+  "Instead of engaging the knight head-on, look left of it for a buttress/walkway leading to a stone floor — jump the railing here to land near the corpse holding the shield",
+  "This is a different Fire Knight encounter than the one guarding the Carian Thrusting Shield in the Back Section of the same building — easy to mix up since both are \"past a Fire Knight\" in the Specimen Storehouse"
+ ],
+ "nearbyGraces": [
+  "Storehouse, First Floor",
+  "Storehouse, Back Section"
+ ],
+ "lore": "A combined blade-and-shield built for thrusting and guarding at once. It once saw use in formal duels fought to honor the Erdtree — a tradition that, oddly, carried over into the Land of Shadow.",
+ "builds": [
+  {
+   "name": "Dexterity duelist",
+   "statFocus": "DEX",
+   "why": "Dexterity scaling (75 internal) outweighs Strength (52), and high base physical damage plus strong elemental guard values suit a pure-DEX poke-and-block playstyle"
+  },
+  {
+   "name": "Quality bleed build",
+   "statFocus": "STR/DEX",
+   "why": "Solid secondary Strength scaling lets a standard quality build slot this in, pairing a bleed-inflicting Ash of War with its high guard boost to tank hits mid-combo"
+  }
+ ],
+ "_verify": [
+  "tactics"
+ ]
+}

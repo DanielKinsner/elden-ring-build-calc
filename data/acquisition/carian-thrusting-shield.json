@@ -1,0 +1,34 @@
+{
+ "location": "On a corpse under a table at the far end of a chamber west of the \"Storehouse, Back Section\" Site of Grace, inside the Specimen Storehouse (part of Shadow Keep). Reachable only via the Church District entrance/elevator, not the main Shadow Keep gate.",
+ "region": "Shadow Keep (Specimen Storehouse, Shadow of the Erdtree DLC)",
+ "source": {
+  "type": "drop",
+  "name": "Corpse west of Storehouse, Back Section grace, guarded by a Fire Knight"
+ },
+ "tactics": [
+  "Reach East Scadu Altus via the tunnel under Moorth Ruins, then enter Shadow Keep through the Church District (not the main plaza gate) to unlock the elevator into the Specimen Storehouse's Back Section",
+  "From the Storehouse, Back Section grace, head west into a chamber guarded by a tall, red Fire Knight (heavy, slow but hard-hitting telegraphed swings) plus a few shadow-aligned casters/soldiers",
+  "The shield sits on a corpse under a table at the room's far end — try to pull the Fire Knight into a doorway/corridor to fight it apart from its escorts",
+  "Don't confuse this with the Dueling Shield's Fire Knight fight elsewhere in the same Storehouse building — they are two separate encounters in two separate rooms"
+ ],
+ "nearbyGraces": [
+  "Storehouse, Back Section",
+  "Storehouse, First Floor"
+ ],
+ "lore": "A silver, glintstone-studded shield that lets its bearer thrust and block in the same motion. It was the shield Rellana, the Twin Moon Knight, carried for the one ritual duel she fought to prove her devotion to the Erdtree.",
+ "builds": [
+  {
+   "name": "Carian quality-int hybrid",
+   "statFocus": "INT with STR/DEX support",
+   "why": "Balanced Strength/Dexterity/Intelligence scaling (D/D/D) plus a large built-in magic attack split gives it a caster-melee feel similar to Moonveil-style hybrids, without needing a magic infusion"
+  },
+  {
+   "name": "Quality duelist off-hand",
+   "statFocus": "STR/DEX",
+   "why": "Its physical scaling alone supports a standard quality (STR/DEX) build wanting an aggressive block-and-poke weapon in place of a normal shield"
+  }
+ ],
+ "_verify": [
+  "tactics"
+ ]
+}
