@@ -1,0 +1,40 @@
+[
+ {
+  "id": "claws-of-night",
+  "name": "Claws of Night",
+  "type": "Fist",
+  "source": "dlc",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 8,
+   "DEX": 20
+  },
+  "weight": null,
+  "passive": "Blood loss (45)",
+  "base": {
+   "physical": 193,
+   "magic": 124,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 0,
+   "DEX": 128,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "DEX": [
+    "physical",
+    "magic"
+   ]
+  },
+  "status": {
+   "bleed": 45
+  },
+  "arcStatusScaling": 0
+ }
+]
