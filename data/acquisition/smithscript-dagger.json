@@ -1,0 +1,35 @@
+{
+ "location": "On a corpse against the back wall of a side hallway inside the Ruined Forge Lava Intake dungeon, guarded by a second Golem enemy encountered partway through (reached by descending the first ladder, passing an initial Golem, turning right past a fire-blob enemy, then heading left down a side hallway).",
+ "region": "Gravesite Plain",
+ "source": {
+  "type": "drop",
+  "name": "corpse pickup, Ruined Forge Lava Intake (guarded by a Golem)"
+ },
+ "tactics": [
+  "From the Castle Front grace (at the Castle Ensis legacy dungeon entrance), ride southeast past Ellac Greatbridge to reach the Ruined Forge Lava Intake grace at the dungeon mouth",
+  "Descend the first ladder into the forge and fight/dodge past a stone Golem, then turn right after passing a fire-blob enemy",
+  "Look left down a side hallway for a second Golem guarding the corpse — these Golems hit hard and can grab/crush at close range, so bait their slow swings or chip them from range rather than trading blows",
+  "The dagger sits on the corpse along with a Smithing Stone [4]; no boss fight or lever puzzle is required, just navigation past the two Golems"
+ ],
+ "nearbyGraces": [
+  "Ruined Forge Lava Intake",
+  "Castle Front",
+  "Pillar Path Waypoint"
+ ],
+ "lore": "A dagger etched with a smithing incantation that lightens its mass, letting the weapon's 'smithscript' properties turn every attack into a thrown strike that boomerangs straight back to the wielder's hand instead of staying lodged in the target.",
+ "builds": [
+  {
+   "name": "Dex bleed/ranged poke",
+   "why": "Dexterity is by far the dominant scaling stat (C-grade vs E-grade in Str/Int/Fai), and as a Throwing Blade it attacks entirely at range for zero FP cost while still applying Piercing Throw for extra reach — good for a hybrid melee/ranged Dex build that wants free chip damage without spending FP",
+   "statFocus": "DEX"
+  },
+  {
+   "name": "Quality/hybrid utility",
+   "why": "Small secondary scaling in Str, Int, and Fai plus full infusability means it can slot Ashes of War or elemental affinities to patch a hybrid build's damage type, even though Dex remains the priority stat",
+   "statFocus": "DEX / secondary STR-INT-FAI"
+  }
+ ],
+ "_verify": [
+  "location"
+ ]
+}
