@@ -1,0 +1,28 @@
+{
+ "location": "A rare (2%) drop from shield-wielding Messmer Soldiers found in enemy camps across Gravesite Plain and Scadu Altus, and inside Castle Ensis and Shadow Keep. The most efficient farm is just inside Shadow Keep's main gate plaza (turn left and head up the path) where several spawn close together.",
+ "region": "Scadu Altus",
+ "source": {
+  "type": "enemy",
+  "name": "Messmer Soldier (shield-wielding)"
+ },
+ "tactics": [
+  "This is Shadow of the Erdtree DLC content, not base game — it requires having progressed into the Land of Shadow and reached Shadow Keep.",
+  "Only the shield-and-weapon variant of Messmer Soldier drops it; spear-only or bow soldiers do not carry it.",
+  "2% drop rate means expect a long farm; killing and resetting at the Shadow Keep plaza grace is the fastest loop.",
+  "Watch for the soldiers' aggressive dual-hit combos and nearby archers when farming in groups."
+ ],
+ "nearbyGraces": [
+  "Shadow Keep, Main Gate Plaza"
+ ],
+ "lore": "A worn roundshield carried by soldiers sworn to Messmer the Impaler — the largest metal shield in its weight class, sized to match his soldiers' aggressive, close-quarters fighting style.",
+ "builds": [
+  {
+   "name": "Strength tank build",
+   "statFocus": "Strength",
+   "why": "100% physical negation with the highest base guard boost among the region's medium shields, good frontline block for a Strength build."
+  }
+ ],
+ "_verify": [
+  "nearbyGraces"
+ ]
+}

@@ -1,0 +1,28 @@
+{
+ "location": "Reward for completing the 'Incursion Painting' puzzle: pick up the Incursion Painting at the Artist's Shack southeast of Cliffroad Terminus Site of Grace, then carry it southwest to the ghostly painter seated on a hill facing the natural stone bridge into Belurat, Tower Settlement (east of Belurat, in Gravesite Plain); he vanishes and drops the shield.",
+ "region": "Gravesite Plain",
+ "source": {
+  "type": "npc",
+  "name": "The Painter (ghost, Incursion Painting quest)"
+ },
+ "tactics": [
+  "You must be carrying the Incursion Painting item (picked up first at the Artist's Shack) or the ghost won't be visible/interactable.",
+  "The ghost sits quietly and can be easy to miss — approach and interact rather than attack.",
+  "This is Shadow of the Erdtree DLC content, found in the Land of Shadow's starting region, not the base-game map."
+ ],
+ "nearbyGraces": [
+  "Cliffroad Terminus"
+ ],
+ "lore": "A finely made red shield engraved with a winged serpent, crafted to commemorate the start of Messmer the Impaler's crusade, and prized for its strong fire resistance.",
+ "builds": [
+  {
+   "name": "Fire-resistant Strength build",
+   "statFocus": "Strength",
+   "why": "Highest fire negation among medium shields (63%, higher still with a Fire/Flame Art infusion), strong pick for a Strength turtle vs. fire-heavy DLC enemies."
+  }
+ ],
+ "_verify": [
+  "nearbyGraces",
+  "tactics"
+ ]
+}

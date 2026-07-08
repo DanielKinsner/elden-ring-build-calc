@@ -1,0 +1,27 @@
+{
+ "location": "Inside a treasure chest in Castle Ensis: from the Castle Ensis Site of Grace, drop through the hole southwest of the courtyard where Moonrithyll, Carian Knight is fought, follow the path up a waterfall and ladder, then take two lefts and climb stairs to reach the storeroom.",
+ "region": "Gravesite Plain",
+ "source": {
+  "type": "chest",
+  "name": "Castle Ensis storeroom chest"
+ },
+ "tactics": [
+  "This is Shadow of the Erdtree DLC content inside Castle Ensis, a mid-sized dungeon in the Land of Shadow's opening area — not present in the base game.",
+  "Moonrithyll, Carian Knight patrols the courtyard above; you can often slip past toward the hole without engaging her if you just want the chest.",
+  "The route involves a waterfall climb and multiple turns — easy to overshoot the storeroom entrance if you don't watch for the two-left turn described."
+ ],
+ "nearbyGraces": [
+  "Castle Ensis"
+ ],
+ "lore": "A finely made blue shield engraved with a wolf beneath the moon — emblem of the Carian royal covenant — prized for its strength against sorceries.",
+ "builds": [
+  {
+   "name": "Anti-magic Strength build",
+   "statFocus": "Strength",
+   "why": "Notably high magic negation (63) among medium shields, strong pick for a Strength build expecting sorcery-heavy fights in the DLC."
+  }
+ ],
+ "_verify": [
+  "location"
+ ]
+}

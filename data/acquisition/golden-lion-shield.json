@@ -1,0 +1,25 @@
+{
+ "location": "A quest reward from Freyja at the Storehouse, Seventh Floor Site of Grace inside the Specimen Storehouse in Shadow Keep. Obtained by giving Freyja the \"Letter for Freyja\" key item, which Sir Ansbach hands over after you give him the Secret Rite Scroll and tell him about Freyja's condition.",
+ "region": "Shadow Keep (Specimen Storehouse, Shadow of the Erdtree DLC)",
+ "source": {
+  "type": "npc",
+  "name": "Freyja (Storehouse, Seventh Floor)"
+ },
+ "tactics": [
+  "Talk to Sir Ansbach about Freyja's situation before handing him the Secret Rite Scroll — giving him the scroll too early makes him leave Shadow Keep, permanently locking you out of this reward that playthrough.",
+  "Once you receive the Letter for Freyja from Ansbach, deliver it to Freyja at the Storehouse, Seventh Floor grace to get the shield.",
+  "This is entirely Shadow of the Erdtree DLC content behind a multi-step NPC questline — there is no base-game source for this item."
+ ],
+ "nearbyGraces": [
+  "Storehouse, Seventh Floor"
+ ],
+ "lore": "Shaped to resemble a fierce golden lion with a full mane, this shield was awarded to especially valorous knights chosen for Radahn's personal guard when it was first formed.",
+ "builds": [
+  {
+   "name": "Aggressive Strength bash",
+   "statFocus": "Strength",
+   "why": "Highest Guard Boost (64) of any medium shield plus the unique Roaring Bash AoE knockdown skill, suited to an offensive Strength build that wants to bash through crowds."
+  }
+ ],
+ "_verify": []
+}
