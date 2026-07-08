@@ -1,0 +1,62 @@
+{
+  "_comment": "CalcCorrectGraph saturation curves — 'attribute bonus %' at a given stat level. Values are the % of a weapon's scaling actually realized. See docs/01-damage-formula.md. Anchored to confirmed points (10 STR=11.65%, 15 DEX=19.80%, 20 INT=40%); intermediate points MODELED via monotonic interpolation between the control points below. Swap in exact game-param values here without touching the engine.",
+  "_output": "percent (0-100+). Engine divides by 100.",
+  "_interpolation": "piecewise-linear between control points; clamp stat to [1,99]",
+  "curves": {
+    "physical": {
+      "_uses": ["STR", "DEX"],
+      "_softCaps": [20, 60, 80],
+      "_note": "CalcCorrectGraph 0. Anchors: 10->11.65, 15->19.80.",
+      "points": [
+        { "stat": 1, "pct": 0 },
+        { "stat": 20, "pct": 25 },
+        { "stat": 60, "pct": 75 },
+        { "stat": 80, "pct": 90 },
+        { "stat": 99, "pct": 100 }
+      ]
+    },
+    "elemental": {
+      "_uses": ["INT", "FAI"],
+      "_softCaps": [20, 50, 80],
+      "_note": "CalcCorrectGraph 4 (magic/fire/lightning/holy). Anchor: 20->40.",
+      "points": [
+        { "stat": 1, "pct": 0 },
+        { "stat": 20, "pct": 40 },
+        { "stat": 50, "pct": 80 },
+        { "stat": 80, "pct": 100 },
+        { "stat": 99, "pct": 100 }
+      ]
+    },
+    "arcanePhysical": {
+      "_uses": ["ARC"],
+      "_softCaps": [20, 55, 80],
+      "_note": "Arcane scaling on physical AR (occult/arcane weapons). Physical-like shape.",
+      "points": [
+        { "stat": 1, "pct": 0 },
+        { "stat": 20, "pct": 25 },
+        { "stat": 55, "pct": 75 },
+        { "stat": 80, "pct": 90 },
+        { "stat": 99, "pct": 100 }
+      ]
+    },
+    "arcaneStatus": {
+      "_uses": ["ARC"],
+      "_softCaps": [45],
+      "_note": "Arcane scaling on status buildup (bleed/poison). Rises to ~100% by ARC 45 then flattens.",
+      "points": [
+        { "stat": 1, "pct": 0 },
+        { "stat": 45, "pct": 100 },
+        { "stat": 99, "pct": 115 }
+      ]
+    }
+  },
+  "gradeThresholds": {
+    "_comment": "scalingValue -> displayed grade (MenuValueTableParam). CONFIRMED.",
+    "S": 175,
+    "A": 140,
+    "B": 90,
+    "C": 60,
+    "D": 25,
+    "E": 1
+  }
+}
