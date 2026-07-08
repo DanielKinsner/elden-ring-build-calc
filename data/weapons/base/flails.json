@@ -1,0 +1,224 @@
+[
+ {
+  "id": "bastard-s-stars",
+  "name": "Bastard's Stars",
+  "type": "Flail",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 8,
+   "DEX": 22,
+   "INT": 22
+  },
+  "weight": 5.5,
+  "passive": null,
+  "base": {
+   "physical": 166,
+   "magic": 198,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 18,
+   "DEX": 63,
+   "INT": 144,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ],
+   "INT": [
+    "magic"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "chainlink-flail",
+  "name": "Chainlink Flail",
+  "type": "Flail",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 18,
+   "DEX": 12
+  },
+  "weight": 8,
+  "passive": "Blood loss (50)",
+  "base": {
+   "physical": 274,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 117,
+   "DEX": 20,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {
+   "bleed": 50
+  },
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "family-heads",
+  "name": "Family Heads",
+  "type": "Flail",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 8,
+   "DEX": 18,
+   "INT": 16
+  },
+  "weight": 5.5,
+  "passive": null,
+  "base": {
+   "physical": 220,
+   "magic": 142,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 36,
+   "DEX": 144,
+   "INT": 36,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ],
+   "INT": [
+    "magic"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "flail",
+  "name": "Flail",
+  "type": "Flail",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 10,
+   "DEX": 18
+  },
+  "weight": 5,
+  "passive": "Blood loss (50)",
+  "base": {
+   "physical": 274,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 51,
+   "DEX": 78,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {
+   "bleed": 50
+  },
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "nightrider-flail",
+  "name": "Nightrider Flail",
+  "type": "Flail",
+  "source": "base",
+  "category": "regular",
+  "infusable": false,
+  "requirements": {
+   "STR": 10,
+   "DEX": 24
+  },
+  "weight": 6,
+  "passive": "Blood loss (50)",
+  "base": {
+   "physical": 281,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 32,
+   "DEX": 99,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {
+   "bleed": 50
+  },
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "serpent-flail",
+  "name": "Serpent Flail",
+  "type": "Flail",
+  "source": "base",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 10,
+   "DEX": 24,
+   "FAI": 21
+  },
+  "weight": null,
+  "passive": null,
+  "base": {
+   "physical": 188,
+   "magic": 0,
+   "fire": 225,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 9,
+   "DEX": 81,
+   "INT": 0,
+   "FAI": 90,
+   "ARC": 0
+  },
+  "elementScaling": {
+   "STR": [
+    "physical"
+   ],
+   "DEX": [
+    "physical"
+   ],
+   "FAI": [
+    "fire"
+   ]
+  },
+  "status": {},
+  "arcStatusScaling": 0
+ }
+]
