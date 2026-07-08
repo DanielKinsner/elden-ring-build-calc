@@ -1,0 +1,17 @@
+{
+ "location": "On a corpse inside the Abandoned Cave in Caelid, behind a Giant Poison Flower, reached by crossing a tree branch spanning a ravine from Smoldering Wall and climbing a pile of destroyed Abductor Virgin statues.",
+ "region": "Caelid",
+ "source": { "type": "drop", "name": "corpse pickup, Abandoned Cave" },
+ "tactics": [
+  "From Smoldering Wall grace, head east to the tree-branch crossing over the ravine leading to the cave entrance",
+  "The interior is heavily rot/poison-infested — bring Preserving Boluses or poison resistance",
+  "Climb the pile of broken Abductor Virgin husks near the giant poison flower to reach the weapon",
+  "No fight is required for the weapon itself, but the cave's innermost chamber holds two optional Cleanrot Knights further in"
+ ],
+ "nearbyGraces": ["Smoldering Wall"],
+ "lore": "A weapon built for the arena rather than the battlefield, said to have been carried by duelists exiled from gladiatorial combat — its bronze fitting, shaped like a serpent's head, holds a fang laced with potent poison rather than a blade meant for bleeding.",
+ "builds": [
+  { "name": "Quality poison", "why": "Balanced Str/Dex scaling and, unusually for this weapon type, inflicts Poison instead of Bleed — pairs well with Arcane investment or a Poison affinity to stack duration", "statFocus": "STR / DEX" }
+ ],
+ "_verify": []
+}

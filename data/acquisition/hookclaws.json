@@ -1,0 +1,17 @@
+{
+ "location": "On a corpse against the wall in the first level of Stormveil Castle's wine cellar, reached via the secret back-entrance route (ask Gatekeeper Gostoc at the main gate for the hint).",
+ "region": "Limgrave (Stormveil Castle)",
+ "source": { "type": "drop", "name": "corpse pickup, Stormveil Castle wine cellar" },
+ "tactics": [
+  "Talk to Gatekeeper Gostoc at the Stormveil main gate — he points toward the side route instead of the front gate rush",
+  "From the gatehouse, exit through the wall gap to reach the Stormveil Cliffside grace",
+  "Continue up toward the wine cellar entrance",
+  "The Hookclaws sit on a corpse against the left-side wall on the cellar's first level — no fight required"
+ ],
+ "nearbyGraces": ["Stormveil Cliffside", "Stormveil Main Gate"],
+ "lore": "A pair of parallel hooked blades favored by those who operate in shadow — built to open deep, bleeding lacerations rather than deal blunt trauma, a tool for ambush rather than open warfare.",
+ "builds": [
+  { "name": "Pure Dex bleed", "why": "E Strength / C Dexterity scaling, obtainable right at the start of the game before Stormveil's boss", "statFocus": "DEX" }
+ ],
+ "_verify": []
+}

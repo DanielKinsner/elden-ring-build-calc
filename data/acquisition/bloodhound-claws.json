@@ -1,0 +1,17 @@
+{
+ "location": "Dropped by a Bloodhound Knight found in a hidden basement area of Volcano Manor. Two independent route descriptions were found in research — one via a Drawing-Room Key from Tanith unlocking a door with an illusory wall leading to a tunnel, another via the manor's lower halls near Prison Town Church — both agree on Volcano Manor's basement as the source, so treat the exact path as needing an in-game double-check.",
+ "region": "Mt. Gelmir (Volcano Manor)",
+ "source": { "type": "enemy", "name": "Bloodhound Knight (Volcano Manor basement)" },
+ "tactics": [
+  "Gain entry to Volcano Manor first (via Rya's questline, or the manor's own teleport-chest trap in Mt. Gelmir)",
+  "Head into the manor's lower halls/basement, near the Prison Town Church area",
+  "It's a guaranteed drop, not a rare one — you don't need to farm it",
+  "The knight hits hard in melee — bait an attack and punish the recovery, or fight from a doorway choke point"
+ ],
+ "nearbyGraces": ["Prison Town Church", "Volcano Manor"],
+ "lore": "Bloodhound Knights of Volcano Manor wield these curved claws in a fighting style built around slipping past an opponent's guard rather than overpowering it head-on — the curve is shaped to bite around a raised shield.",
+ "builds": [
+  { "name": "Quality bleed", "why": "Real STR/DEX quality scaling (Heavy pushes STR further, Keen pushes DEX further); its unique Bloodhound's Step skill is also a strong traversal/dodge tool with brief hazard immunity", "statFocus": "STR / DEX" }
+ ],
+ "_verify": ["location", "nearbyGraces"]
+}

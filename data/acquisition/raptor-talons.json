@@ -1,0 +1,17 @@
+{
+ "location": "Inside a chest in Sage's Cave, behind an illusory wall, in a room reached after a skeleton-guarded chamber and a waterfall descent.",
+ "region": "Altus Plateau (Sage's Cave, west of Wyndham Ruins)",
+ "source": { "type": "chest", "name": "Sage's Cave interior chest" },
+ "tactics": [
+  "From Abandoned Coffin grace, head northeast past a cluster of Giant Poison Flowers to reach the cave entrance",
+  "The dungeon has several illusory walls — expect to roll/attack suspicious dead-ends throughout, not just once",
+  "Push past a skeleton-guarded room and a waterfall drop-down; the talons sit in a chest in the chamber beyond, alongside Golden Greatarrows and Dragonwound Grease",
+  "No boss gates the loot — pure navigation, plus a couple of skeleton ambushes; the cave also holds Necromancer Garris and a Black Knife Assassin as optional side fights"
+ ],
+ "nearbyGraces": ["Abandoned Coffin", "Sage's Cave"],
+ "lore": "Claws issued to the assassins of Ravenmount, who trained by studying the diving strike patterns of Deathbirds — wielders emulate that swooping attack style directly, the weapon's jump and charged aerial attacks modeled on a bird of prey stooping on prey from above.",
+ "builds": [
+  { "name": "Pure Dex jump-attack", "why": "The most extreme Dex-scaling of the four claws plus a roughly 10% jump-attack damage bonus — pairs naturally with the Raptor's Black Feathers armor found in the same dungeon", "statFocus": "DEX" }
+ ],
+ "_verify": []
+}
