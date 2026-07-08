@@ -1,0 +1,33 @@
+{
+ "location": "Dropped by the Madding Hand, a hostile NPC (an unmarked optional boss) that patrols south of the Woodland Trail Site of Grace in the Abyssal Woods.",
+ "region": "Abyssal Woods",
+ "source": {
+  "type": "boss",
+  "name": "Madding Hand (NPC boss)"
+ },
+ "tactics": [
+  "From the Woodland Trail grace, head south down the path — the Madding Hand is a blindfolded NPC in Gravebird's Blackquill Armor patrolling that stretch, easy to tell apart from other enemies",
+  "It has little armor and staggers easily, but its madness-inducing ranged flame attacks can nearly one-shot squishier builds — close the distance fast to shut those down",
+  "Don't linger at range trading spells; get in melee range and keep pressure on so it can't reset for another ranged burst",
+  "Kill confirms a guaranteed drop of the weapon — no remembrance, trade, or extra steps needed"
+ ],
+ "nearbyGraces": [
+  "Woodland Trail"
+ ],
+ "lore": "Stitched from the flayed skin of victims of a mass slaughter, this glove channels that violence into a madness-inducing curse rather than a blade's edge. It's described as a weapon of the downtrodden — born from the unyielding hatred of people once hunted down as heretics by their own kind.",
+ "builds": [
+  {
+   "name": "Madness proc build",
+   "why": "Deals a fixed 55 Madness buildup and grants a temporary attack boost whenever madness triggers nearby, stacking with other madness-boost items like Black Dumpling",
+   "statFocus": "STR / DEX"
+  },
+  {
+   "name": "Hybrid caster fist",
+   "why": "Unusual E-scaling in both Intelligence and Faith alongside D Strength lets it ride along on a caster's stat spread as a status side-tool",
+   "statFocus": "INT / FAI"
+  }
+ ],
+ "_verify": [
+  "nearbyGraces"
+ ]
+}

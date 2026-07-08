@@ -1,0 +1,29 @@
+{
+ "location": "Looted from a corpse in the poison swamp beneath Belurat's sewers. Reach it via a locked door opened with the Well Depths Key; the body sits near a half-submerged, chapel-like structure at the back of the swamp, in the thick of the area's densest Man-Fly swarms.",
+ "region": "Gravesite Plain",
+ "source": {
+  "type": "drop",
+  "name": "corpse pickup, Belurat sewer poison swamp"
+ },
+ "tactics": [
+  "Find the Well Depths Key earlier in Belurat (dropped by a spirit-type enemy near the well/fountain area) before the sewer door will open",
+  "From the Small Private Altar grace, head to the fountain and take the ladder down to the locked sewer door",
+  "The flooded swamp beyond swarms with Man-Flies that are individually weak but dangerous in groups — thin them out rather than wading straight through",
+  "The corpse holding the weapon sits by the largest Man-Fly cluster at the swamp's rear; no fight is required to loot it, just survival"
+ ],
+ "nearbyGraces": [
+  "Small Private Altar",
+  "Belurat, Tower Settlement"
+ ],
+ "lore": "Cut from the same grim cloth as its madness-inflicting counterpart, this glove is sewn from the skin of slaughtered victims but channels that violence into a lethal poison instead. Rot and poison taking hold nearby feeds back into the wearer, briefly sharpening their own strikes.",
+ "builds": [
+  {
+   "name": "Arcane poison/rot build",
+   "why": "C-scaling Arcane against a token 8 Strength requirement makes it a cheap, high-value stick for rot/poison Arcane builds, with a fixed 36 poison buildup on top",
+   "statFocus": "ARC"
+  }
+ ],
+ "_verify": [
+  "region"
+ ]
+}

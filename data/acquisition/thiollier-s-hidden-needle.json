@@ -1,0 +1,32 @@
+{
+ "location": "Looted from Thiollier's corpse near the Gate of Divinity Site of Grace, inside the final boss arena in Enir-Ilim — it appears only after defeating Radahn, Consort of Miquella, and only if the St. Trina/Thiollier questline was completed (his golden summon sign must have been present outside the fog gate; you don't have to actually call him in).",
+ "region": "Enir-Ilim",
+ "source": {
+  "type": "npc",
+  "name": "Thiollier (post-questline corpse, appears after the final boss)"
+ },
+ "tactics": [
+  "Finish the multi-step St. Trina/Thiollier questline before burning the Sealing Tree at the Church of the Bud — that event is a point of no return that can lock the quest out",
+  "Find St. Trina at the bottom of Stone Coffin Fissure (entrance at the southern tip of Cerulean Coast), then report back to Thiollier at Pillar Path Cross",
+  "Check for Thiollier's gold summon sign outside the final boss fog gate (up the stairs from Divine Gate Front Staircase) before you commit to the fight",
+  "After defeating the final boss, rest at the Gate of Divinity grace inside the arena — Thiollier's body and full armor set appear nearby for looting"
+ ],
+ "nearbyGraces": [
+  "Gate of Divinity",
+  "Divine Gate Front Staircase"
+ ],
+ "lore": "A concealed needle favored by poisoners for its subtlety, it doesn't kill outright but secretes something that drags its victim into an unending sleep — fitting for Thiollier, whose quiet, clinical research into St. Trina's nectar mirrors the weapon's own hidden, drawn-out cruelty.",
+ "builds": [
+  {
+   "name": "Dex/Int sleep burst",
+   "why": "C-scaling Dexterity and D-scaling Intelligence carry a flat 42 Sleep buildup regardless of upgrade level, and its unique Sleep Evermore skill deals bonus damage to already-sleeping targets",
+   "statFocus": "DEX / INT"
+  },
+  {
+   "name": "Offhand proc tool",
+   "why": "Its weapon skill is weighted to trigger from the offhand similar to a parry, letting it ride alongside a main-hand weapon purely for the sleep proc",
+   "statFocus": "DEX / INT"
+  }
+ ],
+ "_verify": []
+}
