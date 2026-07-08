@@ -207,3 +207,6 @@ a:hover { text-decoration: underline; }
 .cmp-clear { background: transparent; border: 1px solid var(--line); color: var(--dim); border-radius: 6px; padding: 7px 12px; cursor: pointer; font-size: 12px; white-space: nowrap; }
 .cmp-clear:hover { border-color: var(--red); color: var(--red); }
 body.build-page { padding-bottom: 80px; }
+
+.dlc-toggle { display:flex; align-items:center; gap:7px; font-size:12px; color:var(--dim); margin-bottom:8px; cursor:pointer; }
+.dlc-toggle input { accent-color: var(--gold); }

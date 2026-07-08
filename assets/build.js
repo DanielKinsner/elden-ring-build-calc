@@ -12,7 +12,8 @@
   var presets = await ERData.loadPresets('../data/');
 
   var build = { VIG:60, MND:20, END:30, STR:24, DEX:58, INT:9, FAI:15, ARC:40 };
-  var twoHanded = true, upgradeLevel = null, focusStat = 'DEX';
+  var twoHanded = true, upgradeLevel = null, focusStat = 'DEX', showDlc = true;
+  function pool(){ return showDlc ? weapons : weapons.filter(function(w){ return w.source !== 'dlc'; }); }
   var current = weapons.find(function (w){ return w.id === 'rivers-of-blood'; }) || weapons[0];
   var compareIds = [];
 
@@ -34,6 +35,7 @@
 
   $('twoHand').addEventListener('change', function () { twoHanded = this.checked; render(); });
   $('twoHand').checked = twoHanded;
+  $('showDlc').addEventListener('change', function () { showDlc = this.checked; });
 
   /* ---- presets (dropdown + buttons) ---- */
   $('presetSelect').innerHTML = '<option value="">Load build…</option>' + presets.map(function (p, i) { return '<option value="'+i+'">'+p.name+'</option>'; }).join('');
@@ -56,7 +58,7 @@
   search.addEventListener('input', function () {
     var q = this.value.toLowerCase().trim();
     if (!q) { list.hidden = true; return; }
-    var hits = weapons.filter(function (w){ return w.name.toLowerCase().indexOf(q) >= 0 || w.type.toLowerCase().indexOf(q) >= 0; }).slice(0, 12);
+    var hits = pool().filter(function (w){ return w.name.toLowerCase().indexOf(q) >= 0 || w.type.toLowerCase().indexOf(q) >= 0; }).slice(0, 12);
     list.innerHTML = hits.map(function (w){ return '<div data-id="'+w.id+'">'+w.name+' <span style="color:var(--dim)">· '+w.type+'</span></div>'; }).join('') || '<div style="color:var(--dim)">no matches</div>';
     list.hidden = false;
   });
