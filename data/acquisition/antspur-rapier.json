@@ -1,0 +1,33 @@
+{
+ "location": "Dropped by Maleigh Marais, Shaded Castle Castellan — a hostile NPC (categorized as a Hostile NPC, not a true boss) who wanders the rocky fields west of The Shaded Castle, in the company of a sleeping halberd-wielding Guardian Golem. Guaranteed drop on defeat.",
+ "region": "Altus Plateau",
+ "source": {
+  "type": "npc",
+  "name": "Maleigh Marais, Shaded Castle Castellan"
+ },
+ "tactics": [
+  "Maleigh wields the Antspur Rapier himself and applies scarlet rot on every hit, plus occasionally casts Poisonous Mist from a sacred seal — bring rot resistance or curatives",
+  "He moves quickly and circles at range rather than closing in, so be ready to chase or bait him into melee",
+  "A halberd Guardian Golem sleeps nearby; getting too close to its spawn point (or hitting it) wakes it up — lure Maleigh toward the swamp or away from the golem to avoid fighting both at once",
+  "One kill guarantees the drop, so there's no need to farm"
+ ],
+ "nearbyGraces": [
+  "Shaded Castle Ramparts"
+ ],
+ "lore": "Forged from the spur of a giant ant, this rapier weeps scarlet rot instead of blood. Its wielder, Castellan Maleigh Marais, treated the rot as a private article of faith rather than a plague — devotion that was eventually answered when he found a goddess of his own.",
+ "builds": [
+  {
+   "name": "Keen Dex thrusting build",
+   "why": "Keen affinity pushes Dexterity scaling to its highest point while the scarlet rot buildup (55) stays fixed regardless of affinity, so a pure-Dex investment gets full value from both the damage and the free status proc.",
+   "statFocus": "Dexterity"
+  },
+  {
+   "name": "Quality powerstance rot",
+   "why": "Quality affinity gives an even STR/DEX split, useful for dual-wielding two Antspur Rapiers (or pairing with another thrusting sword) to stack scarlet rot procs faster through rapid triple-hit combos.",
+   "statFocus": "Strength / Dexterity"
+  }
+ ],
+ "_verify": [
+  "nearbyGraces"
+ ]
+}

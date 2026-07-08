@@ -1,0 +1,32 @@
+{
+ "location": "Sits in a chest inside the hidden basement of Kingsrealm Ruins in northwestern Liurnia of the Lakes. The stairway down is concealed behind an illusory floor in the ruins' northeast section (roll or attack the ground to reveal it); the chest is in the room immediately after you defeat the Royal Revenant boss guarding that basement.",
+ "region": "Liurnia of the Lakes",
+ "source": {
+  "type": "boss",
+  "name": "Royal Revenant (Kingsrealm Ruins basement)"
+ },
+ "tactics": [
+  "Find the illusory floor in the northeast part of Kingsrealm Ruins to reach the basement — roll over or hit the ground to reveal the stairs down",
+  "The Royal Revenant is fast: it leaps in for melee combo chains, spits a cone of poison sludge (telegraphed by a green glow around its head), and can briefly sink underground to reappear behind you",
+  "Healing Incantations stun it hard — casting Heal (or any cheap heal spell) twice in a row can burn over half its HP even with minimal Faith investment; a tanky Spirit Ash like Banished Knight Oleg also helps soak hits",
+  "The Frozen Needle is a guaranteed chest pickup in the next room — no additional fight needed after the boss"
+ ],
+ "nearbyGraces": [
+  "Kingsrealm Ruins",
+  "Road to the Manor"
+ ],
+ "lore": "A hair-thin blade of ice forged by Iji, the Carian royal blacksmith. It chills whatever it pierces, and its heavy attack launches the blade outward as a projectile that regrows almost instantly afterward.",
+ "builds": [
+  {
+   "name": "No-investment frostbite proc",
+   "why": "Its frostbite buildup (60) is fixed and untouched by any stat, Ash of War, or affinity change (it can't be infused or buffed), so any Dex-leaning character gets a reliable frost proc without spending points on Intelligence.",
+   "statFocus": "Dexterity"
+  },
+  {
+   "name": "Str/Dex quality frost pick",
+   "why": "Its native Strength/Dexterity split lets it slot into a Dex-leaning quality build as a secondary status weapon alongside a main damage-dealer.",
+   "statFocus": "Dexterity / Strength"
+  }
+ ],
+ "_verify": []
+}

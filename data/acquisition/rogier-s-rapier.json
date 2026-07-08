@@ -1,0 +1,31 @@
+{
+ "location": "Gifted at +8 upgrade by Sorcerer Rogier, found on the balcony above the main hall of Roundtable Hold, once you've defeated Godrick the Grafted at Stormveil Castle. Comes bundled with the Spellblade Set and Rogier's Bell Bearing.",
+ "region": "Roundtable Hold",
+ "source": {
+  "type": "npc",
+  "name": "Sorcerer Rogier"
+ },
+ "tactics": [
+  "Progress the main path far enough to defeat Godrick the Grafted at Stormveil Castle first — the reward doesn't trigger before that",
+  "Head to Rogier's balcony spot above the main hall in Roundtable Hold and interact with him to receive the gift",
+  "Works even if you never spoke to Rogier before Godrick's death — visit his now-silent spot, then leave and re-enter the Hold (or fast travel away and back) to trigger the handoff",
+  "It arrives with Ash of War: Glintblade Phalanx pre-equipped, but you can swap that out like any normal weapon if you prefer a different skill"
+ ],
+ "nearbyGraces": [
+  "Roundtable Hold"
+ ],
+ "lore": "An ornately decorated rapier of exceptional craftsmanship, the signature weapon of the sorcerer Rogier. It takes real dexterity to wield well, but in practiced hands it flows into rapid, successive thrusts.",
+ "builds": [
+  {
+   "name": "Spellblade Int hybrid",
+   "why": "Magic affinity grants it strong Intelligence scaling alongside its already-high base Dexterity scaling, giving an INT-focused caster a melee option that keeps a sorcery-flavored skill (Glintblade Phalanx) built in.",
+   "statFocus": "Dexterity / Intelligence"
+  },
+  {
+   "name": "Winged Sword Insignia burst",
+   "why": "Its unique passive doubles the point accumulation toward the Winged Sword Insignia talisman, rewarding a fast, uninterrupted Dex-thrusting playstyle that stacks the talisman's damage bonus quickly.",
+   "statFocus": "Dexterity"
+  }
+ ],
+ "_verify": []
+}

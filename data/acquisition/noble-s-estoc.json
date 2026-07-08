@@ -1,0 +1,31 @@
+{
+ "location": "Very rare (0.5%) drop from the two gold-armored Wandering Nobles — wearing the Aristocrat Hat and Aristocrat Coat — found just north of the Mistwood Outskirts Site of Grace in eastern Limgrave, following a torch-bearing servant. Plain Wandering Nobles found elsewhere in the game do not carry this weapon.",
+ "region": "Limgrave",
+ "source": {
+  "type": "enemy",
+  "name": "Wandering Noble (Aristocrat-garbed pair, north of Mistwood Outskirts)"
+ },
+ "tactics": [
+  "From Mistwood Outskirts grace, head north to find the gold-armored pair trailing a torch-bearing servant — they're the only Wandering Nobles that can drop this weapon",
+  "Wandering Nobles are unarmored and go down in a couple of hits, so the grind is entirely about drop luck, not difficulty",
+  "Their attacks are slow and easy to block or dodge; feel free to fight both at once rather than trying to isolate them",
+  "0.5% is a genuinely long farm — item discovery boosts (Silver-Tear Mask, Gold Scarab talisman, Silver Scarab talisman) meaningfully cut down the reset count"
+ ],
+ "nearbyGraces": [
+  "Mistwood Outskirts"
+ ],
+ "lore": "A lighter, easier-to-handle estoc favored by wandering nobles, gilded from hilt to point. It's as much a status symbol as a weapon, and would fetch a tidy sum if sold.",
+ "builds": [
+  {
+   "name": "Early Quality pick",
+   "why": "Its base scaling is an exactly even STR/DEX split, and it carries the lowest Dexterity requirement of any thrusting sword, making it usable as a cheap Quality-build weapon from very early in the game.",
+   "statFocus": "Strength / Dexterity"
+  },
+  {
+   "name": "Budget status proc",
+   "why": "Blood or Poison affinity bolts on a solid status buildup while keeping the even Str/Dex scaling largely intact, useful as a low-level status weapon before better options open up.",
+   "statFocus": "Strength / Dexterity / Arcane"
+  }
+ ],
+ "_verify": []
+}

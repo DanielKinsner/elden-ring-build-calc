@@ -1,0 +1,31 @@
+{
+ "location": "Random (4%) drop from any Cleanrot Knight. The easiest early farm is the Swamp of Aeonia in Caelid, where a lone Cleanrot Knight stands among Aeonian Butterflies south of the Inner Aeonia Site of Grace. Cleanrot Knights also appear at The Shaded Castle (Altus Plateau), Consecrated Snowfield Catacombs, and Miquella's Haligtree, if you'd rather spread the farm across more knights.",
+ "region": "Caelid",
+ "source": {
+  "type": "enemy",
+  "name": "Cleanrot Knight"
+ },
+ "tactics": [
+  "Rest at Inner Aeonia grace, then head south through the roots to find a single Cleanrot Knight amid several Aeonian Butterflies",
+  "The Swamp of Aeonia itself continuously builds scarlet rot on you — equip rot-resistant gear or bring Preserving Boluses before wading in",
+  "Cleanrot Knights fight fast with a katana-style moveset; punish after their attack strings rather than trading hits",
+  "Only a 4% drop chance — expect to reset the grace and refight repeatedly, or hit multiple knights across regions to improve your odds"
+ ],
+ "nearbyGraces": [
+  "Inner Aeonia"
+ ],
+ "lore": "A thrusting sword carried by the Cleanrot Knights who fought at Malenia's side. It was never their main weapon — these knights paired it with a larger polearm and drew the sword only as a backup in close quarters.",
+ "builds": [
+  {
+   "name": "Quality dual-wield offhand",
+   "why": "Even STR/DEX scaling via the Quality affinity, plus the longest reach of any thrusting sword (a disjointed hitbox past the blade tip), makes it a strong off-hand poke weapon paired with a slower main-hand weapon.",
+   "statFocus": "Strength / Dexterity"
+  },
+  {
+   "name": "Keen Dex duelist",
+   "why": "Keen affinity concentrates its scaling almost entirely into Dexterity, turning it into a fast standalone thrusting weapon for a pure-Dex build.",
+   "statFocus": "Dexterity"
+  }
+ ],
+ "_verify": []
+}

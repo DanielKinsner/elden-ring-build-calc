@@ -1,0 +1,30 @@
+{
+ "location": "Purchased from Twin Maiden Husks at Roundtable Hold for 1,000 Runes — available as soon as you first reach the Hold, no fight required.",
+ "region": "Roundtable Hold",
+ "source": {
+  "type": "merchant",
+  "name": "Twin Maiden Husks"
+ },
+ "tactics": [
+  "Straight gold purchase from Twin Maiden Husks' shop — no combat involved",
+  "Its guard-while-thrusting property lets you attack with it even while holding a shield up, so it pairs naturally with a shield-and-Dex playstyle",
+  "Purely thrust-only (no cutting-edge moveset), so it isn't a great pick if you want slashing attacks too"
+ ],
+ "nearbyGraces": [
+  "Roundtable Hold"
+ ],
+ "lore": "A slender, needle-sharp blade built purely for thrusting. It's slim enough to stab with even while a shield is raised, making it a natural partner for a defensive off-hand.",
+ "builds": [
+  {
+   "name": "Sword-and-board Dex",
+   "why": "The guard-while-thrusting property makes it one of the few thrusting swords that stays useful behind a shield, fitting a defensive Dexterity build.",
+   "statFocus": "Dexterity"
+  },
+  {
+   "name": "Riposte/critical Dex build",
+   "why": "One of the highest critical-hit modifiers among thrusting swords, and Keen affinity pushes its Dexterity scaling especially high, rewarding backstab- and riposte-focused play.",
+   "statFocus": "Dexterity"
+  }
+ ],
+ "_verify": []
+}

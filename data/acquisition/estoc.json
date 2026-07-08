@@ -1,0 +1,33 @@
+{
+ "location": "Buy from the Nomadic Merchant camped just north of the Liurnia Lake Shore Site of Grace in southern Liurnia for 3,000 Runes — no fight required. Also sold by Patches for the same price (first at Murkwater Cave in Limgrave, and later wherever he's relocated to, such as Scenic Isle or inside Volcano Manor). Characters who choose the Prisoner starting class begin the game with an Estoc already equipped.",
+ "region": "Liurnia of the Lakes",
+ "source": {
+  "type": "merchant",
+  "name": "Nomadic Merchant (Liurnia Lake Shore)"
+ },
+ "tactics": [
+  "Simplest route: just buy it from the Nomadic Merchant's campfire north of Liurnia Lake Shore grace — no combat involved",
+  "Patches sells the same weapon, but you first have to find and survive his ambush at Murkwater Cave (or otherwise encounter him) before his shop opens up",
+  "Prisoner-class characters can skip buying it entirely since it's already their starting weapon"
+ ],
+ "nearbyGraces": [
+  "Liurnia Lake Shore",
+  "Lake-Facing Cliffs"
+ ],
+ "lore": "A long, stiff-bladed piercing sword that, despite its size, handles with surprising nimbleness. Its edge is sharp enough to slash as well as stab, leaving little room for an enemy to punish an opening.",
+ "builds": [
+  {
+   "name": "Pure Dex thrusting build",
+   "why": "Already Dex-leaning in its base scaling, and Keen affinity pushes that further, making it a strong, low-investment early/mid-game Dexterity weapon with unique slashing heavy attacks.",
+   "statFocus": "Dexterity"
+  },
+  {
+   "name": "Bleed Estoc",
+   "why": "Blood affinity adds an innate Bleed buildup on top of solid retained Dexterity scaling, turning it into a status-proc weapon for Dex/Arcane bleed builds.",
+   "statFocus": "Dexterity / Arcane"
+  }
+ ],
+ "_verify": [
+  "nearbyGraces"
+ ]
+}
