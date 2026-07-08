@@ -5,7 +5,6 @@
   var STAT_LABEL = { VIG:'Vigor', MND:'Mind', END:'Endurance', STR:'Strength', DEX:'Dexterity', INT:'Intelligence', FAI:'Faith', ARC:'Arcane' };
   var SCALING = ['STR','DEX','INT','FAI','ARC'];
   var STATUS = [['bleed','Bleed'],['frost','Frost'],['poison','Poison'],['rot','Scarlet Rot'],['sleep','Sleep'],['madness','Madness']];
-  var STATUS_COLOR = { bleed:'var(--bleed)', frost:'var(--frost)', poison:'var(--poison)', rot:'var(--rot)', sleep:'var(--sleep)', madness:'var(--madness)' };
   var $ = function (id) { return document.getElementById(id); };
 
   var weapons = await ERData.loadWeapons('../data/');
@@ -19,30 +18,38 @@
 
   /* ---- stat sliders ---- */
   $('stats').innerHTML = STATS.map(function (k) {
-    return '<div class="stat"><span class="name">'+STAT_LABEL[k]+'</span>' +
+    return '<div class="stat"><img class="stat-icon" src="../assets/icons/stats/'+k.toLowerCase()+'.png" alt=""><span class="name">'+STAT_LABEL[k]+'</span>' +
       '<input type="range" min="1" max="99" value="'+build[k]+'" data-k="'+k+'">' +
       '<input class="box" type="number" min="1" max="99" value="'+build[k]+'" data-box="'+k+'"></div>';
   }).join('');
   $('stats').addEventListener('input', function (e) {
     var k = e.target.getAttribute('data-k') || e.target.getAttribute('data-box'); if (!k) return;
     var val = Math.max(1, Math.min(99, +e.target.value || 1));
-    build[k] = val; syncStat(k); render();
+    build[k] = val; syncStat(k); activePresetIndex = -1; syncActivePreset(); render();
   });
   function syncStat(k) {
     var r = $('stats').querySelector('[data-k="'+k+'"]'); var b = $('stats').querySelector('[data-box="'+k+'"]');
     if (r) r.value = build[k]; if (b) b.value = build[k];
   }
 
-  $('twoHand').addEventListener('change', function () { twoHanded = this.checked; render(); });
+  $('twoHand').addEventListener('change', function () { twoHanded = this.checked; activePresetIndex = -1; syncActivePreset(); render(); });
   $('twoHand').checked = twoHanded;
   $('showDlc').addEventListener('change', function () { showDlc = this.checked; });
 
   /* ---- presets (dropdown + buttons) ---- */
+  var activePresetIndex = presets.findIndex(function (p) { return p.loadout && p.loadout.weaponId === current.id; });
   $('presetSelect').innerHTML = '<option value="">Load build…</option>' + presets.map(function (p, i) { return '<option value="'+i+'">'+p.name+'</option>'; }).join('');
   $('presetSelect').addEventListener('change', function () { if (this.value !== '') applyPreset(presets[+this.value]); });
   $('presetBtns').innerHTML = presets.map(function (p, i) { return '<button data-p="'+i+'">'+p.name+'</button>'; }).join('');
   $('presetBtns').addEventListener('click', function (e) { var i = e.target.getAttribute('data-p'); if (i !== null) applyPreset(presets[+i]); });
+  function syncActivePreset() {
+    $('presetSelect').value = activePresetIndex >= 0 ? activePresetIndex : '';
+    Array.prototype.forEach.call($('presetBtns').children, function (btn, i) {
+      btn.classList.toggle('active', i === activePresetIndex);
+    });
+  }
   function applyPreset(p) {
+    activePresetIndex = presets.indexOf(p);
     STATS.forEach(function (k) { build[k] = p.stats[k]; syncStat(k); });
     twoHanded = !!p.twoHanded; $('twoHand').checked = twoHanded;
     if (p.loadout) {
@@ -54,6 +61,7 @@
         affinity = wantAff; $('affinity').value = wantAff;
       }
     }
+    syncActivePreset();
     render();
   }
 
@@ -69,7 +77,8 @@
   list.addEventListener('click', function (e) {
     var id = e.target.closest('[data-id]'); if (!id) return;
     current = weapons.find(function (w){ return w.id === id.getAttribute('data-id'); });
-    upgradeLevel = null; search.value = ''; list.hidden = true; fillUpgrade(); fillAffinity(); render();
+    upgradeLevel = null; search.value = ''; list.hidden = true; fillUpgrade(); fillAffinity();
+    activePresetIndex = -1; syncActivePreset(); render();
   });
 
   /* ---- affinity + upgrade ---- */
@@ -80,7 +89,7 @@
     $('affinity').disabled = opts.length < 2;
     affinity = 'Standard'; $('affinity').value = 'Standard';
   }
-  $('affinity').addEventListener('change', function () { affinity = this.value; render(); });
+  $('affinity').addEventListener('change', function () { affinity = this.value; activePresetIndex = -1; syncActivePreset(); render(); });
   function fillUpgrade() {
     var max = current.category === 'somber' ? 10 : 25;
     $('upgrade').innerHTML = '';
@@ -88,7 +97,7 @@
     $('upgrade').value = max;
     upgradeLevel = null;
   }
-  $('upgrade').addEventListener('change', function () { upgradeLevel = +this.value; render(); });
+  $('upgrade').addEventListener('change', function () { upgradeLevel = +this.value; activePresetIndex = -1; syncActivePreset(); render(); });
 
   /* ---- per-stat click to focus soft-cap ---- */
   $('byStat').addEventListener('click', function (e) {
@@ -141,13 +150,19 @@
     // status
     $('status').innerHTML = STATUS.map(function (s) {
       var v = (r.status && r.status[s[0]]) || 0;
-      return '<div class="srow'+(v?'':' off')+'"><span class="dot" style="background:'+STATUS_COLOR[s[0]]+'"></span><span class="lbl" style="color:var(--dim)">'+s[1]+'</span>'+bar(v,120)+'<span class="amt">'+v+'</span></div>';
+      return '<div class="srow'+(v?'':' off')+'"><img class="status-icon" src="../assets/icons/status/'+s[0]+'.png" alt=""><span class="lbl" style="color:var(--dim)">'+s[1]+'</span>'+bar(v,120)+'<span class="amt">'+v+'</span></div>';
     }).join('');
 
-    // per-stat contribution + grades
-    $('byStat').innerHTML = SCALING.map(function (k) {
+    // per-stat contribution + grades (all 8 stats — VIG/MND/END never scale weapon AR, shown for completeness)
+    var topStat = null, topV = -1;
+    SCALING.forEach(function (k) { if ((r.byStat[k] || 0) > topV) { topV = r.byStat[k] || 0; topStat = k; } });
+    $('byStat').innerHTML = STATS.map(function (k) {
       var v = r.byStat[k] || 0;
-      return '<div class="crow'+(v?'':' zero')+'" data-stat="'+k+'" style="cursor:pointer"><span class="lbl"><b>'+STAT_LABEL[k]+'</b><span class="grade">'+r.grades[k]+'</span></span><span class="amt">+'+v+'</span></div>';
+      var scales = SCALING.indexOf(k) >= 0;
+      var grade = scales ? '<span class="grade">'+r.grades[k]+'</span>' : '';
+      var cls = 'crow' + (v ? '' : ' zero') + (scales && k === topStat && v > 0 ? ' top' : '');
+      var clickable = scales ? ' data-stat="'+k+'" style="cursor:pointer"' : '';
+      return '<div class="'+cls+'"'+clickable+'><span class="lbl"><b>'+STAT_LABEL[k]+'</b>'+grade+'</span><span class="amt">+'+v+'</span></div>';
     }).join('');
 
     renderSoftCap(r);
@@ -255,8 +270,12 @@
 
   function renderBreakpoints(r) {
     $('breakpoints').innerHTML = SCALING.filter(function (k){ return r.softCaps[k]; }).map(function (k) {
-      var caps = r.softCaps[k].softCaps || [];
-      return '<div class="brow"><span class="lbl">'+STAT_LABEL[k]+'</span><span class="caps">'+caps.join(' / ')+'</span></div>';
+      var sc = r.softCaps[k];
+      var caps = sc.softCaps || [];
+      var major = caps.length ? (caps[caps.length - 2] || caps[0]) : null;
+      var met = sc.pastSoftCap;
+      return '<div class="brow"><span class="lbl">'+STAT_LABEL[k]+'</span><span class="caps">'+
+        (met ? '<span class="check">✓</span> ' : '') + major + ' <small>(Soft Cap)</small></span></div>';
     }).join('');
   }
 
@@ -267,5 +286,5 @@
     setTimeout(function(){ self.textContent = 'Add to Compare'; }, 1200);
   });
 
-  fillAffinity(); fillUpgrade(); render();
+  fillAffinity(); fillUpgrade(); syncActivePreset(); render();
 })();
