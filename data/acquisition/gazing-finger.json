@@ -1,0 +1,27 @@
+{
+ "location": "Obtained by trading the Remembrance of the Mother of Fingers to Enia at the Roundtable Hold. The remembrance is earned by defeating the optional superboss Metyr, Mother of Fingers, fought in the hidden Finger Birthing Grounds beneath the Cathedral of Manus Metyr.",
+ "region": "Scadu Altus",
+ "source": {
+  "type": "boss",
+  "name": "Metyr, Mother of Fingers"
+ },
+ "tactics": [
+  "Reaching Metyr requires finishing the Ymir/Finger Ruins questline first: ring the bells at the other Finger Ruins, then return to the Cathedral of Manus Metyr and interact with Ymir's now-empty throne to reveal a hidden ladder down.",
+  "Below, defeat the NPC invader Swordhand of Night Anna, then ring the final hanging bell to be teleported into the Finger Birthing Grounds arena.",
+  "Metyr is a giant, largely stationary mass of fingers with a soft red weak-point on its body — stay close under it to dodge her head-slam combos, spinning laser sweeps, and a sudden 'helicopter' liftoff attack.",
+  "She has zero slash resistance and is highly vulnerable to Bleed, so slashing/bleed weapons speed the fight up dramatically; the remembrance can instead be traded for the Staff of the Great Beyond if you'd rather have a hybrid sorcery/incantation catalyst."
+ ],
+ "nearbyGraces": [
+  "Finger Birthing Grounds",
+  "Cathedral of Manus Metyr"
+ ],
+ "lore": "This weapon is literally Metyr's severed head, wielded outright with no reshaping needed. Among the fingerprint-like ridges covering its surface sits a small, wart-like eye that stares blankly into nothing.",
+ "builds": [
+  {
+   "name": "Strength/Intelligence Battlemage",
+   "why": "Strength (C) and Intelligence (D) both scale its damage, splitting output between physical and magic, so a STR/INT hybrid build gets full value from the weapon.",
+   "statFocus": "STR primary, INT secondary"
+  }
+ ],
+ "_verify": []
+}

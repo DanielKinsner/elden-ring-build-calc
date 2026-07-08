@@ -1,0 +1,28 @@
+{
+ "location": "Obtained by trading the Remembrance of the Shadow Sunflower to Enia at the Roundtable Hold. The remembrance is earned by defeating the Scadutree Avatar at Scadutree Base, reached from the Shadow Keep's Church District after draining its flooded chapel.",
+ "region": "Shadow Keep",
+ "source": {
+  "type": "boss",
+  "name": "Scadutree Avatar"
+ },
+ "tactics": [
+  "Access the Church District's eastern entrance, drain the flooded central church via its lever, then descend through the Tree-Worship Sanctum to reach Scadutree Base.",
+  "The boss opens with a triple spiked-root ranged attack — dodge the first root, then the delayed second one, and close the distance while it recovers.",
+  "Target its sunflower-shaped head/face for the most damage; it's weak to Fire and Magic, and many of its own attacks deal Holy or inflict Bleed, so build resistance to those.",
+  "The fight has three escalating phases and won't die at 0 HP — it collapses to the ground first, giving you a critical-hit opening to finish it."
+ ],
+ "nearbyGraces": [
+  "Church District Highroad",
+  "Sunken Chapel",
+  "Tree-Worship Sanctum"
+ ],
+ "lore": "Taken from the sunflower-shaped head of the Scadutree Avatar, a plant-like manifestation of the Scadutree itself. Its twin stalks curl together as though in an embrace, echoing the silhouette of the Scadutree it grew from.",
+ "builds": [
+  {
+   "name": "Faith/Strength Holy Colossal",
+   "why": "Faith actually out-scales Strength on this weapon (99 vs 81) while still needing solid Strength investment, making it a strong pick for Faith-leaning quality/holy builds.",
+   "statFocus": "FAI primary, STR secondary"
+  }
+ ],
+ "_verify": []
+}

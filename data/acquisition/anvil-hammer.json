@@ -1,0 +1,29 @@
+{
+ "location": "Found inside Ruined Forge Lava Intake, an optional no-boss minidungeon south-southeast of the Castle Front Site of Grace near Castle Ensis. Deep inside, pull a lever to raise a giant pipe out of the lava, walk across it like a bridge to a small passage, then interact with the glowing altar/furnace there to receive the weapon.",
+ "region": "Gravesite Plain",
+ "source": {
+  "type": "chest",
+  "name": "Forge Altar (Ruined Forge Lava Intake)"
+ },
+ "tactics": [
+  "From Castle Front Site of Grace at Castle Ensis, head southeast past Messmer soldiers and Bloodfiends to the toppled-pillar dungeon entrance.",
+  "Follow the linear path into a large chamber with stone golems and lava slimes; climb down the ladder on the left to continue.",
+  "Find the lever that raises a giant pipe out of the lava, then walk across the pipe to a passage at the far end — watch your footing over the lava.",
+  "Interact with the altar inside that passage to claim the Anvil Hammer plus an Ancient Dragon Smithing Stone; no boss fight is required."
+ ],
+ "nearbyGraces": [
+  "Ruined Forge Lava Intake",
+  "Castle Front"
+ ],
+ "lore": "This colossal hammer repurposes the ruined forge's own glowing anvil as its striking head. Its description notes the anvil block was shaped like an altar and once served in old religious rites before the forge fell into ruin.",
+ "builds": [
+  {
+   "name": "Strength/Faith Colossal Smith",
+   "why": "C-scaling Strength does most of the heavy lifting while D-scaling Faith adds a large flat fire damage bonus, so investing in both outperforms Strength alone.",
+   "statFocus": "STR primary, FAI secondary"
+  }
+ ],
+ "_verify": [
+  "source"
+ ]
+}

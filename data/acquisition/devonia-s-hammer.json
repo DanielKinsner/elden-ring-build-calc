@@ -1,0 +1,27 @@
+{
+ "location": "Ancient Ruins of Rauh, on a rock amid a grove northwest of the Rauh Ancient Ruins, East Site of Grace. Dropped by the miniboss Crucible Knight Devonia, who can be found standing atop the rock.",
+ "region": "Ancient Ruins of Rauh",
+ "source": {
+  "type": "boss",
+  "name": "Crucible Knight Devonia"
+ },
+ "tactics": [
+  "Devonia can be snuck past to light the Rauh Ancient Ruins, East grace first if you want a fallback point before fighting her.",
+  "Her moveset centers on a spinning vortex attack (mirrored by her own weapon skill, Devonia's Vortex) plus heavy hammer slams — punish once the spin finishes rather than mid-animation.",
+  "She's one of several similarly-armored Crucible Knights scattered through the DLC (e.g. Ordovis), so don't mix up her fight location with the others.",
+  "Defeating her also drops the Crucible Hammer-Helm, which boosts this weapon's skill damage by 4% when worn."
+ ],
+ "nearbyGraces": [
+  "Rauh Ancient Ruins, East",
+  "Rauh Ancient Ruins, West"
+ ],
+ "lore": "Belonging to Devonia, longest-serving of the Crucible Knights, this hammer is cast from primordial gold rather than ordinary steel, giving it a reddish sheen and a lingering holy aura. Its striking face bears an engraving evoking a flowing current of life.",
+ "builds": [
+  {
+   "name": "Strength/Faith Holy Colossal",
+   "why": "Strength (C) supplies the bulk of its physical attack power while Faith (D) adds a meaningful holy damage bonus, rewarding a quality-leaning STR/FAI build.",
+   "statFocus": "STR primary, FAI secondary"
+  }
+ ],
+ "_verify": []
+}

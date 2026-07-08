@@ -1,0 +1,33 @@
+{
+ "location": "Prospect Town, a ruined settlement in western Gravesite Plain south of the Cliffroad Terminus Site of Grace. It is a guaranteed one-time drop from the Bloodfiend enemies infesting the town (roughly 2 in the lower section, 6 more in the upper ruins).",
+ "region": "Gravesite Plain",
+ "source": {
+  "type": "enemy",
+  "name": "Bloodfiend (Prospect Town group)"
+ },
+ "tactics": [
+  "From Cliffroad Terminus Site of Grace, head south into the ruined town; Bloodfiends are scattered through both the lower and upper sections.",
+  "Bloodfiends are fast, low-profile crawlers that lunge into bite/claw combos and stack bleed quickly when fought in groups — pull them into open ground rather than tight ruin corridors.",
+  "The Arm is a guaranteed drop from the group as a whole rather than a specific named enemy, so clear upward through the town if it doesn't drop early.",
+  "Don't confuse this with the much tougher optional superboss Chief Bloodfiend in Rivermouth Cave — that boss merely wields a similar-looking arm weapon and is unrelated to this drop."
+ ],
+ "nearbyGraces": [
+  "Cliffroad Terminus"
+ ],
+ "lore": "Little more than a dead bloodfiend's arm torn free and swung by its surviving kin as a crude club. A blood ritual sanctified the limb so it bursts with the stored blood inside whenever a heavy blow lands.",
+ "builds": [
+  {
+   "name": "Arcane Bleed Colossal",
+   "why": "Arcane carries the highest raw scaling on this weapon, and the Blood affinity adds a strong 83 bleed buildup on top, making it a natural Arcane/bleed pick.",
+   "statFocus": "ARC primary, STR secondary"
+  },
+  {
+   "name": "Quality Stance-Breaker",
+   "why": "Even unaffinitized, its heavy-attack blood splash adds bonus stance damage, so a plain STR/DEX quality build can use it purely to break poise.",
+   "statFocus": "STR/DEX quality"
+  }
+ ],
+ "_verify": [
+  "tactics"
+ ]
+}
