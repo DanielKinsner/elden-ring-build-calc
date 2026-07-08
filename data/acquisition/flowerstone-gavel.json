@@ -1,0 +1,36 @@
+{
+ "location": "Dropped at the Grand Altar of Dragon Communion (where the Dragon Communion Priestess NPC used to stand), located in the Southern Shore area at the foot of Jagged Peak. Only appears after Bayle the Dread is defeated AND the player has NOT given the Priestess Thiollier's Concoction beforehand (doing so gives her spirit ash instead of this weapon).",
+ "region": "Jagged Peak",
+ "source": {
+  "type": "boss",
+  "name": "Bayle the Dread"
+ },
+ "tactics": [
+  "Reach the altar via the Dragon's Pit Terminus grace: head east past the Jagged Peak Drake, then south to the Southern Shore/Grand Altar of Dragon Communion.",
+  "You must beat Bayle the Dread first (fought up near the Jagged Peak Summit) — a huge, aggressive ancient dragon with wide lightning breath sweeps, flight-based dive attacks, and a brutal late-fight lightning-storm phase; bring lightning resistance and space to dodge.",
+  "Do NOT hand the Dragon Communion Priestess Thiollier's Concoction before or after the Bayle fight if you want the Gavel — that swap instead nets you her spirit ash and permanently removes the weapon drop.",
+  "The weapon just appears on the ground at the altar (no re-fight or dialogue needed) once both conditions above are met — easy to miss if you already talked to the Priestess about the concoction quest."
+ ],
+ "nearbyGraces": [
+  "Grand Altar of Dragon Communion",
+  "Dragon's Pit Terminus",
+  "Jagged Peak Summit"
+ ],
+ "lore": "This dragonstone warhammer is carved into the shape of a blooming flower, its four petals and central core all ground down to sharp points. It was the personal weapon of the Dragon Communion priestess, built specifically to punch through tough draconic hides.",
+ "builds": [
+  {
+   "name": "Arcane Quality Hybrid",
+   "statFocus": "Strength/Dexterity/Arcane",
+   "why": "Low D-scaling spread across Str, Dex, and Arcane with modest stat requirements (14/8/15) lets it slot into an Arcane-leaning quality build without heavy investment."
+  },
+  {
+   "name": "Dragon-Hunter Swap Weapon",
+   "statFocus": "Pierce damage / anti-dragon bonus",
+   "why": "Deals pure Pierce damage (boosted by the Spear Talisman) plus a unique +30% bonus vs dragons and +15% vs ancient dragons, making it a strong situational pick against dragon bosses like Bayle, Fortissax, Placidusax, or Greyll."
+  }
+ ],
+ "_verify": [
+  "region",
+  "nearbyGraces"
+ ]
+}
