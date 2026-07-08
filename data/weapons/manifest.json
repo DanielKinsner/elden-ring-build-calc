@@ -1,8 +1,29 @@
 {
-  "_comment": "List of weapon data files, grouped by source. The loader fetches each and flattens into one array. Append new category files here as they land.",
+  "_comment": "Weapon data files by source. Loader fetches each and flattens. Base game = datamined regulation, at max upgrade.",
   "base": [
+    "base/axes.json",
+    "base/claws.json",
+    "base/colossal-swords.json",
+    "base/colossal-weapons.json",
+    "base/curved-greatswords.json",
+    "base/curved-swords.json",
+    "base/daggers.json",
+    "base/fists.json",
+    "base/flails.json",
+    "base/great-hammers.json",
+    "base/great-spears.json",
+    "base/greataxes.json",
+    "base/greatswords.json",
+    "base/halberds.json",
+    "base/hammers.json",
+    "base/heavy-thrusting-swords.json",
     "base/katanas.json",
-    "base/greatswords.json"
+    "base/reapers.json",
+    "base/spears.json",
+    "base/straight-swords.json",
+    "base/thrusting-swords.json",
+    "base/twinblades.json",
+    "base/whips.json"
   ],
   "dlc": []
 }
