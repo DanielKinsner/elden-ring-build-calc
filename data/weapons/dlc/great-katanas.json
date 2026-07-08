@@ -1,0 +1,98 @@
+[
+ {
+  "id": "dragon-hunter-s-great-katana",
+  "name": "Dragon-Hunter's Great Katana",
+  "type": "Great Katana",
+  "source": "dlc",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 15,
+   "DEX": 20
+  },
+  "weight": null,
+  "passive": "Blood loss (55)",
+  "base": {
+   "physical": 372,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 67,
+   "DEX": 67,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {
+   "bleed": 55
+  },
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "great-katana",
+  "name": "Great Katana",
+  "type": "Great Katana",
+  "source": "dlc",
+  "category": "regular",
+  "infusable": true,
+  "requirements": {
+   "STR": 14,
+   "DEX": 18
+  },
+  "weight": null,
+  "passive": "Blood loss (55)",
+  "base": {
+   "physical": 355,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 45,
+   "DEX": 75,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {
+   "bleed": 55
+  },
+  "arcStatusScaling": 0
+ },
+ {
+  "id": "rakshasa-s-great-katana",
+  "name": "Rakshasa's Great Katana",
+  "type": "Great Katana",
+  "source": "dlc",
+  "category": "somber",
+  "infusable": false,
+  "requirements": {
+   "STR": 12,
+   "DEX": 27
+  },
+  "weight": null,
+  "passive": "Blood loss (55)",
+  "base": {
+   "physical": 379,
+   "magic": 0,
+   "fire": 0,
+   "lightning": 0,
+   "holy": 0
+  },
+  "scaling": {
+   "STR": 27,
+   "DEX": 110,
+   "INT": 0,
+   "FAI": 0,
+   "ARC": 0
+  },
+  "status": {
+   "bleed": 55
+  },
+  "arcStatusScaling": 0
+ }
+]
