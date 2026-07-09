@@ -163,11 +163,13 @@
       var base = (variant.status && variant.status[st]) || 0;
       if (base <= 0) continue;
       var buildup = base; // status buildup is flat across upgrade levels [CONFIRMED] — only Arcane changes it
-      // Arcane boosts bleed/poison buildup on arcane-scaling weapons.
-      if ((st === 'bleed' || st === 'poison') && variant.arcStatusScaling > 0) {
-        buildup += base * (variant.arcStatusScaling / 100) * saturation('arcaneStatus', effStats.ARC);
+      // Arcane boosts bleed/poison buildup, scaled by the weapon's own Arcane scaling value.
+      // (Confirmed: Rivers of Blood base 50 → 76 at ARC 61, using its ARC scaling of 59.)
+      var arcScale = (variant.scaling && variant.scaling.ARC) || variant.arcStatusScaling || 0;
+      if ((st === 'bleed' || st === 'poison') && arcScale > 0) {
+        buildup += base * (arcScale / 100) * saturation('arcaneStatus', effStats.ARC);
       }
-      out[st] = Math.round(buildup);
+      out[st] = Math.floor(buildup); // game truncates the displayed buildup
     }
     return out;
   }
@@ -222,8 +224,8 @@
     }
 
     return {
-      totalAR: Math.round(main.total),
-      byType: roundMap(main.byType),
+      totalAR: sumFloor(main.byType),   // in-game AR floors each damage type, then sums
+      byType: floorMap(main.byType),
       byStat: roundMap(main.byStat),
       status: computeStatus(variant, eff),
       softCaps: softCaps,
@@ -237,6 +239,8 @@
   }
 
   function roundMap(m) { var o = {}; for (var k in m) o[k] = Math.round(m[k]); return o; }
+  function floorMap(m) { var o = {}; for (var k in m) o[k] = Math.floor(m[k]); return o; }
+  function sumFloor(m) { var s = 0; for (var k in m) s += Math.floor(m[k]); return s; }
 
   /**
    * softCapCurve(build, weapon, stat, opts)
