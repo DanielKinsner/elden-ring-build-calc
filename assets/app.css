@@ -82,6 +82,10 @@ a:hover { text-decoration: underline; }
 /* ---------- character ---------- */
 .level-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
 .level { font: 600 34px/1 var(--serif-num); color: var(--gold-2); }
+.level-input { background: transparent; border: 0; border-bottom: 1px dashed transparent; padding: 0 0 1px; width: 2.5em; color: var(--gold-2); -webkit-text-fill-color: var(--gold-2); font-variant-numeric: tabular-nums; cursor: text; transition: border-color .15s var(--ease); -moz-appearance: textfield; }
+.level-input:hover { border-bottom-color: var(--gold-dim); }
+.level-input:focus { outline: none; border-bottom-color: var(--gold-2); }
+.level-input::-webkit-outer-spin-button, .level-input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
 .two-hand { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--dim); cursor: pointer; }
 .two-hand input { display: none; }
 .two-hand i { width: 34px; height: 18px; border-radius: 10px; background: #201a10; border: 1px solid var(--line); position: relative; transition: background-color .18s var(--ease), border-color .18s var(--ease); }
@@ -94,7 +98,7 @@ a:hover { text-decoration: underline; }
 .stat-icon { width: 18px; height: 18px; object-fit: contain; border-radius: 50%; }
 .stat .name { color: var(--text); font-size: 13px; display: flex; align-items: center; gap: 6px; }
 .stat .name em { color: var(--gold-dim); font-style: normal; }
-.stat input[type=range] { -webkit-appearance: none; appearance: none; height: 3px; background: linear-gradient(90deg, var(--gold-dim), var(--gold)); border-radius: 2px; }
+.stat input[type=range] { -webkit-appearance: none; appearance: none; width: 100%; min-width: 0; height: 3px; background: linear-gradient(90deg, var(--gold-dim), var(--gold)); border-radius: 2px; }
 .stat input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 14px; height: 14px; border-radius: 50%; background: var(--gold-2); border: 2px solid #241d10; cursor: pointer; box-shadow: 0 0 6px rgba(201,162,39,.5); transition: transform .15s var(--ease); }
 .stat input[type=range]::-moz-range-thumb { width: 14px; height: 14px; border-radius: 50%; background: var(--gold-2); border: 2px solid #241d10; cursor: pointer; transition: transform .15s var(--ease); }
 .stat input[type=range]:hover::-webkit-slider-thumb, .stat input[type=range]:active::-webkit-slider-thumb { transform: scale(1.15); }

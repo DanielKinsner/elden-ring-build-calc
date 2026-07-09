@@ -51,6 +51,7 @@
   function applyPreset(p) {
     activePresetIndex = presets.indexOf(p);
     STATS.forEach(function (k) { build[k] = p.stats[k]; syncStat(k); });
+    $('level').value = ERCalc.characterLevel(p.stats); // sensible starting level; user can override
     twoHanded = !!p.twoHanded; $('twoHand').checked = twoHanded;
     if (p.loadout) {
       var w = weapons.find(function (x){ return x.id === p.loadout.weaponId; });
@@ -120,7 +121,6 @@
   function render() {
     var r = ERCalc.computeAR(build, current, { upgradeLevel: upgradeLevel, twoHanded: twoHanded, affinity: affinity });
 
-    $('level').textContent = ERCalc.characterLevel(build);
     $('statTotal').textContent = STATS.reduce(function (s,k){ return s + build[k]; }, 0);
     $('weaponName').textContent = current.name;
     $('weaponType').textContent = current.type + (current.category === 'somber' ? ' · Somber' : '');
@@ -286,5 +286,6 @@
     setTimeout(function(){ self.textContent = 'Add to Compare'; }, 1200);
   });
 
+  $('level').value = ERCalc.characterLevel(build); // starting reference; level is manual + independent
   fillAffinity(); fillUpgrade(); syncActivePreset(); render();
 })();
