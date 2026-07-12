@@ -292,6 +292,50 @@
     return opts.limit ? out.slice(0, opts.limit) : out;
   }
 
+  /**
+   * optimize(build, weapon, opts)
+   * Redistribute the build's OFFENSIVE stat points (STR/DEX/INT/FAI/ARC pool stays the same size)
+   * to maximize AR for this weapon. Requirements are met first — greedy alone would never climb
+   * the unmet-requirement penalty cliff — then points go one at a time to the best marginal gain.
+   * @returns { stats: {STR..ARC}, totalAR, before, gained }
+   */
+  function optimize(build, weapon, opts) {
+    opts = opts || {};
+    var b = {}; for (var k in build) b[k] = build[k];
+    var before = computeAR(build, weapon, opts).totalAR;
+
+    var budget = 0;
+    for (var i = 0; i < STATS.length; i++) { budget += clampStat(b[STATS[i]] || 1); b[STATS[i]] = 1; }
+    budget -= STATS.length; // points left to spend above the baseline 1s
+
+    // requirements first (two-handing lowers the effective STR need)
+    var reqs = weapon.requirements || {};
+    for (var r = 0; r < STATS.length; r++) {
+      var rk = STATS[r], need = reqs[rk] || 0;
+      if (rk === 'STR' && opts.twoHanded) need = Math.ceil(need / TWO_HAND_STR_MULT);
+      if (need > b[rk]) { var take = Math.min(need - b[rk], budget); b[rk] += take; budget -= take; }
+    }
+    // greedy: +1 to whichever stat gains the most AR (exact, unfloored)
+    while (budget > 0) {
+      var base = computeAR(b, weapon, opts).totalARExact;
+      var bestK = null, bestGain = -Infinity;
+      for (var s = 0; s < STATS.length; s++) {
+        var sk = STATS[s];
+        if (b[sk] >= 99) continue;
+        b[sk]++;
+        var gain = computeAR(b, weapon, opts).totalARExact - base;
+        b[sk]--;
+        if (gain > bestGain) { bestGain = gain; bestK = sk; }
+      }
+      if (!bestK) break;
+      b[bestK]++; budget--;
+    }
+
+    var out = {}; for (var o = 0; o < STATS.length; o++) out[STATS[o]] = b[STATS[o]];
+    var after = computeAR(b, weapon, opts).totalAR;
+    return { stats: out, totalAR: after, before: before, gained: after - before };
+  }
+
   // Rough character level from attribute totals (Wretch baseline: 8x10 = level 1).
   function characterLevel(build) {
     var keys = ['VIG', 'MND', 'END', 'STR', 'DEX', 'INT', 'FAI', 'ARC'];
@@ -303,6 +347,7 @@
     computeAR: computeAR,
     softCapCurve: softCapCurve,
     suggestWeapons: suggestWeapons,
+    optimize: optimize,
     saturation: saturation,
     gradeFor: gradeFor,
     reinforce: reinforce,

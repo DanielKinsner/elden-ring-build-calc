@@ -343,6 +343,31 @@
     }).join('');
   }
 
+  /* ---- stat advisor (T6) ---- */
+  var lastOpt = null;
+  $('optimizeBtn').addEventListener('click', function () {
+    lastOpt = ERCalc.optimize(build, current, { twoHanded: twoHanded, affinity: affinity, upgradeLevel: upgradeLevel });
+    var o = lastOpt;
+    var rows = SCALING.map(function (k) {
+      var cur = build[k], sug = o.stats[k];
+      var cls = sug > cur ? 'up' : sug < cur ? 'down' : 'same';
+      var arrow = sug > cur ? '▲' : sug < cur ? '▼' : '·';
+      return '<div class="opt-row"><span class="lbl">'+STAT_LABEL[k]+'</span>' +
+        '<span class="vals"><span class="cur">'+cur+'</span> → <b class="'+cls+'">'+sug+'</b> <i class="'+cls+'">'+arrow+'</i></span></div>';
+    }).join('');
+    $('optResult').innerHTML = o.gained > 0
+      ? rows + '<div class="opt-gain">+'+o.gained+' AR <small>('+o.before+' → '+o.totalAR+')</small></div>' +
+        '<button class="opt-apply" id="optApply">Apply This Spread</button>'
+      : '<div class="opt-gain even">Your spread is already optimal for this weapon — '+o.before+' AR</div>';
+    $('optResult').hidden = false;
+  });
+  $('optResult').addEventListener('click', function (e) {
+    if (e.target.id !== 'optApply' || !lastOpt) return;
+    SCALING.forEach(function (k) { build[k] = lastOpt.stats[k]; syncStat(k); });
+    $('optResult').hidden = true;
+    activePresetIndex = -1; syncActivePreset(); render();
+  });
+
   $('addCompare').addEventListener('click', function () {
     if (compareIds.indexOf(current.id) < 0) compareIds.push(current.id);
     renderCompare();

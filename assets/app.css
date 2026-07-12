@@ -193,6 +193,25 @@ a:hover { text-decoration: underline; }
 .brow .caps { color: var(--text); font-variant-numeric: tabular-nums; }
 .brow .caps small { color: var(--dim); font-variant-numeric: normal; }
 .brow .caps .check { color: var(--green); }
+/* ---------- stat advisor ---------- */
+.advisor-sub { color: var(--dim); font-size: 12px; margin: -6px 0 10px; }
+.opt-btn { width: 100%; background: var(--panel-2); color: var(--gold-2); border: 1px solid var(--line); border-radius: 8px; padding: 10px; font: 600 12px var(--serif); letter-spacing: .1em; text-transform: uppercase; cursor: pointer; transition: border-color .15s var(--ease), box-shadow .15s var(--ease); }
+.opt-btn:hover { border-color: var(--gold-dim); box-shadow: 0 0 12px rgba(201,162,39,.15); }
+.opt-result { margin-top: 10px; padding: 10px 12px; background: var(--panel-2); border: 1px solid var(--line-2); border-radius: 8px; }
+.opt-row { display: flex; justify-content: space-between; align-items: center; font-size: 13px; padding: 2px 0; }
+.opt-row .lbl { color: var(--dim); }
+.opt-row .vals { font-variant-numeric: tabular-nums; }
+.opt-row .cur { color: var(--dim); }
+.opt-row b.up, .opt-row i.up { color: var(--green); }
+.opt-row b.down, .opt-row i.down { color: var(--red); }
+.opt-row b.same, .opt-row i.same { color: var(--dim); }
+.opt-row i { font-style: normal; font-size: 10px; }
+.opt-gain { margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--line-2); font: 700 18px var(--serif-num); color: var(--green); font-variant-numeric: tabular-nums; }
+.opt-gain small { color: var(--dim); font: 400 12px sans-serif; }
+.opt-gain.even { color: var(--dim); font-size: 14px; }
+.opt-apply { width: 100%; margin-top: 8px; background: linear-gradient(180deg, rgba(134,173,92,.2), rgba(134,173,92,.08)); color: var(--green); border: 1px solid rgba(134,173,92,.5); border-radius: 7px; padding: 9px; font: 600 12px var(--serif); letter-spacing: .08em; text-transform: uppercase; cursor: pointer; }
+.opt-apply:hover { box-shadow: 0 0 12px rgba(134,173,92,.25); }
+
 .cta-compare { width: 100%; margin-top: 18px; background: linear-gradient(180deg, rgba(201,162,39,.18), rgba(201,162,39,.06)); color: var(--gold-2); border: 1px solid var(--gold-dim); border-radius: 8px; padding: 12px; font: 600 13px var(--serif); letter-spacing: .12em; text-transform: uppercase; cursor: pointer; }
 .cta-compare:hover { border-color: var(--gold); box-shadow: 0 0 18px rgba(201,162,39,.2); }
 
