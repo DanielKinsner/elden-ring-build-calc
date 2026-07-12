@@ -46,8 +46,13 @@ a:hover { text-decoration: underline; }
 .brand { display: flex; align-items: center; gap: 12px; color: var(--gold-2); }
 .brand-mark { font-size: 24px; color: var(--gold); filter: drop-shadow(0 0 8px rgba(201,162,39,.5)); }
 .brand-text { display: flex; flex-direction: column; line-height: 1.05; }
-.brand-text b { font: 700 20px/1 var(--serif); letter-spacing: .14em; }
-.brand-text small { font-size: 10px; letter-spacing: .32em; color: var(--gold-dim); margin-top: 3px; }
+.brand-text b { font: 700 20px/1 var(--serif); letter-spacing: .14em; white-space: nowrap; }
+.brand-text small { font-size: 10px; letter-spacing: .32em; color: var(--gold-dim); margin-top: 3px; white-space: nowrap; }
+@media (max-width: 480px){
+  .topbar { padding: 12px 16px; }
+  .brand-text b { font-size: 15px; }
+  .brand-text small { font-size: 8px; letter-spacing: .22em; }
+}
 .topbar-right { display: flex; align-items: center; gap: 12px; }
 .preset-select, .icon-btn {
   background: var(--panel-2); color: var(--text); border: 1px solid var(--line);
@@ -261,7 +266,11 @@ body.build-page { padding-bottom: 80px; }
 .sug-ar { text-align: right; font: 700 16px var(--serif-num); font-variant-numeric: tabular-nums; color: var(--gold-2); }
 .sug-atlas { text-align: center; color: var(--gold-dim); font-size: 13px; border-radius: 5px; padding: 2px 0; }
 .sug-atlas:hover { color: var(--gold-2); text-decoration: none; background: rgba(201,162,39,.15); }
-@media (max-width: 640px){ .suggest-list { grid-template-columns: 1fr; } }
+@media (max-width: 640px){
+  .suggest-list { grid-template-columns: 1fr; }
+  .sug-row { grid-template-columns: 18px minmax(0,1fr) 56px 44px 20px; gap: 8px; }
+  .sug-name { white-space: normal; } /* let names wrap instead of truncating on narrow screens */
+}
 
 /* ---------- atlas weapon detail page ---------- */
 .detail-grid { grid-template-columns: 1fr; max-width: 820px; gap: 16px; }
