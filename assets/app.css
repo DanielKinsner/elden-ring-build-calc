@@ -244,6 +244,25 @@ body.build-page { padding-bottom: 80px; }
 .dlc-toggle { display:flex; align-items:center; gap:7px; font-size:12px; color:var(--dim); margin-bottom:8px; cursor:pointer; }
 .dlc-toggle input { accent-color: var(--gold); }
 
+/* ---------- suggested weapons (build page) ---------- */
+.suggest-panel { grid-column: 1 / -1; }
+.suggest-sub { color: var(--dim); font-size: 12px; margin: -6px 0 12px; }
+.suggest-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 6px 22px; }
+.sug-row { display: grid; grid-template-columns: 24px minmax(0,1fr) 90px 52px 24px; align-items: center; gap: 10px; padding: 7px 10px; border-radius: 7px; border: 1px solid transparent; cursor: pointer; transition: border-color .15s var(--ease), background-color .15s var(--ease); }
+.sug-row:hover { background: rgba(201,162,39,.08); border-color: var(--line-2); }
+.sug-row.current { background: rgba(201,162,39,.12); border-color: var(--gold-dim); }
+.sug-row.bad { opacity: .55; }
+.sug-rank { color: var(--gold-dim); font: 600 13px var(--serif-num); font-variant-numeric: tabular-nums; text-align: right; }
+.sug-name { font-size: 13px; font-weight: 600; color: var(--text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.sug-name small { display: block; font-weight: 400; color: var(--dim); font-size: 10px; text-transform: uppercase; letter-spacing: .06em; }
+.sug-warn { color: var(--red); font-size: 12px; }
+.sug-bar { height: 6px; background: #14100a; border-radius: 4px; overflow: hidden; border: 1px solid var(--line-2); }
+.sug-bar i { display: block; height: 100%; background: linear-gradient(90deg, var(--gold-dim), var(--gold-2)); }
+.sug-ar { text-align: right; font: 700 16px var(--serif-num); font-variant-numeric: tabular-nums; color: var(--gold-2); }
+.sug-atlas { text-align: center; color: var(--gold-dim); font-size: 13px; border-radius: 5px; padding: 2px 0; }
+.sug-atlas:hover { color: var(--gold-2); text-decoration: none; background: rgba(201,162,39,.15); }
+@media (max-width: 640px){ .suggest-list { grid-template-columns: 1fr; } }
+
 /* ---------- atlas weapon detail page ---------- */
 .detail-grid { grid-template-columns: 1fr; max-width: 820px; gap: 16px; }
 .weapon-identity { display: grid; grid-template-columns: 96px 1fr; gap: 18px; align-items: center; }

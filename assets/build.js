@@ -34,7 +34,7 @@
 
   $('twoHand').addEventListener('change', function () { twoHanded = this.checked; activePresetIndex = -1; syncActivePreset(); render(); });
   $('twoHand').checked = twoHanded;
-  $('showDlc').addEventListener('change', function () { showDlc = this.checked; });
+  $('showDlc').addEventListener('change', function () { showDlc = this.checked; render(); });
 
   /* ---- presets (dropdown + buttons) ---- */
   var activePresetIndex = presets.findIndex(function (p) { return p.loadout && p.loadout.weaponId === current.id; });
@@ -170,7 +170,33 @@
     renderSoftCap(r);
     renderBreakpoints(r);
     renderCompare();
+    renderSuggestions();
   }
+
+  /* ---- suggested weapons (T1): rank the whole pool for the current build ---- */
+  function renderSuggestions() {
+    var ranked = ERCalc.suggestWeapons(build, pool(), { twoHanded: twoHanded, limit: 15 });
+    var best = ranked.length ? ranked[0].ar : 0;
+    $('suggest').innerHTML = ranked.map(function (x, i) {
+      var w = x.weapon;
+      var pct = best ? Math.max(4, Math.round(x.ar / best * 100)) : 0;
+      return '<div class="sug-row'+(w.id === current.id ? ' current' : '')+(x.requirementsMet ? '' : ' bad')+'" data-id="'+w.id+'">' +
+        '<span class="sug-rank">'+(i+1)+'</span>' +
+        '<span class="sug-name">'+w.name+(x.requirementsMet ? '' : ' <span class="sug-warn" title="requirements not met">⚠</span>')+
+          '<small>'+w.type+(w.source === 'dlc' ? ' · DLC' : '')+'</small></span>' +
+        '<span class="sug-bar"><i style="width:'+pct+'%"></i></span>' +
+        '<span class="sug-ar">'+x.ar+'</span>' +
+        '<a class="sug-atlas" href="../atlas/weapon.html?id='+encodeURIComponent(w.id)+'" title="Atlas: where to find it">➜</a></div>';
+    }).join('') || '<div style="color:var(--dim)">No weapons available.</div>';
+  }
+  $('suggest').addEventListener('click', function (e) {
+    if (e.target.closest('.sug-atlas')) return; // let the atlas link navigate
+    var row = e.target.closest('[data-id]'); if (!row) return;
+    current = weapons.find(function (w){ return w.id === row.getAttribute('data-id'); });
+    upgradeLevel = null; fillUpgrade(); fillAffinity();
+    activePresetIndex = -1; syncActivePreset(); render();
+    document.querySelector('.weapon-card').scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
 
   /* ---- compare tray: live-ranks added weapons for the CURRENT build ---- */
   var compareBar = document.createElement('div');
