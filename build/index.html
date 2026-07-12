@@ -80,6 +80,15 @@
         <div id="status" class="statuslist"></div>
       </div>
     </div>
+    <div id="payoffBlock" class="payoff" hidden>
+      <div class="k">Status Payoff <small class="payoff-vs">vs</small></div>
+      <div class="payoff-target">
+        <label>Enemy HP<input type="number" id="targetHP" value="2000" min="1" step="100"></label>
+        <label>Resist<input type="number" id="targetResist" value="250" min="1" step="10" title="Status buildup threshold — varies per enemy"></label>
+        <label class="payoff-boss"><input type="checkbox" id="targetBoss"> Boss</label>
+      </div>
+      <div id="payoff" class="payoff-list"></div>
+    </div>
   </section>
 
   <!-- ANALYSIS -->

@@ -292,6 +292,54 @@
     return opts.limit ? out.slice(0, opts.limit) : out;
   }
 
+  // --- Status proc payloads [CONFIRMED wiki.gg + Fextralife, 2026-07] ---
+  // bleed: 15% maxHP + 100 (bosses 10.5%); flat is 200 for ARC-scaling somber innate bleed / Blood affinity.
+  // frost: 10% + 30 (bosses 7%), then -20% damage negation for 30s.
+  // poison: (0.07% maxHP + 7)/s for 90s. rot (weapon-tier): (0.18% maxHP + 15)/s for 90s.
+  // sleep: control only. madness: 15% + 100 + FP drain, players only.
+  var STATUS_PROC = {
+    bleed:   { kind: 'burst', pct: 0.15, bossPct: 0.105, flat: 100, enhancedFlat: 200, label: 'Hemorrhage' },
+    frost:   { kind: 'burst', pct: 0.10, bossPct: 0.07, flat: 30, label: 'Frostbite', note: 'then −20% damage negation for 30s' },
+    poison:  { kind: 'dot', pctPerSec: 0.0007, flatPerSec: 7, duration: 90, label: 'Poison' },
+    rot:     { kind: 'dot', pctPerSec: 0.0018, flatPerSec: 15, duration: 90, label: 'Scarlet Rot' },
+    sleep:   { kind: 'control', label: 'Sleep', note: 'staggers — no damage, opens a critical' },
+    madness: { kind: 'burst', pct: 0.15, flat: 100, label: 'Madness', note: 'players only; also drains FP' }
+  };
+
+  // Blood-affinity / ARC-scaling somber innate-bleed weapons proc with the enhanced 200 flat.
+  function hasEnhancedBleed(weapon, affinity) {
+    if (affinity === 'Blood') return true;
+    var v = resolveVariant(weapon, affinity);
+    return weapon.category === 'somber' && ((v.scaling && v.scaling.ARC) || 0) > 0 && ((v.status && v.status.bleed) || 0) > 0;
+  }
+
+  /**
+   * statusPayload(buildupPerHit, statusType, target)
+   * Buildup ≠ payoff: how many hits until the proc, and what the proc is worth.
+   * @param target { maxHP, resist, boss, enhanced }  resist = the enemy's buildup threshold
+   * @returns { label, kind, buildupPerHit, hitsToProc, procDamage?, dps?, duration?, note }
+   */
+  function statusPayload(buildupPerHit, statusType, target) {
+    var p = STATUS_PROC[statusType];
+    if (!p || !buildupPerHit) return null;
+    var t = target || {};
+    var hp = t.maxHP || 2000, resist = t.resist || 250;
+    var out = {
+      type: statusType, label: p.label, kind: p.kind, buildupPerHit: buildupPerHit,
+      hitsToProc: Math.max(1, Math.ceil(resist / buildupPerHit)), note: p.note || null
+    };
+    if (p.kind === 'burst') {
+      var pct = (t.boss && p.bossPct) ? p.bossPct : p.pct;
+      var flat = (t.enhanced && p.enhancedFlat) ? p.enhancedFlat : p.flat;
+      out.procDamage = Math.floor(hp * pct + flat);
+    } else if (p.kind === 'dot') {
+      out.dps = Math.round((hp * p.pctPerSec + p.flatPerSec) * 10) / 10;
+      out.duration = p.duration;
+      out.procDamage = Math.floor((hp * p.pctPerSec + p.flatPerSec) * p.duration);
+    }
+    return out;
+  }
+
   /**
    * optimize(build, weapon, opts)
    * Redistribute the build's OFFENSIVE stat points (STR/DEX/INT/FAI/ARC pool stays the same size)
@@ -348,6 +396,8 @@
     softCapCurve: softCapCurve,
     suggestWeapons: suggestWeapons,
     optimize: optimize,
+    statusPayload: statusPayload,
+    hasEnhancedBleed: hasEnhancedBleed,
     saturation: saturation,
     gradeFor: gradeFor,
     reinforce: reinforce,

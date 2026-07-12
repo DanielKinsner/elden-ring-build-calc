@@ -202,12 +202,44 @@
       return '<div class="'+cls+'"'+clickable+'><span class="lbl"><b>'+STAT_LABEL[k]+'</b>'+grade+'</span><span class="amt">+'+v+'</span></div>';
     }).join('');
 
+    renderPayoff(r);
     renderSoftCap(r);
     renderBreakpoints(r);
     renderCompare();
     renderSuggestions();
     persist();
   }
+
+  /* ---- status payoff (T4): hits-to-proc + what the proc is worth ---- */
+  function renderPayoff(r) {
+    var active = STATUS.filter(function (s) { return (r.status && r.status[s[0]]) > 0; });
+    $('payoffBlock').hidden = !active.length;
+    if (!active.length) return;
+    var target = {
+      maxHP: +$('targetHP').value || 2000,
+      resist: +$('targetResist').value || 250,
+      boss: $('targetBoss').checked,
+      enhanced: ERCalc.hasEnhancedBleed(current, affinity)
+    };
+    $('payoff').innerHTML = active.map(function (s) {
+      var p = ERCalc.statusPayload(r.status[s[0]], s[0], target);
+      if (!p) return '';
+      var payoff;
+      if (p.kind === 'burst') payoff = '<b>' + p.procDamage + '</b> dmg on proc';
+      else if (p.kind === 'dot') payoff = '<b>' + p.procDamage + '</b> dmg over ' + p.duration + 's <small>(' + p.dps + '/s)</small>';
+      else payoff = 'crowd control';
+      return '<div class="payoff-row">' +
+        '<img class="status-icon" src="../assets/icons/status/' + s[0] + '.png" alt="">' +
+        '<span class="payoff-name">' + p.label + '</span>' +
+        '<span class="payoff-hits">' + p.hitsToProc + ' hit' + (p.hitsToProc > 1 ? 's' : '') + ' to proc</span>' +
+        '<span class="payoff-dmg">' + payoff + '</span>' +
+        (p.note ? '<span class="payoff-note">' + p.note + '</span>' : '') +
+        '</div>';
+    }).join('');
+  }
+  ['targetHP', 'targetResist', 'targetBoss'].forEach(function (id) {
+    $(id).addEventListener('input', function () { render(); });
+  });
 
   /* ---- suggested weapons (T1): rank the whole pool for the current build ---- */
   function renderSuggestions() {

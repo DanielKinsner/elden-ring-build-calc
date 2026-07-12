@@ -171,6 +171,24 @@ a:hover { text-decoration: underline; }
 .srow .amt { text-align: right; }
 .srow.off { opacity: .35; }
 
+/* ---------- status payoff ---------- */
+.payoff { margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--line-2); }
+.payoff-vs { color: var(--gold-dim); text-transform: none; letter-spacing: 0; }
+.payoff-target { display: flex; align-items: end; gap: 12px; margin: 8px 0 10px; }
+.payoff-target label { display: flex; flex-direction: column; gap: 3px; font-size: 10px; color: var(--dim); text-transform: uppercase; letter-spacing: .08em; }
+.payoff-target input[type=number] { width: 84px; background: var(--panel-2); color: var(--gold-2); -webkit-text-fill-color: var(--gold-2); border: 1px solid var(--line); border-radius: 5px; padding: 5px 8px; font-size: 13px; font-variant-numeric: tabular-nums; }
+.payoff-target input[type=number]:focus { outline: none; border-color: var(--gold-dim); }
+.payoff-boss { flex-direction: row !important; align-items: center; gap: 6px !important; cursor: pointer; padding-bottom: 6px; }
+.payoff-boss input { accent-color: var(--gold); }
+.payoff-list { display: flex; flex-direction: column; gap: 7px; }
+.payoff-row { display: grid; grid-template-columns: 20px 84px auto 1fr; align-items: center; gap: 8px; font-size: 13px; }
+.payoff-name { color: var(--text); font-weight: 600; }
+.payoff-hits { color: var(--gold-2); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.payoff-dmg { text-align: right; color: var(--text); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.payoff-dmg b { color: var(--gold-2); }
+.payoff-dmg small, .payoff-note { color: var(--dim); }
+.payoff-note { grid-column: 2 / -1; font-size: 11px; margin-top: -3px; }
+
 /* ---------- analysis ---------- */
 .contrib { display: flex; flex-direction: column; gap: 8px; }
 .crow { display: flex; align-items: center; justify-content: space-between; font-size: 13px; }
