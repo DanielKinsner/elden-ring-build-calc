@@ -48,26 +48,32 @@ list before grouping). **Research:** none.
 
 ## Tier 2 — calculator depth (makes the numbers match how people build)
 
-### T3. Buffs & consumables toggles  ⭐
+### T3. Buffs & consumables toggles  ✅ DONE (2026-07)
+Shipped as `computeARBuffed()` + `data/buffs.json` (categories: aura/body/grease/physick, one active per
+category; PvE values; `confirmed:false` = community number shown with ≈). Remaining ideas: more buffs
+(Bloodboil Aromatic, Howl of Shabriri, exalted flesh), PvP values toggle.
 Toggle Golden Vow, Flame Grant Me Strength, greases (Blood Grease etc.), Physick tears → recompute.
 Most are **multiplicative % on final damage** (some add flat element/status). **Where:** a post-AR
 multiplier layer in `computeAR` (or a wrapper), + a "Buffs" section in `build/`. **Research:** wiki buff
 values + **stacking rules** (which buffs are additive vs multiplicative with each other — this is the
 tricky part; the community damage calcs document it). Model each buff as `{ id, type: 'mult'|'flatElement'|'status', value, stacksWith }`.
 
-### T4. Status effective-damage (bleed proc)  ⭐
+### T4. Status effective-damage (bleed proc)  ✅ DONE (2026-07)
+`statusPayload()` + payoff card (target HP / resist / boss). Formulas verified: bleed 15%+100 (boss 10.5%,
+enhanced flat 200 on ARC-somber/Blood weapons), frost 10%+30 (boss 7%), poison (0.07%+7)/s·90s,
+weapon-rot (0.18%+15)/s·90s. Remaining: per-enemy threshold presets (datamine).
 Buildup ≠ payoff. Show **hits-to-proc** (target threshold ÷ per-hit buildup) and **proc damage**
 (hemorrhage deals a % of the target's max HP + flat). **Where:** new `statusPayload()` in `engine.js`,
 surfaced on `build/`. **Research:** the exact bleed/frost/rot proc formulas (% max HP + flat) and common
 enemy status thresholds — wiki. Let the user pick a target HP or use a default.
 
-### T5. Talismans
+### T5. Talismans  ✅ DONE (2026-07) — 19 talismans in `data/buffs.json` (stat seals, %-damage, scorpions, exultations), 4-slot picker
 Two kinds: **stat-boost** (Radagon's Soreseal etc.) → bump effective stats before calc; **damage-%**
 (Ritual Sword, Rotten Winged Sword Insignia, Shard of Alexander) → multipliers (some conditional: "at
 full HP", "after a skill"). **Where:** a talisman picker in `build/` feeding into the buff layer (T3).
 **Research:** wiki talisman effects → `data/talismans.json` (`{ id, name, statBonus?, damageMult?, condition? }`).
 
-### T6. Optimal stat advisor
+### T6. Optimal stat advisor  ✅ DONE (2026-07) — `engine.optimize()` greedy redistribution + Apply UI
 Given a **level budget**, distribute points to maximize AR for the selected weapon. `softCapCurve()`
 already gives per-point value per stat — greedily spend points into the highest-value stat until the
 budget is gone (respecting reqs + soft caps). **Where:** `engine.js` (new `optimize(build, weapon, level)`)
@@ -108,10 +114,10 @@ Boss weaknesses/tactics/drops; the 6 endings + how to get each. **Research:** of
 ---
 
 ## Tier 5 — sharing / saving
-### T11. URL build-share + localStorage save + build library  🟡 MOSTLY DONE (2026-07)
-Shipped: the build lives in the URL (`?b=VIG.MND.END.STR.DEX.INT.FAI.ARC&w=<id>&a=<affinity>&u=<upgrade>&h=0|1&l=<level>`),
-auto-saves to localStorage (survives refresh), and a 🔗 Share button copies the link. **Remaining:** the
-curated meta build library (`data/build-library.json`) + a named multi-save UI.
+### T11. URL build-share + localStorage save + build library  ✅ DONE (2026-07)
+Build lives in the URL (`?b=…&w=…&a=…&u=…&h=…&l=…&bf=<buffs>&tl=<talismans>`), auto-saves to
+localStorage, 🔗 Share copies the link. Six curated meta builds shipped in `presets.json` (`library:true`).
+**Remaining:** named multi-save UI (save several of your own builds).
 Encode a build into `?build=<compact>` (stats + weapon + affinity + upgrade + level + buffs) → shareable
 link. "Save Build" writes to localStorage; a small curated **meta build library** ships as `data/build-library.json`.
 **Where:** `assets/build.js` (serialize/deserialize state). **Research:** none — pure front-end.
@@ -119,10 +125,9 @@ link. "Save Build" writes to localStorage; a small curated **meta build library*
 ---
 
 ## Suggested order
-1. ~~**T1 + T2** (free wins — suggested-weapons panel + atlas filters).~~ ✅ shipped, plus T11's share/save core.
-2. **T3 + T4** (buffs + bleed payoff — the biggest "makes it real for a bleed build" jump). **← next up**
-3. **T9** (questline tracker — high value, data already sourced in the offline skill).
-4. **T5, T6** (talismans, stat advisor) + T11's remaining build library.
+1. ~~T1 + T2~~ ✅  2. ~~T3 + T4~~ ✅  3. ~~T5, T6, T11~~ ✅ — Tier 1, 2 and 5 are fully shipped.
+4. **T9 / T10** (guides) **← next up** — NOTE: the offline ER skill referenced above is NOT installed on
+   this machine (checked 2026-07); quests/bosses data needs wiki research instead.
 5. **T7, T8** (catalysts, maps — the big lifts, last).
 
 ## Known data gaps (surfaced 2026-07)
