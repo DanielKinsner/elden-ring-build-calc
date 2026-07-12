@@ -231,6 +231,7 @@
       totalAR: sumFloor(main.byType),   // in-game AR floors each damage type, then sums
       totalARExact: main.total,         // unfloored — for smooth derivatives (soft-cap chart), not display
       byType: floorMap(main.byType),
+      byTypeExact: main.byType,         // unfloored per type — buff multipliers apply to this
       byStat: roundMap(main.byStat),
       status: computeStatus(variant, eff),
       softCaps: softCaps,
@@ -290,6 +291,55 @@
       return b.ar - a.ar;
     });
     return opts.limit ? out.slice(0, opts.limit) : out;
+  }
+
+  /**
+   * computeARBuffed(build, weapon, opts, mods)
+   * The buff/talisman layer (data/buffs.json entries are valid mods):
+   *   { statBonus?: {STR:5,...} }        — raises attributes BEFORE scaling (soreseals etc.)
+   *   { mult?: {all:1.15}|{fire:1.2..} } — multiplies final AR per damage type; stacks multiplicatively across mods
+   *   { flat?: {fire:85,...} }           — raw damage added AFTER multipliers (greases — applies even at 0 base)
+   *   { statusFlat?: {bleed:30} }        — flat status buildup (blood grease)
+   * Returns computeAR's shape (on the stat-boosted build) + a `buffed` block { totalAR, byType, status }.
+   */
+  function computeARBuffed(build, weapon, opts, mods) {
+    mods = mods || [];
+    var b = {}; for (var k in build) b[k] = build[k];
+    for (var i = 0; i < mods.length; i++) {
+      var sb = mods[i].statBonus;
+      if (sb) for (var s in sb) b[s] = clampStat((b[s] || 1) + sb[s]);
+    }
+    var r = computeAR(b, weapon, opts);
+
+    var mult = {}, flat = {}, t;
+    for (var d = 0; d < DAMAGE_TYPES.length; d++) { t = DAMAGE_TYPES[d]; mult[t] = 1; flat[t] = 0; }
+    var statusFlat = {};
+    for (var m = 0; m < mods.length; m++) {
+      var mo = mods[m];
+      if (mo.mult) for (var d2 = 0; d2 < DAMAGE_TYPES.length; d2++) {
+        t = DAMAGE_TYPES[d2];
+        var f = mo.mult.all != null ? mo.mult.all : mo.mult[t];
+        if (f) mult[t] *= f;
+      }
+      if (mo.flat) for (var ft in mo.flat) flat[ft] = (flat[ft] || 0) + mo.flat[ft];
+      if (mo.statusFlat) for (var st in mo.statusFlat) statusFlat[st] = (statusFlat[st] || 0) + mo.statusFlat[st];
+    }
+
+    var byType = {}, total = 0;
+    for (var d3 = 0; d3 < DAMAGE_TYPES.length; d3++) {
+      t = DAMAGE_TYPES[d3];
+      var raw = (r.byTypeExact && r.byTypeExact[t]) || 0;
+      var v = raw * mult[t] + flat[t];
+      if (v <= 0) continue;
+      byType[t] = Math.floor(v);
+      total += Math.floor(v);
+    }
+    var status = {};
+    for (var sk in r.status) status[sk] = r.status[sk];
+    for (var sf in statusFlat) status[sf] = Math.floor((status[sf] || 0) + statusFlat[sf]);
+
+    r.buffed = { totalAR: total, byType: byType, status: status };
+    return r;
   }
 
   // --- Status proc payloads [CONFIRMED wiki.gg + Fextralife, 2026-07] ---
@@ -396,6 +446,7 @@
     softCapCurve: softCapCurve,
     suggestWeapons: suggestWeapons,
     optimize: optimize,
+    computeARBuffed: computeARBuffed,
     statusPayload: statusPayload,
     hasEnhancedBleed: hasEnhancedBleed,
     saturation: saturation,

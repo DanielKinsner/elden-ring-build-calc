@@ -28,6 +28,11 @@
     return p.presets || [];
   }
 
+  async function loadBuffs(basePath) {
+    basePath = basePath || 'data/';
+    return fetchJSON(basePath + 'buffs.json'); // { categories, buffs, talismans }
+  }
+
   async function fetchJSON(url) {
     if (typeof fetch === 'function') {
       var res = await fetch(url);
@@ -39,5 +44,5 @@
     return JSON.parse(fs.readFileSync(path.resolve(url), 'utf8'));
   }
 
-  return { loadWeapons: loadWeapons, loadPresets: loadPresets };
+  return { loadWeapons: loadWeapons, loadPresets: loadPresets, loadBuffs: loadBuffs };
 });

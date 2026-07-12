@@ -9,6 +9,7 @@
 
   var weapons = await ERData.loadWeapons('../data/');
   var presets = await ERData.loadPresets('../data/');
+  var buffData = await ERData.loadBuffs('../data/');
 
   var build = { VIG:60, MND:20, END:30, STR:24, DEX:58, INT:9, FAI:15, ARC:40 };
   var twoHanded = true, upgradeLevel = null, focusStat = 'DEX', showDlc = true, affinity = 'Standard';
@@ -22,7 +23,8 @@
     var q = new URLSearchParams(location.search);
     if (q.get('b') || q.get('w')) {
       var s = (q.get('b') || '').split('.').map(Number);
-      var o = { stats: {}, weapon: q.get('w'), affinity: q.get('a'), upgrade: q.get('u'), twoHanded: q.get('h') !== '0', level: +q.get('l') || null };
+      var o = { stats: {}, weapon: q.get('w'), affinity: q.get('a'), upgrade: q.get('u'), twoHanded: q.get('h') !== '0', level: +q.get('l') || null,
+                buffs: (q.get('bf') || '').split(',').filter(Boolean), talis: (q.get('tl') || '').split(',').filter(Boolean) };
       STATS.forEach(function (k, i) { if (s[i] >= 1 && s[i] <= 99) o.stats[k] = s[i]; });
       return o;
     }
@@ -35,10 +37,56 @@
     if (bootW) current = bootW;
   }
 
+  /* ---- buffs & talismans (T3 + T5) ---- */
+  var TALI_MAX = 4;
+  var activeBuffs = {}, activeTalis = {};
+  if (BOOT && BOOT.buffs) BOOT.buffs.forEach(function (id) { if (buffData.buffs.some(function (b) { return b.id === id; })) activeBuffs[id] = true; });
+  if (BOOT && BOOT.talis) BOOT.talis.slice(0, TALI_MAX).forEach(function (id) { if (buffData.talismans.some(function (t) { return t.id === id; })) activeTalis[id] = true; });
+  function buffById(id) { return buffData.buffs.find(function (b) { return b.id === id; }); }
+  function taliById(id) { return buffData.talismans.find(function (t) { return t.id === id; }); }
+  function collectMods() {
+    var mods = [];
+    for (var b in activeBuffs) if (activeBuffs[b]) { var bb = buffById(b); if (bb) mods.push(bb); }
+    for (var t in activeTalis) if (activeTalis[t]) { var tt = taliById(t); if (tt) mods.push(tt); }
+    return mods;
+  }
+  function taliCount() { var n = 0; for (var t in activeTalis) if (activeTalis[t]) n++; return n; }
+  function renderBuffGroups() {
+    var html = buffData.categories.map(function (cat) {
+      var chips = buffData.buffs.filter(function (b) { return b.category === cat.id; }).map(function (b) {
+        return '<button class="buff-chip' + (activeBuffs[b.id] ? ' on' : '') + (b.confirmed ? '' : ' approx') + '" data-buff="' + b.id + '" title="' + (b.note || b.name) + (b.confirmed ? '' : ' — community value') + '">' + b.name + '</button>';
+      }).join('');
+      return '<div class="buff-group"><span class="buff-cat">' + cat.name + '</span><div class="buff-chip-row">' + chips + '</div></div>';
+    }).join('');
+    var full = taliCount() >= TALI_MAX;
+    html += '<div class="buff-group"><span class="buff-cat">Talismans <em>' + taliCount() + '/' + TALI_MAX + '</em></span><div class="buff-chip-row">' +
+      buffData.talismans.map(function (t) {
+        var on = activeTalis[t.id];
+        return '<button class="buff-chip' + (on ? ' on' : '') + (t.confirmed ? '' : ' approx') + (!on && full ? ' maxed' : '') + '" data-tali="' + t.id + '" title="' + (t.note || t.name) + (t.confirmed ? '' : ' — community value') + '">' + t.name + '</button>';
+      }).join('') + '</div></div>';
+    $('buffGroups').innerHTML = html;
+  }
+  $('buffGroups').addEventListener('click', function (e) {
+    var el = e.target.closest('[data-buff],[data-tali]'); if (!el) return;
+    var bid = el.getAttribute('data-buff'), tid = el.getAttribute('data-tali');
+    if (bid) {
+      var buff = buffById(bid), was = activeBuffs[bid];
+      buffData.buffs.forEach(function (b) { if (b.category === buff.category) delete activeBuffs[b.id]; }); // one per category
+      if (!was) activeBuffs[bid] = true;
+    } else {
+      if (activeTalis[tid]) delete activeTalis[tid];
+      else if (taliCount() < TALI_MAX) activeTalis[tid] = true;
+      else return;
+    }
+    renderBuffGroups(); render();
+  });
+
   var persistT;
   function persist() { clearTimeout(persistT); persistT = setTimeout(doPersist, 250); }
   function doPersist() {
-    var state = { stats: {}, weapon: current.id, affinity: affinity, upgrade: upgradeLevel, twoHanded: twoHanded, level: +$('level').value || null };
+    var bf = Object.keys(activeBuffs).filter(function (k) { return activeBuffs[k]; });
+    var tl = Object.keys(activeTalis).filter(function (k) { return activeTalis[k]; });
+    var state = { stats: {}, weapon: current.id, affinity: affinity, upgrade: upgradeLevel, twoHanded: twoHanded, level: +$('level').value || null, buffs: bf, talis: tl };
     STATS.forEach(function (k) { state.stats[k] = build[k]; });
     try { localStorage.setItem('er-build', JSON.stringify(state)); } catch (e) {}
     var q = new URLSearchParams();
@@ -48,6 +96,8 @@
     if (upgradeLevel != null) q.set('u', upgradeLevel);
     if (!twoHanded) q.set('h', '0');
     if (+$('level').value) q.set('l', $('level').value);
+    if (bf.length) q.set('bf', bf.join(','));
+    if (tl.length) q.set('tl', tl.join(','));
     history.replaceState(null, '', location.pathname + '?' + q);
   }
 
@@ -154,7 +204,11 @@
   }
 
   function render() {
-    var r = ERCalc.computeAR(build, current, { upgradeLevel: upgradeLevel, twoHanded: twoHanded, affinity: affinity });
+    var mods = collectMods();
+    var r = ERCalc.computeARBuffed(build, current, { upgradeLevel: upgradeLevel, twoHanded: twoHanded, affinity: affinity }, mods);
+    // stats after talisman bonuses — requirements + display should agree with the engine
+    var boosted = {}; STATS.forEach(function (k) { boosted[k] = build[k]; });
+    mods.forEach(function (m) { if (m.statBonus) for (var s in m.statBonus) if (boosted[s] != null) boosted[s] = Math.min(99, boosted[s] + m.statBonus[s]); });
 
     $('statTotal').textContent = STATS.reduce(function (s,k){ return s + build[k]; }, 0);
     $('weaponName').textContent = current.name;
@@ -164,29 +218,32 @@
     $('weight').textContent = current.weight != null ? current.weight : '—';
     $('passive').textContent = current.passive || 'None';
 
-    // requirements — mirror the engine: two-handing counts 1.5x STR toward the STR requirement
+    // requirements — mirror the engine: 2H counts 1.5x STR; talisman stat bonuses count too
     var reqs = current.requirements || {};
     $('reqs').innerHTML = Object.keys(reqs).map(function (k) {
-      var have = (k === 'STR' && twoHanded) ? Math.min(99, Math.floor((build.STR || 1) * 1.5)) : (build[k] || 1);
+      var have = (k === 'STR' && twoHanded) ? Math.min(99, Math.floor((boosted.STR || 1) * 1.5)) : (boosted[k] || 1);
       var ok = have >= reqs[k];
-      var note = (k === 'STR' && twoHanded && ok && (build[k] || 1) < reqs[k]) ? ' 2H' : '';
+      var note = (k === 'STR' && twoHanded && ok && (boosted[k] || 1) < reqs[k]) ? ' 2H' : '';
       return '<span class="'+(ok?'met':'unmet')+'">'+k+' '+reqs[k]+' ('+have+note+')</span>';
     }).join('') || '<span style="color:var(--dim)">none</span>';
 
-    // AR
-    $('ar').textContent = r.totalAR;
+    // AR — buffed number front and center; unbuffed baseline shown when modifiers act
+    var shownAR = r.buffed.totalAR, shownTypes = r.buffed.byType, shownStatus = r.buffed.status;
+    $('ar').textContent = shownAR;
+    var baseAR = mods.length ? ERCalc.computeAR(build, current, { upgradeLevel: upgradeLevel, twoHanded: twoHanded, affinity: affinity }).totalAR : shownAR;
+    $('arBase').textContent = shownAR !== baseAR ? 'unbuffed ' + baseAR + '  ·  +' + (shownAR - baseAR) : '';
 
     // damage types
     var types = ['physical','magic','fire','lightning','holy'];
-    var maxT = Math.max.apply(null, types.map(function (t){ return r.byType[t] || 0; }).concat([1]));
+    var maxT = Math.max.apply(null, types.map(function (t){ return shownTypes[t] || 0; }).concat([1]));
     $('byType').innerHTML = types.map(function (t) {
-      var v = r.byType[t] || 0, pct = r.totalAR ? Math.round(v / r.totalAR * 100) : 0;
+      var v = shownTypes[t] || 0, pct = shownAR ? Math.round(v / shownAR * 100) : 0;
       return '<div class="trow '+t+'"><span class="lbl">'+t+'</span>'+bar(v,maxT)+'<span class="amt">'+v+' <small style="color:var(--dim)">'+pct+'%</small></span></div>';
     }).join('');
 
     // status
     $('status').innerHTML = STATUS.map(function (s) {
-      var v = (r.status && r.status[s[0]]) || 0;
+      var v = (shownStatus && shownStatus[s[0]]) || 0;
       return '<div class="srow'+(v?'':' off')+'"><img class="status-icon" src="../assets/icons/status/'+s[0]+'.png" alt=""><span class="lbl" style="color:var(--dim)">'+s[1]+'</span>'+bar(v,120)+'<span class="amt">'+v+'</span></div>';
     }).join('');
 
@@ -212,7 +269,8 @@
 
   /* ---- status payoff (T4): hits-to-proc + what the proc is worth ---- */
   function renderPayoff(r) {
-    var active = STATUS.filter(function (s) { return (r.status && r.status[s[0]]) > 0; });
+    var stMap = (r.buffed && r.buffed.status) || r.status;
+    var active = STATUS.filter(function (s) { return (stMap && stMap[s[0]]) > 0; });
     $('payoffBlock').hidden = !active.length;
     if (!active.length) return;
     var target = {
@@ -222,7 +280,7 @@
       enhanced: ERCalc.hasEnhancedBleed(current, affinity)
     };
     $('payoff').innerHTML = active.map(function (s) {
-      var p = ERCalc.statusPayload(r.status[s[0]], s[0], target);
+      var p = ERCalc.statusPayload(stMap[s[0]], s[0], target);
       if (!p) return '';
       var payoff;
       if (p.kind === 'burst') payoff = '<b>' + p.procDamage + '</b> dmg on proc';
@@ -429,5 +487,5 @@
       upgradeLevel = +BOOT.upgrade; $('upgrade').value = upgradeLevel;
     }
   }
-  syncActivePreset(); render();
+  renderBuffGroups(); syncActivePreset(); render();
 })();

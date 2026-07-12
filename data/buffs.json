@@ -1,0 +1,44 @@
+{
+  "_readme": "Buff/talisman modifiers for the calculator. PvE values. confirmed:true = re-verified against eldenring.wiki.gg this session (2026-07); confirmed:false = community-documented [MODELED], not re-verified. mult multiplies final AR of the mapped damage types ('all' = every type); flat adds raw damage after multipliers; statBonus raises attributes before scaling; statusFlat adds status buildup.",
+  "categories": [
+    { "id": "aura", "name": "Aura" },
+    { "id": "body", "name": "Body" },
+    { "id": "grease", "name": "Grease" },
+    { "id": "tear", "name": "Physick" }
+  ],
+  "buffs": [
+    { "id": "golden-vow", "name": "Golden Vow", "category": "aura", "mult": { "all": 1.15 }, "duration": 80, "note": "+15% attack, +10% defense (incantation)", "confirmed": true },
+    { "id": "golden-vow-ash", "name": "Golden Vow (Ash of War)", "category": "aura", "mult": { "all": 1.115 }, "duration": 45, "note": "+11.5% attack", "confirmed": false },
+    { "id": "fgms", "name": "Flame, Grant Me Strength", "category": "body", "mult": { "physical": 1.2, "fire": 1.2 }, "duration": 30, "note": "+20% physical & fire", "confirmed": true },
+    { "id": "fire-grease", "name": "Fire Grease", "category": "grease", "flat": { "fire": 85 }, "duration": 60, "note": "+85 flat fire", "confirmed": true },
+    { "id": "magic-grease", "name": "Magic Grease", "category": "grease", "flat": { "magic": 85 }, "duration": 60, "note": "+85 flat magic", "confirmed": false },
+    { "id": "lightning-grease", "name": "Lightning Grease", "category": "grease", "flat": { "lightning": 85 }, "duration": 60, "note": "+85 flat lightning", "confirmed": false },
+    { "id": "holy-grease", "name": "Holy Grease", "category": "grease", "flat": { "holy": 85 }, "duration": 60, "note": "+85 flat holy", "confirmed": false },
+    { "id": "blood-grease", "name": "Blood Grease", "category": "grease", "statusFlat": { "bleed": 30 }, "duration": 60, "note": "+30 blood loss buildup", "confirmed": true },
+    { "id": "flame-shrouding-tear", "name": "Flame-Shrouding Cracked Tear", "category": "tear", "mult": { "fire": 1.2 }, "duration": 180, "note": "+20% fire", "confirmed": false },
+    { "id": "magic-shrouding-tear", "name": "Magic-Shrouding Cracked Tear", "category": "tear", "mult": { "magic": 1.2 }, "duration": 180, "note": "+20% magic", "confirmed": false },
+    { "id": "lightning-shrouding-tear", "name": "Lightning-Shrouding Cracked Tear", "category": "tear", "mult": { "lightning": 1.2 }, "duration": 180, "note": "+20% lightning", "confirmed": false },
+    { "id": "holy-shrouding-tear", "name": "Holy-Shrouding Cracked Tear", "category": "tear", "mult": { "holy": 1.2 }, "duration": 180, "note": "+20% holy", "confirmed": false }
+  ],
+  "talismans": [
+    { "id": "radagons-soreseal", "name": "Radagon's Soreseal", "statBonus": { "VIG": 5, "END": 5, "STR": 5, "DEX": 5 }, "note": "+5 VIG/END/STR/DEX · +15% damage taken", "confirmed": true },
+    { "id": "radagons-scarseal", "name": "Radagon's Scarseal", "statBonus": { "VIG": 3, "END": 3, "STR": 3, "DEX": 3 }, "note": "+3 VIG/END/STR/DEX · +10% damage taken", "confirmed": false },
+    { "id": "marikas-soreseal", "name": "Marika's Soreseal", "statBonus": { "MND": 5, "INT": 5, "FAI": 5, "ARC": 5 }, "note": "+5 MND/INT/FAI/ARC · +15% damage taken", "confirmed": true },
+    { "id": "marikas-scarseal", "name": "Marika's Scarseal", "statBonus": { "MND": 3, "INT": 3, "FAI": 3, "ARC": 3 }, "note": "+3 MND/INT/FAI/ARC · +10% damage taken", "confirmed": false },
+    { "id": "starscourge-heirloom", "name": "Starscourge Heirloom", "statBonus": { "STR": 5 }, "note": "+5 Strength", "confirmed": false },
+    { "id": "prosthesis-wearer-heirloom", "name": "Prosthesis-Wearer Heirloom", "statBonus": { "DEX": 5 }, "note": "+5 Dexterity", "confirmed": false },
+    { "id": "stargazer-heirloom", "name": "Stargazer Heirloom", "statBonus": { "INT": 5 }, "note": "+5 Intelligence", "confirmed": false },
+    { "id": "two-fingers-heirloom", "name": "Two Fingers Heirloom", "statBonus": { "FAI": 5 }, "note": "+5 Faith", "confirmed": false },
+    { "id": "ritual-sword", "name": "Ritual Sword Talisman", "mult": { "all": 1.10 }, "note": "+10% while at full HP", "confirmed": true },
+    { "id": "red-feathered-branchsword", "name": "Red-Feathered Branchsword", "mult": { "all": 1.20 }, "note": "+20% below 20% HP", "confirmed": false },
+    { "id": "winged-sword-insignia", "name": "Winged Sword Insignia", "mult": { "all": 1.10 }, "note": "+10% at max successive-attack ramp", "confirmed": true },
+    { "id": "rotten-winged-sword-insignia", "name": "Rotten Winged Sword Insignia", "mult": { "all": 1.13 }, "note": "+13% at max ramp", "confirmed": true },
+    { "id": "millicents-prosthesis", "name": "Millicent's Prosthesis", "statBonus": { "DEX": 5 }, "mult": { "all": 1.10 }, "note": "+5 DEX · +10% at max ramp", "confirmed": false },
+    { "id": "magic-scorpion-charm", "name": "Magic Scorpion Charm", "mult": { "magic": 1.12 }, "note": "+12% magic · +10% phys damage taken", "confirmed": false },
+    { "id": "fire-scorpion-charm", "name": "Fire Scorpion Charm", "mult": { "fire": 1.12 }, "note": "+12% fire · +10% phys damage taken", "confirmed": true },
+    { "id": "lightning-scorpion-charm", "name": "Lightning Scorpion Charm", "mult": { "lightning": 1.12 }, "note": "+12% lightning · +10% phys damage taken", "confirmed": false },
+    { "id": "sacred-scorpion-charm", "name": "Sacred Scorpion Charm", "mult": { "holy": 1.12 }, "note": "+12% holy · +10% phys damage taken", "confirmed": false },
+    { "id": "lord-of-bloods-exultation", "name": "Lord of Blood's Exultation", "mult": { "all": 1.20 }, "note": "+20% for 20s after blood loss nearby", "confirmed": true },
+    { "id": "kindred-of-rots-exultation", "name": "Kindred of Rot's Exultation", "mult": { "all": 1.20 }, "note": "+20% for 20s after poison/rot nearby", "confirmed": false }
+  ]
+}

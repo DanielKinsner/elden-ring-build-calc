@@ -171,6 +171,20 @@ a:hover { text-decoration: underline; }
 .srow .amt { text-align: right; }
 .srow.off { opacity: .35; }
 
+/* ---------- buffs & talismans ---------- */
+.buffs-sub { color: var(--dim); font-size: 12px; margin: -6px 0 10px; }
+.buff-groups { display: flex; flex-direction: column; gap: 10px; }
+.buff-group { display: flex; flex-direction: column; gap: 5px; }
+.buff-cat { color: var(--gold-dim); font: 600 10px var(--serif); letter-spacing: .16em; text-transform: uppercase; }
+.buff-cat em { color: var(--dim); font-style: normal; letter-spacing: .04em; }
+.buff-chip-row { display: flex; flex-wrap: wrap; gap: 5px; }
+.buff-chip { font-size: 11px; color: var(--dim); background: var(--panel-2); border: 1px solid var(--line-2); border-radius: 14px; padding: 4px 10px; cursor: pointer; transition: border-color .15s var(--ease), color .15s var(--ease), background .15s var(--ease); }
+.buff-chip:hover { border-color: var(--gold-dim); color: var(--text); }
+.buff-chip.on { background: rgba(201,162,39,.16); border-color: var(--gold-dim); color: var(--gold-2); }
+.buff-chip.maxed { opacity: .4; cursor: not-allowed; }
+.buff-chip.approx.on::after { content: '≈'; margin-left: 4px; color: var(--gold-dim); }
+.ar-base { color: var(--dim); font-size: 12px; margin-top: 2px; font-variant-numeric: tabular-nums; min-height: 15px; }
+
 /* ---------- status payoff ---------- */
 .payoff { margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--line-2); }
 .payoff-vs { color: var(--gold-dim); text-transform: none; letter-spacing: 0; }
