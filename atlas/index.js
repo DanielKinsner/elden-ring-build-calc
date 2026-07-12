@@ -40,11 +40,71 @@
   var activeAtk = 'All';
   var search = $('atlasSearch');
 
+  /* ---- filters + sort (T2) ---- */
+  var STATUS_KEYS = [['bleed','Bleed'],['frost','Frost'],['poison','Poison'],['rot','Rot'],['sleep','Sleep'],['madness','Madness']];
+  var SCALE_KEYS = ['STR','DEX','INT','FAI','ARC'];
+  var GOOD_GRADES = ['S','A','B','C']; // "scales in X" = grade C or better at max upgrade
+  var fStatus = {}, fScale = {}, fInfusable = false, fSource = null; // fSource: null | 'base' | 'dlc'
+  var sortBy = 'type';
+
+  // AR at a neutral reference build (all scaling stats 60 ≈ the soft caps), computed once.
+  var REF_BUILD = { STR: 60, DEX: 60, INT: 60, FAI: 60, ARC: 60 };
+  var refAR = {};
+  weapons.forEach(function (w) { refAR[w.id] = ERCalc.computeAR(REF_BUILD, w, {}).totalAR; });
+  function reqTotal(w) {
+    var r = w.requirements || {}, t = 0;
+    for (var k in r) t += r[k];
+    return t;
+  }
+
+  function passesFilters(w) {
+    var anyStatus = Object.keys(fStatus).some(function (k) { return fStatus[k]; });
+    if (anyStatus && !STATUS_KEYS.some(function (s) { return fStatus[s[0]] && w.status && w.status[s[0]] > 0; })) return false;
+    var anyScale = Object.keys(fScale).some(function (k) { return fScale[k]; });
+    if (anyScale && !SCALE_KEYS.some(function (k) { return fScale[k] && GOOD_GRADES.indexOf(ERCalc.gradeFor((w.scaling || {})[k] || 0)) >= 0; })) return false;
+    if (fInfusable && !w.infusable) return false;
+    if (fSource && w.source !== fSource) return false;
+    return true;
+  }
+
+  function chip(key, label, on, group) {
+    return '<button class="atlas-chip' + (on ? ' on' : '') + '" data-chip="' + group + ':' + key + '">' + label + '</button>';
+  }
+  function renderFilters() {
+    $('atlasFilters').innerHTML =
+      STATUS_KEYS.map(function (s) { return chip(s[0], s[1], fStatus[s[0]], 'status'); }).join('') +
+      '<span class="atlas-chip-sep"></span>' +
+      SCALE_KEYS.map(function (k) { return chip(k, k, fScale[k], 'scale'); }).join('') +
+      '<span class="atlas-chip-sep"></span>' +
+      chip('infusable', 'Infusable', fInfusable, 'flag') +
+      chip('base', 'Base', fSource === 'base', 'source') +
+      chip('dlc', 'DLC', fSource === 'dlc', 'source');
+  }
+  $('atlasFilters').addEventListener('click', function (e) {
+    var b = e.target.closest('[data-chip]'); if (!b) return;
+    var parts = b.getAttribute('data-chip').split(':'), group = parts[0], key = parts[1];
+    if (group === 'status') fStatus[key] = !fStatus[key];
+    else if (group === 'scale') fScale[key] = !fScale[key];
+    else if (group === 'flag') fInfusable = !fInfusable;
+    else if (group === 'source') fSource = fSource === key ? null : key;
+    renderFilters(); paint();
+  });
+  $('atlasSort').addEventListener('change', function () { sortBy = this.value; paint(); });
+
+  function badgeFor(w) {
+    if (sortBy === 'ar') return refAR[w.id] + ' AR';
+    if (sortBy === 'weight') return w.weight != null ? w.weight + ' wt' : '— wt';
+    if (sortBy === 'req') { var t = reqTotal(w); return t ? t + ' req' : 'no req'; }
+    return null;
+  }
+
   function cardHtml(w) {
+    var badge = badgeFor(w);
     return '<a class="atlas-card" href="./weapon.html?id=' + encodeURIComponent(w.id) + '">' +
       '<div class="atlas-card-thumb" data-id="' + w.id + '">' + esc(w.name.charAt(0)) + '</div>' +
       '<div class="atlas-card-name">' + esc(w.name) + '</div>' +
       '<div class="atlas-card-type">' + esc(w.type) + '</div>' +
+      (badge ? '<div class="atlas-card-badge">' + badge + '</div>' : '') +
       '</a>';
   }
 
@@ -71,10 +131,22 @@
     var grid = $('atlasGrid'), list, html;
     if (q) {
       list = weapons.filter(function (w) { return w.name.toLowerCase().indexOf(q) >= 0 || w.type.toLowerCase().indexOf(q) >= 0; });
-      html = list.length ? grouped(list) : '<div class="atlas-empty">No weapons match “' + esc(q) + '”.</div>';
     } else {
       list = activeAtk === 'All' ? weapons : weapons.filter(function (w) { return atkOf(w).indexOf(activeAtk) >= 0; });
+    }
+    list = list.filter(passesFilters);
+    if (!list.length) {
+      html = '<div class="atlas-empty">No weapons match' + (q ? ' “' + esc(q) + '”' : ' these filters') + '.</div>';
+    } else if (sortBy === 'type') {
       html = grouped(list);
+    } else {
+      var sorted = list.slice().sort(function (a, b) {
+        if (sortBy === 'ar') return refAR[b.id] - refAR[a.id];
+        if (sortBy === 'weight') return (a.weight != null ? a.weight : 1e9) - (b.weight != null ? b.weight : 1e9);
+        return reqTotal(a) - reqTotal(b);
+      });
+      html = '<div class="atlas-type-header">' + { ar: 'By Attack Rating — all stats 60, max upgrade', weight: 'Lightest first', req: 'Lowest stat requirements first' }[sortBy] +
+        '<span class="count">' + sorted.length + '</span></div>' + sorted.map(cardHtml).join('');
     }
     grid.innerHTML = html;
     grid.querySelectorAll('.atlas-card-thumb').forEach(function (el) {
@@ -91,5 +163,5 @@
   });
   search.addEventListener('input', paint);
 
-  renderTabs(); paint();
+  renderTabs(); renderFilters(); paint();
 })();

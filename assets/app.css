@@ -299,6 +299,18 @@ body.build-page { padding-bottom: 80px; }
 .atlas-tab:hover { border-color: var(--gold-dim); color: var(--text); }
 .atlas-tab.active { background: rgba(201,162,39,.14); border-color: var(--gold-dim); color: var(--gold); }
 
+/* ---------- atlas filters + sort ---------- */
+.atlas-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap; margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--line-2); }
+.atlas-filters { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.atlas-chip { font-size: 11px; color: var(--dim); background: var(--panel-2); border: 1px solid var(--line-2); border-radius: 20px; padding: 4px 10px; cursor: pointer; white-space: nowrap; transition: border-color .15s var(--ease), color .15s var(--ease), background .15s var(--ease); }
+.atlas-chip:hover { border-color: var(--gold-dim); color: var(--text); }
+.atlas-chip.on { background: rgba(201,162,39,.16); border-color: var(--gold-dim); color: var(--gold-2); }
+.atlas-chip-sep { width: 1px; height: 16px; background: var(--line); margin: 0 4px; }
+.atlas-sort-wrap { display: flex; align-items: center; gap: 8px; font-size: 11px; color: var(--dim); text-transform: uppercase; letter-spacing: .08em; }
+.atlas-sort { background: var(--panel-2); color: var(--text); border: 1px solid var(--line); border-radius: 6px; padding: 6px 10px; font-size: 12px; }
+.atlas-card { position: relative; }
+.atlas-card-badge { font: 700 12px var(--serif-num); font-variant-numeric: tabular-nums; color: var(--gold-2); }
+
 /* ---------- motion preference ---------- */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {

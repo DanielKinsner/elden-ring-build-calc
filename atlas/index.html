@@ -17,6 +17,17 @@
     <h2>Weapon Atlas</h2>
     <input type="search" id="atlasSearch" class="search" placeholder="Search weapons…" autocomplete="off">
     <div id="atlasTabs" class="atlas-tabs"></div>
+    <div class="atlas-toolbar">
+      <div id="atlasFilters" class="atlas-filters"></div>
+      <label class="atlas-sort-wrap">Sort
+        <select id="atlasSort" class="atlas-sort">
+          <option value="type">Weapon type</option>
+          <option value="ar">Highest AR (all stats 60)</option>
+          <option value="weight">Lightest</option>
+          <option value="req">Lowest requirements</option>
+        </select>
+      </label>
+    </div>
     <div id="atlasGrid" class="atlas-grid"></div>
   </section>
 </main>
@@ -25,6 +36,7 @@
   Elden Ring and all related images/trademarks are property of FromSoftware, Inc. and Bandai Namco
   Entertainment. Unofficial, non-commercial fan project — not affiliated with or endorsed by them.
 </footer>
+<script src="../src/engine.js"></script>
 <script src="../src/data-loader.js"></script>
 <script src="./index.js"></script>
 </body>
