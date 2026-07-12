@@ -17,7 +17,7 @@ North star: **the site a serious build player keeps open on a second monitor.**
 
 ## Already built — REUSE, don't rebuild
 `ERCalc` (in `src/engine.js`) already exposes:
-- **`computeAR(build, weapon, {affinity, upgradeLevel, twoHanded})`** → `{ totalAR, byType, byStat, status, softCaps, grades, upgrade, requirementsMet, unmetReqs }`. AR is floored per damage type to match the game; Arcane scales bleed/poison via the weapon's ARC value.
+- **`computeAR(build, weapon, {affinity, upgradeLevel, twoHanded})`** → `{ totalAR, byType, byStat, status, softCaps, grades, upgrade, requirementsMet, unmetReqs }`. AR is floored per damage type to match the game (`totalARExact` is the unfloored total, used for smooth soft-cap derivatives); Arcane scales bleed/poison via the weapon's ARC value; two-handing counts 1.5× STR toward the STR requirement.
 - **`suggestWeapons(build, weapons, {twoHanded, usableOnly, limit})`** → weapons ranked by AR for a build, usable-first. **← the "suggested weapons" feature is ALREADY this function. It just needs a UI.**
 - **`softCapCurve(build, weapon, stat, opts)`** → per-point AR gain across 1→99 (powers the soft-cap graph AND an optimal-stat advisor).
 - `characterLevel`, `saturation`, `gradeFor`, `reinforce`, plus `STATS / DAMAGE_TYPES / STATUS_TYPES / CURVES`.
@@ -32,13 +32,13 @@ North star: **the site a serious build player keeps open on a second monitor.**
 
 ## Tier 1 — quick wins (data + logic already exist)
 
-### T1. "Best Weapons for Your Build" panel  ⭐ nearly free
+### T1. "Best Weapons for Your Build" panel  ✅ DONE (2026-07)
 `suggestWeapons()` already returns the ranked list. Add a panel/tab on `build/` that calls it with the
 current build and renders the top ~15 (name, type, AR, ✓/⚠ usable, click → atlas detail). Respect the
 DLC toggle and two-hand. **Where:** `assets/build.js` render loop + a new panel in `build/index.html`.
 **Research:** none — pure UI on an existing function.
 
-### T2. Atlas filters + sort  ⭐
+### T2. Atlas filters + sort  ✅ DONE (2026-07)
 Add filter chips to `atlas/`: by **status** (bleed/frost/poison/rot/sleep/madness), by **scaling stat**
 (STR/DEX/INT/FAI/ARC ≥ a grade), by **infusable**, by **base/DLC**. Add sort (AR-at-a-reference-build /
 weight / requirement). All data is already on each weapon object. **Where:** `atlas/index.js` (filter the
@@ -108,7 +108,10 @@ Boss weaknesses/tactics/drops; the 6 endings + how to get each. **Research:** of
 ---
 
 ## Tier 5 — sharing / saving
-### T11. URL build-share + localStorage save + build library
+### T11. URL build-share + localStorage save + build library  🟡 MOSTLY DONE (2026-07)
+Shipped: the build lives in the URL (`?b=VIG.MND.END.STR.DEX.INT.FAI.ARC&w=<id>&a=<affinity>&u=<upgrade>&h=0|1&l=<level>`),
+auto-saves to localStorage (survives refresh), and a 🔗 Share button copies the link. **Remaining:** the
+curated meta build library (`data/build-library.json`) + a named multi-save UI.
 Encode a build into `?build=<compact>` (stats + weapon + affinity + upgrade + level + buffs) → shareable
 link. "Save Build" writes to localStorage; a small curated **meta build library** ships as `data/build-library.json`.
 **Where:** `assets/build.js` (serialize/deserialize state). **Research:** none — pure front-end.
@@ -116,8 +119,11 @@ link. "Save Build" writes to localStorage; a small curated **meta build library*
 ---
 
 ## Suggested order
-1. **T1 + T2** (free wins — suggested-weapons panel + atlas filters).
-2. **T3 + T4** (buffs + bleed payoff — the biggest "makes it real for a bleed build" jump).
+1. ~~**T1 + T2** (free wins — suggested-weapons panel + atlas filters).~~ ✅ shipped, plus T11's share/save core.
+2. **T3 + T4** (buffs + bleed payoff — the biggest "makes it real for a bleed build" jump). **← next up**
 3. **T9** (questline tracker — high value, data already sourced in the offline skill).
-4. **T5, T6, T11** (talismans, stat advisor, sharing).
+4. **T5, T6** (talismans, stat advisor) + T11's remaining build library.
 5. **T7, T8** (catalysts, maps — the big lifts, last).
+
+## Known data gaps (surfaced 2026-07)
+- 170/448 weapons have no `weight` — they sort last under the atlas "Lightest" sort. Fill from the regulation dump.
