@@ -32,6 +32,60 @@
       "stats": { "VIG": 60, "MND": 15, "END": 25, "STR": 18, "DEX": 45, "INT": 9, "FAI": 9, "ARC": 55 },
       "twoHanded": false,
       "loadout": { "weaponId": "rivers-of-blood", "affinity": "Standard", "upgradeLevel": 10 }
+    },
+    {
+      "id": "moonveil-assassin",
+      "name": "Moonveil Assassin",
+      "description": "Meta INT/DEX — Moonveil's Transient Moonlight carries the mid-game and never falls off.",
+      "library": true,
+      "stats": { "VIG": 55, "MND": 25, "END": 20, "STR": 12, "DEX": 25, "INT": 70, "FAI": 9, "ARC": 9 },
+      "twoHanded": false,
+      "loadout": { "weaponId": "moonveil", "affinity": "Standard", "upgradeLevel": 10 }
+    },
+    {
+      "id": "blasphemous-faith",
+      "name": "Blasphemous Faith",
+      "description": "STR/FAI — Blasphemous Blade heals on kill; Taker's Flames melts bosses.",
+      "library": true,
+      "stats": { "VIG": 60, "MND": 25, "END": 25, "STR": 22, "DEX": 15, "INT": 9, "FAI": 70, "ARC": 9 },
+      "twoHanded": false,
+      "loadout": { "weaponId": "blasphemous-blade", "affinity": "Standard", "upgradeLevel": 10 }
+    },
+    {
+      "id": "colossal-crusher",
+      "name": "Colossal Crusher",
+      "description": "Pure STR — two-handed Heavy Giant-Crusher, the classic poise-breaker.",
+      "library": true,
+      "stats": { "VIG": 60, "MND": 10, "END": 32, "STR": 80, "DEX": 9, "INT": 9, "FAI": 9, "ARC": 7 },
+      "twoHanded": true,
+      "loadout": { "weaponId": "giant-crusher", "affinity": "Heavy", "upgradeLevel": 25 }
+    },
+    {
+      "id": "scarlet-bloom",
+      "name": "Scarlet Bloom",
+      "description": "Hyper-DEX — Hand of Malenia, Waterfowl fantasy with innate bleed.",
+      "library": true,
+      "stats": { "VIG": 60, "MND": 15, "END": 30, "STR": 16, "DEX": 75, "INT": 9, "FAI": 9, "ARC": 9 },
+      "twoHanded": false,
+      "loadout": { "weaponId": "hand-of-malenia", "affinity": "Standard", "upgradeLevel": 10 }
+    },
+    {
+      "id": "blood-lord",
+      "name": "Blood Lord",
+      "description": "ARC spear — Mohgwyn's Sacred Spear, bleed pools plus Bloodboon Ritual.",
+      "library": true,
+      "stats": { "VIG": 60, "MND": 20, "END": 27, "STR": 27, "DEX": 14, "INT": 9, "FAI": 9, "ARC": 60 },
+      "twoHanded": false,
+      "loadout": { "weaponId": "mohgwyn-s-sacred-spear", "affinity": "Standard", "upgradeLevel": 10 }
+    },
+    {
+      "id": "dark-moon-mage",
+      "name": "Dark Moon Mage",
+      "description": "Pure INT — Dark Moon Greatsword with frost; Ranni's ending, Ranni's sword.",
+      "library": true,
+      "stats": { "VIG": 55, "MND": 30, "END": 20, "STR": 16, "DEX": 11, "INT": 75, "FAI": 9, "ARC": 9 },
+      "twoHanded": false,
+      "loadout": { "weaponId": "dark-moon-greatsword", "affinity": "Standard", "upgradeLevel": 10 }
     }
   ]
 }
