@@ -16,6 +16,41 @@
   var current = weapons.find(function (w){ return w.id === 'rivers-of-blood'; }) || weapons[0];
   var compareIds = [];
 
+  /* ---- build share/restore (T11): URL params win, then localStorage, then defaults ----
+     ?b=VIG.MND.END.STR.DEX.INT.FAI.ARC&w=<id>&a=<affinity>&u=<upgrade>&h=0|1&l=<level> */
+  var BOOT = (function () {
+    var q = new URLSearchParams(location.search);
+    if (q.get('b') || q.get('w')) {
+      var s = (q.get('b') || '').split('.').map(Number);
+      var o = { stats: {}, weapon: q.get('w'), affinity: q.get('a'), upgrade: q.get('u'), twoHanded: q.get('h') !== '0', level: +q.get('l') || null };
+      STATS.forEach(function (k, i) { if (s[i] >= 1 && s[i] <= 99) o.stats[k] = s[i]; });
+      return o;
+    }
+    try { return JSON.parse(localStorage.getItem('er-build') || 'null'); } catch (e) { return null; }
+  })();
+  if (BOOT) {
+    if (BOOT.stats) STATS.forEach(function (k) { if (BOOT.stats[k] >= 1) build[k] = Math.min(99, BOOT.stats[k]); });
+    if (BOOT.twoHanded != null) twoHanded = !!BOOT.twoHanded;
+    var bootW = BOOT.weapon && weapons.find(function (w) { return w.id === BOOT.weapon; });
+    if (bootW) current = bootW;
+  }
+
+  var persistT;
+  function persist() { clearTimeout(persistT); persistT = setTimeout(doPersist, 250); }
+  function doPersist() {
+    var state = { stats: {}, weapon: current.id, affinity: affinity, upgrade: upgradeLevel, twoHanded: twoHanded, level: +$('level').value || null };
+    STATS.forEach(function (k) { state.stats[k] = build[k]; });
+    try { localStorage.setItem('er-build', JSON.stringify(state)); } catch (e) {}
+    var q = new URLSearchParams();
+    q.set('b', STATS.map(function (k) { return build[k]; }).join('.'));
+    q.set('w', current.id);
+    if (affinity && affinity !== 'Standard') q.set('a', affinity);
+    if (upgradeLevel != null) q.set('u', upgradeLevel);
+    if (!twoHanded) q.set('h', '0');
+    if (+$('level').value) q.set('l', $('level').value);
+    history.replaceState(null, '', location.pathname + '?' + q);
+  }
+
   /* ---- stat sliders ---- */
   $('stats').innerHTML = STATS.map(function (k) {
     return '<div class="stat"><img class="stat-icon" src="../assets/icons/stats/'+k.toLowerCase()+'.png" alt=""><span class="name">'+STAT_LABEL[k]+'</span>' +
@@ -171,6 +206,7 @@
     renderBreakpoints(r);
     renderCompare();
     renderSuggestions();
+    persist();
   }
 
   /* ---- suggested weapons (T1): rank the whole pool for the current build ---- */
@@ -314,6 +350,27 @@
     setTimeout(function(){ self.textContent = 'Add to Compare'; }, 1200);
   });
 
-  $('level').value = ERCalc.characterLevel(build); // starting reference; level is manual + independent
-  fillAffinity(); fillUpgrade(); syncActivePreset(); render();
+  $('shareBuild').addEventListener('click', function () {
+    var self = this;
+    doPersist(); // make sure the URL is current before copying
+    function ok() { self.textContent = 'Copied ✓'; setTimeout(function () { self.textContent = '🔗 Share'; }, 1400); }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(location.href).then(ok, function () { window.prompt('Copy this build link:', location.href); });
+    } else {
+      window.prompt('Copy this build link:', location.href);
+    }
+  });
+  $('level').addEventListener('input', persist);
+
+  $('level').value = (BOOT && BOOT.level) || ERCalc.characterLevel(build); // starting reference; level is manual + independent
+  fillAffinity(); fillUpgrade();
+  if (BOOT) { // affinity/upgrade must be applied after the selects are (re)filled
+    if (BOOT.affinity && (BOOT.affinity === 'Standard' || (current.affinities && current.affinities[BOOT.affinity]))) {
+      affinity = BOOT.affinity; $('affinity').value = affinity;
+    }
+    if (BOOT.upgrade != null && BOOT.upgrade !== '' && !isNaN(+BOOT.upgrade)) {
+      upgradeLevel = +BOOT.upgrade; $('upgrade').value = upgradeLevel;
+    }
+  }
+  syncActivePreset(); render();
 })();
