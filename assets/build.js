@@ -129,11 +129,13 @@
     $('weight').textContent = current.weight != null ? current.weight : '—';
     $('passive').textContent = current.passive || 'None';
 
-    // requirements
+    // requirements — mirror the engine: two-handing counts 1.5x STR toward the STR requirement
     var reqs = current.requirements || {};
     $('reqs').innerHTML = Object.keys(reqs).map(function (k) {
-      var have = build[k] || 1, ok = have >= reqs[k];
-      return '<span class="'+(ok?'met':'unmet')+'">'+k+' '+reqs[k]+' ('+have+')</span>';
+      var have = (k === 'STR' && twoHanded) ? Math.min(99, Math.floor((build.STR || 1) * 1.5)) : (build[k] || 1);
+      var ok = have >= reqs[k];
+      var note = (k === 'STR' && twoHanded && ok && (build[k] || 1) < reqs[k]) ? ' 2H' : '';
+      return '<span class="'+(ok?'met':'unmet')+'">'+k+' '+reqs[k]+' ('+have+note+')</span>';
     }).join('') || '<span style="color:var(--dim)">none</span>';
 
     // AR

@@ -119,12 +119,16 @@
     };
   }
 
-  function checkRequirements(weapon, build) {
+  // Two-handing counts toward the STR requirement (floor 1.5x) — 14 STR wields a 20-STR
+  // weapon two-handed in-game [CONFIRMED]. Other stats always use their raw value.
+  function checkRequirements(weapon, build, twoHanded) {
     var unmet = [];
     var reqs = weapon.requirements || {};
     for (var i = 0; i < STATS.length; i++) {
       var k = STATS[i];
-      if ((reqs[k] || 0) > (build[k] || 1)) unmet.push({ stat: k, need: reqs[k], have: build[k] || 1 });
+      var have = build[k] || 1;
+      if (k === 'STR' && twoHanded) have = clampStat(Math.floor(have * TWO_HAND_STR_MULT));
+      if ((reqs[k] || 0) > have) unmet.push({ stat: k, need: reqs[k], have: have });
     }
     return unmet;
   }
@@ -194,7 +198,7 @@
     var variant = resolveVariant(weapon, opts.affinity);
     var eff = effectiveStats(build, opts.twoHanded);
 
-    var unmet = checkRequirements(weapon, build);
+    var unmet = checkRequirements(weapon, build, opts.twoHanded);
     var deficient = {};
     for (var i = 0; i < unmet.length; i++) deficient[unmet[i].stat] = true;
 
