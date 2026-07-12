@@ -229,6 +229,7 @@
 
     return {
       totalAR: sumFloor(main.byType),   // in-game AR floors each damage type, then sums
+      totalARExact: main.total,         // unfloored — for smooth derivatives (soft-cap chart), not display
       byType: floorMap(main.byType),
       byStat: roundMap(main.byStat),
       status: computeStatus(variant, eff),
@@ -259,7 +260,8 @@
     var prev = null;
     for (var lv = 1; lv <= 99; lv++) {
       b[stat] = lv;
-      var ar = computeAR(b, weapon, opts).totalAR;
+      // use the exact total — flooring per damage type turns the per-point diff into 0/1/2 sawtooth
+      var ar = computeAR(b, weapon, opts).totalARExact;
       if (prev !== null) points[points.length - 1].perPoint = Math.round((ar - prev) * 100) / 100;
       points.push({ level: lv, ar: ar, perPoint: 0 });
       prev = ar;
