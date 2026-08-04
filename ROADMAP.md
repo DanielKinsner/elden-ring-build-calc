@@ -101,13 +101,22 @@ The acquisition schema already has `mapPin: {x, y}` (% coords).
 
 ## Tier 4 — a Guides section (the sleeper hit — reuse the offline ER knowledge)
 
-### T9. Questline tracker
+### T9. Questline tracker  ✅ DONE (2026-08)
+Shipped as `guides/` (Quest Tracker tab): 21 questlines / 109 steps from `data/quests.json`, checkbox
+progress in localStorage (`er-guides`, keyed by stable step ids so data edits don't corrupt saves),
+fail-triggers inline, MAJOR badges, per-quest reset. Transcribed from the offline ER skill's `quests.md`
+(which IS installed on the office PC — the earlier "not installed" note was machine-specific).
 Interactive checklists for the big NPC quests (Ranni, Fia, Varré, Sellen, etc.) with **the "don't do
 this" fail-triggers** inline (e.g. "never give Ranni Seluvis's Potion"). Progress saved in localStorage.
 **Where:** a new `guides/` section. **Research:** the offline skill's `quests.md` is already structured
 exactly for this (start / steps / moves / reward / ⚠️ missables) — transcribe it into `data/quests.json`.
 
-### T10. Boss guide + Endings guide
+### T10. Boss guide + Endings guide  ✅ DONE (2026-08)
+Shipped as the Bosses + Endings tabs of `guides/`: 10 required + 4 key optional bosses
+(weak/resist/immune chips, bring list, tips, Great Runes) from `data/bosses.json`; all 6 endings with
+unlock routes, point-of-no-return warnings, and links into the quest tracker from `data/endings.json`.
+'(verify)' markers in the data render as the site's standard UNVERIFIED tag. Remaining ideas: DLC
+bosses (wiki research), per-boss checkboxes ("beaten"), drops/runes columns.
 Boss weaknesses/tactics/drops; the 6 endings + how to get each. **Research:** offline skill `bosses.md` +
 `quests.md` ending notes. → `data/bosses.json`, `data/endings.json`.
 
@@ -125,10 +134,9 @@ link. "Save Build" writes to localStorage; a small curated **meta build library*
 ---
 
 ## Suggested order
-1. ~~T1 + T2~~ ✅  2. ~~T3 + T4~~ ✅  3. ~~T5, T6, T11~~ ✅ — Tier 1, 2 and 5 are fully shipped.
-4. **T9 / T10** (guides) **← next up** — NOTE: the offline ER skill referenced above is NOT installed on
-   this machine (checked 2026-07); quests/bosses data needs wiki research instead.
-5. **T7, T8** (catalysts, maps — the big lifts, last).
+1. ~~T1 + T2~~ ✅  2. ~~T3 + T4~~ ✅  3. ~~T5, T6, T11~~ ✅  4. ~~T9 + T10~~ ✅ — Tiers 1, 2, 4, 5 shipped.
+5. **T7, T8** (catalysts, maps — the big lifts) **← next up**, plus the smaller remainders noted in
+   each shipped ticket (more buffs, named multi-save, enemy status thresholds, weight data gap).
 
 ## Known data gaps (surfaced 2026-07)
 - 170/448 weapons have no `weight` — they sort last under the atlas "Lightest" sort. Fill from the regulation dump.
