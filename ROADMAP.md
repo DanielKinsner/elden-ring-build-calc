@@ -127,11 +127,25 @@ Boss weaknesses/tactics/drops; the 6 endings + how to get each. **Research:** of
 Build lives in the URL (`?b=…&w=…&a=…&u=…&h=…&l=…&bf=<buffs>&tl=<talismans>`), auto-saves to
 localStorage, 🔗 Share copies the link. Six curated meta builds shipped in `presets.json` (`library:true`).
 **Remaining:** named multi-save UI (save several of your own builds).
+**Named multi-save shipped 2026-08** (💾 Save → `er-my-builds`, chips + dropdown optgroup) — T11 fully closed.
 Encode a build into `?build=<compact>` (stats + weapon + affinity + upgrade + level + buffs) → shareable
 link. "Save Build" writes to localStorage; a small curated **meta build library** ships as `data/build-library.json`.
 **Where:** `assets/build.js` (serialize/deserialize state). **Research:** none — pure front-end.
 
 ---
+
+## Shipped beyond the roadmap (2026-08)
+- **Tales section** (`tales/`) — Dan's original fan writing on the site: *Gold and Shadow* (~55k words,
+  17 chapters) + *Kindling: The Testament of Melina* (~7.7k words). Library shelf w/ continue-reading,
+  book-typography reader (drop caps, scroll progress, ←/→ keys, contents), per-chapter read state
+  (`er-tales`). Content lives as raw `.md` in `tales/content/` — updating the book = copying files.
+- **Walkthrough tab** in `guides/` — full base route (12 stages, 13 checkable steps, stat targets,
+  readiness checks, gotchas) from `data/progression.json`, plus a **Shadow of the Erdtree** leg
+  (entry reqs, Scadutree Blessing explainer, 9-stage DLC route).
+- **DLC remembrance bosses** — 7 SotE bosses in `data/bosses.json` (resist claims tagged `(verify)`
+  where community-sourced).
+- **☠ Felled checkboxes** on every boss card, with per-group counters.
+- **My Builds** — named multi-save on the build page (`er-my-builds`); closes the T11 remainder.
 
 ## Suggested order
 1. ~~T1 + T2~~ ✅  2. ~~T3 + T4~~ ✅  3. ~~T5, T6, T11~~ ✅  4. ~~T9 + T10~~ ✅ — Tiers 1, 2, 4, 5 shipped.
