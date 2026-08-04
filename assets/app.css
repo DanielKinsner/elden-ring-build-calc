@@ -446,6 +446,53 @@ body.build-page { padding-bottom: 80px; }
 .ending-ponr { font-size: 12.5px; line-height: 1.5; color: #e0a396; margin: 8px 0 0; }
 .ending-quest-link { display: inline-block; margin-top: 8px; font-size: 12px; }
 
+/* ---------- tales (library shelf + reader) ---------- */
+.tales-shelf { display: flex; flex-direction: column; gap: 16px; margin-top: 14px; }
+.tale-card { background: var(--panel-2); border: 1px solid var(--line-2); border-radius: 10px; padding: 18px; transition: border-color .18s var(--ease); }
+.tale-card:hover { border-color: var(--gold-dim); }
+.tale-card-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+.tale-titles { display: flex; flex-direction: column; gap: 3px; }
+.tale-title { font: 700 24px var(--serif); color: var(--gold-2); letter-spacing: .04em; }
+.tale-subtitle { color: var(--dim); font: 500 14px var(--serif-num); font-style: italic; }
+.tale-words { color: var(--gold-dim); font-size: 11px; text-transform: uppercase; letter-spacing: .1em; white-space: nowrap; }
+.tale-blurb { color: var(--text); font-size: 13.5px; line-height: 1.6; margin: 10px 0 6px; }
+.tale-spoilers { color: #e0a396; font-size: 12px; margin: 0 0 10px; }
+.tale-progress-row { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+.tale-progress { flex: 1; height: 4px; border-radius: 3px; overflow: hidden; }
+.tale-progress-label { color: var(--dim); font-size: 11px; white-space: nowrap; }
+.tale-actions { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.tale-cta { padding: 10px 18px; font-size: 12px; }
+.tale-toc { list-style: none; margin: 14px 0 0; padding: 0; border-top: 1px solid var(--line-2); }
+.tale-toc li a { display: grid; grid-template-columns: 86px 1fr; gap: 4px 12px; padding: 8px 10px; border-radius: 6px; color: var(--text); text-decoration: none; transition: background-color .12s var(--ease); }
+.tale-toc li a:hover { background: rgba(201,162,39,.08); }
+.tale-toc-num { color: var(--gold-dim); font: 600 12px var(--serif); letter-spacing: .06em; text-align: right; padding-top: 1px; }
+.tale-toc-title { font-size: 13.5px; font-weight: 600; }
+.tale-toc-tease { grid-column: 2; color: var(--dim); font-size: 12px; }
+.tale-toc li.read .tale-toc-title::after { content: ' ✓'; color: var(--green); font-size: 11px; }
+.tale-toc li.current > a { background: rgba(201,162,39,.12); }
+@media (max-width: 540px){ .tale-toc li a { grid-template-columns: 1fr; } .tale-toc-num { text-align: left; } .tale-toc-tease { grid-column: 1; } }
+
+.read-progress { position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 30; background: transparent; }
+.read-progress i { display: block; height: 100%; width: 0; background: linear-gradient(90deg, var(--gold-dim), var(--gold-2)); box-shadow: 0 0 8px rgba(201,162,39,.5); }
+.toc-panel { position: sticky; top: 0; z-index: 25; max-height: 60vh; overflow: auto; background: rgba(14,12,8,.97); border-bottom: 1px solid var(--line); padding: 12px 20px 16px; backdrop-filter: blur(6px); }
+.toc-work { font: 600 12px var(--serif); letter-spacing: .18em; text-transform: uppercase; color: var(--gold); margin: 4px 0 6px; }
+.reader-main { max-width: 720px; margin: 0 auto; padding: 30px 22px 40px; }
+.chapter-body { font: 500 19px/1.85 var(--serif-num); color: var(--text); }
+.chapter-body p { margin: 0 0 1.2em; }
+.chapter-body .tale-h1 { font: 700 clamp(26px, 4.5vw, 38px)/1.2 var(--serif); color: var(--gold-2); text-align: center; margin: 20px 0 10px; text-shadow: 0 0 24px rgba(201,162,39,.25); }
+.chapter-body .tale-h2 { font: 600 20px/1.3 var(--serif); color: var(--gold); text-align: center; margin: 6px 0 14px; letter-spacing: .06em; }
+.chapter-body .tale-h3 { font: 600 16px/1.3 var(--serif); color: var(--gold); margin: 1.6em 0 .6em; letter-spacing: .08em; }
+.chapter-body .tale-h1 + p { color: var(--dim); text-align: center; font-size: 16.5px; max-width: 56ch; margin: 0 auto 1.4em; }
+.chapter-body .tale-h1 + .tale-h2 + p { color: var(--dim); text-align: center; font-size: 16.5px; max-width: 56ch; margin: 0 auto 1.4em; }
+.tale-hr { border: 0; height: 1px; margin: 2.2em auto; width: 180px; background: linear-gradient(90deg, transparent, var(--gold-dim), transparent); position: relative; overflow: visible; }
+.chapter-body .tale-hr + p::first-letter { font: 700 3.1em/0.85 var(--serif); color: var(--gold-2); float: left; padding: 6px 8px 0 0; text-shadow: 0 0 14px rgba(201,162,39,.3); }
+.chapter-nav { display: flex; justify-content: space-between; gap: 14px; margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--line-2); }
+.ch-nav-btn { display: flex; flex-direction: column; gap: 3px; background: var(--panel-2); border: 1px solid var(--line); border-radius: 9px; padding: 12px 16px; color: var(--dim); font-size: 11px; text-transform: uppercase; letter-spacing: .1em; text-decoration: none; max-width: 46%; transition: border-color .15s var(--ease); }
+.ch-nav-btn:hover { border-color: var(--gold-dim); text-decoration: none; }
+.ch-nav-btn b { color: var(--gold-2); font: 600 14px var(--serif); text-transform: none; letter-spacing: .02em; }
+.ch-nav-btn.next { text-align: right; margin-left: auto; }
+@media (max-width: 540px){ .chapter-body { font-size: 17px; } .reader-main { padding: 22px 16px 32px; } }
+
 /* ---------- motion preference ---------- */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
