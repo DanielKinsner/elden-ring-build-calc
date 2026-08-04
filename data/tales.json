@@ -1,0 +1,45 @@
+{
+  "_source": "Original fan writing by the site author. Elden Ring and its world are property of FromSoftware / Bandai Namco; these are unofficial, non-commercial fan works.",
+  "works": [
+    {
+      "id": "gold-and-shadow",
+      "title": "Gold and Shadow",
+      "subtitle": "A Complete History of the Lands Between, Compiled from the Relics and Remembrances",
+      "blurb": "A book-length in-world history in the manner of Fire & Blood: an unnamed chronicler, working in the Roundtable Hold's library after the Erdtree burned, reconstructs the whole story from the game's actual evidence — and tells you, sentence by sentence, how sure he is. Flat statements are explicit in-game text; \"the inscription would have us believe\" marks rumor; \"perhaps\" means exactly perhaps.",
+      "words": "≈55,000 words",
+      "spoilers": "Full spoilers — base game, all endings, and the entire DLC.",
+      "dir": "content/gold-and-shadow/",
+      "chapters": [
+        { "id": "prologue",   "file": "00-prologue.md",                    "num": "Prologue",  "title": "A Note on Relics",              "tease": "How to hear the hedges — read this first" },
+        { "id": "ch01",       "file": "01-the-world-before-gold.md",       "num": "I",         "title": "The World Before Gold",         "tease": "Crucible, dragons, the fled god, the falling stars" },
+        { "id": "ch02",       "file": "02-the-land-of-shadow.md",          "num": "II",        "title": "The Land of Shadow",            "tease": "The tower, the jars, the shaman girl" },
+        { "id": "ch03",       "file": "03-the-ascension.md",               "num": "III",       "title": "The Ascension",                 "tease": "The gate, the Elden Beast, death forbidden" },
+        { "id": "ch04",       "file": "04-the-crusade.md",                 "num": "IV",        "title": "The Crusade",                   "tease": "Messmer's fire; a land erased from the map" },
+        { "id": "ch05",       "file": "05-godfrey-first-of-the-name.md",   "num": "V",         "title": "Godfrey, First of the Name",    "tease": "The wars, the hidden twins, the exile" },
+        { "id": "ch06",       "file": "06-the-two-courts.md",              "num": "VI",        "title": "The Two Courts",                "tease": "Rennala, Radagon — and the buried master-fact" },
+        { "id": "ch07",       "file": "07-the-golden-age-and-its-cracks.md","num": "VII",      "title": "The Golden Age and Its Cracks", "tease": "The Empyreans; every flaw the age didn't count" },
+        { "id": "ch08",       "file": "08-the-night-of-the-black-knives.md","num": "VIII",     "title": "The Night of the Black Knives", "tease": "The murder that broke the deathless world" },
+        { "id": "ch09",       "file": "09-the-shattering.md",              "num": "IX",        "title": "The Shattering",                "tease": "The hammer, the wars, the stalemate" },
+        { "id": "ch10",       "file": "10-the-interregnum.md",             "num": "X",         "title": "The Interregnum",               "tease": "The lordless years, region by region" },
+        { "id": "ch11",       "file": "11-the-last-tarnished.md",          "num": "XI",        "title": "The Last Tarnished",            "tease": "The stranger's war, told from its wreckage" },
+        { "id": "ch12",       "file": "12-the-expedition-into-shadow.md",  "num": "XII",       "title": "The Expedition into Shadow",    "tease": "The divided twins; Miquella's divestment; the circle closed" },
+        { "id": "ch13",       "file": "13-the-burning.md",                 "num": "XIII",      "title": "The Burning",                   "tease": "The forge, the farewell, the chronicler's own ash" },
+        { "id": "ch14",       "file": "14-the-six-dawns.md",               "num": "XIV",       "title": "The Six Dawns",                 "tease": "Six futures, none chosen" },
+        { "id": "appendix-a", "file": "appendix-a-the-dynasty.md",         "num": "Appendix A","title": "The Dynasty",                   "tease": "The god-family, set down plainly" },
+        { "id": "appendix-b", "file": "appendix-b-on-the-sources.md",      "num": "Appendix B","title": "On the Sources",                "tease": "The chronicler's method — and, quietly, ours" }
+      ]
+    },
+    {
+      "id": "kindling",
+      "title": "Kindling",
+      "subtitle": "The Testament of Melina",
+      "blurb": "A first-person narrative in fourteen movements and a coda. The burned maiden tells her side of the whole journey — the accord, the road, the pyre — to the one person who was there for all of it: you.",
+      "words": "≈7,700 words",
+      "spoilers": "Full spoilers for the base game's story and endings.",
+      "dir": "content/",
+      "chapters": [
+        { "id": "kindling", "file": "kindling.md", "num": "", "title": "Kindling — The Testament of Melina", "tease": "Ash remembers fire. That is all ash is." }
+      ]
+    }
+  ]
+}
