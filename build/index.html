@@ -16,6 +16,7 @@
   </a>
   <div class="topbar-right">
     <select id="presetSelect" class="preset-select" aria-label="Load build"></select>
+    <button class="icon-btn" id="saveBuild" title="Save this build under a name">💾 Save</button>
     <button class="icon-btn" id="shareBuild" title="Copy a shareable link to this build">🔗 Share</button>
     <a class="icon-btn" href="../atlas/" title="Weapon Atlas">☰</a>
     <a class="icon-btn" href="../guides/" title="Quest tracker, bosses, endings">📜</a>
@@ -35,6 +36,8 @@
     <div class="statTotal"><span class="k">Stat Total</span><b id="statTotal">—</b></div>
     <h2 class="mt">Presets</h2>
     <div class="presets" id="presetBtns"></div>
+    <h2 class="mt" id="myBuildsHead" hidden>My Builds</h2>
+    <div class="presets" id="myBuilds"></div>
   </section>
 
   <!-- WEAPON + RESULT -->

@@ -299,6 +299,10 @@ a:hover { text-decoration: underline; }
 .cmp-clear:hover { border-color: var(--red); color: var(--red); }
 body.build-page { padding-bottom: 80px; }
 
+.my-builds button, #myBuilds button { display: inline-flex; align-items: center; gap: 6px; }
+.myb-x { color: var(--dim); font-size: 13px; line-height: 1; padding: 0 2px; border-radius: 3px; }
+.myb-x:hover { color: var(--red); background: rgba(207,90,68,.12); }
+
 .dlc-toggle { display:flex; align-items:center; gap:7px; font-size:12px; color:var(--dim); margin-bottom:8px; cursor:pointer; }
 .dlc-toggle input { accent-color: var(--gold); }
 

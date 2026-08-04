@@ -83,11 +83,15 @@
 
   var persistT;
   function persist() { clearTimeout(persistT); persistT = setTimeout(doPersist, 250); }
-  function doPersist() {
+  function captureState() {
     var bf = Object.keys(activeBuffs).filter(function (k) { return activeBuffs[k]; });
     var tl = Object.keys(activeTalis).filter(function (k) { return activeTalis[k]; });
     var state = { stats: {}, weapon: current.id, affinity: affinity, upgrade: upgradeLevel, twoHanded: twoHanded, level: +$('level').value || null, buffs: bf, talis: tl };
     STATS.forEach(function (k) { state.stats[k] = build[k]; });
+    return state;
+  }
+  function doPersist() {
+    var state = captureState(), bf = state.buffs, tl = state.talis;
     try { localStorage.setItem('er-build', JSON.stringify(state)); } catch (e) {}
     var q = new URLSearchParams();
     q.set('b', STATS.map(function (k) { return build[k]; }).join('.'));
@@ -124,7 +128,11 @@
   /* ---- presets (dropdown + buttons) ---- */
   var activePresetIndex = presets.findIndex(function (p) { return p.loadout && p.loadout.weaponId === current.id; });
   $('presetSelect').innerHTML = '<option value="">Load build…</option>' + presets.map(function (p, i) { return '<option value="'+i+'">'+p.name+'</option>'; }).join('');
-  $('presetSelect').addEventListener('change', function () { if (this.value !== '') applyPreset(presets[+this.value]); });
+  $('presetSelect').addEventListener('change', function () {
+    if (this.value === '') return;
+    if (this.value.charAt(0) === 'm') { var m = myBuilds[+this.value.slice(1)]; if (m) applyState(m.state); return; }
+    applyPreset(presets[+this.value]);
+  });
   $('presetBtns').innerHTML = presets.map(function (p, i) { return '<button data-p="'+i+'">'+p.name+'</button>'; }).join('');
   $('presetBtns').addEventListener('click', function (e) { var i = e.target.getAttribute('data-p'); if (i !== null) applyPreset(presets[+i]); });
   function syncActivePreset() {
@@ -150,6 +158,65 @@
     syncActivePreset();
     render();
   }
+
+  /* ---- My Builds: named multi-save (T11 remainder) ---- */
+  var MYB_KEY = 'er-my-builds';
+  var myBuilds = (function () { try { return JSON.parse(localStorage.getItem(MYB_KEY) || '[]') || []; } catch (e) { return []; } })();
+  function escText(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;'); }
+  function saveMyBuilds() { try { localStorage.setItem(MYB_KEY, JSON.stringify(myBuilds)); } catch (e) {} }
+  function applyState(o) {
+    if (o.stats) STATS.forEach(function (k) { if (o.stats[k] >= 1) { build[k] = Math.min(99, o.stats[k]); syncStat(k); } });
+    twoHanded = o.twoHanded !== false; $('twoHand').checked = twoHanded;
+    var w = o.weapon && weapons.find(function (x) { return x.id === o.weapon; });
+    if (w) { current = w; fillUpgrade(); fillAffinity(); }
+    if (o.upgrade != null) { upgradeLevel = o.upgrade; $('upgrade').value = o.upgrade; }
+    if (o.affinity && (o.affinity === 'Standard' || (current.affinities && current.affinities[o.affinity]))) { affinity = o.affinity; $('affinity').value = o.affinity; }
+    if (o.level) $('level').value = o.level;
+    activeBuffs = {}; activeTalis = {};
+    (o.buffs || []).forEach(function (id) { if (buffData.buffs.some(function (b) { return b.id === id; })) activeBuffs[id] = true; });
+    (o.talis || []).slice(0, TALI_MAX).forEach(function (id) { if (buffData.talismans.some(function (t) { return t.id === id; })) activeTalis[id] = true; });
+    renderBuffGroups();
+    activePresetIndex = -1; syncActivePreset();
+    render();
+  }
+  function renderMyBuilds() {
+    $('myBuildsHead').hidden = myBuilds.length === 0;
+    $('myBuilds').innerHTML = myBuilds.map(function (m, i) {
+      return '<button data-m="' + i + '" title="Load this build">' + escText(m.name) +
+        ' <span class="myb-x" data-x="' + i + '" title="Delete this build">×</span></button>';
+    }).join('');
+    var sel = $('presetSelect'), og = sel.querySelector('optgroup');
+    if (og) og.remove();
+    if (myBuilds.length) {
+      var g = document.createElement('optgroup'); g.label = 'My Builds';
+      myBuilds.forEach(function (m, i) {
+        var o = document.createElement('option'); o.value = 'm' + i; o.textContent = m.name; g.appendChild(o);
+      });
+      sel.appendChild(g);
+    }
+  }
+  $('saveBuild').addEventListener('click', function () {
+    var self = this;
+    var suggestion = current.name + ' ' + (twoHanded ? '2H' : '1H');
+    var name = window.prompt('Name this build:', suggestion);
+    if (!name || !(name = name.trim())) return;
+    var existing = myBuilds.findIndex(function (m) { return m.name.toLowerCase() === name.toLowerCase(); });
+    var entry = { name: name, state: captureState() };
+    if (existing >= 0) myBuilds[existing] = entry; else myBuilds.push(entry);
+    saveMyBuilds(); renderMyBuilds();
+    self.textContent = 'Saved ✓'; setTimeout(function () { self.textContent = '💾 Save'; }, 1400);
+  });
+  $('myBuilds').addEventListener('click', function (e) {
+    var x = e.target.closest('[data-x]');
+    if (x) {
+      var i = +x.getAttribute('data-x');
+      if (window.confirm('Delete "' + myBuilds[i].name + '"?')) { myBuilds.splice(i, 1); saveMyBuilds(); renderMyBuilds(); }
+      return;
+    }
+    var b = e.target.closest('[data-m]');
+    if (b) applyState(myBuilds[+b.getAttribute('data-m')].state);
+  });
+  renderMyBuilds();
 
   /* ---- weapon search ---- */
   var search = $('weaponSearch'), list = $('weaponList');
