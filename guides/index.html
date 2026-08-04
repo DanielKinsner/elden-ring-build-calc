@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guides · Elden Ring Build Calculator</title>
+<meta name="description" content="Quest tracker with fail-trigger warnings, boss cheat-sheet, and endings guide for Elden Ring. Progress saved in your browser.">
+<link rel="stylesheet" href="../assets/app.css">
+</head>
+<body>
+<div class="bg"></div>
+<header class="topbar">
+  <a class="brand" href="../"><span class="brand-mark">◈</span><span class="brand-text"><b>ELDEN RING</b><small>GUIDES</small></span></a>
+  <div class="topbar-right">
+    <a class="icon-btn" href="../atlas/">Weapon Atlas</a>
+    <a class="icon-btn" href="../build/">Open Calculator →</a>
+  </div>
+</header>
+<main class="grid" style="grid-template-columns:1fr; max-width:900px">
+  <section class="panel">
+    <h2>Guides</h2>
+    <div class="atlas-tabs" id="guideTabs" role="tablist">
+      <button class="atlas-tab active" data-tab="quests" role="tab" aria-selected="true">Quest Tracker</button>
+      <button class="atlas-tab" data-tab="bosses" role="tab" aria-selected="false">Bosses</button>
+      <button class="atlas-tab" data-tab="endings" role="tab" aria-selected="false">Endings</button>
+    </div>
+    <div id="guideContent" class="guide-content"><p class="guide-loading">Loading…</p></div>
+  </section>
+</main>
+<footer class="foot">
+  Guide content distilled from <a href="https://eldenring.wiki.gg" target="_blank" rel="noopener">eldenring.wiki.gg</a> (CC BY-SA 4.0)
+  and <a href="https://eldenring.wiki.fextralife.com/Elden+Ring+Wiki" target="_blank" rel="noopener">Fextralife</a>, reworded and condensed.
+  Elden Ring and all related images/trademarks are property of FromSoftware, Inc. and Bandai Namco
+  Entertainment. Unofficial, non-commercial fan project — not affiliated with or endorsed by them.
+</footer>
+<script src="../src/data-loader.js"></script>
+<script src="./guides.js"></script>
+</body>
+</html>
