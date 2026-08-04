@@ -1,0 +1,270 @@
+{
+  "_source": "Distilled from the offline ER guide (wiki.gg CC BY-SA + Fextralife, reworded). '(verify)' marks community claims not re-confirmed in-game. Aimed at players new to FromSoftware games.",
+  "universalTips": [
+    "Vigor is king — aim for ~40 by mid-game. Most one-shot deaths are low Vigor, not low skill.",
+    "Bring a Spirit Ash (Mimic Tear or Black Knife Tiche) to split the boss's attention.",
+    "Status weapons win fights — Bleed and Frost chunk most early/mid bosses.",
+    "If a boss feels impossible, level up elsewhere and come back. That's the intended loop, not cheating.",
+    "Almost every boss is immune to Madness — skip Madness for boss damage.",
+    "Spend your runes BEFORE a hard boss; you drop them on death."
+  ],
+  "bosses": [
+    {
+      "id": "margit",
+      "name": "Margit, the Fell Omen",
+      "location": "Stormveil approach, Limgrave",
+      "required": true,
+      "greatRune": null,
+      "weak": ["Slash", "Bleed", "Frost", "Poison", "Scarlet Rot"],
+      "resists": ["Holy"],
+      "immune": ["Sleep", "Madness"],
+      "bring": [
+        "Margit's Shackle (buy from Patches, Murkwater Cave, 5,000 runes) — stuns him twice in phase 1",
+        "Spirit Ashes (Lone Wolves)",
+        "Summon Sorcerer Rogier — gold sign outside the fog"
+      ],
+      "tips": [
+        "The game's first wall. If stuck, clear the Weeping Peninsula for levels and come back.",
+        "He delays his swings on purpose to bait early rolls — wait, then roll late."
+      ]
+    },
+    {
+      "id": "godrick",
+      "name": "Godrick the Grafted",
+      "location": "Stormveil Castle, Limgrave",
+      "required": true,
+      "greatRune": "Godrick's Great Rune (+all attributes when active)",
+      "weak": ["Magic", "Fire", "Lightning", "all statuses (incl. Sleep)"],
+      "resists": ["Holy"],
+      "immune": ["Madness"],
+      "bring": [
+        "Summon Nepheli Loux — sign inside the fog",
+        "Rotten Stray Spirit Ash (applies rot)"
+      ],
+      "tips": [
+        "Phase 2 he grafts a dragon head — stay at his side or behind, never in front of the fire.",
+        "Use the pillars and rubble to break line of sight."
+      ]
+    },
+    {
+      "id": "rennala",
+      "name": "Rennala, Queen of the Full Moon",
+      "location": "Raya Lucaria Academy, Liurnia",
+      "required": true,
+      "greatRune": "Great Rune of the Unborn (enables respec — not a worn buff)",
+      "weak": ["Standard", "Slash", "Pierce", "statuses (phase 2)"],
+      "resists": ["Magic — very high; do NOT rely on sorcery"],
+      "immune": ["Sleep", "Madness"],
+      "bring": [
+        "A physical melee weapon",
+        "Spirit Ashes to interrupt her casting in phase 2"
+      ],
+      "tips": [
+        "Phase 1 is a puzzle, not a damage race: kill the 3 glowing singing students to drop her shield, then punish.",
+        "Phase 2: dodge TOWARD her to slip her glintstone spells."
+      ]
+    },
+    {
+      "id": "radahn",
+      "name": "Starscourge Radahn",
+      "location": "Redmane Castle festival, Caelid",
+      "required": true,
+      "greatRune": "Radahn's Great Rune (raises max HP/FP/Stamina) — beating him also opens Nokron",
+      "weak": ["Scarlet Rot (melts him — Rotten Breath is the classic opener)", "Sleep (sleep pots work)", "Pierce"],
+      "resists": ["Bleed", "Frost", "Poison", "Holy"],
+      "immune": ["Madness"],
+      "bring": [
+        "Torrent — this is the one boss fight you ride",
+        "The NPC summon banners around the arena (re-summonable, no rune penalty)"
+      ],
+      "tips": [
+        "Gallop lateral to the opening arrow volley while closing the gap.",
+        "Keep re-summoning NPCs to tank his ranged barrages."
+      ]
+    },
+    {
+      "id": "morgott",
+      "name": "Morgott, the Omen King",
+      "location": "Leyndell, Royal Capital",
+      "required": true,
+      "greatRune": "Morgott's Great Rune (big max-HP boost)",
+      "weak": ["Slash", "Bleed", "Frost", "Poison", "Rot", "Sleep (resistance climbs after each proc)"],
+      "resists": ["Holy"],
+      "immune": ["Madness"],
+      "bring": [
+        "Margit's Shackle works on him too (twice, phase 1)",
+        "Summon Melina — sign at the fog"
+      ],
+      "tips": [
+        "Same delayed-swing baits as Margit — patient, late rolls.",
+        "Jump over his sweeping attacks and stick to his legs."
+      ]
+    },
+    {
+      "id": "fire-giant",
+      "name": "Fire Giant",
+      "location": "Flame Peak, Mountaintops of the Giants",
+      "required": true,
+      "greatRune": null,
+      "weak": ["Frost (best)", "Slash", "weak points: chained leg (P1), wrists/eye/belly wound (P2) for double damage"],
+      "resists": ["Fire — heavily; leave fire weapons home", "Holy", "most statuses except Frost"],
+      "immune": ["Madness"],
+      "bring": [
+        "Torrent to keep pace",
+        "Mimic Tear or Black Knife Tiche; Alexander's summon if his quest is far enough"
+      ],
+      "tips": [
+        "Stay under and behind him, camera locked.",
+        "Phase 2 rolling fire wheel: sprint perpendicular, don't race it in a straight line."
+      ]
+    },
+    {
+      "id": "godskin-duo",
+      "name": "Godskin Duo",
+      "location": "Crumbling Farum Azula",
+      "required": true,
+      "greatRune": null,
+      "weak": ["Strike", "Slash", "Sleep (huge — sleep one, gang the other)", "Bleed"],
+      "resists": ["Fire", "Holy", "Poison", "Rot", "Frost"],
+      "immune": ["Madness"],
+      "bring": [
+        "Sleep Pots / Sleep arrows / St. Trina's Torch",
+        "Mimic Tear; summon Recusant Bernahl (sign)"
+      ],
+      "tips": [
+        "They share ONE health pool — killing one just gets it revived; grind the shared bar down.",
+        "Use the pillars to fight one at a time."
+      ]
+    },
+    {
+      "id": "maliketh",
+      "name": "Maliketh, the Black Blade",
+      "location": "Crumbling Farum Azula",
+      "required": true,
+      "greatRune": null,
+      "weak": ["Sleep + Holy (phase 1, Beast Clergyman)", "stance-breakable with heavies"],
+      "resists": ["Holy — heavily in phase 2; skip Holy damage there"],
+      "immune": ["Madness"],
+      "bring": [
+        "40+ Vigor",
+        "A defensive Physick (e.g. Opaline Hardtear) — his red attacks cut max HP and apply a bleed-like DoT",
+        "Mimic Tear or Tiche"
+      ],
+      "tips": [
+        "Stay glued to him — his big combos whiff at point-blank; he's deadliest at mid-range.",
+        "Dodge late. Beating him is the world-change trigger — finish NPC quests first."
+      ]
+    },
+    {
+      "id": "godfrey",
+      "name": "Godfrey, First Elden Lord / Hoarah Loux",
+      "location": "Leyndell, Capital of Ash",
+      "required": true,
+      "greatRune": null,
+      "weak": ["Pierce + Lightning (P1)", "Slash + Sleep (P2)", "Bleed/Frost help both"],
+      "resists": ["Holy", "Poison", "Rot"],
+      "immune": ["Madness"],
+      "bring": [
+        "High Vigor",
+        "Spirit Ashes"
+      ],
+      "tips": [
+        "JUMP his ground-slam shockwaves — rolling often fails.",
+        "Phase 2 adds unblockable grabs with a clear wind-up: dodge late, into him."
+      ]
+    },
+    {
+      "id": "radagon-elden-beast",
+      "name": "Radagon / Elden Beast",
+      "location": "The Erdtree (final boss)",
+      "required": true,
+      "greatRune": null,
+      "weak": ["Radagon: Strike, Fire (full damage); Poison/Rot/Frost build; parryable", "Elden Beast: Fire + physical; slow Bleed build"],
+      "resists": ["Radagon: Holy (very high)", "Elden Beast: Holy (it spams holy at you)"],
+      "immune": ["Radagon: Bleed, Sleep, Madness"],
+      "bring": [
+        "A Fire-infused weapon or Fire Grease",
+        "Haligdrake Talisman (cuts holy damage) for the Beast",
+        "40+ Vigor, Mimic Tear"
+      ],
+      "tips": [
+        "Both fights are back-to-back on one attempt — flasks do NOT refill between them, so save some. (verify exact behavior)",
+        "Radagon's hammer slams have long recovery — that's your punish window.",
+        "Elden Beast: sprint toward it constantly; run sideways through Elden Stars; roll the single homing star late."
+      ]
+    },
+    {
+      "id": "mohg",
+      "name": "Mohg, Lord of Blood",
+      "location": "Mohgwyn Palace (via Consecrated Snowfield teleporter, or Varré's quest)",
+      "required": false,
+      "greatRune": "Mohg's Great Rune (phantom-army buff — PvP-flavored)",
+      "weak": ["Physical", "Bleed + Frost (build slowly — he resists somewhat)"],
+      "resists": ["Fire — heavily", "Poison", "Rot", "Frost"],
+      "immune": ["Madness"],
+      "bring": [
+        "Purifying Crystal Tear in your Physick — neutralizes most of the phase-2 Nihil ritual (the 3-count blood blast that otherwise drains you and heals him)",
+        "Mohg's Shackle (Subterranean Shunning-Grounds) — stuns him twice in phase 1"
+      ],
+      "tips": [
+        "Drink the Purifying-tear Physick before phase 2 triggers.",
+        "His bloodflame bleeds you over time — keep HP topped, don't stand in the fire pools."
+      ]
+    },
+    {
+      "id": "malenia",
+      "name": "Malenia, Blade of Miquella",
+      "location": "Elphael, Brace of the Haligtree (fully optional — the hardest fight in the game)",
+      "required": false,
+      "greatRune": null,
+      "weak": ["Fire (best)", "Frost", "Bleed — procs can interrupt Waterfowl Dance"],
+      "resists": ["Poison", "Rot", "Holy"],
+      "immune": ["Madness"],
+      "bring": [
+        "High physical-negation talismans + a defensive Physick",
+        "Bloodhound's Step Ash of War (dodges Waterfowl Dance)",
+        "Mimic Tear — summons make her heal more, but they tank hits"
+      ],
+      "tips": [
+        "She heals on EVERY hit she lands — even blocked ones. Do not turtle behind a shield.",
+        "Waterfowl Dance is the #1 killer: run from the first two flurries, roll through the rest.",
+        "Phase 2 opens with a giant Scarlet Rot bloom — sprint out, then re-engage."
+      ]
+    },
+    {
+      "id": "astel",
+      "name": "Astel, Naturalborn of the Void",
+      "location": "Grand Cloister, end of the Lake of Rot (Ranni's quest)",
+      "required": false,
+      "greatRune": null,
+      "weak": ["Physical — aim for the head", "stance-breakable"],
+      "resists": ["Magic", "Fire", "Lightning", "Holy", "most statuses; Bleed effectiveness (verify)"],
+      "immune": ["Frost", "Sleep", "Madness"],
+      "bring": [
+        "Spirit Ashes (Latenna is great here) to hold aggro"
+      ],
+      "tips": [
+        "Don't lock on — free camera tracks its teleports and meteor barrage better.",
+        "Stay under it, near the head, where many attacks whiff."
+      ]
+    },
+    {
+      "id": "rykard",
+      "name": "Rykard, Lord of Blasphemy",
+      "location": "Volcano Manor, Mt. Gelmir",
+      "required": false,
+      "greatRune": "Rykard's Great Rune (restores HP on kills)",
+      "weak": ["The Serpent-Hunter great spear (gimmick weapon at the arena entrance)", "Physical", "Frost"],
+      "resists": ["Fire — heavily", "Poison", "Rot", "Bleed"],
+      "immune": ["Madness"],
+      "bring": [
+        "The Serpent-Hunter — pick it up off the corpse at the entrance; normal weapons barely scratch him",
+        "A Mimic Tear also spawns holding one — trivializes the fight"
+      ],
+      "tips": [
+        "Spam the spear's heavy attacks and skill — it stuns and interrupts his skull-rain.",
+        "Stay out of the lava. Beating him CLOSES all Volcano Manor quests — finish those first."
+      ]
+    }
+  ]
+}

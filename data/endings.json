@@ -1,0 +1,59 @@
+{
+  "_source": "Compiled from the offline ER guide's quest notes (wiki.gg CC BY-SA + Fextralife, reworded). Spoiler-light: how to unlock each ending, not what happens in it.",
+  "howItWorks": [
+    "After the final boss you choose an ending at Fractured Marika. Which choices appear depends on what you unlocked beforehand.",
+    "Mending Runes (from Fia, Goldmask, Dung Eater) each add one extra choice — you can carry all three and pick at the end.",
+    "Ranni's ending is chosen by summoning her blue sign instead of touching Marika.",
+    "The Frenzied Flame is different: once inherited it OVERRIDES everything unless you revert it with Miquella's Needle before the end. (verify exact override rules)"
+  ],
+  "endings": [
+    {
+      "id": "age-of-fracture",
+      "name": "Age of Fracture",
+      "kind": "default",
+      "how": "Beat the final boss and choose \"Mend the Elden Ring\" — no quest required.",
+      "questId": null,
+      "pointOfNoReturn": null
+    },
+    {
+      "id": "age-of-order",
+      "name": "Age of Order",
+      "kind": "mending-rune",
+      "how": "Complete Brother Corhyn & Goldmask's quest and use the Mending Rune of Perfect Order at the end.",
+      "questId": "goldmask",
+      "pointOfNoReturn": "The Law of Regression statue step in Leyndell must be done before the capital turns to ash."
+    },
+    {
+      "id": "age-of-duskborn",
+      "name": "Age of the Duskborn",
+      "kind": "mending-rune",
+      "how": "Complete Fia's quest (through the Deathbed Dream) and use the Mending Rune of the Death-Prince.",
+      "questId": "fia",
+      "pointOfNoReturn": "Fia's chain depends on Rogier's and D's steps landing in order — start early."
+    },
+    {
+      "id": "blessing-of-despair",
+      "name": "Blessing of Despair",
+      "kind": "mending-rune",
+      "how": "Complete Dung Eater's quest (5 Seedbed Curses) and use the Mending Rune of the Fell Curse.",
+      "questId": "dung-eater",
+      "pointOfNoReturn": "Killing him in the sewer gaol (for the Sword of Milos) forfeits the rune."
+    },
+    {
+      "id": "age-of-stars",
+      "name": "Age of the Stars",
+      "kind": "npc-summon",
+      "how": "Complete Ranni's full quest, then summon her blue sign after the final boss instead of touching Marika.",
+      "questId": "ranni",
+      "pointOfNoReturn": "Giving Ranni Seluvis's Potion breaks the quest permanently."
+    },
+    {
+      "id": "frenzied-flame",
+      "name": "Lord of the Frenzied Flame",
+      "kind": "override",
+      "how": "Follow Hyetta's quest and inherit the Flame of Frenzy at the Frenzied Flame Proscription (armor off, through the sealed door).",
+      "questId": "hyetta",
+      "pointOfNoReturn": "Inheriting the flame locks this ending. Reverting requires Miquella's Needle — built from Millicent's quest reward, usable only after beating Malenia, at Dragonlord Placidusax's arena. (verify)"
+    }
+  ]
+}

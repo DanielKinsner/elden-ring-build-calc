@@ -33,6 +33,17 @@
     return fetchJSON(basePath + 'buffs.json'); // { categories, buffs, talismans }
   }
 
+  // Guides data: quests + bosses + endings in one go (the guides pages need all three).
+  async function loadGuides(basePath) {
+    basePath = basePath || 'data/';
+    var parts = await Promise.all([
+      fetchJSON(basePath + 'quests.json'),
+      fetchJSON(basePath + 'bosses.json'),
+      fetchJSON(basePath + 'endings.json')
+    ]);
+    return { quests: parts[0], bosses: parts[1], endings: parts[2] };
+  }
+
   async function fetchJSON(url) {
     if (typeof fetch === 'function') {
       var res = await fetch(url);
@@ -44,5 +55,5 @@
     return JSON.parse(fs.readFileSync(path.resolve(url), 'utf8'));
   }
 
-  return { loadWeapons: loadWeapons, loadPresets: loadPresets, loadBuffs: loadBuffs };
+  return { loadWeapons: loadWeapons, loadPresets: loadPresets, loadBuffs: loadBuffs, loadGuides: loadGuides };
 });
