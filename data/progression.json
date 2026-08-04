@@ -1,0 +1,91 @@
+{
+  "_source": "Base route distilled from Fextralife's Game Progress Route / Recommended Levels + wiki.gg cross-check (via the offline ER guide, reworded). DLC section from community consensus post-SotE; '≈' level ranges are matchmaking-derived comfort ranges, not requirements. '(verify)' marks claims not re-confirmed in-game.",
+  "intro": "Elden Ring is open, but there IS a happy path. Do regions in this order, keep your weapon upgrade near the listed tier, and pump Vigor above all else. You only need 2 Great Runes to enter the capital — don't grind every region.",
+  "route": [
+    { "id": "r1",  "region": "Limgrave",                    "type": "open",        "boss": "(optional: Flying Dragon Agheel)",                          "level": "1–20",    "weapon": "+0–2" },
+    { "id": "r2",  "region": "Weeping Peninsula",           "type": "open",        "boss": "Leonine Misbegotten (Castle Morne)",                        "level": "20–30",   "weapon": "+3" },
+    { "id": "r3",  "region": "Stormveil Castle",            "type": "legacy",      "boss": "Godrick the Grafted → Great Rune",                          "level": "30–40",   "weapon": "+3–4" },
+    { "id": "r4",  "region": "Liurnia of the Lakes",        "type": "open",        "boss": "gateway region",                                            "level": "40–60",   "weapon": "+4–6" },
+    { "id": "r5",  "region": "Raya Lucaria Academy",        "type": "legacy",      "boss": "Rennala → Great Rune of the Unborn",                        "level": "50–60",   "weapon": "+4–6" },
+    { "id": "r6",  "region": "Caelid",                      "type": "open",        "boss": "Starscourge Radahn → Great Rune",                           "level": "60–70",   "weapon": "+10–14" },
+    { "id": "r7",  "region": "Altus Plateau",               "type": "open",        "boss": "— (reach via Dectus Lift)",                                 "level": "60–80",   "weapon": "+10–14" },
+    { "id": "r8",  "region": "Mt. Gelmir",                  "type": "open/legacy", "boss": "Rykard → Great Rune (optional)",                            "level": "80–100",  "weapon": "+15–20" },
+    { "id": "r9",  "region": "Leyndell, Royal Capital",     "type": "legacy",      "boss": "Morgott → Great Rune",                                      "level": "90–110",  "weapon": "+15–20" },
+    { "id": "r10", "region": "Mountaintops of the Giants",  "type": "open",        "boss": "Fire Giant",                                                "level": "100–120", "weapon": "+20–24" },
+    { "id": "r11", "region": "Crumbling Farum Azula",       "type": "legacy",      "boss": "Maliketh (story gate — world change!)",                     "level": "120–150", "weapon": "+20–25" },
+    { "id": "r12", "region": "Leyndell, Capital of Ash",    "type": "legacy",      "boss": "Gideon → Hoarah Loux → final boss → ending",                "level": "120–150", "weapon": "+24–25" }
+  ],
+  "routeNote": "Caelid and Altus are roughly the same tier; many players do Caelid for Radahn, then ride the Dectus Lift up to Altus.",
+  "statTargets": [
+    "Vigor first, always: ~25–30 by Stormveil, ~40 by the capital (first soft cap), ~50–60 endgame.",
+    "Just enough of your weapon's requirement stat to wield it, then keep raising your main scaling stat.",
+    "Endurance as needed for stamina + equip load (roll fast in your armor).",
+    "Mind only if you cast spells/skills a lot.",
+    "Upgrade your flasks and weapon every chance you get — they matter more than raw level."
+  ],
+  "steps": [
+    { "id": "walk-1",  "text": "Limgrave: get Torrent, the Spirit Calling Bell (Church of Elleh), and the Whetstone Knife (Warmaster's Shack). Explore, hit Graces, upgrade your weapon to +3." },
+    { "id": "walk-2",  "text": "Grab the Dectus Medallion (Left) at Fort Haight while you're in East Limgrave — easy to miss on the rooftop." },
+    { "id": "walk-3",  "text": "Clear the Weeping Peninsula for runes, flask upgrades, and Castle Morne loot (~level 20–30)." },
+    { "id": "walk-4",  "text": "Take Stormveil Castle → beat Godrick → Great Rune #1." },
+    { "id": "walk-5",  "text": "Enter Liurnia of the Lakes; explore, upgrade your weapon, raise Vigor toward 30+." },
+    { "id": "walk-6",  "text": "Clear Raya Lucaria Academy → beat Rennala → Great Rune #2 (yes, the Unborn rune counts — it also unlocks respec via Larval Tears)." },
+    { "id": "walk-7",  "text": "Recommended: head to Caelid, beat Radahn (opens Nokron); grab the Dectus Medallion (Right) at Fort Faroth while there." },
+    { "id": "walk-8",  "text": "Ride the Grand Lift of Dectus (or climb the Ruin-Strewn Precipice) up to the Altus Plateau." },
+    { "id": "walk-9",  "text": "Talk to Finger Reader Enia at the Roundtable to confirm your 2 Great Runes, then push into Leyndell, Royal Capital." },
+    { "id": "walk-10", "text": "Take Leyndell → beat Morgott → his Great Rune." },
+    { "id": "walk-11", "text": "Through the Forbidden Lands to the Mountaintops of the Giants → beat the Fire Giant." },
+    { "id": "walk-12", "text": "⚠ Wrap up NPC quests FIRST, then Crumbling Farum Azula → beat Maliketh (triggers the world change)." },
+    { "id": "walk-13", "text": "Return to the burning capital (Leyndell, Capital of Ash) → Gideon, then Hoarah Loux → final boss → your ending." }
+  ],
+  "readiness": [
+    "Leave a region when you comfortably survive its regular enemies AND your weapon is at that region's tier.",
+    "Before Stormveil: weapon +3, Vigor ~20–25, Spirit Calling Bell + summon ashes in hand.",
+    "Before the capital: 2 Great Runes, weapon roughly +12–15, Vigor ~40.",
+    "If a boss feels impossible you're usually under-upgraded (weapon) or low on Vigor — not just low level."
+  ],
+  "powerUps": [
+    "Torrent — given by Melina after resting at a few Graces. Essential.",
+    "Spirit Calling Bell + Lone Wolf Ashes — from Renna at the Church of Elleh after you have Torrent. Grab early.",
+    "Whetstone Knife / Ashes of War — Warmaster's Shack (Limgrave): change a weapon's skill and affinity at any Grace.",
+    "Golden Seeds (more flask charges) + Sacred Tears (stronger flasks) — collect constantly, upgrade at a Grace.",
+    "Smithing Stones + Bell Bearings (turn-in at the Twin Maiden Husks) — your weapon upgrade economy.",
+    "Memory Stones / Talisman Pouches — more spell slots and talisman slots."
+  ],
+  "gotchas": [
+    "The teleporter-trap chest in Dragon-Burnt Ruins warps you to a cage deep in Caelid. Not a bug — escape and leave; come back ~level 60+.",
+    "Caelid is reachable absurdly early but is brutal. Don't try to clear it before Liurnia.",
+    "Ranni's questline can be permanently broken by carelessly killing or over-progressing Seluvis or Iji — see the Quest Tracker.",
+    "Activate the Dectus Lift early: grab the Fort Haight (left) half on your first Limgrave pass.",
+    "Point of no return: beating Maliketh changes the world. Finish NPC quests and optional regions before that."
+  ],
+  "sideBranches": [
+    "Underground rivers: Siofra → Nokron (opens after Radahn) → Deeproot Depths; Ainsel → Lake of Rot → Nokstella. Ranni's quest + big loot.",
+    "Mt. Gelmir / Volcano Manor: Rykard + the assassination questline (finish the letters before fighting him).",
+    "Consecrated Snowfield (needs both Haligtree Secret Medallion halves) → Mohgwyn Palace (Mohg) and Miquella's Haligtree (Malenia). Endgame only."
+  ],
+  "dlc": {
+    "title": "Shadow of the Erdtree (DLC)",
+    "entry": [
+      "Two bosses gate the DLC: beat Starscourge Radahn (Caelid) and Mohg, Lord of Blood (Mohgwyn Palace).",
+      "Then touch the withered arm in Mohg's boss arena to cross into the Land of Shadow.",
+      "Comfortable entry point: ≈ level 150+, weapon +24/+10 somber. It's tuned for endgame characters."
+    ],
+    "scadutree": [
+      "Your character level barely matters in the DLC compared to Scadutree Blessing: collect Scadutree Fragments and spend them at any Site of Grace to raise DLC-only damage dealt AND damage taken reduction (up to blessing level 20).",
+      "Revered Spirit Ash Blessing does the same for your Spirit Ashes and Torrent.",
+      "If a DLC boss is wrecking you, hunt fragments first — it's the DLC's real progression axis. Fragments are on statues, in churches, and on minor bosses across the map."
+    ],
+    "route": [
+      { "id": "d1", "region": "Gravesite Plain",              "boss": "Divine Beast Dancing Lion (Belurat, Tower Settlement)", "note": "Opening region; grab early Scadutree Fragments before Belurat." },
+      { "id": "d2", "region": "Castle Ensis",                 "boss": "Rellana, Twin Moon Knight",                             "note": "The gate to Scadu Altus; Rellana is an early skill-check — blessing level ≈5+ helps." },
+      { "id": "d3", "region": "Scadu Altus",                  "boss": "— (hub region)",                                        "note": "Quest crossroads for Miquella's followers; fragments everywhere." },
+      { "id": "d4", "region": "Shadow Keep",                  "boss": "Messmer the Impaler",                                   "note": "The DLC's central legacy dungeon; his flame gates later story steps." },
+      { "id": "d5", "region": "Optional: Jagged Peak",        "boss": "Bayle the Dread",                                       "note": "Dragon pilgrimage; summon Igon's sign outside the arena — you'll know why." },
+      { "id": "d6", "region": "Optional: Abyssal Woods",      "boss": "Midra, Lord of Frenzied Flame",                         "note": "Hidden region below the map; stealth past the Aged Ones — they cannot be fought conventionally." },
+      { "id": "d7", "region": "Optional: Finger Ruins",       "boss": "Metyr, Mother of Fingers",                              "note": "Tied to Count Ymir's questline." },
+      { "id": "d8", "region": "Church of the Bud",            "boss": "Romina, Saint of the Bud",                              "note": "On the way to the finale; burning the sealing tree follows." },
+      { "id": "d9", "region": "Enir-Ilim",                    "boss": "Promised Consort Radahn (final)",                       "note": "The DLC's hardest wall — blessing 18–20 strongly recommended." }
+    ]
+  }
+}

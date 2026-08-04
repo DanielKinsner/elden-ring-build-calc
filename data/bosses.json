@@ -249,6 +249,141 @@
       ]
     },
     {
+      "id": "dancing-lion",
+      "name": "Divine Beast Dancing Lion",
+      "location": "Belurat, Tower Settlement — Gravesite Plain (DLC)",
+      "required": false,
+      "dlc": true,
+      "greatRune": null,
+      "weak": ["Physical — it staggers to sustained heavy hits", "Bleed builds (verify)"],
+      "resists": ["Lightning/Frost/Wind — it wields all three, don't fight fire with fire"],
+      "immune": ["Madness"],
+      "bring": [
+        "Scadutree Blessing 2–4 before trying — fragments beat levels here",
+        "Summon Redmane Freyja's sign at the arena steps"
+      ],
+      "tips": [
+        "It's two guys in a lion suit, and it moves like it: stay glued to the body, not the head, and strafe with its spins.",
+        "Each element phase telegraphs — during the lightning dance, jump the ground surges; during frost, keep moving so the mist doesn't stack."
+      ]
+    },
+    {
+      "id": "rellana",
+      "name": "Rellana, Twin Moon Knight",
+      "location": "Castle Ensis (DLC)",
+      "required": false,
+      "dlc": true,
+      "greatRune": null,
+      "weak": ["Parryable — her sword combos can be parried", "Bleed/Frost build (verify)"],
+      "resists": ["Magic and Fire — she channels both in phase 2"],
+      "immune": ["Madness"],
+      "bring": [
+        "Scadutree Blessing ≈5+ — she's the DLC's first real skill-check",
+        "A defensive Physick; NPC/ash summons to split her aggro"
+      ],
+      "tips": [
+        "Her long sword-chains are dodgeable at point-blank — mid-range is where she kills you.",
+        "Twin Moons (she rises with two moons): sprint away from the first two blasts, then JUMP the third — jumping beats rolling here."
+      ]
+    },
+    {
+      "id": "messmer",
+      "name": "Messmer the Impaler",
+      "location": "Shadow Keep (DLC)",
+      "required": false,
+      "dlc": true,
+      "greatRune": null,
+      "weak": ["Bleed builds well (verify)", "Stance-breakable during his grounded spear strings"],
+      "resists": ["Fire — obviously; leave the flame builds home"],
+      "immune": ["Madness"],
+      "bring": [
+        "Scadutree Blessing ≈10 territory",
+        "Summon Hornsent's sign if you've kept his quest alive — story flavor included"
+      ],
+      "tips": [
+        "Nearly every combo ends in a long recovery — learn to wait out the string, then take your two hits.",
+        "Mid-fight he becomes the serpent: the giant dive is a sprint-away-then-roll, and his grab has a distinct slow wind-up — save your panic roll."
+      ]
+    },
+    {
+      "id": "bayle",
+      "name": "Bayle the Dread",
+      "location": "Jagged Peak (DLC, optional dragon pilgrimage)",
+      "required": false,
+      "dlc": true,
+      "greatRune": null,
+      "weak": ["Physical at the chest/left leg", "Bleed builds (verify)"],
+      "resists": ["Lightning and Fire — he IS lightning and fire"],
+      "immune": ["Madness"],
+      "bring": [
+        "IGON. Summon his sign outside the arena if his quest is alive — the single best NPC summon moment in the game.",
+        "High stamina — you'll sprint a lot"
+      ],
+      "tips": [
+        "Fight under him at the left side; his head slams and breath mostly miss there.",
+        "Phase 2 opens with a massive lightning detonation — sprint OUT on the wind-up, then run straight back in."
+      ]
+    },
+    {
+      "id": "midra",
+      "name": "Midra, Lord of Frenzied Flame",
+      "location": "Midra's Manse, Abyssal Woods (DLC, hidden)",
+      "required": false,
+      "dlc": true,
+      "greatRune": null,
+      "weak": ["Bleed/status build (verify)", "His openings are long — a patient melee dream"],
+      "resists": ["Fire; Madness buildup from him is the real threat, not your damage"],
+      "immune": ["Madness (as damage to him)"],
+      "bring": [
+        "Clarifying White Cured Meat / high Focus gear for the madness meter",
+        "Scadutree Blessing ≈12+"
+      ],
+      "tips": [
+        "Getting THERE is the fight: in the Abyssal Woods, crouch-walk and do not engage the Aged Ones — they cannot be fought conventionally.",
+        "In the arena he's one of the fairest duels in the DLC: every flame flurry has a clean pause at the end. Dodge late, punish once, reset."
+      ]
+    },
+    {
+      "id": "romina",
+      "name": "Romina, Saint of the Bud",
+      "location": "Church of the Bud (DLC, on the finale path)",
+      "required": false,
+      "dlc": true,
+      "greatRune": null,
+      "weak": ["Fire (commonly cited — verify)", "Stance-breakable between repositions"],
+      "resists": ["Scarlet Rot — she is its saint; your rot does nothing"],
+      "immune": ["Madness"],
+      "bring": [
+        "Boluses / Immunizing gear — her scythe strings stack rot fast",
+        "Scadutree Blessing ≈12–14"
+      ],
+      "tips": [
+        "She's a mobility fight: when she launches the centipede vault, sprint under the landing, don't backpedal.",
+        "Punish hard after her spinning rot bloom — it's her longest recovery."
+      ]
+    },
+    {
+      "id": "consort-radahn",
+      "name": "Promised Consort Radahn",
+      "location": "Enir-Ilim (DLC final boss)",
+      "required": false,
+      "dlc": true,
+      "greatRune": null,
+      "weak": ["Bleed/Frost build slowly (verify)", "His post-combo recoveries — the only real windows"],
+      "resists": ["Holy (phase 2 especially); broadly tanky against everything"],
+      "immune": ["Madness"],
+      "bring": [
+        "Scadutree Blessing 18–20. Not optional for most builds.",
+        "Physical-negation talismans + a defensive Physick; Holy negation for phase 2",
+        "A summon (NPC signs or your Mimic) to buy breathing room"
+      ],
+      "tips": [
+        "The cross-slash: dodge INTO it diagonally — rolling away eats the second blade. Practice this one move; it's most of the fight.",
+        "Phase 2 adds light rain after his big swings — run TOWARD his back leg and the beams miss. The grab (he reaches with his off-hand) is a late dodge.",
+        "This is the hardest wall FromSoftware has built. Losing for a while is the intended experience — blessing up, don't be proud."
+      ]
+    },
+    {
       "id": "rykard",
       "name": "Rykard, Lord of Blasphemy",
       "location": "Volcano Manor, Mt. Gelmir",

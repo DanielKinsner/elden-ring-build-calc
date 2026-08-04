@@ -435,6 +435,24 @@ body.build-page { padding-bottom: 80px; }
 .boss-list { margin: 0; padding-left: 16px; font-size: 12.5px; line-height: 1.55; color: var(--text); }
 .boss-list li { margin-bottom: 2px; }
 
+.guide-note { color: var(--dim); font-size: 12px; margin: 8px 0 0; }
+.route-scroll { overflow-x: auto; border: 1px solid var(--line-2); border-radius: 9px; background: var(--panel-2); }
+.route-table { width: 100%; border-collapse: collapse; font-size: 12.5px; min-width: 520px; }
+.route-table th { text-align: left; font: 600 10px var(--serif); letter-spacing: .12em; text-transform: uppercase; color: var(--gold-dim); padding: 10px 12px; border-bottom: 1px solid var(--line); }
+.route-table td { padding: 8px 12px; border-bottom: 1px solid var(--line-2); color: var(--text); vertical-align: top; }
+.route-table tr:last-child td { border-bottom: 0; }
+.route-table td:first-child { color: var(--gold-dim); font-variant-numeric: tabular-nums; }
+.route-table td small { color: var(--dim); font-size: 10px; text-transform: uppercase; letter-spacing: .05em; }
+.route-table tr:hover td { background: rgba(201,162,39,.05); }
+.walk-steps { margin-bottom: 16px; }
+.boss-badges { display: flex; align-items: center; gap: 8px; }
+.boss-dlc { color: #b48ead; border-color: rgba(180,142,173,.5); }
+.boss-felled { display: flex; align-items: center; gap: 4px; color: var(--dim); font-size: 13px; cursor: pointer; }
+.boss-felled input { accent-color: var(--gold); cursor: pointer; }
+.boss-card.felled { border-color: rgba(134,173,92,.4); }
+.boss-card.felled .boss-name { color: var(--dim); }
+.boss-card.felled .boss-name::after { content: ' ✓'; color: var(--green); }
+
 .ending-list { display: flex; flex-direction: column; gap: 10px; }
 .ending-card { background: var(--panel-2); border: 1px solid var(--line-2); border-radius: 9px; padding: 14px; transition: border-color .18s var(--ease); }
 .ending-card:hover { border-color: var(--gold-dim); }
