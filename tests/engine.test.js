@@ -122,5 +122,35 @@ check('x1.2 all-type buff', buffed.buffed.totalAR, expect);
 var soreseal = ERCalc.computeARBuffed(vera, rob, { twoHanded: true }, [{ statBonus: { STR: 5, DEX: 5 } }]);
 check('soreseal raises AR', soreseal.totalAR > fr.totalAR, true);
 
+/* ---- survival: stat tables [CONFIRMED wiki.gg + Fextralife 2026-08] + roll brackets ---- */
+console.log('survival:');
+check('HP @ VIG 40', ERCalc.statEffects({ VIG: 40 }).hp, 1450);
+check('HP @ VIG 60', ERCalc.statEffects({ VIG: 60 }).hp, 1900);
+check('HP @ VIG 99', ERCalc.statEffects({ VIG: 99 }).hp, 2100);
+check('FP @ MND 40', ERCalc.statEffects({ MND: 40 }).fp, 235);
+check('FP @ MND 60', ERCalc.statEffects({ MND: 60 }).fp, 350);
+check('FP @ MND 99', ERCalc.statEffects({ MND: 99 }).fp, 450);
+check('stamina @ END 20/40/60', [20, 40, 60].map(function (e) { return ERCalc.statEffects({ END: e }).stamina; }), [113, 142, 158]);
+check('equip load @ END 20/40/60', [20, 40, 60].map(function (e) { return ERCalc.statEffects({ END: e }).equipLoad; }), [64.1, 90.9, 120]);
+check('stats clamp (VIG 0 → level 1)', ERCalc.statEffects({}).hp, 300);
+
+check('29.9/100 light', ERCalc.rollState(29.9, 100).state, 'light');
+check('30/100 medium (strict <)', ERCalc.rollState(30, 100).state, 'medium');
+check('69.9/100 medium', ERCalc.rollState(69.9, 100).state, 'medium');
+check('70/100 heavy', ERCalc.rollState(70, 100).state, 'heavy');
+check('100/100 heavy', ERCalc.rollState(100, 100).state, 'heavy');
+check('100.1/100 overloaded', ERCalc.rollState(100.1, 100).state, 'overloaded');
+check('overloaded headroom negative', ERCalc.rollState(110, 100).headroom, -10);
+check('medium headroom to 70%', ERCalc.rollState(30, 100).headroom, 40);
+
+// soreseal path: caller passes boosted stats (same as AR flow)
+check('boosted VIG 35+5 === VIG 40', ERCalc.statEffects({ VIG: 40 }).hp, ERCalc.statEffects({ VIG: 35 + 5 }).hp);
+// Great-Jar's Arsenal: x1.19 equip load on top of the table
+check('Great-Jar @ END 20', ERCalc.statEffects({ END: 20 }, [{ survival: { equipLoadMult: 1.19 } }]).equipLoad, Math.round(64.1 * 1.19 * 10) / 10);
+// Erdtree's Favor +2 does not change AR (no mult/statBonus fields)
+var efMod = { survival: { hpMult: 1.04, staminaMult: 1.10, equipLoadMult: 1.08 } };
+check('Erdtree Favor leaves AR alone', ERCalc.computeARBuffed(vera, rob, { twoHanded: true }, [efMod]).buffed.totalAR, fr.totalAR);
+check('Erdtree Favor HP @ VIG 60', ERCalc.statEffects({ VIG: 60 }, [efMod]).hp, Math.floor(1900 * 1.04));
+
 console.log('\n' + passes + ' passed, ' + failures + ' failed');
 process.exit(failures ? 1 : 0);

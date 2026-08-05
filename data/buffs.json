@@ -39,6 +39,8 @@
     { "id": "lightning-scorpion-charm", "name": "Lightning Scorpion Charm", "mult": { "lightning": 1.12 }, "note": "+12% lightning · +10% phys damage taken", "confirmed": false },
     { "id": "sacred-scorpion-charm", "name": "Sacred Scorpion Charm", "mult": { "holy": 1.12 }, "note": "+12% holy · +10% phys damage taken", "confirmed": false },
     { "id": "lord-of-bloods-exultation", "name": "Lord of Blood's Exultation", "mult": { "all": 1.20 }, "note": "+20% for 20s after blood loss nearby", "confirmed": true },
-    { "id": "kindred-of-rots-exultation", "name": "Kindred of Rot's Exultation", "mult": { "all": 1.20 }, "note": "+20% for 20s after poison/rot nearby", "confirmed": false }
+    { "id": "kindred-of-rots-exultation", "name": "Kindred of Rot's Exultation", "mult": { "all": 1.20 }, "note": "+20% for 20s after poison/rot nearby", "confirmed": false },
+    { "id": "erdtrees-favor-2", "name": "Erdtree's Favor +2", "survival": { "hpMult": 1.04, "staminaMult": 1.10, "equipLoadMult": 1.08 }, "note": "+4% HP · +10% stamina · +8% equip load", "confirmed": true },
+    { "id": "great-jars-arsenal", "name": "Great-Jar's Arsenal", "survival": { "equipLoadMult": 1.19 }, "note": "+19% max equip load", "confirmed": true }
   ]
 }
