@@ -21,6 +21,30 @@
   /* '(verify)' in guide text = community claim not re-confirmed in-game; render as the site's unverified tag */
   function verifyTag(s) { return esc(s).replace(/\s*\(verify[^)]*\)/gi, ' <span class="unverified-tag">unverified</span>'); }
 
+  /* ---- hero header: title + progress ring + stat strip ---- */
+  function ring(pct) {
+    var r = 26, c = 2 * Math.PI * r;
+    return '<svg class="ring" viewBox="0 0 64 64" aria-hidden="true">' +
+      '<circle class="ring-bg" cx="32" cy="32" r="' + r + '"/>' +
+      '<circle class="ring-fg" cx="32" cy="32" r="' + r + '" stroke-dasharray="' + (c * pct / 100).toFixed(1) + ' ' + c.toFixed(1) + '" transform="rotate(-90 32 32)"/>' +
+      '<text x="32" y="34">' + pct + '%</text>' +
+      '<text class="ring-cap" x="32" y="44">DONE</text></svg>';
+  }
+  function hero(title, sub, pct, stats) {
+    return '<div class="hero-head">' +
+      '<div class="hero-lead"><div class="hero-eyebrow">Guides</div>' +
+      '<h1 class="hero-title">' + title + '</h1>' +
+      '<p class="hero-sub">' + sub + '</p></div>' +
+      '<div class="hero-stats">' + (pct == null ? '' : ring(pct)) +
+      '<div class="hero-stat-list">' + stats.map(function (s) {
+        return '<div class="hero-stat"><span>' + s[0] + '</span><b>' + s[1] + '</b></div>';
+      }).join('') + '</div></div></div>';
+  }
+  function rulesDetails(title, items, open) {
+    return '<details class="guide-rules guide-rules-details"' + (open ? ' open' : '') + '><summary><span class="guide-rules-title">' + title + '</span></summary><ul>' +
+      items.map(function (r) { return '<li>' + verifyTag(r) + '</li>'; }).join('') + '</ul></details>';
+  }
+
   /* ---- tabs (hash-routed so links can target a tab) ---- */
   var TABS = { quests: renderQuests, walkthrough: renderWalkthrough, bosses: renderBosses, endings: renderEndings };
   var tabBtns = Array.prototype.slice.call(document.querySelectorAll('#guideTabs .atlas-tab'));
@@ -34,9 +58,9 @@
     if (location.hash !== '#' + name) history.replaceState(null, '', '#' + name);
     TABS[name]();
     if (questToOpen) {
-      store.open[questToOpen] = 1; save();
+      store.sel = questToOpen; save();
       TABS[name]();
-      var el = document.getElementById('quest-' + questToOpen);
+      var el = document.getElementById('qtDetail');
       if (el) el.scrollIntoView({ block: 'start', behavior: 'smooth' });
     }
   }
@@ -52,54 +76,92 @@
     QUESTS.quests.forEach(function (q) { var p = questProgress(q); done += p.done; total += p.total; });
     return { done: done, total: total };
   }
+  var questFilter = ''; // survives rerenders (not persisted)
+  function selectedQuest() {
+    var q = QUESTS.quests.find(function (x) { return x.id === store.sel; });
+    if (q) return q;
+    // default: first started-but-unfinished questline, else the first
+    return QUESTS.quests.find(function (x) {
+      var p = questProgress(x); return p.done > 0 && p.done < p.total;
+    }) || QUESTS.quests[0];
+  }
+  function questDetail(q) {
+    var p = questProgress(q);
+    return '<div class="qt-detail-head">' +
+        '<span class="qt-detail-name">' + esc(q.name) + '</span>' +
+        (q.major ? '<span class="quest-major">MAJOR</span>' : '') +
+        '<span class="qt-detail-cluster">' + esc(q.cluster) + '</span>' +
+        '<span class="quest-count' + (p.done === p.total ? ' done' : '') + '" style="margin-left:auto">' + p.done + '/' + p.total + '</span>' +
+      '</div>' +
+      '<div class="quest-progress"><i style="width:' + (p.total ? Math.round(100 * p.done / p.total) : 0) + '%"></i></div>' +
+      '<p class="quest-tagline">' + esc(q.tagline) + '</p>' +
+      '<p class="quest-reward"><span class="k">Reward</span> ' + verifyTag(q.reward) +
+        (q.endingUnlock ? ' · <a href="#endings" class="quest-ending-link" data-ending="' + q.endingUnlock + '">ending route</a>' : '') + '</p>' +
+      '<div class="quest-steps">' +
+        q.steps.map(function (s, i) {
+          var on = !!store.steps[s.id];
+          return '<label class="quest-step' + (on ? ' done' : '') + '">' +
+            '<input type="checkbox" data-step="' + s.id + '"' + (on ? ' checked' : '') + '>' +
+            '<span class="quest-step-num">' + (i + 1) + '</span>' +
+            '<span class="quest-step-text">' + verifyTag(s.text) + '</span></label>';
+        }).join('') +
+      '</div>' +
+      (q.warnings && q.warnings.length ?
+        '<div class="quest-warnings">' + q.warnings.map(function (w) {
+          return '<div class="quest-warning">⚠ ' + verifyTag(w) + '</div>';
+        }).join('') + '</div>' : '') +
+      '<button class="quest-reset" data-reset="' + q.id + '">Reset progress</button>';
+  }
   function renderQuests() {
     var all = overallProgress();
-    var html = '<p class="guide-sub">Check off steps as you play — progress is saved in this browser. ' +
-      '<b class="guide-overall">' + all.done + '/' + all.total + '</b> steps done across all questlines.</p>';
-    html += '<div class="guide-rules"><span class="guide-rules-title">⚠ Survival rules</span><ul>' +
-      QUESTS.generalRules.map(function (r) { return '<li>' + verifyTag(r) + '</li>'; }).join('') + '</ul></div>';
-    html += QUESTS.quests.map(function (q) {
+    var started = 0, completed = 0;
+    QUESTS.quests.forEach(function (q) {
       var p = questProgress(q);
-      var open = !!store.open[q.id];
-      var pct = p.total ? Math.round(100 * p.done / p.total) : 0;
-      var complete = p.done === p.total;
-      return '<div class="quest-card' + (open ? ' open' : '') + (complete ? ' complete' : '') + '" id="quest-' + q.id + '">' +
-        '<button class="quest-head" data-quest="' + q.id + '" aria-expanded="' + open + '">' +
-          '<span class="quest-caret">' + (open ? '▾' : '▸') + '</span>' +
-          '<span class="quest-title"><span class="quest-name">' + esc(q.name) + (q.major ? ' <span class="quest-major">MAJOR</span>' : '') + '</span>' +
-          '<span class="quest-cluster">' + esc(q.cluster) + '</span></span>' +
-          '<span class="quest-count' + (complete ? ' done' : '') + '">' + (complete ? '✓ ' : '') + p.done + '/' + p.total + '</span>' +
-        '</button>' +
-        '<div class="quest-progress"><i style="width:' + pct + '%"></i></div>' +
-        (open ?
-          '<div class="quest-body">' +
-            '<p class="quest-tagline">' + esc(q.tagline) + '</p>' +
-            '<p class="quest-reward"><span class="k">Reward</span> ' + verifyTag(q.reward) +
-              (q.endingUnlock ? ' · <a href="#endings" class="quest-ending-link" data-ending="' + q.endingUnlock + '">ending route</a>' : '') + '</p>' +
-            '<div class="quest-steps">' +
-              q.steps.map(function (s, i) {
-                var on = !!store.steps[s.id];
-                return '<label class="quest-step' + (on ? ' done' : '') + '">' +
-                  '<input type="checkbox" data-step="' + s.id + '"' + (on ? ' checked' : '') + '>' +
-                  '<span class="quest-step-num">' + (i + 1) + '</span>' +
-                  '<span class="quest-step-text">' + verifyTag(s.text) + '</span></label>';
-              }).join('') +
-            '</div>' +
-            (q.warnings && q.warnings.length ?
-              '<div class="quest-warnings">' + q.warnings.map(function (w) {
-                return '<div class="quest-warning">⚠ ' + verifyTag(w) + '</div>';
-              }).join('') + '</div>' : '') +
-            '<button class="quest-reset" data-reset="' + q.id + '">Reset progress</button>' +
-          '</div>' : '') +
-      '</div>';
-    }).join('');
+      if (p.done === p.total) completed++;
+      else if (p.done > 0) started++;
+    });
+    var pct = all.total ? Math.round(100 * all.done / all.total) : 0;
+    var sel = selectedQuest();
+
+    var html = hero('Quest Tracker',
+      'Track the NPC questlines across the Lands Between — steps, rewards, and the fail-triggers that lock you out. Saved in this browser.',
+      pct, [
+        ['Active questlines', started],
+        ['Completed', completed],
+        ['Steps completed', all.done + ' / ' + all.total]
+      ]);
+    html += rulesDetails('⚠ Survival rules', QUESTS.generalRules, false);
+    html += '<div class="qt-layout"><div class="qt-list">' +
+      '<input class="qt-filter" id="qtFilter" type="search" placeholder="Filter questlines…" value="' + esc(questFilter) + '">' +
+      QUESTS.quests.map(function (q) {
+        var p = questProgress(q);
+        var complete = p.done === p.total;
+        var qPct = p.total ? Math.round(100 * p.done / p.total) : 0;
+        return '<button class="qt-item' + (q.id === sel.id ? ' sel' : '') + (complete ? ' complete' : '') + '" data-quest="' + q.id + '" data-name="' + esc((q.name + ' ' + q.cluster).toLowerCase()) + '">' +
+          '<span class="qt-item-top"><span class="qt-item-name">' + esc(q.name) + '</span>' +
+            (q.major ? '<span class="quest-major">MAJOR</span>' : '') +
+            '<span class="qt-item-count' + (complete ? ' done' : '') + '">' + (complete ? '✓ ' : '') + p.done + '/' + p.total + '</span></span>' +
+          '<span class="qt-item-cluster">' + esc(q.cluster) + '</span>' +
+          '<span class="quest-progress"><i style="width:' + qPct + '%"></i></span>' +
+        '</button>';
+      }).join('') +
+      '</div><div class="qt-detail" id="qtDetail">' + questDetail(sel) + '</div></div>';
     content.innerHTML = html;
 
-    Array.prototype.forEach.call(content.querySelectorAll('.quest-head'), function (h) {
+    function applyFilter() {
+      var f = questFilter.trim().toLowerCase();
+      Array.prototype.forEach.call(content.querySelectorAll('.qt-item'), function (el) {
+        el.style.display = !f || el.dataset.name.indexOf(f) >= 0 ? '' : 'none';
+      });
+    }
+    applyFilter();
+    $('qtFilter').addEventListener('input', function () { questFilter = this.value; applyFilter(); });
+    Array.prototype.forEach.call(content.querySelectorAll('.qt-item'), function (h) {
       h.addEventListener('click', function () {
-        var id = h.dataset.quest;
-        if (store.open[id]) delete store.open[id]; else store.open[id] = 1;
-        save(); renderQuests();
+        store.sel = h.dataset.quest; save(); renderQuests();
+        if (window.matchMedia('(max-width: 900px)').matches) {
+          document.getElementById('qtDetail').scrollIntoView({ block: 'start', behavior: 'smooth' });
+        }
       });
     });
     Array.prototype.forEach.call(content.querySelectorAll('input[data-step]'), function (c) {
@@ -134,7 +196,13 @@
   }
   function renderWalkthrough() {
     var done = PROG.steps.filter(function (s) { return store.steps[s.id]; }).length;
-    var html = '<p class="guide-sub">' + esc(PROG.intro) + ' <b class="guide-overall">' + done + '/' + PROG.steps.length + '</b> route steps done.</p>';
+    var html = hero('Walkthrough',
+      esc(PROG.intro),
+      Math.round(100 * done / PROG.steps.length), [
+        ['Route steps done', done + ' / ' + PROG.steps.length],
+        ['Base-game stages', PROG.route.length],
+        ['DLC stages', PROG.dlc.route.length]
+      ]);
     html += '<h3 class="guide-h3">The route at a glance <span class="guide-h3-sub">levels are comfort ranges, not requirements</span></h3>';
     html += '<div class="route-scroll"><table class="route-table"><thead><tr><th>#</th><th>Region</th><th>Boss → payoff</th><th>≈ Level</th><th>Weapon</th></tr></thead><tbody>' +
       PROG.route.map(function (r, i) {
@@ -211,8 +279,15 @@
       var n = list.filter(function (b) { return store.bosses[b.id]; }).length;
       return n ? ' <span class="guide-h3-sub">' + n + '/' + list.length + ' felled</span>' : '';
     }
+    var felledAll = BOSSES.bosses.filter(function (b) { return store.bosses[b.id]; }).length;
     content.innerHTML =
-      '<p class="guide-sub">Cheat-sheet for the required path, the big optional fights, and the DLC remembrances. Tick ☠ when a boss falls. ⚠ Endgame boss names below.</p>' +
+      hero('Bosses',
+        'Cheat-sheet for the required path, the big optional fights, and the DLC remembrances. Tick ☠ when a boss falls. ⚠ Endgame boss names below.',
+        Math.round(100 * felledAll / BOSSES.bosses.length), [
+          ['Felled', felledAll + ' / ' + BOSSES.bosses.length],
+          ['Required', req.filter(function (b) { return store.bosses[b.id]; }).length + ' / ' + req.length],
+          ['DLC remembrances', dlc.filter(function (b) { return store.bosses[b.id]; }).length + ' / ' + dlc.length]
+        ]) +
       '<div class="guide-rules"><span class="guide-rules-title">◈ Bring to ANY boss</span><ul>' +
         BOSSES.universalTips.map(function (t) { return '<li>' + verifyTag(t) + '</li>'; }).join('') + '</ul></div>' +
       '<h3 class="guide-h3">Required bosses <span class="guide-h3-sub">in rough encounter order</span>' + felledCount(req) + '</h3>' +
@@ -233,7 +308,13 @@
   function renderEndings() {
     var KIND = { 'default': 'No quest needed', 'mending-rune': 'Mending Rune', 'npc-summon': 'NPC summon', 'override': 'Overrides all others' };
     content.innerHTML =
-      '<p class="guide-sub">How each ending unlocks — spoiler-light: the route, not what happens.</p>' +
+      hero('Endings',
+        'How each ending unlocks — spoiler-light: the route, not what happens.',
+        null, [
+          ['Endings', ENDINGS.endings.length],
+          ['Need a questline', ENDINGS.endings.filter(function (e) { return e.questId; }).length],
+          ['Available by default', ENDINGS.endings.filter(function (e) { return e.kind === 'default'; }).length]
+        ]) +
       '<div class="guide-rules"><span class="guide-rules-title">How endings work</span><ul>' +
         ENDINGS.howItWorks.map(function (t) { return '<li>' + verifyTag(t) + '</li>'; }).join('') + '</ul></div>' +
       '<div class="ending-list">' +
