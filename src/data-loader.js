@@ -40,9 +40,10 @@
       fetchJSON(basePath + 'quests.json'),
       fetchJSON(basePath + 'bosses.json'),
       fetchJSON(basePath + 'endings.json'),
-      fetchJSON(basePath + 'progression.json')
+      fetchJSON(basePath + 'progression.json'),
+      fetchJSON(basePath + 'scadutree.json')
     ]);
-    return { quests: parts[0], bosses: parts[1], endings: parts[2], progression: parts[3] };
+    return { quests: parts[0], bosses: parts[1], endings: parts[2], progression: parts[3], scadutree: parts[4] };
   }
 
   async function fetchJSON(url) {

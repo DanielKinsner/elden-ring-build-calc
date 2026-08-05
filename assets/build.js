@@ -13,6 +13,7 @@
 
   var build = { VIG:60, MND:20, END:30, STR:24, DEX:58, INT:9, FAI:15, ARC:40 };
   var twoHanded = true, upgradeLevel = null, focusStat = 'DEX', showDlc = true, affinity = 'Standard';
+  var scaduLevel = 0; // Scadutree Blessing 0–20 (Land of Shadow only)
   function pool(){ return showDlc ? weapons : weapons.filter(function(w){ return w.source !== 'dlc'; }); }
   var current = weapons.find(function (w){ return w.id === 'rivers-of-blood'; }) || weapons[0];
   var compareIds = [];
@@ -24,7 +25,7 @@
     if (q.get('b') || q.get('w')) {
       var s = (q.get('b') || '').split('.').map(Number);
       var o = { stats: {}, weapon: q.get('w'), affinity: q.get('a'), upgrade: q.get('u'), twoHanded: q.get('h') !== '0', level: +q.get('l') || null,
-                buffs: (q.get('bf') || '').split(',').filter(Boolean), talis: (q.get('tl') || '').split(',').filter(Boolean) };
+                buffs: (q.get('bf') || '').split(',').filter(Boolean), talis: (q.get('tl') || '').split(',').filter(Boolean), scadu: +q.get('st') || 0 };
       STATS.forEach(function (k, i) { if (s[i] >= 1 && s[i] <= 99) o.stats[k] = s[i]; });
       return o;
     }
@@ -35,6 +36,7 @@
     if (BOOT.twoHanded != null) twoHanded = !!BOOT.twoHanded;
     var bootW = BOOT.weapon && weapons.find(function (w) { return w.id === BOOT.weapon; });
     if (bootW) current = bootW;
+    if (BOOT.scadu) scaduLevel = Math.max(0, Math.min(20, +BOOT.scadu || 0));
   }
 
   /* ---- buffs & talismans (T3 + T5) ---- */
@@ -86,7 +88,7 @@
   function captureState() {
     var bf = Object.keys(activeBuffs).filter(function (k) { return activeBuffs[k]; });
     var tl = Object.keys(activeTalis).filter(function (k) { return activeTalis[k]; });
-    var state = { stats: {}, weapon: current.id, affinity: affinity, upgrade: upgradeLevel, twoHanded: twoHanded, level: +$('level').value || null, buffs: bf, talis: tl };
+    var state = { stats: {}, weapon: current.id, affinity: affinity, upgrade: upgradeLevel, twoHanded: twoHanded, level: +$('level').value || null, buffs: bf, talis: tl, scadu: scaduLevel };
     STATS.forEach(function (k) { state.stats[k] = build[k]; });
     return state;
   }
@@ -102,6 +104,7 @@
     if (+$('level').value) q.set('l', $('level').value);
     if (bf.length) q.set('bf', bf.join(','));
     if (tl.length) q.set('tl', tl.join(','));
+    if (scaduLevel) q.set('st', scaduLevel);
     history.replaceState(null, '', location.pathname + '?' + q);
   }
 
@@ -123,6 +126,16 @@
 
   $('twoHand').addEventListener('change', function () { twoHanded = this.checked; activePresetIndex = -1; syncActivePreset(); render(); });
   $('twoHand').checked = twoHanded;
+
+  /* ---- Scadutree Blessing slider ---- */
+  function syncScadu() { $('scaduRange').value = scaduLevel; $('scaduNum').value = scaduLevel; }
+  function onScadu(e) {
+    scaduLevel = Math.max(0, Math.min(20, Math.floor(+e.target.value || 0)));
+    syncScadu(); render();
+  }
+  $('scaduRange').addEventListener('input', onScadu);
+  $('scaduNum').addEventListener('input', onScadu);
+  syncScadu();
   $('showDlc').addEventListener('change', function () { showDlc = this.checked; render(); });
 
   /* ---- presets (dropdown + buttons) ---- */
@@ -175,6 +188,7 @@
     activeBuffs = {}; activeTalis = {};
     (o.buffs || []).forEach(function (id) { if (buffData.buffs.some(function (b) { return b.id === id; })) activeBuffs[id] = true; });
     (o.talis || []).slice(0, TALI_MAX).forEach(function (id) { if (buffData.talismans.some(function (t) { return t.id === id; })) activeTalis[id] = true; });
+    scaduLevel = Math.max(0, Math.min(20, +o.scadu || 0)); syncScadu();
     renderBuffGroups();
     activePresetIndex = -1; syncActivePreset();
     render();
@@ -299,6 +313,12 @@
     $('ar').textContent = shownAR;
     var baseAR = mods.length ? ERCalc.computeAR(build, current, { upgradeLevel: upgradeLevel, twoHanded: twoHanded, affinity: affinity }).totalAR : shownAR;
     $('arBase').textContent = shownAR !== baseAR ? 'unbuffed ' + baseAR + '  ·  +' + (shownAR - baseAR) : '';
+
+    // Scadutree Blessing (Land of Shadow only) — post-everything multiplier on the shown AR
+    var sc = ERCalc.scadutree(scaduLevel);
+    $('scaduOut').innerHTML = sc.level > 0
+      ? 'Land of Shadow: <b>' + Math.floor(shownAR * sc.attack) + '</b> AR <small>(×' + sc.attack.toFixed(2) + ' dealt · −' + sc.negationPct + '% taken)</small>'
+      : '';
 
     // damage types
     var types = ['physical','magic','fire','lightning','holy'];

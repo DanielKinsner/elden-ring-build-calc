@@ -434,6 +434,19 @@
     return { stats: out, totalAR: after, before: before, gained: after - before };
   }
 
+  /**
+   * scadutree(level) — Shadow of the Erdtree's Scadutree Blessing (DLC-only, level 0–20).
+   * [CONFIRMED datamined formula, cross-checked vs Fextralife's per-level negation table]
+   *   damage dealt  ×(1 + 0.05·L)  → ×2.00 at 20
+   *   damage taken  ×1/(1 + 0.05·L) → ×0.50 at 20  (shown in-game as rising "damage negation")
+   * Applies to the player in the Land of Shadow only; base-game AR is untouched.
+   */
+  function scadutree(level) {
+    var L = Math.max(0, Math.min(20, Math.floor(level || 0)));
+    var f = 1 + 0.05 * L;
+    return { level: L, attack: f, taken: 1 / f, negationPct: Math.round((1 - 1 / f) * 1000) / 10 };
+  }
+
   // Rough character level from attribute totals (Wretch baseline: 8x10 = level 1).
   function characterLevel(build) {
     var keys = ['VIG', 'MND', 'END', 'STR', 'DEX', 'INT', 'FAI', 'ARC'];
@@ -453,6 +466,7 @@
     gradeFor: gradeFor,
     reinforce: reinforce,
     characterLevel: characterLevel,
+    scadutree: scadutree,
     STATS: STATS, DAMAGE_TYPES: DAMAGE_TYPES, STATUS_TYPES: STATUS_TYPES, CURVES: CURVES
   };
 });

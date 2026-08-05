@@ -5,7 +5,7 @@
   var content = $('guideContent');
 
   var data = await ERData.loadGuides('../data/');
-  var QUESTS = data.quests, BOSSES = data.bosses, ENDINGS = data.endings, PROG = data.progression;
+  var QUESTS = data.quests, BOSSES = data.bosses, ENDINGS = data.endings, PROG = data.progression, SCADU = data.scadutree;
 
   /* ---- progress store: { steps: {stepId:1}, open: {questId:1} } ---- */
   var LS_KEY = 'er-guides';
@@ -152,6 +152,19 @@
     html += '<h3 class="guide-h3">' + esc(PROG.dlc.title) + '</h3>';
     html += rulesBox('◈ Getting in', PROG.dlc.entry);
     html += rulesBox('◈ Scadutree Blessing — the DLC’s real leveling', PROG.dlc.scadutree);
+    /* the blessing table: costs from data, multipliers from the engine */
+    var cum = 0;
+    html += '<div class="route-scroll"><table class="route-table scadu-table"><thead><tr>' +
+      '<th>Blessing</th><th>Fragments</th><th>Total spent</th><th>Damage dealt</th><th>Damage taken</th></tr></thead><tbody>' +
+      SCADU.costs.map(function (cost, i) {
+        var lvl = i + 1; cum += cost;
+        var sc = ERCalc.scadutree(lvl);
+        return '<tr><td>' + lvl + '</td><td>' + cost + '</td><td>' + cum + '</td>' +
+          '<td>×' + sc.attack.toFixed(2) + '</td><td>−' + sc.negationPct + '%</td></tr>';
+      }).join('') + '</tbody></table></div>' +
+      '<p class="guide-note">' + esc(SCADU.costNote) + ' Try your blessing level on the <a href="../build/">calculator</a> — the ☾ slider under the AR dial shows your Land-of-Shadow damage.</p>';
+    html += rulesBox('◈ ' + SCADU.revered.title, SCADU.revered.notes);
+    html += rulesBox('◈ Where fragments hide', SCADU.whereToFind);
     html += '<div class="route-scroll"><table class="route-table"><thead><tr><th>#</th><th>Region</th><th>Boss</th><th>Note</th></tr></thead><tbody>' +
       PROG.dlc.route.map(function (r, i) {
         return '<tr><td>' + (i + 1) + '</td><td><b>' + esc(r.region) + '</b></td><td>' + esc(r.boss) + '</td><td>' + esc(r.note) + '</td></tr>';

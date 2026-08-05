@@ -187,6 +187,18 @@ a:hover { text-decoration: underline; }
 .buff-chip.approx.on::after { content: '≈'; margin-left: 4px; color: var(--gold-dim); }
 .ar-base { color: var(--dim); font-size: 12px; margin-top: 2px; font-variant-numeric: tabular-nums; min-height: 15px; }
 
+/* ---------- scadutree blessing (build page) ---------- */
+.scadu-row { position: relative; margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--line-2); }
+.scadu-label { display: flex; align-items: center; justify-content: center; gap: 10px; font-size: 11px; color: #b48ead; text-transform: uppercase; letter-spacing: .1em; }
+.scadu-label input[type=range] { -webkit-appearance: none; appearance: none; width: 130px; height: 3px; background: linear-gradient(90deg, #4a3f55, #b48ead); border-radius: 2px; }
+.scadu-label input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 12px; height: 12px; border-radius: 50%; background: #b48ead; border: 2px solid #241d2a; cursor: pointer; }
+.scadu-label input[type=range]::-moz-range-thumb { width: 12px; height: 12px; border-radius: 50%; background: #b48ead; border: 2px solid #241d2a; cursor: pointer; }
+.scadu-num { width: 44px; background: var(--panel-2); color: #b48ead; -webkit-text-fill-color: #b48ead; border: 1px solid var(--line); border-radius: 5px; padding: 3px 6px; font-size: 12px; text-align: center; font-variant-numeric: tabular-nums; }
+.scadu-num:focus { outline: none; border-color: #b48ead; }
+.scadu-out { margin-top: 5px; font-size: 13px; color: var(--text); text-align: center; min-height: 16px; font-variant-numeric: tabular-nums; }
+.scadu-out b { color: #cfa6c8; font: 700 16px var(--serif-num); }
+.scadu-out small { color: var(--dim); }
+
 /* ---------- status payoff ---------- */
 .payoff { margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--line-2); }
 .payoff-vs { color: var(--gold-dim); text-transform: none; letter-spacing: 0; }
