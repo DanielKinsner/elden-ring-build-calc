@@ -545,3 +545,27 @@ body.build-page { padding-bottom: 80px; }
     transition-duration: .01ms !important; scroll-behavior: auto !important;
   }
 }
+
+/* ---- Survival panel (build page) ---- */
+.surv { display: flex; flex-direction: column; gap: 8px; }
+.surv-nums { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+.surv-stat { background: var(--panel-2); border: 1px solid var(--line-2); border-radius: 6px; padding: 6px 8px; text-align: center; }
+.surv-stat .k { display: block; margin-bottom: 2px; }
+.surv-stat b { font-family: var(--serif-num); font-size: 20px; color: var(--gold-2); }
+.surv-load-head { display: flex; align-items: baseline; gap: 8px; margin-top: 2px; }
+.surv-load-text { font-family: var(--serif-num); font-size: 15px; color: var(--text); }
+.roll-state { margin-left: auto; font-size: 11px; letter-spacing: .05em; text-transform: uppercase; }
+.roll-state.light { color: var(--green); }
+.roll-state.medium { color: var(--gold-2); }
+.roll-state.heavy { color: var(--rot); }
+.roll-state.overloaded { color: var(--red); }
+.loadbar { position: relative; height: 9px; background: #14100a; border: 1px solid var(--line-2); border-radius: 5px; }
+.loadbar > i { display: block; height: 100%; border-radius: 4px; background: linear-gradient(90deg, var(--gold-dim), var(--gold-2)); }
+.loadbar.light > i { background: linear-gradient(90deg, #5c7a3e, var(--green)); }
+.loadbar.heavy > i { background: linear-gradient(90deg, #8a5520, var(--rot)); }
+.loadbar.overloaded > i { background: linear-gradient(90deg, #7a2f22, var(--red)); }
+.loadbar > s { position: absolute; top: -2px; bottom: -2px; width: 1px; background: var(--dim); opacity: .55; }
+.surv-headroom { font-size: 12px; color: var(--dim); }
+.surv-gear { display: flex; align-items: center; justify-content: space-between; gap: 8px; font-size: 12px; color: var(--dim); }
+.surv-gear input { width: 72px; background: var(--panel-2); border: 1px solid var(--line); border-radius: 6px; color: var(--text); padding: 4px 6px; font-family: var(--serif-num); font-size: 14px; text-align: right; }
+.unverified { color: var(--gold-dim); cursor: help; }

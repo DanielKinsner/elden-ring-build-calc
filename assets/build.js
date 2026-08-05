@@ -14,6 +14,7 @@
   var build = { VIG:60, MND:20, END:30, STR:24, DEX:58, INT:9, FAI:15, ARC:40 };
   var twoHanded = true, upgradeLevel = null, focusStat = 'DEX', showDlc = true, affinity = 'Standard';
   var scaduLevel = 0; // Scadutree Blessing 0–20 (Land of Shadow only)
+  var gearWeight = 0; // armor & other gear weight (weapon weight is auto-counted)
   function pool(){ return showDlc ? weapons : weapons.filter(function(w){ return w.source !== 'dlc'; }); }
   var current = weapons.find(function (w){ return w.id === 'rivers-of-blood'; }) || weapons[0];
   var compareIds = [];
@@ -25,7 +26,8 @@
     if (q.get('b') || q.get('w')) {
       var s = (q.get('b') || '').split('.').map(Number);
       var o = { stats: {}, weapon: q.get('w'), affinity: q.get('a'), upgrade: q.get('u'), twoHanded: q.get('h') !== '0', level: +q.get('l') || null,
-                buffs: (q.get('bf') || '').split(',').filter(Boolean), talis: (q.get('tl') || '').split(',').filter(Boolean), scadu: +q.get('st') || 0 };
+                buffs: (q.get('bf') || '').split(',').filter(Boolean), talis: (q.get('tl') || '').split(',').filter(Boolean), scadu: +q.get('st') || 0,
+                gearWeight: +q.get('gw') || 0 };
       STATS.forEach(function (k, i) { if (s[i] >= 1 && s[i] <= 99) o.stats[k] = s[i]; });
       return o;
     }
@@ -37,6 +39,7 @@
     var bootW = BOOT.weapon && weapons.find(function (w) { return w.id === BOOT.weapon; });
     if (bootW) current = bootW;
     if (BOOT.scadu) scaduLevel = Math.max(0, Math.min(20, +BOOT.scadu || 0));
+    if (BOOT.gearWeight) gearWeight = Math.max(0, +BOOT.gearWeight || 0);
   }
 
   /* ---- buffs & talismans (T3 + T5) ---- */
@@ -88,7 +91,7 @@
   function captureState() {
     var bf = Object.keys(activeBuffs).filter(function (k) { return activeBuffs[k]; });
     var tl = Object.keys(activeTalis).filter(function (k) { return activeTalis[k]; });
-    var state = { stats: {}, weapon: current.id, affinity: affinity, upgrade: upgradeLevel, twoHanded: twoHanded, level: +$('level').value || null, buffs: bf, talis: tl, scadu: scaduLevel };
+    var state = { stats: {}, weapon: current.id, affinity: affinity, upgrade: upgradeLevel, twoHanded: twoHanded, level: +$('level').value || null, buffs: bf, talis: tl, scadu: scaduLevel, gearWeight: gearWeight };
     STATS.forEach(function (k) { state.stats[k] = build[k]; });
     return state;
   }
@@ -105,6 +108,7 @@
     if (bf.length) q.set('bf', bf.join(','));
     if (tl.length) q.set('tl', tl.join(','));
     if (scaduLevel) q.set('st', scaduLevel);
+    if (gearWeight) q.set('gw', gearWeight);
     history.replaceState(null, '', location.pathname + '?' + q);
   }
 
@@ -137,6 +141,13 @@
   $('scaduNum').addEventListener('input', onScadu);
   syncScadu();
   $('showDlc').addEventListener('change', function () { showDlc = this.checked; render(); });
+
+  /* ---- Survival: gear-weight input ---- */
+  $('gearWeight').addEventListener('input', function () {
+    gearWeight = Math.max(0, +this.value || 0);
+    render();
+  });
+  $('gearWeight').value = gearWeight;
 
   /* ---- presets (dropdown + buttons) ---- */
   var activePresetIndex = presets.findIndex(function (p) { return p.loadout && p.loadout.weaponId === current.id; });
@@ -189,6 +200,7 @@
     (o.buffs || []).forEach(function (id) { if (buffData.buffs.some(function (b) { return b.id === id; })) activeBuffs[id] = true; });
     (o.talis || []).slice(0, TALI_MAX).forEach(function (id) { if (buffData.talismans.some(function (t) { return t.id === id; })) activeTalis[id] = true; });
     scaduLevel = Math.max(0, Math.min(20, +o.scadu || 0)); syncScadu();
+    gearWeight = Math.max(0, +o.gearWeight || 0); $('gearWeight').value = gearWeight;
     renderBuffGroups();
     activePresetIndex = -1; syncActivePreset();
     render();
@@ -346,12 +358,54 @@
       return '<div class="'+cls+'"'+clickable+'><span class="lbl"><b>'+STAT_LABEL[k]+'</b>'+grade+'</span><span class="amt">+'+v+'</span></div>';
     }).join('');
 
+    renderSurvival(mods, boosted);
     renderPayoff(r);
     renderSoftCap(r);
     renderBreakpoints(r);
     renderCompare();
     renderSuggestions();
     persist();
+  }
+
+  /* ---- Survival panel: HP/FP/stamina + equip load vs roll breakpoints ---- */
+  var ROLL_LABEL = { light: 'Light roll', medium: 'Medium roll', heavy: 'Heavy roll', overloaded: 'Overloaded — can’t roll' };
+  function renderSurvival(mods, boosted) {
+    var se = ERCalc.statEffects(boosted, mods);
+    var weaponW = current.weight != null ? current.weight : 0;
+    var totalW = Math.round((weaponW + gearWeight) * 10) / 10;
+    var rs = ERCalc.rollState(totalW, se.equipLoad);
+    $('survHP').textContent = se.hp;
+    $('survFP').textContent = se.fp;
+    $('survStam').textContent = se.stamina;
+    $('survLoadText').innerHTML = totalW + ' / ' + se.equipLoad +
+      (current.weight == null ? ' <span class="unverified" title="weapon weight unknown — not counted">?</span>' : '');
+    $('survLoadBar').innerHTML =
+      '<div class="loadbar ' + rs.state + '"><i style="width:' + Math.min(100, rs.ratio * 100) + '%"></i>' +
+      '<s style="left:30%"></s><s style="left:70%"></s></div>';
+    $('survRollState').textContent = ROLL_LABEL[rs.state];
+    $('survRollState').className = 'roll-state ' + rs.state;
+
+    var msg;
+    if (rs.state === 'overloaded') {
+      msg = 'drop ' + Math.abs(rs.headroom) + ' weight for heavy roll';
+    } else {
+      var nextName = rs.nextBreakpoint === 0.3 ? 'medium roll' : rs.nextBreakpoint === 0.7 ? 'heavy roll' : 'overloaded';
+      msg = '+' + rs.headroom + ' weight headroom before ' + nextName;
+    }
+    // "or N more Endurance" — how many END points would lift this load into the better bracket
+    if (rs.state !== 'light') {
+      var betterCap = rs.state === 'medium' ? 0.3 : rs.state === 'heavy' ? 0.7 : 1.0;
+      var betterName = rs.state === 'medium' ? 'light roll' : rs.state === 'heavy' ? 'medium roll' : 'heavy roll';
+      var endNow = Math.min(99, boosted.END || 1);
+      for (var e = endNow + 1; e <= Math.min(99, endNow + 15); e++) {
+        var b2 = { VIG: 1, MND: 1, END: e };
+        if (totalW / ERCalc.statEffects(b2, mods).equipLoad < betterCap) {
+          msg += ' · or +' + (e - endNow) + ' END for ' + betterName;
+          break;
+        }
+      }
+    }
+    $('survHeadroom').textContent = msg;
   }
 
   /* ---- status payoff (T4): hits-to-proc + what the proc is worth ---- */
