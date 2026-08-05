@@ -146,6 +146,10 @@ link. "Save Build" writes to localStorage; a small curated **meta build library*
   where community-sourced).
 - **☠ Felled checkboxes** on every boss card, with per-group counters.
 - **My Builds** — named multi-save on the build page (`er-my-builds`); closes the T11 remainder.
+- **Scadutree Blessing system** — `ERCalc.scadutree(L)` (dealt ×(1+0.05·L), taken reciprocal —
+  matches the published per-level negation table), ☾ slider on the build page (Land-of-Shadow AR,
+  in the share URL as `&st=`), full blessing/fragment-cost table + Revered Spirit Ash notes in the
+  guides Walkthrough (`data/scadutree.json`).
 
 ## Suggested order
 1. ~~T1 + T2~~ ✅  2. ~~T3 + T4~~ ✅  3. ~~T5, T6, T11~~ ✅  4. ~~T9 + T10~~ ✅ — Tiers 1, 2, 4, 5 shipped.
