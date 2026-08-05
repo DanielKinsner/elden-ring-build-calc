@@ -1,20 +1,33 @@
 # Elden Ring Build Calculator
 
-A real-time build & weapon calculator for Elden Ring. Enter your stats and gear, watch your
-Attack Rating update live, and compare weapons head-to-head **by the actual numbers**.
+A real-time build & weapon companion for Elden Ring. Enter your stats and gear, watch your
+Attack Rating update live, and compare weapons head-to-head **by the actual numbers** —
+plus a full weapon atlas, quest/boss/walkthrough guides, and original fan writing.
 
 Built for players who want to *see* what a stat point is actually worth — where their soft caps
 are, which weapon wins on their build, and how bleed/status buildup scales.
 
-## Goals
+## What's here
 
-- **Live AR** — full damage breakdown (physical / magic / fire / lightning / holy) as you move sliders.
-- **All 8 stats** — Vigor, Mind, Endurance, Strength, Dexterity, Intelligence, Faith, Arcane.
-- **Weapon + affinity + upgrade level** selectors, two-hand toggle.
-- **Status buildup** — bleed, frost, poison, scarlet rot, sleep, madness.
-- **Compare mode** — multiple weapons side by side, ranked by the numbers.
-- **Soft-cap analysis** — "your next point of Dex is worth +X AR."
-- **Presets** — including the **"Vera Aletheia"** samurai/bleed build. 🖤
+**Build calculator** (`build/`)
+- Live AR with full damage-type breakdown, all 8 stats, weapon + affinity + upgrade + two-hand.
+- Buffs & talismans layer (Golden Vow, greases, soreseals, scorpions… — one per category, 4 talisman slots).
+- Status payoff card — hits-to-proc and what the proc is worth (bleed/frost/poison/rot) vs a target HP/resist.
+- Soft-cap chart + optimal stat advisor (redistributes your offensive points for max AR).
+- "Best Weapons for Your Build" ranking + a compare tray.
+- Scadutree Blessing slider — Land-of-Shadow AR and damage negation.
+- Share links (the whole build lives in the URL), auto-save, and **My Builds** named multi-save.
+
+**Weapon Atlas** (`atlas/`) — every weapon, filterable by status/scaling/infusable/DLC, sortable
+by AR-for-a-reference-build, weight, or requirements; per-weapon detail pages with acquisition info.
+
+**Guides** (`guides/`) — 21 NPC questlines as checkable trackers with fail-trigger warnings,
+boss cheat-sheet with ☠ felled checkboxes (base + SotE remembrances), all 6 endings with
+unlock routes, and a full walkthrough (12-stage base route + 9-stage DLC route, stat targets,
+Scadutree/fragment tables). Progress saves locally.
+
+**Tales** (`tales/`) — original fan writing: *Gold and Shadow* (~55k words) and
+*Kindling: The Testament of Melina*, in a book-style reader with per-chapter read state.
 
 ## Accuracy & honesty
 
@@ -30,18 +43,32 @@ we don't have.
 **Base game (vanilla) and Shadow of the Erdtree (DLC) math are kept in separate reference files**
 so DLC-only systems (Scadutree Blessing, new weapons) never contaminate vanilla numbers.
 
+## Tests
+
+Golden regression pins for the engine (verified library-build ARs, two-handing rules,
+flooring, Scadutree, status procs, the buff layer):
+
+```
+node tests/engine.test.js
+```
+
+Run it after touching `src/engine.js` or the weapon data. No frameworks, no dependencies.
+
 ## Structure
 
 ```
+build/        the calculator page
+atlas/        weapon atlas + per-weapon detail pages
+guides/       quests / bosses / endings / walkthrough
+tales/        fan-writing reader (content as raw .md)
+src/          engine (pure math, UMD) + data loader
+data/         structured datasets (weapons, buffs, quests, …)
 docs/         research + reference (the math, with sources)
-data/         structured weapon / scaling datasets
-src/          calculator engine + UI  (vanilla HTML/CSS/JS, no build step)
+assets/       css, page scripts, icons, images
+tests/        golden regression pins (plain node)
 ```
 
-## Status
-
-🚧 In active development. Research and reference docs first, then the full weapon dataset,
-then the engine + UI on real numbers.
+Vanilla HTML/CSS/JS — **no build step**. Deploy = `git push` (Vercel).
 
 ---
 
