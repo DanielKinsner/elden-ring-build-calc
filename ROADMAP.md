@@ -151,6 +151,28 @@ link. "Save Build" writes to localStorage; a small curated **meta build library*
   in the share URL as `&st=`), full blessing/fragment-cost table + Revered Spirit Ash notes in the
   guides Walkthrough (`data/scadutree.json`).
 
+## Shipped 2026-08-05 — hygiene pass + the defense half
+- **Golden test harness** — `node tests/engine.test.js`, 52 regression pins (library-build
+  ARs frozen from in-game-verified output, 2H reqs, flooring, scadutree, status procs,
+  buff layer, survival tables, roll brackets). Run it after touching `src/engine.js` or data.
+- **README refresh** — describes the shipped site, not the 2026-06 plan.
+- **Weight fill** — all 448 weapons now carry `weight` (datamined EquipParamWeapon v1.16).
+- **Survival panel** (`build/`) — `ERCalc.statEffects()` (Vigor→HP, Mind→FP, End→stamina/
+  equip load; tables in `data/stat-effects.json`, wiki.gg + Fextralife cross-checked) +
+  `ERCalc.rollState()` (light/med/heavy/overloaded + headroom). Equip-load bar with
+  breakpoint ticks, "+X weight before …" / "+N END for …" hints, manual armor-&-gear
+  weight input (`&gw=` in share URLs). Erdtree's Favor +2 + Great-Jar's Arsenal talismans
+  (new per-mod `survival` multiplier field, invisible to the AR layer).
+
+## Backlog — deferred deliberately (spec 2026-08-05)
+- **Armor picker + damage negation** (the manual gear-weight field is the placeholder).
+- **Poise breakpoints.**
+- **Per-boss enemy data** (`data/enemies.json`: HP, status thresholds, negations) → makes
+  the status payoff card boss-specific ("4 hits to proc bleed on Malenia").
+- **T7 catalysts/spells** and **T8 maps** — unchanged, still the big lifts.
+- More buffs (Bloodboil Aromatic, Howl of Shabriri, Exalted Flesh), PvP-values toggle,
+  enemy status thresholds.
+
 ## Suggested order
 1. ~~T1 + T2~~ ✅  2. ~~T3 + T4~~ ✅  3. ~~T5, T6, T11~~ ✅  4. ~~T9 + T10~~ ✅ — Tiers 1, 2, 4, 5 shipped.
 5. **T7, T8** (catalysts, maps — the big lifts) **← next up**, plus the smaller remainders noted in
