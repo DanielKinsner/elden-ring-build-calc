@@ -48,29 +48,65 @@
   }
 
   /* ================= shelf (tales/index.html) ================= */
+  function wordCount(w) { var n = parseInt(String(w.words).replace(/[^\d]/g, ''), 10); return isNaN(n) ? 0 : n; }
+  function readTime(words) {
+    if (!words) return '';
+    var min = Math.round(words / 230); // ≈230 wpm
+    return min < 60 ? '≈' + min + ' min read' : '≈' + Math.round(min / 60) + ' hr read';
+  }
+  function ring(pct, cap) {
+    var r = 26, c = 2 * Math.PI * r;
+    return '<svg class="ring" viewBox="0 0 64 64" aria-hidden="true">' +
+      '<circle class="ring-bg" cx="32" cy="32" r="' + r + '"/>' +
+      '<circle class="ring-fg" cx="32" cy="32" r="' + r + '" stroke-dasharray="' + (c * pct / 100).toFixed(1) + ' ' + c.toFixed(1) + '" transform="rotate(-90 32 32)"/>' +
+      '<text x="32" y="34">' + pct + '%</text>' +
+      '<text class="ring-cap" x="32" y="44">' + cap + '</text></svg>';
+  }
   var shelf = $('talesShelf');
   if (shelf) {
-    shelf.innerHTML = WORKS.map(function (w) {
+    var totWords = 0, totCh = 0, totRead = 0;
+    WORKS.forEach(function (w) {
+      totWords += wordCount(w); totCh += w.chapters.length;
+      var st0 = wstate(w.id);
+      totRead += w.chapters.filter(function (c) { return st0.read[c.id]; }).length;
+    });
+    var heroHtml = '<div class="hero-head">' +
+      '<div class="hero-lead"><div class="hero-eyebrow">Lore &amp; Legends</div>' +
+      '<h1 class="hero-title">Tales of the Lands Between</h1>' +
+      '<p class="hero-sub">Original fan writing, built on the game’s own evidence. <b style="color:var(--red)">⚠ Full spoilers</b> — base game, all endings, and the DLC.</p></div>' +
+      '<div class="hero-stats">' + ring(totCh ? Math.round(100 * totRead / totCh) : 0, 'READ') +
+      '<div class="hero-stat-list">' +
+        '<div class="hero-stat"><span>Tales</span><b>' + WORKS.length + '</b></div>' +
+        '<div class="hero-stat"><span>Words</span><b>≈' + totWords.toLocaleString() + '</b></div>' +
+        '<div class="hero-stat"><span>Chapters read</span><b>' + totRead + ' / ' + totCh + '</b></div>' +
+      '</div></div></div>';
+    shelf.innerHTML = heroHtml + WORKS.map(function (w) {
       var st = wstate(w.id);
       var readCount = w.chapters.filter(function (c) { return st.read[c.id]; }).length;
       var started = !!st.chapter || readCount > 0;
       var cont = st.chapter && w.chapters.find(function (c) { return c.id === st.chapter; });
       var pct = Math.round(100 * readCount / w.chapters.length);
-      return '<div class="tale-card">' +
+      return '<div class="tale-card"><div class="tale-card-grid">' +
+        '<div class="tale-card-main">' +
         '<div class="tale-card-head">' +
           '<div class="tale-titles"><span class="tale-title">' + esc(w.title) + '</span>' +
           '<span class="tale-subtitle">' + esc(w.subtitle) + '</span></div>' +
-          '<span class="tale-words">' + esc(w.words) + '</span>' +
         '</div>' +
         '<p class="tale-blurb">' + esc(w.blurb) + '</p>' +
         '<p class="tale-spoilers">⚠ ' + esc(w.spoilers) + '</p>' +
-        (w.chapters.length > 1 ?
-          '<div class="tale-progress-row"><div class="quest-progress tale-progress"><i style="width:' + pct + '%"></i></div>' +
-          '<span class="tale-progress-label">' + readCount + '/' + w.chapters.length + ' chapters read</span></div>' : '') +
+        '<div class="tale-meta-row">' +
+          '<span>📖 <b>' + esc(w.words) + '</b></span>' +
+          '<span>✒ <b>' + readCount + ' / ' + w.chapters.length + '</b> chapters read</span>' +
+          (readTime(wordCount(w)) ? '<span>◷ <b>' + readTime(wordCount(w)) + '</b></span>' : '') +
+        '</div>' +
         '<div class="tale-actions">' +
           '<a class="cta tale-cta" href="read.html?work=' + w.id + (cont ? '&ch=' + cont.id : '') + '">' +
             (started && cont ? 'Continue — ' + esc(cont.num ? cont.num + '. ' : '') + esc(cont.title) : 'Begin reading →') + '</a>' +
           (w.chapters.length > 1 ? '<button class="icon-btn tale-toc-toggle" data-work="' + w.id + '">Contents</button>' : '') +
+        '</div>' +
+        '</div>' +
+        '<div class="tale-status">' + ring(pct, 'READ') +
+          '<span class="tale-status-label">' + (pct === 100 ? 'Finished' : started ? 'Reading' : 'Not started') + '</span></div>' +
         '</div>' +
         (w.chapters.length > 1 ?
           '<ol class="tale-toc" id="toc-' + w.id + '" hidden>' +
