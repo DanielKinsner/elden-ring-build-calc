@@ -157,4 +157,5 @@ link. "Save Build" writes to localStorage; a small curated **meta build library*
    each shipped ticket (more buffs, named multi-save, enemy status thresholds, weight data gap).
 
 ## Known data gaps (surfaced 2026-07)
-- 170/448 weapons have no `weight` — they sort last under the atlas "Lightest" sort. Fill from the regulation dump.
+- ~~170/448 weapons have no `weight`~~ **Filled 2026-08** from the datamined EquipParamWeapon
+  v1.16 dump (`scripts/fill-weights.js`; 5 values spot-checked vs wiki.gg — exact match).

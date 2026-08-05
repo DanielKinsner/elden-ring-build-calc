@@ -1,501 +1,501 @@
 [
- {
-  "id": "anvil-hammer",
-  "name": "Anvil Hammer",
-  "type": "Colossal Weapon",
-  "source": "dlc",
-  "category": "somber",
-  "infusable": false,
-  "requirements": {
-   "STR": 39,
-   "DEX": 10,
-   "INT": 11,
-   "FAI": 20
-  },
-  "weight": null,
-  "passive": null,
-  "base": {
-   "physical": 320,
-   "magic": 0,
-   "fire": 208,
-   "lightning": 0,
-   "holy": 0
-  },
-  "scaling": {
-   "STR": 117,
-   "DEX": 18,
-   "INT": 18,
-   "FAI": 54,
-   "ARC": 0
-  },
-  "elementScaling": {
-   "STR": [
-    "physical"
-   ],
-   "DEX": [
-    "physical"
-   ],
-   "INT": [
-    "physical"
-   ],
-   "FAI": [
-    "physical",
-    "fire"
-   ]
-  },
-  "status": {},
-  "arcStatusScaling": 0
- },
- {
-  "id": "bloodfiend-s-arm",
-  "name": "Bloodfiend's Arm",
-  "type": "Colossal Weapon",
-  "source": "dlc",
-  "category": "regular",
-  "infusable": true,
-  "requirements": {
-   "STR": 28,
-   "DEX": 11,
-   "ARC": 16
-  },
-  "weight": null,
-  "passive": null,
-  "base": {
-   "physical": 360,
-   "magic": 0,
-   "fire": 0,
-   "lightning": 0,
-   "holy": 0
-  },
-  "scaling": {
-   "STR": 64,
-   "DEX": 15,
-   "INT": 0,
-   "FAI": 0,
-   "ARC": 77
-  },
-  "status": {},
-  "arcStatusScaling": 0,
-  "affinities": {
-   "Heavy": {
+  {
+    "id": "anvil-hammer",
+    "name": "Anvil Hammer",
+    "type": "Colossal Weapon",
+    "source": "dlc",
+    "category": "somber",
+    "infusable": false,
+    "requirements": {
+      "STR": 39,
+      "DEX": 10,
+      "INT": 11,
+      "FAI": 20
+    },
+    "weight": 22,
+    "passive": null,
     "base": {
-     "physical": 312,
-     "magic": 0,
-     "fire": 0,
-     "lightning": 0,
-     "holy": 0
+      "physical": 320,
+      "magic": 0,
+      "fire": 208,
+      "lightning": 0,
+      "holy": 0
     },
     "scaling": {
-     "STR": 161,
-     "DEX": 0,
-     "INT": 0,
-     "FAI": 0,
-     "ARC": 29
+      "STR": 117,
+      "DEX": 18,
+      "INT": 18,
+      "FAI": 54,
+      "ARC": 0
     },
-    "status": {}
-   },
-   "Keen": {
-    "base": {
-     "physical": 333,
-     "magic": 0,
-     "fire": 0,
-     "lightning": 0,
-     "holy": 0
-    },
-    "scaling": {
-     "STR": 25,
-     "DEX": 120,
-     "INT": 0,
-     "FAI": 0,
-     "ARC": 29
-    },
-    "status": {}
-   },
-   "Quality": {
-    "base": {
-     "physical": 291,
-     "magic": 0,
-     "fire": 0,
-     "lightning": 0,
-     "holy": 0
-    },
-    "scaling": {
-     "STR": 104,
-     "DEX": 104,
-     "INT": 0,
-     "FAI": 0,
-     "ARC": 29
-    },
-    "status": {}
-   },
-   "Fire": {
-    "base": {
-     "physical": 241,
-     "magic": 0,
-     "fire": 241,
-     "lightning": 0,
-     "holy": 0
-    },
-    "scaling": {
-     "STR": 74,
-     "DEX": 11,
-     "INT": 0,
-     "FAI": 0,
-     "ARC": 29
+    "elementScaling": {
+      "STR": [
+        "physical"
+      ],
+      "DEX": [
+        "physical"
+      ],
+      "INT": [
+        "physical"
+      ],
+      "FAI": [
+        "physical",
+        "fire"
+      ]
     },
     "status": {},
-    "elementScaling": {
-     "STR": [
-      "physical",
-      "fire"
-     ],
-     "DEX": [
-      "physical"
-     ],
-     "ARC": [
-      "physical"
-     ]
-    }
-   },
-   "Flame Art": {
+    "arcStatusScaling": 0
+  },
+  {
+    "id": "bloodfiend-s-arm",
+    "name": "Bloodfiend's Arm",
+    "type": "Colossal Weapon",
+    "source": "dlc",
+    "category": "regular",
+    "infusable": true,
+    "requirements": {
+      "STR": 28,
+      "DEX": 11,
+      "ARC": 16
+    },
+    "weight": 20,
+    "passive": null,
     "base": {
-     "physical": 284,
-     "magic": 0,
-     "fire": 284,
-     "lightning": 0,
-     "holy": 0
+      "physical": 360,
+      "magic": 0,
+      "fire": 0,
+      "lightning": 0,
+      "holy": 0
     },
     "scaling": {
-     "STR": 22,
-     "DEX": 5,
-     "INT": 0,
-     "FAI": 74,
-     "ARC": 29
+      "STR": 64,
+      "DEX": 15,
+      "INT": 0,
+      "FAI": 0,
+      "ARC": 77
     },
     "status": {},
-    "elementScaling": {
-     "STR": [
-      "physical"
-     ],
-     "DEX": [
-      "physical"
-     ],
-     "FAI": [
-      "physical",
-      "fire"
-     ],
-     "ARC": [
-      "physical"
-     ]
+    "arcStatusScaling": 0,
+    "affinities": {
+      "Heavy": {
+        "base": {
+          "physical": 312,
+          "magic": 0,
+          "fire": 0,
+          "lightning": 0,
+          "holy": 0
+        },
+        "scaling": {
+          "STR": 161,
+          "DEX": 0,
+          "INT": 0,
+          "FAI": 0,
+          "ARC": 29
+        },
+        "status": {}
+      },
+      "Keen": {
+        "base": {
+          "physical": 333,
+          "magic": 0,
+          "fire": 0,
+          "lightning": 0,
+          "holy": 0
+        },
+        "scaling": {
+          "STR": 25,
+          "DEX": 120,
+          "INT": 0,
+          "FAI": 0,
+          "ARC": 29
+        },
+        "status": {}
+      },
+      "Quality": {
+        "base": {
+          "physical": 291,
+          "magic": 0,
+          "fire": 0,
+          "lightning": 0,
+          "holy": 0
+        },
+        "scaling": {
+          "STR": 104,
+          "DEX": 104,
+          "INT": 0,
+          "FAI": 0,
+          "ARC": 29
+        },
+        "status": {}
+      },
+      "Fire": {
+        "base": {
+          "physical": 241,
+          "magic": 0,
+          "fire": 241,
+          "lightning": 0,
+          "holy": 0
+        },
+        "scaling": {
+          "STR": 74,
+          "DEX": 11,
+          "INT": 0,
+          "FAI": 0,
+          "ARC": 29
+        },
+        "status": {},
+        "elementScaling": {
+          "STR": [
+            "physical",
+            "fire"
+          ],
+          "DEX": [
+            "physical"
+          ],
+          "ARC": [
+            "physical"
+          ]
+        }
+      },
+      "Flame Art": {
+        "base": {
+          "physical": 284,
+          "magic": 0,
+          "fire": 284,
+          "lightning": 0,
+          "holy": 0
+        },
+        "scaling": {
+          "STR": 22,
+          "DEX": 5,
+          "INT": 0,
+          "FAI": 74,
+          "ARC": 29
+        },
+        "status": {},
+        "elementScaling": {
+          "STR": [
+            "physical"
+          ],
+          "DEX": [
+            "physical"
+          ],
+          "FAI": [
+            "physical",
+            "fire"
+          ],
+          "ARC": [
+            "physical"
+          ]
+        }
+      },
+      "Lightning": {
+        "base": {
+          "physical": 247,
+          "magic": 0,
+          "fire": 0,
+          "lightning": 247,
+          "holy": 0
+        },
+        "scaling": {
+          "STR": 11,
+          "DEX": 76,
+          "INT": 0,
+          "FAI": 0,
+          "ARC": 29
+        },
+        "status": {},
+        "elementScaling": {
+          "STR": [
+            "physical"
+          ],
+          "DEX": [
+            "physical",
+            "lightning"
+          ],
+          "ARC": [
+            "physical"
+          ]
+        }
+      },
+      "Sacred": {
+        "base": {
+          "physical": 284,
+          "magic": 0,
+          "fire": 0,
+          "lightning": 0,
+          "holy": 284
+        },
+        "scaling": {
+          "STR": 22,
+          "DEX": 5,
+          "INT": 0,
+          "FAI": 74,
+          "ARC": 29
+        },
+        "status": {},
+        "elementScaling": {
+          "STR": [
+            "physical"
+          ],
+          "DEX": [
+            "physical"
+          ],
+          "FAI": [
+            "physical",
+            "holy"
+          ],
+          "ARC": [
+            "physical"
+          ]
+        }
+      },
+      "Magic": {
+        "base": {
+          "physical": 284,
+          "magic": 284,
+          "fire": 0,
+          "lightning": 0,
+          "holy": 0
+        },
+        "scaling": {
+          "STR": 16,
+          "DEX": 3,
+          "INT": 78,
+          "FAI": 0,
+          "ARC": 29
+        },
+        "status": {},
+        "elementScaling": {
+          "STR": [
+            "physical"
+          ],
+          "DEX": [
+            "physical"
+          ],
+          "INT": [
+            "magic"
+          ],
+          "ARC": [
+            "physical"
+          ]
+        }
+      },
+      "Cold": {
+        "base": {
+          "physical": 255,
+          "magic": 217,
+          "fire": 0,
+          "lightning": 0,
+          "holy": 0
+        },
+        "scaling": {
+          "STR": 68,
+          "DEX": 15,
+          "INT": 56,
+          "FAI": 0,
+          "ARC": 29
+        },
+        "status": {
+          "frost": 96
+        },
+        "elementScaling": {
+          "STR": [
+            "physical"
+          ],
+          "DEX": [
+            "physical"
+          ],
+          "INT": [
+            "magic"
+          ],
+          "ARC": [
+            "physical"
+          ]
+        }
+      },
+      "Poison": {
+        "base": {
+          "physical": 305,
+          "magic": 0,
+          "fire": 0,
+          "lightning": 0,
+          "holy": 0
+        },
+        "scaling": {
+          "STR": 65,
+          "DEX": 15,
+          "INT": 0,
+          "FAI": 0,
+          "ARC": 74
+        },
+        "status": {
+          "poison": 96
+        }
+      },
+      "Blood": {
+        "base": {
+          "physical": 305,
+          "magic": 0,
+          "fire": 0,
+          "lightning": 0,
+          "holy": 0
+        },
+        "scaling": {
+          "STR": 65,
+          "DEX": 15,
+          "INT": 0,
+          "FAI": 0,
+          "ARC": 74
+        },
+        "status": {
+          "bleed": 83
+        }
+      },
+      "Occult": {
+        "base": {
+          "physical": 319,
+          "magic": 0,
+          "fire": 0,
+          "lightning": 0,
+          "holy": 0
+        },
+        "scaling": {
+          "STR": 26,
+          "DEX": 6,
+          "INT": 0,
+          "FAI": 0,
+          "ARC": 158
+        },
+        "status": {}
+      }
     }
-   },
-   "Lightning": {
+  },
+  {
+    "id": "devonia-s-hammer",
+    "name": "Devonia's Hammer",
+    "type": "Colossal Weapon",
+    "source": "dlc",
+    "category": "somber",
+    "infusable": false,
+    "requirements": {
+      "STR": 30,
+      "DEX": 13,
+      "FAI": 19
+    },
+    "weight": 20,
+    "passive": null,
     "base": {
-     "physical": 247,
-     "magic": 0,
-     "fire": 0,
-     "lightning": 247,
-     "holy": 0
+      "physical": 360,
+      "magic": 0,
+      "fire": 0,
+      "lightning": 0,
+      "holy": 107
     },
     "scaling": {
-     "STR": 11,
-     "DEX": 76,
-     "INT": 0,
-     "FAI": 0,
-     "ARC": 29
+      "STR": 126,
+      "DEX": 36,
+      "INT": 0,
+      "FAI": 63,
+      "ARC": 0
+    },
+    "elementScaling": {
+      "STR": [
+        "physical"
+      ],
+      "DEX": [
+        "physical"
+      ],
+      "FAI": [
+        "holy"
+      ]
     },
     "status": {},
-    "elementScaling": {
-     "STR": [
-      "physical"
-     ],
-     "DEX": [
-      "physical",
-      "lightning"
-     ],
-     "ARC": [
-      "physical"
-     ]
-    }
-   },
-   "Sacred": {
+    "arcStatusScaling": 0
+  },
+  {
+    "id": "gazing-finger",
+    "name": "Gazing Finger",
+    "type": "Colossal Weapon",
+    "source": "dlc",
+    "category": "somber",
+    "infusable": false,
+    "requirements": {
+      "STR": 20,
+      "DEX": 8,
+      "INT": 20,
+      "FAI": 14
+    },
+    "weight": 15,
+    "passive": null,
     "base": {
-     "physical": 284,
-     "magic": 0,
-     "fire": 0,
-     "lightning": 0,
-     "holy": 284
+      "physical": 325,
+      "magic": 210,
+      "fire": 0,
+      "lightning": 0,
+      "holy": 0
     },
     "scaling": {
-     "STR": 22,
-     "DEX": 5,
-     "INT": 0,
-     "FAI": 74,
-     "ARC": 29
+      "STR": 119,
+      "DEX": 0,
+      "INT": 54,
+      "FAI": 18,
+      "ARC": 0
+    },
+    "elementScaling": {
+      "STR": [
+        "physical"
+      ],
+      "INT": [
+        "magic"
+      ],
+      "FAI": [
+        "magic"
+      ]
     },
     "status": {},
-    "elementScaling": {
-     "STR": [
-      "physical"
-     ],
-     "DEX": [
-      "physical"
-     ],
-     "FAI": [
-      "physical",
-      "holy"
-     ],
-     "ARC": [
-      "physical"
-     ]
-    }
-   },
-   "Magic": {
+    "arcStatusScaling": 0
+  },
+  {
+    "id": "shadow-sunflower-blossom",
+    "name": "Shadow Sunflower Blossom",
+    "type": "Colossal Weapon",
+    "source": "dlc",
+    "category": "somber",
+    "infusable": false,
+    "requirements": {
+      "STR": 24,
+      "DEX": 8,
+      "FAI": 25
+    },
+    "weight": 16,
+    "passive": null,
     "base": {
-     "physical": 284,
-     "magic": 284,
-     "fire": 0,
-     "lightning": 0,
-     "holy": 0
+      "physical": 279,
+      "magic": 0,
+      "fire": 0,
+      "lightning": 0,
+      "holy": 279
     },
     "scaling": {
-     "STR": 16,
-     "DEX": 3,
-     "INT": 78,
-     "FAI": 0,
-     "ARC": 29
+      "STR": 81,
+      "DEX": 9,
+      "INT": 0,
+      "FAI": 99,
+      "ARC": 0
+    },
+    "elementScaling": {
+      "STR": [
+        "physical"
+      ],
+      "DEX": [
+        "physical"
+      ],
+      "FAI": [
+        "holy"
+      ]
     },
     "status": {},
-    "elementScaling": {
-     "STR": [
-      "physical"
-     ],
-     "DEX": [
-      "physical"
-     ],
-     "INT": [
-      "magic"
-     ],
-     "ARC": [
-      "physical"
-     ]
-    }
-   },
-   "Cold": {
-    "base": {
-     "physical": 255,
-     "magic": 217,
-     "fire": 0,
-     "lightning": 0,
-     "holy": 0
-    },
-    "scaling": {
-     "STR": 68,
-     "DEX": 15,
-     "INT": 56,
-     "FAI": 0,
-     "ARC": 29
-    },
-    "status": {
-     "frost": 96
-    },
-    "elementScaling": {
-     "STR": [
-      "physical"
-     ],
-     "DEX": [
-      "physical"
-     ],
-     "INT": [
-      "magic"
-     ],
-     "ARC": [
-      "physical"
-     ]
-    }
-   },
-   "Poison": {
-    "base": {
-     "physical": 305,
-     "magic": 0,
-     "fire": 0,
-     "lightning": 0,
-     "holy": 0
-    },
-    "scaling": {
-     "STR": 65,
-     "DEX": 15,
-     "INT": 0,
-     "FAI": 0,
-     "ARC": 74
-    },
-    "status": {
-     "poison": 96
-    }
-   },
-   "Blood": {
-    "base": {
-     "physical": 305,
-     "magic": 0,
-     "fire": 0,
-     "lightning": 0,
-     "holy": 0
-    },
-    "scaling": {
-     "STR": 65,
-     "DEX": 15,
-     "INT": 0,
-     "FAI": 0,
-     "ARC": 74
-    },
-    "status": {
-     "bleed": 83
-    }
-   },
-   "Occult": {
-    "base": {
-     "physical": 319,
-     "magic": 0,
-     "fire": 0,
-     "lightning": 0,
-     "holy": 0
-    },
-    "scaling": {
-     "STR": 26,
-     "DEX": 6,
-     "INT": 0,
-     "FAI": 0,
-     "ARC": 158
-    },
-    "status": {}
-   }
+    "arcStatusScaling": 0
   }
- },
- {
-  "id": "devonia-s-hammer",
-  "name": "Devonia's Hammer",
-  "type": "Colossal Weapon",
-  "source": "dlc",
-  "category": "somber",
-  "infusable": false,
-  "requirements": {
-   "STR": 30,
-   "DEX": 13,
-   "FAI": 19
-  },
-  "weight": null,
-  "passive": null,
-  "base": {
-   "physical": 360,
-   "magic": 0,
-   "fire": 0,
-   "lightning": 0,
-   "holy": 107
-  },
-  "scaling": {
-   "STR": 126,
-   "DEX": 36,
-   "INT": 0,
-   "FAI": 63,
-   "ARC": 0
-  },
-  "elementScaling": {
-   "STR": [
-    "physical"
-   ],
-   "DEX": [
-    "physical"
-   ],
-   "FAI": [
-    "holy"
-   ]
-  },
-  "status": {},
-  "arcStatusScaling": 0
- },
- {
-  "id": "gazing-finger",
-  "name": "Gazing Finger",
-  "type": "Colossal Weapon",
-  "source": "dlc",
-  "category": "somber",
-  "infusable": false,
-  "requirements": {
-   "STR": 20,
-   "DEX": 8,
-   "INT": 20,
-   "FAI": 14
-  },
-  "weight": null,
-  "passive": null,
-  "base": {
-   "physical": 325,
-   "magic": 210,
-   "fire": 0,
-   "lightning": 0,
-   "holy": 0
-  },
-  "scaling": {
-   "STR": 119,
-   "DEX": 0,
-   "INT": 54,
-   "FAI": 18,
-   "ARC": 0
-  },
-  "elementScaling": {
-   "STR": [
-    "physical"
-   ],
-   "INT": [
-    "magic"
-   ],
-   "FAI": [
-    "magic"
-   ]
-  },
-  "status": {},
-  "arcStatusScaling": 0
- },
- {
-  "id": "shadow-sunflower-blossom",
-  "name": "Shadow Sunflower Blossom",
-  "type": "Colossal Weapon",
-  "source": "dlc",
-  "category": "somber",
-  "infusable": false,
-  "requirements": {
-   "STR": 24,
-   "DEX": 8,
-   "FAI": 25
-  },
-  "weight": null,
-  "passive": null,
-  "base": {
-   "physical": 279,
-   "magic": 0,
-   "fire": 0,
-   "lightning": 0,
-   "holy": 279
-  },
-  "scaling": {
-   "STR": 81,
-   "DEX": 9,
-   "INT": 0,
-   "FAI": 99,
-   "ARC": 0
-  },
-  "elementScaling": {
-   "STR": [
-    "physical"
-   ],
-   "DEX": [
-    "physical"
-   ],
-   "FAI": [
-    "holy"
-   ]
-  },
-  "status": {},
-  "arcStatusScaling": 0
- }
 ]
