@@ -228,6 +228,21 @@ a:hover { text-decoration: underline; }
 .payoff-dmg small, .payoff-note { color: var(--dim); }
 .payoff-note { grid-column: 2 / -1; font-size: 12px; margin-top: -3px; }
 
+/* phones: the payoff row's two nowrap columns (hits + damage) can't share a
+   375px line — stack them under the status icon instead of overflowing. */
+@media (max-width: 480px) {
+  .payoff-row { grid-template-columns: 20px minmax(0, 1fr); row-gap: 2px; }
+  .payoff-name, .payoff-hits, .payoff-dmg, .payoff-note { grid-column: 2; }
+  .payoff-dmg { text-align: left; white-space: normal; }
+}
+
+/* .srow has a hard ~132px floor (20 + 60 + 34 + gaps). Two .dual columns can't
+   both hold that below ~360px, so go single-column on the smallest phones.
+   NOTE: must live after the base .dual rule above — equal specificity, later wins. */
+@media (max-width: 400px) {
+  .dual { grid-template-columns: minmax(0, 1fr); gap: 14px; }
+}
+
 /* ---------- analysis ---------- */
 .contrib { display: flex; flex-direction: column; gap: 8px; }
 .crow { display: flex; align-items: center; justify-content: space-between; font-size: 14px; }
