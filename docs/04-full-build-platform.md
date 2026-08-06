@@ -14,11 +14,11 @@ The experience should remain calm and legible. Motion communicates causality: ch
 flash softly, bars travel to their new state, equipment slots acknowledge selection, and panels
 reveal detail only when it is useful. Motion never delays input and respects reduced-motion.
 
-## Canonical build schema (v4)
+## Canonical build schema (v5)
 
 ```json
 {
-  "schemaVersion": 4,
+  "schemaVersion": 5,
   "name": "Vera Aletheia",
   "combatContext": "pve",
   "attackProfile": "jump",
@@ -30,7 +30,8 @@ reveal detail only when it is useful. Motion never delays input and respects red
     "leftHand": [null, null, null],
     "armor": { "head": null, "body": null, "arms": null, "legs": null },
     "talismans": [],
-    "spells": [],
+    "magic": { "catalystId": "astrologers-staff", "upgrade": 25, "memorySlots": 10 },
+    "spells": [{ "spellId": "comet", "variantId": "40210" }],
     "physick": [],
     "greatRune": null
   },
@@ -113,5 +114,10 @@ migration. Breadth without trusted math does not count as completion.
   The 1.16.1 attack lens raises total live coverage to 100 with move-aware PvE/PvP multipliers,
   two-handed state, and type-specific exceptions. All other items are explicitly inventory-only
   rather than receiving inferred math.
-- **Next:** catalysts and spell memory/scaling/damage on top of the same effect resolver, followed
-  by the remaining talisman outputs that depend on casting, guard, poise, flask, and loot domains.
+- **Shipped:** catalyst and spell core: 33 casting tools, all 213 base+DLC spells and 463 unique
+  output variants, exact CalcCorrectGraph scaling, reinforcement, requirements, category bonuses,
+  memory slots, FP/stamina costs, typed pre-defense output, responsive selection, persistence,
+  sharing, and v4 migration. The output boundary is explicit: enemy defense/negation and advanced
+  multi-hit/utility behaviors are not silently estimated.
+- **Next:** enemy defense/negation, status thresholds, phase and NG-cycle context, followed by
+  remaining talisman/spell outputs that depend on guard, poise, flask, loot, and encounter domains.

@@ -56,3 +56,27 @@ This index records transformation and verification notes that do not belong in r
   before motion values and enemy defense are implemented.
 - Verification pins profile/tag integrity, numeric context profiles, type-specific override order,
   move matching, share/local-save restoration, desktop interaction, and 390px overflow.
+
+## Catalysts and spells (`catalysts.json`, `spells.json`)
+
+- Game version target: App 1.16 / Calibration 1.16; schema version 1.
+- Upstream: [CryptidTracker's Elden Ring Build Planner v1.19.1](https://docs.google.com/spreadsheets/d/19Op36P7gdVMkPzFQX6OsjZcfyUjdGOj7Cjk9qFAVj-U/edit),
+  retrieved 2026-08-05. The planner states that its data does not require an update for 1.16 and
+  includes Shadow of the Erdtree catalysts and spells.
+- Transformation: `node scripts/import-magic.js /path/to/build-planner.xlsx`. The importer reads
+  `OptimalCatalystCalcData`, `MagicData`, `MagicApData`, `WeaponData`,
+  `AttackElementCorrectParam`, `CalcCorrectGraphEz`, and `ReinforceParamWeapon` directly from OOXML.
+- Catalog: 33 casting tools (including six DLC tools), 213 spells (84 sorceries and 129
+  incantations), and 463 deduplicated output variants.
+- Catalyst formulas preserve the source's enabled-stat gates, per-stat maximum coefficients,
+  curve IDs, requirements, exact reinforcement rates, category bonus, and FP multiplier. Spell
+  variants preserve typed motion values, healing motion, focused-stat/no-scale rules, charged state,
+  FP/stamina costs, and status metadata.
+- Verification: the importer independently recomputes every source default Spell Buff and rejects
+  any mismatch over 0.001. Engine tests pin catalog counts, every catalyst audit value, upgrade
+  scaling, requirements, school compatibility, Comet output, and catalyst FP/category modifiers.
+  Browser tests pin selection, 80-INT Spell Buff, Comet output, memory use, URL persistence, reload,
+  desktop/mobile layout, and console errors.
+- Current boundary: damage/healing is param-derived **pre-defense** output. Enemy defense and
+  negation, multi-projectile sequencing, situational world effects, and utility-only spell behavior
+  require the encounter pipeline and remain explicitly unmodeled.

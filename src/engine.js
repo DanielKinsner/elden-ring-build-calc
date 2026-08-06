@@ -684,6 +684,120 @@
     return out;
   }
 
+  /**
+   * computeCatalystSpellBuff(build, catalyst, opts)
+   * Exact game-param spell-buff model for casting tools. `curves` is the imported
+   * CalcCorrectGraphEz lookup keyed by catalyst.curveId; upgradeRates are normalized
+   * ReinforceParamWeapon correction rates (max upgrade = 1).
+   */
+  function computeCatalystSpellBuff(build, catalyst, opts) {
+    opts = opts || {};
+    var curves = opts.curves || {};
+    var curve = opts.curve || curves[catalyst.curveId] || curves[String(catalyst.curveId)];
+    if (!curve || curve.length < 99) throw new Error('missing catalyst curve ' + catalyst.curveId);
+    var maxLevel = catalyst.maxLevel || 0;
+    var level = Math.max(0, Math.min(maxLevel, opts.upgradeLevel == null ? maxLevel : Math.floor(opts.upgradeLevel)));
+    var upgradeRate = (catalyst.upgradeRates && catalyst.upgradeRates[level]);
+    if (upgradeRate == null) upgradeRate = maxLevel ? level / maxLevel : 1;
+    var byStat = {}, exact = catalyst.baseSpellBuff || 100;
+    var effective = effectiveStats(build, opts.twoHanded);
+    for (var index = 0; index < STATS.length; index++) {
+      var stat = STATS[index];
+      var enabled = !catalyst.scalingStats || catalyst.scalingStats[stat] !== false;
+      var coefficient = enabled ? ((catalyst.coefficients && catalyst.coefficients[stat]) || 0) : 0;
+      var growth = curve[Math.max(0, Math.min(98, (effective[stat] || 1) - 1))] / 100;
+      byStat[stat] = coefficient * upgradeRate * growth;
+      exact += byStat[stat];
+    }
+    var unmet = [];
+    var requirements = catalyst.requirements || {};
+    STATS.forEach(function (stat) {
+      var have = stat === 'STR' && opts.twoHanded ? effective.STR : (build[stat] || 1);
+      if ((requirements[stat] || 0) > have) unmet.push({ stat: stat, need: requirements[stat], have: have });
+    });
+    var focused = {};
+    STATS.forEach(function (stat) { focused[stat] = Math.floor((catalyst.baseSpellBuff || 100) + byStat[stat]); });
+    return {
+      catalyst: catalyst,
+      spellBuff: Math.floor(exact),
+      spellBuffExact: exact,
+      byStat: byStat,
+      focused: focused,
+      upgrade: { level: level, maxLevel: maxLevel },
+      requirementsMet: unmet.length === 0,
+      unmetReqs: unmet,
+      effectiveStats: effective
+    };
+  }
+
+  function spellRequirements(spell, build) {
+    var unmet = [];
+    var requirements = spell.requirements || {};
+    ['INT', 'FAI', 'ARC'].forEach(function (stat) {
+      var have = build[stat] || 1;
+      if ((requirements[stat] || 0) > have) unmet.push({ stat: stat, need: requirements[stat], have: have });
+    });
+    return unmet;
+  }
+
+  /**
+   * computeSpellOutput(build, spell, catalystResult, opts)
+   * Pre-defense spell output from imported attack motion values. It intentionally
+   * stops before enemy defense/negation so the UI never presents fake final damage.
+   */
+  function computeSpellOutput(build, spell, catalystResult, opts) {
+    opts = opts || {};
+    var variants = spell.variants || [];
+    var variant = variants.find(function (item) { return String(item.id) === String(opts.variantId); }) || variants[0] || { damage: {} };
+    var catalyst = catalystResult.catalyst || {};
+    var catalystAccepts = catalyst.kind === 'universal' || catalyst.kind === spell.type;
+    var unmet = spellRequirements(spell, build);
+    var spellBuff = catalystResult.spellBuff;
+    if (variant.onlyUsesInt) spellBuff = catalystResult.focused.INT;
+    if (variant.onlyUsesFaith) spellBuff = catalystResult.focused.FAI;
+    if (variant.noScale) spellBuff = 100;
+
+    var bonuses = [];
+    if (catalyst.bonus) bonuses.push(catalyst.bonus);
+    (opts.bonuses || []).forEach(function (bonus) { if (bonus) bonuses.push(bonus); });
+    var category = String(spell.category || '').toLowerCase();
+    var categoryMultiplier = 1, matchedBonuses = [];
+    bonuses.forEach(function (bonus) {
+      var family = String(bonus.family || '').toLowerCase().replace(/sorcery|incantation/g, '').trim();
+      if (family && category && (category.indexOf(family) >= 0 || family.indexOf(category) >= 0)) {
+        categoryMultiplier *= bonus.multiplier || 1;
+        matchedBonuses.push(bonus);
+      }
+    });
+
+    var byType = {}, total = 0;
+    DAMAGE_TYPES.forEach(function (type) {
+      var motion = (variant.damage && +variant.damage[type]) || 0;
+      var value = Math.floor(motion * spellBuff / 100 * categoryMultiplier);
+      if (value) byType[type] = value;
+      total += value;
+    });
+    var heal = variant.healMotion ? Math.floor(variant.healMotion * spellBuff / 100) : 0;
+    return {
+      spell: spell,
+      variant: variant,
+      spellBuff: spellBuff,
+      byType: byType,
+      totalPreDefense: total,
+      heal: heal,
+      fpCost: Math.ceil((variant.fp == null ? spell.fp : variant.fp) * (catalyst.fpMultiplier || 1)),
+      staminaCost: variant.stamina == null ? spell.stamina : variant.stamina,
+      categoryMultiplier: categoryMultiplier,
+      matchedBonuses: matchedBonuses,
+      catalystAccepts: catalystAccepts,
+      catalystRequirementsMet: catalystResult.requirementsMet,
+      spellRequirementsMet: unmet.length === 0,
+      unmetReqs: unmet,
+      canCast: catalystAccepts && catalystResult.requirementsMet && unmet.length === 0,
+      confidence: total || heal ? 'param-derived pre-defense' : 'utility or unmodeled damage'
+    };
+  }
+
   // Rough character level from attribute totals (Wretch baseline: 8x10 = level 1).
   function characterLevel(build) {
     var keys = ['VIG', 'MND', 'END', 'STR', 'DEX', 'INT', 'FAI', 'ARC'];
@@ -712,6 +826,8 @@
     aggregateDefense: aggregateDefense,
     aggregateResistance: aggregateResistance,
     aggregateUtility: aggregateUtility,
+    computeCatalystSpellBuff: computeCatalystSpellBuff,
+    computeSpellOutput: computeSpellOutput,
     STATS: STATS, DAMAGE_TYPES: DAMAGE_TYPES, STATUS_TYPES: STATUS_TYPES, CURVES: CURVES
   };
 });

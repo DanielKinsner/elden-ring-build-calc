@@ -20,14 +20,18 @@ are, which weapon wins on their build, and how bleed/status buildup scales.
   trace. One hundred formulas are live, including 62 directly derived from SpEffectParam plus
   a 1.16.1 move-aware attack matrix: jump/heavy/guard-counter/critical/counter-hit/movement,
   skill, DLC skill-family, arrow, two-handed, PvE/PvP, and damage-type exception handling.
+- Thirty-three casting tools and all 213 base+DLC spells. Catalyst Spell Buff is calculated from
+  reinforcement rates, AttackElementCorrectParam stat gates, and the exact CalcCorrectGraph curve;
+  the memory rack enforces slots and exposes spell requirements, variants, FP/stamina cost,
+  category bonuses, typed motion values, and param-derived pre-defense output.
 - Active buff layer (Golden Vow, greases, Physick tears) with category override rules.
 - Status payoff card — hits-to-proc and what the proc is worth (bleed/frost/poison/rot) vs a target HP/resist.
 - Soft-cap chart + optimal stat advisor (redistributes your offensive points for max AR).
 - "Best Weapons for Your Build" ranking + a compare tray.
 - Scadutree Blessing slider — Land-of-Shadow AR and damage negation.
 - Versioned full-build state, compact share links, auto-save, old-save migration, and **My Builds**
-  named multi-save. The v4 schema preserves combat and attack-lens context and reserves spells, physick, and
-  Great Rune for the next slices.
+  named multi-save. The v5 schema preserves equipment, combat, attack-lens, catalyst, and spell-memory
+  state while reserving Physick, Great Rune, and enemy profiles for the next slices.
 
 **Weapon Atlas** (`atlas/`) — every weapon, filterable by status/scaling/infusable/DLC, sortable
 by AR-for-a-reference-build, weight, or requirements; per-weapon detail pages with acquisition info.
@@ -64,7 +68,8 @@ so DLC-only systems (Scadutree Blessing, new weapons) never contaminate vanilla 
 Golden regression pins for the engine (verified library-build ARs, two-handing rules,
 flooring, Scadutree, status procs, the buff layer, survival, armor aggregation, talisman
 conditions/conflicts, move-profile rules, damage-type overrides, resistances/utility, PvE/PvP
-variants, and incoming-damage order):
+variants, incoming-damage order, catalyst graph scaling, requirements, category effects, and spell
+motion-value output):
 
 ```
 node tests/engine.test.js

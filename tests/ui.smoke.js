@@ -18,6 +18,13 @@ async function equip(page, slot, query, exactName) {
   await result.click();
 }
 
+async function memorize(page, query, exactName) {
+  await page.locator('#addSpell').click();
+  await page.locator('#spellSearch').fill(query);
+  const result = page.locator('.spell-result').filter({ has: page.locator('b', { hasText: exactName }) }).first();
+  await result.click();
+}
+
 async function main() {
   const browser = await chromium.launch({ headless: true, executablePath: EXECUTABLE, args: ['--no-sandbox'] });
   const errors = [];
@@ -69,11 +76,24 @@ async function main() {
     assert((await physicalDefense.textContent()).includes('5.0'), 'PvP context switches to its separate Dragoncrest multiplier');
     await page.locator('#attackProfile').selectOption('jump');
 
+    await page.locator('[data-box="INT"]').fill('80');
+    await page.locator('#catalystSelect').selectOption('astrologers-staff');
+    await page.locator('#catalystUpgrade').selectOption('25');
+    await memorize(page, 'Comet', 'Comet');
+    assert(await page.locator('#memoryBudget').textContent() === '1 / 10 slots', 'spell memory accounts for the selected spell');
+    assert(await page.locator('#spellBuff').textContent() === '340', 'param graph produces 340 Spell Buff at 80 INT');
+    assert(await page.locator('#spellOutput').textContent() === '992', 'Comet motion value produces 992 pre-defense magic damage');
+    assert((await page.locator('#spellCosts').textContent()).startsWith('24 / 31'), 'spell output exposes FP and stamina costs');
+    assert((await page.locator('#activeSpellReqs').textContent()).includes('ready'), 'spell analysis validates catalyst and attribute requirements');
+
     await page.waitForTimeout(350); // persistence is intentionally debounced by 250ms
     const url = page.url();
     assert(url.includes('tl='), 'share URL contains positional talisman state');
     assert(url.includes('ctx=pvp'), 'share URL preserves PvE/PvP calculation context');
     assert(url.includes('mv=jump'), 'share URL preserves the move under analysis');
+    assert(url.includes('cat=astrologers-staff'), 'share URL preserves the catalyst');
+    assert(url.includes('sp=comet'), 'share URL preserves memorized spells');
+    assert(url.includes('sa=comet'), 'share URL preserves the active spell');
     await page.reload({ waitUntil: 'networkidle' });
     const restoredRack = await page.locator('#talismanRack').textContent();
     if (!restoredRack.includes("Great-Jar's Arsenal")) console.error('reload URL: ' + url + '\nrack: ' + restoredRack);
@@ -81,6 +101,9 @@ async function main() {
     assert(restoredRack.includes("Great-Jar's Arsenal"), 'multi-slot talisman state survives reload');
     assert(await page.locator('#combatContext').inputValue() === 'pvp', 'combat context survives reload');
     assert(await page.locator('#attackProfile').inputValue() === 'jump', 'attack lens survives reload');
+    assert(await page.locator('#catalystSelect').inputValue() === 'astrologers-staff', 'catalyst state survives reload');
+    assert((await page.locator('#spellRack').textContent()).includes('Comet'), 'spell memory survives reload');
+    assert(await page.locator('#spellOutput').textContent() === '992', 'spell output survives shared-link reload');
     await page.screenshot({ path: '/tmp/elden-talisman-desktop.png', fullPage: true });
 
     const mobile = await browser.newPage({ viewport: { width: 390, height: 844 } });
@@ -89,6 +112,7 @@ async function main() {
     const overflow = await mobile.evaluate(() => ({ scroll: document.documentElement.scrollWidth, inner: window.innerWidth }));
     assert(overflow.scroll <= overflow.inner, '390px layout has no horizontal overflow');
     assert(await mobile.locator('.tali-slot').count() === 4, 'mobile retains all four equipment slots');
+    assert((await mobile.locator('#spellRack').textContent()).includes('Comet'), 'mobile retains spell memory and casting state');
     await mobile.screenshot({ path: '/tmp/elden-talisman-mobile.png', fullPage: true });
 
     if (errors.length) console.error(errors.join('\n'));

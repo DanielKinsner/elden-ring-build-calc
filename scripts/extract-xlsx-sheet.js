@@ -8,6 +8,11 @@
 
 const { execFileSync } = require('child_process');
 
+process.stdout.on('error', (error) => {
+  if (error.code === 'EPIPE') process.exit(0);
+  throw error;
+});
+
 const file = process.argv[2];
 const sheetName = process.argv[3];
 const asJson = process.argv.includes('--json');

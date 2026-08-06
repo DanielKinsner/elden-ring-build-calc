@@ -104,6 +104,45 @@
       </div>
       <div id="talismanList" class="talisman-list"></div>
     </div>
+    <h2 class="mt">Memory &amp; Casting <span class="section-kicker" id="memoryBudget">0 / 10 slots</span></h2>
+    <section class="magic-altar" aria-label="Spell memory and catalyst analysis">
+      <div class="magic-altar-head">
+        <div class="magic-sigil" aria-hidden="true"><i></i><span>✦</span></div>
+        <div><span class="k">Casting tool</span><b id="catalystSummary">No catalyst equipped</b><small id="catalystSummaryNote">Select a staff, seal, or universal catalyst</small></div>
+      </div>
+      <div class="magic-controls">
+        <label><span>Catalyst</span><select id="catalystSelect" aria-label="Equipped catalyst"></select></label>
+        <label><span>Upgrade</span><select id="catalystUpgrade" aria-label="Catalyst upgrade level"></select></label>
+        <label><span>Owned memory slots</span><input id="baseMemorySlots" type="number" min="1" max="10" value="10"></label>
+      </div>
+      <div class="spell-rack" id="spellRack" aria-label="Memorized spells"></div>
+      <button type="button" class="spell-add" id="addSpell">＋ Memorize spell</button>
+      <div class="spell-picker" id="spellPicker" hidden>
+        <div class="armor-picker-head">
+          <div><span class="k">Memory</span><b>Choose a spell</b></div>
+          <button id="spellPickerClose" class="picker-close" type="button" aria-label="Close spell picker">×</button>
+        </div>
+        <div class="search-wrap">
+          <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><line x1="15.3" y1="15.3" x2="21" y2="21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <input type="search" id="spellSearch" class="search" placeholder="Search 213 sorceries and incantations…" autocomplete="off">
+        </div>
+        <div class="spell-filter" id="spellFilter"><button type="button" data-spell-filter="all" class="on">All</button><button type="button" data-spell-filter="sorcery">Sorcery</button><button type="button" data-spell-filter="incantation">Incantation</button></div>
+        <div id="spellList" class="spell-list"></div>
+      </div>
+      <div class="magic-analysis" id="magicAnalysis" hidden>
+        <div class="magic-analysis-head">
+          <div><span class="k" id="activeSpellType">Spell</span><b id="activeSpellName">—</b><small id="activeSpellReqs">—</small></div>
+          <label><span>Attack variant</span><select id="spellVariant"></select></label>
+        </div>
+        <div class="magic-numbers">
+          <div><span>Spell Buff</span><b id="spellBuff">—</b><small id="spellBuffNote">param-derived</small></div>
+          <div><span>Pre-defense output</span><b id="spellOutput">—</b><small id="spellOutputNote">motion value × spell buff</small></div>
+          <div><span>FP / Stamina</span><b id="spellCosts">—</b><small id="spellBonus">no category bonus</small></div>
+        </div>
+        <div class="spell-damage" id="spellDamage"></div>
+        <div class="spell-effect" id="spellEffect" hidden></div>
+      </div>
+    </section>
     <h2 class="mt active-analysis-title">Active Armament</h2>
     <label class="dlc-toggle"><input type="checkbox" id="showDlc" checked> Include Shadow of the Erdtree weapons</label>
     <div class="search-wrap">

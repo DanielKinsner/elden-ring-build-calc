@@ -86,12 +86,15 @@ budget is gone (respecting reqs + soft caps). **Where:** `engine.js` (new `optim
 
 ## Tier 3 — data expansions
 
-### T7. Catalysts + spell scaling (the missing weapon class)
-Staves + Sacred Seals. Their damage is **Sorcery Scaling / Incantation Scaling** (a different stat than
-weapon AR) applied to a spell's base. Add catalysts to the dataset + a spell-power calc + a spell picker.
-**Where:** `data/weapons/` (catalyst category) + a `spellPower()` in `engine.js` + optionally `data/spells.json`.
-**Research:** datamine the staff/seal scaling (same regulation source; catalysts use their own calc-correct)
-+ spell base motion values from the wiki. Biggest data lift here — scope it as its own project.
+### T7. Catalysts + spell scaling (the missing weapon class) ✅ CORE COMPLETE (2026-08-05)
+Shipped all 33 casting tools and 213 base+DLC spells from the CryptidTracker planner's regulation-derived
+tables. `computeCatalystSpellBuff()` uses exact reinforcement rates, AttackElementCorrectParam stat gates,
+per-stat coefficients, and CalcCorrectGraph curves. `computeSpellOutput()` applies the selected spell
+variant's typed motion values, catalyst category bonuses, focused INT/FAI scaling, no-scale rules,
+requirements, and FP/stamina costs. The Memory & Casting UI has a 10-slot spell rack, school filters,
+active variant analysis, full persistence, and compact sharing. Output is deliberately labeled
+**pre-defense** until the enemy/context pipeline lands. Remaining: exact spell/catalyst icons, non-damage
+utility formulas, multi-hit sequencing, weapon-catalyst integration, and final post-defense damage.
 
 ### T8. Region maps (phased — this is the "hard" one, so don't start at v3)
 The acquisition schema already has `mapPin: {x, y}` (% coords). 
@@ -217,7 +220,7 @@ link. "Save Build" writes to localStorage; a small curated **meta build library*
   that need their own domain (guard stamina, poise damage, flask restoration, discovery/runes,
   casting/spell costs) plus Blue Dancer and Verdigris load curves.
 - **Catalysts + spell loadout:** memory slots, FP/stamina costs, requirements, catalyst-aware
-  spell buff and spell damage.
+  spell buff and spell damage. **Core shipped; enemy defense and advanced spell behaviors remain.**
 - **Physick + Great Rune + complete effect stack:** transparent ordering and conflicts.
 - **Enemy/context pipeline:** defense, negation, status thresholds, phase, NG cycle and PvP.
 - **Build optimizer + comparison:** offense/defense/weight targets over the same canonical state.
@@ -226,7 +229,7 @@ link. "Save Build" writes to localStorage; a small curated **meta build library*
 - **Poise breakpoint explanations and attack-specific hyperarmor context.**
 - **Per-boss enemy data** (`data/enemies.json`: HP, status thresholds, negations) → makes
   the status payoff card boss-specific ("4 hits to proc bleed on Malenia").
-- **T7 catalysts/spells** and **T8 maps** — unchanged, still the big lifts.
+- **T8 maps** remains a large parallel content lift; T7's core catalyst/spell system has shipped.
 - More buffs (Bloodboil Aromatic, Howl of Shabriri, Exalted Flesh), PvP-values toggle,
   enemy status thresholds.
 - **Reminders / notifications** — cut from the guides/tales deck-out scope (D2, 2026-08-05,
@@ -236,7 +239,7 @@ link. "Save Build" writes to localStorage; a small curated **meta build library*
 
 ## Suggested order
 1. ~~T1 + T2~~ ✅  2. ~~T3 + T4~~ ✅  3. ~~T5, T6, T11~~ ✅  4. ~~T9 + T10~~ ✅ — Tiers 1, 2, 4, 5 shipped.
-5. **Six armament slots → true talisman/effect slots** ✅ → **complete talisman formulas → catalysts/spells → enemy context**, then
+5. **Six armament slots → true talisman/effect slots → catalyst/spell core** ✅ → **enemy context → complete talisman/spell/status formulas**, then
    optimizer/community publishing. T8 maps remains a parallel content project.
 
 ## Known data gaps (surfaced 2026-07)

@@ -51,6 +51,21 @@
     return data.profiles || [];
   }
 
+  async function loadMagic(basePath) {
+    basePath = basePath || 'data/';
+    var parts = await Promise.all([
+      fetchJSON(basePath + 'catalysts.json'),
+      fetchJSON(basePath + 'spells.json')
+    ]);
+    return {
+      catalysts: parts[0].items || [],
+      curves: parts[0].curves || {},
+      spells: parts[1].items || [],
+      coverage: { catalysts: parts[0].coverage || {}, spells: parts[1].coverage || {} },
+      source: parts[0].source || parts[1].source || null
+    };
+  }
+
   // Guides data: quests + bosses + endings in one go (the guides pages need all three).
   async function loadGuides(basePath) {
     basePath = basePath || 'data/';
@@ -75,5 +90,5 @@
     return JSON.parse(fs.readFileSync(path.resolve(url), 'utf8'));
   }
 
-  return { loadWeapons: loadWeapons, loadPresets: loadPresets, loadBuffs: loadBuffs, loadArmor: loadArmor, loadTalismans: loadTalismans, loadAttackProfiles: loadAttackProfiles, loadGuides: loadGuides };
+  return { loadWeapons: loadWeapons, loadPresets: loadPresets, loadBuffs: loadBuffs, loadArmor: loadArmor, loadTalismans: loadTalismans, loadAttackProfiles: loadAttackProfiles, loadMagic: loadMagic, loadGuides: loadGuides };
 });

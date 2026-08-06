@@ -13,6 +13,11 @@
   var armor = await ERData.loadArmor('../data/');
   var talismans = await ERData.loadTalismans('../data/');
   var attackProfiles = await ERData.loadAttackProfiles('../data/');
+  var magicData = await ERData.loadMagic('../data/');
+  var catalysts = magicData.catalysts, catalystCurves = magicData.curves, spells = magicData.spells;
+  var catalystById = {}, spellById = {};
+  catalysts.forEach(function (item) { catalystById[item.id] = item; });
+  spells.forEach(function (item) { spellById[item.id] = item; });
   var attackProfileById = {};
   attackProfiles.forEach(function (profile) { attackProfileById[profile.id] = profile; });
   var armorById = {};
@@ -73,7 +78,8 @@
       var armorParts = (q.get('ar') || '').split('.');
       var o = { stats: {}, weapon: q.get('w'), affinity: q.get('a'), upgrade: q.get('u'), twoHanded: q.get('h') !== '0', level: +q.get('l') || null,
                 buffs: (q.get('bf') || '').split(',').filter(Boolean), talis: (q.get('tl') || '').split(',').filter(Boolean), scadu: +q.get('st') || 0,
-                gearWeight: +q.get('gw') || 0, armor: {}, activeSlot: q.get('as') || 'r0', combatContext: q.get('ctx') === 'pvp' ? 'pvp' : 'pve', attackProfile: q.get('mv') || 'neutral' };
+                gearWeight: +q.get('gw') || 0, armor: {}, activeSlot: q.get('as') || 'r0', combatContext: q.get('ctx') === 'pvp' ? 'pvp' : 'pve', attackProfile: q.get('mv') || 'neutral',
+                magic: { catalystId: q.get('cat') || null, upgrade: q.get('cu') === null ? null : +q.get('cu'), memorySlots: +q.get('ms') || 10, spells: (q.get('sp') || '').split(',').filter(Boolean), activeSpell: q.get('sa') || null, variantId: q.get('sv') || null } };
       if (q.get('rh') || q.get('lh')) o.loadout = { rightHand: decodeArmaments(q.get('rh')), leftHand: decodeArmaments(q.get('lh')) };
       ARMOR_SLOTS.forEach(function (slot, i) { if (armorParts[i] && armorParts[i] !== '-') o.armor[slot.id] = armorParts[i]; });
       STATS.forEach(function (k, i) { if (s[i] >= 1 && s[i] <= 99) o.stats[k] = s[i]; });
@@ -149,6 +155,16 @@
   var bootTalismans = BOOT && BOOT.loadout && BOOT.loadout.talismans ? BOOT.loadout.talismans : BOOT && BOOT.talis ? BOOT.talis : [];
   selectedTalismans = (bootTalismans || []).slice(0, TALI_MAX).map(normalizeTalisman);
   while (selectedTalismans.length < TALI_MAX) selectedTalismans.push(null);
+  var savedMagic = BOOT && (BOOT.magic || (BOOT.loadout && BOOT.loadout.magic)) || {};
+  var magicState = {
+    catalystId: catalystById[savedMagic.catalystId] ? savedMagic.catalystId : null,
+    upgrade: savedMagic.upgrade == null ? null : +savedMagic.upgrade,
+    memorySlots: Math.max(1, Math.min(10, +savedMagic.memorySlots || 10)),
+    spells: (savedMagic.spells || (BOOT && BOOT.loadout && BOOT.loadout.spells) || []).map(function (item) { return typeof item === 'string' ? item : item && (item.spellId || item.id); }).filter(function (id, index, all) { return spellById[id] && all.indexOf(id) === index; }),
+    activeSpell: spellById[savedMagic.activeSpell] ? savedMagic.activeSpell : null,
+    variantId: savedMagic.variantId || null
+  };
+  if (!magicState.activeSpell && magicState.spells.length) magicState.activeSpell = magicState.spells[0];
   function equippedTalismanItems() {
     return selectedTalismans.map(function (slot) { return slot && taliById(slot.talismanId); });
   }
@@ -190,8 +206,9 @@
     var tl = selectedTalismans.map(function (slot) { return slot && Object.assign({}, slot, { conditionActive: taliConditionState[slot.talismanId] !== false }); });
     var armorState = {};
     ARMOR_SLOTS.forEach(function (slot) { armorState[slot.id] = selectedArmor[slot.id]; });
-    var state = { schemaVersion: 4, stats: {}, weapon: current.id, affinity: affinity, upgrade: upgradeLevel, twoHanded: twoHanded, level: +$('level').value || null, buffs: bf, talis: tl.filter(Boolean).map(function (slot) { return slot.talismanId; }), scadu: scaduLevel, gearWeight: gearWeight, armor: armorState, activeSlot: (activeSlot.hand === 'left' ? 'l' : 'r') + activeSlot.index, combatContext: combatContext, attackProfile: attackProfileId };
-    state.loadout = { rightHand: armaments.right.map(function (x) { return x && Object.assign({}, x); }), leftHand: armaments.left.map(function (x) { return x && Object.assign({}, x); }), armor: armorState, talismans: tl, spells: [], physick: [], greatRune: null };
+    var state = { schemaVersion: 5, stats: {}, weapon: current.id, affinity: affinity, upgrade: upgradeLevel, twoHanded: twoHanded, level: +$('level').value || null, buffs: bf, talis: tl.filter(Boolean).map(function (slot) { return slot.talismanId; }), scadu: scaduLevel, gearWeight: gearWeight, armor: armorState, activeSlot: (activeSlot.hand === 'left' ? 'l' : 'r') + activeSlot.index, combatContext: combatContext, attackProfile: attackProfileId };
+    state.magic = { catalystId: magicState.catalystId, upgrade: magicState.upgrade, memorySlots: magicState.memorySlots, spells: magicState.spells.slice(), activeSpell: magicState.activeSpell, variantId: magicState.variantId };
+    state.loadout = { rightHand: armaments.right.map(function (x) { return x && Object.assign({}, x); }), leftHand: armaments.left.map(function (x) { return x && Object.assign({}, x); }), armor: armorState, talismans: tl, spells: magicState.spells.slice(), magic: Object.assign({}, state.magic), physick: [], greatRune: null };
     STATS.forEach(function (k) { state.stats[k] = build[k]; });
     return state;
   }
@@ -217,6 +234,12 @@
     q.set('rh', encodeArmaments(armaments.right));
     q.set('lh', encodeArmaments(armaments.left));
     if (state.activeSlot !== 'r0') q.set('as', state.activeSlot);
+    if (magicState.catalystId) q.set('cat', magicState.catalystId);
+    if (magicState.upgrade != null) q.set('cu', magicState.upgrade);
+    if (magicState.memorySlots !== 10) q.set('ms', magicState.memorySlots);
+    if (magicState.spells.length) q.set('sp', magicState.spells.join(','));
+    if (magicState.activeSpell) q.set('sa', magicState.activeSpell);
+    if (magicState.variantId) q.set('sv', magicState.variantId);
     history.replaceState(null, '', location.pathname + '?' + q);
   }
 
@@ -481,6 +504,157 @@
   });
   $('talismanPickerClose').addEventListener('click', closeTalismanPicker);
 
+  /* ---- spell memory + catalyst math ---- */
+  var spellPickerFilter = 'all', lastMagicMods = [];
+  function catalystItem() { return magicState.catalystId && catalystById[magicState.catalystId] || null; }
+  function selectedSpellItems() { return magicState.spells.map(function (id) { return spellById[id]; }).filter(Boolean); }
+  function memoryUsed() { return selectedSpellItems().reduce(function (sum, item) { return sum + item.slots; }, 0); }
+  function memoryCapacity(mods) {
+    var bonus = ERCalc.aggregateUtility(mods || lastMagicMods).memorySlots || 0;
+    return Math.max(1, Math.min(12, magicState.memorySlots + bonus));
+  }
+  function fillCatalystOptions() {
+    var groups = [
+      ['sorcery','Glintstone Staves'],
+      ['incantation','Sacred Seals'],
+      ['universal','Universal Catalysts']
+    ];
+    $('catalystSelect').innerHTML = '<option value="">No catalyst equipped</option>' + groups.map(function (group) {
+      return '<optgroup label="' + group[1] + '">' + catalysts.filter(function (item) { return item.kind === group[0]; }).map(function (item) {
+        return '<option value="' + item.id + '">' + escText(item.name) + (item.source === 'dlc' ? ' · DLC' : '') + '</option>';
+      }).join('') + '</optgroup>';
+    }).join('');
+    $('catalystSelect').value = magicState.catalystId || '';
+  }
+  function fillCatalystUpgrade() {
+    var catalyst = catalystItem();
+    $('catalystUpgrade').innerHTML = '';
+    if (!catalyst) {
+      $('catalystUpgrade').innerHTML = '<option>—</option>';
+      $('catalystUpgrade').disabled = true;
+      return;
+    }
+    for (var level = 0; level <= catalyst.maxLevel; level++) {
+      var option = document.createElement('option'); option.value = level; option.textContent = '+' + level; $('catalystUpgrade').appendChild(option);
+    }
+    var wanted = magicState.upgrade == null ? catalyst.maxLevel : Math.max(0, Math.min(catalyst.maxLevel, magicState.upgrade));
+    magicState.upgrade = wanted;
+    $('catalystUpgrade').value = wanted;
+    $('catalystUpgrade').disabled = catalyst.maxLevel === 0;
+  }
+  fillCatalystOptions(); fillCatalystUpgrade();
+  $('baseMemorySlots').value = magicState.memorySlots;
+  $('catalystSelect').addEventListener('change', function () {
+    magicState.catalystId = catalystById[this.value] ? this.value : null;
+    magicState.upgrade = null;
+    fillCatalystUpgrade(); render();
+  });
+  $('catalystUpgrade').addEventListener('change', function () { magicState.upgrade = +this.value; render(); });
+  $('baseMemorySlots').addEventListener('input', function () {
+    magicState.memorySlots = Math.max(1, Math.min(10, +this.value || 1));
+    this.value = magicState.memorySlots; render();
+  });
+
+  function renderSpellRack(mods) {
+    var cap = memoryCapacity(mods), used = memoryUsed();
+    $('memoryBudget').textContent = used + ' / ' + cap + ' slots';
+    $('memoryBudget').classList.toggle('invalid', used > cap);
+    var selected = selectedSpellItems();
+    $('spellRack').innerHTML = selected.length ? selected.map(function (spell) {
+      var active = spell.id === magicState.activeSpell;
+      var reqs = Object.keys(spell.requirements).filter(function (key) { return spell.requirements[key]; }).map(function (key) { return key + ' ' + spell.requirements[key]; }).join(' · ') || 'no requirements';
+      return '<button type="button" class="spell-slot ' + spell.type + (active ? ' active' : '') + (used > cap ? ' invalid' : '') + '" data-spell-active="' + spell.id + '">' +
+        '<span class="spell-glyph">' + (spell.type === 'sorcery' ? '✦' : '☼') + '</span><span class="spell-slot-copy"><b>' + escText(spell.name) + '</b><small>' + reqs + '</small></span>' +
+        '<span class="spell-slot-cost">' + spell.slots + ' slot' + (spell.slots === 1 ? '' : 's') + ' · ' + spell.fp + ' FP</span><span class="spell-clear" data-spell-clear="' + spell.id + '" aria-label="Forget ' + escText(spell.name) + '">×</span></button>';
+    }).join('') : '<div class="effect-empty">No spells memorized. Build a spellbook from all 213 sorceries and incantations.</div>';
+    $('addSpell').disabled = used >= cap;
+  }
+  function renderSpellList(query) {
+    var q = (query || '').toLowerCase().trim(), cap = memoryCapacity(), used = memoryUsed();
+    var hits = spells.filter(function (spell) {
+      return (spellPickerFilter === 'all' || spell.type === spellPickerFilter) && (!q || spell.name.toLowerCase().indexOf(q) >= 0 || (spell.effect || '').toLowerCase().indexOf(q) >= 0 || (spell.category || '').toLowerCase().indexOf(q) >= 0);
+    }).slice(0, 70);
+    $('spellList').innerHTML = hits.map(function (spell) {
+      var equipped = magicState.spells.indexOf(spell.id) >= 0;
+      var blocked = !equipped && used + spell.slots > cap;
+      var sub = spell.categoryDisplay || spell.category || (spell.effect ? spell.effect : spell.variants.length + ' attack variant' + (spell.variants.length === 1 ? '' : 's'));
+      return '<button type="button" class="spell-result ' + spell.type + '" data-spell-id="' + spell.id + '"' + (blocked ? ' disabled' : '') + '><span>' + (spell.type === 'sorcery' ? '✦' : '☼') + '</span><span><b>' + escText(spell.name) + (equipped ? ' · memorized' : '') + '</b><small>' + escText(sub) + '</small></span><em>' + spell.slots + ' slot' + (spell.slots === 1 ? '' : 's') + '</em></button>';
+    }).join('') + (hits.length === 70 ? '<div class="picker-more">Keep typing to narrow 70+ results</div>' : '');
+  }
+  function openSpellPicker() {
+    $('spellPicker').hidden = false; $('spellSearch').value = ''; renderSpellList('');
+    setTimeout(function () { $('spellSearch').focus(); }, 0);
+  }
+  function closeSpellPicker() { $('spellPicker').hidden = true; }
+  $('addSpell').addEventListener('click', openSpellPicker);
+  $('spellPickerClose').addEventListener('click', closeSpellPicker);
+  $('spellSearch').addEventListener('input', function () { renderSpellList(this.value); });
+  $('spellFilter').addEventListener('click', function (event) {
+    var button = event.target.closest('[data-spell-filter]'); if (!button) return;
+    spellPickerFilter = button.getAttribute('data-spell-filter');
+    Array.prototype.forEach.call($('spellFilter').children, function (item) { item.classList.toggle('on', item === button); });
+    renderSpellList($('spellSearch').value);
+  });
+  $('spellList').addEventListener('click', function (event) {
+    var button = event.target.closest('[data-spell-id]'); if (!button || button.disabled) return;
+    var id = button.getAttribute('data-spell-id'), spell = spellById[id];
+    if (!spell) return;
+    if (magicState.spells.indexOf(id) < 0) magicState.spells.push(id);
+    magicState.activeSpell = id; magicState.variantId = null;
+    closeSpellPicker(); render();
+  });
+  $('spellRack').addEventListener('click', function (event) {
+    var clear = event.target.closest('[data-spell-clear]');
+    if (clear) {
+      var id = clear.getAttribute('data-spell-clear');
+      magicState.spells = magicState.spells.filter(function (item) { return item !== id; });
+      if (magicState.activeSpell === id) { magicState.activeSpell = magicState.spells[0] || null; magicState.variantId = null; }
+      render(); return;
+    }
+    var button = event.target.closest('[data-spell-active]');
+    if (button) { magicState.activeSpell = button.getAttribute('data-spell-active'); magicState.variantId = null; render(); }
+  });
+  $('spellVariant').addEventListener('change', function () { magicState.variantId = this.value; render(); });
+
+  function renderMagic(mods, boosted) {
+    lastMagicMods = mods || [];
+    fillCatalystOptions(); fillCatalystUpgrade();
+    $('baseMemorySlots').value = magicState.memorySlots;
+    renderSpellRack(mods);
+    var catalyst = catalystItem(), spell = magicState.activeSpell && spellById[magicState.activeSpell];
+    if (!catalyst) {
+      $('catalystSummary').textContent = 'No catalyst equipped';
+      $('catalystSummaryNote').textContent = 'Choose among 33 param-linked casting tools';
+      $('magicAnalysis').hidden = true;
+      return;
+    }
+    $('catalystSummary').textContent = catalyst.name + (catalyst.maxLevel ? ' +' + magicState.upgrade : '');
+    $('catalystSummaryNote').textContent = catalyst.weaponClass + ' · ' + catalyst.weight.toFixed(1) + ' wt' + (catalyst.bonus ? ' · ' + catalyst.bonus.family + ' ×' + catalyst.bonus.multiplier : '');
+    if (!spell) { $('magicAnalysis').hidden = true; return; }
+    var catalystResult = ERCalc.computeCatalystSpellBuff(boosted, catalyst, { curves:catalystCurves, upgradeLevel:magicState.upgrade, twoHanded:twoHanded });
+    if (!magicState.variantId || !spell.variants.some(function (item) { return String(item.id) === String(magicState.variantId); })) magicState.variantId = spell.variants[0].id;
+    $('spellVariant').innerHTML = spell.variants.map(function (variant) { return '<option value="' + variant.id + '">' + escText(variant.name) + '</option>'; }).join('');
+    $('spellVariant').value = magicState.variantId;
+    var result = ERCalc.computeSpellOutput(boosted, spell, catalystResult, { variantId:magicState.variantId });
+    $('magicAnalysis').hidden = false;
+    $('activeSpellType').textContent = spell.type + (spell.source === 'dlc' ? ' · DLC' : '');
+    $('activeSpellName').textContent = spell.name;
+    var reqText = Object.keys(spell.requirements).filter(function (key) { return spell.requirements[key]; }).map(function (key) { return key + ' ' + spell.requirements[key] + '/' + boosted[key]; }).join(' · ') || 'No attribute requirement';
+    $('activeSpellReqs').textContent = reqText + (result.canCast ? ' · ready' : ' · requirements or catalyst mismatch');
+    $('spellBuff').textContent = catalystResult.spellBuff;
+    $('spellBuff').classList.toggle('invalid', !catalystResult.requirementsMet);
+    $('spellBuffNote').textContent = catalystResult.requirementsMet ? 'CalcCorrectGraph · +' + catalystResult.upgrade.level : 'catalyst requirements unmet';
+    var primaryOutput = result.totalPreDefense || result.heal || 0;
+    $('spellOutput').textContent = primaryOutput || '—';
+    $('spellOutput').classList.toggle('invalid', !result.canCast);
+    $('spellOutputNote').textContent = result.totalPreDefense ? 'before enemy defense / negation' : result.heal ? 'param-derived heal' : result.confidence;
+    $('spellCosts').textContent = result.fpCost + ' / ' + result.staminaCost;
+    $('spellBonus').textContent = result.matchedBonuses.length ? 'category ×' + result.categoryMultiplier.toFixed(2) : catalyst.fpMultiplier > 1 ? 'FP cost ×' + catalyst.fpMultiplier.toFixed(1) : 'no catalyst modifier';
+    $('spellDamage').innerHTML = Object.keys(result.byType).map(function (type) { return '<span>' + type + ' <b>' + result.byType[type] + '</b></span>'; }).join('');
+    $('spellEffect').hidden = !spell.effect;
+    $('spellEffect').textContent = spell.effect || '';
+  }
+
   function talismanMathText(item) {
     var parts = [];
     var statNames = Object.keys(item.statBonus || {});
@@ -593,6 +767,13 @@
     var savedTalismans = o.loadout && o.loadout.talismans ? o.loadout.talismans : o.talis || [];
     selectedTalismans = savedTalismans.slice(0, TALI_MAX).map(normalizeTalisman);
     while (selectedTalismans.length < TALI_MAX) selectedTalismans.push(null);
+    var restoredMagic = o.magic || (o.loadout && o.loadout.magic) || {};
+    magicState.catalystId = catalystById[restoredMagic.catalystId] ? restoredMagic.catalystId : null;
+    magicState.upgrade = restoredMagic.upgrade == null ? null : +restoredMagic.upgrade;
+    magicState.memorySlots = Math.max(1, Math.min(10, +restoredMagic.memorySlots || 10));
+    magicState.spells = (restoredMagic.spells || (o.loadout && o.loadout.spells) || []).map(function (item) { return typeof item === 'string' ? item : item && (item.spellId || item.id); }).filter(function (id, index, all) { return spellById[id] && all.indexOf(id) === index; });
+    magicState.activeSpell = spellById[restoredMagic.activeSpell] ? restoredMagic.activeSpell : magicState.spells[0] || null;
+    magicState.variantId = restoredMagic.variantId || null;
     scaduLevel = Math.max(0, Math.min(20, +o.scadu || 0)); syncScadu();
     gearWeight = Math.max(0, +o.gearWeight || 0); $('gearWeight').value = gearWeight;
     var savedArmor = o.armor || (o.loadout && o.loadout.armor) || {};
@@ -803,6 +984,7 @@
     }).join('');
 
     renderEffectStack(taliEffects, attackEffects);
+    renderMagic(baseMods, boosted);
     renderSurvival(baseMods, boosted, taliEffects);
     renderPayoff(r);
     renderSoftCap(r);
@@ -818,8 +1000,10 @@
     var se = ERCalc.statEffects(boosted, mods);
     var equippedWeapons = equippedArmamentPieces();
     var weaponW = equippedWeapons.reduce(function (sum, weapon) { return sum + (+weapon.weight || 0); }, 0);
+    var catalyst = catalystItem();
+    var catalystW = catalyst ? (+catalyst.weight || 0) : 0;
     var armorTotal = ERCalc.aggregateArmor(equippedArmorPieces());
-    var totalW = Math.round((weaponW + armorTotal.weight + (taliEffects ? taliEffects.weight : 0) + gearWeight) * 10) / 10;
+    var totalW = Math.round((weaponW + catalystW + armorTotal.weight + (taliEffects ? taliEffects.weight : 0) + gearWeight) * 10) / 10;
     var rs = ERCalc.rollState(totalW, se.equipLoad);
     $('survHP').textContent = se.hp;
     $('survFP').textContent = se.fp;

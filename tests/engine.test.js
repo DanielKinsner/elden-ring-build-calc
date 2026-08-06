@@ -249,5 +249,34 @@ var holyBase = ERCalc.computeAR(vera, holyWeapon, { twoHanded:true });
 var holyPvp = ERCalc.computeARBuffed(vera, holyWeapon, { twoHanded:true }, [{ mult:{ all:1.2, holy:1 } }]);
 check('damage-type override beats broad all multiplier', [holyPvp.buffed.byType.holy, holyPvp.buffed.byType.physical], [holyBase.byType.holy,Math.floor(holyBase.byTypeExact.physical * 1.2)]);
 
+/* ---- magic: catalyst CalcCorrectGraph spell buff + param-derived spell motion values ---- */
+console.log('magic:');
+var catalystFile = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'catalysts.json'), 'utf8'));
+var spellFile = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'spells.json'), 'utf8'));
+var catalysts = catalystFile.items, spells = spellFile.items;
+function catalyst(name) { return catalysts.find(function (item) { return item.name === name; }); }
+function spell(name) { return spells.find(function (item) { return item.name === name; }); }
+check('complete casting-tool and spell catalogs', [catalysts.length, spells.length, spellFile.coverage.variants], [33,213,463]);
+check('every catalyst formula reproduces the source workbook default', catalysts.every(function (item) {
+  return Math.abs(item.audit.sourceDefaultSpellBuff - item.audit.recomputedDefaultSpellBuff) < 0.001;
+}), true);
+var astrologer = catalyst("Astrologer's Staff");
+var int80 = { STR:7,DEX:1,INT:80,FAI:1,ARC:1 };
+var astroMax = ERCalc.computeCatalystSpellBuff(int80, astrologer, { curves:catalystFile.curves, upgradeLevel:25 });
+var astroZero = ERCalc.computeCatalystSpellBuff(int80, astrologer, { curves:catalystFile.curves, upgradeLevel:0 });
+check("Astrologer's Staff +25 @ 80 INT", astroMax.spellBuff, 340);
+check("Astrologer's Staff +0 @ 80 INT", astroZero.spellBuff, 180);
+check('catalyst requirement failure is explicit', ERCalc.computeCatalystSpellBuff({STR:1,DEX:1,INT:9,FAI:1,ARC:1}, astrologer, { curves:catalystFile.curves }).unmetReqs, [{stat:'STR',need:7,have:1},{stat:'INT',need:16,have:9}]);
+var comet = spell('Comet');
+var cometOutput = ERCalc.computeSpellOutput(int80, comet, astroMax, { variantId:comet.variants.find(function (item) { return item.name === 'Comet'; }).id });
+check('Comet pre-defense magic output uses 292 motion value', [cometOutput.spellBuff,cometOutput.byType.magic,cometOutput.fpCost], [340,992,24]);
+check('spell requirements and catalyst school are validated', [cometOutput.spellRequirementsMet,cometOutput.catalystAccepts,cometOutput.canCast], [true,true,true]);
+var finger = catalyst('Finger Seal');
+var fingerResult = ERCalc.computeCatalystSpellBuff({STR:10,DEX:10,INT:80,FAI:80,ARC:10}, finger, { curves:catalystFile.curves });
+check('seal cannot cast sorcery', ERCalc.computeSpellOutput(int80, comet, fingerResult).catalystAccepts, false);
+var azur = catalyst("Azur's Glintstone Staff");
+var azurResult = ERCalc.computeCatalystSpellBuff({STR:10,DEX:10,INT:80,FAI:10,ARC:10}, azur, { curves:catalystFile.curves });
+check("Azur's staff applies its exact FP penalty", ERCalc.computeSpellOutput({STR:10,DEX:10,INT:80,FAI:10,ARC:10}, comet, azurResult).fpCost, Math.ceil(24 * 1.2));
+
 console.log('\n' + passes + ' passed, ' + failures + ' failed');
 process.exit(failures ? 1 : 0);
