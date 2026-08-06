@@ -85,6 +85,15 @@ async function main() {
     assert(await page.locator('#spellOutput').textContent() === '992', 'Comet motion value produces 992 pre-defense magic damage');
     assert((await page.locator('#spellCosts').textContent()).startsWith('24 / 31'), 'spell output exposes FP and stamina costs');
     assert((await page.locator('#activeSpellReqs').textContent()).includes('ready'), 'spell analysis validates catalyst and attribute requirements');
+    await page.locator('#enemyPickerOpen').click();
+    await page.locator('#enemySearch').fill('Malenia, Blade of Miquella');
+    await page.locator('.enemy-result').filter({ hasText: "Miquella's Haligtree" }).first().click();
+    assert(await page.locator('#enemyHP').textContent() === '18,473', 'encounter profile exposes exact NG health');
+    assert(await page.locator('#enemySpellDamage').textContent() === '714', 'enemy defense and negation produce final Comet damage');
+    assert((await page.locator('#enemyStatus').textContent()).includes('7 hits · 420'), 'enemy status threshold drives exact hits-to-proc');
+    await page.locator('#ngCycle').selectOption('7');
+    assert(await page.locator('#enemyHP').textContent() === '26,250', 'NG+7 changes the same encounter profile');
+    assert(await page.locator('#enemySpellDamage').textContent() !== '714', 'NG+7 defense changes final spell damage');
 
     await page.waitForTimeout(350); // persistence is intentionally debounced by 250ms
     const url = page.url();
@@ -94,6 +103,8 @@ async function main() {
     assert(url.includes('cat=astrologers-staff'), 'share URL preserves the catalyst');
     assert(url.includes('sp=comet'), 'share URL preserves memorized spells');
     assert(url.includes('sa=comet'), 'share URL preserves the active spell');
+    assert(url.includes('en=malenia-blade-of-miquella-'), 'share URL preserves the enemy profile');
+    assert(url.includes('ng=7'), 'share URL preserves the NG cycle');
     await page.reload({ waitUntil: 'networkidle' });
     const restoredRack = await page.locator('#talismanRack').textContent();
     if (!restoredRack.includes("Great-Jar's Arsenal")) console.error('reload URL: ' + url + '\nrack: ' + restoredRack);
@@ -104,6 +115,8 @@ async function main() {
     assert(await page.locator('#catalystSelect').inputValue() === 'astrologers-staff', 'catalyst state survives reload');
     assert((await page.locator('#spellRack').textContent()).includes('Comet'), 'spell memory survives reload');
     assert(await page.locator('#spellOutput').textContent() === '992', 'spell output survives shared-link reload');
+    assert((await page.locator('#enemySummary').textContent()).includes('Malenia'), 'enemy profile survives shared-link reload');
+    assert(await page.locator('#ngCycle').inputValue() === '7', 'NG cycle survives shared-link reload');
     await page.screenshot({ path: '/tmp/elden-talisman-desktop.png', fullPage: true });
 
     const mobile = await browser.newPage({ viewport: { width: 390, height: 844 } });
@@ -113,6 +126,7 @@ async function main() {
     assert(overflow.scroll <= overflow.inner, '390px layout has no horizontal overflow');
     assert(await mobile.locator('.tali-slot').count() === 4, 'mobile retains all four equipment slots');
     assert((await mobile.locator('#spellRack').textContent()).includes('Comet'), 'mobile retains spell memory and casting state');
+    assert((await mobile.locator('#enemySummary').textContent()).includes('Malenia'), 'mobile retains encounter state');
     await mobile.screenshot({ path: '/tmp/elden-talisman-mobile.png', fullPage: true });
 
     if (errors.length) console.error(errors.join('\n'));

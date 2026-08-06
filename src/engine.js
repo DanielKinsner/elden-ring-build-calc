@@ -798,6 +798,66 @@
     };
   }
 
+  /** Ratio-based defense multiplier used by Elden Ring before percent negation. */
+  function defenseMultiplier(rawAttack, defense) {
+    rawAttack = Math.max(0, +rawAttack || 0);
+    defense = Math.max(0, +defense || 0);
+    if (!rawAttack || !defense) return rawAttack ? 1 : 0;
+    var ratio = rawAttack / defense;
+    if (ratio <= 0.125) return 0.1;
+    if (ratio < 1) return 0.1 + Math.pow(ratio - 0.125, 2) / 2.552;
+    if (ratio < 2.5) return 0.7 - Math.pow(2.5 - ratio, 2) / 7.5;
+    if (ratio < 8) return 0.9 - Math.pow(8 - ratio, 2) / 151.25;
+    return 0.9;
+  }
+
+  /**
+   * Apply one enemy profile and NG cycle to typed pre-defense damage.
+   * Every damage type is reduced independently, then floored, matching split-damage behavior.
+   */
+  function applyEnemyDefense(byType, enemy, opts) {
+    opts = opts || {};
+    var ng = Math.max(0, Math.min(7, Math.floor(opts.ng || 0)));
+    var cycle = enemy && enemy.cycles && (enemy.cycles[ng] || enemy.cycles[0]);
+    if (!enemy || !cycle) throw new Error('enemy profile has no NG cycle ' + ng);
+    var physicalType = ['strike','slash','pierce'].indexOf(opts.physicalType) >= 0 ? opts.physicalType : 'physical';
+    var result = {}, trace = {}, total = 0;
+    DAMAGE_TYPES.forEach(function (type) {
+      var raw = Math.max(0, +(byType && byType[type]) || 0);
+      var enemyType = type === 'physical' ? physicalType : type;
+      var defense = +(cycle.defense && cycle.defense[enemyType]) || 0;
+      var negation = +(enemy.negation && enemy.negation[enemyType]) || 0;
+      var multiplier = defenseMultiplier(raw, defense);
+      var final = Math.max(0, Math.floor(raw * multiplier * (1 - negation / 100)));
+      if (raw) result[type] = final;
+      total += final;
+      trace[type] = { raw: raw, defense: defense, defenseMultiplier: multiplier, negation: negation, final: final };
+    });
+    return { enemy: enemy, ng: ng, cycle: cycle, byType: result, total: total, trace: trace, physicalType: physicalType };
+  }
+
+  function statusAgainstEnemy(buildup, enemy, opts) {
+    opts = opts || {};
+    var ng = Math.max(0, Math.min(7, Math.floor(opts.ng || 0)));
+    var cycle = enemy && enemy.cycles && (enemy.cycles[ng] || enemy.cycles[0]);
+    if (!enemy || !cycle) throw new Error('enemy profile has no NG cycle ' + ng);
+    var aliases = { scarletRot:'rot', blood:'bleed', hemorrhage:'bleed', frostbite:'frost' };
+    var out = {};
+    Object.keys(buildup || {}).forEach(function (rawType) {
+      var type = aliases[rawType] || rawType;
+      var perHit = Math.max(0, +buildup[rawType] || 0);
+      var threshold = cycle.resistances && cycle.resistances[type];
+      out[type] = {
+        buildup: perHit,
+        threshold: threshold,
+        immune: threshold == null,
+        hits: threshold == null || !perHit ? null : Math.ceil(threshold / perHit),
+        incomingMultiplier: enemy.statusMultipliers && enemy.statusMultipliers[type] != null ? enemy.statusMultipliers[type] : 1
+      };
+    });
+    return out;
+  }
+
   // Rough character level from attribute totals (Wretch baseline: 8x10 = level 1).
   function characterLevel(build) {
     var keys = ['VIG', 'MND', 'END', 'STR', 'DEX', 'INT', 'FAI', 'ARC'];
@@ -828,6 +888,9 @@
     aggregateUtility: aggregateUtility,
     computeCatalystSpellBuff: computeCatalystSpellBuff,
     computeSpellOutput: computeSpellOutput,
+    defenseMultiplier: defenseMultiplier,
+    applyEnemyDefense: applyEnemyDefense,
+    statusAgainstEnemy: statusAgainstEnemy,
     STATS: STATS, DAMAGE_TYPES: DAMAGE_TYPES, STATUS_TYPES: STATUS_TYPES, CURVES: CURVES
   };
 });

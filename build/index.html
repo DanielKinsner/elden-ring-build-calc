@@ -143,6 +143,33 @@
         <div class="spell-effect" id="spellEffect" hidden></div>
       </div>
     </section>
+    <h2 class="mt">Encounter <span class="section-kicker">3,341 profiles · NG–NG+7</span></h2>
+    <section class="encounter-lab" aria-label="Enemy defense and status context">
+      <div class="encounter-head">
+        <div class="encounter-rune" aria-hidden="true"><i></i><span>☠</span></div>
+        <div><span class="k">Target profile</span><b id="enemySummary">Sandbox target</b><small id="enemySummaryNote">Choose an enemy for final damage and exact status thresholds</small></div>
+      </div>
+      <div class="encounter-controls">
+        <button type="button" id="enemyPickerOpen"><span>Enemy</span><b id="enemyButtonLabel">Choose profile…</b></button>
+        <label><span>Journey</span><select id="ngCycle" aria-label="New Game cycle"><option value="0">NG</option><option value="1">NG+</option><option value="2">NG+2</option><option value="3">NG+3</option><option value="4">NG+4</option><option value="5">NG+5</option><option value="6">NG+6</option><option value="7">NG+7</option></select></label>
+        <button type="button" class="encounter-clear" id="enemyClear" hidden>Clear</button>
+      </div>
+      <div class="enemy-picker" id="enemyPicker" hidden>
+        <div class="armor-picker-head"><div><span class="k">Encounter archive</span><b>Choose an enemy</b></div><button id="enemyPickerClose" class="picker-close" type="button" aria-label="Close enemy picker">×</button></div>
+        <div class="search-wrap"><svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><line x1="15.3" y1="15.3" x2="21" y2="21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><input type="search" id="enemySearch" class="search" placeholder="Search enemies and locations…" autocomplete="off"></div>
+        <div class="spell-filter" id="enemyFilter"><button type="button" data-enemy-filter="boss" class="on">Bosses</button><button type="button" data-enemy-filter="all">All</button><button type="button" data-enemy-filter="dlc">DLC</button></div>
+        <div id="enemyList" class="enemy-list"></div>
+      </div>
+      <div class="encounter-results" id="encounterResults" hidden>
+        <div class="encounter-stats"><div><span>HP</span><b id="enemyHP">—</b></div><div><span>Defense</span><b id="enemyDefense">—</b></div><div><span>Weakest</span><b id="enemyWeakness">—</b></div></div>
+        <div class="encounter-outputs">
+          <div><span>Weapon baseline</span><b id="enemyWeaponDamage">—</b><small>current typed AR · 100 MV</small></div>
+          <div><span>Active spell</span><b id="enemySpellDamage">—</b><small id="enemySpellNote">choose a spell above</small></div>
+        </div>
+        <div class="enemy-status" id="enemyStatus"></div>
+        <div class="encounter-note">Defense is applied independently to each damage type before negation. Weapon output is a 100-motion-value baseline until the selected attack's exact motion values join the pipeline.</div>
+      </div>
+    </section>
     <h2 class="mt active-analysis-title">Active Armament</h2>
     <label class="dlc-toggle"><input type="checkbox" id="showDlc" checked> Include Shadow of the Erdtree weapons</label>
     <div class="search-wrap">
@@ -206,7 +233,7 @@
     </div>
     <div id="payoffBlock" class="payoff" hidden>
       <div class="k">Status Payoff <small class="payoff-vs">vs</small></div>
-      <div class="payoff-target">
+      <div class="payoff-target" id="targetManual">
         <label>Enemy HP<input type="number" id="targetHP" value="2000" min="1" step="100"></label>
         <label>Resist<input type="number" id="targetResist" value="250" min="1" step="10" title="Status buildup threshold — varies per enemy"></label>
         <label class="payoff-boss"><input type="checkbox" id="targetBoss"> Boss</label>

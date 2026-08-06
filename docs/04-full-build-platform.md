@@ -119,5 +119,9 @@ migration. Breadth without trusted math does not count as completion.
   memory slots, FP/stamina costs, typed pre-defense output, responsive selection, persistence,
   sharing, and v4 migration. The output boundary is explicit: enemy defense/negation and advanced
   multi-hit/utility behaviors are not silently estimated.
-- **Next:** enemy defense/negation, status thresholds, phase and NG-cycle context, followed by
-  remaining talisman/spell outputs that depend on guard, poise, flask, loot, and encounter domains.
+- **Shipped:** PvE encounter core with 3,341 enemy/phase/location profiles, 238 boss profiles,
+  base+DLC coverage, all eight journeys from NG through NG+7, exact HP, typed defense and negation,
+  status thresholds/immunities, ratio-based defense math, split-damage flooring, target-specific
+  final spell damage, and weapon status hits-to-proc. Encounter state persists and shares with builds.
+- **Next:** exact weapon attack motion values and physical attack-type selection, player/PvP targets,
+  then remaining talisman/spell outputs that depend on guard, poise, flask, loot, and encounter domains.

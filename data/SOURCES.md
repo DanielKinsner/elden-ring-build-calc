@@ -80,3 +80,23 @@ This index records transformation and verification notes that do not belong in r
 - Current boundary: damage/healing is param-derived **pre-defense** output. Enemy defense and
   negation, multi-projectile sequencing, situational world effects, and utility-only spell behavior
   require the encounter pipeline and remain explicitly unmodeled.
+
+## Enemy profiles (`enemies.json`)
+
+- Game version target: App 1.16 / Calibration 1.16; schema version 1.
+- Upstream: [Elden Ring PvE Enemy Health / Defense Data](https://docs.google.com/spreadsheets/d/1BVwmKqB8pvuyJkSTGYOM2kAJxFMQ0jVsc6aKYz_Upes/edit),
+  retrieved 2026-08-05. The workbook is a regulation-derived public reference used by the current
+  community calculation lineage.
+- Transformation: `node scripts/import-enemies.js /path/to/pve-defense.xlsx`. It joins the eight
+  `NG` through `NG+7` sheets by location, name, and source ID, strips presentation-only fields,
+  normalizes immunities to `null`, and emits stable hashed IDs.
+- Catalog: 3,341 enemy/location/phase profiles, including 238 boss-tagged profiles and 1,015 DLC
+  profiles. Each profile carries eight exact journey rows for HP, typed defense, and seven status
+  thresholds plus invariant typed negation, incoming status multipliers, and poise metadata.
+- Final damage uses the community-verified Elden Ring ratio curve on each damage type independently,
+  then applies that type's percent negation and floors the result. Split damage is never run through
+  one combined defense value. The page labels weapon damage as a **100 MV baseline** until exact
+  weapon motion values and physical attack type are selected; spells already carry their exact variants.
+- Verification pins full counts, unique IDs, complete journeys, Malenia's NG/NG+7 rows, all four
+  defense-curve boundaries, final Comet damage, status thresholds, hits-to-proc, URL persistence,
+  reload, desktop/mobile layout, and console errors.

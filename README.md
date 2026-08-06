@@ -24,6 +24,9 @@ are, which weapon wins on their build, and how bleed/status buildup scales.
   reinforcement rates, AttackElementCorrectParam stat gates, and the exact CalcCorrectGraph curve;
   the memory rack enforces slots and exposes spell requirements, variants, FP/stamina cost,
   category bonuses, typed motion values, and param-derived pre-defense output.
+- An encounter archive with 3,341 base+DLC enemy/phase profiles across every cycle from NG through
+  NG+7: exact HP, typed defense and negation, status thresholds/immunities, and target-specific
+  final spell damage. Active-weapon status buildup automatically becomes real hits-to-proc.
 - Active buff layer (Golden Vow, greases, Physick tears) with category override rules.
 - Status payoff card — hits-to-proc and what the proc is worth (bleed/frost/poison/rot) vs a target HP/resist.
 - Soft-cap chart + optimal stat advisor (redistributes your offensive points for max AR).
@@ -69,7 +72,8 @@ Golden regression pins for the engine (verified library-build ARs, two-handing r
 flooring, Scadutree, status procs, the buff layer, survival, armor aggregation, talisman
 conditions/conflicts, move-profile rules, damage-type overrides, resistances/utility, PvE/PvP
 variants, incoming-damage order, catalyst graph scaling, requirements, category effects, and spell
-motion-value output):
+motion-value output, the ratio defense curve, enemy NG cycles, final typed damage, and exact status
+thresholds):
 
 ```
 node tests/engine.test.js

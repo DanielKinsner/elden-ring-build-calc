@@ -278,5 +278,23 @@ var azur = catalyst("Azur's Glintstone Staff");
 var azurResult = ERCalc.computeCatalystSpellBuff({STR:10,DEX:10,INT:80,FAI:10,ARC:10}, azur, { curves:catalystFile.curves });
 check("Azur's staff applies its exact FP penalty", ERCalc.computeSpellOutput({STR:10,DEX:10,INT:80,FAI:10,ARC:10}, comet, azurResult).fpCost, Math.ceil(24 * 1.2));
 
+/* ---- encounter context: exact enemy NG cycles, defense, negation, status thresholds ---- */
+console.log('enemy context:');
+var enemyFile = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'enemies.json'), 'utf8'));
+var enemies = enemyFile.items;
+check('complete enemy and NG-cycle catalog', [enemies.length,enemyFile.coverage.cycles], [3341,8]);
+check('enemy profile ids are unique', new Set(enemies.map(function (item) { return item.id; })).size, enemies.length);
+var malenia = enemies.find(function (item) { return item.name === 'Malenia, Blade of Miquella' && item.boss; });
+check('Malenia NG and NG+7 profiles', [malenia.cycles[0].hp,malenia.cycles[7].defense.magic], [18473,192]);
+check('defense curve low breakpoint', Math.round(ERCalc.defenseMultiplier(12.5,100) * 1000) / 1000, 0.1);
+check('defense curve 1× breakpoint', Math.round(ERCalc.defenseMultiplier(100,100) * 1000) / 1000, 0.4);
+check('defense curve 2.5× breakpoint', Math.round(ERCalc.defenseMultiplier(250,100) * 1000) / 1000, 0.7);
+check('defense curve 8× breakpoint', Math.round(ERCalc.defenseMultiplier(800,100) * 1000) / 1000, 0.9);
+var cometVsMalenia = ERCalc.applyEnemyDefense({ magic:992 }, malenia, { ng:0 });
+check('Comet final damage vs NG Malenia', [cometVsMalenia.total,cometVsMalenia.trace.magic.defense], [714,123]);
+var maleniaStatus = ERCalc.statusAgainstEnemy({ bleed:67, frost:0 }, malenia, { ng:0 });
+check('enemy threshold drives bleed hits-to-proc', [maleniaStatus.bleed.threshold,maleniaStatus.bleed.hits], [420,7]);
+check('zero buildup never fabricates a proc', [maleniaStatus.frost.hits,maleniaStatus.frost.immune], [null,false]);
+
 console.log('\n' + passes + ' passed, ' + failures + ' failed');
 process.exit(failures ? 1 : 0);

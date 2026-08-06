@@ -222,7 +222,9 @@ link. "Save Build" writes to localStorage; a small curated **meta build library*
 - **Catalysts + spell loadout:** memory slots, FP/stamina costs, requirements, catalyst-aware
   spell buff and spell damage. **Core shipped; enemy defense and advanced spell behaviors remain.**
 - **Physick + Great Rune + complete effect stack:** transparent ordering and conflicts.
-- **Enemy/context pipeline:** defense, negation, status thresholds, phase, NG cycle and PvP.
+- **Enemy/context pipeline:** **PvE core shipped** with 3,341 profiles, defense, negation, status
+  thresholds/immunities, phase variants, and NG–NG+7. Remaining: player/PvP targets, physical
+  attack-type and exact weapon motion-value selection, phase chaining, and DLC blessing context.
 - **Build optimizer + comparison:** offense/defense/weight targets over the same canonical state.
 
 ## Backlog — deferred deliberately
@@ -239,7 +241,7 @@ link. "Save Build" writes to localStorage; a small curated **meta build library*
 
 ## Suggested order
 1. ~~T1 + T2~~ ✅  2. ~~T3 + T4~~ ✅  3. ~~T5, T6, T11~~ ✅  4. ~~T9 + T10~~ ✅ — Tiers 1, 2, 4, 5 shipped.
-5. **Six armament slots → true talisman/effect slots → catalyst/spell core** ✅ → **enemy context → complete talisman/spell/status formulas**, then
+5. **Six armament slots → true talisman/effect slots → catalyst/spell core → PvE encounter core** ✅ → **exact weapon motion values → complete talisman/spell/status formulas**, then
    optimizer/community publishing. T8 maps remains a parallel content project.
 
 ## Known data gaps (surfaced 2026-07)
