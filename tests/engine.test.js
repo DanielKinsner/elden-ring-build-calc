@@ -184,7 +184,11 @@ var talismanFile = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data',
 var talismans = talismanFile.items;
 function tali(id) { return talismans.find(function (x) { return x.id === id; }); }
 check('complete talisman catalog', [talismans.length, talismanFile.coverage.base, talismanFile.coverage.dlc], [154,115,39]);
-check('all talismans have non-negative weight', talismans.every(function (x) { return typeof x.weight === 'number' && x.weight >= 0; }), true);
+check('all talismans have positive weight', talismans.every(function (x) { return typeof x.weight === 'number' && x.weight > 0; }), true);
+check('all talismans have concrete display effects', talismans.every(function (x) {
+  return typeof x.effect === 'string' && x.effect.length > 2 && x.effect !== 'See item description' &&
+    x.effect.charAt(0) !== '|' && !/\[\[|\]\]|\{\{|\}\}/.test(x.effect);
+}), true);
 var ritual = tali('ritual-sword-talisman');
 var jar = tali('great-jars-arsenal');
 var resolvedOn = ERCalc.resolveEffects([ritual, null, jar, null], { conditions: { 'ritual-sword-talisman': true } });

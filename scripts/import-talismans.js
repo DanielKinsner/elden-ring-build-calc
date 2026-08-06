@@ -28,6 +28,18 @@ const ERDB_ZIP_URL = 'https://raw.githubusercontent.com/EldenRingDatabase/erdb/e
 const OUT = path.join(ROOT, 'data', 'talismans.json');
 const ICON_DIR = path.join(ROOT, 'assets', 'icons', 'talismans');
 
+// Only use overrides when the primary wiki infobox is genuinely blank or malformed.
+// Each value is cross-checked against a second public source and stays visible in
+// the generated provenance instead of being silently invented in code.
+const SOURCE_OVERRIDES = {
+  'fine-crucible-feather-talisman': {
+    weight: 0.6,
+    effect: 'Improves backsteps but increases damage taken at all times',
+    source: 'https://eldenring.wiki.fextralife.com/Fine+Crucible+Feather+Talisman',
+    reason: 'Eldenpedia infobox fields are blank'
+  }
+};
+
 function decodeHtml(value) {
   return String(value || '')
     .replace(/&#39;|&#x27;/g, "'")
@@ -59,12 +71,50 @@ function cleanWikitext(value) {
 }
 
 function getInfoboxField(raw, field) {
-  const start = raw.indexOf('{{Infobox_Item');
+  const start = raw.search(/\{\{Infobox(?:_| )Item\b/i);
   if (start < 0) return null;
-  const end = raw.indexOf('\n}}', start);
-  const box = raw.slice(start, end < 0 ? start + 4000 : end);
-  const match = box.match(new RegExp('\\n\\|\\s*' + field + '\\s*=\\s*([\\s\\S]*?)(?=\\n\\|\\s*[a-zA-Z_]+\\s*=|$)', 'i'));
-  return match ? match[1].trim() : null;
+  // Infoboxes use both `Infobox_Item` and `Infobox Item`, plus both compact and
+  // multiline layouts. Parse top-level template fields so pipes inside links or
+  // nested templates never truncate a value.
+  const box = raw.slice(start, start + 12000);
+  const segments = [];
+  let templateDepth = 0;
+  let linkDepth = 0;
+  let segmentStart = null;
+  for (let index = 0; index < box.length - 1; index++) {
+    const pair = box.slice(index, index + 2);
+    if (pair === '{{') {
+      templateDepth++;
+      index++;
+      continue;
+    }
+    if (pair === '}}') {
+      if (templateDepth === 1 && segmentStart != null) segments.push(box.slice(segmentStart, index));
+      templateDepth--;
+      index++;
+      if (templateDepth <= 0) break;
+      continue;
+    }
+    if (pair === '[[') {
+      linkDepth++;
+      index++;
+      continue;
+    }
+    if (pair === ']]') {
+      linkDepth = Math.max(0, linkDepth - 1);
+      index++;
+      continue;
+    }
+    if (box[index] === '|' && templateDepth === 1 && linkDepth === 0) {
+      if (segmentStart != null) segments.push(box.slice(segmentStart, index));
+      segmentStart = index + 1;
+    }
+  }
+  for (const segment of segments) {
+    const match = segment.match(/^\s*([a-zA-Z_][a-zA-Z0-9_]*)\s*=\s*([\s\S]*)$/);
+    if (match && match[1].toLowerCase() === field.toLowerCase()) return match[2].trim();
+  }
+  return null;
 }
 
 function readBaseParamRows() {
@@ -163,8 +213,9 @@ async function main() {
     const id = slugify(entry.name);
     const param = params.get(entry.name) || null;
     const reviewed = models.get(id) || models.get('name:' + entry.name) || null;
+    const sourceOverride = SOURCE_OVERRIDES[id] || null;
     const wikiWeight = Number(getInfoboxField(raw, 'weight'));
-    const itemEffect = cleanWikitext(getInfoboxField(raw, 'item_effect')) || 'See item description';
+    const itemEffect = cleanWikitext(getInfoboxField(raw, 'item_effect')) || (sourceOverride && sourceOverride.effect) || 'See item description';
     const iconFile = path.join(ICON_DIR, id + '.png');
     await downloadIcon(entry.imageUrl, iconFile);
 
@@ -172,7 +223,7 @@ async function main() {
       id,
       name: entry.name,
       source: entry.source,
-      weight: param ? param.weight : (Number.isFinite(wikiWeight) ? wikiWeight : 0),
+      weight: param ? param.weight : (sourceOverride && sourceOverride.weight != null ? sourceOverride.weight : (Number.isFinite(wikiWeight) ? wikiWeight : 0)),
       effect: itemEffect,
       icon: 'assets/icons/talismans/' + id + '.png',
       wiki: WIKI + entry.pagePath,
@@ -184,6 +235,11 @@ async function main() {
       } : null,
       conflictGroup: param && param.conflictGroup ? 'param-' + param.conflictGroup : null,
       modelStatus: reviewed ? 'modeled' : 'inventory'
+    };
+    if (sourceOverride) item.sourceOverride = {
+      source: sourceOverride.source,
+      reason: sourceOverride.reason,
+      fields: ['weight', 'effect']
     };
     if (reviewed && reviewed.id !== id) item.legacyIds = [reviewed.id];
     if (reviewed) {
@@ -217,6 +273,12 @@ async function main() {
         name: 'Tarnished Archive reviewed effect models',
         path: 'data/buffs.json',
         fields: ['statBonus', 'mult', 'survival', 'conditions']
+      },
+      {
+        name: 'Fextralife Fine Crucible Feather cross-check',
+        url: SOURCE_OVERRIDES['fine-crucible-feather-talisman'].source,
+        fields: ['weight', 'effect'],
+        reason: SOURCE_OVERRIDES['fine-crucible-feather-talisman'].reason
       }
     ],
     coverage: {

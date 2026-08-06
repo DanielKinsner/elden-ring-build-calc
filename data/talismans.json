@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "gameVersion": "1.16",
-  "generatedAt": "2026-08-06T05:48:44.489Z",
+  "generatedAt": "2026-08-06T05:56:44.270Z",
   "sources": [
     {
       "name": "Eldenpedia talisman catalog",
@@ -37,6 +37,15 @@
         "survival",
         "conditions"
       ]
+    },
+    {
+      "name": "Fextralife Fine Crucible Feather cross-check",
+      "url": "https://eldenring.wiki.fextralife.com/Fine+Crucible+Feather+Talisman",
+      "fields": [
+        "weight",
+        "effect"
+      ],
+      "reason": "Eldenpedia infobox fields are blank"
     }
   ],
   "coverage": {
@@ -189,7 +198,7 @@
       "name": "Assassin's Crimson Dagger",
       "source": "base",
       "weight": 0.8,
-      "effect": "See item description",
+      "effect": "Critical hits restore HP",
       "icon": "assets/icons/talismans/assassins-crimson-dagger.png",
       "wiki": "https://eldenring.wiki.gg/wiki/Assassin%27s_Crimson_Dagger",
       "param": {
@@ -259,7 +268,7 @@
       "name": "Blessed Dew Talisman",
       "source": "base",
       "weight": 0.6,
-      "effect": "See item description",
+      "effect": "Slowly restores HP",
       "icon": "assets/icons/talismans/blessed-dew-talisman.png",
       "wiki": "https://eldenring.wiki.gg/wiki/Blessed_Dew_Talisman",
       "param": {
@@ -663,8 +672,8 @@
       "id": "crimson-amber-medallion-3",
       "name": "Crimson Amber Medallion +3",
       "source": "dlc",
-      "weight": 0,
-      "effect": "See item description",
+      "weight": 0.6,
+      "effect": "Vastly raises maximum HP",
       "icon": "assets/icons/talismans/crimson-amber-medallion-3.png",
       "wiki": "https://eldenring.wiki.gg/wiki/Crimson_Amber_Medallion_%2B3",
       "param": null,
@@ -985,13 +994,21 @@
       "id": "fine-crucible-feather-talisman",
       "name": "Fine Crucible Feather Talisman",
       "source": "dlc",
-      "weight": 0,
-      "effect": "| weight =",
+      "weight": 0.6,
+      "effect": "Improves backsteps but increases damage taken at all times",
       "icon": "assets/icons/talismans/fine-crucible-feather-talisman.png",
       "wiki": "https://eldenring.wiki.gg/wiki/Fine_Crucible_Feather_Talisman",
       "param": null,
       "conflictGroup": null,
-      "modelStatus": "inventory"
+      "modelStatus": "inventory",
+      "sourceOverride": {
+        "source": "https://eldenring.wiki.fextralife.com/Fine+Crucible+Feather+Talisman",
+        "reason": "Eldenpedia infobox fields are blank",
+        "fields": [
+          "weight",
+          "effect"
+        ]
+      }
     },
     {
       "id": "fire-scorpion-charm",
@@ -1170,8 +1187,8 @@
       "id": "golden-braid",
       "name": "Golden Braid",
       "source": "dlc",
-      "weight": 0,
-      "effect": "See item description",
+      "weight": 0.9,
+      "effect": "Boosts holy damage negation by the utmost",
       "icon": "assets/icons/talismans/golden-braid.png",
       "wiki": "https://eldenring.wiki.gg/wiki/Golden_Braid",
       "param": null,
@@ -1443,7 +1460,7 @@
       "name": "Lance Talisman",
       "source": "base",
       "weight": 0.7,
-      "effect": "See item description",
+      "effect": "Enhances attacks on horseback",
       "icon": "assets/icons/talismans/lance-talisman.png",
       "wiki": "https://eldenring.wiki.gg/wiki/Lance_Talisman",
       "param": {
@@ -1794,8 +1811,8 @@
       "id": "pearldrake-talisman-3",
       "name": "Pearldrake Talisman +3",
       "source": "dlc",
-      "weight": 0,
-      "effect": "See item description",
+      "weight": 1.2,
+      "effect": "Boosts non-physical damage negation by the utmost",
       "icon": "assets/icons/talismans/pearldrake-talisman-3.png",
       "wiki": "https://eldenring.wiki.gg/wiki/Pearldrake_Talisman_%2B3",
       "param": null,
@@ -2439,8 +2456,8 @@
       "id": "talisman-of-all-crucibles",
       "name": "Talisman of All Crucibles",
       "source": "dlc",
-      "weight": 0,
-      "effect": "See item description",
+      "weight": 1.9,
+      "effect": "Grants effects of all crucible talismans",
       "icon": "assets/icons/talismans/talisman-of-all-crucibles.png",
       "wiki": "https://eldenring.wiki.gg/wiki/Talisman_of_All_Crucibles",
       "param": null,
@@ -2451,8 +2468,8 @@
       "id": "talisman-of-lords-bestowal",
       "name": "Talisman of Lord's Bestowal",
       "source": "dlc",
-      "weight": 0,
-      "effect": "See item description",
+      "weight": 3,
+      "effect": "Increases poise after using a Flask of Crimson Tears",
       "icon": "assets/icons/talismans/talisman-of-lords-bestowal.png",
       "wiki": "https://eldenring.wiki.gg/wiki/Talisman_of_Lord%27s_Bestowal",
       "param": null,
@@ -2551,7 +2568,7 @@
       "name": "Viridian Amber Medallion",
       "source": "base",
       "weight": 0.3,
-      "effect": "See item description",
+      "effect": "Raises maximum stamina",
       "icon": "assets/icons/talismans/viridian-amber-medallion.png",
       "wiki": "https://eldenring.wiki.gg/wiki/Viridian_Amber_Medallion",
       "param": {
@@ -2568,7 +2585,7 @@
       "name": "Viridian Amber Medallion +1",
       "source": "base",
       "weight": 0.3,
-      "effect": "See item description",
+      "effect": "Raises maximum stamina",
       "icon": "assets/icons/talismans/viridian-amber-medallion-1.png",
       "wiki": "https://eldenring.wiki.gg/wiki/Viridian_Amber_Medallion_%2B1",
       "param": {
@@ -2585,7 +2602,7 @@
       "name": "Viridian Amber Medallion +2",
       "source": "base",
       "weight": 0.3,
-      "effect": "See item description",
+      "effect": "Raises maximum stamina",
       "icon": "assets/icons/talismans/viridian-amber-medallion-2.png",
       "wiki": "https://eldenring.wiki.gg/wiki/Viridian_Amber_Medallion_%2B2",
       "param": {
@@ -2601,8 +2618,8 @@
       "id": "viridian-amber-medallion-3",
       "name": "Viridian Amber Medallion +3",
       "source": "dlc",
-      "weight": 0,
-      "effect": "See item description",
+      "weight": 0.6,
+      "effect": "Raises maximum stamina",
       "icon": "assets/icons/talismans/viridian-amber-medallion-3.png",
       "wiki": "https://eldenring.wiki.gg/wiki/Viridian_Amber_Medallion_%2B3",
       "param": null,
