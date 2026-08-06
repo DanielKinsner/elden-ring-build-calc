@@ -253,7 +253,7 @@
   /* ---- story walkthrough ---- */
   function checklistRow(s, i) {
     var on = !!store.steps[s.id];
-    return '<label class="quest-step' + (on ? ' done' : '') + '">' +
+    return '<label class="quest-step' + (on ? ' done' : '') + '" id="rstep-' + s.id + '">' +
       '<input type="checkbox" data-step="' + s.id + '"' + (on ? ' checked' : '') + '>' +
       '<span class="quest-step-num">' + (i + 1) + '</span>' +
       '<span class="quest-step-text">' + verifyTag(s.text) + '</span></label>';
@@ -322,7 +322,7 @@
   }
   function bossCard(b) {
     var felled = !!store.bosses[b.id];
-    return '<div class="boss-card' + (felled ? ' felled' : '') + '">' +
+    return '<div class="boss-card' + (felled ? ' felled' : '') + '" id="boss-' + b.id + '">' +
       '<div class="boss-head">' +
         '<span class="boss-head-main">' +
         avatar(BOSS_PORTRAITS, 'bosses', b.id, b.name, 'boss-thumb') +
@@ -391,7 +391,7 @@
         ENDINGS.howItWorks.map(function (t) { return '<li>' + verifyTag(t) + '</li>'; }).join('') + '</ul></div>' +
       '<div class="ending-list">' +
       ENDINGS.endings.map(function (e) {
-        return '<div class="ending-card' + (e.kind === 'override' ? ' danger' : '') + '">' +
+        return '<div class="ending-card' + (e.kind === 'override' ? ' danger' : '') + '" id="ending-' + e.id + '">' +
           '<div class="ending-head"><span class="ending-name">' + esc(e.name) + '</span>' +
             '<span class="ending-kind">' + (KIND[e.kind] || esc(e.kind)) + '</span></div>' +
           '<p class="ending-how">' + verifyTag(e.how) + '</p>' +
@@ -403,6 +403,120 @@
       a.addEventListener('click', function (ev) { ev.preventDefault(); setTab('quests', a.dataset.quest); });
     });
   }
+
+  /* ---- instant search: quests, steps, bosses, endings, route (Ctrl+K, /) ---- */
+  var SEARCH_INDEX = (function () {
+    var idx = [];
+    QUESTS.quests.forEach(function (q) {
+      idx.push({ group: 'Quests', label: q.name, sub: q.cluster, questId: q.id });
+      q.steps.forEach(function (s) {
+        idx.push({ group: 'Steps', label: s.text, sub: q.name, questId: q.id });
+      });
+    });
+    BOSSES.bosses.forEach(function (b) {
+      idx.push({ group: 'Bosses', label: b.name, sub: b.location, bossId: b.id });
+    });
+    ENDINGS.endings.forEach(function (e) {
+      idx.push({ group: 'Endings', label: e.name, sub: e.how, endingId: e.id });
+    });
+    PROG.steps.forEach(function (s) {
+      idx.push({ group: 'Route', label: s.text, sub: 'Walkthrough', stepId: s.id });
+    });
+    return idx;
+  })();
+
+  var searchInput = $('guideSearch'), searchResults = $('guideSearchResults');
+  var searchActive = -1, searchItems = [], searchHits = [];
+
+  function searchMatches(q) {
+    q = q.toLowerCase().trim();
+    if (!q) return [];
+    return SEARCH_INDEX.filter(function (e) { return e.label.toLowerCase().indexOf(q) >= 0; }).slice(0, 12);
+  }
+  function renderSearchResults(hits) {
+    searchActive = -1;
+    if (!hits.length) {
+      searchResults.innerHTML = '<div class="guide-search-empty">No matches.</div>';
+    } else {
+      var html = '', lastGroup = null;
+      hits.forEach(function (h, i) {
+        if (h.group !== lastGroup) { html += '<div class="guide-search-group">' + h.group + '</div>'; lastGroup = h.group; }
+        html += '<button type="button" class="guide-search-item" role="option" id="gsr-' + i + '" data-i="' + i + '">' +
+          esc(h.label) + (h.sub ? '<span class="sub">' + esc(h.sub) + '</span>' : '') + '</button>';
+      });
+      searchResults.innerHTML = html;
+    }
+    searchResults.hidden = false;
+    searchInput.setAttribute('aria-expanded', 'true');
+    searchItems = Array.prototype.slice.call(searchResults.querySelectorAll('.guide-search-item'));
+  }
+  function closeSearch() {
+    searchResults.hidden = true;
+    searchInput.setAttribute('aria-expanded', 'false');
+    searchInput.removeAttribute('aria-activedescendant');
+    searchActive = -1;
+  }
+  function setActiveResult(i) {
+    searchItems.forEach(function (el, idx) { el.classList.toggle('active', idx === i); });
+    searchActive = i;
+    if (i >= 0 && searchItems[i]) {
+      searchInput.setAttribute('aria-activedescendant', searchItems[i].id);
+      searchItems[i].scrollIntoView({ block: 'nearest' });
+    } else {
+      searchInput.removeAttribute('aria-activedescendant');
+    }
+  }
+  function pickSearchResult(hit) {
+    closeSearch();
+    searchInput.value = '';
+    searchInput.blur();
+    if (hit.group === 'Quests' || hit.group === 'Steps') {
+      setTab('quests', hit.questId);
+    } else if (hit.group === 'Bosses') {
+      setTab('bosses');
+      var bEl = document.getElementById('boss-' + hit.bossId);
+      if (bEl) bEl.scrollIntoView({ block: 'start', behavior: 'smooth' });
+    } else if (hit.group === 'Endings') {
+      setTab('endings');
+      var eEl = document.getElementById('ending-' + hit.endingId);
+      if (eEl) eEl.scrollIntoView({ block: 'start', behavior: 'smooth' });
+    } else if (hit.group === 'Route') {
+      setTab('walkthrough');
+      var rEl = document.getElementById('rstep-' + hit.stepId);
+      if (rEl) rEl.scrollIntoView({ block: 'center', behavior: 'smooth' });
+    }
+  }
+
+  searchInput.addEventListener('input', function () {
+    if (!this.value.trim()) { searchHits = []; closeSearch(); return; }
+    searchHits = searchMatches(this.value);
+    renderSearchResults(searchHits);
+  });
+  searchInput.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') { closeSearch(); searchInput.blur(); return; }
+    if (searchResults.hidden) return;
+    if (e.key === 'ArrowDown') { e.preventDefault(); setActiveResult(Math.min(searchActive + 1, searchItems.length - 1)); }
+    else if (e.key === 'ArrowUp') { e.preventDefault(); setActiveResult(Math.max(searchActive - 1, 0)); }
+    else if (e.key === 'Enter') {
+      e.preventDefault();
+      var i = searchActive >= 0 ? searchActive : 0;
+      if (searchHits[i]) pickSearchResult(searchHits[i]);
+    }
+  });
+  searchResults.addEventListener('mousedown', function (e) { e.preventDefault(); }); // keep input focused through the click
+  searchResults.addEventListener('click', function (e) {
+    var btn = e.target.closest('.guide-search-item'); if (!btn) return;
+    var hit = searchHits[+btn.dataset.i];
+    if (hit) pickSearchResult(hit);
+  });
+  document.addEventListener('click', function (e) {
+    if (!searchResults.hidden && !e.target.closest('.guide-search-wrap')) closeSearch();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+    if (e.key === '/') { e.preventDefault(); searchInput.focus(); }
+    else if ((e.key === 'k' || e.key === 'K') && (e.ctrlKey || e.metaKey)) { e.preventDefault(); searchInput.focus(); }
+  });
 
   setTab((location.hash || '#quests').slice(1));
 })();

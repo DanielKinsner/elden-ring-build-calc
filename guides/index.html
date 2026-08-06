@@ -19,11 +19,18 @@
 </header>
 <main class="grid" style="grid-template-columns:1fr; max-width:1180px">
   <section class="panel">
-    <div class="atlas-tabs" id="guideTabs" role="tablist">
-      <button class="atlas-tab active" data-tab="quests" role="tab" aria-selected="true">Quest Tracker</button>
-      <button class="atlas-tab" data-tab="walkthrough" role="tab" aria-selected="false">Walkthrough</button>
-      <button class="atlas-tab" data-tab="bosses" role="tab" aria-selected="false">Bosses</button>
-      <button class="atlas-tab" data-tab="endings" role="tab" aria-selected="false">Endings</button>
+    <div class="guide-tabbar">
+      <div class="atlas-tabs" id="guideTabs" role="tablist">
+        <button class="atlas-tab active" data-tab="quests" role="tab" aria-selected="true">Quest Tracker</button>
+        <button class="atlas-tab" data-tab="walkthrough" role="tab" aria-selected="false">Walkthrough</button>
+        <button class="atlas-tab" data-tab="bosses" role="tab" aria-selected="false">Bosses</button>
+        <button class="atlas-tab" data-tab="endings" role="tab" aria-selected="false">Endings</button>
+      </div>
+      <div class="guide-search-wrap">
+        <input id="guideSearch" class="guide-search" type="search" placeholder="Search guides… /" autocomplete="off"
+          role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-controls="guideSearchResults" aria-autocomplete="list">
+        <div id="guideSearchResults" class="guide-search-results" role="listbox" hidden></div>
+      </div>
     </div>
     <div id="guideContent" class="guide-content"><p class="guide-loading">Loading…</p></div>
   </section>
