@@ -6,6 +6,12 @@
       "runtimeExecutable": "python",
       "runtimeArgs": ["-m", "http.server", "8420"],
       "port": 8420
+    },
+    {
+      "name": "static-server-alt",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "http.server", "8421"],
+      "port": 8421
     }
   ]
 }
