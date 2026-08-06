@@ -858,6 +858,26 @@
     return out;
   }
 
+  /** Exact standard-attack sequence: motion value and physical attribute per hit. */
+  function applyWeaponMove(byType, buildup, move, enemy, opts) {
+    opts = opts || {};
+    var hits = [], total = 0, preDefense = 0;
+    (move.motion || []).forEach(function (motion, index) {
+      var raw = {};
+      DAMAGE_TYPES.forEach(function (type) { raw[type] = (+byType[type] || 0) * motion / 100; });
+      var physicalType = move.physicalTypes && (move.physicalTypes[index] || move.physicalTypes[move.physicalTypes.length - 1]) || 'physical';
+      var result = applyEnemyDefense(raw, enemy, { ng:opts.ng, physicalType:physicalType });
+      preDefense += DAMAGE_TYPES.reduce(function (sum,type) { return sum + raw[type]; }, 0);
+      total += result.total;
+      hits.push({ motion:motion, physicalType:physicalType, raw:raw, final:result.byType, total:result.total, trace:result.trace });
+    });
+    var status = {};
+    Object.keys(buildup || {}).forEach(function (type) {
+      status[type] = (move.statusMotion || [100]).reduce(function (sum,motion) { return sum + (+buildup[type] || 0) * motion / 100; }, 0);
+    });
+    return { move:move, hits:hits, preDefense:Math.floor(preDefense), total:total, status:status, statusAgainstEnemy:statusAgainstEnemy(status,enemy,{ng:opts.ng}) };
+  }
+
   // Rough character level from attribute totals (Wretch baseline: 8x10 = level 1).
   function characterLevel(build) {
     var keys = ['VIG', 'MND', 'END', 'STR', 'DEX', 'INT', 'FAI', 'ARC'];
@@ -891,6 +911,7 @@
     defenseMultiplier: defenseMultiplier,
     applyEnemyDefense: applyEnemyDefense,
     statusAgainstEnemy: statusAgainstEnemy,
+    applyWeaponMove: applyWeaponMove,
     STATS: STATS, DAMAGE_TYPES: DAMAGE_TYPES, STATUS_TYPES: STATUS_TYPES, CURVES: CURVES
   };
 });

@@ -91,6 +91,9 @@ async function main() {
     assert(await page.locator('#enemyHP').textContent() === '18,473', 'encounter profile exposes exact NG health');
     assert(await page.locator('#enemySpellDamage').textContent() === '714', 'enemy defense and negation produce final Comet damage');
     assert((await page.locator('#enemyStatus').textContent()).includes('7 hits · 420'), 'enemy status threshold drives exact hits-to-proc');
+    await page.locator('#weaponMove').selectOption('2h-jumping-r2');
+    assert((await page.locator('#enemyWeaponNote').textContent()).includes('135 MV'), 'weapon encounter uses the selected exact motion value');
+    assert(await page.locator('#attackProfile').inputValue() === 'jump', 'exact jumping move synchronizes the talisman attack lens');
     await page.locator('#ngCycle').selectOption('7');
     assert(await page.locator('#enemyHP').textContent() === '26,250', 'NG+7 changes the same encounter profile');
     assert(await page.locator('#enemySpellDamage').textContent() !== '714', 'NG+7 defense changes final spell damage');
@@ -105,6 +108,7 @@ async function main() {
     assert(url.includes('sa=comet'), 'share URL preserves the active spell');
     assert(url.includes('en=malenia-blade-of-miquella-'), 'share URL preserves the enemy profile');
     assert(url.includes('ng=7'), 'share URL preserves the NG cycle');
+    assert(url.includes('wm=2h-jumping-r2'), 'share URL preserves the exact weapon move');
     await page.reload({ waitUntil: 'networkidle' });
     const restoredRack = await page.locator('#talismanRack').textContent();
     if (!restoredRack.includes("Great-Jar's Arsenal")) console.error('reload URL: ' + url + '\nrack: ' + restoredRack);
@@ -117,6 +121,7 @@ async function main() {
     assert(await page.locator('#spellOutput').textContent() === '992', 'spell output survives shared-link reload');
     assert((await page.locator('#enemySummary').textContent()).includes('Malenia'), 'enemy profile survives shared-link reload');
     assert(await page.locator('#ngCycle').inputValue() === '7', 'NG cycle survives shared-link reload');
+    assert(await page.locator('#weaponMove').inputValue() === '2h-jumping-r2', 'exact weapon move survives shared-link reload');
     await page.screenshot({ path: '/tmp/elden-talisman-desktop.png', fullPage: true });
 
     const mobile = await browser.newPage({ viewport: { width: 390, height: 844 } });

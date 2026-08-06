@@ -123,5 +123,9 @@ migration. Breadth without trusted math does not count as completion.
   base+DLC coverage, all eight journeys from NG through NG+7, exact HP, typed defense and negation,
   status thresholds/immunities, ratio-based defense math, split-damage flooring, target-specific
   final spell damage, and weapon status hits-to-proc. Encounter state persists and shares with builds.
-- **Next:** exact weapon attack motion values and physical attack-type selection, player/PvP targets,
-  then remaining talisman/spell outputs that depend on guard, poise, flask, loot, and encounter domains.
+- **Shipped:** exact standard weapon attacks for 419 weapons and 24,271 selectable moves. Every
+  one-/two-hand chain, movement attack, guard counter, critical, paired, and mounted move preserves
+  its per-hit damage MV, status MV, and physical attribute; multi-hit attacks pass through enemy
+  defense one hit at a time. The exact move also synchronizes the talisman attack lens and shares.
+- **Next:** ranged ammo/bullet attacks and Ashes of War, player/PvP targets, then remaining
+  talisman/spell outputs that depend on guard, poise, flask, loot, and encounter domains.

@@ -100,3 +100,22 @@ This index records transformation and verification notes that do not belong in r
 - Verification pins full counts, unique IDs, complete journeys, Malenia's NG/NG+7 rows, all four
   defense-curve boundaries, final Comet damage, status thresholds, hits-to-proc, URL persistence,
   reload, desktop/mobile layout, and console errors.
+
+## Standard weapon moves (`weapon-moves.json`)
+
+- Game version: App 1.16.1; schema version 1.
+- Upstream: [ER – Motion Values and Attack Data](https://docs.google.com/spreadsheets/d/1j4bpTbsnp5Xsgw9TP2xv6d8R4qk0ErpE9r_5LGIDraU/edit),
+  retrieved 2026-08-06. The workbook exposes regulation-derived attack behavior data and is also
+  linked by the CryptidTracker damage calculator.
+- Transformation: `node scripts/import-weapon-moves.js /path/to/motion-values.xlsx`. The importer
+  joins `Motion Values`, `Status MVs`, and `Physical AtkAttribute` by normalized weapon name, then
+  maps all 448 site weapons by stable weapon ID.
+- Coverage: all 448 weapons have an explicit record; 419 ordinary-melee/shield/catalyst records
+  contain 24,271 selectable standard attacks. Twenty-nine bow/crossbow/greatbow records remain empty
+  by design because ranged damage belongs to the workbook's separate ammo/bullet sheets.
+- Multi-hit strings remain ordered arrays rather than summed values. Each hit carries its own damage
+  motion value and physical attack attribute through defense; status buildup uses the move's separate
+  status-motion sequence. Conditional parenthetical notes remain attached to the move.
+- Verification pins complete weapon mapping, move count, Rivers of Blood's jumping-heavy damage,
+  status and slash attribute, Bloodhound's Fang multi-hit preservation, exact final damage against
+  Malenia, move-to-talisman-lens synchronization, URL persistence, reload, mobile layout, and browser errors.

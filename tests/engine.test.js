@@ -296,5 +296,18 @@ var maleniaStatus = ERCalc.statusAgainstEnemy({ bleed:67, frost:0 }, malenia, { 
 check('enemy threshold drives bleed hits-to-proc', [maleniaStatus.bleed.threshold,maleniaStatus.bleed.hits], [420,7]);
 check('zero buildup never fabricates a proc', [maleniaStatus.frost.hits,maleniaStatus.frost.immune], [null,false]);
 
+console.log('weapon motion values:');
+var moveFile = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'weapon-moves.json'), 'utf8'));
+check('motion catalog covers every weapon explicitly', [moveFile.items.length,moveFile.coverage.weaponsWithMoves,moveFile.coverage.moves], [448,419,24271]);
+var riversMoves = moveFile.items.find(function (item) { return item.weaponId === 'rivers-of-blood'; });
+var riversJump = riversMoves.moves.find(function (move) { return move.id === '2h-jumping-r2'; });
+check('Rivers of Blood exact jumping heavy data', [riversJump.motion,riversJump.statusMotion,riversJump.physicalTypes], [[135],[100],['slash']]);
+var riversBase = ERCalc.computeAR(vera, rob, { upgradeLevel:10, twoHanded:true });
+var riversVsMalenia = ERCalc.applyWeaponMove(riversBase.byType,riversBase.status,riversJump,malenia,{ng:0});
+check('exact jumping heavy final damage and status vs Malenia', [riversVsMalenia.preDefense,riversVsMalenia.total,riversVsMalenia.statusAgainstEnemy.bleed.hits], [869,629,7]);
+var bloodhound = moveFile.items.find(function (item) { return item.weaponId === 'bloodhound-s-fang'; });
+var bloodhoundMulti = bloodhound.moves.find(function (move) { return move.id === '1h-charged-r2-2'; });
+check('multi-hit moves preserve every independent motion value', bloodhoundMulti.motion, [75,115]);
+
 console.log('\n' + passes + ' passed, ' + failures + ' failed');
 process.exit(failures ? 1 : 0);
