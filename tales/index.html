@@ -18,7 +18,12 @@
 </header>
 <main class="grid" style="grid-template-columns:1fr; max-width:1020px">
   <section class="panel">
+    <div class="tales-nav" id="talesNav" role="tablist">
+      <button class="atlas-tab active" data-view="shelf" role="tab" aria-selected="true">Tales</button>
+      <button class="atlas-tab" data-view="timeline" role="tab" aria-selected="false">Timeline</button>
+    </div>
     <div id="talesShelf" class="tales-shelf"><p class="guide-loading">Loading…</p></div>
+    <div id="talesTimeline" class="tales-timeline" hidden><p class="guide-loading">Loading…</p></div>
   </section>
 </main>
 <footer class="foot">

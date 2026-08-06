@@ -64,65 +64,135 @@
   }
   var shelf = $('talesShelf');
   if (shelf) {
-    var totWords = 0, totCh = 0, totRead = 0;
-    WORKS.forEach(function (w) {
-      totWords += wordCount(w); totCh += w.chapters.length;
-      var st0 = wstate(w.id);
-      totRead += w.chapters.filter(function (c) { return st0.read[c.id]; }).length;
-    });
-    var heroHtml = '<div class="hero-head">' +
-      '<div class="hero-lead"><div class="hero-eyebrow">Lore &amp; Legends</div>' +
-      '<h1 class="hero-title">Tales of the Lands Between</h1>' +
-      '<p class="hero-sub">Original fan writing, built on the game’s own evidence. <b style="color:var(--red)">⚠ Full spoilers</b> — base game, all endings, and the DLC.</p></div>' +
-      '<div class="hero-stats">' + ring(totCh ? Math.round(100 * totRead / totCh) : 0, 'READ') +
-      '<div class="hero-stat-list">' +
-        '<div class="hero-stat"><span>Tales</span><b>' + WORKS.length + '</b></div>' +
-        '<div class="hero-stat"><span>Words</span><b>≈' + totWords.toLocaleString() + '</b></div>' +
-        '<div class="hero-stat"><span>Chapters read</span><b>' + totRead + ' / ' + totCh + '</b></div>' +
-      '</div></div></div>';
-    shelf.innerHTML = heroHtml + WORKS.map(function (w) {
-      var st = wstate(w.id);
-      var readCount = w.chapters.filter(function (c) { return st.read[c.id]; }).length;
-      var started = !!st.chapter || readCount > 0;
-      var cont = st.chapter && w.chapters.find(function (c) { return c.id === st.chapter; });
-      var pct = Math.round(100 * readCount / w.chapters.length);
-      return '<div class="tale-card"><div class="tale-card-grid">' +
-        '<div class="tale-card-main">' +
-        '<div class="tale-card-head">' +
-          '<div class="tale-titles"><span class="tale-title">' + esc(w.title) + '</span>' +
-          '<span class="tale-subtitle">' + esc(w.subtitle) + '</span></div>' +
-        '</div>' +
-        '<p class="tale-blurb">' + esc(w.blurb) + '</p>' +
-        '<p class="tale-spoilers">⚠ ' + esc(w.spoilers) + '</p>' +
-        '<div class="tale-meta-row">' +
-          '<span>📖 <b>' + esc(w.words) + '</b></span>' +
-          '<span>✒ <b>' + readCount + ' / ' + w.chapters.length + '</b> chapters read</span>' +
-          (readTime(wordCount(w)) ? '<span>◷ <b>' + readTime(wordCount(w)) + '</b></span>' : '') +
-        '</div>' +
-        '<div class="tale-actions">' +
-          '<a class="cta tale-cta" href="read.html?work=' + w.id + (cont ? '&ch=' + cont.id : '') + '">' +
-            (started && cont ? 'Continue — ' + esc(cont.num ? cont.num + '. ' : '') + esc(cont.title) : 'Begin reading →') + '</a>' +
-          (w.chapters.length > 1 ? '<button class="icon-btn tale-toc-toggle" data-work="' + w.id + '">Contents</button>' : '') +
-        '</div>' +
-        '</div>' +
-        '<div class="tale-status">' + ring(pct, 'READ') +
-          '<span class="tale-status-label">' + (pct === 100 ? 'Finished' : started ? 'Reading' : 'Not started') + '</span></div>' +
-        '</div>' +
-        (w.chapters.length > 1 ?
-          '<ol class="tale-toc" id="toc-' + w.id + '" hidden>' +
-          w.chapters.map(function (c) {
-            return '<li class="' + (st.read[c.id] ? 'read' : '') + '"><a href="read.html?work=' + w.id + '&ch=' + c.id + '">' +
-              '<span class="tale-toc-num">' + esc(c.num) + '</span><span class="tale-toc-title">' + esc(c.title) + '</span>' +
-              '<span class="tale-toc-tease">' + esc(c.tease) + '</span></a></li>';
-          }).join('') + '</ol>' : '') +
-      '</div>';
-    }).join('');
-    Array.prototype.forEach.call(shelf.querySelectorAll('.tale-toc-toggle'), function (b) {
-      b.addEventListener('click', function () {
-        var toc = $('toc-' + b.dataset.work);
-        toc.hidden = !toc.hidden;
+    var spoilerLine = '<b style="color:var(--red)">⚠ Full spoilers</b> — base game, all endings, and the DLC.';
+
+    function renderShelf() {
+      var totWords = 0, totCh = 0, totRead = 0;
+      WORKS.forEach(function (w) {
+        totWords += wordCount(w); totCh += w.chapters.length;
+        var st0 = wstate(w.id);
+        totRead += w.chapters.filter(function (c) { return st0.read[c.id]; }).length;
       });
-    });
+      var heroHtml = '<div class="hero-head">' +
+        '<div class="hero-lead"><div class="hero-eyebrow">Lore &amp; Legends</div>' +
+        '<h1 class="hero-title">Tales of the Lands Between</h1>' +
+        '<p class="hero-sub">Original fan writing, built on the game’s own evidence. ' + spoilerLine + '</p></div>' +
+        '<div class="hero-stats">' + ring(totCh ? Math.round(100 * totRead / totCh) : 0, 'READ') +
+        '<div class="hero-stat-list">' +
+          '<div class="hero-stat"><span>Tales</span><b>' + WORKS.length + '</b></div>' +
+          '<div class="hero-stat"><span>Words</span><b>≈' + totWords.toLocaleString() + '</b></div>' +
+          '<div class="hero-stat"><span>Chapters read</span><b>' + totRead + ' / ' + totCh + '</b></div>' +
+        '</div></div></div>';
+      shelf.innerHTML = heroHtml + WORKS.map(function (w) {
+        var st = wstate(w.id);
+        var readCount = w.chapters.filter(function (c) { return st.read[c.id]; }).length;
+        var started = !!st.chapter || readCount > 0;
+        var cont = st.chapter && w.chapters.find(function (c) { return c.id === st.chapter; });
+        var pct = Math.round(100 * readCount / w.chapters.length);
+        return '<div class="tale-card"><div class="tale-card-grid">' +
+          '<div class="tale-card-main">' +
+          '<div class="tale-card-head">' +
+            '<div class="tale-titles"><span class="tale-title">' + esc(w.title) + '</span>' +
+            '<span class="tale-subtitle">' + esc(w.subtitle) + '</span></div>' +
+          '</div>' +
+          '<p class="tale-blurb">' + esc(w.blurb) + '</p>' +
+          '<p class="tale-spoilers">⚠ ' + esc(w.spoilers) + '</p>' +
+          '<div class="tale-meta-row">' +
+            '<span>📖 <b>' + esc(w.words) + '</b></span>' +
+            '<span>✒ <b>' + readCount + ' / ' + w.chapters.length + '</b> chapters read</span>' +
+            (readTime(wordCount(w)) ? '<span>◷ <b>' + readTime(wordCount(w)) + '</b></span>' : '') +
+          '</div>' +
+          '<div class="tale-actions">' +
+            '<a class="cta tale-cta" href="read.html?work=' + w.id + (cont ? '&ch=' + cont.id : '') + '">' +
+              (started && cont ? 'Continue — ' + esc(cont.num ? cont.num + '. ' : '') + esc(cont.title) : 'Begin reading →') + '</a>' +
+            (w.chapters.length > 1 ? '<button class="icon-btn tale-toc-toggle" data-work="' + w.id + '">Contents</button>' : '') +
+          '</div>' +
+          '</div>' +
+          '<div class="tale-status">' + ring(pct, 'READ') +
+            '<span class="tale-status-label">' + (pct === 100 ? 'Finished' : started ? 'Reading' : 'Not started') + '</span></div>' +
+          '</div>' +
+          (w.chapters.length > 1 ?
+            '<ol class="tale-toc" id="toc-' + w.id + '" hidden>' +
+            w.chapters.map(function (c) {
+              return '<li class="' + (st.read[c.id] ? 'read' : '') + '"><a href="read.html?work=' + w.id + '&ch=' + c.id + '">' +
+                '<span class="tale-toc-num">' + esc(c.num) + '</span><span class="tale-toc-title">' + esc(c.title) + '</span>' +
+                '<span class="tale-toc-tease">' + esc(c.tease) + '</span></a></li>';
+            }).join('') + '</ol>' : '') +
+        '</div>';
+      }).join('');
+      Array.prototype.forEach.call(shelf.querySelectorAll('.tale-toc-toggle'), function (b) {
+        b.addEventListener('click', function () {
+          var toc = $('toc-' + b.dataset.work);
+          toc.hidden = !toc.hidden;
+        });
+      });
+    }
+
+    /* ---- timeline (#timeline): in-world era events, chapter-linked ---- */
+    var timelineEl = $('talesTimeline');
+    var TIMELINE = null;
+    async function loadTimeline() {
+      if (!TIMELINE) TIMELINE = await (await fetch('../data/timeline.json')).json();
+      return TIMELINE;
+    }
+    function renderTimeline() {
+      loadTimeline().then(function (tl) {
+        var work = workById('gold-and-shadow');
+        var st = wstate('gold-and-shadow');
+        var chaptersById = {};
+        work.chapters.forEach(function (c) { chaptersById[c.id] = c; });
+        var byEra = {};
+        tl.events.forEach(function (e) { (byEra[e.era] = byEra[e.era] || []).push(e); });
+
+        var html = '<div class="hero-head"><div class="hero-lead"><div class="hero-eyebrow">Lore &amp; Legends</div>' +
+          '<h1 class="hero-title">Timeline</h1>' +
+          '<p class="hero-sub">In-world events drawn from <i>Gold and Shadow</i>, in the chronicler’s own hedged voice. ' + spoilerLine + '</p></div></div>';
+
+        html += tl.eras.map(function (era) {
+          var events = byEra[era.id] || [];
+          if (!events.length) return '';
+          return '<section class="tl-era">' +
+            '<h2 class="tl-era-name">' + esc(era.name) + '</h2>' +
+            '<p class="tl-era-blurb">' + esc(era.blurb) + '</p>' +
+            '<div class="tl-events">' + events.map(function (ev) {
+              var ch = chaptersById[ev.chapter];
+              var read = ch && !!st.read[ch.id];
+              var chLabel = ch ? (ch.num ? ch.num + '. ' : '') + ch.title : ev.chapter;
+              return '<article class="tl-event' + (read ? ' read' : '') + '">' +
+                '<h3 class="tl-event-title">' + esc(ev.title) + '</h3>' +
+                '<p class="tl-event-text">' + esc(ev.text) + '</p>' +
+                (ch ? '<a class="tl-event-link" href="read.html?work=' + ev.workId + '&ch=' + ch.id + '">' +
+                  'Read: ' + esc(chLabel) + ' →' + (read ? ' <span class="tl-read-tick">✓</span>' : '') + '</a>' : '') +
+              '</article>';
+            }).join('') + '</div>' +
+          '</section>';
+        }).join('');
+
+        timelineEl.innerHTML = html;
+      });
+    }
+
+    /* ---- hash-routed view switch ---- */
+    var navBtns = Array.prototype.slice.call(document.querySelectorAll('#talesNav .atlas-tab'));
+    function setView(view) {
+      navBtns.forEach(function (b) {
+        var on = b.dataset.view === view;
+        b.classList.toggle('active', on);
+        b.setAttribute('aria-selected', on ? 'true' : 'false');
+      });
+      if (view === 'timeline') {
+        shelf.hidden = true; timelineEl.hidden = false;
+        if (location.hash !== '#timeline') history.replaceState(null, '', '#timeline');
+        renderTimeline();
+      } else {
+        timelineEl.hidden = true; shelf.hidden = false;
+        if (location.hash === '#timeline') history.replaceState(null, '', '#');
+        renderShelf();
+      }
+    }
+    navBtns.forEach(function (b) { b.addEventListener('click', function () { setView(b.dataset.view); }); });
+    window.addEventListener('hashchange', function () { setView(location.hash === '#timeline' ? 'timeline' : 'shelf'); });
+    setView(location.hash === '#timeline' ? 'timeline' : 'shelf');
     return;
   }
 

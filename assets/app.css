@@ -670,3 +670,21 @@ body.build-page { padding-bottom: 80px; }
 .tale-meta-row { display: flex; gap: 14px; flex-wrap: wrap; color: var(--dim); font-size: 13px; margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--line-2); }
 .tale-meta-row b { color: var(--text); font-weight: 500; }
 @media (max-width: 620px) { .tale-card-grid { flex-direction: column; } .tale-status { flex-direction: row; min-width: 0; } }
+
+/* ---- tales: nav row + timeline (vertical spine) ---- */
+.tales-nav { display: flex; gap: 6px; margin: 0 0 4px; }
+.tales-timeline { margin-top: 8px; }
+.tl-era { margin-top: 30px; }
+.tl-era:first-of-type { margin-top: 20px; }
+.tl-era-name { font: 600 19px var(--serif); color: var(--gold-2); margin: 0 0 4px; }
+.tl-era-blurb { color: var(--dim); font-size: 13px; line-height: 1.5; margin: 0 0 16px; max-width: 640px; }
+.tl-events { position: relative; margin-left: 6px; padding-left: 20px; border-left: 2px solid var(--line-2); display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+.tl-event { position: relative; background: var(--panel-2); border: 1px solid var(--line-2); border-radius: 9px; padding: 12px 14px; }
+.tl-event::before { content: ''; position: absolute; left: -26px; top: 18px; width: 10px; height: 10px; border-radius: 50%; background: var(--gold-dim); border: 2px solid var(--bg); }
+.tl-event.read::before { background: var(--green); }
+.tl-event-title { font: 600 15px var(--serif); color: var(--text); margin: 0 0 6px; }
+.tl-event-text { font-size: 13px; line-height: 1.55; color: var(--text); margin: 0 0 9px; }
+.tl-event-link { font-size: 12.5px; color: var(--gold-2); text-decoration: none; }
+.tl-event-link:hover { text-decoration: underline; }
+.tl-read-tick { color: var(--green); }
+@media (max-width: 480px) { .tl-events { margin-left: 2px; padding-left: 16px; } .tl-event::before { left: -21px; width: 8px; height: 8px; top: 17px; } }
