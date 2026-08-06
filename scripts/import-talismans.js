@@ -382,7 +382,7 @@ async function main() {
     }
     if (reviewed && reviewed.id !== id) item.legacyIds = [reviewed.id];
     if (reviewed) {
-      ['statBonus', 'mult', 'flat', 'statusFlat', 'condition', 'note', 'confirmed'].forEach((key) => {
+      ['statBonus', 'mult', 'combatMult', 'attack', 'flat', 'statusFlat', 'condition', 'note', 'confirmed'].forEach((key) => {
         if (reviewed[key] != null) item[key] = reviewed[key];
       });
       if (!derived || !derived.survival) if (reviewed.survival != null) item.survival = reviewed.survival;
@@ -419,7 +419,7 @@ async function main() {
       {
         name: 'Tarnished Archive reviewed effect models',
         path: 'data/buffs.json',
-        fields: ['statBonus', 'mult', 'survival', 'conditions']
+        fields: ['statBonus', 'mult', 'combatMult', 'attack', 'survival', 'conditions']
       },
       {
         name: 'Fextralife Fine Crucible Feather cross-check',

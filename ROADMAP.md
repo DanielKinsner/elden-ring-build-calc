@@ -68,12 +68,13 @@ Buildup ≠ payoff. Show **hits-to-proc** (target threshold ÷ per-hit buildup) 
 surfaced on `build/`. **Research:** the exact bleed/frost/rot proc formulas (% max HP + flat) and common
 enemy status thresholds — wiki. Let the user pick a target HP or use a default.
 
-### T5. Talismans  ✅ EQUIPMENT COMPLETE / FORMULA MATRIX ACTIVE
+### T5. Talismans  ✅ EQUIPMENT COMPLETE / 100 FORMULAS LIVE
 All 154 base+DLC talismans now live in `data/talismans.json` with four positional equipment slots,
 exact icons, weight, base-game param conflict groups, conditional state, persistence/sharing, and a
-transparent resolver. Twenty-one reviewed formulas currently feed AR/survival/defense. Remaining
-items stay honest `inventory` coverage until their numeric PvE/PvP behavior is verified; completing
-that effect matrix is the active calculation task before catalysts.
+transparent resolver. One hundred reviewed formulas now feed AR/survival/defense. The attack lens
+adds move-aware PvE/PvP rules for core attacks, movement attacks, skills, DLC attack families,
+arrows, two-handing, and known damage-type exceptions. Remaining items stay honest `inventory`
+coverage until their output domain exists or their activation math is verified.
 
 ### T6. Optimal stat advisor  ✅ DONE (2026-07) — `engine.optimize()` greedy redistribution + Apply UI
 Given a **level budget**, distribute points to maximize AR for the selected weapon. `softCapCurve()`
@@ -175,9 +176,10 @@ link. "Save Build" writes to localStorage; a small curated **meta build library*
 - **True talisman rack + effect resolver** — four positional slots backed by the complete 154-item
   base+DLC catalog and exact item icons; real weight; base-game param conflict groups; conditional
   assumption switches; positional URL/local-save persistence; post-armor defense modifiers; and a
-  visible effect trace that distinguishes applied math from inventory-only coverage. Twenty-one
-  reviewed effect models are live. Remaining talisman formulas must move from `inventory` to
-  `modeled` only after their PvE/PvP values and activation context are verified.
+  visible effect trace that distinguishes applied math from inventory-only coverage. One hundred
+  reviewed effect models are live, including a move-aware 1.16.1 PvE/PvP attack lens. Remaining
+  talisman formulas must move from `inventory` to `modeled` only after their output domain and
+  activation context are verified.
 - **Reusable browser QA** — `node tests/ui.smoke.js` exercises talisman selection, conditional AR,
   conflict blocking, save/share reload, desktop rendering, 390px overflow, and browser errors.
 - **Site identity polish** — original rune favicon now ships across every page; the lingering
@@ -211,8 +213,9 @@ link. "Save Build" writes to localStorage; a small curated **meta build library*
 ## Active full-build expansion (architecture: `docs/04-full-build-platform.md`)
 - **Ash of War compatibility/state:** attach a legal Ash to each infusable armament and expose
   skill damage/FP/poise context without muddying the weapon's base analysis.
-- **Talisman formula completion:** expand the shipped 21 reviewed models across all applicable
-  damage, defense, survival, casting, stamina, recovery, and utility effects; add PvP variants.
+- **Talisman formula completion:** 100/154 models are live. Remaining work is primarily outputs
+  that need their own domain (guard stamina, poise damage, flask restoration, discovery/runes,
+  casting/spell costs) plus Blue Dancer and Verdigris load curves.
 - **Catalysts + spell loadout:** memory slots, FP/stamina costs, requirements, catalyst-aware
   spell buff and spell damage.
 - **Physick + Great Rune + complete effect stack:** transparent ordering and conflicts.

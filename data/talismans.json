@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "gameVersion": "1.16",
-  "generatedAt": "2026-08-06T06:09:52.640Z",
+  "generatedAt": "2026-08-06T06:26:26.182Z",
   "sources": [
     {
       "name": "Eldenpedia talisman catalog",
@@ -47,6 +47,8 @@
       "fields": [
         "statBonus",
         "mult",
+        "combatMult",
+        "attack",
         "survival",
         "conditions"
       ]
@@ -63,7 +65,7 @@
   ],
   "coverage": {
     "inventory": 154,
-    "modeled": 73,
+    "modeled": 100,
     "base": 115,
     "dlc": 39
   },
@@ -78,7 +80,22 @@
       "wiki": "https://eldenring.wiki.gg/wiki/Aged_One%27s_Exultation",
       "param": null,
       "conflictGroup": null,
-      "modelStatus": "inventory"
+      "modelStatus": "modeled",
+      "combatMult": {
+        "pve": {
+          "all": 1.2
+        },
+        "pvp": {
+          "all": 1.12
+        }
+      },
+      "condition": {
+        "id": "madness-nearby",
+        "label": "Madness triggered nearby",
+        "defaultActive": false
+      },
+      "note": "+20% PvE / +12% PvP for 30s after madness nearby",
+      "confirmed": true
     },
     {
       "id": "ailment-talisman",
@@ -136,7 +153,23 @@
       "wiki": "https://eldenring.wiki.gg/wiki/Arrow%27s_Soaring_Sting_Talisman",
       "param": null,
       "conflictGroup": null,
-      "modelStatus": "inventory"
+      "modelStatus": "modeled",
+      "attack": [
+        {
+          "requires": [
+            "arrow"
+          ],
+          "pve": {
+            "all": 1.08
+          },
+          "pvp": {
+            "all": 1.08,
+            "holy": 1
+          }
+        }
+      ],
+      "note": "+8% arrow and bolt damage; holy portion is unaffected in PvP",
+      "confirmed": true
     },
     {
       "id": "arrows-sting-talisman",
@@ -153,7 +186,23 @@
         "conflictGroup": 2150
       },
       "conflictGroup": "param-2150",
-      "modelStatus": "inventory"
+      "modelStatus": "modeled",
+      "attack": [
+        {
+          "requires": [
+            "arrow"
+          ],
+          "pve": {
+            "all": 1.1
+          },
+          "pvp": {
+            "all": 1.1,
+            "holy": 1
+          }
+        }
+      ],
+      "note": "+10% arrow and bolt damage; holy portion is unaffected in PvP",
+      "confirmed": true
     },
     {
       "id": "arsenal-charm",
@@ -258,7 +307,23 @@
         "conflictGroup": 2130
       },
       "conflictGroup": "param-2130",
-      "modelStatus": "inventory"
+      "modelStatus": "modeled",
+      "attack": [
+        {
+          "requires": [
+            "charged-heavy"
+          ],
+          "pve": {
+            "all": 1.1
+          },
+          "pvp": {
+            "all": 1.1,
+            "holy": 1
+          }
+        }
+      ],
+      "note": "+10% charged heavy damage; holy portion is unaffected in PvP",
+      "confirmed": true
     },
     {
       "id": "beloved-stardust",
@@ -282,7 +347,22 @@
       "wiki": "https://eldenring.wiki.gg/wiki/Blade_of_Mercy",
       "param": null,
       "conflictGroup": null,
-      "modelStatus": "inventory"
+      "modelStatus": "modeled",
+      "combatMult": {
+        "pve": {
+          "all": 1.2
+        },
+        "pvp": {
+          "all": 1.12
+        }
+      },
+      "condition": {
+        "id": "critical-landed",
+        "label": "Critical hit landed",
+        "defaultActive": false
+      },
+      "note": "+20% PvE / +12% PvP for 20s after a critical hit",
+      "confirmed": true
     },
     {
       "id": "blessed-blue-dew-talisman",
@@ -730,7 +810,22 @@
         "conflictGroup": 2180
       },
       "conflictGroup": "param-2180",
-      "modelStatus": "inventory"
+      "modelStatus": "modeled",
+      "attack": [
+        {
+          "requires": [
+            "jump"
+          ],
+          "pve": {
+            "all": 1.15
+          },
+          "pvp": {
+            "all": 1.075
+          }
+        }
+      ],
+      "note": "+15% jump attacks PvE / +7.5% PvP",
+      "confirmed": true
     },
     {
       "id": "companion-jar",
@@ -990,7 +1085,22 @@
       "wiki": "https://eldenring.wiki.gg/wiki/Crusade_Insignia",
       "param": null,
       "conflictGroup": null,
-      "modelStatus": "inventory"
+      "modelStatus": "modeled",
+      "combatMult": {
+        "pve": {
+          "all": 1.15
+        },
+        "pvp": {
+          "all": 1.1
+        }
+      },
+      "condition": {
+        "id": "enemy-defeated",
+        "label": "Enemy defeated recently",
+        "defaultActive": false
+      },
+      "note": "+15% PvE / +10% PvP for 20s after an enemy dies",
+      "confirmed": true
     },
     {
       "id": "curved-sword-talisman",
@@ -1007,7 +1117,23 @@
         "conflictGroup": 2200
       },
       "conflictGroup": "param-2200",
-      "modelStatus": "inventory"
+      "modelStatus": "modeled",
+      "attack": [
+        {
+          "requires": [
+            "guard-counter"
+          ],
+          "pve": {
+            "all": 1.2
+          },
+          "pvp": {
+            "all": 1.2,
+            "holy": 1
+          }
+        }
+      ],
+      "note": "+20% guard-counter damage; holy portion is unaffected in PvP",
+      "confirmed": true
     },
     {
       "id": "daedicars-woe",
@@ -1050,7 +1176,23 @@
         "conflictGroup": 2090
       },
       "conflictGroup": "param-2090",
-      "modelStatus": "inventory"
+      "modelStatus": "modeled",
+      "attack": [
+        {
+          "requires": [
+            "critical"
+          ],
+          "pve": {
+            "all": 1.16
+          },
+          "pvp": {
+            "all": 1.16,
+            "holy": 1
+          }
+        }
+      ],
+      "note": "+16% critical damage; holy portion is unaffected in PvP",
+      "confirmed": true
     },
     {
       "id": "dragoncrest-greatshield-talisman",
@@ -1190,7 +1332,22 @@
       "wiki": "https://eldenring.wiki.gg/wiki/Dried_Bouquet",
       "param": null,
       "conflictGroup": null,
-      "modelStatus": "inventory"
+      "modelStatus": "modeled",
+      "combatMult": {
+        "pve": {
+          "all": 1.2
+        },
+        "pvp": {
+          "all": 1.2
+        }
+      },
+      "condition": {
+        "id": "spirit-died",
+        "label": "Summoned spirit died recently",
+        "defaultActive": false
+      },
+      "note": "+20% for 30s after a summoned spirit dies",
+      "confirmed": true
     },
     {
       "id": "enraged-divine-beast",
@@ -1202,7 +1359,22 @@
       "wiki": "https://eldenring.wiki.gg/wiki/Enraged_Divine_Beast",
       "param": null,
       "conflictGroup": null,
-      "modelStatus": "inventory"
+      "modelStatus": "modeled",
+      "attack": [
+        {
+          "requires": [
+            "storm"
+          ],
+          "pve": {
+            "all": 1.1
+          },
+          "pvp": {
+            "all": 1.1
+          }
+        }
+      ],
+      "note": "+10% storm attacks",
+      "confirmed": true
     },
     {
       "id": "erdtrees-favor",
@@ -1361,10 +1533,15 @@
         ]
       },
       "mathNote": "PvE physical taken ×1.1 · PvP physical taken ×1.15",
-      "mult": {
-        "fire": 1.12
+      "combatMult": {
+        "pve": {
+          "fire": 1.12
+        },
+        "pvp": {
+          "fire": 1.08
+        }
       },
-      "note": "+12% fire · +10% phys damage taken",
+      "note": "+12% fire PvE / +8% PvP · physical defense penalty",
       "confirmed": true
     },
     {
@@ -1524,7 +1701,24 @@
         "conflictGroup": 3090
       },
       "conflictGroup": "param-3090",
-      "modelStatus": "inventory"
+      "modelStatus": "modeled",
+      "attack": [
+        {
+          "requires": [
+            "skill",
+            "charged"
+          ],
+          "pve": {
+            "all": 1.15
+          },
+          "pvp": {
+            "all": 1.15,
+            "holy": 1
+          }
+        }
+      ],
+      "note": "+15% charged skill damage; holy portion is unaffected in PvP",
+      "confirmed": true
     },
     {
       "id": "godskin-swaddling-cloth",
@@ -1912,7 +2106,22 @@
       "wiki": "https://eldenring.wiki.gg/wiki/Lacerating_Crossed-Tree",
       "param": null,
       "conflictGroup": null,
-      "modelStatus": "inventory"
+      "modelStatus": "modeled",
+      "attack": [
+        {
+          "requires": [
+            "dash"
+          ],
+          "pve": {
+            "all": 1.15
+          },
+          "pvp": {
+            "all": 1.075
+          }
+        }
+      ],
+      "note": "+15% dash attacks PvE / +7.5% PvP",
+      "confirmed": true
     },
     {
       "id": "lance-talisman",
@@ -1929,7 +2138,23 @@
         "conflictGroup": 2140
       },
       "conflictGroup": "param-2140",
-      "modelStatus": "inventory"
+      "modelStatus": "modeled",
+      "attack": [
+        {
+          "requires": [
+            "mounted"
+          ],
+          "pve": {
+            "all": 1.15
+          },
+          "pvp": {
+            "all": 1.15,
+            "holy": 1
+          }
+        }
+      ],
+      "note": "+15% horseback attack damage; holy portion is unaffected in PvP",
+      "confirmed": true
     },
     {
       "id": "lightning-scorpion-charm",
@@ -1962,11 +2187,16 @@
         ]
       },
       "mathNote": "PvE physical taken ×1.1 · PvP physical taken ×1.15",
-      "mult": {
-        "lightning": 1.12
+      "combatMult": {
+        "pve": {
+          "lightning": 1.12
+        },
+        "pvp": {
+          "lightning": 1.08
+        }
       },
-      "note": "+12% lightning · +10% phys damage taken",
-      "confirmed": false
+      "note": "+12% lightning PvE / +8% PvP · physical defense penalty",
+      "confirmed": true
     },
     {
       "id": "longtail-cat-talisman",
@@ -2001,15 +2231,20 @@
       },
       "conflictGroup": "param-2160",
       "modelStatus": "modeled",
-      "mult": {
-        "all": 1.2
+      "combatMult": {
+        "pve": {
+          "all": 1.2
+        },
+        "pvp": {
+          "all": 1.12
+        }
       },
       "condition": {
         "id": "blood-loss-nearby",
         "label": "Blood loss nearby",
         "defaultActive": true
       },
-      "note": "+20% for 20s after blood loss nearby",
+      "note": "+20% PvE / +12% PvP for 20s after blood loss nearby",
       "confirmed": true
     },
     {
@@ -2043,11 +2278,16 @@
         ]
       },
       "mathNote": "PvE physical taken ×1.1 · PvP physical taken ×1.15",
-      "mult": {
-        "magic": 1.12
+      "combatMult": {
+        "pve": {
+          "magic": 1.12
+        },
+        "pvp": {
+          "magic": 1.08
+        }
       },
-      "note": "+12% magic · +10% phys damage taken",
-      "confirmed": false
+      "note": "+12% magic PvE / +8% PvP · physical defense penalty",
+      "confirmed": true
     },
     {
       "id": "marikas-scarseal",
@@ -2137,15 +2377,15 @@
         "DEX": 5
       },
       "mult": {
-        "all": 1.1
+        "all": 1.11
       },
       "condition": {
         "id": "successive-attacks",
         "label": "Maximum attack chain",
         "defaultActive": true
       },
-      "note": "+5 DEX · +10% at max ramp",
-      "confirmed": false
+      "note": "+5 DEX · +11% at max ramp",
+      "confirmed": true
     },
     {
       "id": "moon-of-nokstella",
@@ -2660,7 +2900,27 @@
       "wiki": "https://eldenring.wiki.gg/wiki/Rellana%27s_Cameo",
       "param": null,
       "conflictGroup": null,
-      "modelStatus": "inventory"
+      "modelStatus": "modeled",
+      "attack": [
+        {
+          "requires": [
+            "skill"
+          ],
+          "pve": {
+            "all": 1.45
+          },
+          "pvp": {
+            "all": 1.45
+          }
+        }
+      ],
+      "condition": {
+        "id": "stance-held",
+        "label": "Stance held long enough",
+        "defaultActive": false
+      },
+      "note": "+45% supported stance-skill damage after the stance is held",
+      "confirmed": true
     },
     {
       "id": "retaliatory-crossed-tree",
@@ -2672,7 +2932,22 @@
       "wiki": "https://eldenring.wiki.gg/wiki/Retaliatory_Crossed-Tree",
       "param": null,
       "conflictGroup": null,
-      "modelStatus": "inventory"
+      "modelStatus": "modeled",
+      "attack": [
+        {
+          "requires": [
+            "roll"
+          ],
+          "pve": {
+            "all": 1.17
+          },
+          "pvp": {
+            "all": 1.12
+          }
+        }
+      ],
+      "note": "+17% rolling/backstep attacks PvE / +12% PvP",
+      "confirmed": true
     },
     {
       "id": "ritual-shield-talisman",
@@ -2764,7 +3039,34 @@
         "conflictGroup": 2190
       },
       "conflictGroup": "param-2190",
-      "modelStatus": "inventory"
+      "modelStatus": "modeled",
+      "attack": [
+        {
+          "requires": [
+            "roar"
+          ],
+          "pve": {
+            "all": 1.15
+          },
+          "pvp": {
+            "all": 1.15,
+            "holy": 1
+          }
+        },
+        {
+          "requires": [
+            "breath"
+          ],
+          "pve": {
+            "all": 1.1
+          },
+          "pvp": {
+            "all": 1.05
+          }
+        }
+      ],
+      "note": "+15% roar attacks or +10% breath attacks, with separate PvP handling",
+      "confirmed": true
     },
     {
       "id": "rotten-winged-sword-insignia",
@@ -2824,11 +3126,16 @@
         ]
       },
       "mathNote": "PvE physical taken ×1.1 · PvP physical taken ×1.15",
-      "mult": {
-        "holy": 1.12
+      "combatMult": {
+        "pve": {
+          "holy": 1.12
+        },
+        "pvp": {
+          "holy": 1.08
+        }
       },
-      "note": "+12% holy · +10% phys damage taken",
-      "confirmed": false
+      "note": "+12% holy PvE / +8% PvP · physical defense penalty",
+      "confirmed": true
     },
     {
       "id": "sacrificial-twig",
@@ -2879,7 +3186,23 @@
         "conflictGroup": 1230
       },
       "conflictGroup": "param-1230",
-      "modelStatus": "inventory"
+      "modelStatus": "modeled",
+      "attack": [
+        {
+          "requires": [
+            "skill"
+          ],
+          "pve": {
+            "all": 1.15
+          },
+          "pvp": {
+            "all": 1.15,
+            "holy": 1
+          }
+        }
+      ],
+      "note": "+15% weapon-skill damage; holy portion is unaffected in PvP",
+      "confirmed": true
     },
     {
       "id": "sharpshot-talisman",
@@ -2891,7 +3214,23 @@
       "wiki": "https://eldenring.wiki.gg/wiki/Sharpshot_Talisman",
       "param": null,
       "conflictGroup": null,
-      "modelStatus": "inventory"
+      "modelStatus": "modeled",
+      "attack": [
+        {
+          "requires": [
+            "arrow",
+            "aimed"
+          ],
+          "pve": {
+            "all": 1.12
+          },
+          "pvp": {
+            "all": 1.08
+          }
+        }
+      ],
+      "note": "+12% precision-aimed shots PvE / +8% PvP",
+      "confirmed": true
     },
     {
       "id": "shattered-stone-talisman",
@@ -2903,7 +3242,22 @@
       "wiki": "https://eldenring.wiki.gg/wiki/Shattered_Stone_Talisman",
       "param": null,
       "conflictGroup": null,
-      "modelStatus": "inventory"
+      "modelStatus": "modeled",
+      "attack": [
+        {
+          "requires": [
+            "kick-stomp"
+          ],
+          "pve": {
+            "all": 1.1
+          },
+          "pvp": {
+            "all": 1.05
+          }
+        }
+      ],
+      "note": "+10% kicking/stomping skills PvE / +5% PvP",
+      "confirmed": true
     },
     {
       "id": "silver-scarab",
@@ -2932,7 +3286,22 @@
       "wiki": "https://eldenring.wiki.gg/wiki/Smithing_Talisman",
       "param": null,
       "conflictGroup": null,
-      "modelStatus": "inventory"
+      "modelStatus": "modeled",
+      "attack": [
+        {
+          "requires": [
+            "weapon-throw"
+          ],
+          "pve": {
+            "all": 1.1
+          },
+          "pvp": {
+            "all": 1.05
+          }
+        }
+      ],
+      "note": "+10% weapon throws PvE / +5% PvP",
+      "confirmed": true
     },
     {
       "id": "spear-talisman",
@@ -2949,7 +3318,22 @@
         "conflictGroup": 2060
       },
       "conflictGroup": "param-2060",
-      "modelStatus": "inventory"
+      "modelStatus": "modeled",
+      "attack": [
+        {
+          "requires": [
+            "thrust-counter"
+          ],
+          "pve": {
+            "all": 1.15
+          },
+          "pvp": {
+            "all": 1.15
+          }
+        }
+      ],
+      "note": "+15% thrust counter-hit damage, after the game's native counter modifier",
+      "confirmed": true
     },
     {
       "id": "spelldrake-talisman",
@@ -3069,7 +3453,22 @@
       "wiki": "https://eldenring.wiki.gg/wiki/St._Trina%27s_Smile",
       "param": null,
       "conflictGroup": null,
-      "modelStatus": "inventory"
+      "modelStatus": "modeled",
+      "combatMult": {
+        "pve": {
+          "all": 1.2
+        },
+        "pvp": {
+          "all": 1.12
+        }
+      },
+      "condition": {
+        "id": "sleep-nearby",
+        "label": "Sleep triggered nearby",
+        "defaultActive": false
+      },
+      "note": "+20% PvE / +12% PvP for 30s after sleep nearby",
+      "confirmed": true
     },
     {
       "id": "stalwart-horn-charm",
@@ -3232,7 +3631,22 @@
       "wiki": "https://eldenring.wiki.gg/wiki/Talisman_of_the_Dread",
       "param": null,
       "conflictGroup": null,
-      "modelStatus": "inventory"
+      "modelStatus": "modeled",
+      "attack": [
+        {
+          "requires": [
+            "magma"
+          ],
+          "pve": {
+            "all": 1.15
+          },
+          "pvp": {
+            "all": 1.1
+          }
+        }
+      ],
+      "note": "+15% magma attacks PvE / +10% PvP",
+      "confirmed": true
     },
     {
       "id": "twinblade-talisman",
@@ -3249,7 +3663,22 @@
         "conflictGroup": 2120
       },
       "conflictGroup": "param-2120",
-      "modelStatus": "inventory"
+      "modelStatus": "modeled",
+      "attack": [
+        {
+          "requires": [
+            "chain-finisher"
+          ],
+          "pve": {
+            "all": 1.45
+          },
+          "pvp": {
+            "all": 1.45
+          }
+        }
+      ],
+      "note": "+45% final light attack in a chain",
+      "confirmed": true
     },
     {
       "id": "two-fingers-heirloom",
@@ -3283,7 +3712,29 @@
       "wiki": "https://eldenring.wiki.gg/wiki/Two-Handed_Sword_Talisman",
       "param": null,
       "conflictGroup": null,
-      "modelStatus": "inventory"
+      "modelStatus": "modeled",
+      "attack": [
+        {
+          "requires": [
+            "weapon"
+          ],
+          "excludes": [
+            "arrow",
+            "skill"
+          ],
+          "state": {
+            "twoHanded": true
+          },
+          "pve": {
+            "all": 1.15
+          },
+          "pvp": {
+            "all": 1.1
+          }
+        }
+      ],
+      "note": "+15% two-handed weapon attacks PvE / +10% PvP",
+      "confirmed": true
     },
     {
       "id": "two-headed-turtle-talisman",
@@ -3417,7 +3868,23 @@
         "conflictGroup": 1230
       },
       "conflictGroup": "param-1230",
-      "modelStatus": "inventory"
+      "modelStatus": "modeled",
+      "attack": [
+        {
+          "requires": [
+            "skill"
+          ],
+          "pve": {
+            "all": 1.1
+          },
+          "pvp": {
+            "all": 1.1,
+            "holy": 1
+          }
+        }
+      ],
+      "note": "+10% weapon-skill damage; holy portion is unaffected in PvP",
+      "confirmed": true
     },
     {
       "id": "winged-sword-insignia",

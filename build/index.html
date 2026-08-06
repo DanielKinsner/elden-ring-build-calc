@@ -133,8 +133,18 @@
         <div class="k mt6">Passive</div><div id="passive" class="v">—</div>
       </div>
     </div>
+    <div class="attack-lens" title="Applies matched equipment multipliers to Attack Rating before move motion values and enemy defense.">
+      <div class="attack-lens-rune" aria-hidden="true"><i></i><span>✦</span></div>
+      <div class="attack-lens-copy">
+        <span class="k">Attack Lens</span>
+        <b id="attackLensName">Neutral</b>
+        <small id="attackLensState">no move-specific modifier matched</small>
+      </div>
+      <label class="attack-lens-select"><span>Move under analysis</span><select id="attackProfile" aria-label="Move under analysis"></select></label>
+    </div>
+    <div class="attack-lens-note">Equipment output after matched multipliers · move motion values and enemy defense are not applied yet</div>
     <div class="ar-box">
-      <div class="ar-label">Total Attack Rating</div>
+      <div class="ar-label" id="arLabel">Total Attack Rating</div>
       <div class="ar" id="ar">—</div>
       <div class="ar-base" id="arBase"></div>
       <div class="scadu-row" title="Shadow of the Erdtree only — Scadutree Blessing multiplies damage dealt and cuts damage taken, in the Land of Shadow">
@@ -165,7 +175,7 @@
       <div id="payoff" class="payoff-list"></div>
     </div>
     <h2 class="mt">Active Effects</h2>
-    <div class="buffs-sub">One buff per category — same-type buffs override each other in-game. Values are PvE.</div>
+    <div class="buffs-sub">One buff per category — same-type buffs override each other in-game. Equipment effects follow the PvE/PvP context above.</div>
     <div id="buffGroups" class="buff-groups"></div>
     <div class="effect-stack" id="effectStack" aria-live="polite"></div>
   </section>

@@ -14,13 +14,14 @@ The experience should remain calm and legible. Motion communicates causality: ch
 flash softly, bars travel to their new state, equipment slots acknowledge selection, and panels
 reveal detail only when it is useful. Motion never delays input and respects reduced-motion.
 
-## Canonical build schema (v3)
+## Canonical build schema (v4)
 
 ```json
 {
-  "schemaVersion": 3,
+  "schemaVersion": 4,
   "name": "Vera Aletheia",
   "combatContext": "pve",
+  "attackProfile": "jump",
   "classId": null,
   "level": 175,
   "stats": { "VIG": 60, "MND": 20, "END": 30, "STR": 24, "DEX": 58, "INT": 9, "FAI": 15, "ARC": 40 },
@@ -107,9 +108,10 @@ migration. Breadth without trusted math does not count as completion.
   all-armament equip weight, compact sharing, and legacy migration.
 - **Shipped:** four true talisman slots, the full 154-item base+DLC inventory, exact icons,
   equip weight, param-derived conflicts, conditional assumption state, positional sharing,
-  transparent effect coverage, and incoming-damage modifier ordering. Seventy-three talisman
-  models currently affect live calculations: 62 derive from direct ERDB SpEffectParam fields,
-  with separate PvE/PvP defense, survival, resistance, regeneration, memory-slot, and casting
-  outputs. All other items are explicitly inventory-only rather than receiving inferred math.
-- **Next:** complete the DLC and contextual attack formula matrix, then catalysts and spell
-  memory on top of the same effect resolver.
+  transparent effect coverage, and incoming-damage modifier ordering. One hundred talisman
+  models currently affect live calculations: 62 derive from direct ERDB SpEffectParam fields.
+  The 1.16.1 attack lens raises total live coverage to 100 with move-aware PvE/PvP multipliers,
+  two-handed state, and type-specific exceptions. All other items are explicitly inventory-only
+  rather than receiving inferred math.
+- **Next:** catalysts and spell memory/scaling/damage on top of the same effect resolver, followed
+  by the remaining talisman outputs that depend on casting, guard, poise, flask, and loot domains.

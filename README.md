@@ -17,15 +17,16 @@ are, which weapon wins on their build, and how bleed/status buildup scales.
   multiplicatively combined damage-negation values, four resistances, equip load, and roll state.
 - Four true talisman slots backed by all 154 base+DLC items and exact icons: real weight,
   game-param conflict groups, condition switches, positional sharing, and a transparent effect
-  trace. Seventy-three formulas are live, including 62 directly derived from SpEffectParam:
-  survival, PvE/PvP defense, resistances, regeneration, memory slots, and casting speed.
+  trace. One hundred formulas are live, including 62 directly derived from SpEffectParam plus
+  a 1.16.1 move-aware attack matrix: jump/heavy/guard-counter/critical/counter-hit/movement,
+  skill, DLC skill-family, arrow, two-handed, PvE/PvP, and damage-type exception handling.
 - Active buff layer (Golden Vow, greases, Physick tears) with category override rules.
 - Status payoff card — hits-to-proc and what the proc is worth (bleed/frost/poison/rot) vs a target HP/resist.
 - Soft-cap chart + optimal stat advisor (redistributes your offensive points for max AR).
 - "Best Weapons for Your Build" ranking + a compare tray.
 - Scadutree Blessing slider — Land-of-Shadow AR and damage negation.
 - Versioned full-build state, compact share links, auto-save, old-save migration, and **My Builds**
-  named multi-save. The v3 schema preserves combat context and reserves spells, physick, and
+  named multi-save. The v4 schema preserves combat and attack-lens context and reserves spells, physick, and
   Great Rune for the next slices.
 
 **Weapon Atlas** (`atlas/`) — every weapon, filterable by status/scaling/infusable/DLC, sortable
@@ -62,7 +63,8 @@ so DLC-only systems (Scadutree Blessing, new weapons) never contaminate vanilla 
 
 Golden regression pins for the engine (verified library-build ARs, two-handing rules,
 flooring, Scadutree, status procs, the buff layer, survival, armor aggregation, talisman
-conditions/conflicts, resistances/utility, PvE/PvP variants, and incoming-damage order):
+conditions/conflicts, move-profile rules, damage-type overrides, resistances/utility, PvE/PvP
+variants, and incoming-damage order):
 
 ```
 node tests/engine.test.js

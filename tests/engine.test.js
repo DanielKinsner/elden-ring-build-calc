@@ -182,8 +182,10 @@ check('Erdtree Favor HP @ VIG 60', ERCalc.statEffects({ VIG: 60 }, [efMod]).hp, 
 console.log('talisman effects:');
 var talismanFile = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'talismans.json'), 'utf8'));
 var talismans = talismanFile.items;
+var attackProfileFile = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'attack-profiles.json'), 'utf8'));
+var attackProfiles = attackProfileFile.profiles;
 function tali(id) { return talismans.find(function (x) { return x.id === id; }); }
-check('complete talisman catalog and modeled coverage', [talismans.length, talismanFile.coverage.base, talismanFile.coverage.dlc, talismanFile.coverage.modeled], [154,115,39,73]);
+check('complete talisman catalog and modeled coverage', [talismans.length, talismanFile.coverage.base, talismanFile.coverage.dlc, talismanFile.coverage.modeled], [154,115,39,100]);
 check('all param models trace to their accessory effect ID', talismans.filter(function (x) { return x.paramModel; }).every(function (x) {
   return x.param && x.param.effectId === x.paramModel.effectId && Array.isArray(x.paramModel.fields) && x.paramModel.fields.length > 0;
 }), true);
@@ -191,6 +193,15 @@ check('all talismans have positive weight', talismans.every(function (x) { retur
 check('all talismans have concrete display effects', talismans.every(function (x) {
   return typeof x.effect === 'string' && x.effect.length > 2 && x.effect !== 'See item description' &&
     x.effect.charAt(0) !== '|' && !/\[\[|\]\]|\{\{|\}\}/.test(x.effect);
+}), true);
+check('attack profile catalog is unique and versioned', [new Set(attackProfiles.map(function (x) { return x.id; })).size, attackProfiles.length, attackProfileFile.gameVersion], [attackProfiles.length,20,'1.16.1']);
+var profileTags = new Set([].concat.apply([], attackProfiles.map(function (profile) { return profile.tags; })));
+var attackRules = [].concat.apply([], talismans.filter(function (item) { return Array.isArray(item.attack); }).map(function (item) { return item.attack; }));
+check('every attack-rule tag exists in a selectable profile', attackRules.every(function (rule) {
+  return (rule.requires || []).concat(rule.excludes || []).every(function (tag) { return profileTags.has(tag); });
+}), true);
+check('every attack rule has numeric PvE/PvP math', attackRules.every(function (rule) {
+  return ['pve','pvp'].every(function (context) { return rule[context] && Object.keys(rule[context]).every(function (key) { return typeof rule[context][key] === 'number' && rule[context][key] > 0; }); });
 }), true);
 var ritual = tali('ritual-sword-talisman');
 var jar = tali('great-jars-arsenal');
@@ -222,6 +233,21 @@ check('utility effects aggregate', ERCalc.aggregateUtility([turtle, moon]), { hp
 var blueFeather = tali('blue-feathered-branchsword');
 check('event-specific defense defaults off', ERCalc.resolveEffects([blueFeather]).mods.length, 0);
 check('event-specific defense can be enabled', ERCalc.resolveEffects([blueFeather], { conditions:{ 'blue-feathered-branchsword':true } }).mods.length, 1);
+var claw = tali('claw-talisman'), twoHandSword = tali('two-handed-sword-talisman'), alexander = tali('shard-of-alexander');
+var jumpEffects = ERCalc.resolveAttackEffects([claw, twoHandSword, alexander], {
+  combatContext:'pve', profileId:'jump', tags:['weapon','jump'], state:{ twoHanded:true }
+});
+check('jump lens matches jump + two-handed rules only', [jumpEffects.applied, jumpEffects.mods.map(function (x) { return x.sourceEffect; })], [2,['claw-talisman','two-handed-sword-talisman']]);
+var pvpJump = ERCalc.resolveAttackEffects([claw], { combatContext:'pvp', tags:['weapon','jump'], state:{ twoHanded:false } });
+check('attack lens selects separate PvP multiplier', pvpJump.mods[0].mult.all, 1.075);
+var skillEffects = ERCalc.resolveAttackEffects([claw, alexander], { combatContext:'pve', tags:['skill'], state:{ twoHanded:true } });
+check('skill lens rejects jump and applies skill modifier', [skillEffects.entries[0].applied, skillEffects.entries[1].applied], [false,true]);
+var magicScorpion = tali('magic-scorpion-charm');
+check('combat-wide talisman selects its PvP profile', ERCalc.resolveAttackEffects([magicScorpion], { combatContext:'pvp', tags:['weapon'], state:{} }).mods[0].mult.magic, 1.08);
+var holyWeapon = weapons.find(function (weapon) { return ERCalc.computeAR(vera, weapon, { twoHanded:true }).byType.holy > 0 && ERCalc.computeAR(vera, weapon, { twoHanded:true }).byType.physical > 0; });
+var holyBase = ERCalc.computeAR(vera, holyWeapon, { twoHanded:true });
+var holyPvp = ERCalc.computeARBuffed(vera, holyWeapon, { twoHanded:true }, [{ mult:{ all:1.2, holy:1 } }]);
+check('damage-type override beats broad all multiplier', [holyPvp.buffed.byType.holy, holyPvp.buffed.byType.physical], [holyBase.byType.holy,Math.floor(holyBase.byTypeExact.physical * 1.2)]);
 
 console.log('\n' + passes + ' passed, ' + failures + ' failed');
 process.exit(failures ? 1 : 0);

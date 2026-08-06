@@ -41,3 +41,18 @@ This index records transformation and verification notes that do not belong in r
 - Verification: full counts, unique IDs/icons, positive weights, concrete display effects,
   positional state, conditional gates, param-derived conflicts, PvE/PvP defense variants,
   resistance/utility aggregation, and defense ordering are pinned in tests.
+
+## Attack profiles (`attack-profiles.json`)
+
+- Game version: 1.16.1; schema version 1.
+- Move families and talisman multipliers are transcribed from the public
+  [Elden Ring Miscellaneous Data spreadsheet](https://docs.google.com/spreadsheets/d/14FEyr8Nf4e3qjiLltlSsD8cnVU6pgZ8jZbADkR68rdg/edit),
+  sheet `Effects - Talismans`, downloaded and checked on 2026-08-05.
+- `scripts/extract-xlsx-sheet.js` is a dependency-free OOXML worksheet reader used to audit the
+  public workbook locally; it does not become a runtime dependency.
+- Rules record required/excluded move tags, optional equipment state, separate PvE/PvP profiles,
+  and damage-type overrides. The UI calls this an **Attack Lens** because it applies matched
+  equipment multipliers to AR; it does not mislabel that intermediate value as final hit damage
+  before motion values and enemy defense are implemented.
+- Verification pins profile/tag integrity, numeric context profiles, type-specific override order,
+  move matching, share/local-save restoration, desktop interaction, and 390px overflow.

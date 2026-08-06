@@ -45,6 +45,12 @@
     return data.items || [];
   }
 
+  async function loadAttackProfiles(basePath) {
+    basePath = basePath || 'data/';
+    var data = await fetchJSON(basePath + 'attack-profiles.json');
+    return data.profiles || [];
+  }
+
   // Guides data: quests + bosses + endings in one go (the guides pages need all three).
   async function loadGuides(basePath) {
     basePath = basePath || 'data/';
@@ -69,5 +75,5 @@
     return JSON.parse(fs.readFileSync(path.resolve(url), 'utf8'));
   }
 
-  return { loadWeapons: loadWeapons, loadPresets: loadPresets, loadBuffs: loadBuffs, loadArmor: loadArmor, loadTalismans: loadTalismans, loadGuides: loadGuides };
+  return { loadWeapons: loadWeapons, loadPresets: loadPresets, loadBuffs: loadBuffs, loadArmor: loadArmor, loadTalismans: loadTalismans, loadAttackProfiles: loadAttackProfiles, loadGuides: loadGuides };
 });

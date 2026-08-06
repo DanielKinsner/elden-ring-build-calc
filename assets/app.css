@@ -204,6 +204,21 @@ a:hover { text-decoration: underline; }
 .reqs span.met { color: var(--green); } .reqs span.unmet { color: var(--red); }
 .meta-block .v { margin-top: 4px; font-size: 14px; }
 
+.attack-lens { position: relative; display: grid; grid-template-columns: 46px minmax(0,1fr) minmax(190px, .9fr); align-items: center; gap: 12px; margin: 16px 0 2px; padding: 11px 12px; border: 1px solid rgba(201,162,39,.32); border-radius: 9px; overflow: hidden; background: linear-gradient(110deg, rgba(201,162,39,.075), rgba(12,10,7,.88) 54%); box-shadow: inset 0 1px 0 rgba(232,201,106,.055); }
+.attack-lens::after { content:''; position:absolute; inset:0; pointer-events:none; background: linear-gradient(100deg, transparent 25%, rgba(232,201,106,.045) 46%, transparent 63%); transform: translateX(-110%); animation: lens-sheen 7s 1.2s var(--ease) infinite; }
+@keyframes lens-sheen { 0%,72% { transform: translateX(-110%); } 88%,100% { transform: translateX(110%); } }
+.attack-lens-rune { position: relative; width: 42px; height: 42px; display: grid; place-items: center; color: var(--gold-2); }
+.attack-lens-rune i { position:absolute; inset:2px; border:1px solid var(--gold-dim); transform:rotate(45deg); box-shadow: inset 0 0 12px rgba(201,162,39,.1), 0 0 12px rgba(201,162,39,.08); }
+.attack-lens-rune span { position:relative; filter: drop-shadow(0 0 5px rgba(232,201,106,.55)); }
+.attack-lens-copy { min-width:0; display:flex; flex-direction:column; line-height:1.25; }
+.attack-lens-copy .k { font-size:8px; }
+.attack-lens-copy b { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; color:var(--gold-2); font:600 14px var(--serif); }
+.attack-lens-copy small { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; color:var(--dim); font-size:10px; }
+.attack-lens-copy small.live { color:var(--green); }
+.attack-lens-select { min-width:0; display:flex; flex-direction:column; gap:3px; color:var(--dim); font-size:8px; letter-spacing:.1em; text-transform:uppercase; }
+.attack-lens-select select { width:100%; min-width:0; padding:7px 28px 7px 9px; border:1px solid var(--line); border-radius:6px; background:var(--panel-2); color:var(--text); font:500 11px var(--serif); cursor:pointer; }
+.attack-lens-select select:focus { outline:none; border-color:var(--gold-dim); box-shadow:0 0 0 2px rgba(201,162,39,.12); }
+.attack-lens-note { margin:5px 2px 0; color:var(--dim); font-size:9px; letter-spacing:.025em; text-align:center; }
 .ar-box { text-align: center; padding: 18px 0 14px; position: relative; }
 .ar-box::before {
   content: ''; position: absolute; left: 50%; top: 50%; width: 210px; height: 210px;
@@ -764,6 +779,8 @@ body.build-page { padding-bottom: 80px; }
 .effect-row { display: grid; grid-template-columns: 28px minmax(0,1fr) auto; align-items: center; gap: 8px; padding: 7px 9px; border-bottom: 1px solid rgba(67,56,31,.44); opacity: .58; }
 .effect-row:last-child { border-bottom: 0; }
 .effect-row.active { opacity: 1; background: linear-gradient(90deg, rgba(134,173,92,.035), transparent 64%); }
+.effect-row.waiting { opacity: .72; background: linear-gradient(90deg, rgba(201,162,39,.025), transparent 64%); }
+.effect-row.waiting > em { color: var(--gold-dim); }
 .effect-row.invalid { color: var(--red); opacity: 1; }
 .effect-mark { width: 26px; height: 26px; display: grid; place-items: center; overflow: hidden; border-radius: 50%; color: var(--gold-2); }
 .effect-mark img { width: 100%; height: 100%; object-fit: contain; }
@@ -777,6 +794,9 @@ body.build-page { padding-bottom: 80px; }
 @media (max-width: 560px) {
   .talisman-rack { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .tali-slot { min-height: 126px; }
+  .attack-lens { grid-template-columns: 38px minmax(0,1fr); }
+  .attack-lens-rune { width:34px; height:34px; }
+  .attack-lens-select { grid-column:1 / -1; }
 }
 
 /* ---- guide/tales hero header (ring + stat strip) ---- */

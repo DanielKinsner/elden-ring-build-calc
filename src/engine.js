@@ -318,7 +318,9 @@
       var mo = mods[m];
       if (mo.mult) for (var d2 = 0; d2 < DAMAGE_TYPES.length; d2++) {
         t = DAMAGE_TYPES[d2];
-        var f = mo.mult.all != null ? mo.mult.all : mo.mult[t];
+        // A type-specific value overrides the broad `all` fallback. This matters for effects
+        // whose PvP multiplier applies to every component except holy damage.
+        var f = mo.mult[t] != null ? mo.mult[t] : mo.mult.all;
         if (f) mult[t] *= f;
       }
       if (mo.flat) for (var ft in mo.flat) flat[ft] = (flat[ft] || 0) + mo.flat[ft];
@@ -552,7 +554,7 @@
       }
       if (invalid) conflicts.push({ id: id, slot: slot, reason: invalid });
 
-      var modeled = item.modelStatus === 'modeled' || !!(item.statBonus || item.mult || item.flat || item.statusFlat || item.survival || item.defense || item.resistance || item.utility);
+      var modeled = item.modelStatus === 'modeled' || !!(item.statBonus || item.mult || item.combatMult || item.attack || item.flat || item.statusFlat || item.survival || item.defense || item.resistance || item.utility);
       var conditionActive = true;
       if (item.condition) {
         conditionActive = conditionState[id] != null ? !!conditionState[id] : item.condition.defaultActive !== false;
@@ -576,6 +578,57 @@
         modeled: entries.filter(function (entry) { return entry.modeled; }).length,
         active: entries.filter(function (entry) { return entry.active; }).length
       }
+    };
+  }
+
+  /**
+   * resolveAttackEffects(mods, context)
+   * Converts combat-context and move-profile rules into ordinary damage multipliers consumed by
+   * computeARBuffed. Equipment remains equipped even when its attack rule does not match; the
+   * returned trace makes that distinction visible instead of silently applying every talisman.
+   *
+   * context: { combatContext:'pve'|'pvp', tags:[], state:{ twoHanded? }, profileId? }
+   */
+  function resolveAttackEffects(mods, context) {
+    context = context || {};
+    var combat = context.combatContext === 'pvp' ? 'pvp' : 'pve';
+    var tags = context.tags || [];
+    var state = context.state || {};
+    var out = [], entries = [];
+
+    function add(mod, profile, kind, rule) {
+      if (!profile || !Object.keys(profile).length) return;
+      out.push({ id: mod.id + ':' + kind, name: mod.name, mult: profile, note: mod.note, sourceEffect: mod.id });
+      entries.push({ id: mod.id, name: mod.name, applied: true, kind: kind, mult: profile, rule: rule || null, note: mod.note || null });
+    }
+    function matches(rule) {
+      var requires = rule.requires || [];
+      var excludes = rule.excludes || [];
+      if (!requires.every(function (tag) { return tags.indexOf(tag) >= 0; })) return false;
+      if (excludes.some(function (tag) { return tags.indexOf(tag) >= 0; })) return false;
+      var expected = rule.state || {};
+      return Object.keys(expected).every(function (key) { return state[key] === expected[key]; });
+    }
+
+    (mods || []).forEach(function (mod) {
+      if (!mod) return;
+      if (mod.combatMult) add(mod, mod.combatMult[combat] || mod.combatMult.pve, 'combat', null);
+      if (!Array.isArray(mod.attack) || !mod.attack.length) return;
+      var matched = mod.attack.filter(matches);
+      if (!matched.length) {
+        entries.push({ id: mod.id, name: mod.name, applied: false, kind: 'attack', reason: 'move profile does not match', note: mod.note || null });
+        return;
+      }
+      matched.forEach(function (rule, index) {
+        add(mod, rule[combat] || rule.pve, 'attack-' + index, rule);
+      });
+    });
+    return {
+      mods: out,
+      entries: entries,
+      combatContext: combat,
+      profileId: context.profileId || null,
+      applied: entries.filter(function (entry) { return entry.applied; }).length
     };
   }
 
@@ -655,6 +708,7 @@
     rollState: rollState,
     aggregateArmor: aggregateArmor,
     resolveEffects: resolveEffects,
+    resolveAttackEffects: resolveAttackEffects,
     aggregateDefense: aggregateDefense,
     aggregateResistance: aggregateResistance,
     aggregateUtility: aggregateUtility,

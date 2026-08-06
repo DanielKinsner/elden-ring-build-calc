@@ -12,6 +12,9 @@
   var buffData = await ERData.loadBuffs('../data/');
   var armor = await ERData.loadArmor('../data/');
   var talismans = await ERData.loadTalismans('../data/');
+  var attackProfiles = await ERData.loadAttackProfiles('../data/');
+  var attackProfileById = {};
+  attackProfiles.forEach(function (profile) { attackProfileById[profile.id] = profile; });
   var armorById = {};
   armor.forEach(function (item) { armorById[item.id] = item; });
   var talismanById = {};
@@ -29,6 +32,7 @@
   var build = { VIG:60, MND:20, END:30, STR:24, DEX:58, INT:9, FAI:15, ARC:40 };
   var twoHanded = true, upgradeLevel = null, focusStat = 'DEX', showDlc = true, affinity = 'Standard';
   var combatContext = 'pve';
+  var attackProfileId = 'neutral';
   var scaduLevel = 0; // Scadutree Blessing 0–20 (Land of Shadow only)
   var gearWeight = 0; // armor & other gear weight (weapon weight is auto-counted)
   function pool(){ return showDlc ? weapons : weapons.filter(function(w){ return w.source !== 'dlc'; }); }
@@ -69,7 +73,7 @@
       var armorParts = (q.get('ar') || '').split('.');
       var o = { stats: {}, weapon: q.get('w'), affinity: q.get('a'), upgrade: q.get('u'), twoHanded: q.get('h') !== '0', level: +q.get('l') || null,
                 buffs: (q.get('bf') || '').split(',').filter(Boolean), talis: (q.get('tl') || '').split(',').filter(Boolean), scadu: +q.get('st') || 0,
-                gearWeight: +q.get('gw') || 0, armor: {}, activeSlot: q.get('as') || 'r0', combatContext: q.get('ctx') === 'pvp' ? 'pvp' : 'pve' };
+                gearWeight: +q.get('gw') || 0, armor: {}, activeSlot: q.get('as') || 'r0', combatContext: q.get('ctx') === 'pvp' ? 'pvp' : 'pve', attackProfile: q.get('mv') || 'neutral' };
       if (q.get('rh') || q.get('lh')) o.loadout = { rightHand: decodeArmaments(q.get('rh')), leftHand: decodeArmaments(q.get('lh')) };
       ARMOR_SLOTS.forEach(function (slot, i) { if (armorParts[i] && armorParts[i] !== '-') o.armor[slot.id] = armorParts[i]; });
       STATS.forEach(function (k, i) { if (s[i] >= 1 && s[i] <= 99) o.stats[k] = s[i]; });
@@ -81,6 +85,7 @@
     if (BOOT.stats) STATS.forEach(function (k) { if (BOOT.stats[k] >= 1) build[k] = Math.min(99, BOOT.stats[k]); });
     if (BOOT.twoHanded != null) twoHanded = !!BOOT.twoHanded;
     if (BOOT.combatContext === 'pvp') combatContext = 'pvp';
+    if (attackProfileById[BOOT.attackProfile]) attackProfileId = BOOT.attackProfile;
     var bootW = BOOT.weapon && weapons.find(function (w) { return w.id === BOOT.weapon; });
     if (bootW) current = bootW;
     if (BOOT.scadu) scaduLevel = Math.max(0, Math.min(20, +BOOT.scadu || 0));
@@ -185,7 +190,7 @@
     var tl = selectedTalismans.map(function (slot) { return slot && Object.assign({}, slot, { conditionActive: taliConditionState[slot.talismanId] !== false }); });
     var armorState = {};
     ARMOR_SLOTS.forEach(function (slot) { armorState[slot.id] = selectedArmor[slot.id]; });
-    var state = { schemaVersion: 3, stats: {}, weapon: current.id, affinity: affinity, upgrade: upgradeLevel, twoHanded: twoHanded, level: +$('level').value || null, buffs: bf, talis: tl.filter(Boolean).map(function (slot) { return slot.talismanId; }), scadu: scaduLevel, gearWeight: gearWeight, armor: armorState, activeSlot: (activeSlot.hand === 'left' ? 'l' : 'r') + activeSlot.index, combatContext: combatContext };
+    var state = { schemaVersion: 4, stats: {}, weapon: current.id, affinity: affinity, upgrade: upgradeLevel, twoHanded: twoHanded, level: +$('level').value || null, buffs: bf, talis: tl.filter(Boolean).map(function (slot) { return slot.talismanId; }), scadu: scaduLevel, gearWeight: gearWeight, armor: armorState, activeSlot: (activeSlot.hand === 'left' ? 'l' : 'r') + activeSlot.index, combatContext: combatContext, attackProfile: attackProfileId };
     state.loadout = { rightHand: armaments.right.map(function (x) { return x && Object.assign({}, x); }), leftHand: armaments.left.map(function (x) { return x && Object.assign({}, x); }), armor: armorState, talismans: tl, spells: [], physick: [], greatRune: null };
     STATS.forEach(function (k) { state.stats[k] = build[k]; });
     return state;
@@ -205,6 +210,7 @@
     if (scaduLevel) q.set('st', scaduLevel);
     if (gearWeight) q.set('gw', gearWeight);
     if (combatContext === 'pvp') q.set('ctx', 'pvp');
+    if (attackProfileId !== 'neutral') q.set('mv', attackProfileId);
     if (ARMOR_SLOTS.some(function (slot) { return selectedArmor[slot.id]; })) {
       q.set('ar', ARMOR_SLOTS.map(function (slot) { return selectedArmor[slot.id] || '-'; }).join('.'));
     }
@@ -234,6 +240,25 @@
   $('twoHand').checked = twoHanded;
   $('combatContext').value = combatContext;
   $('combatContext').addEventListener('change', function () { combatContext = this.value === 'pvp' ? 'pvp' : 'pve'; render(); });
+
+  /* ---- attack lens: move-specific talisman and PvP math ---- */
+  (function renderAttackProfileOptions() {
+    var groups = [], byGroup = {};
+    attackProfiles.forEach(function (profile) {
+      if (!byGroup[profile.group]) { byGroup[profile.group] = []; groups.push(profile.group); }
+      byGroup[profile.group].push(profile);
+    });
+    $('attackProfile').innerHTML = groups.map(function (group) {
+      return '<optgroup label="' + escText(group) + '">' + byGroup[group].map(function (profile) {
+        return '<option value="' + profile.id + '">' + escText(profile.label) + '</option>';
+      }).join('') + '</optgroup>';
+    }).join('');
+    $('attackProfile').value = attackProfileId;
+  })();
+  $('attackProfile').addEventListener('change', function () {
+    attackProfileId = attackProfileById[this.value] ? this.value : 'neutral';
+    render();
+  });
 
   /* ---- Scadutree Blessing slider ---- */
   function syncScadu() { $('scaduRange').value = scaduLevel; $('scaduNum').value = scaduLevel; }
@@ -390,7 +415,7 @@
     $('talismanHint').textContent = resolution.conflicts.length
       ? 'Impossible combination: ' + resolution.conflicts[0].reason + '.'
       : resolution.coverage.equipped
-        ? resolution.coverage.modeled + '/' + resolution.coverage.equipped + ' equipped effects currently feed live math. Every item already feeds weight and save/share state.'
+        ? resolution.coverage.modeled + '/' + resolution.coverage.equipped + ' equipped effects have reviewed math. The attack lens decides which move-specific rules apply.'
         : 'All four slots feed the same calculation stack and equip load.';
     $('talismanHint').classList.toggle('invalid', resolution.conflicts.length > 0);
   }
@@ -489,20 +514,24 @@
     return parts.join(' · ') || item.note || item.effect;
   }
 
-  function renderEffectStack(taliEffects) {
+  function renderEffectStack(taliEffects, attackEffects) {
     var buffs = Object.keys(activeBuffs).filter(function (id) { return activeBuffs[id]; }).map(buffById).filter(Boolean);
     var rows = buffs.map(function (item) {
       return '<div class="effect-row active"><span class="effect-mark">✦</span><span><b>' + escText(item.name) + '</b><small>' + escText(item.note || 'Active buff') + '</small></span><em>APPLIED</em></div>';
     });
+    var attackById = {};
+    (attackEffects.entries || []).forEach(function (entry) { attackById[entry.id] = entry; });
     taliEffects.entries.forEach(function (entry) {
       var item = entry.item;
-      var status = entry.invalid ? 'INVALID' : !entry.modeled ? 'WEIGHT ONLY' : entry.active ? 'APPLIED' : 'CONDITION OFF';
-      rows.push('<div class="effect-row' + (entry.active ? ' active' : '') + (entry.invalid ? ' invalid' : '') + '">' +
+      var attackEntry = attackById[item.id];
+      var profileMiss = entry.active && item.attack && (!attackEntry || !attackEntry.applied);
+      var status = entry.invalid ? 'INVALID' : !entry.modeled ? 'WEIGHT ONLY' : !entry.active ? 'CONDITION OFF' : profileMiss ? 'MOVE MISMATCH' : 'APPLIED';
+      rows.push('<div class="effect-row' + (entry.active && !profileMiss ? ' active' : '') + (profileMiss ? ' waiting' : '') + (entry.invalid ? ' invalid' : '') + '">' +
         '<span class="effect-mark"><img src="../' + item.icon + '" alt=""></span><span><b>' + escText(item.name) + '</b><small>' + escText(talismanMathText(item)) +
         (item.condition ? ' · ' + escText(item.condition.label) : '') + '</small></span><em>' + status + '</em></div>');
     });
     $('effectStack').innerHTML = rows.length
-      ? '<div class="effect-stack-head"><span>Calculation order</span><b>' + taliEffects.coverage.active + ' talisman effect' + (taliEffects.coverage.active === 1 ? '' : 's') + ' live</b></div>' + rows.join('')
+      ? '<div class="effect-stack-head"><span>Calculation order</span><b>' + attackEffects.applied + ' move modifier' + (attackEffects.applied === 1 ? '' : 's') + ' applied</b></div>' + rows.join('')
       : '<div class="effect-empty">No active modifiers. Your output is raw equipment and attributes.</div>';
   }
 
@@ -552,6 +581,7 @@
     if (o.stats) STATS.forEach(function (k) { if (o.stats[k] >= 1) { build[k] = Math.min(99, o.stats[k]); syncStat(k); } });
     twoHanded = o.twoHanded !== false; $('twoHand').checked = twoHanded;
     combatContext = o.combatContext === 'pvp' ? 'pvp' : 'pve'; $('combatContext').value = combatContext;
+    attackProfileId = attackProfileById[o.attackProfile] ? o.attackProfile : 'neutral'; $('attackProfile').value = attackProfileId;
     var w = o.weapon && weapons.find(function (x) { return x.id === o.weapon; });
     if (w) { current = w; fillUpgrade(); fillAffinity(); }
     if (o.upgrade != null) { upgradeLevel = o.upgrade; $('upgrade').value = o.upgrade; }
@@ -697,11 +727,19 @@
     renderArmamentRack();
     var taliEffects = resolveTalismanEffects();
     renderTalismanRack(taliEffects);
-    var mods = collectMods(taliEffects);
+    var baseMods = collectMods(taliEffects);
+    var attackProfile = attackProfileById[attackProfileId] || attackProfileById.neutral;
+    var attackEffects = ERCalc.resolveAttackEffects(baseMods, {
+      combatContext: combatContext,
+      profileId: attackProfile.id,
+      tags: attackProfile.tags,
+      state: { twoHanded: twoHanded }
+    });
+    var mods = baseMods.concat(attackEffects.mods);
     var r = ERCalc.computeARBuffed(build, current, { upgradeLevel: upgradeLevel, twoHanded: twoHanded, affinity: affinity }, mods);
     // stats after talisman bonuses — requirements + display should agree with the engine
     var boosted = {}; STATS.forEach(function (k) { boosted[k] = build[k]; });
-    mods.forEach(function (m) { if (m.statBonus) for (var s in m.statBonus) if (boosted[s] != null) boosted[s] = Math.min(99, boosted[s] + m.statBonus[s]); });
+    baseMods.forEach(function (m) { if (m.statBonus) for (var s in m.statBonus) if (boosted[s] != null) boosted[s] = Math.min(99, boosted[s] + m.statBonus[s]); });
 
     $('statTotal').textContent = STATS.reduce(function (s,k){ return s + build[k]; }, 0);
     $('weaponName').textContent = current.name;
@@ -723,8 +761,14 @@
     // AR — buffed number front and center; unbuffed baseline shown when modifiers act
     var shownAR = r.buffed.totalAR, shownTypes = r.buffed.byType, shownStatus = r.buffed.status;
     $('ar').textContent = shownAR;
+    $('attackProfile').value = attackProfile.id;
+    $('attackLensName').textContent = attackProfile.short || attackProfile.label;
+    $('arLabel').textContent = attackProfile.id === 'neutral' ? 'Total Attack Rating' : 'Profiled Attack Rating';
     var baseAR = mods.length ? ERCalc.computeAR(build, current, { upgradeLevel: upgradeLevel, twoHanded: twoHanded, affinity: affinity }).totalAR : shownAR;
-    $('arBase').textContent = shownAR !== baseAR ? 'unbuffed ' + baseAR + '  ·  +' + (shownAR - baseAR) : '';
+    var delta = shownAR - baseAR;
+    $('arBase').textContent = shownAR !== baseAR ? 'neutral ' + baseAR + '  ·  ' + (delta >= 0 ? '+' : '') + delta : 'neutral equipment output';
+    $('attackLensState').textContent = attackEffects.applied ? attackEffects.applied + ' matched modifier' + (attackEffects.applied === 1 ? '' : 's') : 'no move-specific modifier matched';
+    $('attackLensState').classList.toggle('live', attackEffects.applied > 0);
 
     // Scadutree Blessing (Land of Shadow only) — post-everything multiplier on the shown AR
     var sc = ERCalc.scadutree(scaduLevel);
@@ -758,8 +802,8 @@
       return '<div class="'+cls+'"'+clickable+'><span class="lbl"><b>'+STAT_LABEL[k]+'</b>'+grade+'</span><span class="amt">+'+v+'</span></div>';
     }).join('');
 
-    renderEffectStack(taliEffects);
-    renderSurvival(mods, boosted, taliEffects);
+    renderEffectStack(taliEffects, attackEffects);
+    renderSurvival(baseMods, boosted, taliEffects);
     renderPayoff(r);
     renderSoftCap(r);
     renderBreakpoints(r);

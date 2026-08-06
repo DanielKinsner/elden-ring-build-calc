@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "gameVersion": "1.16.1",
+  "source": {
+    "name": "Elden Ring Miscellaneous Data Spreadsheet",
+    "url": "https://docs.google.com/spreadsheets/d/14FEyr8Nf4e3qjiLltlSsD8cnVU6pgZ8jZbADkR68rdg/edit",
+    "sheet": "Effects - Talismans",
+    "verifiedAt": "2026-08-05"
+  },
+  "profiles": [
+    { "id": "neutral", "group": "Core weapon", "label": "Neutral weapon AR", "short": "Neutral", "tags": ["weapon"] },
+    { "id": "charged-heavy", "group": "Core weapon", "label": "Charged heavy attack", "short": "Charged heavy", "tags": ["weapon", "charged", "charged-heavy"] },
+    { "id": "guard-counter", "group": "Core weapon", "label": "Guard counter", "short": "Guard counter", "tags": ["weapon", "guard-counter"] },
+    { "id": "jump", "group": "Core weapon", "label": "Jump attack", "short": "Jump", "tags": ["weapon", "jump"] },
+    { "id": "chain-finisher", "group": "Core weapon", "label": "Final light attack in chain", "short": "Chain finisher", "tags": ["weapon", "chain-finisher"] },
+    { "id": "critical", "group": "Core weapon", "label": "Critical attack", "short": "Critical", "tags": ["weapon", "critical"] },
+    { "id": "thrust-counter", "group": "Core weapon", "label": "Thrust counter-hit", "short": "Counter-hit", "tags": ["weapon", "thrust-counter"] },
+    { "id": "mounted", "group": "Movement", "label": "Horseback attack", "short": "Horseback", "tags": ["weapon", "mounted"] },
+    { "id": "dash", "group": "Movement", "label": "Dash attack", "short": "Dash", "tags": ["weapon", "dash"] },
+    { "id": "roll", "group": "Movement", "label": "Rolling or backstep attack", "short": "Roll / backstep", "tags": ["weapon", "roll"] },
+    { "id": "skill", "group": "Skills", "label": "Weapon skill", "short": "Skill", "tags": ["skill"] },
+    { "id": "charged-skill", "group": "Skills", "label": "Charged weapon skill", "short": "Charged skill", "tags": ["skill", "charged"] },
+    { "id": "roar", "group": "Skills", "label": "Roar attack or Shriek of Milos", "short": "Roar", "tags": ["skill", "roar"] },
+    { "id": "breath", "group": "Skills", "label": "Breath attack", "short": "Breath", "tags": ["skill", "breath"] },
+    { "id": "storm", "group": "Skills", "label": "Storm attack", "short": "Storm", "tags": ["skill", "storm"] },
+    { "id": "magma", "group": "Skills", "label": "Magma attack", "short": "Magma", "tags": ["skill", "magma"] },
+    { "id": "kick-stomp", "group": "Skills", "label": "Kicking or stomping skill", "short": "Kick / stomp", "tags": ["skill", "kick-stomp"] },
+    { "id": "weapon-throw", "group": "Skills", "label": "Weapon-throwing attack", "short": "Weapon throw", "tags": ["skill", "weapon-throw"] },
+    { "id": "arrow", "group": "Ranged", "label": "Arrow or bolt", "short": "Arrow / bolt", "tags": ["weapon", "arrow"] },
+    { "id": "aimed-arrow", "group": "Ranged", "label": "Precision-aimed arrow or bolt", "short": "Aimed shot", "tags": ["weapon", "arrow", "aimed"] }
+  ]
+}
