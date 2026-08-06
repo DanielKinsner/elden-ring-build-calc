@@ -445,8 +445,11 @@ body.build-page { padding-bottom: 80px; }
 @media (max-width: 480px){ .boss-grid { grid-template-columns: 1fr; } }
 .boss-card { background: var(--panel-2); border: 1px solid var(--line-2); border-radius: 9px; padding: 14px; transition: border-color .18s var(--ease); }
 .boss-card:hover { border-color: var(--gold-dim); }
-.boss-head { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; }
+.boss-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.boss-head-main { display: flex; align-items: center; gap: 10px; min-width: 0; }
 .boss-name { font: 600 16px var(--serif); color: var(--gold-2); }
+.boss-thumb { width: 44px; height: 44px; border-radius: 8px; object-fit: cover; border: 1px solid var(--line-2); flex: 0 0 auto; }
+.boss-thumb-letter { display: grid; place-items: center; background: var(--panel-2); color: var(--gold-dim); font-family: var(--serif); font-size: 18px; }
 .boss-req, .boss-opt { font: 600 9px var(--serif); letter-spacing: .12em; border-radius: 4px; padding: 2px 6px; white-space: nowrap; }
 .boss-req { color: var(--gold); border: 1px solid var(--gold-dim); }
 .boss-opt { color: var(--dim); border: 1px solid var(--line); }
@@ -593,6 +596,8 @@ body.build-page { padding-bottom: 80px; }
 .qt-item { text-align: left; background: var(--panel-2); border: 1px solid var(--line-2); border-radius: 9px; padding: 10px 12px 8px; cursor: pointer; color: var(--text); transition: border-color .15s var(--ease), background .15s var(--ease); }
 .qt-item:hover { border-color: var(--gold-dim); }
 .qt-item.sel { border-color: var(--gold); background: rgba(201,162,39,.07); box-shadow: 0 0 0 1px rgba(201,162,39,.25); }
+.qt-item-row { display: flex; align-items: center; gap: 10px; }
+.qt-item-body { flex: 1; min-width: 0; }
 .qt-item-top { display: flex; align-items: baseline; gap: 8px; }
 .qt-item-name { font-family: var(--serif); font-weight: 600; font-size: 15px; min-width: 0; }
 .qt-item.complete .qt-item-name { color: var(--green); }
@@ -601,9 +606,13 @@ body.build-page { padding-bottom: 80px; }
 .qt-item-cluster { color: var(--dim); font-size: 12px; letter-spacing: .05em; text-transform: uppercase; margin-top: 2px; }
 .qt-item .quest-progress { margin-top: 7px; }
 .qt-detail { min-width: 0; background: var(--panel-2); border: 1px solid var(--line-2); border-radius: 10px; padding: 16px 18px; }
-.qt-detail-head { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.qt-detail-head { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
 .qt-detail-name { font-family: var(--serif); font-size: 21px; font-weight: 600; color: var(--gold-2); }
 .qt-detail-cluster { color: var(--dim); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; }
+.qt-avatar { width: 40px; height: 40px; border-radius: 8px; object-fit: cover; border: 1px solid var(--line-2); flex: 0 0 auto; }
+.qt-avatar-letter { display: grid; place-items: center; background: var(--panel-2); color: var(--gold-dim); font-family: var(--serif); font-size: 16px; }
+.qt-avatar-detail { width: 56px; height: 56px; }
+.qt-avatar-detail.qt-avatar-letter { font-size: 22px; }
 @media (max-width: 900px) {
   .qt-layout { grid-template-columns: 1fr; }
   .qt-detail { order: -1; } /* selected quest on top, list below on phones */

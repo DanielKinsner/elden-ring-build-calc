@@ -7,6 +7,24 @@
   var data = await ERData.loadGuides('../data/');
   var QUESTS = data.quests, BOSSES = data.bosses, ENDINGS = data.endings, PROG = data.progression, SCADU = data.scadutree;
 
+  /* ---- portrait manifests: { <id>: "<filename>" }, scraped by scripts/fetch-portraits.js.
+     Missing id = letter-in-a-box fallback (partial coverage ships fine). ---- */
+  async function loadManifest(url) {
+    try { var r = await fetch(url); return r.ok ? r.json() : {}; } catch (e) { return {}; }
+  }
+  var portraitManifests = await Promise.all([
+    loadManifest('../assets/icons/npcs/manifest.json'),
+    loadManifest('../assets/icons/bosses/manifest.json')
+  ]);
+  var NPC_PORTRAITS = portraitManifests[0], BOSS_PORTRAITS = portraitManifests[1];
+  function avatar(manifest, dir, id, name, baseCls, modCls) {
+    var extra = modCls ? ' ' + modCls : '';
+    var file = manifest[id];
+    if (file) return '<img class="' + baseCls + extra + '" src="../assets/icons/' + dir + '/' + esc(file) + '" alt="">';
+    var letter = esc((name || '?').trim().charAt(0).toUpperCase() || '?');
+    return '<span class="' + baseCls + ' ' + baseCls + '-letter' + extra + '">' + letter + '</span>';
+  }
+
   /* ---- progress store: { steps: {stepId:1}, open: {questId:1} } ---- */
   var LS_KEY = 'er-guides';
   var store = (function () {
@@ -88,6 +106,7 @@
   function questDetail(q) {
     var p = questProgress(q);
     return '<div class="qt-detail-head">' +
+        avatar(NPC_PORTRAITS, 'npcs', q.id, q.name, 'qt-avatar', 'qt-avatar-detail') +
         '<span class="qt-detail-name">' + esc(q.name) + '</span>' +
         (q.major ? '<span class="quest-major">MAJOR</span>' : '') +
         '<span class="qt-detail-cluster">' + esc(q.cluster) + '</span>' +
@@ -138,11 +157,15 @@
         var complete = p.done === p.total;
         var qPct = p.total ? Math.round(100 * p.done / p.total) : 0;
         return '<button class="qt-item' + (q.id === sel.id ? ' sel' : '') + (complete ? ' complete' : '') + '" data-quest="' + q.id + '" data-name="' + esc((q.name + ' ' + q.cluster).toLowerCase()) + '">' +
+          '<span class="qt-item-row">' +
+          avatar(NPC_PORTRAITS, 'npcs', q.id, q.name, 'qt-avatar') +
+          '<span class="qt-item-body">' +
           '<span class="qt-item-top"><span class="qt-item-name">' + esc(q.name) + '</span>' +
             (q.major ? '<span class="quest-major">MAJOR</span>' : '') +
             '<span class="qt-item-count' + (complete ? ' done' : '') + '">' + (complete ? '✓ ' : '') + p.done + '/' + p.total + '</span></span>' +
           '<span class="qt-item-cluster">' + esc(q.cluster) + '</span>' +
           '<span class="quest-progress"><i style="width:' + qPct + '%"></i></span>' +
+          '</span></span>' +
         '</button>';
       }).join('') +
       '</div><div class="qt-detail" id="qtDetail">' + questDetail(sel) + '</div></div>';
@@ -255,7 +278,11 @@
   function bossCard(b) {
     var felled = !!store.bosses[b.id];
     return '<div class="boss-card' + (felled ? ' felled' : '') + '">' +
-      '<div class="boss-head"><span class="boss-name">' + esc(b.name) + '</span>' +
+      '<div class="boss-head">' +
+        '<span class="boss-head-main">' +
+        avatar(BOSS_PORTRAITS, 'bosses', b.id, b.name, 'boss-thumb') +
+        '<span class="boss-name">' + esc(b.name) + '</span>' +
+        '</span>' +
         '<span class="boss-badges">' +
         (b.dlc ? '<span class="boss-opt boss-dlc">DLC</span>' : (b.required ? '<span class="boss-req">REQUIRED</span>' : '<span class="boss-opt">OPTIONAL</span>')) +
         '<label class="boss-felled" title="Mark beaten"><input type="checkbox" data-boss="' + b.id + '"' + (felled ? ' checked' : '') + '> ☠</label>' +
