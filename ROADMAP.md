@@ -225,7 +225,9 @@ link. "Save Build" writes to localStorage; a small curated **meta build library*
 - **Enemy/context pipeline:** **PvE core shipped** with 3,341 profiles, defense, negation, status
   thresholds/immunities, phase variants, and NG–NG+7. Exact standard weapon attacks also shipped
   for 419 weapons / 24,271 moves, including multi-hit motion/status values and physical attributes.
-  Remaining: ranged ammo/bullet attacks, Ashes of War, player/PvP targets, phase chaining, and DLC
+  Standard ranged ammo is also shipped for all 65 ammunition items and all 29 ranged weapons,
+  including exact three-projectile Spread Crossbow damage/status sequencing. Remaining: ranged
+  weapon-skill projectiles, Ashes of War, player/PvP targets, phase chaining, and DLC
   blessing context.
 - **Build optimizer + comparison:** offense/defense/weight targets over the same canonical state.
 
@@ -243,7 +245,7 @@ link. "Save Build" writes to localStorage; a small curated **meta build library*
 
 ## Suggested order
 1. ~~T1 + T2~~ ✅  2. ~~T3 + T4~~ ✅  3. ~~T5, T6, T11~~ ✅  4. ~~T9 + T10~~ ✅ — Tiers 1, 2, 4, 5 shipped.
-5. **Six armament slots → true talisman/effect slots → catalyst/spell core → PvE encounter core → exact standard weapon motion values** ✅ → **ammo/Ashes → complete talisman/spell/status formulas**, then
+5. **Six armament slots → true talisman/effect slots → catalyst/spell core → PvE encounter core → exact standard weapon motion values → standard ammunition** ✅ → **Ashes/ranged skills → complete talisman/spell/status formulas**, then
    optimizer/community publishing. T8 maps remains a parallel content project.
 
 ## Known data gaps (surfaced 2026-07)

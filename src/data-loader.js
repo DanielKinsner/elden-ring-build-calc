@@ -78,6 +78,12 @@
     return { items:data.items || [], coverage:data.coverage || {}, source:data.source || null };
   }
 
+  async function loadAmmo(basePath) {
+    basePath = basePath || 'data/';
+    var data = await fetchJSON(basePath + 'ammo.json');
+    return { items:data.items || [], compatibility:data.compatibility || {}, coverage:data.coverage || {}, source:data.source || null };
+  }
+
   // Guides data: quests + bosses + endings in one go (the guides pages need all three).
   async function loadGuides(basePath) {
     basePath = basePath || 'data/';
@@ -102,5 +108,5 @@
     return JSON.parse(fs.readFileSync(path.resolve(url), 'utf8'));
   }
 
-  return { loadWeapons: loadWeapons, loadPresets: loadPresets, loadBuffs: loadBuffs, loadArmor: loadArmor, loadTalismans: loadTalismans, loadAttackProfiles: loadAttackProfiles, loadMagic: loadMagic, loadEnemies: loadEnemies, loadWeaponMoves:loadWeaponMoves, loadGuides: loadGuides };
+  return { loadWeapons: loadWeapons, loadPresets: loadPresets, loadBuffs: loadBuffs, loadArmor: loadArmor, loadTalismans: loadTalismans, loadAttackProfiles: loadAttackProfiles, loadMagic: loadMagic, loadEnemies: loadEnemies, loadWeaponMoves:loadWeaponMoves, loadAmmo:loadAmmo, loadGuides: loadGuides };
 });

@@ -309,5 +309,20 @@ var bloodhound = moveFile.items.find(function (item) { return item.weaponId === 
 var bloodhoundMulti = bloodhound.moves.find(function (move) { return move.id === '1h-charged-r2-2'; });
 check('multi-hit moves preserve every independent motion value', bloodhoundMulti.motion, [75,115]);
 
+console.log('ranged ammunition:');
+var ammoFile = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'ammo.json'), 'utf8'));
+check('complete ammunition catalog by compatible type', [ammoFile.items.length,ammoFile.coverage.arrows,ammoFile.coverage.greatArrows,ammoFile.coverage.bolts,ammoFile.coverage.greatbolts], [65,32,8,20,5]);
+var arrow = ammoFile.items.find(function (item) { return item.name === 'Arrow'; });
+var longbow = weapons.find(function (weapon) { return weapon.name === 'Longbow'; });
+var longbowBase = ERCalc.computeAR(vera, longbow, { twoHanded:true });
+var longbowShot = ERCalc.applyRangedAttack(longbowBase.byType, longbowBase.status, arrow, arrow.profiles.standard, malenia, { ng:0 });
+check('Longbow + Arrow combines exact typed base before enemy defense', [longbowBase.totalAR,longbowShot.preDefense,longbowShot.total,longbowShot.hits.length], [281,326,208,1]);
+var bloodBolt = ammoFile.items.find(function (item) { return item.name === 'Bloodbone Bolt'; });
+var spread = weapons.find(function (weapon) { return weapon.name === 'Spread Crossbow'; });
+var spreadBase = ERCalc.computeAR(vera, spread, { twoHanded:true });
+var spreadShot = ERCalc.applyRangedAttack(spreadBase.byType, spreadBase.status, bloodBolt, bloodBolt.profiles.spread, malenia, { ng:0 });
+check('Spread Crossbow preserves three independently defended projectiles', [spreadShot.preDefense,spreadShot.total,spreadShot.hits.map(function (hit) { return hit.total; })], [675,387,[129,129,129]]);
+check('Spread Crossbow applies exact 80% status motion per projectile', [spreadShot.status.bleed,spreadShot.statusAgainstEnemy.bleed.hits], [120,4]);
+
 console.log('\n' + passes + ' passed, ' + failures + ' failed');
 process.exit(failures ? 1 : 0);

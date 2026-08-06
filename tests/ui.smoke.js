@@ -124,6 +124,27 @@ async function main() {
     assert(await page.locator('#weaponMove').inputValue() === '2h-jumping-r2', 'exact weapon move survives shared-link reload');
     await page.screenshot({ path: '/tmp/elden-talisman-desktop.png', fullPage: true });
 
+    const rangedUrl = new URL(BASE);
+    rangedUrl.searchParams.set('w', 'spread-crossbow');
+    rangedUrl.searchParams.set('rh', 'spread-crossbow~Standard~25,-,-');
+    rangedUrl.searchParams.set('en', new URL(url).searchParams.get('en'));
+    rangedUrl.searchParams.set('am', 'bloodbone-bolt');
+    const ranged = await context.newPage();
+    ranged.on('pageerror', (error) => errors.push('ranged page: ' + error.message));
+    await ranged.goto(rangedUrl.toString(), { waitUntil: 'networkidle' });
+    assert(await ranged.locator('#ammoControl').isVisible(), 'ranged armament exposes an ammunition slot');
+    assert(await ranged.locator('#ammoSelect option').count() === 20, 'crossbows expose all 20 compatible bolts');
+    assert(await ranged.locator('#ammoSelect').inputValue() === 'bloodbone-bolt', 'shared link restores exact ammunition');
+    assert((await ranged.locator('#enemyWeaponNote').textContent()).includes('3 projectiles'), 'Spread Crossbow exposes its exact three-projectile profile');
+    assert(await ranged.locator('#enemyWeaponDamage').textContent() === '387', 'three projectiles receive enemy defense independently');
+    assert((await ranged.locator('#enemyStatus').textContent()).includes('4 hits · 420'), 'ammo status motion drives enemy hits-to-proc');
+    await ranged.locator('#ammoSelect').selectOption('bolt');
+    await ranged.waitForTimeout(350);
+    assert(ranged.url().includes('am=bolt'), 'ammunition selection persists into the share URL');
+    await ranged.reload({ waitUntil:'networkidle' });
+    assert(await ranged.locator('#ammoSelect').inputValue() === 'bolt', 'ammunition survives shared-link reload');
+    await ranged.screenshot({ path:'/tmp/elden-ranged-desktop.png', fullPage:true });
+
     const mobile = await browser.newPage({ viewport: { width: 390, height: 844 } });
     mobile.on('pageerror', (error) => errors.push('mobile page: ' + error.message));
     await mobile.goto(url, { waitUntil: 'networkidle' });
@@ -133,6 +154,12 @@ async function main() {
     assert((await mobile.locator('#spellRack').textContent()).includes('Comet'), 'mobile retains spell memory and casting state');
     assert((await mobile.locator('#enemySummary').textContent()).includes('Malenia'), 'mobile retains encounter state');
     await mobile.screenshot({ path: '/tmp/elden-talisman-mobile.png', fullPage: true });
+
+    const rangedMobile = await browser.newPage({ viewport:{ width:390, height:844 } });
+    await rangedMobile.goto(ranged.url(), { waitUntil:'networkidle' });
+    const rangedOverflow = await rangedMobile.evaluate(() => ({ scroll:document.documentElement.scrollWidth, inner:window.innerWidth }));
+    assert(rangedOverflow.scroll <= rangedOverflow.inner, 'ranged encounter has no 390px horizontal overflow');
+    assert(await rangedMobile.locator('#ammoControl').isVisible(), 'mobile retains its ammunition slot');
 
     if (errors.length) console.error(errors.join('\n'));
     assert(errors.length === 0, 'no browser console or page errors');

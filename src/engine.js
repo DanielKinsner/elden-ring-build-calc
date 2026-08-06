@@ -878,6 +878,31 @@
     return { move:move, hits:hits, preDefense:Math.floor(preDefense), total:total, status:status, statusAgainstEnemy:statusAgainstEnemy(status,enemy,{ng:opts.ng}) };
   }
 
+  /** Exact ranged projectile sequence: weapon AR + ammo base, typed MV and status MV per projectile. */
+  function applyRangedAttack(byType, buildup, ammo, profile, enemy, opts) {
+    opts = opts || {};
+    if (!ammo || !profile || !profile.components || !profile.components.length) throw new Error('ranged attack requires ammo and projectile profile');
+    var combined = {}, combinedStatus = {}, hits = [], total = 0, preDefense = 0;
+    DAMAGE_TYPES.forEach(function (type) { combined[type] = (+byType[type] || 0) + (+(ammo.base && ammo.base[type]) || 0); });
+    Object.keys(buildup || {}).forEach(function (type) { combinedStatus[type] = (+buildup[type] || 0); });
+    if (ammo.status && ammo.status.type) combinedStatus[ammo.status.type] = (combinedStatus[ammo.status.type] || 0) + (+ammo.status.buildup || 0);
+    profile.components.forEach(function (component) {
+      var raw = {};
+      DAMAGE_TYPES.forEach(function (type) {
+        raw[type] = combined[type] * (+(component.motion && component.motion[type]) || 0) / 100 * (opts.combatContext === 'pvp' ? (+component.pvpMultiplier || 1) : 1);
+      });
+      var result = applyEnemyDefense(raw, enemy, { ng:opts.ng, physicalType:component.physicalType || ammo.physicalType || 'pierce' });
+      preDefense += DAMAGE_TYPES.reduce(function (sum,type) { return sum + raw[type]; }, 0);
+      total += result.total;
+      hits.push({ label:component.label, motion:component.motion, physicalType:component.physicalType || ammo.physicalType || 'pierce', raw:raw, final:result.byType, total:result.total, trace:result.trace });
+    });
+    var status = {};
+    Object.keys(combinedStatus).forEach(function (type) {
+      status[type] = profile.components.reduce(function (sum,component) { return sum + combinedStatus[type] * (+component.statusMotion || 0) / 100; }, 0);
+    });
+    return { ammo:ammo, profile:profile, combined:combined, hits:hits, preDefense:Math.floor(preDefense), total:total, status:status, statusAgainstEnemy:statusAgainstEnemy(status,enemy,{ng:opts.ng}) };
+  }
+
   // Rough character level from attribute totals (Wretch baseline: 8x10 = level 1).
   function characterLevel(build) {
     var keys = ['VIG', 'MND', 'END', 'STR', 'DEX', 'INT', 'FAI', 'ARC'];
@@ -912,6 +937,7 @@
     applyEnemyDefense: applyEnemyDefense,
     statusAgainstEnemy: statusAgainstEnemy,
     applyWeaponMove: applyWeaponMove,
+    applyRangedAttack: applyRangedAttack,
     STATS: STATS, DAMAGE_TYPES: DAMAGE_TYPES, STATUS_TYPES: STATUS_TYPES, CURVES: CURVES
   };
 });

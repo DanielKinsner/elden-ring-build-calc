@@ -95,8 +95,8 @@ This index records transformation and verification notes that do not belong in r
   thresholds plus invariant typed negation, incoming status multipliers, and poise metadata.
 - Final damage uses the community-verified Elden Ring ratio curve on each damage type independently,
   then applies that type's percent negation and floors the result. Split damage is never run through
-  one combined defense value. The page labels weapon damage as a **100 MV baseline** until exact
-  weapon motion values and physical attack type are selected; spells already carry their exact variants.
+  one combined defense value. Standard weapon moves, ranged projectiles, and spells each carry their
+  selected exact motion data into this pipeline.
 - Verification pins full counts, unique IDs, complete journeys, Malenia's NG/NG+7 rows, all four
   defense-curve boundaries, final Comet damage, status thresholds, hits-to-proc, URL persistence,
   reload, desktop/mobile layout, and console errors.
@@ -119,3 +119,21 @@ This index records transformation and verification notes that do not belong in r
 - Verification pins complete weapon mapping, move count, Rivers of Blood's jumping-heavy damage,
   status and slash attribute, Bloodhound's Fang multi-hit preservation, exact final damage against
   Malenia, move-to-talisman-lens synchronization, URL persistence, reload, mobile layout, and browser errors.
+
+## Ammunition and standard ranged projectiles (`ammo.json`)
+
+- Game version: App 1.16.1; schema version 1.
+- Upstream: the `AmmoData` and `Ammo Attack Data` sheets in
+  [ER – Motion Values and Attack Data](https://docs.google.com/spreadsheets/d/1j4bpTbsnp5Xsgw9TP2xv6d8R4qk0ErpE9r_5LGIDraU/edit),
+  retrieved 2026-08-06.
+- Transformation: `node scripts/import-ammo.js /path/to/motion-values.xlsx`. The importer preserves
+  typed ammo base attack, physical attribute, stamina/poise values, status type, buildup, effect text,
+  and each projectile's typed damage and status motion values.
+- Coverage: all 65 ammunition items — 32 arrows, eight great arrows, 20 bolts, and five greatbolts —
+  with exact compatibility for bows, light bows, greatbows, crossbows, and ballistae. Spread Crossbow
+  uses its three separate projectile rows; each bolt passes through defense independently and applies
+  its own 80% status motion. Pulley Crossbow reports a parameter-exact per-bolt value until burst-event
+  sequencing is represented explicitly.
+- Verification pins full counts, exact compatibility filters, Longbow + Arrow typed combination,
+  Spread Crossbow per-projectile damage, status motion, enemy hits-to-proc, URL persistence, reload,
+  390px layout, and browser errors.

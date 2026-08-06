@@ -18,7 +18,7 @@ reveal detail only when it is useful. Motion never delays input and respects red
 
 ```json
 {
-  "schemaVersion": 5,
+  "schemaVersion": 6,
   "name": "Vera Aletheia",
   "combatContext": "pve",
   "attackProfile": "jump",
@@ -35,7 +35,7 @@ reveal detail only when it is useful. Motion never delays input and respects red
     "physick": [],
     "greatRune": null
   },
-  "context": { "twoHanded": true, "scadutree": 0, "enemyId": null, "ngCycle": 0 },
+  "context": { "twoHanded": true, "scadutree": 0, "enemyId": null, "ngCycle": 0, "ammoId": null },
   "activeEffects": []
 }
 ```
@@ -127,5 +127,8 @@ migration. Breadth without trusted math does not count as completion.
   one-/two-hand chain, movement attack, guard counter, critical, paired, and mounted move preserves
   its per-hit damage MV, status MV, and physical attribute; multi-hit attacks pass through enemy
   defense one hit at a time. The exact move also synchronizes the talisman attack lens and shares.
-- **Next:** ranged ammo/bullet attacks and Ashes of War, player/PvP targets, then remaining
+- **Shipped:** all 65 standard ammunition items across every ranged weapon class. Typed weapon AR
+  and ammo base attack combine before exact projectile MVs; ammo status uses its own motion value.
+  Spread Crossbow preserves three independent defense events rather than collapsing them into one hit.
+- **Next:** ranged weapon-skill projectiles and Ashes of War, player/PvP targets, then remaining
   talisman/spell outputs that depend on guard, poise, flask, loot, and encounter domains.

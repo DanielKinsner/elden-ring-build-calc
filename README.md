@@ -27,18 +27,19 @@ are, which weapon wins on their build, and how bleed/status buildup scales.
 - An encounter archive with 3,341 base+DLC enemy/phase profiles across every cycle from NG through
   NG+7: exact HP, typed defense and negation, status thresholds/immunities, and target-specific
   final spell damage. Active-weapon status buildup automatically becomes real hits-to-proc.
-- Exact standard-attack data for 419 melee/shield/catalyst weapons and 24,271 selectable moves.
-  One-hand, two-hand, running, rolling, jumping, guard-counter, critical, paired, and mounted attacks
-  preserve every multi-hit motion value, per-hit physical attribute, and status motion value through
-  the final enemy calculation. Ranged weapons are explicitly reserved for the separate ammo pipeline.
+- Exact standard-attack data for 419 melee/shield/catalyst weapons and 24,271 selectable moves,
+  plus all 65 arrows, great arrows, bolts, and greatbolts for the 29 ranged weapons. One-hand,
+  two-hand, movement, critical, and ranged attacks preserve every multi-hit/projectile motion value,
+  per-hit physical attribute, and status motion value through the final enemy calculation. Spread
+  Crossbow's three bolts are resolved independently.
 - Active buff layer (Golden Vow, greases, Physick tears) with category override rules.
 - Status payoff card — hits-to-proc and what the proc is worth (bleed/frost/poison/rot) vs a target HP/resist.
 - Soft-cap chart + optimal stat advisor (redistributes your offensive points for max AR).
 - "Best Weapons for Your Build" ranking + a compare tray.
 - Scadutree Blessing slider — Land-of-Shadow AR and damage negation.
 - Versioned full-build state, compact share links, auto-save, old-save migration, and **My Builds**
-  named multi-save. The v5 schema preserves equipment, combat, attack-lens, catalyst, and spell-memory
-  state while reserving Physick, Great Rune, and enemy profiles for the next slices.
+  named multi-save. The v6 schema preserves equipment, combat, attack-lens, ammunition, catalyst,
+  and spell-memory state while reserving Physick and Great Rune for the next slices.
 
 **Weapon Atlas** (`atlas/`) — every weapon, filterable by status/scaling/infusable/DLC, sortable
 by AR-for-a-reference-build, weight, or requirements; per-weapon detail pages with acquisition info.

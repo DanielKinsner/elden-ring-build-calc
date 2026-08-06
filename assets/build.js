@@ -21,6 +21,9 @@
   var weaponMoveData = await ERData.loadWeaponMoves('../data/');
   var weaponMovesById = {};
   weaponMoveData.items.forEach(function (item) { weaponMovesById[item.weaponId] = item; });
+  var ammoData = await ERData.loadAmmo('../data/');
+  var ammo = ammoData.items, ammoById = {};
+  ammo.forEach(function (item) { ammoById[item.id] = item; });
   var catalystById = {}, spellById = {};
   catalysts.forEach(function (item) { catalystById[item.id] = item; });
   spells.forEach(function (item) { spellById[item.id] = item; });
@@ -86,7 +89,7 @@
                 buffs: (q.get('bf') || '').split(',').filter(Boolean), talis: (q.get('tl') || '').split(',').filter(Boolean), scadu: +q.get('st') || 0,
                 gearWeight: +q.get('gw') || 0, armor: {}, activeSlot: q.get('as') || 'r0', combatContext: q.get('ctx') === 'pvp' ? 'pvp' : 'pve', attackProfile: q.get('mv') || 'neutral',
                 magic: { catalystId: q.get('cat') || null, upgrade: q.get('cu') === null ? null : +q.get('cu'), memorySlots: +q.get('ms') || 10, spells: (q.get('sp') || '').split(',').filter(Boolean), activeSpell: q.get('sa') || null, variantId: q.get('sv') || null },
-                encounter: { enemyId: q.get('en') || null, ng: Math.max(0, Math.min(7, +q.get('ng') || 0)), moveId:q.get('wm') || null } };
+                encounter: { enemyId: q.get('en') || null, ng: Math.max(0, Math.min(7, +q.get('ng') || 0)), moveId:q.get('wm') || null, ammoId:q.get('am') || null } };
       if (q.get('rh') || q.get('lh')) o.loadout = { rightHand: decodeArmaments(q.get('rh')), leftHand: decodeArmaments(q.get('lh')) };
       ARMOR_SLOTS.forEach(function (slot, i) { if (armorParts[i] && armorParts[i] !== '-') o.armor[slot.id] = armorParts[i]; });
       STATS.forEach(function (k, i) { if (s[i] >= 1 && s[i] <= 99) o.stats[k] = s[i]; });
@@ -172,8 +175,8 @@
     variantId: savedMagic.variantId || null
   };
   if (!magicState.activeSpell && magicState.spells.length) magicState.activeSpell = magicState.spells[0];
-  var savedEncounter = BOOT && (BOOT.encounter || (BOOT.context && { enemyId:BOOT.context.enemyId, ng:BOOT.context.ngCycle })) || {};
-  var encounterState = { enemyId: enemyById[savedEncounter.enemyId] ? savedEncounter.enemyId : null, ng:Math.max(0,Math.min(7,+savedEncounter.ng || 0)), moveId:savedEncounter.moveId || null };
+  var savedEncounter = BOOT && (BOOT.encounter || (BOOT.context && { enemyId:BOOT.context.enemyId, ng:BOOT.context.ngCycle, moveId:BOOT.context.moveId, ammoId:BOOT.context.ammoId })) || {};
+  var encounterState = { enemyId: enemyById[savedEncounter.enemyId] ? savedEncounter.enemyId : null, ng:Math.max(0,Math.min(7,+savedEncounter.ng || 0)), moveId:savedEncounter.moveId || null, ammoId:ammoById[savedEncounter.ammoId] ? savedEncounter.ammoId : null };
   function equippedTalismanItems() {
     return selectedTalismans.map(function (slot) { return slot && taliById(slot.talismanId); });
   }
@@ -215,11 +218,11 @@
     var tl = selectedTalismans.map(function (slot) { return slot && Object.assign({}, slot, { conditionActive: taliConditionState[slot.talismanId] !== false }); });
     var armorState = {};
     ARMOR_SLOTS.forEach(function (slot) { armorState[slot.id] = selectedArmor[slot.id]; });
-    var state = { schemaVersion: 5, stats: {}, weapon: current.id, affinity: affinity, upgrade: upgradeLevel, twoHanded: twoHanded, level: +$('level').value || null, buffs: bf, talis: tl.filter(Boolean).map(function (slot) { return slot.talismanId; }), scadu: scaduLevel, gearWeight: gearWeight, armor: armorState, activeSlot: (activeSlot.hand === 'left' ? 'l' : 'r') + activeSlot.index, combatContext: combatContext, attackProfile: attackProfileId };
+    var state = { schemaVersion: 6, stats: {}, weapon: current.id, affinity: affinity, upgrade: upgradeLevel, twoHanded: twoHanded, level: +$('level').value || null, buffs: bf, talis: tl.filter(Boolean).map(function (slot) { return slot.talismanId; }), scadu: scaduLevel, gearWeight: gearWeight, armor: armorState, activeSlot: (activeSlot.hand === 'left' ? 'l' : 'r') + activeSlot.index, combatContext: combatContext, attackProfile: attackProfileId };
     state.magic = { catalystId: magicState.catalystId, upgrade: magicState.upgrade, memorySlots: magicState.memorySlots, spells: magicState.spells.slice(), activeSpell: magicState.activeSpell, variantId: magicState.variantId };
-    state.encounter = { enemyId:encounterState.enemyId, ng:encounterState.ng, moveId:encounterState.moveId };
+    state.encounter = { enemyId:encounterState.enemyId, ng:encounterState.ng, moveId:encounterState.moveId, ammoId:encounterState.ammoId };
     state.loadout = { rightHand: armaments.right.map(function (x) { return x && Object.assign({}, x); }), leftHand: armaments.left.map(function (x) { return x && Object.assign({}, x); }), armor: armorState, talismans: tl, spells: magicState.spells.slice(), magic: Object.assign({}, state.magic), physick: [], greatRune: null };
-    state.context = { twoHanded:twoHanded, scadutree:scaduLevel, enemyId:encounterState.enemyId, ngCycle:encounterState.ng, moveId:encounterState.moveId };
+    state.context = { twoHanded:twoHanded, scadutree:scaduLevel, enemyId:encounterState.enemyId, ngCycle:encounterState.ng, moveId:encounterState.moveId, ammoId:encounterState.ammoId };
     STATS.forEach(function (k) { state.stats[k] = build[k]; });
     return state;
   }
@@ -254,6 +257,7 @@
     if (encounterState.enemyId) q.set('en', encounterState.enemyId);
     if (encounterState.ng) q.set('ng', encounterState.ng);
     if (encounterState.moveId) q.set('wm', encounterState.moveId);
+    if (encounterState.ammoId) q.set('am', encounterState.ammoId);
     history.replaceState(null, '', location.pathname + '?' + q);
   }
 
@@ -678,6 +682,21 @@
     return enemy && (enemy.cycles[encounterState.ng] || enemy.cycles[0]) || null;
   }
   function currentWeaponMoves() { return weaponMovesById[current.id] && weaponMovesById[current.id].moves || []; }
+  function currentAmmoType() { return ammoData.compatibility[current.type] || null; }
+  function compatibleAmmo() {
+    var type = currentAmmoType();
+    return type ? ammo.filter(function (item) { return item.type === type; }) : [];
+  }
+  function activeAmmo() {
+    var choices = compatibleAmmo();
+    var item = choices.find(function (entry) { return entry.id === encounterState.ammoId; }) || choices[0] || null;
+    if (item) encounterState.ammoId = item.id;
+    return item;
+  }
+  function activeAmmoProfile(item) {
+    if (!item) return null;
+    return current.id === 'spread-crossbow' && item.profiles.spread ? item.profiles.spread : item.profiles.standard;
+  }
   function activeWeaponMove() {
     var moves = currentWeaponMoves();
     var move = moves.find(function (item) { return item.id === encounterState.moveId; });
@@ -703,8 +722,22 @@
   function fillWeaponMoves() {
     var moves = currentWeaponMoves(), move = activeWeaponMove();
     if (!moves.length) {
-      $('weaponMove').innerHTML = '<option value="">Ammo pipeline pending</option>'; $('weaponMove').disabled = true; return null;
+      var ranged = currentAmmoType(), item = activeAmmo();
+      $('ammoControl').hidden = !ranged;
+      $('ammoControl').parentElement.classList.toggle('has-ammo', !!ranged);
+      if (ranged) {
+        var choices = compatibleAmmo();
+        $('ammoSelect').innerHTML = choices.map(function (entry) { return '<option value="' + entry.id + '">' + escText(entry.name) + '</option>'; }).join('');
+        $('ammoSelect').value = item && item.id || '';
+        $('weaponMove').innerHTML = '<option value="">' + (current.id === 'spread-crossbow' ? '3-projectile spread' : current.id === 'pulley-crossbow' ? 'Burst projectile · per bolt' : 'Standard projectile · 100 MV') + '</option>';
+      } else {
+        $('weaponMove').innerHTML = '<option value="">No standard attack data</option>';
+      }
+      $('weaponMove').disabled = true;
+      return null;
     }
+    $('ammoControl').hidden = true;
+    $('ammoControl').parentElement.classList.remove('has-ammo');
     $('weaponMove').disabled = false;
     $('weaponMove').innerHTML = moves.map(function (item) {
       return '<option value="' + item.id + '">' + escText(item.label) + ' · ' + item.motion.join(' + ') + ' MV</option>';
@@ -746,6 +779,7 @@
     if (attackProfileById[profile]) attackProfileId = profile;
     render();
   });
+  $('ammoSelect').addEventListener('change', function () { encounterState.ammoId = ammoById[this.value] ? this.value : null; render(); });
 
   function renderEncounter(weaponResult, magicResult) {
     var enemy = encounterEnemy(), cycle = encounterCycle();
@@ -769,9 +803,13 @@
     $('enemyDefense').textContent = defenseMin === defenseMax ? defenseMin : defenseMin + '–' + defenseMax;
     var weakness = Object.keys(enemy.negation).sort(function (a,b) { return enemy.negation[a] - enemy.negation[b]; })[0];
     $('enemyWeakness').textContent = weakness + ' ' + (enemy.negation[weakness] > 0 ? '−' + enemy.negation[weakness] + '%' : enemy.negation[weakness] < 0 ? '+' + Math.abs(enemy.negation[weakness]) + '%' : '0%');
-    var weaponDamage = move ? ERCalc.applyWeaponMove(weaponResult.buffed.byType, weaponResult.buffed.status || {}, move, enemy, { ng:encounterState.ng }) : null;
+    var ammoItem = currentAmmoType() ? activeAmmo() : null;
+    var ammoProfile = activeAmmoProfile(ammoItem);
+    var weaponDamage = move ? ERCalc.applyWeaponMove(weaponResult.buffed.byType, weaponResult.buffed.status || {}, move, enemy, { ng:encounterState.ng })
+      : ammoItem && ammoProfile ? ERCalc.applyRangedAttack(weaponResult.buffed.byType, weaponResult.buffed.status || {}, ammoItem, ammoProfile, enemy, { ng:encounterState.ng, combatContext:combatContext }) : null;
     $('enemyWeaponDamage').textContent = weaponDamage ? weaponDamage.total : '—';
-    $('enemyWeaponNote').textContent = move ? move.label + ' · ' + move.motion.join(' + ') + ' MV · ' + weaponDamage.hits.length + ' hit' + (weaponDamage.hits.length === 1 ? '' : 's') : 'ranged attacks require ammo selection';
+    $('enemyWeaponNote').textContent = move ? move.label + ' · ' + move.motion.join(' + ') + ' MV · ' + weaponDamage.hits.length + ' hit' + (weaponDamage.hits.length === 1 ? '' : 's')
+      : ammoItem ? ammoItem.name + ' · ' + ammoProfile.label + ' · ' + weaponDamage.hits.length + ' projectile' + (weaponDamage.hits.length === 1 ? '' : 's') : 'no exact attack profile';
     if (magicResult && magicResult.spell.totalPreDefense) {
       var spellDamage = ERCalc.applyEnemyDefense(magicResult.spell.byType, enemy, { ng:encounterState.ng });
       $('enemySpellDamage').textContent = spellDamage.total;
@@ -909,6 +947,7 @@
     encounterState.enemyId = enemyById[restoredEncounter.enemyId] ? restoredEncounter.enemyId : null;
     encounterState.ng = Math.max(0, Math.min(7, +(restoredEncounter.ng != null ? restoredEncounter.ng : restoredEncounter.ngCycle) || 0));
     encounterState.moveId = restoredEncounter.moveId || null;
+    encounterState.ammoId = ammoById[restoredEncounter.ammoId] ? restoredEncounter.ammoId : null;
     scaduLevel = Math.max(0, Math.min(20, +o.scadu || 0)); syncScadu();
     gearWeight = Math.max(0, +o.gearWeight || 0); $('gearWeight').value = gearWeight;
     var savedArmor = o.armor || (o.loadout && o.loadout.armor) || {};
@@ -1202,16 +1241,19 @@
 
   /* ---- status payoff (T4): hits-to-proc + what the proc is worth ---- */
   function renderPayoff(r) {
-    var stMap = (r.buffed && r.buffed.status) || r.status;
+    var stMap = Object.assign({}, (r.buffed && r.buffed.status) || r.status || {});
+    var rangedAmmo = currentAmmoType() ? activeAmmo() : null;
+    if (rangedAmmo && rangedAmmo.status) stMap[rangedAmmo.status.type] = (stMap[rangedAmmo.status.type] || 0) + rangedAmmo.status.buildup;
     var active = STATUS.filter(function (s) { return (stMap && stMap[s[0]]) > 0; });
     $('payoffBlock').hidden = !active.length;
     if (!active.length) return;
     var enemy = encounterEnemy(), cycle = encounterCycle();
     var exactMove = enemy && activeWeaponMove() ? ERCalc.applyWeaponMove({}, stMap, activeWeaponMove(), enemy, { ng:encounterState.ng }) : null;
+    var exactRanged = enemy && rangedAmmo ? ERCalc.applyRangedAttack({}, (r.buffed && r.buffed.status) || r.status || {}, rangedAmmo, activeAmmoProfile(rangedAmmo), enemy, { ng:encounterState.ng, combatContext:combatContext }) : null;
     $('targetManual').hidden = !!enemy;
     document.querySelector('.payoff-vs').textContent = enemy ? 'vs ' + enemy.name : 'vs';
     $('payoff').innerHTML = active.map(function (s) {
-      var buildup = exactMove && exactMove.status[s[0]] != null ? exactMove.status[s[0]] : stMap[s[0]];
+      var buildup = exactMove && exactMove.status[s[0]] != null ? exactMove.status[s[0]] : exactRanged && exactRanged.status[s[0]] != null ? exactRanged.status[s[0]] : stMap[s[0]];
       var exact = enemy ? ERCalc.statusAgainstEnemy((function () { var map={}; map[s[0]]=buildup; return map; })(), enemy, { ng:encounterState.ng })[s[0]] : null;
       if (exact && exact.immune) return '<div class="payoff-row"><img class="status-icon" src="../assets/icons/status/' + s[0] + '.png" alt=""><span class="payoff-name">' + s[1] + '</span><span class="payoff-hits">Immune</span><span class="payoff-dmg">cannot proc</span></div>';
       var target = {
