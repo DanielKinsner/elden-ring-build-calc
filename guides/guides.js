@@ -131,6 +131,48 @@
         }).join('') + '</div>' : '') +
       '<button class="quest-reset" data-reset="' + q.id + '">Reset progress</button>';
   }
+  /* ---- right rail (>=1280px): region progress, active questlines, legend ---- */
+  function questRail(sel) {
+    var byRegion = {};
+    QUESTS.quests.forEach(function (q) {
+      var p = questProgress(q);
+      var r = byRegion[q.region] || (byRegion[q.region] = { done: 0, total: 0 });
+      r.done += p.done; r.total += p.total;
+    });
+    var regions = Object.keys(byRegion).map(function (name) {
+      return { name: name, done: byRegion[name].done, total: byRegion[name].total };
+    }).sort(function (a, b) { return b.total - a.total; });
+
+    var active = QUESTS.quests.filter(function (q) {
+      var p = questProgress(q);
+      return p.done > 0 && p.done < p.total;
+    });
+
+    var html = '<div class="qt-rail">';
+    html += '<div class="qt-rail-section"><h4 class="qt-rail-title">Progress by region</h4>' +
+      regions.map(function (r) {
+        var pct = r.total ? Math.round(100 * r.done / r.total) : 0;
+        return '<div class="qt-rail-region"><span class="qt-rail-region-row"><span>' + esc(r.name) + '</span>' +
+          '<span class="qt-rail-region-count">' + r.done + '/' + r.total + '</span></span>' +
+          '<span class="quest-progress"><i style="width:' + pct + '%"></i></span></div>';
+      }).join('') + '</div>';
+
+    html += '<div class="qt-rail-section"><h4 class="qt-rail-title">Active questlines</h4>' +
+      (active.length ? active.map(function (q) {
+        var p = questProgress(q);
+        return '<button class="qt-rail-active' + (q.id === sel.id ? ' sel' : '') + '" data-quest="' + q.id + '">' +
+          '<span class="qt-rail-active-name">' + esc(q.name) + '</span>' +
+          '<span class="qt-rail-active-count">' + p.done + '/' + p.total + '</span></button>';
+      }).join('') : '<p class="qt-rail-empty">None in progress — pick a questline to start.</p>') + '</div>';
+
+    html += '<div class="qt-rail-section"><h4 class="qt-rail-title">Legend</h4><ul class="qt-rail-legend">' +
+      '<li><span class="quest-major">MAJOR</span> major branching questline</li>' +
+      '<li><span class="qt-legend-done">✓</span> complete</li>' +
+      '<li><span class="qt-legend-warn">⚠</span> fail-trigger — read before acting</li>' +
+      '</ul></div>';
+
+    return html + '</div>';
+  }
   function renderQuests() {
     var all = overallProgress();
     var started = 0, completed = 0;
@@ -147,7 +189,8 @@
       pct, [
         ['Active questlines', started],
         ['Completed', completed],
-        ['Steps completed', all.done + ' / ' + all.total]
+        ['Steps completed', all.done + ' / ' + all.total],
+        ['NPCs met', (started + completed) + ' / ' + QUESTS.quests.length]
       ]);
     html += rulesDetails('⚠ Survival rules', QUESTS.generalRules, false);
     html += '<div class="qt-layout"><div class="qt-list">' +
@@ -168,7 +211,9 @@
           '</span></span>' +
         '</button>';
       }).join('') +
-      '</div><div class="qt-detail" id="qtDetail">' + questDetail(sel) + '</div></div>';
+      '</div><div class="qt-detail" id="qtDetail">' + questDetail(sel) + '</div>' +
+      questRail(sel) +
+      '</div>';
     content.innerHTML = html;
 
     function applyFilter() {
@@ -179,7 +224,7 @@
     }
     applyFilter();
     $('qtFilter').addEventListener('input', function () { questFilter = this.value; applyFilter(); });
-    Array.prototype.forEach.call(content.querySelectorAll('.qt-item'), function (h) {
+    Array.prototype.forEach.call(content.querySelectorAll('.qt-item, .qt-rail-active'), function (h) {
       h.addEventListener('click', function () {
         store.sel = h.dataset.quest; save(); renderQuests();
         if (window.matchMedia('(max-width: 900px)').matches) {

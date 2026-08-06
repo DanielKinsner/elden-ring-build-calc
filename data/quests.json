@@ -12,6 +12,7 @@
       "id": "ranni",
       "name": "Ranni the Witch",
       "cluster": "Liurnia — Three Sisters",
+      "region": "Liurnia",
       "tagline": "The big one — a top-tier weapon plus the Age of the Stars ending.",
       "reward": "Dark Moon Greatsword · unlocks the Age of the Stars ending",
       "endingUnlock": "age-of-stars",
@@ -38,6 +39,7 @@
       "id": "blaidd",
       "name": "Blaidd the Half-Wolf",
       "cluster": "Limgrave → Caelid",
+      "region": "Limgrave",
       "tagline": "Ranni's sworn blade — runs alongside her quest.",
       "reward": "Royal Greatsword + Blaidd's armor set",
       "steps": [
@@ -55,6 +57,7 @@
       "id": "roderika",
       "name": "Roderika",
       "cluster": "Limgrave → Roundtable Hold",
+      "region": "Limgrave",
       "tagline": "Becomes the Spirit Tuner who upgrades your Spirit Ashes.",
       "reward": "Spirit Ash upgrading unlocked · Spirit Jellyfish Ashes",
       "steps": [
@@ -70,6 +73,7 @@
       "id": "rogier",
       "name": "Sorcerer Rogier",
       "cluster": "Stormveil → Roundtable Hold",
+      "region": "Limgrave",
       "tagline": "His research points you at Ranni and feeds Fia's quest.",
       "reward": "Rogier's Rapier + spellblade gear · unlocks Fia's next stage",
       "steps": [
@@ -87,6 +91,7 @@
       "id": "fia",
       "name": "Fia, the Deathbed Companion",
       "cluster": "Roundtable Hold → Deeproot Depths",
+      "region": "Roundtable Hold",
       "tagline": "Leads to a hidden region, a dragon fight, and a mending-rune ending.",
       "reward": "Mending Rune of the Death-Prince · unlocks the Age of the Duskborn ending",
       "endingUnlock": "age-of-duskborn",
@@ -108,6 +113,7 @@
       "id": "d-brothers",
       "name": "D, Hunter of the Dead (+ his twin)",
       "cluster": "Limgrave → Nokron → Deeproot",
+      "region": "Limgrave",
       "tagline": "Deathroot rewards, then a grim brother storyline.",
       "reward": "Twinned Armor set · Inseparable Sword (via the brother)",
       "steps": [
@@ -124,6 +130,7 @@
       "id": "goldmask",
       "name": "Brother Corhyn & Goldmask",
       "cluster": "Roundtable → Altus → Leyndell",
+      "region": "Roundtable Hold",
       "tagline": "The scholar's pilgrimage — ends in the Age of Order rune.",
       "reward": "Mending Rune of Perfect Order · unlocks the Age of Order ending",
       "endingUnlock": "age-of-order",
@@ -145,6 +152,7 @@
       "id": "nepheli",
       "name": "Nepheli Loux (+ Kenneth Haight)",
       "cluster": "Stormveil → Roundtable → Stormveil",
+      "region": "Limgrave",
       "tagline": "A warrior finds her purpose — and Limgrave gets a ruler.",
       "reward": "Arsenal Charm (more equip load) · Stormhawk Axe payoffs",
       "steps": [
@@ -162,6 +170,7 @@
       "id": "dung-eater",
       "name": "Dung Eater",
       "cluster": "Roundtable → Leyndell sewers",
+      "region": "Roundtable Hold",
       "tagline": "The cursed one. A dark rune — or a Colossal Sword if you'd rather.",
       "reward": "Mending Rune of the Fell Curse · alt: Sword of Milos",
       "endingUnlock": "blessing-of-despair",
@@ -182,6 +191,7 @@
       "id": "millicent",
       "name": "Gowry & Millicent",
       "cluster": "Caelid → Altus → Haligtree",
+      "region": "Caelid",
       "tagline": "The scarlet-rot pilgrimage — spans half the game, worth every stop.",
       "reward": "Millicent's Prosthesis or Rotten Winged Sword Insignia · Unalloyed Gold Needle (Frenzied-Flame revert)",
       "major": true,
@@ -204,6 +214,7 @@
       "id": "sellen",
       "name": "Sorceress Sellen",
       "cluster": "Limgrave → Caelid → Raya Lucaria",
+      "region": "Limgrave",
       "tagline": "The outlaw sorcerer's conspiracy — sorcery rewards either way it ends.",
       "reward": "Glintstone sorceries · endgame choice of rewards at the Grand Library",
       "steps": [
@@ -224,6 +235,7 @@
       "id": "volcano-manor",
       "name": "Volcano Manor (Tanith & Rya)",
       "cluster": "Liurnia → Mt. Gelmir",
+      "region": "Liurnia",
       "tagline": "Join the Recusants — assassination contracts with real rewards.",
       "reward": "Weapons/talismans per contract · Daedicar's Woe (Rya)",
       "steps": [
@@ -240,6 +252,7 @@
       "id": "patches",
       "name": "Patches",
       "cluster": "Limgrave → everywhere",
+      "region": "Limgrave",
       "tagline": "The recurring trickster. Spare him — it pays off for the rest of the game.",
       "reward": "His shop, hint dialogue, Dancer's Castanets hand-off",
       "steps": [
@@ -258,6 +271,7 @@
       "id": "diallos",
       "name": "Diallos of House Hoslow",
       "cluster": "Roundtable → Volcano Manor → Jarburg",
+      "region": "Roundtable Hold",
       "tagline": "A knight looking for meaning; finds it guarding a village of jars.",
       "reward": "Numen's Rune + Hoslow gear · access beats at the Manor",
       "steps": [
@@ -275,6 +289,7 @@
       "id": "varre",
       "name": "White-Mask Varré",
       "cluster": "Limgrave → Rose Church → Mohgwyn",
+      "region": "Limgrave",
       "tagline": "The first NPC you meet — and the early shortcut to Mohg's palace.",
       "reward": "Bloody Finger · Pureblood Knight's Medal (teleport to Mohgwyn Palace)",
       "steps": [
@@ -294,6 +309,7 @@
       "id": "boc",
       "name": "Boc the Seamster",
       "cluster": "Limgrave → Leyndell",
+      "region": "Limgrave",
       "tagline": "The wholesome one. Free your tailor from a bush; keep him alive.",
       "reward": "Free garment alteration all game",
       "steps": [
@@ -311,6 +327,7 @@
       "id": "latenna",
       "name": "Latenna the Albinauric",
       "cluster": "Liurnia → Mountaintops → Snowfield",
+      "region": "Liurnia",
       "tagline": "Half a medallion each — she's your ticket to the secret snowfield.",
       "reward": "Latenna Spirit Ash · Somber Ancient Dragon Smithing Stone",
       "steps": [
@@ -327,6 +344,7 @@
       "id": "yura",
       "name": "Yura, Hunter of Bloody Fingers",
       "cluster": "Limgrave → Altus → Mountaintops",
+      "region": "Limgrave",
       "tagline": "The bloody-finger hunter; his katana is a gift that lasts all game.",
       "reward": "Nagakiba katana · Eleonora's Poleblade at his finale",
       "steps": [
@@ -343,6 +361,7 @@
       "id": "alexander",
       "name": "Alexander, Iron Fist",
       "cluster": "Limgrave → Caelid → Farum Azula",
+      "region": "Limgrave",
       "tagline": "The warrior jar's pilgrimage — ends with a top-tier skill talisman.",
       "reward": "Shard of Alexander (big skill-damage talisman) · Alexander's Innards",
       "steps": [
@@ -361,6 +380,7 @@
       "id": "hyetta",
       "name": "Hyetta → the Frenzied Flame",
       "cluster": "Liurnia → Leyndell depths",
+      "region": "Liurnia",
       "tagline": "MAJOR commitment: this path locks you into an ending unless reverted.",
       "reward": "Unlocks the Lord of Frenzied Flame ending",
       "endingUnlock": "frenzied-flame",
@@ -381,6 +401,7 @@
       "id": "thops",
       "name": "Thops",
       "cluster": "Liurnia → Raya Lucaria",
+      "region": "Liurnia",
       "tagline": "The broke scholar just wants to go back to school.",
       "reward": "Thops's Barrier sorcery · Academy Glintstone Staff · his Bell Bearing",
       "steps": [
