@@ -21,13 +21,18 @@ are, which weapon wins on their build, and how bleed/status buildup scales.
 **Weapon Atlas** (`atlas/`) — every weapon, filterable by status/scaling/infusable/DLC, sortable
 by AR-for-a-reference-build, weight, or requirements; per-weapon detail pages with acquisition info.
 
-**Guides** (`guides/`) — 21 NPC questlines as checkable trackers with fail-trigger warnings,
-boss cheat-sheet with ☠ felled checkboxes (base + SotE remembrances), all 6 endings with
-unlock routes, and a full walkthrough (12-stage base route + 9-stage DLC route, stat targets,
-Scadutree/fragment tables). Progress saves locally.
+**Guides** (`guides/`) — 21 NPC questlines as checkable trackers with fail-trigger warnings
+and NPC portraits, boss cheat-sheet with ☠ felled checkboxes (base + SotE remembrances), all
+6 endings with unlock routes, and a full walkthrough (12-stage base route + 9-stage DLC
+route, stat targets, Scadutree/fragment tables). A region progress rail (wide screens) tracks
+completion by area. Instant search (Ctrl+K / `/`) finds any quest, step, boss, ending, or
+compendium entry in one box. The Compendium tab is a lean, cross-linked reference — every NPC,
+boss, and key region in 2–3 sentences. Progress saves locally.
 
 **Tales** (`tales/`) — original fan writing: *Gold and Shadow* (~55k words) and
-*Kindling: The Testament of Melina*, in a book-style reader with per-chapter read state.
+*Kindling: The Testament of Melina*, in a book-style reader with per-chapter read state and a
+reading-tools rail (continue reading, recent activity). A Timeline view traces ~25 in-world
+events across the setting's history, each linked back to the chapter it's drawn from.
 
 ## Accuracy & honesty
 

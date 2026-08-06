@@ -164,6 +164,31 @@ link. "Save Build" writes to localStorage; a small curated **meta build library*
   weight input (`&gw=` in share URLs). Erdtree's Favor +2 + Great-Jar's Arsenal talismans
   (new per-mod `survival` multiplier field, invisible to the AR layer).
 
+## Shipped 2026-08 — guides/tales deck-out
+- **NPC + boss portraits** — scraped from wiki.gg via `scripts/fetch-portraits.js` (Infobox
+  `image=` param + `imageinfo` API, since `pageimages` isn't enabled on that wiki), 42/42
+  fetched. Rendered in the quest list/detail and boss cards, with a letter-avatar fallback
+  for any id missing from `assets/icons/{npcs,bosses}/manifest.json`.
+- **Region progress rail** (`guides/`, ≥1280px) — steps-done/total per canonical region,
+  an active-questline shortlist, and a static legend, beside the existing two-column quest
+  tracker. Quests carry a new `region` field (`data/quests.json`), assigned by a documented
+  rule (first cluster token → canonical region table).
+- **Instant search** (`guides/`, Ctrl+K / `/`) — client-side index over quest names, every
+  quest step, boss names, ending names, walkthrough steps, and compendium entries; grouped
+  dropdown results, keyboard nav, Esc/click-away to close.
+- **Tales timeline** (`tales/#timeline`) — 25 in-world events across 7 eras, drawn directly
+  from *Gold and Shadow*'s own chapters (the book is the canon here, not the wiki), each
+  linked to its source chapter; Dan-approved wording (`data/timeline.json`).
+- **Lean compendium** (`guides/`, fifth tab) — 55 entries (21 NPCs, 21 bosses, 13 places),
+  2–3 sentences each, cross-linked to the quest tracker, boss cards, and Tales chapters
+  (`data/compendium.json`; `scripts/check-refs.js` verifies every reference resolves).
+- **Tales reading-tools rail** (`tales/`, ≥1100px) — continue-reading per work, last-5
+  recent activity with relative time, and explore links (Timeline / Compendium / Quest
+  Tracker). `er-tales` read entries now carry a first-read timestamp (`{t}`); legacy bare
+  `1` entries from before this change still count as read and are never rewritten.
+- **Optional tale cover art** — drop `assets/tales/<workId>.jpg` in and the shelf card grows
+  a 96px cover; absent, the layout is unchanged (owner-supplied art — not scraped or generated).
+
 ## Backlog — deferred deliberately (spec 2026-08-05)
 - **Armor picker + damage negation** (the manual gear-weight field is the placeholder).
 - **Poise breakpoints.**
@@ -172,6 +197,10 @@ link. "Save Build" writes to localStorage; a small curated **meta build library*
 - **T7 catalysts/spells** and **T8 maps** — unchanged, still the big lifts.
 - More buffs (Bloodboil Aromatic, Howl of Shabriri, Exalted Flesh), PvP-values toggle,
   enemy status thresholds.
+- **Reminders / notifications** — cut from the guides/tales deck-out scope (D2, 2026-08-05,
+  the mockup's "Set Reminder"); not built in any form, no notification code added.
+- **Per-step regions** and richer region maps — the deck-out shipped one primary region per
+  quest (T8 above is the separate, bigger "interactive map" idea; unrelated to this note).
 
 ## Suggested order
 1. ~~T1 + T2~~ ✅  2. ~~T3 + T4~~ ✅  3. ~~T5, T6, T11~~ ✅  4. ~~T9 + T10~~ ✅ — Tiers 1, 2, 4, 5 shipped.
