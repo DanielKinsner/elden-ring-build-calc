@@ -17,6 +17,17 @@
     loadManifest('../assets/icons/bosses/manifest.json')
   ]);
   var NPC_PORTRAITS = portraitManifests[0], BOSS_PORTRAITS = portraitManifests[1];
+
+  /* ---- compendium: lean NPC/boss/place reference, cross-linked everywhere ---- */
+  var COMPENDIUM = (await (async function () {
+    try { var r = await fetch('../data/compendium.json'); return r.ok ? r.json() : { entries: [] }; } catch (e) { return { entries: [] }; }
+  })()).entries;
+  var TALES_CHAPTERS = {}; // chapterId -> { workId, num, title }
+  (await (async function () {
+    try { var r = await fetch('../data/tales.json'); return r.ok ? r.json() : { works: [] }; } catch (e) { return { works: [] }; }
+  })()).works.forEach(function (w) {
+    w.chapters.forEach(function (c) { TALES_CHAPTERS[c.id] = { workId: w.id, num: c.num, title: c.title }; });
+  });
   function avatar(manifest, dir, id, name, baseCls, modCls) {
     var extra = modCls ? ' ' + modCls : '';
     var file = manifest[id];
@@ -64,7 +75,7 @@
   }
 
   /* ---- tabs (hash-routed so links can target a tab) ---- */
-  var TABS = { quests: renderQuests, walkthrough: renderWalkthrough, bosses: renderBosses, endings: renderEndings };
+  var TABS = { quests: renderQuests, walkthrough: renderWalkthrough, bosses: renderBosses, endings: renderEndings, compendium: renderCompendium };
   var tabBtns = Array.prototype.slice.call(document.querySelectorAll('#guideTabs .atlas-tab'));
   function setTab(name, questToOpen) {
     if (!TABS[name]) name = 'quests';
@@ -404,6 +415,71 @@
     });
   }
 
+  /* ---- compendium: lean NPC/boss/place reference, cross-linked to tracker/bosses/tales ---- */
+  var compendiumFilter = 'all'; // survives rerenders (not persisted)
+  function compendiumLinks(e) {
+    var links = [];
+    if (e.type === 'npc' && e.questId) links.push('<a href="#quests" class="comp-link" data-quest="' + e.questId + '">Track questline →</a>');
+    if (e.type === 'boss' && e.bossId) links.push('<a href="#bosses" class="comp-link" data-boss="' + e.bossId + '">Boss card →</a>');
+    if (e.chapters && e.chapters[0]) {
+      var ch = TALES_CHAPTERS[e.chapters[0]];
+      if (ch) {
+        links.push('<a href="../tales/read.html?work=' + ch.workId + '&ch=' + e.chapters[0] + '" class="comp-link">In the Tales: ' +
+          esc(ch.num ? ch.num + '. ' + ch.title : ch.title) + ' →</a>');
+      }
+    }
+    return links;
+  }
+  function compendiumCard(e) {
+    var portraitHtml = e.type === 'npc' ? avatar(NPC_PORTRAITS, 'npcs', e.questId, e.name, 'qt-avatar') :
+      e.type === 'boss' ? avatar(BOSS_PORTRAITS, 'bosses', e.bossId, e.name, 'boss-thumb') :
+      '<span class="qt-avatar qt-avatar-letter">' + esc((e.name || '?').charAt(0).toUpperCase()) + '</span>';
+    var links = compendiumLinks(e);
+    return '<div class="comp-card" id="compendium-' + e.id + '" data-type="' + e.type + '">' +
+      '<div class="comp-card-head">' + portraitHtml +
+        '<span class="comp-card-name">' + esc(e.name) + '</span>' +
+        '<span class="comp-type-badge comp-type-' + e.type + '">' + e.type.toUpperCase() + '</span>' +
+      '</div>' +
+      '<p class="comp-text">' + esc(e.text) + '</p>' +
+      (links.length ? '<div class="comp-links">' + links.join('') + '</div>' : '') +
+    '</div>';
+  }
+  function renderCompendium() {
+    var counts = { npc: 0, boss: 0, place: 0 };
+    COMPENDIUM.forEach(function (e) { if (counts[e.type] != null) counts[e.type]++; });
+    var shown = compendiumFilter === 'all' ? COMPENDIUM : COMPENDIUM.filter(function (e) { return e.type === compendiumFilter; });
+    content.innerHTML =
+      hero('Compendium',
+        'Every quest NPC, every boss, and the regions between them — route facts only, cross-linked to the tracker and the Tales.',
+        null, [
+          ['Entries', COMPENDIUM.length],
+          ['NPCs', counts.npc],
+          ['Bosses', counts.boss],
+          ['Places', counts.place]
+        ]) +
+      '<div class="comp-filters">' +
+        ['all', 'npc', 'boss', 'place'].map(function (f) {
+          var label = f === 'all' ? 'All' : f === 'npc' ? 'NPCs' : f === 'boss' ? 'Bosses' : 'Places';
+          return '<button class="atlas-tab' + (compendiumFilter === f ? ' active' : '') + '" data-filter="' + f + '">' + label + '</button>';
+        }).join('') +
+      '</div>' +
+      '<div class="comp-grid">' + shown.map(compendiumCard).join('') + '</div>';
+
+    Array.prototype.forEach.call(content.querySelectorAll('.comp-filters [data-filter]'), function (b) {
+      b.addEventListener('click', function () { compendiumFilter = b.dataset.filter; renderCompendium(); });
+    });
+    Array.prototype.forEach.call(content.querySelectorAll('.comp-link[data-quest]'), function (a) {
+      a.addEventListener('click', function (ev) { ev.preventDefault(); setTab('quests', a.dataset.quest); });
+    });
+    Array.prototype.forEach.call(content.querySelectorAll('.comp-link[data-boss]'), function (a) {
+      a.addEventListener('click', function (ev) {
+        ev.preventDefault(); setTab('bosses');
+        var el = document.getElementById('boss-' + a.dataset.boss);
+        if (el) el.scrollIntoView({ block: 'start', behavior: 'smooth' });
+      });
+    });
+  }
+
   /* ---- instant search: quests, steps, bosses, endings, route (Ctrl+K, /) ---- */
   var SEARCH_INDEX = (function () {
     var idx = [];
@@ -421,6 +497,9 @@
     });
     PROG.steps.forEach(function (s) {
       idx.push({ group: 'Route', label: s.text, sub: 'Walkthrough', stepId: s.id });
+    });
+    COMPENDIUM.forEach(function (e) {
+      idx.push({ group: 'Compendium', label: e.name, sub: e.type === 'npc' ? 'NPC' : e.type === 'boss' ? 'Boss' : 'Place', compendiumId: e.id });
     });
     return idx;
   })();
@@ -484,6 +563,11 @@
       setTab('walkthrough');
       var rEl = document.getElementById('rstep-' + hit.stepId);
       if (rEl) rEl.scrollIntoView({ block: 'center', behavior: 'smooth' });
+    } else if (hit.group === 'Compendium') {
+      compendiumFilter = 'all'; // guarantee the target card is actually rendered
+      setTab('compendium');
+      var cEl = document.getElementById('compendium-' + hit.compendiumId);
+      if (cEl) cEl.scrollIntoView({ block: 'start', behavior: 'smooth' });
     }
   }
 

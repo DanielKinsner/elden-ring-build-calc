@@ -402,6 +402,21 @@ body.build-page { padding-bottom: 80px; }
 .guide-search-empty { padding: 10px 8px; color: var(--dim); font-size: 12.5px; }
 @media (max-width: 640px) { .guide-search { width: 100%; } .guide-search-wrap { width: 100%; } .guide-search-results { left: 0; right: 0; width: auto; max-width: none; } }
 
+/* ---- guides: compendium tab ---- */
+.comp-filters { display: flex; gap: 6px; margin: 14px 0; flex-wrap: wrap; }
+.comp-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr)); gap: 12px; min-width: 0; }
+.comp-card { background: var(--panel-2); border: 1px solid var(--line-2); border-radius: 9px; padding: 13px 14px; }
+.comp-card-head { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+.comp-card-name { font: 600 14.5px var(--serif); flex: 1; min-width: 0; }
+.comp-type-badge { font: 600 9px var(--serif); letter-spacing: .1em; border-radius: 4px; padding: 2px 6px; white-space: nowrap; }
+.comp-type-npc { color: var(--gold-2); border: 1px solid var(--gold-dim); }
+.comp-type-boss { color: var(--red); border: 1px solid rgba(207,90,68,.5); }
+.comp-type-place { color: var(--dim); border: 1px solid var(--line); }
+.comp-text { font-size: 13px; line-height: 1.55; color: var(--text); margin: 0 0 9px; }
+.comp-links { display: flex; flex-direction: column; gap: 4px; }
+.comp-link { font-size: 12px; color: var(--gold-2); text-decoration: none; }
+.comp-link:hover { text-decoration: underline; }
+
 /* ---------- atlas filters + sort ---------- */
 .atlas-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap; margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--line-2); }
 .atlas-filters { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
