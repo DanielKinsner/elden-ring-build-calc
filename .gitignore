@@ -7,3 +7,4 @@ node_modules/
 scratch/
 tmp/
 scripts/icon-fetch-report.json
+scripts/portrait-fetch-report.json
