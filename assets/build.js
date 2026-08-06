@@ -28,6 +28,7 @@
 
   var build = { VIG:60, MND:20, END:30, STR:24, DEX:58, INT:9, FAI:15, ARC:40 };
   var twoHanded = true, upgradeLevel = null, focusStat = 'DEX', showDlc = true, affinity = 'Standard';
+  var combatContext = 'pve';
   var scaduLevel = 0; // Scadutree Blessing 0–20 (Land of Shadow only)
   var gearWeight = 0; // armor & other gear weight (weapon weight is auto-counted)
   function pool(){ return showDlc ? weapons : weapons.filter(function(w){ return w.source !== 'dlc'; }); }
@@ -68,7 +69,7 @@
       var armorParts = (q.get('ar') || '').split('.');
       var o = { stats: {}, weapon: q.get('w'), affinity: q.get('a'), upgrade: q.get('u'), twoHanded: q.get('h') !== '0', level: +q.get('l') || null,
                 buffs: (q.get('bf') || '').split(',').filter(Boolean), talis: (q.get('tl') || '').split(',').filter(Boolean), scadu: +q.get('st') || 0,
-                gearWeight: +q.get('gw') || 0, armor: {}, activeSlot: q.get('as') || 'r0' };
+                gearWeight: +q.get('gw') || 0, armor: {}, activeSlot: q.get('as') || 'r0', combatContext: q.get('ctx') === 'pvp' ? 'pvp' : 'pve' };
       if (q.get('rh') || q.get('lh')) o.loadout = { rightHand: decodeArmaments(q.get('rh')), leftHand: decodeArmaments(q.get('lh')) };
       ARMOR_SLOTS.forEach(function (slot, i) { if (armorParts[i] && armorParts[i] !== '-') o.armor[slot.id] = armorParts[i]; });
       STATS.forEach(function (k, i) { if (s[i] >= 1 && s[i] <= 99) o.stats[k] = s[i]; });
@@ -79,6 +80,7 @@
   if (BOOT) {
     if (BOOT.stats) STATS.forEach(function (k) { if (BOOT.stats[k] >= 1) build[k] = Math.min(99, BOOT.stats[k]); });
     if (BOOT.twoHanded != null) twoHanded = !!BOOT.twoHanded;
+    if (BOOT.combatContext === 'pvp') combatContext = 'pvp';
     var bootW = BOOT.weapon && weapons.find(function (w) { return w.id === BOOT.weapon; });
     if (bootW) current = bootW;
     if (BOOT.scadu) scaduLevel = Math.max(0, Math.min(20, +BOOT.scadu || 0));
@@ -183,7 +185,7 @@
     var tl = selectedTalismans.map(function (slot) { return slot && Object.assign({}, slot, { conditionActive: taliConditionState[slot.talismanId] !== false }); });
     var armorState = {};
     ARMOR_SLOTS.forEach(function (slot) { armorState[slot.id] = selectedArmor[slot.id]; });
-    var state = { schemaVersion: 2, stats: {}, weapon: current.id, affinity: affinity, upgrade: upgradeLevel, twoHanded: twoHanded, level: +$('level').value || null, buffs: bf, talis: tl.filter(Boolean).map(function (slot) { return slot.talismanId; }), scadu: scaduLevel, gearWeight: gearWeight, armor: armorState, activeSlot: (activeSlot.hand === 'left' ? 'l' : 'r') + activeSlot.index };
+    var state = { schemaVersion: 3, stats: {}, weapon: current.id, affinity: affinity, upgrade: upgradeLevel, twoHanded: twoHanded, level: +$('level').value || null, buffs: bf, talis: tl.filter(Boolean).map(function (slot) { return slot.talismanId; }), scadu: scaduLevel, gearWeight: gearWeight, armor: armorState, activeSlot: (activeSlot.hand === 'left' ? 'l' : 'r') + activeSlot.index, combatContext: combatContext };
     state.loadout = { rightHand: armaments.right.map(function (x) { return x && Object.assign({}, x); }), leftHand: armaments.left.map(function (x) { return x && Object.assign({}, x); }), armor: armorState, talismans: tl, spells: [], physick: [], greatRune: null };
     STATS.forEach(function (k) { state.stats[k] = build[k]; });
     return state;
@@ -202,6 +204,7 @@
     if (tl.some(Boolean)) q.set('tl', encodeTalismans(tl));
     if (scaduLevel) q.set('st', scaduLevel);
     if (gearWeight) q.set('gw', gearWeight);
+    if (combatContext === 'pvp') q.set('ctx', 'pvp');
     if (ARMOR_SLOTS.some(function (slot) { return selectedArmor[slot.id]; })) {
       q.set('ar', ARMOR_SLOTS.map(function (slot) { return selectedArmor[slot.id] || '-'; }).join('.'));
     }
@@ -229,6 +232,8 @@
 
   $('twoHand').addEventListener('change', function () { twoHanded = this.checked; activePresetIndex = -1; syncActivePreset(); render(); });
   $('twoHand').checked = twoHanded;
+  $('combatContext').value = combatContext;
+  $('combatContext').addEventListener('change', function () { combatContext = this.value === 'pvp' ? 'pvp' : 'pve'; render(); });
 
   /* ---- Scadutree Blessing slider ---- */
   function syncScadu() { $('scaduRange').value = scaduLevel; $('scaduNum').value = scaduLevel; }
@@ -451,6 +456,39 @@
   });
   $('talismanPickerClose').addEventListener('click', closeTalismanPicker);
 
+  function talismanMathText(item) {
+    var parts = [];
+    var statNames = Object.keys(item.statBonus || {});
+    if (statNames.length) parts.push(statNames.map(function (key) { return '+' + item.statBonus[key] + ' ' + key; }).join('/'));
+    Object.keys(item.mult || {}).forEach(function (key) {
+      parts.push('+' + Math.round((item.mult[key] - 1) * 1000) / 10 + '% ' + (key === 'all' ? 'attack' : key));
+    });
+    var survivalLabels = { hpMult:'HP', fpMult:'FP', staminaMult:'stamina', equipLoadMult:'equip load' };
+    Object.keys(item.survival || {}).forEach(function (key) {
+      parts.push((item.survival[key] >= 1 ? '+' : '') + (Math.round((item.survival[key] - 1) * 1000) / 10) + '% ' + survivalLabels[key]);
+    });
+    var profile = Object.assign({}, item.defense || {}, item.defense && item.defense[combatContext] || {});
+    delete profile.pve; delete profile.pvp;
+    var damageKeys = ['physicalTakenMult','magicTakenMult','fireTakenMult','lightningTakenMult','holyTakenMult'];
+    var values = damageKeys.filter(function (key) { return profile[key] != null; }).map(function (key) { return profile[key]; });
+    if (values.length === 5 && values.every(function (value) { return value === values[0]; })) {
+      profile.allTakenMult = values[0]; damageKeys.forEach(function (key) { delete profile[key]; });
+    } else if (values.length === 4 && profile.physicalTakenMult == null && values.every(function (value) { return value === values[0]; })) {
+      var elementRate = values[0]; ['magicTakenMult','fireTakenMult','lightningTakenMult','holyTakenMult'].forEach(function (key) { delete profile[key]; });
+      parts.push((elementRate <= 1 ? '−' : '+') + Math.abs(Math.round((1 - elementRate) * 1000) / 10) + '% non-physical taken (' + combatContext.toUpperCase() + ')');
+    }
+    var defenseLabels = { allTakenMult:'all damage', physicalTakenMult:'physical', standardTakenMult:'standard', strikeTakenMult:'strike', slashTakenMult:'slash', pierceTakenMult:'pierce', magicTakenMult:'magic', fireTakenMult:'fire', lightningTakenMult:'lightning', holyTakenMult:'holy' };
+    Object.keys(defenseLabels).forEach(function (key) {
+      if (profile[key] == null) return;
+      var delta = Math.round((1 - profile[key]) * 1000) / 10;
+      parts.push((delta >= 0 ? '−' : '+') + Math.abs(delta) + '% ' + defenseLabels[key] + ' taken' + (item.defense && (item.defense.pve || item.defense.pvp) ? ' (' + combatContext.toUpperCase() + ')' : ''));
+    });
+    Object.keys(item.resistance || {}).forEach(function (key) { parts.push('+' + item.resistance[key] + ' ' + key); });
+    var utilityLabels = { hpRegenPerSec:'HP/s', fpRegenPerSec:'FP/s', staminaRecoveryFlat:'stamina/s', memorySlots:'memory slots', virtualDex:'virtual DEX' };
+    Object.keys(item.utility || {}).forEach(function (key) { parts.push('+' + item.utility[key] + ' ' + utilityLabels[key]); });
+    return parts.join(' · ') || item.note || item.effect;
+  }
+
   function renderEffectStack(taliEffects) {
     var buffs = Object.keys(activeBuffs).filter(function (id) { return activeBuffs[id]; }).map(buffById).filter(Boolean);
     var rows = buffs.map(function (item) {
@@ -460,7 +498,7 @@
       var item = entry.item;
       var status = entry.invalid ? 'INVALID' : !entry.modeled ? 'WEIGHT ONLY' : entry.active ? 'APPLIED' : 'CONDITION OFF';
       rows.push('<div class="effect-row' + (entry.active ? ' active' : '') + (entry.invalid ? ' invalid' : '') + '">' +
-        '<span class="effect-mark"><img src="../' + item.icon + '" alt=""></span><span><b>' + escText(item.name) + '</b><small>' + escText(item.note || item.effect) +
+        '<span class="effect-mark"><img src="../' + item.icon + '" alt=""></span><span><b>' + escText(item.name) + '</b><small>' + escText(talismanMathText(item)) +
         (item.condition ? ' · ' + escText(item.condition.label) : '') + '</small></span><em>' + status + '</em></div>');
     });
     $('effectStack').innerHTML = rows.length
@@ -513,6 +551,7 @@
   function applyState(o) {
     if (o.stats) STATS.forEach(function (k) { if (o.stats[k] >= 1) { build[k] = Math.min(99, o.stats[k]); syncStat(k); } });
     twoHanded = o.twoHanded !== false; $('twoHand').checked = twoHanded;
+    combatContext = o.combatContext === 'pvp' ? 'pvp' : 'pve'; $('combatContext').value = combatContext;
     var w = o.weapon && weapons.find(function (x) { return x.id === o.weapon; });
     if (w) { current = w; fillUpgrade(); fillAffinity(); }
     if (o.upgrade != null) { upgradeLevel = o.upgrade; $('upgrade').value = o.upgrade; }
@@ -741,6 +780,15 @@
     $('survHP').textContent = se.hp;
     $('survFP').textContent = se.fp;
     $('survStam').textContent = se.stamina;
+    var utility = ERCalc.aggregateUtility(mods);
+    var utilityPills = [];
+    if (utility.hpRegenPerSec) utilityPills.push('+' + utility.hpRegenPerSec + ' HP/s');
+    if (utility.fpRegenPerSec) utilityPills.push('+' + utility.fpRegenPerSec + ' FP/s');
+    if (utility.staminaRecoveryFlat) utilityPills.push('+' + utility.staminaRecoveryFlat + ' stamina/s');
+    if (utility.memorySlots) utilityPills.push('+' + utility.memorySlots + ' memory slots');
+    if (utility.virtualDex) utilityPills.push('+' + utility.virtualDex + ' virtual DEX casting speed');
+    $('survUtility').hidden = !utilityPills.length;
+    $('survUtility').innerHTML = utilityPills.map(function (label) { return '<span>' + label + '</span>'; }).join('');
     $('survLoadText').innerHTML = totalW + ' / ' + se.equipLoad +
       (equippedWeapons.some(function (weapon) { return weapon.weight == null; }) ? ' <span class="unverified" title="an equipped weapon weight is unknown — not counted">?</span>' : '');
     $('survLoadBar').innerHTML =
@@ -774,15 +822,17 @@
     $('armorWeight').textContent = armorTotal.weight.toFixed(1);
     $('armorPoise').textContent = armorTotal.poise;
     $('poiseNote').textContent = armorTotal.poise < 51 ? (51 - armorTotal.poise) + ' to 51' : armorTotal.poise < 101 ? (101 - armorTotal.poise) + ' to 101' : '101+ tier';
-    var finalDefense = ERCalc.aggregateDefense(armorTotal, mods);
+    var finalDefense = ERCalc.aggregateDefense(armorTotal, mods, combatContext);
+    $('defenseContextLabel').textContent = combatContext === 'pvp' ? 'PvP' : 'PvE';
     var defenseTypes = [['physical','Physical'],['strike','Strike'],['slash','Slash'],['pierce','Pierce'],['magic','Magic'],['fire','Fire'],['lightning','Lightning'],['holy','Holy']];
     $('armorNegation').innerHTML = defenseTypes.map(function (entry) {
       var value = finalDefense.negation[entry[0]];
       return '<div class="defense-row"><span>' + entry[1] + '</span><div class="defense-bar"><i style="width:' + Math.max(0, Math.min(100, value * 2.5)) + '%"></i></div><b>' + value.toFixed(1) + '</b></div>';
     }).join('');
     var resistTypes = [['immunity','Immunity'],['robustness','Robustness'],['focus','Focus'],['vitality','Vitality']];
+    var finalResistance = ERCalc.aggregateResistance(armorTotal, mods);
     $('armorResistance').innerHTML = resistTypes.map(function (entry) {
-      return '<div><span>' + entry[1] + '</span><b>' + armorTotal.resistance[entry[0]] + '</b></div>';
+      return '<div><span>' + entry[1] + '</span><b>' + finalResistance[entry[0]] + '</b></div>';
     }).join('');
   }
 

@@ -104,12 +104,14 @@ a:hover { text-decoration: underline; }
 .v { color: var(--text); }
 
 /* ---------- character ---------- */
-.level-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+.level-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 14px; }
 .level { font: 600 34px/1 var(--serif-num); color: var(--gold-2); }
 .level-input { background: transparent; border: 0; border-bottom: 1px dashed transparent; padding: 0 0 1px; width: 2.5em; color: var(--gold-2); -webkit-text-fill-color: var(--gold-2); font-variant-numeric: tabular-nums; cursor: text; transition: border-color .15s var(--ease); -moz-appearance: textfield; }
 .level-input:hover { border-bottom-color: var(--gold-dim); }
 .level-input:focus { outline: none; border-bottom-color: var(--gold-2); }
 .level-input::-webkit-outer-spin-button, .level-input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+.context-control { display: flex; flex-direction: column; gap: 3px; margin-left: auto; color: var(--dim); font-size: 9px; letter-spacing: .1em; text-transform: uppercase; }
+.context-control select { min-width: 76px; padding: 5px 24px 5px 8px; border: 1px solid var(--line); border-radius: 6px; background: var(--panel-2); color: var(--gold-2); font: 600 12px var(--serif); cursor: pointer; }
 .two-hand { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--dim); cursor: pointer; }
 .two-hand input { display: none; }
 .two-hand i { width: 34px; height: 18px; border-radius: 10px; background: #201a10; border: 1px solid var(--line); position: relative; transition: background-color .18s var(--ease), border-color .18s var(--ease); }
@@ -657,6 +659,8 @@ body.build-page { padding-bottom: 80px; }
 .surv-stat { background: var(--panel-2); border: 1px solid var(--line-2); border-radius: 6px; padding: 6px 8px; text-align: center; }
 .surv-stat .k { display: block; margin-bottom: 2px; }
 .surv-stat b { font-family: var(--serif-num); font-size: 20px; color: var(--gold-2); }
+.surv-utility { display: flex; flex-wrap: wrap; gap: 5px; }
+.surv-utility span { padding: 4px 7px; border: 1px solid rgba(134,173,92,.22); border-radius: 999px; background: rgba(134,173,92,.055); color: var(--green); font-size: 10px; letter-spacing: .02em; }
 .surv-load-head { display: flex; align-items: baseline; gap: 8px; margin-top: 2px; }
 .surv-load-text { font-family: var(--serif-num); font-size: 16px; color: var(--text); }
 .roll-state { margin-left: auto; font-size: 12px; letter-spacing: .05em; text-transform: uppercase; }
@@ -708,7 +712,8 @@ body.build-page { padding-bottom: 80px; }
 .defense-hero > div { position: relative; display: flex; flex-direction: column; padding: 7px 9px; border: 1px solid var(--line-2); border-radius: 7px; background: var(--panel-2); }
 .defense-hero b { color: var(--gold-2); font: 600 23px/1.1 var(--serif-num); font-variant-numeric: tabular-nums; }
 .defense-hero small { position: absolute; right: 8px; bottom: 7px; color: var(--dim); font-size: 10px; }
-.defense-label { margin: 12px 0 5px; font-size: 9px; }
+.defense-label { display: flex; justify-content: space-between; gap: 8px; margin: 12px 0 5px; font-size: 9px; }
+.defense-label span { color: var(--gold-dim); }
 .defense-grid { display: grid; gap: 3px; }
 .defense-row { display: grid; grid-template-columns: 60px minmax(0, 1fr) 30px; align-items: center; gap: 7px; font-size: 11px; color: var(--dim); }
 .defense-row b { color: var(--text); font: 600 13px var(--serif-num); text-align: right; font-variant-numeric: tabular-nums; }

@@ -1,7 +1,7 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "gameVersion": "1.16",
-  "generatedAt": "2026-08-06T05:56:44.270Z",
+  "generatedAt": "2026-08-06T06:09:52.640Z",
   "sources": [
     {
       "name": "Eldenpedia talisman catalog",
@@ -29,6 +29,19 @@
       ]
     },
     {
+      "name": "ERDB SpEffectParam 1.10 direct effect fields",
+      "url": "https://github.com/EldenRingDatabase/erdb",
+      "revision": "e2028a6",
+      "fields": [
+        "survival multipliers",
+        "PvE/PvP damage multipliers",
+        "resistance points",
+        "regeneration",
+        "memory slots",
+        "virtual casting dexterity"
+      ]
+    },
+    {
       "name": "Tarnished Archive reviewed effect models",
       "path": "data/buffs.json",
       "fields": [
@@ -50,7 +63,7 @@
   ],
   "coverage": {
     "inventory": 154,
-    "modeled": 21,
+    "modeled": 73,
     "base": 115,
     "dlc": 39
   },
@@ -157,7 +170,17 @@
         "conflictGroup": 1030
       },
       "conflictGroup": "param-1030",
-      "modelStatus": "inventory"
+      "modelStatus": "modeled",
+      "survival": {
+        "equipLoadMult": 1.15
+      },
+      "paramModel": {
+        "effectId": 310300,
+        "fields": [
+          "survival"
+        ]
+      },
+      "mathNote": "equip load ×1.15"
     },
     {
       "id": "arsenal-charm-1",
@@ -174,7 +197,17 @@
         "conflictGroup": 1030
       },
       "conflictGroup": "param-1030",
-      "modelStatus": "inventory"
+      "modelStatus": "modeled",
+      "survival": {
+        "equipLoadMult": 1.17
+      },
+      "paramModel": {
+        "effectId": 310310,
+        "fields": [
+          "survival"
+        ]
+      },
+      "mathNote": "equip load ×1.17"
     },
     {
       "id": "assassins-cerulean-dagger",
@@ -278,7 +311,17 @@
         "conflictGroup": 5020
       },
       "conflictGroup": "param-5020",
-      "modelStatus": "inventory"
+      "modelStatus": "modeled",
+      "utility": {
+        "hpRegenPerSec": 2
+      },
+      "paramModel": {
+        "effectId": 350200,
+        "fields": [
+          "utility"
+        ]
+      },
+      "mathNote": "+2 HP/s"
     },
     {
       "id": "blue-dancer-charm",
@@ -312,7 +355,35 @@
         "conflictGroup": 4080
       },
       "conflictGroup": "param-4080",
-      "modelStatus": "inventory"
+      "modelStatus": "modeled",
+      "defense": {
+        "pve": {
+          "physicalTakenMult": 0.5,
+          "magicTakenMult": 0.5,
+          "fireTakenMult": 0.5,
+          "lightningTakenMult": 0.5,
+          "holyTakenMult": 0.5
+        },
+        "pvp": {
+          "physicalTakenMult": 0.5,
+          "magicTakenMult": 0.5,
+          "fireTakenMult": 0.5,
+          "lightningTakenMult": 0.5,
+          "holyTakenMult": 0.5
+        }
+      },
+      "condition": {
+        "id": "low-hp",
+        "label": "Below 20% HP",
+        "defaultActive": false
+      },
+      "paramModel": {
+        "effectId": 340800,
+        "fields": [
+          "defense",
+          "condition"
+        ]
+      }
     },
     {
       "id": "boltdrake-talisman",
@@ -329,7 +400,22 @@
         "conflictGroup": 4030
       },
       "conflictGroup": "param-4030",
-      "modelStatus": "inventory"
+      "modelStatus": "modeled",
+      "defense": {
+        "pve": {
+          "lightningTakenMult": 0.87
+        },
+        "pvp": {
+          "lightningTakenMult": 0.96
+        }
+      },
+      "paramModel": {
+        "effectId": 340300,
+        "fields": [
+          "defense"
+        ]
+      },
+      "mathNote": "PvE lightning taken ×0.87 · PvP lightning taken ×0.96"
     },
     {
       "id": "boltdrake-talisman-1",
@@ -346,7 +432,22 @@
         "conflictGroup": 4030
       },
       "conflictGroup": "param-4030",
-      "modelStatus": "inventory"
+      "modelStatus": "modeled",
+      "defense": {
+        "pve": {
+          "lightningTakenMult": 0.83
+        },
+        "pvp": {
+          "lightningTakenMult": 0.95
+        }
+      },
+      "paramModel": {
+        "effectId": 340310,
+        "fields": [
+          "defense"
+        ]
+      },
+      "mathNote": "PvE lightning taken ×0.83 · PvP lightning taken ×0.95"
     },
     {
       "id": "boltdrake-talisman-2",
@@ -363,7 +464,22 @@
         "conflictGroup": 4030
       },
       "conflictGroup": "param-4030",
-      "modelStatus": "inventory"
+      "modelStatus": "modeled",
+      "defense": {
+        "pve": {
+          "lightningTakenMult": 0.8
+        },
+        "pvp": {
+          "lightningTakenMult": 0.94
+        }
+      },
+      "paramModel": {
+        "effectId": 340320,
+        "fields": [
+          "defense"
+        ]
+      },
+      "mathNote": "PvE lightning taken ×0.8 · PvP lightning taken ×0.94"
     },
     {
       "id": "boltdrake-talisman-3",
@@ -426,7 +542,17 @@
         "conflictGroup": 1010
       },
       "conflictGroup": "param-1010",
-      "modelStatus": "inventory"
+      "modelStatus": "modeled",
+      "survival": {
+        "fpMult": 1.07
+      },
+      "paramModel": {
+        "effectId": 310100,
+        "fields": [
+          "survival"
+        ]
+      },
+      "mathNote": "FP ×1.07"
     },
     {
       "id": "cerulean-amber-medallion-1",
@@ -443,7 +569,17 @@
         "conflictGroup": 1010
       },
       "conflictGroup": "param-1010",
-      "modelStatus": "inventory"
+      "modelStatus": "modeled",
+      "survival": {
+        "fpMult": 1.09
+      },
+      "paramModel": {
+        "effectId": 310110,
+        "fields": [
+          "survival"
+        ]
+      },
+      "mathNote": "FP ×1.09"
     },
     {
       "id": "cerulean-amber-medallion-2",
@@ -460,7 +596,17 @@
         "conflictGroup": 1010
       },
       "conflictGroup": "param-1010",
-      "modelStatus": "inventory"
+      "modelStatus": "modeled",
+      "survival": {
+        "fpMult": 1.11
+      },
+      "paramModel": {
+        "effectId": 310120,
+        "fields": [
+          "survival"
+        ]
+      },
+      "mathNote": "FP ×1.11"
     },
     {
       "id": "cerulean-amber-medallion-3",
@@ -518,7 +664,17 @@
         "conflictGroup": 1180
       },
       "conflictGroup": "param-1180",
-      "modelStatus": "inventory"
+      "modelStatus": "modeled",
+      "resistance": {
+        "focus": 90
+      },
+      "paramModel": {
+        "effectId": 311800,
+        "fields": [
+          "resistance"
+        ]
+      },
+      "mathNote": "+90 focus"
     },
     {
       "id": "clarifying-horn-charm-1",
@@ -535,7 +691,17 @@
         "conflictGroup": 1180
       },
       "conflictGroup": "param-1180",
-      "modelStatus": "inventory"
+      "modelStatus": "modeled",
+      "resistance": {
+        "focus": 140
+      },
+      "paramModel": {
+        "effectId": 311810,
+        "fields": [
+          "resistance"
+        ]
+      },
+      "mathNote": "+140 focus"
     },
     {
       "id": "clarifying-horn-charm-2",
@@ -632,7 +798,17 @@
         "conflictGroup": 1000
       },
       "conflictGroup": "param-1000",
-      "modelStatus": "inventory"
+      "modelStatus": "modeled",
+      "survival": {
+        "hpMult": 1.06
+      },
+      "paramModel": {
+        "effectId": 310000,
+        "fields": [
+          "survival"
+        ]
+      },
+      "mathNote": "HP ×1.06"
     },
     {
       "id": "crimson-amber-medallion-1",
@@ -649,7 +825,17 @@
         "conflictGroup": 1000
       },
       "conflictGroup": "param-1000",
-      "modelStatus": "inventory"
+      "modelStatus": "modeled",
+      "survival": {
+        "hpMult": 1.07
+      },
+      "paramModel": {
+        "effectId": 310010,
+        "fields": [
+          "survival"
+        ]
+      },
+      "mathNote": "HP ×1.07"
     },
     {
       "id": "crimson-amber-medallion-2",
@@ -666,7 +852,17 @@
         "conflictGroup": 1000
       },
       "conflictGroup": "param-1000",
-      "modelStatus": "inventory"
+      "modelStatus": "modeled",
+      "survival": {
+        "hpMult": 1.08
+      },
+      "paramModel": {
+        "effectId": 310020,
+        "fields": [
+          "survival"
+        ]
+      },
+      "mathNote": "HP ×1.08"
     },
     {
       "id": "crimson-amber-medallion-3",
@@ -724,7 +920,16 @@
         "conflictGroup": 4070
       },
       "conflictGroup": "param-4070",
-      "modelStatus": "inventory"
+      "modelStatus": "modeled",
+      "defense": {
+        "allTakenMult": 1.3
+      },
+      "paramModel": {
+        "effectId": 340700,
+        "fields": [
+          "defense"
+        ]
+      }
     },
     {
       "id": "crucible-knot-talisman",
@@ -758,7 +963,22 @@
         "conflictGroup": 4060
       },
       "conflictGroup": "param-4060",
-      "modelStatus": "inventory"
+      "modelStatus": "modeled",
+      "defense": {
+        "allTakenMult": 0.7
+      },
+      "condition": {
+        "id": "incoming-critical",
+        "label": "Incoming critical hit",
+        "defaultActive": false
+      },
+      "paramModel": {
+        "effectId": 340600,
+        "fields": [
+          "defense",
+          "condition"
+        ]
+      }
     },
     {
       "id": "crusade-insignia",
@@ -804,7 +1024,16 @@
         "conflictGroup": 6060
       },
       "conflictGroup": "param-6060",
-      "modelStatus": "inventory"
+      "modelStatus": "modeled",
+      "defense": {
+        "allTakenMult": 2
+      },
+      "paramModel": {
+        "effectId": 360600,
+        "fields": [
+          "defense"
+        ]
+      }
     },
     {
       "id": "dagger-talisman",
@@ -838,7 +1067,22 @@
         "conflictGroup": 4000
       },
       "conflictGroup": "param-4000",
-      "modelStatus": "inventory"
+      "modelStatus": "modeled",
+      "defense": {
+        "pve": {
+          "physicalTakenMult": 0.8
+        },
+        "pvp": {
+          "physicalTakenMult": 0.95
+        }
+      },
+      "paramModel": {
+        "effectId": 340030,
+        "fields": [
+          "defense"
+        ]
+      },
+      "mathNote": "PvE physical taken ×0.8 · PvP physical taken ×0.95"
     },
     {
       "id": "dragoncrest-shield-talisman",
@@ -855,7 +1099,22 @@
         "conflictGroup": 4000
       },
       "conflictGroup": "param-4000",
-      "modelStatus": "inventory"
+      "modelStatus": "modeled",
+      "defense": {
+        "pve": {
+          "physicalTakenMult": 0.9
+        },
+        "pvp": {
+          "physicalTakenMult": 0.98
+        }
+      },
+      "paramModel": {
+        "effectId": 340000,
+        "fields": [
+          "defense"
+        ]
+      },
+      "mathNote": "PvE physical taken ×0.9 · PvP physical taken ×0.98"
     },
     {
       "id": "dragoncrest-shield-talisman-1",
@@ -872,7 +1131,22 @@
         "conflictGroup": 4000
       },
       "conflictGroup": "param-4000",
-      "modelStatus": "inventory"
+      "modelStatus": "modeled",
+      "defense": {
+        "pve": {
+          "physicalTakenMult": 0.87
+        },
+        "pvp": {
+          "physicalTakenMult": 0.97
+        }
+      },
+      "paramModel": {
+        "effectId": 340010,
+        "fields": [
+          "defense"
+        ]
+      },
+      "mathNote": "PvE physical taken ×0.87 · PvP physical taken ×0.97"
     },
     {
       "id": "dragoncrest-shield-talisman-2",
@@ -889,7 +1163,22 @@
         "conflictGroup": 4000
       },
       "conflictGroup": "param-4000",
-      "modelStatus": "inventory"
+      "modelStatus": "modeled",
+      "defense": {
+        "pve": {
+          "physicalTakenMult": 0.83
+        },
+        "pvp": {
+          "physicalTakenMult": 0.96
+        }
+      },
+      "paramModel": {
+        "effectId": 340020,
+        "fields": [
+          "defense"
+        ]
+      },
+      "mathNote": "PvE physical taken ×0.83 · PvP physical taken ×0.96"
     },
     {
       "id": "dried-bouquet",
@@ -930,7 +1219,19 @@
         "conflictGroup": 1040
       },
       "conflictGroup": "param-1040",
-      "modelStatus": "inventory"
+      "modelStatus": "modeled",
+      "survival": {
+        "hpMult": 1.03,
+        "staminaMult": 1.07,
+        "equipLoadMult": 1.05
+      },
+      "paramModel": {
+        "effectId": 310400,
+        "fields": [
+          "survival"
+        ]
+      },
+      "mathNote": "HP ×1.03 · stamina ×1.07 · equip load ×1.05"
     },
     {
       "id": "erdtrees-favor-1",
@@ -947,7 +1248,19 @@
         "conflictGroup": 1040
       },
       "conflictGroup": "param-1040",
-      "modelStatus": "inventory"
+      "modelStatus": "modeled",
+      "survival": {
+        "hpMult": 1.035,
+        "staminaMult": 1.085,
+        "equipLoadMult": 1.065
+      },
+      "paramModel": {
+        "effectId": 310410,
+        "fields": [
+          "survival"
+        ]
+      },
+      "mathNote": "HP ×1.035 · stamina ×1.085 · equip load ×1.065"
     },
     {
       "id": "erdtrees-favor-2",
@@ -970,6 +1283,13 @@
         "staminaMult": 1.1,
         "equipLoadMult": 1.08
       },
+      "paramModel": {
+        "effectId": 310420,
+        "fields": [
+          "survival"
+        ]
+      },
+      "mathNote": "HP ×1.04 · stamina ×1.1 · equip load ×1.08",
       "note": "+4% HP · +10% stamina · +8% equip load",
       "confirmed": true
     },
@@ -1026,11 +1346,23 @@
       },
       "conflictGroup": "param-2020",
       "modelStatus": "modeled",
+      "defense": {
+        "pve": {
+          "physicalTakenMult": 1.1
+        },
+        "pvp": {
+          "physicalTakenMult": 1.15
+        }
+      },
+      "paramModel": {
+        "effectId": 320200,
+        "fields": [
+          "defense"
+        ]
+      },
+      "mathNote": "PvE physical taken ×1.1 · PvP physical taken ×1.15",
       "mult": {
         "fire": 1.12
-      },
-      "defense": {
-        "physicalTakenMult": 1.1
       },
       "note": "+12% fire · +10% phys damage taken",
       "confirmed": true
@@ -1050,7 +1382,22 @@
         "conflictGroup": 4020
       },
       "conflictGroup": "param-4020",
-      "modelStatus": "inventory"
+      "modelStatus": "modeled",
+      "defense": {
+        "pve": {
+          "fireTakenMult": 0.87
+        },
+        "pvp": {
+          "fireTakenMult": 0.96
+        }
+      },
+      "paramModel": {
+        "effectId": 340200,
+        "fields": [
+          "defense"
+        ]
+      },
+      "mathNote": "PvE fire taken ×0.87 · PvP fire taken ×0.96"
     },
     {
       "id": "flamedrake-talisman-1",
@@ -1067,7 +1414,22 @@
         "conflictGroup": 4020
       },
       "conflictGroup": "param-4020",
-      "modelStatus": "inventory"
+      "modelStatus": "modeled",
+      "defense": {
+        "pve": {
+          "fireTakenMult": 0.83
+        },
+        "pvp": {
+          "fireTakenMult": 0.95
+        }
+      },
+      "paramModel": {
+        "effectId": 340210,
+        "fields": [
+          "defense"
+        ]
+      },
+      "mathNote": "PvE fire taken ×0.83 · PvP fire taken ×0.95"
     },
     {
       "id": "flamedrake-talisman-2",
@@ -1084,7 +1446,22 @@
         "conflictGroup": 4020
       },
       "conflictGroup": "param-4020",
-      "modelStatus": "inventory"
+      "modelStatus": "modeled",
+      "defense": {
+        "pve": {
+          "fireTakenMult": 0.8
+        },
+        "pvp": {
+          "fireTakenMult": 0.94
+        }
+      },
+      "paramModel": {
+        "effectId": 340220,
+        "fields": [
+          "defense"
+        ]
+      },
+      "mathNote": "PvE fire taken ×0.8 · PvP fire taken ×0.94"
     },
     {
       "id": "flamedrake-talisman-3",
@@ -1248,6 +1625,13 @@
       "survival": {
         "equipLoadMult": 1.19
       },
+      "paramModel": {
+        "effectId": 310320,
+        "fields": [
+          "survival"
+        ]
+      },
+      "mathNote": "equip load ×1.19",
       "note": "+19% max equip load",
       "confirmed": true
     },
@@ -1283,7 +1667,17 @@
         "conflictGroup": 1150
       },
       "conflictGroup": "param-1150",
-      "modelStatus": "inventory"
+      "modelStatus": "modeled",
+      "utility": {
+        "staminaRecoveryFlat": 8
+      },
+      "paramModel": {
+        "effectId": 311500,
+        "fields": [
+          "utility"
+        ]
+      },
+      "mathNote": "+8 stamina/s"
     },
     {
       "id": "haligdrake-talisman",
@@ -1300,7 +1694,22 @@
         "conflictGroup": 4040
       },
       "conflictGroup": "param-4040",
-      "modelStatus": "inventory"
+      "modelStatus": "modeled",
+      "defense": {
+        "pve": {
+          "holyTakenMult": 0.87
+        },
+        "pvp": {
+          "holyTakenMult": 0.96
+        }
+      },
+      "paramModel": {
+        "effectId": 340400,
+        "fields": [
+          "defense"
+        ]
+      },
+      "mathNote": "PvE holy taken ×0.87 · PvP holy taken ×0.96"
     },
     {
       "id": "haligdrake-talisman-1",
@@ -1317,7 +1726,22 @@
         "conflictGroup": 4040
       },
       "conflictGroup": "param-4040",
-      "modelStatus": "inventory"
+      "modelStatus": "modeled",
+      "defense": {
+        "pve": {
+          "holyTakenMult": 0.83
+        },
+        "pvp": {
+          "holyTakenMult": 0.95
+        }
+      },
+      "paramModel": {
+        "effectId": 340410,
+        "fields": [
+          "defense"
+        ]
+      },
+      "mathNote": "PvE holy taken ×0.83 · PvP holy taken ×0.95"
     },
     {
       "id": "haligdrake-talisman-2",
@@ -1334,7 +1758,22 @@
         "conflictGroup": 4040
       },
       "conflictGroup": "param-4040",
-      "modelStatus": "inventory"
+      "modelStatus": "modeled",
+      "defense": {
+        "pve": {
+          "holyTakenMult": 0.8
+        },
+        "pvp": {
+          "holyTakenMult": 0.94
+        }
+      },
+      "paramModel": {
+        "effectId": 340420,
+        "fields": [
+          "defense"
+        ]
+      },
+      "mathNote": "PvE holy taken ×0.8 · PvP holy taken ×0.94"
     },
     {
       "id": "hammer-talisman",
@@ -1385,7 +1824,17 @@
         "conflictGroup": 1170
       },
       "conflictGroup": "param-1170",
-      "modelStatus": "inventory"
+      "modelStatus": "modeled",
+      "resistance": {
+        "immunity": 90
+      },
+      "paramModel": {
+        "effectId": 311700,
+        "fields": [
+          "resistance"
+        ]
+      },
+      "mathNote": "+90 immunity"
     },
     {
       "id": "immunizing-horn-charm-1",
@@ -1402,7 +1851,17 @@
         "conflictGroup": 1170
       },
       "conflictGroup": "param-1170",
-      "modelStatus": "inventory"
+      "modelStatus": "modeled",
+      "resistance": {
+        "immunity": 140
+      },
+      "paramModel": {
+        "effectId": 311710,
+        "fields": [
+          "resistance"
+        ]
+      },
+      "mathNote": "+140 immunity"
     },
     {
       "id": "immunizing-horn-charm-2",
@@ -1488,11 +1947,23 @@
       },
       "conflictGroup": "param-2010",
       "modelStatus": "modeled",
+      "defense": {
+        "pve": {
+          "physicalTakenMult": 1.1
+        },
+        "pvp": {
+          "physicalTakenMult": 1.15
+        }
+      },
+      "paramModel": {
+        "effectId": 320100,
+        "fields": [
+          "defense"
+        ]
+      },
+      "mathNote": "PvE physical taken ×1.1 · PvP physical taken ×1.15",
       "mult": {
         "lightning": 1.12
-      },
-      "defense": {
-        "physicalTakenMult": 1.1
       },
       "note": "+12% lightning · +10% phys damage taken",
       "confirmed": false
@@ -1557,11 +2028,23 @@
       },
       "conflictGroup": "param-2000",
       "modelStatus": "modeled",
+      "defense": {
+        "pve": {
+          "physicalTakenMult": 1.1
+        },
+        "pvp": {
+          "physicalTakenMult": 1.15
+        }
+      },
+      "paramModel": {
+        "effectId": 320000,
+        "fields": [
+          "defense"
+        ]
+      },
+      "mathNote": "PvE physical taken ×1.1 · PvP physical taken ×1.15",
       "mult": {
         "magic": 1.12
-      },
-      "defense": {
-        "physicalTakenMult": 1.1
       },
       "note": "+12% magic · +10% phys damage taken",
       "confirmed": false
@@ -1582,14 +2065,20 @@
       },
       "conflictGroup": "param-1220",
       "modelStatus": "modeled",
+      "defense": {
+        "allTakenMult": 1.1
+      },
+      "paramModel": {
+        "effectId": 312200,
+        "fields": [
+          "defense"
+        ]
+      },
       "statBonus": {
         "MND": 3,
         "INT": 3,
         "FAI": 3,
         "ARC": 3
-      },
-      "defense": {
-        "allTakenMult": 1.1
       },
       "note": "+3 MND/INT/FAI/ARC · +10% damage taken",
       "confirmed": false
@@ -1610,14 +2099,20 @@
       },
       "conflictGroup": "param-1220",
       "modelStatus": "modeled",
+      "defense": {
+        "allTakenMult": 1.15
+      },
+      "paramModel": {
+        "effectId": 312210,
+        "fields": [
+          "defense"
+        ]
+      },
       "statBonus": {
         "MND": 5,
         "INT": 5,
         "FAI": 5,
         "ARC": 5
-      },
-      "defense": {
-        "allTakenMult": 1.15
       },
       "note": "+5 MND/INT/FAI/ARC · +15% damage taken",
       "confirmed": true
@@ -1667,7 +2162,17 @@
         "conflictGroup": 1140
       },
       "conflictGroup": "param-1140",
-      "modelStatus": "inventory"
+      "modelStatus": "modeled",
+      "utility": {
+        "memorySlots": 2
+      },
+      "paramModel": {
+        "effectId": 311400,
+        "fields": [
+          "utility"
+        ]
+      },
+      "mathNote": "+2 memory slots"
     },
     {
       "id": "mottled-necklace",
@@ -1684,7 +2189,19 @@
         "conflictGroup": 1200
       },
       "conflictGroup": "param-1200",
-      "modelStatus": "inventory"
+      "modelStatus": "modeled",
+      "resistance": {
+        "immunity": 40,
+        "robustness": 40,
+        "focus": 40
+      },
+      "paramModel": {
+        "effectId": 312000,
+        "fields": [
+          "resistance"
+        ]
+      },
+      "mathNote": "+40 immunity · +40 robustness · +40 focus"
     },
     {
       "id": "mottled-necklace-1",
@@ -1701,7 +2218,19 @@
         "conflictGroup": 1200
       },
       "conflictGroup": "param-1200",
-      "modelStatus": "inventory"
+      "modelStatus": "modeled",
+      "resistance": {
+        "immunity": 60,
+        "robustness": 60,
+        "focus": 60
+      },
+      "paramModel": {
+        "effectId": 312010,
+        "fields": [
+          "resistance"
+        ]
+      },
+      "mathNote": "+60 immunity · +60 robustness · +60 focus"
     },
     {
       "id": "mottled-necklace-2",
@@ -1771,7 +2300,27 @@
         "conflictGroup": 4050
       },
       "conflictGroup": "param-4050",
-      "modelStatus": "inventory"
+      "modelStatus": "modeled",
+      "defense": {
+        "pve": {
+          "magicTakenMult": 0.95,
+          "fireTakenMult": 0.95,
+          "lightningTakenMult": 0.95,
+          "holyTakenMult": 0.95
+        },
+        "pvp": {
+          "magicTakenMult": 0.98,
+          "fireTakenMult": 0.98,
+          "lightningTakenMult": 0.98,
+          "holyTakenMult": 0.98
+        }
+      },
+      "paramModel": {
+        "effectId": 340500,
+        "fields": [
+          "defense"
+        ]
+      }
     },
     {
       "id": "pearldrake-talisman-1",
@@ -1788,7 +2337,27 @@
         "conflictGroup": 4050
       },
       "conflictGroup": "param-4050",
-      "modelStatus": "inventory"
+      "modelStatus": "modeled",
+      "defense": {
+        "pve": {
+          "magicTakenMult": 0.93,
+          "fireTakenMult": 0.93,
+          "lightningTakenMult": 0.93,
+          "holyTakenMult": 0.93
+        },
+        "pvp": {
+          "magicTakenMult": 0.97,
+          "fireTakenMult": 0.97,
+          "lightningTakenMult": 0.97,
+          "holyTakenMult": 0.97
+        }
+      },
+      "paramModel": {
+        "effectId": 340510,
+        "fields": [
+          "defense"
+        ]
+      }
     },
     {
       "id": "pearldrake-talisman-2",
@@ -1805,7 +2374,27 @@
         "conflictGroup": 4050
       },
       "conflictGroup": "param-4050",
-      "modelStatus": "inventory"
+      "modelStatus": "modeled",
+      "defense": {
+        "pve": {
+          "magicTakenMult": 0.91,
+          "fireTakenMult": 0.91,
+          "lightningTakenMult": 0.91,
+          "holyTakenMult": 0.91
+        },
+        "pvp": {
+          "magicTakenMult": 0.96,
+          "fireTakenMult": 0.96,
+          "lightningTakenMult": 0.96,
+          "holyTakenMult": 0.96
+        }
+      },
+      "paramModel": {
+        "effectId": 340520,
+        "fields": [
+          "defense"
+        ]
+      }
     },
     {
       "id": "pearldrake-talisman-3",
@@ -1851,7 +2440,17 @@
         "conflictGroup": 3080
       },
       "conflictGroup": "param-3080",
-      "modelStatus": "inventory"
+      "modelStatus": "modeled",
+      "survival": {
+        "hpMult": 0.85
+      },
+      "paramModel": {
+        "effectId": 330800,
+        "fields": [
+          "survival"
+        ]
+      },
+      "mathNote": "HP ×0.85"
     },
     {
       "id": "prince-of-deaths-cyst",
@@ -1868,7 +2467,17 @@
         "conflictGroup": 1190
       },
       "conflictGroup": "param-1190",
-      "modelStatus": "inventory"
+      "modelStatus": "modeled",
+      "resistance": {
+        "vitality": 140
+      },
+      "paramModel": {
+        "effectId": 311910,
+        "fields": [
+          "resistance"
+        ]
+      },
+      "mathNote": "+140 vitality"
     },
     {
       "id": "prince-of-deaths-pustule",
@@ -1885,7 +2494,17 @@
         "conflictGroup": 1190
       },
       "conflictGroup": "param-1190",
-      "modelStatus": "inventory"
+      "modelStatus": "modeled",
+      "resistance": {
+        "vitality": 90
+      },
+      "paramModel": {
+        "effectId": 311900,
+        "fields": [
+          "resistance"
+        ]
+      },
+      "mathNote": "+90 vitality"
     },
     {
       "id": "prosthesis-wearer-heirloom",
@@ -1924,7 +2543,17 @@
         "conflictGroup": 3070
       },
       "conflictGroup": "param-3070",
-      "modelStatus": "inventory"
+      "modelStatus": "modeled",
+      "utility": {
+        "virtualDex": 30
+      },
+      "paramModel": {
+        "effectId": 330700,
+        "fields": [
+          "utility"
+        ]
+      },
+      "mathNote": "+30 virtual DEX casting speed"
     },
     {
       "id": "radagons-scarseal",
@@ -1942,14 +2571,20 @@
       },
       "conflictGroup": "param-1050",
       "modelStatus": "modeled",
+      "defense": {
+        "allTakenMult": 1.1
+      },
+      "paramModel": {
+        "effectId": 310500,
+        "fields": [
+          "defense"
+        ]
+      },
       "statBonus": {
         "VIG": 3,
         "END": 3,
         "STR": 3,
         "DEX": 3
-      },
-      "defense": {
-        "allTakenMult": 1.1
       },
       "note": "+3 VIG/END/STR/DEX · +10% damage taken",
       "confirmed": false
@@ -1970,14 +2605,20 @@
       },
       "conflictGroup": "param-1050",
       "modelStatus": "modeled",
+      "defense": {
+        "allTakenMult": 1.15
+      },
+      "paramModel": {
+        "effectId": 310510,
+        "fields": [
+          "defense"
+        ]
+      },
       "statBonus": {
         "VIG": 5,
         "END": 5,
         "STR": 5,
         "DEX": 5
-      },
-      "defense": {
-        "allTakenMult": 1.15
       },
       "note": "+5 VIG/END/STR/DEX · +15% damage taken",
       "confirmed": true
@@ -2048,7 +2689,35 @@
         "conflictGroup": 4090
       },
       "conflictGroup": "param-4090",
-      "modelStatus": "inventory"
+      "modelStatus": "modeled",
+      "defense": {
+        "pve": {
+          "physicalTakenMult": 0.7,
+          "magicTakenMult": 0.7,
+          "fireTakenMult": 0.7,
+          "lightningTakenMult": 0.7,
+          "holyTakenMult": 0.7
+        },
+        "pvp": {
+          "physicalTakenMult": 0.7,
+          "magicTakenMult": 0.7,
+          "fireTakenMult": 0.7,
+          "lightningTakenMult": 0.7,
+          "holyTakenMult": 0.7
+        }
+      },
+      "condition": {
+        "id": "full-hp",
+        "label": "Full HP",
+        "defaultActive": true
+      },
+      "paramModel": {
+        "effectId": 340900,
+        "fields": [
+          "defense",
+          "condition"
+        ]
+      }
     },
     {
       "id": "ritual-sword-talisman",
@@ -2140,11 +2809,23 @@
       },
       "conflictGroup": "param-2030",
       "modelStatus": "modeled",
+      "defense": {
+        "pve": {
+          "physicalTakenMult": 1.1
+        },
+        "pvp": {
+          "physicalTakenMult": 1.15
+        }
+      },
+      "paramModel": {
+        "effectId": 320300,
+        "fields": [
+          "defense"
+        ]
+      },
+      "mathNote": "PvE physical taken ×1.1 · PvP physical taken ×1.15",
       "mult": {
         "holy": 1.12
-      },
-      "defense": {
-        "physicalTakenMult": 1.1
       },
       "note": "+12% holy · +10% phys damage taken",
       "confirmed": false
@@ -2285,7 +2966,22 @@
         "conflictGroup": 4010
       },
       "conflictGroup": "param-4010",
-      "modelStatus": "inventory"
+      "modelStatus": "modeled",
+      "defense": {
+        "pve": {
+          "magicTakenMult": 0.87
+        },
+        "pvp": {
+          "magicTakenMult": 0.96
+        }
+      },
+      "paramModel": {
+        "effectId": 340100,
+        "fields": [
+          "defense"
+        ]
+      },
+      "mathNote": "PvE magic taken ×0.87 · PvP magic taken ×0.96"
     },
     {
       "id": "spelldrake-talisman-1",
@@ -2302,7 +2998,22 @@
         "conflictGroup": 4010
       },
       "conflictGroup": "param-4010",
-      "modelStatus": "inventory"
+      "modelStatus": "modeled",
+      "defense": {
+        "pve": {
+          "magicTakenMult": 0.83
+        },
+        "pvp": {
+          "magicTakenMult": 0.95
+        }
+      },
+      "paramModel": {
+        "effectId": 340110,
+        "fields": [
+          "defense"
+        ]
+      },
+      "mathNote": "PvE magic taken ×0.83 · PvP magic taken ×0.95"
     },
     {
       "id": "spelldrake-talisman-2",
@@ -2319,7 +3030,22 @@
         "conflictGroup": 4010
       },
       "conflictGroup": "param-4010",
-      "modelStatus": "inventory"
+      "modelStatus": "modeled",
+      "defense": {
+        "pve": {
+          "magicTakenMult": 0.8
+        },
+        "pvp": {
+          "magicTakenMult": 0.94
+        }
+      },
+      "paramModel": {
+        "effectId": 340120,
+        "fields": [
+          "defense"
+        ]
+      },
+      "mathNote": "PvE magic taken ×0.8 · PvP magic taken ×0.94"
     },
     {
       "id": "spelldrake-talisman-3",
@@ -2360,7 +3086,17 @@
         "conflictGroup": 1160
       },
       "conflictGroup": "param-1160",
-      "modelStatus": "inventory"
+      "modelStatus": "modeled",
+      "resistance": {
+        "robustness": 90
+      },
+      "paramModel": {
+        "effectId": 311600,
+        "fields": [
+          "resistance"
+        ]
+      },
+      "mathNote": "+90 robustness"
     },
     {
       "id": "stalwart-horn-charm-1",
@@ -2377,7 +3113,17 @@
         "conflictGroup": 1160
       },
       "conflictGroup": "param-1160",
-      "modelStatus": "inventory"
+      "modelStatus": "modeled",
+      "resistance": {
+        "robustness": 140
+      },
+      "paramModel": {
+        "effectId": 311610,
+        "fields": [
+          "resistance"
+        ]
+      },
+      "mathNote": "+140 robustness"
     },
     {
       "id": "stalwart-horn-charm-2",
@@ -2578,7 +3324,17 @@
         "conflictGroup": 1020
       },
       "conflictGroup": "param-1020",
-      "modelStatus": "inventory"
+      "modelStatus": "modeled",
+      "survival": {
+        "staminaMult": 1.11
+      },
+      "paramModel": {
+        "effectId": 310200,
+        "fields": [
+          "survival"
+        ]
+      },
+      "mathNote": "stamina ×1.11"
     },
     {
       "id": "viridian-amber-medallion-1",
@@ -2595,7 +3351,17 @@
         "conflictGroup": 1020
       },
       "conflictGroup": "param-1020",
-      "modelStatus": "inventory"
+      "modelStatus": "modeled",
+      "survival": {
+        "staminaMult": 1.13
+      },
+      "paramModel": {
+        "effectId": 310210,
+        "fields": [
+          "survival"
+        ]
+      },
+      "mathNote": "stamina ×1.13"
     },
     {
       "id": "viridian-amber-medallion-2",
@@ -2612,7 +3378,17 @@
         "conflictGroup": 1020
       },
       "conflictGroup": "param-1020",
-      "modelStatus": "inventory"
+      "modelStatus": "modeled",
+      "survival": {
+        "staminaMult": 1.15
+      },
+      "paramModel": {
+        "effectId": 310220,
+        "fields": [
+          "survival"
+        ]
+      },
+      "mathNote": "stamina ×1.15"
     },
     {
       "id": "viridian-amber-medallion-3",

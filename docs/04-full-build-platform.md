@@ -14,13 +14,13 @@ The experience should remain calm and legible. Motion communicates causality: ch
 flash softly, bars travel to their new state, equipment slots acknowledge selection, and panels
 reveal detail only when it is useful. Motion never delays input and respects reduced-motion.
 
-## Canonical build schema (v2)
+## Canonical build schema (v3)
 
 ```json
 {
-  "schemaVersion": 2,
+  "schemaVersion": 3,
   "name": "Vera Aletheia",
-  "mode": "pve",
+  "combatContext": "pve",
   "classId": null,
   "level": 175,
   "stats": { "VIG": 60, "MND": 20, "END": 30, "STR": 24, "DEX": 58, "INT": 9, "FAI": 15, "ARC": 40 },
@@ -38,7 +38,7 @@ reveal detail only when it is useful. Motion never delays input and respects red
 }
 ```
 
-Saved v1 builds and old URLs remain valid. The browser migrates missing fields to defaults.
+Saved v1/v2 builds and old URLs remain valid. The browser migrates missing fields to defaults.
 
 ## Calculation domains
 
@@ -102,13 +102,14 @@ migration. Breadth without trusted math does not count as completion.
 
 ## Implementation status
 
-- **Shipped:** canonical v2 state, four armor slots, defense aggregation, armor-aware roll state.
+- **Shipped:** canonical v3 state, four armor slots, defense aggregation, armor-aware roll state.
 - **Shipped:** six armament slots, active-slot switching, independent affinity/reinforcement,
   all-armament equip weight, compact sharing, and legacy migration.
 - **Shipped:** four true talisman slots, the full 154-item base+DLC inventory, exact icons,
   equip weight, param-derived conflicts, conditional assumption state, positional sharing,
-  transparent effect coverage, and incoming-damage modifier ordering. Twenty-one reviewed
-  talisman models currently affect live calculations; all other items are explicitly labeled
-  inventory-only rather than receiving inferred/fake math.
-- **Next:** complete the talisman formula matrix and PvE/PvP variants, then catalysts and spell
+  transparent effect coverage, and incoming-damage modifier ordering. Seventy-three talisman
+  models currently affect live calculations: 62 derive from direct ERDB SpEffectParam fields,
+  with separate PvE/PvP defense, survival, resistance, regeneration, memory-slot, and casting
+  outputs. All other items are explicitly inventory-only rather than receiving inferred math.
+- **Next:** complete the DLC and contextual attack formula matrix, then catalysts and spell
   memory on top of the same effect resolver.

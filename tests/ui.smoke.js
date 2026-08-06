@@ -44,20 +44,32 @@ async function main() {
     assert((await page.locator('#effectStack').textContent()).includes('APPLIED'), 'effect trace exposes applied modifiers');
 
     await equip(page, 2, 'Crimson Amber Medallion', 'Crimson Amber Medallion');
+    assert(Number(await page.locator('#survHP').textContent()) === Math.floor(1900 * 1.06), 'param-derived max HP changes live survival math');
     await page.locator('[data-tali-slot="3"]').click();
     await page.locator('#talismanSearch').fill('Crimson Amber Medallion +1');
     const conflict = page.locator('.talisman-result').filter({ has: page.locator('b', { hasText: 'Crimson Amber Medallion +1' }) }).first();
     assert(await conflict.isDisabled(), 'game-param conflict group blocks impossible talisman variants');
     await page.locator('#talismanPickerClose').click();
+    await page.locator('[data-tali-clear="2"]').click();
+    await equip(page, 2, 'Green Turtle', 'Green Turtle Talisman');
+    assert((await page.locator('#survUtility').textContent()).includes('+8 stamina/s'), 'utility talismans surface non-AR build outputs');
+
+    await equip(page, 3, 'Dragoncrest Greatshield', 'Dragoncrest Greatshield Talisman');
+    const physicalDefense = page.locator('#armorNegation .defense-row').filter({ hasText: 'Physical' });
+    assert((await physicalDefense.textContent()).includes('20.0'), 'PvE context applies the datamined Dragoncrest multiplier');
+    await page.locator('#combatContext').selectOption('pvp');
+    assert((await physicalDefense.textContent()).includes('5.0'), 'PvP context switches to its separate Dragoncrest multiplier');
 
     await page.waitForTimeout(350); // persistence is intentionally debounced by 250ms
     const url = page.url();
     assert(url.includes('tl='), 'share URL contains positional talisman state');
+    assert(url.includes('ctx=pvp'), 'share URL preserves PvE/PvP calculation context');
     await page.reload({ waitUntil: 'networkidle' });
     const restoredRack = await page.locator('#talismanRack').textContent();
     if (!restoredRack.includes("Great-Jar's Arsenal")) console.error('reload URL: ' + url + '\nrack: ' + restoredRack);
     assert(restoredRack.includes('Ritual Sword Talisman'), 'talisman state survives reload');
     assert(restoredRack.includes("Great-Jar's Arsenal"), 'multi-slot talisman state survives reload');
+    assert(await page.locator('#combatContext').inputValue() === 'pvp', 'combat context survives reload');
     await page.screenshot({ path: '/tmp/elden-talisman-desktop.png', fullPage: true });
 
     const mobile = await browser.newPage({ viewport: { width: 390, height: 844 } });

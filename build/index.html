@@ -31,6 +31,7 @@
     <h2>Character</h2>
     <div class="level-row">
       <div><div class="k">Level</div><input class="level level-input" id="level" type="number" min="1" max="713" value="1" aria-label="Character level (set manually)" title="Rune level — set it to match your character; independent from the stat sliders"></div>
+      <label class="context-control"><span>Defense context</span><select id="combatContext" aria-label="Defense calculation context"><option value="pve">PvE</option><option value="pvp">PvP</option></select></label>
       <label class="two-hand"><span>Two-Handed</span><input type="checkbox" id="twoHand" checked><i></i></label>
     </div>
     <div id="stats" class="stat-list"></div>
@@ -42,6 +43,7 @@
         <div class="surv-stat"><span class="k">FP</span><b id="survFP">—</b></div>
         <div class="surv-stat"><span class="k">Stamina</span><b id="survStam">—</b></div>
       </div>
+      <div class="surv-utility" id="survUtility" hidden></div>
       <div class="surv-load-head">
         <span class="k">Equip Load</span>
         <span id="survLoadText" class="surv-load-text">—</span>
@@ -72,7 +74,7 @@
         <div><span class="k">Armor Weight</span><b id="armorWeight">0.0</b></div>
         <div><span class="k">Poise</span><b id="armorPoise">0</b><small id="poiseNote">unarmored</small></div>
       </div>
-      <div class="k defense-label">Total Damage Negation</div>
+      <div class="k defense-label">Total Damage Negation <span id="defenseContextLabel">PvE</span></div>
       <div id="armorNegation" class="defense-grid"></div>
       <div class="k defense-label">Resistances</div>
       <div id="armorResistance" class="resistance-grid"></div>

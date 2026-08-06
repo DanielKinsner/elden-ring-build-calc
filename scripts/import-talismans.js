@@ -139,6 +139,136 @@ function readBaseParamRows() {
   return byName;
 }
 
+function readSpEffectRows() {
+  if (!fs.existsSync(ERDB_ZIP)) return new Map();
+  const csv = execFileSync('unzip', ['-p', ERDB_ZIP, 'SpEffectParam.csv'], {
+    encoding: 'utf8',
+    maxBuffer: 20 * 1024 * 1024
+  });
+  const lines = csv.trim().split(/\r?\n/);
+  const header = lines.shift().split(';');
+  const rows = new Map();
+  lines.forEach((line) => {
+    const cells = line.split(';');
+    const row = {};
+    header.forEach((key, index) => { row[key] = cells[index]; });
+    rows.set(Number(cells[0]), row);
+  });
+  return rows;
+}
+
+const PARAM_CONDITIONS = {
+  'blue-feathered-branchsword': { id: 'low-hp', label: 'Below 20% HP', defaultActive: false },
+  'ritual-shield-talisman': { id: 'full-hp', label: 'Full HP', defaultActive: true },
+  'crucible-scale-talisman': { id: 'incoming-critical', label: 'Incoming critical hit', defaultActive: false }
+};
+
+function deriveParamModel(id, effectId, effects) {
+  const row = effects.get(effectId);
+  if (!row) return null;
+  const value = (key, fallback) => {
+    const n = Number(row[key]);
+    return Number.isFinite(n) ? n : fallback;
+  };
+  const model = {};
+  const note = [];
+  const survival = {};
+  const survivalFields = [
+    ['maxHpRate', 'hpMult', 'HP'],
+    ['maxMpRate', 'fpMult', 'FP'],
+    ['maxStaminaRate', 'staminaMult', 'stamina'],
+    ['equipWeightChangeRate', 'equipLoadMult', 'equip load']
+  ];
+  survivalFields.forEach(([field, key, label]) => {
+    const rate = value(field, field === 'equipWeightChangeRate' ? 0 : 1);
+    if (rate > 0 && Math.abs(rate - 1) > 0.00001) {
+      survival[key] = rate;
+      note.push(label + ' ×' + rate.toFixed(3).replace(/0+$/, '').replace(/\.$/, ''));
+    }
+  });
+  if (Object.keys(survival).length) model.survival = survival;
+
+  const defense = {};
+  const genericFields = [
+    ['neutralDamageCutRate', 'standardTakenMult'],
+    ['blowDamageCutRate', 'strikeTakenMult'],
+    ['slashDamageCutRate', 'slashTakenMult'],
+    ['thrustDamageCutRate', 'pierceTakenMult'],
+    ['magicDamageCutRate', 'magicTakenMult'],
+    ['fireDamageCutRate', 'fireTakenMult'],
+    ['thunderDamageCutRate', 'lightningTakenMult'],
+    ['darkDamageCutRate', 'holyTakenMult']
+  ];
+  const genericRates = genericFields.map(([field, key]) => ({ key, rate: value(field, 1) }));
+  const changedGeneric = genericRates.filter((entry) => entry.rate > 0 && Math.abs(entry.rate - 1) > 0.00001);
+  if (changedGeneric.length === genericRates.length && changedGeneric.every((entry) => Math.abs(entry.rate - changedGeneric[0].rate) < 0.00001)) {
+    defense.allTakenMult = changedGeneric[0].rate;
+  } else {
+    changedGeneric.forEach((entry) => { defense[entry.key] = entry.rate; });
+  }
+  const contextTypes = [
+    ['Physics', 'physicalTakenMult', 'physical'],
+    ['Magic', 'magicTakenMult', 'magic'],
+    ['Fire', 'fireTakenMult', 'fire'],
+    ['Thunder', 'lightningTakenMult', 'lightning'],
+    ['Dark', 'holyTakenMult', 'holy']
+  ];
+  const pve = {}, pvp = {};
+  contextTypes.forEach(([suffix, key]) => {
+    const enemy = value('defEnemyDmgCorrectRate_' + suffix, 1);
+    const player = value('defPlayerDmgCorrectRate_' + suffix, 1);
+    if (enemy > 0 && Math.abs(enemy - 1) > 0.00001) pve[key] = enemy;
+    if (player > 0 && Math.abs(player - 1) > 0.00001) pvp[key] = player;
+  });
+  if (Object.keys(pve).length) defense.pve = pve;
+  if (Object.keys(pvp).length) defense.pvp = pvp;
+  if (Object.keys(defense).length) {
+    model.defense = defense;
+    const pvePairs = Object.entries(pve);
+    const pvpPairs = Object.entries(pvp);
+    if (pvePairs.length === 1) note.push('PvE ' + pvePairs[0][0].replace('TakenMult', '') + ' taken ×' + pvePairs[0][1]);
+    if (pvpPairs.length === 1) note.push('PvP ' + pvpPairs[0][0].replace('TakenMult', '') + ' taken ×' + pvpPairs[0][1]);
+  }
+
+  const resistance = {};
+  const immunity = Math.max(value('changePoisonResistPoint', 0), value('changeDiseaseResistPoint', 0));
+  const robustness = Math.max(value('changeBloodResistPoint', 0), value('changeFreezeResistPoint', 0));
+  const focus = Math.max(value('changeSleepResistPoint', 0), value('changeMadnessResistPoint', 0));
+  const vitality = value('changeCurseResistPoint', 0);
+  if (immunity) resistance.immunity = immunity;
+  if (robustness) resistance.robustness = robustness;
+  if (focus) resistance.focus = focus;
+  if (vitality) resistance.vitality = vitality;
+  if (Object.keys(resistance).length) {
+    model.resistance = resistance;
+    note.push(Object.entries(resistance).map(([key, amount]) => '+' + amount + ' ' + key).join(' · '));
+  }
+
+  const utility = {};
+  const staminaRecovery = value('staminaRecoverChangeSpeed', 0);
+  const memorySlots = value('changeMagicSlot', 0);
+  const virtualDex = value('dexterityCancelSystemOnlyAddDexterity', 0);
+  const hpChange = value('changeHpPoint', 0);
+  const interval = value('motionInterval', 0);
+  if (staminaRecovery) utility.staminaRecoveryFlat = staminaRecovery;
+  if (memorySlots) utility.memorySlots = memorySlots;
+  if (virtualDex) utility.virtualDex = virtualDex;
+  if (hpChange < 0 && interval > 0) utility.hpRegenPerSec = Math.abs(hpChange) / interval;
+  if (Object.keys(utility).length) {
+    model.utility = utility;
+    if (utility.hpRegenPerSec) note.push('+' + utility.hpRegenPerSec + ' HP/s');
+    if (utility.staminaRecoveryFlat) note.push('+' + utility.staminaRecoveryFlat + ' stamina/s');
+    if (utility.memorySlots) note.push('+' + utility.memorySlots + ' memory slots');
+    if (utility.virtualDex) note.push('+' + utility.virtualDex + ' virtual DEX casting speed');
+  }
+  if (PARAM_CONDITIONS[id] && (model.defense || model.survival || model.utility)) model.condition = PARAM_CONDITIONS[id];
+  if (!Object.keys(model).length) return null;
+  model.paramDerived = true;
+  model.paramEffectId = effectId;
+  if (note.length) model.paramNote = note.join(' · ');
+  return model;
+}
+
 function existingModels() {
   const buffs = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'buffs.json'), 'utf8'));
   const map = new Map();
@@ -205,6 +335,7 @@ async function main() {
   if (entries.length < 110) throw new Error('expected 110+ talismans, found ' + entries.length);
 
   const params = readBaseParamRows();
+  const effects = readSpEffectRows();
   const models = existingModels();
   fs.mkdirSync(ICON_DIR, { recursive: true });
 
@@ -213,6 +344,7 @@ async function main() {
     const id = slugify(entry.name);
     const param = params.get(entry.name) || null;
     const reviewed = models.get(id) || models.get('name:' + entry.name) || null;
+    const derived = param ? deriveParamModel(id, param.effectId, effects) : null;
     const sourceOverride = SOURCE_OVERRIDES[id] || null;
     const wikiWeight = Number(getInfoboxField(raw, 'weight'));
     const itemEffect = cleanWikitext(getInfoboxField(raw, 'item_effect')) || (sourceOverride && sourceOverride.effect) || 'See item description';
@@ -234,18 +366,27 @@ async function main() {
         conflictGroup: param.conflictGroup
       } : null,
       conflictGroup: param && param.conflictGroup ? 'param-' + param.conflictGroup : null,
-      modelStatus: reviewed ? 'modeled' : 'inventory'
+      modelStatus: reviewed || derived ? 'modeled' : 'inventory'
     };
     if (sourceOverride) item.sourceOverride = {
       source: sourceOverride.source,
       reason: sourceOverride.reason,
       fields: ['weight', 'effect']
     };
+    if (derived) {
+      ['survival', 'defense', 'resistance', 'utility', 'condition'].forEach((key) => {
+        if (derived[key] != null) item[key] = derived[key];
+      });
+      item.paramModel = { effectId: derived.paramEffectId, fields: Object.keys(derived).filter((key) => !/^param/.test(key)) };
+      if (derived.paramNote) item.mathNote = derived.paramNote;
+    }
     if (reviewed && reviewed.id !== id) item.legacyIds = [reviewed.id];
     if (reviewed) {
-      ['statBonus', 'mult', 'flat', 'statusFlat', 'survival', 'defense', 'condition', 'note', 'confirmed'].forEach((key) => {
+      ['statBonus', 'mult', 'flat', 'statusFlat', 'condition', 'note', 'confirmed'].forEach((key) => {
         if (reviewed[key] != null) item[key] = reviewed[key];
       });
+      if (!derived || !derived.survival) if (reviewed.survival != null) item.survival = reviewed.survival;
+      if (!derived || !derived.defense) if (reviewed.defense != null) item.defense = reviewed.defense;
     }
     process.stdout.write('\r' + String(index + 1).padStart(3) + '/' + entries.length + ' ' + entry.name.slice(0, 42).padEnd(42));
     return item;
@@ -253,7 +394,7 @@ async function main() {
 
   items.sort((a, b) => a.name.localeCompare(b.name));
   const payload = {
-    schemaVersion: 1,
+    schemaVersion: 2,
     gameVersion: '1.16',
     generatedAt: new Date().toISOString(),
     sources: [
@@ -268,6 +409,12 @@ async function main() {
         url: 'https://github.com/EldenRingDatabase/erdb',
         revision: 'e2028a6',
         fields: ['rowId', 'weight (base)', 'effectId', 'iconId', 'conflictGroup']
+      },
+      {
+        name: 'ERDB SpEffectParam 1.10 direct effect fields',
+        url: 'https://github.com/EldenRingDatabase/erdb',
+        revision: 'e2028a6',
+        fields: ['survival multipliers', 'PvE/PvP damage multipliers', 'resistance points', 'regeneration', 'memory slots', 'virtual casting dexterity']
       },
       {
         name: 'Tarnished Archive reviewed effect models',

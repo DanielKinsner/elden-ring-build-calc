@@ -183,7 +183,10 @@ console.log('talisman effects:');
 var talismanFile = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'talismans.json'), 'utf8'));
 var talismans = talismanFile.items;
 function tali(id) { return talismans.find(function (x) { return x.id === id; }); }
-check('complete talisman catalog', [talismans.length, talismanFile.coverage.base, talismanFile.coverage.dlc], [154,115,39]);
+check('complete talisman catalog and modeled coverage', [talismans.length, talismanFile.coverage.base, talismanFile.coverage.dlc, talismanFile.coverage.modeled], [154,115,39,73]);
+check('all param models trace to their accessory effect ID', talismans.filter(function (x) { return x.paramModel; }).every(function (x) {
+  return x.param && x.param.effectId === x.paramModel.effectId && Array.isArray(x.paramModel.fields) && x.paramModel.fields.length > 0;
+}), true);
 check('all talismans have positive weight', talismans.every(function (x) { return typeof x.weight === 'number' && x.weight > 0; }), true);
 check('all talismans have concrete display effects', talismans.every(function (x) {
   return typeof x.effect === 'string' && x.effect.length > 2 && x.effect !== 'See item description' &&
@@ -205,6 +208,20 @@ var defense = ERCalc.aggregateDefense({ negation: { physical:20,strike:20,slash:
   { defense: { allTakenMult: 0.9 } }
 ]);
 check('post-armor vulnerability + protection order', [defense.negation.physical, defense.negation.magic], [17.2,6.9]);
+var crimsonMedallion = tali('crimson-amber-medallion');
+check('param-derived Crimson Amber HP', ERCalc.statEffects({ VIG:40,MND:1,END:1 }, [crimsonMedallion]).hp, Math.floor(1450 * 1.06));
+var dragoncrest = tali('dragoncrest-greatshield-talisman');
+check('Dragoncrest context changes PvE/PvP physical negation', [
+  ERCalc.aggregateDefense({ negation:{} }, [dragoncrest], 'pve').negation.physical,
+  ERCalc.aggregateDefense({ negation:{} }, [dragoncrest], 'pvp').negation.physical
+], [20,5]);
+var horn = tali('immunizing-horn-charm');
+check('horn charm adds immunity after armor', ERCalc.aggregateResistance({ resistance:{ immunity:42,robustness:0,focus:0,vitality:0 } }, [horn]).immunity, 132);
+var turtle = tali('green-turtle-talisman'), moon = tali('moon-of-nokstella');
+check('utility effects aggregate', ERCalc.aggregateUtility([turtle, moon]), { hpRegenPerSec:0,fpRegenPerSec:0,staminaRecoveryFlat:8,memorySlots:2,virtualDex:0 });
+var blueFeather = tali('blue-feathered-branchsword');
+check('event-specific defense defaults off', ERCalc.resolveEffects([blueFeather]).mods.length, 0);
+check('event-specific defense can be enabled', ERCalc.resolveEffects([blueFeather], { conditions:{ 'blue-feathered-branchsword':true } }).mods.length, 1);
 
 console.log('\n' + passes + ' passed, ' + failures + ' failed');
 process.exit(failures ? 1 : 0);

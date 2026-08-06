@@ -552,7 +552,7 @@
       }
       if (invalid) conflicts.push({ id: id, slot: slot, reason: invalid });
 
-      var modeled = item.modelStatus === 'modeled' || !!(item.statBonus || item.mult || item.flat || item.statusFlat || item.survival || item.defense);
+      var modeled = item.modelStatus === 'modeled' || !!(item.statBonus || item.mult || item.flat || item.statusFlat || item.survival || item.defense || item.resistance || item.utility);
       var conditionActive = true;
       if (item.condition) {
         conditionActive = conditionState[id] != null ? !!conditionState[id] : item.condition.defaultActive !== false;
@@ -585,24 +585,50 @@
    * effects share one transparent remainder pipeline. Values may go negative when a debuff makes
    * the character take more than unmitigated damage.
    */
-  function aggregateDefense(armorTotal, mods) {
+  function aggregateDefense(armorTotal, mods, context) {
+    context = context === 'pvp' ? 'pvp' : 'pve';
     var types = ['physical','strike','slash','pierce','magic','fire','lightning','holy'];
     var taken = {}, negation = {};
     types.forEach(function (type) { taken[type] = 1 - ((armorTotal && armorTotal.negation && armorTotal.negation[type]) || 0) / 100; });
     (mods || []).forEach(function (mod) {
       var d = mod && mod.defense;
       if (!d) return;
-      types.forEach(function (type) {
-        if (d.allTakenMult) taken[type] *= d.allTakenMult;
-        if (type === 'physical' || type === 'strike' || type === 'slash' || type === 'pierce') {
-          if (d.physicalTakenMult) taken[type] *= d.physicalTakenMult;
-        }
-        var key = type + 'TakenMult';
-        if (d[key]) taken[type] *= d[key];
+      [d, d[context]].forEach(function (profile) {
+        if (!profile) return;
+        types.forEach(function (type) {
+          if (profile.allTakenMult) taken[type] *= profile.allTakenMult;
+          if (type === 'physical' || type === 'strike' || type === 'slash' || type === 'pierce') {
+            if (profile.physicalTakenMult) taken[type] *= profile.physicalTakenMult;
+          }
+          var key = (type === 'physical' ? 'standard' : type) + 'TakenMult';
+          if (profile[key]) taken[type] *= profile[key];
+        });
       });
     });
     types.forEach(function (type) { negation[type] = Math.round((1 - taken[type]) * 1000) / 10; });
-    return { negation: negation, taken: taken };
+    return { context: context, negation: negation, taken: taken };
+  }
+
+  /** Add equipment resistance points after armor. */
+  function aggregateResistance(armorTotal, mods) {
+    var keys = ['immunity','robustness','focus','vitality'];
+    var out = {};
+    keys.forEach(function (key) { out[key] = (armorTotal && armorTotal.resistance && +armorTotal.resistance[key]) || 0; });
+    (mods || []).forEach(function (mod) {
+      keys.forEach(function (key) { out[key] += (mod && mod.resistance && +mod.resistance[key]) || 0; });
+    });
+    return out;
+  }
+
+  /** Aggregate non-AR/non-defense equipment outputs that still belong in a full build. */
+  function aggregateUtility(mods) {
+    var keys = ['hpRegenPerSec','fpRegenPerSec','staminaRecoveryFlat','memorySlots','virtualDex'];
+    var out = {};
+    keys.forEach(function (key) { out[key] = 0; });
+    (mods || []).forEach(function (mod) {
+      keys.forEach(function (key) { out[key] += (mod && mod.utility && +mod.utility[key]) || 0; });
+    });
+    return out;
   }
 
   // Rough character level from attribute totals (Wretch baseline: 8x10 = level 1).
@@ -630,6 +656,8 @@
     aggregateArmor: aggregateArmor,
     resolveEffects: resolveEffects,
     aggregateDefense: aggregateDefense,
+    aggregateResistance: aggregateResistance,
+    aggregateUtility: aggregateUtility,
     STATS: STATS, DAMAGE_TYPES: DAMAGE_TYPES, STATUS_TYPES: STATUS_TYPES, CURVES: CURVES
   };
 });

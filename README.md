@@ -17,14 +17,16 @@ are, which weapon wins on their build, and how bleed/status buildup scales.
   multiplicatively combined damage-negation values, four resistances, equip load, and roll state.
 - Four true talisman slots backed by all 154 base+DLC items and exact icons: real weight,
   game-param conflict groups, condition switches, positional sharing, and a transparent effect
-  trace. Twenty-one reviewed formulas are live; remaining effects are labeled weight-only until verified.
+  trace. Seventy-three formulas are live, including 62 directly derived from SpEffectParam:
+  survival, PvE/PvP defense, resistances, regeneration, memory slots, and casting speed.
 - Active buff layer (Golden Vow, greases, Physick tears) with category override rules.
 - Status payoff card — hits-to-proc and what the proc is worth (bleed/frost/poison/rot) vs a target HP/resist.
 - Soft-cap chart + optimal stat advisor (redistributes your offensive points for max AR).
 - "Best Weapons for Your Build" ranking + a compare tray.
 - Scadutree Blessing slider — Land-of-Shadow AR and damage negation.
 - Versioned full-build state, compact share links, auto-save, old-save migration, and **My Builds**
-  named multi-save. The v2 schema reserves spells, physick, and Great Rune for the next slices.
+  named multi-save. The v3 schema preserves combat context and reserves spells, physick, and
+  Great Rune for the next slices.
 
 **Weapon Atlas** (`atlas/`) — every weapon, filterable by status/scaling/infusable/DLC, sortable
 by AR-for-a-reference-build, weight, or requirements; per-weapon detail pages with acquisition info.
@@ -60,7 +62,7 @@ so DLC-only systems (Scadutree Blessing, new weapons) never contaminate vanilla 
 
 Golden regression pins for the engine (verified library-build ARs, two-handing rules,
 flooring, Scadutree, status procs, the buff layer, survival, armor aggregation, talisman
-conditions/conflicts, and incoming-damage order):
+conditions/conflicts, resistances/utility, PvE/PvP variants, and incoming-damage order):
 
 ```
 node tests/engine.test.js
