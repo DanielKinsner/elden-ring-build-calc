@@ -686,6 +686,33 @@ body.build-page { padding-bottom: 80px; }
 .tale-meta-row b { color: var(--text); font-weight: 500; }
 @media (max-width: 620px) { .tale-card-grid { flex-direction: column; } .tale-status { flex-direction: row; min-width: 0; } }
 
+/* ---- tales: shelf layout + reading-tools rail (>=1100px) ---- */
+.tales-shelf-layout { display: grid; grid-template-columns: 1fr; gap: 20px; align-items: start; }
+.tales-shelf-main { display: flex; flex-direction: column; gap: 16px; min-width: 0; }
+.tale-card { display: flex; gap: 16px; background: var(--panel-2); border: 1px solid var(--line-2); border-radius: 10px; padding: 18px; transition: border-color .18s var(--ease); }
+.tale-card:hover { border-color: var(--gold-dim); }
+.tale-card-body { flex: 1; min-width: 0; }
+.tale-cover { width: 96px; height: 96px; border-radius: 8px; object-fit: cover; flex: 0 0 auto; border: 1px solid var(--line-2); }
+.tales-rail { display: none; }
+@media (min-width: 1100px) {
+  .tales-shelf-layout { grid-template-columns: minmax(0, 1fr) 260px; }
+  .tales-rail { display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+}
+.tales-rail-section { background: var(--panel-2); border: 1px solid var(--line-2); border-radius: 10px; padding: 12px 14px; }
+.tales-rail-title { margin: 0 0 8px; font: 600 10px var(--serif); letter-spacing: .12em; text-transform: uppercase; color: var(--gold-dim); }
+.tales-rail-continue { display: flex; flex-direction: column; gap: 2px; padding: 7px 0; text-decoration: none; color: var(--text); border-bottom: 1px solid var(--line-2); }
+.tales-rail-continue:last-child { border-bottom: 0; }
+.tales-rail-work { font-size: 10.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--dim); }
+.tales-rail-chapter { font-size: 13px; }
+.tales-rail-recent { display: flex; justify-content: space-between; gap: 8px; padding: 6px 0; text-decoration: none; color: var(--text); font-size: 12.5px; border-bottom: 1px solid var(--line-2); }
+.tales-rail-recent:last-child { border-bottom: 0; }
+.tales-rail-recent-title { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.tales-rail-recent-time { color: var(--dim); white-space: nowrap; }
+.tales-rail-explore { display: block; padding: 6px 0; color: var(--gold-2); text-decoration: none; font-size: 13px; }
+.tales-rail-explore:hover { text-decoration: underline; }
+.tales-rail-empty { margin: 0; color: var(--dim); font-size: 12.5px; }
+@media (max-width: 620px) { .tale-card { flex-direction: column; } .tale-cover { width: 100%; height: 140px; } }
+
 /* ---- tales: nav row + timeline (vertical spine) ---- */
 .tales-nav { display: flex; gap: 6px; margin: 0 0 4px; }
 .tales-timeline { margin-top: 8px; }

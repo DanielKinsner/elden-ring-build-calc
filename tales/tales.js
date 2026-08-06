@@ -66,6 +66,61 @@
   if (shelf) {
     var spoilerLine = '<b style="color:var(--red)">⚠ Full spoilers</b> — base game, all endings, and the DLC.';
 
+    /* ---- reading-tools rail (>=1100px): continue reading, recent activity, explore ---- */
+    function relTime(ts) {
+      var min = Math.max(0, Math.floor((Date.now() - ts) / 60000));
+      if (min < 1) return 'just now';
+      if (min < 60) return min + ' min ago';
+      var hr = Math.floor(min / 60);
+      if (hr < 24) return hr + ' h ago';
+      return Math.floor(hr / 24) + ' d ago';
+    }
+    function recentActivity() {
+      var items = [];
+      WORKS.forEach(function (w) {
+        var st = wstate(w.id);
+        w.chapters.forEach(function (c) {
+          var r = st.read[c.id];
+          if (r && typeof r === 'object' && r.t) items.push({ workId: w.id, chapter: c, t: r.t });
+        });
+      });
+      items.sort(function (a, b) { return b.t - a.t; });
+      return items.slice(0, 5);
+    }
+    function chapterLabel(c) { return (c.num ? c.num + '. ' : '') + c.title; }
+    function railHtml() {
+      var continueItems = WORKS.map(function (w) {
+        var st = wstate(w.id);
+        var next = w.chapters.find(function (c) { return !st.read[c.id]; });
+        if (!next) return null;
+        var started = w.chapters.some(function (c) { return st.read[c.id]; });
+        return { work: w, chapter: next, started: started };
+      }).filter(Boolean);
+      var recent = recentActivity();
+
+      return '<div class="tales-rail">' +
+        '<div class="tales-rail-section"><h4 class="tales-rail-title">Continue reading</h4>' +
+        (continueItems.length ? continueItems.map(function (it) {
+          return '<a class="tales-rail-continue" href="read.html?work=' + it.work.id + '&ch=' + it.chapter.id + '">' +
+            '<span class="tales-rail-work">' + esc(it.work.title) + '</span>' +
+            '<span class="tales-rail-chapter">' + (it.started ? 'Continue: ' : 'Begin: ') + esc(chapterLabel(it.chapter)) + ' →</span></a>';
+        }).join('') : '<p class="tales-rail-empty">All caught up — nothing left to read.</p>') +
+        '</div>' +
+        '<div class="tales-rail-section"><h4 class="tales-rail-title">Recent activity</h4>' +
+        (recent.length ? recent.map(function (it) {
+          return '<a class="tales-rail-recent" href="read.html?work=' + it.workId + '&ch=' + it.chapter.id + '">' +
+            '<span class="tales-rail-recent-title">' + esc(chapterLabel(it.chapter)) + '</span>' +
+            '<span class="tales-rail-recent-time">' + relTime(it.t) + '</span></a>';
+        }).join('') : '<p class="tales-rail-empty">Start a tale to see your progress here.</p>') +
+        '</div>' +
+        '<div class="tales-rail-section"><h4 class="tales-rail-title">Explore</h4>' +
+        '<a class="tales-rail-explore" href="#timeline">Timeline</a>' +
+        '<a class="tales-rail-explore" href="../guides/#compendium">Compendium</a>' +
+        '<a class="tales-rail-explore" href="../guides/#quests">Quest Tracker</a>' +
+        '</div>' +
+      '</div>';
+    }
+
     function renderShelf() {
       var totWords = 0, totCh = 0, totRead = 0;
       WORKS.forEach(function (w) {
@@ -83,13 +138,15 @@
           '<div class="hero-stat"><span>Words</span><b>≈' + totWords.toLocaleString() + '</b></div>' +
           '<div class="hero-stat"><span>Chapters read</span><b>' + totRead + ' / ' + totCh + '</b></div>' +
         '</div></div></div>';
-      shelf.innerHTML = heroHtml + WORKS.map(function (w) {
+      var cardsHtml = WORKS.map(function (w) {
         var st = wstate(w.id);
         var readCount = w.chapters.filter(function (c) { return st.read[c.id]; }).length;
         var started = !!st.chapter || readCount > 0;
         var cont = st.chapter && w.chapters.find(function (c) { return c.id === st.chapter; });
         var pct = Math.round(100 * readCount / w.chapters.length);
-        return '<div class="tale-card"><div class="tale-card-grid">' +
+        return '<div class="tale-card">' +
+          '<img class="tale-cover" id="tale-cover-' + w.id + '" alt="" hidden>' +
+          '<div class="tale-card-body"><div class="tale-card-grid">' +
           '<div class="tale-card-main">' +
           '<div class="tale-card-head">' +
             '<div class="tale-titles"><span class="tale-title">' + esc(w.title) + '</span>' +
@@ -118,8 +175,20 @@
                 '<span class="tale-toc-num">' + esc(c.num) + '</span><span class="tale-toc-title">' + esc(c.title) + '</span>' +
                 '<span class="tale-toc-tease">' + esc(c.tease) + '</span></a></li>';
             }).join('') + '</ol>' : '') +
-        '</div>';
+          '</div></div>';
       }).join('');
+
+      shelf.innerHTML = '<div class="tales-shelf-layout"><div class="tales-shelf-main">' +
+        heroHtml + cardsHtml + '</div>' + railHtml() + '</div>';
+
+      /* optional cover art: assets/tales/<workId>.jpg, silently skipped if absent (D6) */
+      WORKS.forEach(function (w) {
+        var slot = $('tale-cover-' + w.id);
+        var img = new Image();
+        img.onload = function () { slot.src = img.src; slot.hidden = false; };
+        img.src = '../assets/tales/' + w.id + '.jpg';
+      });
+
       Array.prototype.forEach.call(shelf.querySelectorAll('.tale-toc-toggle'), function (b) {
         b.addEventListener('click', function () {
           var toc = $('toc-' + b.dataset.work);
@@ -231,9 +300,11 @@
     return;
   }
 
-  /* remember position; mark read */
+  /* remember position; mark read. Migration: legacy entries are the bare number 1 ("read,
+     unknown time") and are never rewritten — only a chapter with no entry yet gets a timestamp,
+     so re-reading a chapter doesn't bump its Recent Activity time. */
   st.chapter = chapter.id;
-  st.read[chapter.id] = 1;
+  if (!st.read[chapter.id]) st.read[chapter.id] = { t: Date.now() };
   save();
 
   /* prev / next */
