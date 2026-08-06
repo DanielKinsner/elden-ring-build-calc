@@ -178,5 +178,29 @@ var efMod = { survival: { hpMult: 1.04, staminaMult: 1.10, equipLoadMult: 1.08 }
 check('Erdtree Favor leaves AR alone', ERCalc.computeARBuffed(vera, rob, { twoHanded: true }, [efMod]).buffed.totalAR, fr.totalAR);
 check('Erdtree Favor HP @ VIG 60', ERCalc.statEffects({ VIG: 60 }, [efMod]).hp, Math.floor(1900 * 1.04));
 
+/* ---- talisman equipment: positional state, conditional gates, conflicts, defense ---- */
+console.log('talisman effects:');
+var talismanFile = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'talismans.json'), 'utf8'));
+var talismans = talismanFile.items;
+function tali(id) { return talismans.find(function (x) { return x.id === id; }); }
+check('complete talisman catalog', [talismans.length, talismanFile.coverage.base, talismanFile.coverage.dlc], [154,115,39]);
+check('all talismans have non-negative weight', talismans.every(function (x) { return typeof x.weight === 'number' && x.weight >= 0; }), true);
+var ritual = tali('ritual-sword-talisman');
+var jar = tali('great-jars-arsenal');
+var resolvedOn = ERCalc.resolveEffects([ritual, null, jar, null], { conditions: { 'ritual-sword-talisman': true } });
+check('positional resolver preserves equipped slots', resolvedOn.entries.map(function (x) { return x.slot; }), [0,2]);
+check('conditional + unconditional effects active', resolvedOn.coverage.active, 2);
+check('talisman weight sums', resolvedOn.weight, Math.round((ritual.weight + jar.weight) * 10) / 10);
+var resolvedOff = ERCalc.resolveEffects([ritual], { conditions: { 'ritual-sword-talisman': false } });
+check('conditional effect can be disabled', [resolvedOff.mods.length, resolvedOff.entries[0].reason], [0,'condition off']);
+var crimson0 = tali('crimson-amber-medallion'), crimson1 = tali('crimson-amber-medallion-1');
+var conflicted = ERCalc.resolveEffects([crimson0, crimson1]);
+check('game-param accessory group blocks variants', conflicted.conflicts.length, 1);
+var defense = ERCalc.aggregateDefense({ negation: { physical:20,strike:20,slash:20,pierce:20,magic:10,fire:10,lightning:10,holy:10 } }, [
+  { defense: { allTakenMult: 1.15 } },
+  { defense: { allTakenMult: 0.9 } }
+]);
+check('post-armor vulnerability + protection order', [defense.negation.physical, defense.negation.magic], [17.2,6.9]);
+
 console.log('\n' + passes + ' passed, ' + failures + ' failed');
 process.exit(failures ? 1 : 0);

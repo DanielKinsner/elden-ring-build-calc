@@ -105,4 +105,10 @@ migration. Breadth without trusted math does not count as completion.
 - **Shipped:** canonical v2 state, four armor slots, defense aggregation, armor-aware roll state.
 - **Shipped:** six armament slots, active-slot switching, independent affinity/reinforcement,
   all-armament equip weight, compact sharing, and legacy migration.
-- **Next:** true talisman/effect slots, followed by catalysts and spell memory.
+- **Shipped:** four true talisman slots, the full 154-item base+DLC inventory, exact icons,
+  equip weight, param-derived conflicts, conditional assumption state, positional sharing,
+  transparent effect coverage, and incoming-damage modifier ordering. Twenty-one reviewed
+  talisman models currently affect live calculations; all other items are explicitly labeled
+  inventory-only rather than receiving inferred/fake math.
+- **Next:** complete the talisman formula matrix and PvE/PvP variants, then catalysts and spell
+  memory on top of the same effect resolver.

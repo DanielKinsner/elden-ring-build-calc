@@ -11,8 +11,14 @@
   var presets = await ERData.loadPresets('../data/');
   var buffData = await ERData.loadBuffs('../data/');
   var armor = await ERData.loadArmor('../data/');
+  var talismans = await ERData.loadTalismans('../data/');
   var armorById = {};
   armor.forEach(function (item) { armorById[item.id] = item; });
+  var talismanById = {};
+  talismans.forEach(function (item) {
+    talismanById[item.id] = item;
+    (item.legacyIds || []).forEach(function (id) { talismanById[id] = item; });
+  });
   var ARMOR_SLOTS = [
     { id: 'head', label: 'Head', mark: '♜' },
     { id: 'body', label: 'Body', mark: '♢' },
@@ -108,47 +114,60 @@
     upgradeLevel = initialArmament.upgrade;
   }
 
-  /* ---- buffs & talismans (T3 + T5) ---- */
+  /* ---- buffs + true talisman equipment ---- */
   var TALI_MAX = 4;
-  var activeBuffs = {}, activeTalis = {};
+  var activeBuffs = {}, selectedTalismans = [null,null,null,null], taliConditionState = {};
   if (BOOT && BOOT.buffs) BOOT.buffs.forEach(function (id) { if (buffData.buffs.some(function (b) { return b.id === id; })) activeBuffs[id] = true; });
-  if (BOOT && BOOT.talis) BOOT.talis.slice(0, TALI_MAX).forEach(function (id) { if (buffData.talismans.some(function (t) { return t.id === id; })) activeTalis[id] = true; });
   function buffById(id) { return buffData.buffs.find(function (b) { return b.id === id; }); }
-  function taliById(id) { return buffData.talismans.find(function (t) { return t.id === id; }); }
-  function collectMods() {
+  function taliById(id) { return talismanById[id] || null; }
+  function normalizeTalisman(raw) {
+    if (!raw || raw === '-') return null;
+    var parts = typeof raw === 'string' ? raw.split('~') : null;
+    var id = parts ? parts[0] : raw.talismanId || raw.id;
+    var item = taliById(id);
+    if (!item) return null;
+    id = item.id;
+    var conditionActive = parts && parts[1] != null ? parts[1] !== '0' : raw.conditionActive;
+    if (conditionActive == null && item.condition) conditionActive = item.condition.defaultActive !== false;
+    if (item.condition) taliConditionState[id] = conditionActive !== false;
+    return { talismanId: id, conditionActive: conditionActive !== false };
+  }
+  function encodeTalismans(slots) {
+    return slots.map(function (slot) {
+      if (!slot) return '-';
+      var item = taliById(slot.talismanId);
+      return item && item.condition ? slot.talismanId + '~' + (taliConditionState[slot.talismanId] === false ? '0' : '1') : slot.talismanId;
+    }).join(',');
+  }
+  var bootTalismans = BOOT && BOOT.loadout && BOOT.loadout.talismans ? BOOT.loadout.talismans : BOOT && BOOT.talis ? BOOT.talis : [];
+  selectedTalismans = (bootTalismans || []).slice(0, TALI_MAX).map(normalizeTalisman);
+  while (selectedTalismans.length < TALI_MAX) selectedTalismans.push(null);
+  function equippedTalismanItems() {
+    return selectedTalismans.map(function (slot) { return slot && taliById(slot.talismanId); });
+  }
+  function resolveTalismanEffects() {
+    return ERCalc.resolveEffects(equippedTalismanItems(), { conditions: taliConditionState });
+  }
+  function collectMods(taliEffects) {
     var mods = [];
     for (var b in activeBuffs) if (activeBuffs[b]) { var bb = buffById(b); if (bb) mods.push(bb); }
-    for (var t in activeTalis) if (activeTalis[t]) { var tt = taliById(t); if (tt) mods.push(tt); }
+    mods = mods.concat((taliEffects || resolveTalismanEffects()).mods);
     return mods;
   }
-  function taliCount() { var n = 0; for (var t in activeTalis) if (activeTalis[t]) n++; return n; }
   function renderBuffGroups() {
-    var html = buffData.categories.map(function (cat) {
+    $('buffGroups').innerHTML = buffData.categories.map(function (cat) {
       var chips = buffData.buffs.filter(function (b) { return b.category === cat.id; }).map(function (b) {
         return '<button class="buff-chip' + (activeBuffs[b.id] ? ' on' : '') + (b.confirmed ? '' : ' approx') + '" data-buff="' + b.id + '" title="' + (b.note || b.name) + (b.confirmed ? '' : ' — community value') + '">' + b.name + '</button>';
       }).join('');
       return '<div class="buff-group"><span class="buff-cat">' + cat.name + '</span><div class="buff-chip-row">' + chips + '</div></div>';
     }).join('');
-    var full = taliCount() >= TALI_MAX;
-    html += '<div class="buff-group"><span class="buff-cat">Talismans <em>' + taliCount() + '/' + TALI_MAX + '</em></span><div class="buff-chip-row">' +
-      buffData.talismans.map(function (t) {
-        var on = activeTalis[t.id];
-        return '<button class="buff-chip' + (on ? ' on' : '') + (t.confirmed ? '' : ' approx') + (!on && full ? ' maxed' : '') + '" data-tali="' + t.id + '" title="' + (t.note || t.name) + (t.confirmed ? '' : ' — community value') + '">' + t.name + '</button>';
-      }).join('') + '</div></div>';
-    $('buffGroups').innerHTML = html;
   }
   $('buffGroups').addEventListener('click', function (e) {
-    var el = e.target.closest('[data-buff],[data-tali]'); if (!el) return;
-    var bid = el.getAttribute('data-buff'), tid = el.getAttribute('data-tali');
-    if (bid) {
-      var buff = buffById(bid), was = activeBuffs[bid];
-      buffData.buffs.forEach(function (b) { if (b.category === buff.category) delete activeBuffs[b.id]; }); // one per category
-      if (!was) activeBuffs[bid] = true;
-    } else {
-      if (activeTalis[tid]) delete activeTalis[tid];
-      else if (taliCount() < TALI_MAX) activeTalis[tid] = true;
-      else return;
-    }
+    var el = e.target.closest('[data-buff]'); if (!el) return;
+    var bid = el.getAttribute('data-buff');
+    var buff = buffById(bid), was = activeBuffs[bid];
+    buffData.buffs.forEach(function (b) { if (b.category === buff.category) delete activeBuffs[b.id]; }); // one per category
+    if (!was) activeBuffs[bid] = true;
     renderBuffGroups(); render();
   });
 
@@ -161,16 +180,16 @@
   function captureState() {
     saveActiveArmament();
     var bf = Object.keys(activeBuffs).filter(function (k) { return activeBuffs[k]; });
-    var tl = Object.keys(activeTalis).filter(function (k) { return activeTalis[k]; });
+    var tl = selectedTalismans.map(function (slot) { return slot && Object.assign({}, slot, { conditionActive: taliConditionState[slot.talismanId] !== false }); });
     var armorState = {};
     ARMOR_SLOTS.forEach(function (slot) { armorState[slot.id] = selectedArmor[slot.id]; });
-    var state = { schemaVersion: 2, stats: {}, weapon: current.id, affinity: affinity, upgrade: upgradeLevel, twoHanded: twoHanded, level: +$('level').value || null, buffs: bf, talis: tl, scadu: scaduLevel, gearWeight: gearWeight, armor: armorState, activeSlot: (activeSlot.hand === 'left' ? 'l' : 'r') + activeSlot.index };
+    var state = { schemaVersion: 2, stats: {}, weapon: current.id, affinity: affinity, upgrade: upgradeLevel, twoHanded: twoHanded, level: +$('level').value || null, buffs: bf, talis: tl.filter(Boolean).map(function (slot) { return slot.talismanId; }), scadu: scaduLevel, gearWeight: gearWeight, armor: armorState, activeSlot: (activeSlot.hand === 'left' ? 'l' : 'r') + activeSlot.index };
     state.loadout = { rightHand: armaments.right.map(function (x) { return x && Object.assign({}, x); }), leftHand: armaments.left.map(function (x) { return x && Object.assign({}, x); }), armor: armorState, talismans: tl, spells: [], physick: [], greatRune: null };
     STATS.forEach(function (k) { state.stats[k] = build[k]; });
     return state;
   }
   function doPersist() {
-    var state = captureState(), bf = state.buffs, tl = state.talis;
+    var state = captureState(), bf = state.buffs, tl = state.loadout.talismans;
     try { localStorage.setItem('er-build', JSON.stringify(state)); } catch (e) {}
     var q = new URLSearchParams();
     q.set('b', STATS.map(function (k) { return build[k]; }).join('.'));
@@ -180,7 +199,7 @@
     if (!twoHanded) q.set('h', '0');
     if (+$('level').value) q.set('l', $('level').value);
     if (bf.length) q.set('bf', bf.join(','));
-    if (tl.length) q.set('tl', tl.join(','));
+    if (tl.some(Boolean)) q.set('tl', encodeTalismans(tl));
     if (scaduLevel) q.set('st', scaduLevel);
     if (gearWeight) q.set('gw', gearWeight);
     if (ARMOR_SLOTS.some(function (slot) { return selectedArmor[slot.id]; })) {
@@ -335,6 +354,120 @@
     switchActiveArmament(hand, index);
   });
 
+  /* ---- four-slot talisman rack + complete catalog picker ---- */
+  var talismanPickerSlot = null;
+  function talismanConflict(item, targetSlot) {
+    for (var i = 0; i < selectedTalismans.length; i++) {
+      if (i === targetSlot || !selectedTalismans[i]) continue;
+      var other = taliById(selectedTalismans[i].talismanId);
+      if (!other) continue;
+      if (other.id === item.id) return 'already equipped in slot ' + (i + 1);
+      if (item.conflictGroup && other.conflictGroup === item.conflictGroup) return 'conflicts with ' + other.name;
+    }
+    return null;
+  }
+  function renderTalismanRack(resolution) {
+    resolution = resolution || resolveTalismanEffects();
+    $('talismanRack').innerHTML = selectedTalismans.map(function (slot, index) {
+      var item = slot && taliById(slot.talismanId);
+      var entry = resolution.entries.find(function (x) { return x.slot === index; });
+      var icon = item ? '<img src="../' + item.icon + '" alt="">' : '<span>◇</span>';
+      var condition = item && item.condition ? '<label class="tali-condition' + (taliConditionState[item.id] === false ? ' off' : '') + '">' +
+        '<input type="checkbox" data-tali-condition="' + index + '"' + (taliConditionState[item.id] === false ? '' : ' checked') + '> ' + escText(item.condition.label) + '</label>' : '';
+      var state = entry && entry.invalid ? ' invalid' : entry && !entry.modeled ? ' inventory-only' : item ? ' equipped' : '';
+      return '<div class="tali-slot' + state + '">' +
+        '<button type="button" class="tali-slot-main" data-tali-slot="' + index + '" aria-label="Talisman slot ' + (index + 1) + (item ? ': ' + escText(item.name) : ': empty') + '">' +
+          '<span class="tali-gem">' + icon + '</span><span class="tali-copy"><small>Slot ' + (index + 1) + '</small><b>' + (item ? escText(item.name) : 'Empty talisman') + '</b>' +
+          '<em>' + (item ? item.weight.toFixed(1) + ' wt · ' + (entry && entry.modeled ? 'math linked' : 'inventory linked') : 'select to equip') + '</em></span></button>' +
+        (item ? '<button type="button" class="tali-clear" data-tali-clear="' + index + '" aria-label="Unequip ' + escText(item.name) + '">×</button>' : '') + condition + '</div>';
+    }).join('');
+    $('talismanWeight').textContent = resolution.weight.toFixed(1) + ' weight';
+    $('talismanHint').textContent = resolution.conflicts.length
+      ? 'Impossible combination: ' + resolution.conflicts[0].reason + '.'
+      : resolution.coverage.equipped
+        ? resolution.coverage.modeled + '/' + resolution.coverage.equipped + ' equipped effects currently feed live math. Every item already feeds weight and save/share state.'
+        : 'All four slots feed the same calculation stack and equip load.';
+    $('talismanHint').classList.toggle('invalid', resolution.conflicts.length > 0);
+  }
+  function renderTalismanList(query) {
+    var q = (query || '').toLowerCase().trim();
+    var hits = talismans.filter(function (item) {
+      return !q || item.name.toLowerCase().indexOf(q) >= 0 || item.effect.toLowerCase().indexOf(q) >= 0;
+    }).slice(0, 70);
+    $('talismanList').innerHTML = '<button type="button" class="talisman-result empty" data-talisman-id=""><span class="tali-result-icon">◇</span><span><b>Remove talisman</b><small>0.0 weight</small></span></button>' +
+      hits.map(function (item) {
+        var conflict = talismanConflict(item, talismanPickerSlot);
+        return '<button type="button" class="talisman-result' + (conflict ? ' conflict' : '') + '" data-talisman-id="' + item.id + '"' + (conflict ? ' disabled' : '') + '>' +
+          '<span class="tali-result-icon"><img src="../' + item.icon + '" alt=""></span><span><b>' + escText(item.name) + (item.source === 'dlc' ? ' <i>DLC</i>' : '') + '</b>' +
+          '<small>' + escText(conflict || item.effect) + '</small></span><em>' + item.weight.toFixed(1) + '</em></button>';
+      }).join('') + (hits.length === 70 ? '<div class="picker-more">Keep typing to narrow 70+ results</div>' : '');
+  }
+  function openTalismanPicker(index) {
+    talismanPickerSlot = index;
+    $('talismanPickerTitle').textContent = 'Talisman slot ' + (index + 1);
+    $('talismanSearch').value = '';
+    $('talismanPicker').hidden = false;
+    renderTalismanList('');
+    setTimeout(function () { $('talismanSearch').focus(); }, 0);
+  }
+  function closeTalismanPicker() { $('talismanPicker').hidden = true; talismanPickerSlot = null; }
+  $('talismanRack').addEventListener('click', function (e) {
+    var condition = e.target.closest('[data-tali-condition]');
+    if (condition) {
+      var conditionSlot = +condition.getAttribute('data-tali-condition');
+      var conditionItem = selectedTalismans[conditionSlot] && taliById(selectedTalismans[conditionSlot].talismanId);
+      if (conditionItem) {
+        taliConditionState[conditionItem.id] = condition.checked;
+        selectedTalismans[conditionSlot].conditionActive = condition.checked;
+        render();
+      }
+      return;
+    }
+    var clear = e.target.closest('[data-tali-clear]');
+    if (clear) {
+      var clearSlot = +clear.getAttribute('data-tali-clear');
+      var previous = selectedTalismans[clearSlot];
+      if (previous) delete taliConditionState[previous.talismanId];
+      selectedTalismans[clearSlot] = null;
+      render(); return;
+    }
+    var button = e.target.closest('[data-tali-slot]');
+    if (button) openTalismanPicker(+button.getAttribute('data-tali-slot'));
+  });
+  $('talismanSearch').addEventListener('input', function () { renderTalismanList(this.value); });
+  $('talismanList').addEventListener('click', function (e) {
+    var button = e.target.closest('[data-talisman-id]');
+    if (!button || talismanPickerSlot == null) return;
+    var id = button.getAttribute('data-talisman-id');
+    if (!id) selectedTalismans[talismanPickerSlot] = null;
+    else {
+      var item = taliById(id);
+      if (!item || talismanConflict(item, talismanPickerSlot)) return;
+      var conditionActive = !item.condition || item.condition.defaultActive !== false;
+      selectedTalismans[talismanPickerSlot] = { talismanId: id, conditionActive: conditionActive };
+      if (item.condition) taliConditionState[id] = conditionActive;
+    }
+    closeTalismanPicker(); render();
+  });
+  $('talismanPickerClose').addEventListener('click', closeTalismanPicker);
+
+  function renderEffectStack(taliEffects) {
+    var buffs = Object.keys(activeBuffs).filter(function (id) { return activeBuffs[id]; }).map(buffById).filter(Boolean);
+    var rows = buffs.map(function (item) {
+      return '<div class="effect-row active"><span class="effect-mark">✦</span><span><b>' + escText(item.name) + '</b><small>' + escText(item.note || 'Active buff') + '</small></span><em>APPLIED</em></div>';
+    });
+    taliEffects.entries.forEach(function (entry) {
+      var item = entry.item;
+      var status = entry.invalid ? 'INVALID' : !entry.modeled ? 'WEIGHT ONLY' : entry.active ? 'APPLIED' : 'CONDITION OFF';
+      rows.push('<div class="effect-row' + (entry.active ? ' active' : '') + (entry.invalid ? ' invalid' : '') + '">' +
+        '<span class="effect-mark"><img src="../' + item.icon + '" alt=""></span><span><b>' + escText(item.name) + '</b><small>' + escText(item.note || item.effect) +
+        (item.condition ? ' · ' + escText(item.condition.label) : '') + '</small></span><em>' + status + '</em></div>');
+    });
+    $('effectStack').innerHTML = rows.length
+      ? '<div class="effect-stack-head"><span>Calculation order</span><b>' + taliEffects.coverage.active + ' talisman effect' + (taliEffects.coverage.active === 1 ? '' : 's') + ' live</b></div>' + rows.join('')
+      : '<div class="effect-empty">No active modifiers. Your output is raw equipment and attributes.</div>';
+  }
+
   /* ---- presets (dropdown + buttons) ---- */
   var activePresetIndex = presets.findIndex(function (p) { return p.loadout && p.loadout.weaponId === current.id; });
   $('presetSelect').innerHTML = '<option value="">Load build…</option>' + presets.map(function (p, i) { return '<option value="'+i+'">'+p.name+'</option>'; }).join('');
@@ -385,9 +518,12 @@
     if (o.upgrade != null) { upgradeLevel = o.upgrade; $('upgrade').value = o.upgrade; }
     if (o.affinity && (o.affinity === 'Standard' || (current.affinities && current.affinities[o.affinity]))) { affinity = o.affinity; $('affinity').value = o.affinity; }
     if (o.level) $('level').value = o.level;
-    activeBuffs = {}; activeTalis = {};
+    activeBuffs = {};
     (o.buffs || []).forEach(function (id) { if (buffData.buffs.some(function (b) { return b.id === id; })) activeBuffs[id] = true; });
-    (o.talis || []).slice(0, TALI_MAX).forEach(function (id) { if (buffData.talismans.some(function (t) { return t.id === id; })) activeTalis[id] = true; });
+    taliConditionState = {};
+    var savedTalismans = o.loadout && o.loadout.talismans ? o.loadout.talismans : o.talis || [];
+    selectedTalismans = savedTalismans.slice(0, TALI_MAX).map(normalizeTalisman);
+    while (selectedTalismans.length < TALI_MAX) selectedTalismans.push(null);
     scaduLevel = Math.max(0, Math.min(20, +o.scadu || 0)); syncScadu();
     gearWeight = Math.max(0, +o.gearWeight || 0); $('gearWeight').value = gearWeight;
     var savedArmor = o.armor || (o.loadout && o.loadout.armor) || {};
@@ -520,7 +656,9 @@
   function render() {
     saveActiveArmament();
     renderArmamentRack();
-    var mods = collectMods();
+    var taliEffects = resolveTalismanEffects();
+    renderTalismanRack(taliEffects);
+    var mods = collectMods(taliEffects);
     var r = ERCalc.computeARBuffed(build, current, { upgradeLevel: upgradeLevel, twoHanded: twoHanded, affinity: affinity }, mods);
     // stats after talisman bonuses — requirements + display should agree with the engine
     var boosted = {}; STATS.forEach(function (k) { boosted[k] = build[k]; });
@@ -581,7 +719,8 @@
       return '<div class="'+cls+'"'+clickable+'><span class="lbl"><b>'+STAT_LABEL[k]+'</b>'+grade+'</span><span class="amt">+'+v+'</span></div>';
     }).join('');
 
-    renderSurvival(mods, boosted);
+    renderEffectStack(taliEffects);
+    renderSurvival(mods, boosted, taliEffects);
     renderPayoff(r);
     renderSoftCap(r);
     renderBreakpoints(r);
@@ -592,12 +731,12 @@
 
   /* ---- Survival panel: HP/FP/stamina + equip load vs roll breakpoints ---- */
   var ROLL_LABEL = { light: 'Light roll', medium: 'Medium roll', heavy: 'Heavy roll', overloaded: 'Overloaded — can’t roll' };
-  function renderSurvival(mods, boosted) {
+  function renderSurvival(mods, boosted, taliEffects) {
     var se = ERCalc.statEffects(boosted, mods);
     var equippedWeapons = equippedArmamentPieces();
     var weaponW = equippedWeapons.reduce(function (sum, weapon) { return sum + (+weapon.weight || 0); }, 0);
     var armorTotal = ERCalc.aggregateArmor(equippedArmorPieces());
-    var totalW = Math.round((weaponW + armorTotal.weight + gearWeight) * 10) / 10;
+    var totalW = Math.round((weaponW + armorTotal.weight + (taliEffects ? taliEffects.weight : 0) + gearWeight) * 10) / 10;
     var rs = ERCalc.rollState(totalW, se.equipLoad);
     $('survHP').textContent = se.hp;
     $('survFP').textContent = se.fp;
@@ -635,9 +774,10 @@
     $('armorWeight').textContent = armorTotal.weight.toFixed(1);
     $('armorPoise').textContent = armorTotal.poise;
     $('poiseNote').textContent = armorTotal.poise < 51 ? (51 - armorTotal.poise) + ' to 51' : armorTotal.poise < 101 ? (101 - armorTotal.poise) + ' to 101' : '101+ tier';
+    var finalDefense = ERCalc.aggregateDefense(armorTotal, mods);
     var defenseTypes = [['physical','Physical'],['strike','Strike'],['slash','Slash'],['pierce','Pierce'],['magic','Magic'],['fire','Fire'],['lightning','Lightning'],['holy','Holy']];
     $('armorNegation').innerHTML = defenseTypes.map(function (entry) {
-      var value = armorTotal.negation[entry[0]];
+      var value = finalDefense.negation[entry[0]];
       return '<div class="defense-row"><span>' + entry[1] + '</span><div class="defense-bar"><i style="width:' + Math.max(0, Math.min(100, value * 2.5)) + '%"></i></div><b>' + value.toFixed(1) + '</b></div>';
     }).join('');
     var resistTypes = [['immunity','Immunity'],['robustness','Robustness'],['focus','Focus'],['vitality','Vitality']];

@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Full Build Lab · Elden Ring</title>
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="../assets/app.css">
 </head>
 <body class="build-page">
@@ -50,7 +51,7 @@
       <div id="survHeadroom" class="surv-headroom"></div>
       <label class="surv-gear">Extra equipped weight
         <input type="number" id="gearWeight" min="0" step="0.1" value="0"
-          title="Weapon and selected armor are counted automatically — add secondary armaments, arrows, bolts, or other equipped weight here">
+          title="Armaments, armor, and talismans are counted automatically — add arrows, bolts, or other equipment not modeled yet">
       </label>
     </div>
     <h2 class="mt">Armor Loadout <span class="section-kicker">1.16</span></h2>
@@ -71,7 +72,7 @@
         <div><span class="k">Armor Weight</span><b id="armorWeight">0.0</b></div>
         <div><span class="k">Poise</span><b id="armorPoise">0</b><small id="poiseNote">unarmored</small></div>
       </div>
-      <div class="k defense-label">Damage Negation</div>
+      <div class="k defense-label">Total Damage Negation</div>
       <div id="armorNegation" class="defense-grid"></div>
       <div class="k defense-label">Resistances</div>
       <div id="armorResistance" class="resistance-grid"></div>
@@ -87,6 +88,20 @@
     <h2>Armament Rack <span class="section-kicker" id="activeSlotLabel">Right Hand 1 active</span></h2>
     <div class="armament-rack" id="armamentRack" aria-label="Six equipped armament slots"></div>
     <div class="rack-hint" id="rackHint">Select an occupied slot to analyze it. Select an empty slot, then search to equip it.</div>
+    <h2 class="mt">Talisman Rack <span class="section-kicker" id="talismanWeight">0.0 weight</span></h2>
+    <div class="talisman-rack" id="talismanRack" aria-label="Four equipped talisman slots"></div>
+    <div class="rack-hint" id="talismanHint">All four slots feed the same calculation stack and equip load.</div>
+    <div class="talisman-picker" id="talismanPicker" hidden>
+      <div class="armor-picker-head">
+        <div><span class="k">Choose</span><b id="talismanPickerTitle">Talisman</b></div>
+        <button id="talismanPickerClose" class="picker-close" type="button" aria-label="Close talisman picker">×</button>
+      </div>
+      <div class="search-wrap">
+        <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><line x1="15.3" y1="15.3" x2="21" y2="21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <input type="search" id="talismanSearch" class="search" placeholder="Search all 154 talismans…" autocomplete="off">
+      </div>
+      <div id="talismanList" class="talisman-list"></div>
+    </div>
     <h2 class="mt active-analysis-title">Active Armament</h2>
     <label class="dlc-toggle"><input type="checkbox" id="showDlc" checked> Include Shadow of the Erdtree weapons</label>
     <div class="search-wrap">
@@ -147,9 +162,10 @@
       </div>
       <div id="payoff" class="payoff-list"></div>
     </div>
-    <h2 class="mt">Buffs &amp; Talismans</h2>
+    <h2 class="mt">Active Effects</h2>
     <div class="buffs-sub">One buff per category — same-type buffs override each other in-game. Values are PvE.</div>
     <div id="buffGroups" class="buff-groups"></div>
+    <div class="effect-stack" id="effectStack" aria-live="polite"></div>
   </section>
 
   <!-- ANALYSIS -->
@@ -182,7 +198,7 @@
   <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2765060616" target="_blank" rel="noopener">soft caps</a>,
   <a href="https://eldenring.wiki.fextralife.com/Elden+Ring+Wiki" target="_blank" rel="noopener">Fextralife</a>.
   Values are close estimates; see <a href="https://github.com/DanielKinsner/elden-ring-build-calc/tree/main/docs" target="_blank" rel="noopener">/docs</a>.
-  <br>Weapon icons via <a href="https://eldenring.wiki.gg" target="_blank" rel="noopener">Eldenpedia (eldenring.wiki.gg)</a>, CC BY-SA 4.0.
+  <br>Weapon and talisman icons via <a href="https://eldenring.wiki.gg" target="_blank" rel="noopener">Eldenpedia (eldenring.wiki.gg)</a>, CC BY-SA 4.0.
   Elden Ring and all related images/trademarks are property of FromSoftware, Inc. and Bandai Namco
   Entertainment. Unofficial, non-commercial fan project — not affiliated with or endorsed by them.
 </footer>

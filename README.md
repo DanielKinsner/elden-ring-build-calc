@@ -15,7 +15,10 @@ are, which weapon wins on their build, and how bleed/status buildup scales.
   switch the active slot to analyze it while every equipped armament contributes weight.
 - Four-slot armor loadout backed by 704 game-versioned pieces; live armor weight, poise, eight
   multiplicatively combined damage-negation values, four resistances, equip load, and roll state.
-- Buffs & talismans layer (Golden Vow, greases, soreseals, scorpions… — one per category, 4 talisman slots).
+- Four true talisman slots backed by all 154 base+DLC items and exact icons: real weight,
+  game-param conflict groups, condition switches, positional sharing, and a transparent effect
+  trace. Twenty-one reviewed formulas are live; remaining effects are labeled weight-only until verified.
+- Active buff layer (Golden Vow, greases, Physick tears) with category override rules.
 - Status payoff card — hits-to-proc and what the proc is worth (bleed/frost/poison/rot) vs a target HP/resist.
 - Soft-cap chart + optimal stat advisor (redistributes your offensive points for max AR).
 - "Best Weapons for Your Build" ranking + a compare tray.
@@ -56,13 +59,16 @@ so DLC-only systems (Scadutree Blessing, new weapons) never contaminate vanilla 
 ## Tests
 
 Golden regression pins for the engine (verified library-build ARs, two-handing rules,
-flooring, Scadutree, status procs, the buff layer, survival, and armor aggregation):
+flooring, Scadutree, status procs, the buff layer, survival, armor aggregation, talisman
+conditions/conflicts, and incoming-damage order):
 
 ```
 node tests/engine.test.js
+node tests/ui.smoke.js   # requires the site at http://127.0.0.1:4173
 ```
 
-Run it after touching `src/engine.js` or the weapon data. No frameworks, no dependencies.
+Run the engine suite after touching math or data. The browser smoke checks desktop/mobile
+interaction, persistence, overflow, and console errors.
 
 ## Structure
 

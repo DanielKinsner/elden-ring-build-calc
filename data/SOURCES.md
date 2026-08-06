@@ -14,3 +14,19 @@ This index records transformation and verification notes that do not belong in r
 - Verification: piece counts and one four-piece aggregate are pinned in `tests/engine.test.js`.
 - Next provenance upgrade: reproduce the corpus directly from regulation 1.16.1 with WitchyBND
   and Paramdex, then diff every record against this snapshot.
+
+## Talismans (`talismans.json`)
+
+- Game version target: 1.16; schema version 1.
+- Catalog: 154 talismans (115 base game, 39 Shadow of the Erdtree).
+- Base-game row IDs, weights, effect IDs, icon IDs, and incompatibility groups come from
+  ERDB's `EquipParamAccessory.csv` export for game 1.10 at revision `e2028a6`.
+- Current names, DLC membership, display effects, DLC weights, item-page links, and 120px exact
+  item icons come from <https://eldenring.wiki.gg/wiki/Talismans> (CC BY-SA 4.0).
+- Transformation: `scripts/import-talismans.js`. It is deterministic except for `generatedAt`
+  and deliberately refuses to infer numeric formulas from prose.
+- Reviewed calculation fields are merged from `data/buffs.json`; `modelStatus: inventory` means
+  the item is fully selectable, weighted, conflict-checked, saved, and shared, but its gameplay
+  effect is not yet allowed into calculations.
+- Verification: full counts, unique IDs/icons, non-negative weights, positional state,
+  conditional gates, param-derived conflicts, and defense ordering are pinned in tests.

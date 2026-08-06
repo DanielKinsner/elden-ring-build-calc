@@ -68,11 +68,12 @@ Buildup ≠ payoff. Show **hits-to-proc** (target threshold ÷ per-hit buildup) 
 surfaced on `build/`. **Research:** the exact bleed/frost/rot proc formulas (% max HP + flat) and common
 enemy status thresholds — wiki. Let the user pick a target HP or use a default.
 
-### T5. Talismans  ✅ DONE (2026-07) — 19 talismans in `data/buffs.json` (stat seals, %-damage, scorpions, exultations), 4-slot picker
-Two kinds: **stat-boost** (Radagon's Soreseal etc.) → bump effective stats before calc; **damage-%**
-(Ritual Sword, Rotten Winged Sword Insignia, Shard of Alexander) → multipliers (some conditional: "at
-full HP", "after a skill"). **Where:** a talisman picker in `build/` feeding into the buff layer (T3).
-**Research:** wiki talisman effects → `data/talismans.json` (`{ id, name, statBonus?, damageMult?, condition? }`).
+### T5. Talismans  ✅ EQUIPMENT COMPLETE / FORMULA MATRIX ACTIVE
+All 154 base+DLC talismans now live in `data/talismans.json` with four positional equipment slots,
+exact icons, weight, base-game param conflict groups, conditional state, persistence/sharing, and a
+transparent resolver. Twenty-one reviewed formulas currently feed AR/survival/defense. Remaining
+items stay honest `inventory` coverage until their numeric PvE/PvP behavior is verified; completing
+that effect matrix is the active calculation task before catalysts.
 
 ### T6. Optimal stat advisor  ✅ DONE (2026-07) — `engine.optimize()` greedy redistribution + Apply UI
 Given a **level budget**, distribute points to maximize AR for the selected weapon. `softCapCurve()`
@@ -171,6 +172,16 @@ link. "Save Build" writes to localStorage; a small curated **meta build library*
 - **Six-slot armament rack** — three right-hand + three left-hand slots, searchable empty-slot
   equip flow, active-slot analysis, independent affinity/reinforcement state, all-slot equip-load
   contribution, compact `&rh=` / `&lh=` / `&as=` share state, and legacy-link migration.
+- **True talisman rack + effect resolver** — four positional slots backed by the complete 154-item
+  base+DLC catalog and exact item icons; real weight; base-game param conflict groups; conditional
+  assumption switches; positional URL/local-save persistence; post-armor defense modifiers; and a
+  visible effect trace that distinguishes applied math from inventory-only coverage. Twenty-one
+  reviewed effect models are live. Remaining talisman formulas must move from `inventory` to
+  `modeled` only after their PvE/PvP values and activation context are verified.
+- **Reusable browser QA** — `node tests/ui.smoke.js` exercises talisman selection, conditional AR,
+  conflict blocking, save/share reload, desktop rendering, 390px overflow, and browser errors.
+- **Site identity polish** — original rune favicon now ships across every page; the lingering
+  browser-tab 404 is closed.
 
 ## Shipped 2026-08 — guides/tales deck-out
 - **NPC + boss portraits** — scraped from wiki.gg via `scripts/fetch-portraits.js` (Infobox
@@ -200,7 +211,8 @@ link. "Save Build" writes to localStorage; a small curated **meta build library*
 ## Active full-build expansion (architecture: `docs/04-full-build-platform.md`)
 - **Ash of War compatibility/state:** attach a legal Ash to each infusable armament and expose
   skill damage/FP/poise context without muddying the weapon's base analysis.
-- **True talisman equipment:** slot objects, weight, conflicts, conditions, PvE/PvP variants.
+- **Talisman formula completion:** expand the shipped 21 reviewed models across all applicable
+  damage, defense, survival, casting, stamina, recovery, and utility effects; add PvP variants.
 - **Catalysts + spell loadout:** memory slots, FP/stamina costs, requirements, catalyst-aware
   spell buff and spell damage.
 - **Physick + Great Rune + complete effect stack:** transparent ordering and conflicts.
@@ -221,7 +233,7 @@ link. "Save Build" writes to localStorage; a small curated **meta build library*
 
 ## Suggested order
 1. ~~T1 + T2~~ ✅  2. ~~T3 + T4~~ ✅  3. ~~T5, T6, T11~~ ✅  4. ~~T9 + T10~~ ✅ — Tiers 1, 2, 4, 5 shipped.
-5. **Six armament slots → true talisman/effect slots → catalysts/spells → enemy context**, then
+5. **Six armament slots → true talisman/effect slots** ✅ → **complete talisman formulas → catalysts/spells → enemy context**, then
    optimizer/community publishing. T8 maps remains a parallel content project.
 
 ## Known data gaps (surfaced 2026-07)

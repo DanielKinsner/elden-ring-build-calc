@@ -1,0 +1,2657 @@
+{
+  "schemaVersion": 1,
+  "gameVersion": "1.16",
+  "generatedAt": "2026-08-06T05:48:44.489Z",
+  "sources": [
+    {
+      "name": "Eldenpedia talisman catalog",
+      "url": "https://eldenring.wiki.gg/wiki/Talismans",
+      "license": "CC BY-SA 4.0",
+      "fields": [
+        "name",
+        "source",
+        "weight (DLC)",
+        "effect",
+        "icon",
+        "wiki"
+      ]
+    },
+    {
+      "name": "ERDB EquipParamAccessory 1.10",
+      "url": "https://github.com/EldenRingDatabase/erdb",
+      "revision": "e2028a6",
+      "fields": [
+        "rowId",
+        "weight (base)",
+        "effectId",
+        "iconId",
+        "conflictGroup"
+      ]
+    },
+    {
+      "name": "Tarnished Archive reviewed effect models",
+      "path": "data/buffs.json",
+      "fields": [
+        "statBonus",
+        "mult",
+        "survival",
+        "conditions"
+      ]
+    }
+  ],
+  "coverage": {
+    "inventory": 154,
+    "modeled": 21,
+    "base": 115,
+    "dlc": 39
+  },
+  "items": [
+    {
+      "id": "aged-ones-exultation",
+      "name": "Aged One's Exultation",
+      "source": "dlc",
+      "weight": 0.9,
+      "effect": "Madness in the vicinity increases attack power",
+      "icon": "assets/icons/talismans/aged-ones-exultation.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Aged_One%27s_Exultation",
+      "param": null,
+      "conflictGroup": null,
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "ailment-talisman",
+      "name": "Ailment Talisman",
+      "source": "dlc",
+      "weight": 0.6,
+      "effect": "Grants resistance to triggered ailments",
+      "icon": "assets/icons/talismans/ailment-talisman.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Ailment_Talisman",
+      "param": null,
+      "conflictGroup": null,
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "ancestral-spirits-horn",
+      "name": "Ancestral Spirit's Horn",
+      "source": "base",
+      "weight": 1.2,
+      "effect": "Restores FP upon defeating enemies",
+      "icon": "assets/icons/talismans/ancestral-spirits-horn.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Ancestral_Spirit%27s_Horn",
+      "param": {
+        "rowId": 6110,
+        "effectId": 361100,
+        "iconId": 18880,
+        "conflictGroup": 6110
+      },
+      "conflictGroup": "param-6110",
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "arrows-reach-talisman",
+      "name": "Arrow's Reach Talisman",
+      "source": "base",
+      "weight": 0.7,
+      "effect": "Increases bow effective range",
+      "icon": "assets/icons/talismans/arrows-reach-talisman.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Arrow%27s_Reach_Talisman",
+      "param": {
+        "rowId": 2100,
+        "effectId": 321000,
+        "iconId": 18330,
+        "conflictGroup": 2100
+      },
+      "conflictGroup": "param-2100",
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "arrows-soaring-sting-talisman",
+      "name": "Arrow's Soaring Sting Talisman",
+      "source": "dlc",
+      "weight": 1.1,
+      "effect": "Increases the effective range of bows and raises attack power of arrows and bolts",
+      "icon": "assets/icons/talismans/arrows-soaring-sting-talisman.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Arrow%27s_Soaring_Sting_Talisman",
+      "param": null,
+      "conflictGroup": null,
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "arrows-sting-talisman",
+      "name": "Arrow's Sting Talisman",
+      "source": "base",
+      "weight": 0.7,
+      "effect": "Raises attack power of arrows and bolts",
+      "icon": "assets/icons/talismans/arrows-sting-talisman.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Arrow%27s_Sting_Talisman",
+      "param": {
+        "rowId": 2150,
+        "effectId": 321500,
+        "iconId": 18340,
+        "conflictGroup": 2150
+      },
+      "conflictGroup": "param-2150",
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "arsenal-charm",
+      "name": "Arsenal Charm",
+      "source": "base",
+      "weight": 1.5,
+      "effect": "Raises maximum equipment load",
+      "icon": "assets/icons/talismans/arsenal-charm.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Arsenal_Charm",
+      "param": {
+        "rowId": 1030,
+        "effectId": 310300,
+        "iconId": 18030,
+        "conflictGroup": 1030
+      },
+      "conflictGroup": "param-1030",
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "arsenal-charm-1",
+      "name": "Arsenal Charm +1",
+      "source": "base",
+      "weight": 1.5,
+      "effect": "Greatly raises maximum equipment load",
+      "icon": "assets/icons/talismans/arsenal-charm-1.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Arsenal_Charm_%2B1",
+      "param": {
+        "rowId": 1031,
+        "effectId": 310310,
+        "iconId": 18031,
+        "conflictGroup": 1030
+      },
+      "conflictGroup": "param-1030",
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "assassins-cerulean-dagger",
+      "name": "Assassin's Cerulean Dagger",
+      "source": "base",
+      "weight": 0.8,
+      "effect": "Critical hits restore FP",
+      "icon": "assets/icons/talismans/assassins-cerulean-dagger.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Assassin%27s_Cerulean_Dagger",
+      "param": {
+        "rowId": 5060,
+        "effectId": 350600,
+        "iconId": 18670,
+        "conflictGroup": 5060
+      },
+      "conflictGroup": "param-5060",
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "assassins-crimson-dagger",
+      "name": "Assassin's Crimson Dagger",
+      "source": "base",
+      "weight": 0.8,
+      "effect": "See item description",
+      "icon": "assets/icons/talismans/assassins-crimson-dagger.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Assassin%27s_Crimson_Dagger",
+      "param": {
+        "rowId": 5050,
+        "effectId": 350500,
+        "iconId": 18660,
+        "conflictGroup": 5050
+      },
+      "conflictGroup": "param-5050",
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "axe-talisman",
+      "name": "Axe Talisman",
+      "source": "base",
+      "weight": 0.8,
+      "effect": "Enhances charge attacks",
+      "icon": "assets/icons/talismans/axe-talisman.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Axe_Talisman",
+      "param": {
+        "rowId": 2130,
+        "effectId": 321300,
+        "iconId": 18370,
+        "conflictGroup": 2130
+      },
+      "conflictGroup": "param-2130",
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "beloved-stardust",
+      "name": "Beloved Stardust",
+      "source": "dlc",
+      "weight": 1.3,
+      "effect": "Shortens casting speed for sorcery and incantations by the utmost, but increases damage taken",
+      "icon": "assets/icons/talismans/beloved-stardust.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Beloved_Stardust",
+      "param": null,
+      "conflictGroup": null,
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "blade-of-mercy",
+      "name": "Blade of Mercy",
+      "source": "dlc",
+      "weight": 1.3,
+      "effect": "Raises attack power after each critical hit",
+      "icon": "assets/icons/talismans/blade-of-mercy.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Blade_of_Mercy",
+      "param": null,
+      "conflictGroup": null,
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "blessed-blue-dew-talisman",
+      "name": "Blessed Blue Dew Talisman",
+      "source": "dlc",
+      "weight": 1.2,
+      "effect": "Slowly restores FP",
+      "icon": "assets/icons/talismans/blessed-blue-dew-talisman.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Blessed_Blue_Dew_Talisman",
+      "param": null,
+      "conflictGroup": null,
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "blessed-dew-talisman",
+      "name": "Blessed Dew Talisman",
+      "source": "base",
+      "weight": 0.6,
+      "effect": "See item description",
+      "icon": "assets/icons/talismans/blessed-dew-talisman.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Blessed_Dew_Talisman",
+      "param": {
+        "rowId": 5020,
+        "effectId": 350200,
+        "iconId": 18630,
+        "conflictGroup": 5020
+      },
+      "conflictGroup": "param-5020",
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "blue-dancer-charm",
+      "name": "Blue Dancer Charm",
+      "source": "base",
+      "weight": 0.9,
+      "effect": "Raises attack power with lower equipment load",
+      "icon": "assets/icons/talismans/blue-dancer-charm.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Blue_Dancer_Charm",
+      "param": {
+        "rowId": 2110,
+        "effectId": 321100,
+        "iconId": 18350,
+        "conflictGroup": 2110
+      },
+      "conflictGroup": "param-2110",
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "blue-feathered-branchsword",
+      "name": "Blue-Feathered Branchsword",
+      "source": "base",
+      "weight": 1.1,
+      "effect": "Raises defense when HP is low",
+      "icon": "assets/icons/talismans/blue-feathered-branchsword.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Blue-Feathered_Branchsword",
+      "param": {
+        "rowId": 4080,
+        "effectId": 340800,
+        "iconId": 18570,
+        "conflictGroup": 4080
+      },
+      "conflictGroup": "param-4080",
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "boltdrake-talisman",
+      "name": "Boltdrake Talisman",
+      "source": "base",
+      "weight": 0.6,
+      "effect": "Boosts lightning damage negation",
+      "icon": "assets/icons/talismans/boltdrake-talisman.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Boltdrake_Talisman",
+      "param": {
+        "rowId": 4030,
+        "effectId": 340300,
+        "iconId": 18520,
+        "conflictGroup": 4030
+      },
+      "conflictGroup": "param-4030",
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "boltdrake-talisman-1",
+      "name": "Boltdrake Talisman +1",
+      "source": "base",
+      "weight": 0.6,
+      "effect": "Greatly boosts lightning damage negation",
+      "icon": "assets/icons/talismans/boltdrake-talisman-1.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Boltdrake_Talisman_%2B1",
+      "param": {
+        "rowId": 4031,
+        "effectId": 340310,
+        "iconId": 18521,
+        "conflictGroup": 4030
+      },
+      "conflictGroup": "param-4030",
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "boltdrake-talisman-2",
+      "name": "Boltdrake Talisman +2",
+      "source": "base",
+      "weight": 0.6,
+      "effect": "Vastly boosts lightning damage negation",
+      "icon": "assets/icons/talismans/boltdrake-talisman-2.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Boltdrake_Talisman_%2B2",
+      "param": {
+        "rowId": 4032,
+        "effectId": 340320,
+        "iconId": 18522,
+        "conflictGroup": 4030
+      },
+      "conflictGroup": "param-4030",
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "boltdrake-talisman-3",
+      "name": "Boltdrake Talisman +3",
+      "source": "dlc",
+      "weight": 0.9,
+      "effect": "Reduces lightning damage",
+      "icon": "assets/icons/talismans/boltdrake-talisman-3.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Boltdrake_Talisman_%2B3",
+      "param": null,
+      "conflictGroup": null,
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "bull-goats-talisman",
+      "name": "Bull-Goat's Talisman",
+      "source": "base",
+      "weight": 0.5,
+      "effect": "Raises Poise",
+      "icon": "assets/icons/talismans/bull-goats-talisman.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Bull-Goat%27s_Talisman",
+      "param": {
+        "rowId": 1210,
+        "effectId": 312100,
+        "iconId": 18220,
+        "conflictGroup": 1210
+      },
+      "conflictGroup": "param-1210",
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "carian-filigreed-crest",
+      "name": "Carian Filigreed Crest",
+      "source": "base",
+      "weight": 0.8,
+      "effect": "Lowers FP consumed by skills",
+      "icon": "assets/icons/talismans/carian-filigreed-crest.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Carian_Filigreed_Crest",
+      "param": {
+        "rowId": 6020,
+        "effectId": 360200,
+        "iconId": 18700,
+        "conflictGroup": 6020
+      },
+      "conflictGroup": "param-6020",
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "cerulean-amber-medallion",
+      "name": "Cerulean Amber Medallion",
+      "source": "base",
+      "weight": 0.3,
+      "effect": "Raises maxiumum FP",
+      "icon": "assets/icons/talismans/cerulean-amber-medallion.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Cerulean_Amber_Medallion",
+      "param": {
+        "rowId": 1010,
+        "effectId": 310100,
+        "iconId": 18010,
+        "conflictGroup": 1010
+      },
+      "conflictGroup": "param-1010",
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "cerulean-amber-medallion-1",
+      "name": "Cerulean Amber Medallion +1",
+      "source": "base",
+      "weight": 0.3,
+      "effect": "Greatly raises maximum FP",
+      "icon": "assets/icons/talismans/cerulean-amber-medallion-1.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Cerulean_Amber_Medallion_%2B1",
+      "param": {
+        "rowId": 1011,
+        "effectId": 310110,
+        "iconId": 18011,
+        "conflictGroup": 1010
+      },
+      "conflictGroup": "param-1010",
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "cerulean-amber-medallion-2",
+      "name": "Cerulean Amber Medallion +2",
+      "source": "base",
+      "weight": 0.3,
+      "effect": "Vastly raises maximum FP",
+      "icon": "assets/icons/talismans/cerulean-amber-medallion-2.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Cerulean_Amber_Medallion_%2B2",
+      "param": {
+        "rowId": 1012,
+        "effectId": 310120,
+        "iconId": 18012,
+        "conflictGroup": 1010
+      },
+      "conflictGroup": "param-1010",
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "cerulean-amber-medallion-3",
+      "name": "Cerulean Amber Medallion +3",
+      "source": "dlc",
+      "weight": 0.6,
+      "effect": "Boosts maximum FP by the utmost",
+      "icon": "assets/icons/talismans/cerulean-amber-medallion-3.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Cerulean_Amber_Medallion_%2B3",
+      "param": null,
+      "conflictGroup": null,
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "cerulean-seed-talisman",
+      "name": "Cerulean Seed Talisman",
+      "source": "base",
+      "weight": 0.8,
+      "effect": "Boosts FP restoration from Flask of Cerulean Tears",
+      "icon": "assets/icons/talismans/cerulean-seed-talisman.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Cerulean_Seed_Talisman",
+      "param": {
+        "rowId": 5010,
+        "effectId": 350100,
+        "iconId": 18620,
+        "conflictGroup": 5010
+      },
+      "conflictGroup": "param-5010",
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "cerulean-seed-talisman-1",
+      "name": "Cerulean Seed Talisman +1",
+      "source": "dlc",
+      "weight": 1.1,
+      "effect": "Boosts FP restoration from the Flask of Cerulean Tears",
+      "icon": "assets/icons/talismans/cerulean-seed-talisman-1.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Cerulean_Seed_Talisman_%2B1",
+      "param": null,
+      "conflictGroup": null,
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "clarifying-horn-charm",
+      "name": "Clarifying Horn Charm",
+      "source": "base",
+      "weight": 0.6,
+      "effect": "Raises focus",
+      "icon": "assets/icons/talismans/clarifying-horn-charm.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Clarifying_Horn_Charm",
+      "param": {
+        "rowId": 1180,
+        "effectId": 311800,
+        "iconId": 18190,
+        "conflictGroup": 1180
+      },
+      "conflictGroup": "param-1180",
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "clarifying-horn-charm-1",
+      "name": "Clarifying Horn Charm +1",
+      "source": "base",
+      "weight": 0.6,
+      "effect": "Greatly raises focus",
+      "icon": "assets/icons/talismans/clarifying-horn-charm-1.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Clarifying_Horn_Charm_%2B1",
+      "param": {
+        "rowId": 1181,
+        "effectId": 311810,
+        "iconId": 18191,
+        "conflictGroup": 1180
+      },
+      "conflictGroup": "param-1180",
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "clarifying-horn-charm-2",
+      "name": "Clarifying Horn Charm +2",
+      "source": "dlc",
+      "weight": 0.9,
+      "effect": "Raises Focus by +230",
+      "icon": "assets/icons/talismans/clarifying-horn-charm-2.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Clarifying_Horn_Charm_%2B2",
+      "param": null,
+      "conflictGroup": null,
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "claw-talisman",
+      "name": "Claw Talisman",
+      "source": "base",
+      "weight": 0.7,
+      "effect": "Enhances jump attacks",
+      "icon": "assets/icons/talismans/claw-talisman.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Claw_Talisman",
+      "param": {
+        "rowId": 2180,
+        "effectId": 321800,
+        "iconId": 18800,
+        "conflictGroup": 2180
+      },
+      "conflictGroup": "param-2180",
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "companion-jar",
+      "name": "Companion Jar",
+      "source": "base",
+      "weight": 0.6,
+      "effect": "Raises potency of throwing pots",
+      "icon": "assets/icons/talismans/companion-jar.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Companion_Jar",
+      "param": {
+        "rowId": 2210,
+        "effectId": 322100,
+        "iconId": 18830,
+        "conflictGroup": 2210
+      },
+      "conflictGroup": "param-2210",
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "concealing-veil",
+      "name": "Concealing Veil",
+      "source": "base",
+      "weight": 0.9,
+      "effect": "Conceals wearer while crouching away from foes",
+      "icon": "assets/icons/talismans/concealing-veil.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Concealing_Veil",
+      "param": {
+        "rowId": 6010,
+        "effectId": 360100,
+        "iconId": 18690,
+        "conflictGroup": 6010
+      },
+      "conflictGroup": "param-6010",
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "crepuss-vial",
+      "name": "Crepus's Vial",
+      "source": "base",
+      "weight": 0.7,
+      "effect": "Eliminates all sound made by the wearer during movement",
+      "icon": "assets/icons/talismans/crepuss-vial.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Crepus%27s_Vial",
+      "param": {
+        "rowId": 6000,
+        "effectId": 360000,
+        "iconId": 18680,
+        "conflictGroup": 6000
+      },
+      "conflictGroup": "param-6000",
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "crimson-amber-medallion",
+      "name": "Crimson Amber Medallion",
+      "source": "base",
+      "weight": 0.3,
+      "effect": "Raises maximum HP",
+      "icon": "assets/icons/talismans/crimson-amber-medallion.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Crimson_Amber_Medallion",
+      "param": {
+        "rowId": 1000,
+        "effectId": 310000,
+        "iconId": 18000,
+        "conflictGroup": 1000
+      },
+      "conflictGroup": "param-1000",
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "crimson-amber-medallion-1",
+      "name": "Crimson Amber Medallion +1",
+      "source": "base",
+      "weight": 0.3,
+      "effect": "Greatly raises maximum HP",
+      "icon": "assets/icons/talismans/crimson-amber-medallion-1.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Crimson_Amber_Medallion_%2B1",
+      "param": {
+        "rowId": 1001,
+        "effectId": 310010,
+        "iconId": 18001,
+        "conflictGroup": 1000
+      },
+      "conflictGroup": "param-1000",
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "crimson-amber-medallion-2",
+      "name": "Crimson Amber Medallion +2",
+      "source": "base",
+      "weight": 0.3,
+      "effect": "Vastly raises maximum HP",
+      "icon": "assets/icons/talismans/crimson-amber-medallion-2.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Crimson_Amber_Medallion_%2B2",
+      "param": {
+        "rowId": 1002,
+        "effectId": 310020,
+        "iconId": 18002,
+        "conflictGroup": 1000
+      },
+      "conflictGroup": "param-1000",
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "crimson-amber-medallion-3",
+      "name": "Crimson Amber Medallion +3",
+      "source": "dlc",
+      "weight": 0,
+      "effect": "See item description",
+      "icon": "assets/icons/talismans/crimson-amber-medallion-3.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Crimson_Amber_Medallion_%2B3",
+      "param": null,
+      "conflictGroup": null,
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "crimson-seed-talisman",
+      "name": "Crimson Seed Talisman",
+      "source": "base",
+      "weight": 0.8,
+      "effect": "Boosts HP regeneration from Flask of Crimson Tears",
+      "icon": "assets/icons/talismans/crimson-seed-talisman.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Crimson_Seed_Talisman",
+      "param": {
+        "rowId": 5000,
+        "effectId": 350000,
+        "iconId": 18610,
+        "conflictGroup": 5000
+      },
+      "conflictGroup": "param-5000",
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "crimson-seed-talisman-1",
+      "name": "Crimson Seed Talisman +1",
+      "source": "dlc",
+      "weight": 1.1,
+      "effect": "Boosts HP regeneration from Flask of Crimson Tears",
+      "icon": "assets/icons/talismans/crimson-seed-talisman-1.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Crimson_Seed_Talisman_%2B1",
+      "param": null,
+      "conflictGroup": null,
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "crucible-feather-talisman",
+      "name": "Crucible Feather Talisman",
+      "source": "base",
+      "weight": 0.8,
+      "effect": "Improves dodge rolling but increases damage taken",
+      "icon": "assets/icons/talismans/crucible-feather-talisman.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Crucible_Feather_Talisman",
+      "param": {
+        "rowId": 4070,
+        "effectId": 340700,
+        "iconId": 18560,
+        "conflictGroup": 4070
+      },
+      "conflictGroup": "param-4070",
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "crucible-knot-talisman",
+      "name": "Crucible Knot Talisman",
+      "source": "base",
+      "weight": 0.5,
+      "effect": "Reduces damage and impact of headshots",
+      "icon": "assets/icons/talismans/crucible-knot-talisman.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Crucible_Knot_Talisman",
+      "param": {
+        "rowId": 4110,
+        "effectId": 341100,
+        "iconId": 18600,
+        "conflictGroup": 4110
+      },
+      "conflictGroup": "param-4110",
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "crucible-scale-talisman",
+      "name": "Crucible Scale Talisman",
+      "source": "base",
+      "weight": 1.1,
+      "effect": "Reduces damage taken from critical hits",
+      "icon": "assets/icons/talismans/crucible-scale-talisman.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Crucible_Scale_Talisman",
+      "param": {
+        "rowId": 4060,
+        "effectId": 340600,
+        "iconId": 18550,
+        "conflictGroup": 4060
+      },
+      "conflictGroup": "param-4060",
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "crusade-insignia",
+      "name": "Crusade Insignia",
+      "source": "dlc",
+      "weight": 1.2,
+      "effect": "Raises attack power after defeating an enemy",
+      "icon": "assets/icons/talismans/crusade-insignia.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Crusade_Insignia",
+      "param": null,
+      "conflictGroup": null,
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "curved-sword-talisman",
+      "name": "Curved Sword Talisman",
+      "source": "base",
+      "weight": 0.7,
+      "effect": "Enhances guard counters",
+      "icon": "assets/icons/talismans/curved-sword-talisman.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Curved_Sword_Talisman",
+      "param": {
+        "rowId": 2200,
+        "effectId": 322000,
+        "iconId": 18820,
+        "conflictGroup": 2200
+      },
+      "conflictGroup": "param-2200",
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "daedicars-woe",
+      "name": "Daedicar's Woe",
+      "source": "base",
+      "weight": 0.8,
+      "effect": "Increases damage taken",
+      "icon": "assets/icons/talismans/daedicars-woe.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Daedicar%27s_Woe",
+      "param": {
+        "rowId": 6060,
+        "effectId": 360600,
+        "iconId": 18740,
+        "conflictGroup": 6060
+      },
+      "conflictGroup": "param-6060",
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "dagger-talisman",
+      "name": "Dagger Talisman",
+      "source": "base",
+      "weight": 1.1,
+      "effect": "Enhances critical hits",
+      "icon": "assets/icons/talismans/dagger-talisman.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Dagger_Talisman",
+      "param": {
+        "rowId": 2090,
+        "effectId": 320900,
+        "iconId": 18320,
+        "conflictGroup": 2090
+      },
+      "conflictGroup": "param-2090",
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "dragoncrest-greatshield-talisman",
+      "name": "Dragoncrest Greatshield Talisman",
+      "source": "base",
+      "weight": 0.8,
+      "effect": "Enormously boosts physical damage negation",
+      "icon": "assets/icons/talismans/dragoncrest-greatshield-talisman.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Dragoncrest_Greatshield_Talisman",
+      "param": {
+        "rowId": 4003,
+        "effectId": 340030,
+        "iconId": 18493,
+        "conflictGroup": 4000
+      },
+      "conflictGroup": "param-4000",
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "dragoncrest-shield-talisman",
+      "name": "Dragoncrest Shield Talisman",
+      "source": "base",
+      "weight": 0.8,
+      "effect": "Boosts physical damage negation",
+      "icon": "assets/icons/talismans/dragoncrest-shield-talisman.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Dragoncrest_Shield_Talisman",
+      "param": {
+        "rowId": 4000,
+        "effectId": 340000,
+        "iconId": 18490,
+        "conflictGroup": 4000
+      },
+      "conflictGroup": "param-4000",
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "dragoncrest-shield-talisman-1",
+      "name": "Dragoncrest Shield Talisman +1",
+      "source": "base",
+      "weight": 0.8,
+      "effect": "Greatly boosts physical damage negation",
+      "icon": "assets/icons/talismans/dragoncrest-shield-talisman-1.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Dragoncrest_Shield_Talisman_%2B1",
+      "param": {
+        "rowId": 4001,
+        "effectId": 340010,
+        "iconId": 18491,
+        "conflictGroup": 4000
+      },
+      "conflictGroup": "param-4000",
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "dragoncrest-shield-talisman-2",
+      "name": "Dragoncrest Shield Talisman +2",
+      "source": "base",
+      "weight": 0.8,
+      "effect": "Vastly boosts physical damage negation",
+      "icon": "assets/icons/talismans/dragoncrest-shield-talisman-2.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Dragoncrest_Shield_Talisman_%2B2",
+      "param": {
+        "rowId": 4002,
+        "effectId": 340020,
+        "iconId": 18492,
+        "conflictGroup": 4000
+      },
+      "conflictGroup": "param-4000",
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "dried-bouquet",
+      "name": "Dried Bouquet",
+      "source": "dlc",
+      "weight": 0.8,
+      "effect": "Raises attack power when summoned spirit dies",
+      "icon": "assets/icons/talismans/dried-bouquet.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Dried_Bouquet",
+      "param": null,
+      "conflictGroup": null,
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "enraged-divine-beast",
+      "name": "Enraged Divine Beast",
+      "source": "dlc",
+      "weight": 0.7,
+      "effect": "Raises potency of storms by 10%",
+      "icon": "assets/icons/talismans/enraged-divine-beast.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Enraged_Divine_Beast",
+      "param": null,
+      "conflictGroup": null,
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "erdtrees-favor",
+      "name": "Erdtree's Favor",
+      "source": "base",
+      "weight": 1.5,
+      "effect": "Slightly raises maximum HP, stamina, and equip load",
+      "icon": "assets/icons/talismans/erdtrees-favor.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Erdtree%27s_Favor",
+      "param": {
+        "rowId": 1040,
+        "effectId": 310400,
+        "iconId": 18040,
+        "conflictGroup": 1040
+      },
+      "conflictGroup": "param-1040",
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "erdtrees-favor-1",
+      "name": "Erdtree's Favor +1",
+      "source": "base",
+      "weight": 1.5,
+      "effect": "Raises maximum HP, stamina, and equip load",
+      "icon": "assets/icons/talismans/erdtrees-favor-1.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Erdtree%27s_Favor_%2B1",
+      "param": {
+        "rowId": 1041,
+        "effectId": 310410,
+        "iconId": 18041,
+        "conflictGroup": 1040
+      },
+      "conflictGroup": "param-1040",
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "erdtrees-favor-2",
+      "name": "Erdtree's Favor +2",
+      "source": "base",
+      "weight": 1.5,
+      "effect": "Greatly raises maximum HP, stamina, and equip load",
+      "icon": "assets/icons/talismans/erdtrees-favor-2.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Erdtree%27s_Favor_%2B2",
+      "param": {
+        "rowId": 1042,
+        "effectId": 310420,
+        "iconId": 18042,
+        "conflictGroup": 1040
+      },
+      "conflictGroup": "param-1040",
+      "modelStatus": "modeled",
+      "survival": {
+        "hpMult": 1.04,
+        "staminaMult": 1.1,
+        "equipLoadMult": 1.08
+      },
+      "note": "+4% HP · +10% stamina · +8% equip load",
+      "confirmed": true
+    },
+    {
+      "id": "faithfuls-canvas-talisman",
+      "name": "Faithful's Canvas Talisman",
+      "source": "base",
+      "weight": 0.7,
+      "effect": "Raises potency of Incantations",
+      "icon": "assets/icons/talismans/faithfuls-canvas-talisman.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Faithful%27s_Canvas_Talisman",
+      "param": {
+        "rowId": 3040,
+        "effectId": 330400,
+        "iconId": 18440,
+        "conflictGroup": 3040
+      },
+      "conflictGroup": "param-3040",
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "fine-crucible-feather-talisman",
+      "name": "Fine Crucible Feather Talisman",
+      "source": "dlc",
+      "weight": 0,
+      "effect": "| weight =",
+      "icon": "assets/icons/talismans/fine-crucible-feather-talisman.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Fine_Crucible_Feather_Talisman",
+      "param": null,
+      "conflictGroup": null,
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "fire-scorpion-charm",
+      "name": "Fire Scorpion Charm",
+      "source": "base",
+      "weight": 0.8,
+      "effect": "Raises fire attack, but lowers damage negation",
+      "icon": "assets/icons/talismans/fire-scorpion-charm.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Fire_Scorpion_Charm",
+      "param": {
+        "rowId": 2020,
+        "effectId": 320200,
+        "iconId": 18250,
+        "conflictGroup": 2020
+      },
+      "conflictGroup": "param-2020",
+      "modelStatus": "modeled",
+      "mult": {
+        "fire": 1.12
+      },
+      "defense": {
+        "physicalTakenMult": 1.1
+      },
+      "note": "+12% fire · +10% phys damage taken",
+      "confirmed": true
+    },
+    {
+      "id": "flamedrake-talisman",
+      "name": "Flamedrake Talisman",
+      "source": "base",
+      "weight": 0.6,
+      "effect": "Boosts fire damage negation",
+      "icon": "assets/icons/talismans/flamedrake-talisman.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Flamedrake_Talisman",
+      "param": {
+        "rowId": 4020,
+        "effectId": 340200,
+        "iconId": 18510,
+        "conflictGroup": 4020
+      },
+      "conflictGroup": "param-4020",
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "flamedrake-talisman-1",
+      "name": "Flamedrake Talisman +1",
+      "source": "base",
+      "weight": 0.6,
+      "effect": "Greatly boosts fire damage negation",
+      "icon": "assets/icons/talismans/flamedrake-talisman-1.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Flamedrake_Talisman_%2B1",
+      "param": {
+        "rowId": 4021,
+        "effectId": 340210,
+        "iconId": 18511,
+        "conflictGroup": 4020
+      },
+      "conflictGroup": "param-4020",
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "flamedrake-talisman-2",
+      "name": "Flamedrake Talisman +2",
+      "source": "base",
+      "weight": 0.6,
+      "effect": "Vastly boosts fire damage negation",
+      "icon": "assets/icons/talismans/flamedrake-talisman-2.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Flamedrake_Talisman_%2B2",
+      "param": {
+        "rowId": 4022,
+        "effectId": 340220,
+        "iconId": 18512,
+        "conflictGroup": 4020
+      },
+      "conflictGroup": "param-4020",
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "flamedrake-talisman-3",
+      "name": "Flamedrake Talisman +3",
+      "source": "dlc",
+      "weight": 0.9,
+      "effect": "Boosts fire damage negation by the utmost",
+      "icon": "assets/icons/talismans/flamedrake-talisman-3.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Flamedrake_Talisman_%2B3",
+      "param": null,
+      "conflictGroup": null,
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "flocks-canvas-talisman",
+      "name": "Flock's Canvas Talisman",
+      "source": "base",
+      "weight": 1,
+      "effect": "Greatly raises potency of Incantations",
+      "icon": "assets/icons/talismans/flocks-canvas-talisman.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Flock%27s_Canvas_Talisman",
+      "param": {
+        "rowId": 3050,
+        "effectId": 330500,
+        "iconId": 18450,
+        "conflictGroup": 3050
+      },
+      "conflictGroup": "param-3050",
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "furled-fingers-trick-mirror",
+      "name": "Furled Finger's Trick-Mirror",
+      "source": "base",
+      "weight": 0.7,
+      "effect": "Take on appearance of a Host of Fingers",
+      "icon": "assets/icons/talismans/furled-fingers-trick-mirror.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Furled_Finger%27s_Trick-Mirror",
+      "param": {
+        "rowId": 6080,
+        "effectId": 360800,
+        "iconId": 18760,
+        "conflictGroup": 6080
+      },
+      "conflictGroup": "param-6080",
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "godfrey-icon",
+      "name": "Godfrey Icon",
+      "source": "base",
+      "weight": 0.8,
+      "effect": "Enhances charged spells and skills",
+      "icon": "assets/icons/talismans/godfrey-icon.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Godfrey_Icon",
+      "param": {
+        "rowId": 3090,
+        "effectId": 330900,
+        "iconId": 18860,
+        "conflictGroup": 3090
+      },
+      "conflictGroup": "param-3090",
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "godskin-swaddling-cloth",
+      "name": "Godskin Swaddling Cloth",
+      "source": "base",
+      "weight": 0.9,
+      "effect": "Successive attacks restore HP",
+      "icon": "assets/icons/talismans/godskin-swaddling-cloth.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Godskin_Swaddling_Cloth",
+      "param": {
+        "rowId": 5040,
+        "effectId": 350400,
+        "iconId": 18650,
+        "conflictGroup": 5040
+      },
+      "conflictGroup": "param-5040",
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "gold-scarab",
+      "name": "Gold Scarab",
+      "source": "base",
+      "weight": 1.2,
+      "effect": "Increases runes obtained from defeated enemies",
+      "icon": "assets/icons/talismans/gold-scarab.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Gold_Scarab",
+      "param": {
+        "rowId": 1110,
+        "effectId": 311100,
+        "iconId": 18120,
+        "conflictGroup": 1110
+      },
+      "conflictGroup": "param-1110",
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "golden-braid",
+      "name": "Golden Braid",
+      "source": "dlc",
+      "weight": 0,
+      "effect": "See item description",
+      "icon": "assets/icons/talismans/golden-braid.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Golden_Braid",
+      "param": null,
+      "conflictGroup": null,
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "graven-mass-talisman",
+      "name": "Graven-Mass Talisman",
+      "source": "base",
+      "weight": 1,
+      "effect": "Greatly raises potency of sorceries",
+      "icon": "assets/icons/talismans/graven-mass-talisman.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Graven-Mass_Talisman",
+      "param": {
+        "rowId": 3001,
+        "effectId": 330010,
+        "iconId": 18411,
+        "conflictGroup": 3001
+      },
+      "conflictGroup": "param-3001",
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "graven-school-talisman",
+      "name": "Graven-School Talisman",
+      "source": "base",
+      "weight": 0.7,
+      "effect": "Raises potency of sorceries",
+      "icon": "assets/icons/talismans/graven-school-talisman.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Graven-School_Talisman",
+      "param": {
+        "rowId": 3000,
+        "effectId": 330000,
+        "iconId": 18410,
+        "conflictGroup": 3000
+      },
+      "conflictGroup": "param-3000",
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "great-jars-arsenal",
+      "name": "Great-Jar's Arsenal",
+      "source": "base",
+      "weight": 1.5,
+      "effect": "Vastly raises maximum equipment load",
+      "icon": "assets/icons/talismans/great-jars-arsenal.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Great-Jar%27s_Arsenal",
+      "param": {
+        "rowId": 1032,
+        "effectId": 310320,
+        "iconId": 18032,
+        "conflictGroup": 1030
+      },
+      "conflictGroup": "param-1030",
+      "modelStatus": "modeled",
+      "survival": {
+        "equipLoadMult": 1.19
+      },
+      "note": "+19% max equip load",
+      "confirmed": true
+    },
+    {
+      "id": "greatshield-talisman",
+      "name": "Greatshield Talisman",
+      "source": "base",
+      "weight": 0.9,
+      "effect": "Boosts guarding ability",
+      "icon": "assets/icons/talismans/greatshield-talisman.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Greatshield_Talisman",
+      "param": {
+        "rowId": 4100,
+        "effectId": 341000,
+        "iconId": 18590,
+        "conflictGroup": 4100
+      },
+      "conflictGroup": "param-4100",
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "green-turtle-talisman",
+      "name": "Green Turtle Talisman",
+      "source": "base",
+      "weight": 0.7,
+      "effect": "Raises stamina recovery speed",
+      "icon": "assets/icons/talismans/green-turtle-talisman.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Green_Turtle_Talisman",
+      "param": {
+        "rowId": 1150,
+        "effectId": 311500,
+        "iconId": 18160,
+        "conflictGroup": 1150
+      },
+      "conflictGroup": "param-1150",
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "haligdrake-talisman",
+      "name": "Haligdrake Talisman",
+      "source": "base",
+      "weight": 0.6,
+      "effect": "Boosts holy damage negation",
+      "icon": "assets/icons/talismans/haligdrake-talisman.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Haligdrake_Talisman",
+      "param": {
+        "rowId": 4040,
+        "effectId": 340400,
+        "iconId": 18530,
+        "conflictGroup": 4040
+      },
+      "conflictGroup": "param-4040",
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "haligdrake-talisman-1",
+      "name": "Haligdrake Talisman +1",
+      "source": "base",
+      "weight": 0.6,
+      "effect": "Greatly boosts holy damage negation",
+      "icon": "assets/icons/talismans/haligdrake-talisman-1.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Haligdrake_Talisman_%2B1",
+      "param": {
+        "rowId": 4041,
+        "effectId": 340410,
+        "iconId": 18531,
+        "conflictGroup": 4040
+      },
+      "conflictGroup": "param-4040",
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "haligdrake-talisman-2",
+      "name": "Haligdrake Talisman +2",
+      "source": "base",
+      "weight": 0.6,
+      "effect": "Vastly boosts holy damage negation",
+      "icon": "assets/icons/talismans/haligdrake-talisman-2.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Haligdrake_Talisman_%2B2",
+      "param": {
+        "rowId": 4042,
+        "effectId": 340420,
+        "iconId": 18532,
+        "conflictGroup": 4040
+      },
+      "conflictGroup": "param-4040",
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "hammer-talisman",
+      "name": "Hammer Talisman",
+      "source": "base",
+      "weight": 0.9,
+      "effect": "Enhances stamina-reducing attacks against blockers",
+      "icon": "assets/icons/talismans/hammer-talisman.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Hammer_Talisman",
+      "param": {
+        "rowId": 2070,
+        "effectId": 320700,
+        "iconId": 18300,
+        "conflictGroup": 2070
+      },
+      "conflictGroup": "param-2070",
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "hosts-trick-mirror",
+      "name": "Host's Trick-Mirror",
+      "source": "base",
+      "weight": 0.7,
+      "effect": "Take on appearance of a cooperator",
+      "icon": "assets/icons/talismans/hosts-trick-mirror.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Host%27s_Trick-Mirror",
+      "param": {
+        "rowId": 6090,
+        "effectId": 360900,
+        "iconId": 18770,
+        "conflictGroup": 6080
+      },
+      "conflictGroup": "param-6080",
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "immunizing-horn-charm",
+      "name": "Immunizing Horn Charm",
+      "source": "base",
+      "weight": 0.6,
+      "effect": "Raises Immunity",
+      "icon": "assets/icons/talismans/immunizing-horn-charm.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Immunizing_Horn_Charm",
+      "param": {
+        "rowId": 1170,
+        "effectId": 311700,
+        "iconId": 18180,
+        "conflictGroup": 1170
+      },
+      "conflictGroup": "param-1170",
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "immunizing-horn-charm-1",
+      "name": "Immunizing Horn Charm +1",
+      "source": "base",
+      "weight": 0.6,
+      "effect": "Greatly raises Immunity",
+      "icon": "assets/icons/talismans/immunizing-horn-charm-1.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Immunizing_Horn_Charm_%2B1",
+      "param": {
+        "rowId": 1171,
+        "effectId": 311710,
+        "iconId": 18181,
+        "conflictGroup": 1170
+      },
+      "conflictGroup": "param-1170",
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "immunizing-horn-charm-2",
+      "name": "Immunizing Horn Charm +2",
+      "source": "dlc",
+      "weight": 0.9,
+      "effect": "Raises Immunity by +180",
+      "icon": "assets/icons/talismans/immunizing-horn-charm-2.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Immunizing_Horn_Charm_%2B2",
+      "param": null,
+      "conflictGroup": null,
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "kindred-of-rots-exultation",
+      "name": "Kindred of Rot's Exultation",
+      "source": "base",
+      "weight": 0.9,
+      "effect": "Poisoning or rot in vicinity increases attack power",
+      "icon": "assets/icons/talismans/kindred-of-rots-exultation.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Kindred_of_Rot%27s_Exultation",
+      "param": {
+        "rowId": 2170,
+        "effectId": 321700,
+        "iconId": 18400,
+        "conflictGroup": 2170
+      },
+      "conflictGroup": "param-2170",
+      "modelStatus": "modeled",
+      "mult": {
+        "all": 1.2
+      },
+      "condition": {
+        "id": "poison-rot-nearby",
+        "label": "Poison or rot nearby",
+        "defaultActive": true
+      },
+      "note": "+20% for 20s after poison/rot nearby",
+      "confirmed": false
+    },
+    {
+      "id": "lacerating-crossed-tree",
+      "name": "Lacerating Crossed-Tree",
+      "source": "dlc",
+      "weight": 0.8,
+      "effect": "Enhances dash attacks",
+      "icon": "assets/icons/talismans/lacerating-crossed-tree.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Lacerating_Crossed-Tree",
+      "param": null,
+      "conflictGroup": null,
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "lance-talisman",
+      "name": "Lance Talisman",
+      "source": "base",
+      "weight": 0.7,
+      "effect": "See item description",
+      "icon": "assets/icons/talismans/lance-talisman.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Lance_Talisman",
+      "param": {
+        "rowId": 2140,
+        "effectId": 321400,
+        "iconId": 18380,
+        "conflictGroup": 2140
+      },
+      "conflictGroup": "param-2140",
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "lightning-scorpion-charm",
+      "name": "Lightning Scorpion Charm",
+      "source": "base",
+      "weight": 0.8,
+      "effect": "Raises lightning attack, but lowers damage negation",
+      "icon": "assets/icons/talismans/lightning-scorpion-charm.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Lightning_Scorpion_Charm",
+      "param": {
+        "rowId": 2010,
+        "effectId": 320100,
+        "iconId": 18240,
+        "conflictGroup": 2010
+      },
+      "conflictGroup": "param-2010",
+      "modelStatus": "modeled",
+      "mult": {
+        "lightning": 1.12
+      },
+      "defense": {
+        "physicalTakenMult": 1.1
+      },
+      "note": "+12% lightning · +10% phys damage taken",
+      "confirmed": false
+    },
+    {
+      "id": "longtail-cat-talisman",
+      "name": "Longtail Cat Talisman",
+      "source": "base",
+      "weight": 0.6,
+      "effect": "Grants immunity to fall damage, but does not prevent death from a high fall.",
+      "icon": "assets/icons/talismans/longtail-cat-talisman.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Longtail_Cat_Talisman",
+      "param": {
+        "rowId": 6040,
+        "effectId": 360400,
+        "iconId": 18720,
+        "conflictGroup": 6040
+      },
+      "conflictGroup": "param-6040",
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "lord-of-bloods-exultation",
+      "name": "Lord of Blood's Exultation",
+      "source": "base",
+      "weight": 0.9,
+      "effect": "Blood loss in vicinity increases attack power",
+      "icon": "assets/icons/talismans/lord-of-bloods-exultation.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Lord_of_Blood%27s_Exultation",
+      "param": {
+        "rowId": 2160,
+        "effectId": 321600,
+        "iconId": 18390,
+        "conflictGroup": 2160
+      },
+      "conflictGroup": "param-2160",
+      "modelStatus": "modeled",
+      "mult": {
+        "all": 1.2
+      },
+      "condition": {
+        "id": "blood-loss-nearby",
+        "label": "Blood loss nearby",
+        "defaultActive": true
+      },
+      "note": "+20% for 20s after blood loss nearby",
+      "confirmed": true
+    },
+    {
+      "id": "magic-scorpion-charm",
+      "name": "Magic Scorpion Charm",
+      "source": "base",
+      "weight": 0.8,
+      "effect": "Raises magic attack, but lowers damage negation",
+      "icon": "assets/icons/talismans/magic-scorpion-charm.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Magic_Scorpion_Charm",
+      "param": {
+        "rowId": 2000,
+        "effectId": 320000,
+        "iconId": 18230,
+        "conflictGroup": 2000
+      },
+      "conflictGroup": "param-2000",
+      "modelStatus": "modeled",
+      "mult": {
+        "magic": 1.12
+      },
+      "defense": {
+        "physicalTakenMult": 1.1
+      },
+      "note": "+12% magic · +10% phys damage taken",
+      "confirmed": false
+    },
+    {
+      "id": "marikas-scarseal",
+      "name": "Marika's Scarseal",
+      "source": "base",
+      "weight": 0.8,
+      "effect": "Raises attributes, but also increases damage taken",
+      "icon": "assets/icons/talismans/marikas-scarseal.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Marika%27s_Scarseal",
+      "param": {
+        "rowId": 1220,
+        "effectId": 312200,
+        "iconId": 18060,
+        "conflictGroup": 1220
+      },
+      "conflictGroup": "param-1220",
+      "modelStatus": "modeled",
+      "statBonus": {
+        "MND": 3,
+        "INT": 3,
+        "FAI": 3,
+        "ARC": 3
+      },
+      "defense": {
+        "allTakenMult": 1.1
+      },
+      "note": "+3 MND/INT/FAI/ARC · +10% damage taken",
+      "confirmed": false
+    },
+    {
+      "id": "marikas-soreseal",
+      "name": "Marika's Soreseal",
+      "source": "base",
+      "weight": 0.8,
+      "effect": "Greatly raises attributes, but also increases damage taken",
+      "icon": "assets/icons/talismans/marikas-soreseal.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Marika%27s_Soreseal",
+      "param": {
+        "rowId": 1221,
+        "effectId": 312210,
+        "iconId": 18061,
+        "conflictGroup": 1220
+      },
+      "conflictGroup": "param-1220",
+      "modelStatus": "modeled",
+      "statBonus": {
+        "MND": 5,
+        "INT": 5,
+        "FAI": 5,
+        "ARC": 5
+      },
+      "defense": {
+        "allTakenMult": 1.15
+      },
+      "note": "+5 MND/INT/FAI/ARC · +15% damage taken",
+      "confirmed": true
+    },
+    {
+      "id": "millicents-prosthesis",
+      "name": "Millicent's Prosthesis",
+      "source": "base",
+      "weight": 1.6,
+      "effect": "Boosts dexterity, raises attack power with successive attacks",
+      "icon": "assets/icons/talismans/millicents-prosthesis.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Millicent%27s_Prosthesis",
+      "param": {
+        "rowId": 1250,
+        "effectId": 312500,
+        "iconId": 18890,
+        "conflictGroup": 1250
+      },
+      "conflictGroup": "param-1250",
+      "modelStatus": "modeled",
+      "statBonus": {
+        "DEX": 5
+      },
+      "mult": {
+        "all": 1.1
+      },
+      "condition": {
+        "id": "successive-attacks",
+        "label": "Maximum attack chain",
+        "defaultActive": true
+      },
+      "note": "+5 DEX · +10% at max ramp",
+      "confirmed": false
+    },
+    {
+      "id": "moon-of-nokstella",
+      "name": "Moon of Nokstella",
+      "source": "base",
+      "weight": 0.8,
+      "effect": "Increases memory slots by 2",
+      "icon": "assets/icons/talismans/moon-of-nokstella.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Moon_of_Nokstella",
+      "param": {
+        "rowId": 1140,
+        "effectId": 311400,
+        "iconId": 18150,
+        "conflictGroup": 1140
+      },
+      "conflictGroup": "param-1140",
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "mottled-necklace",
+      "name": "Mottled Necklace",
+      "source": "base",
+      "weight": 0.9,
+      "effect": "Raises Robustness, Immunity, and Focus",
+      "icon": "assets/icons/talismans/mottled-necklace.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Mottled_Necklace",
+      "param": {
+        "rowId": 1200,
+        "effectId": 312000,
+        "iconId": 18210,
+        "conflictGroup": 1200
+      },
+      "conflictGroup": "param-1200",
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "mottled-necklace-1",
+      "name": "Mottled Necklace +1",
+      "source": "base",
+      "weight": 0.9,
+      "effect": "Greatly raises Robustness, Immunity, and Focus",
+      "icon": "assets/icons/talismans/mottled-necklace-1.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Mottled_Necklace_%2B1",
+      "param": {
+        "rowId": 1201,
+        "effectId": 312010,
+        "iconId": 18211,
+        "conflictGroup": 1200
+      },
+      "conflictGroup": "param-1200",
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "mottled-necklace-2",
+      "name": "Mottled Necklace +2",
+      "source": "dlc",
+      "weight": 1.1,
+      "effect": "Raises Immunity, Robustness, and Focus by +100 each",
+      "icon": "assets/icons/talismans/mottled-necklace-2.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Mottled_Necklace_%2B2",
+      "param": null,
+      "conflictGroup": null,
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "old-lords-talisman",
+      "name": "Old Lord's Talisman",
+      "source": "base",
+      "weight": 0.5,
+      "effect": "Extends spell effect duration",
+      "icon": "assets/icons/talismans/old-lords-talisman.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Old_Lord%27s_Talisman",
+      "param": {
+        "rowId": 3060,
+        "effectId": 330600,
+        "iconId": 18460,
+        "conflictGroup": 3060
+      },
+      "conflictGroup": "param-3060",
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "outer-god-heirloom",
+      "name": "Outer God Heirloom",
+      "source": "dlc",
+      "weight": 0.6,
+      "effect": "Raises arcane by 5",
+      "icon": "assets/icons/talismans/outer-god-heirloom.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Outer_God_Heirloom",
+      "param": null,
+      "conflictGroup": null,
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "pearl-shield-talisman",
+      "name": "Pearl Shield Talisman",
+      "source": "dlc",
+      "weight": 0.9,
+      "effect": "Boosts all non-physical damage negation by 20% while guarding",
+      "icon": "assets/icons/talismans/pearl-shield-talisman.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Pearl_Shield_Talisman",
+      "param": null,
+      "conflictGroup": null,
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "pearldrake-talisman",
+      "name": "Pearldrake Talisman",
+      "source": "base",
+      "weight": 0.9,
+      "effect": "Boosts non-physical damage negation",
+      "icon": "assets/icons/talismans/pearldrake-talisman.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Pearldrake_Talisman",
+      "param": {
+        "rowId": 4050,
+        "effectId": 340500,
+        "iconId": 18540,
+        "conflictGroup": 4050
+      },
+      "conflictGroup": "param-4050",
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "pearldrake-talisman-1",
+      "name": "Pearldrake Talisman +1",
+      "source": "base",
+      "weight": 0.9,
+      "effect": "Greatly boosts non-physical damage negation",
+      "icon": "assets/icons/talismans/pearldrake-talisman-1.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Pearldrake_Talisman_%2B1",
+      "param": {
+        "rowId": 4051,
+        "effectId": 340510,
+        "iconId": 18541,
+        "conflictGroup": 4050
+      },
+      "conflictGroup": "param-4050",
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "pearldrake-talisman-2",
+      "name": "Pearldrake Talisman +2",
+      "source": "base",
+      "weight": 0.9,
+      "effect": "Vastly boosts non-physical damage negation",
+      "icon": "assets/icons/talismans/pearldrake-talisman-2.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Pearldrake_Talisman_%2B2",
+      "param": {
+        "rowId": 4052,
+        "effectId": 340520,
+        "iconId": 18542,
+        "conflictGroup": 4050
+      },
+      "conflictGroup": "param-4050",
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "pearldrake-talisman-3",
+      "name": "Pearldrake Talisman +3",
+      "source": "dlc",
+      "weight": 0,
+      "effect": "See item description",
+      "icon": "assets/icons/talismans/pearldrake-talisman-3.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Pearldrake_Talisman_%2B3",
+      "param": null,
+      "conflictGroup": null,
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "perfumers-talisman",
+      "name": "Perfumer's Talisman",
+      "source": "base",
+      "weight": 0.6,
+      "effect": "Raises potency of perfume items",
+      "icon": "assets/icons/talismans/perfumers-talisman.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Perfumer%27s_Talisman",
+      "param": {
+        "rowId": 2220,
+        "effectId": 322200,
+        "iconId": 18840,
+        "conflictGroup": 2220
+      },
+      "conflictGroup": "param-2220",
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "primal-glintstone-blade",
+      "name": "Primal Glintstone Blade",
+      "source": "base",
+      "weight": 0.6,
+      "effect": "Spells consume less FP, but maximum HP is reduced",
+      "icon": "assets/icons/talismans/primal-glintstone-blade.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Primal_Glintstone_Blade",
+      "param": {
+        "rowId": 3080,
+        "effectId": 330800,
+        "iconId": 18480,
+        "conflictGroup": 3080
+      },
+      "conflictGroup": "param-3080",
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "prince-of-deaths-cyst",
+      "name": "Prince of Death's Cyst",
+      "source": "base",
+      "weight": 0.6,
+      "effect": "Greatly raises vitality",
+      "icon": "assets/icons/talismans/prince-of-deaths-cyst.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Prince_of_Death%27s_Cyst",
+      "param": {
+        "rowId": 1191,
+        "effectId": 311910,
+        "iconId": 18201,
+        "conflictGroup": 1190
+      },
+      "conflictGroup": "param-1190",
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "prince-of-deaths-pustule",
+      "name": "Prince of Death's Pustule",
+      "source": "base",
+      "weight": 0.6,
+      "effect": "Raises Vitality",
+      "icon": "assets/icons/talismans/prince-of-deaths-pustule.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Prince_of_Death%27s_Pustule",
+      "param": {
+        "rowId": 1190,
+        "effectId": 311900,
+        "iconId": 3220,
+        "conflictGroup": 1190
+      },
+      "conflictGroup": "param-1190",
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "prosthesis-wearer-heirloom",
+      "name": "Prosthesis-Wearer Heirloom",
+      "source": "base",
+      "weight": 0.8,
+      "effect": "Raises dexterity by 5",
+      "icon": "assets/icons/talismans/prosthesis-wearer-heirloom.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Prosthesis-Wearer_Heirloom",
+      "param": {
+        "rowId": 1070,
+        "effectId": 310700,
+        "iconId": 18080,
+        "conflictGroup": 1070
+      },
+      "conflictGroup": "param-1070",
+      "modelStatus": "modeled",
+      "statBonus": {
+        "DEX": 5
+      },
+      "note": "+5 Dexterity",
+      "confirmed": false
+    },
+    {
+      "id": "radagon-icon",
+      "name": "Radagon Icon",
+      "source": "base",
+      "weight": 0.7,
+      "effect": "Shortens spell casting time",
+      "icon": "assets/icons/talismans/radagon-icon.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Radagon_Icon",
+      "param": {
+        "rowId": 3070,
+        "effectId": 330700,
+        "iconId": 18470,
+        "conflictGroup": 3070
+      },
+      "conflictGroup": "param-3070",
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "radagons-scarseal",
+      "name": "Radagon's Scarseal",
+      "source": "base",
+      "weight": 0.8,
+      "effect": "+3 VIG, END, STR, DEX · +10% damage taken",
+      "icon": "assets/icons/talismans/radagons-scarseal.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Radagon%27s_Scarseal",
+      "param": {
+        "rowId": 1050,
+        "effectId": 310500,
+        "iconId": 18050,
+        "conflictGroup": 1050
+      },
+      "conflictGroup": "param-1050",
+      "modelStatus": "modeled",
+      "statBonus": {
+        "VIG": 3,
+        "END": 3,
+        "STR": 3,
+        "DEX": 3
+      },
+      "defense": {
+        "allTakenMult": 1.1
+      },
+      "note": "+3 VIG/END/STR/DEX · +10% damage taken",
+      "confirmed": false
+    },
+    {
+      "id": "radagons-soreseal",
+      "name": "Radagon's Soreseal",
+      "source": "base",
+      "weight": 0.8,
+      "effect": "+5 VIG, END, STR, DEX · +15% damage taken",
+      "icon": "assets/icons/talismans/radagons-soreseal.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Radagon%27s_Soreseal",
+      "param": {
+        "rowId": 1051,
+        "effectId": 310510,
+        "iconId": 18051,
+        "conflictGroup": 1050
+      },
+      "conflictGroup": "param-1050",
+      "modelStatus": "modeled",
+      "statBonus": {
+        "VIG": 5,
+        "END": 5,
+        "STR": 5,
+        "DEX": 5
+      },
+      "defense": {
+        "allTakenMult": 1.15
+      },
+      "note": "+5 VIG/END/STR/DEX · +15% damage taken",
+      "confirmed": true
+    },
+    {
+      "id": "red-feathered-branchsword",
+      "name": "Red-Feathered Branchsword",
+      "source": "base",
+      "weight": 1.4,
+      "effect": "Raises attack power when HP is low",
+      "icon": "assets/icons/talismans/red-feathered-branchsword.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Red-Feathered_Branchsword",
+      "param": {
+        "rowId": 2040,
+        "effectId": 320400,
+        "iconId": 18270,
+        "conflictGroup": 2040
+      },
+      "conflictGroup": "param-2040",
+      "modelStatus": "modeled",
+      "mult": {
+        "all": 1.2
+      },
+      "condition": {
+        "id": "low-hp",
+        "label": "Below 20% HP",
+        "defaultActive": true
+      },
+      "note": "+20% below 20% HP",
+      "confirmed": false
+    },
+    {
+      "id": "rellanas-cameo",
+      "name": "Rellana's Cameo",
+      "source": "dlc",
+      "weight": 0.8,
+      "effect": "Enhances attacks executed after maintaining the same stance for an extended period",
+      "icon": "assets/icons/talismans/rellanas-cameo.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Rellana%27s_Cameo",
+      "param": null,
+      "conflictGroup": null,
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "retaliatory-crossed-tree",
+      "name": "Retaliatory Crossed-Tree",
+      "source": "dlc",
+      "weight": 0.8,
+      "effect": "Enhances attacks executed after rolling or backstepping",
+      "icon": "assets/icons/talismans/retaliatory-crossed-tree.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Retaliatory_Crossed-Tree",
+      "param": null,
+      "conflictGroup": null,
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "ritual-shield-talisman",
+      "name": "Ritual Shield Talisman",
+      "source": "base",
+      "weight": 0.9,
+      "effect": "Raises defense when HP is at maximum",
+      "icon": "assets/icons/talismans/ritual-shield-talisman.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Ritual_Shield_Talisman",
+      "param": {
+        "rowId": 4090,
+        "effectId": 340900,
+        "iconId": 18580,
+        "conflictGroup": 4090
+      },
+      "conflictGroup": "param-4090",
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "ritual-sword-talisman",
+      "name": "Ritual Sword Talisman",
+      "source": "base",
+      "weight": 0.9,
+      "effect": "Raises attack power when HP is at maximum",
+      "icon": "assets/icons/talismans/ritual-sword-talisman.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Ritual_Sword_Talisman",
+      "param": {
+        "rowId": 2050,
+        "effectId": 320500,
+        "iconId": 18280,
+        "conflictGroup": 2050
+      },
+      "conflictGroup": "param-2050",
+      "modelStatus": "modeled",
+      "legacyIds": [
+        "ritual-sword"
+      ],
+      "mult": {
+        "all": 1.1
+      },
+      "condition": {
+        "id": "full-hp",
+        "label": "Full HP",
+        "defaultActive": true
+      },
+      "note": "+10% while at full HP",
+      "confirmed": true
+    },
+    {
+      "id": "roar-medallion",
+      "name": "Roar Medallion",
+      "source": "base",
+      "weight": 0.7,
+      "effect": "Enhances roars and breath attacks",
+      "icon": "assets/icons/talismans/roar-medallion.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Roar_Medallion",
+      "param": {
+        "rowId": 2190,
+        "effectId": 321900,
+        "iconId": 18810,
+        "conflictGroup": 2190
+      },
+      "conflictGroup": "param-2190",
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "rotten-winged-sword-insignia",
+      "name": "Rotten Winged Sword Insignia",
+      "source": "base",
+      "weight": 1.4,
+      "effect": "Greatly raises attack power with successive attacks",
+      "icon": "assets/icons/talismans/rotten-winged-sword-insignia.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Rotten_Winged_Sword_Insignia",
+      "param": {
+        "rowId": 2081,
+        "effectId": 320810,
+        "iconId": 18311,
+        "conflictGroup": 2080
+      },
+      "conflictGroup": "param-2080",
+      "modelStatus": "modeled",
+      "mult": {
+        "all": 1.13
+      },
+      "condition": {
+        "id": "successive-attacks",
+        "label": "Maximum attack chain",
+        "defaultActive": true
+      },
+      "note": "+13% at max ramp",
+      "confirmed": true
+    },
+    {
+      "id": "sacred-scorpion-charm",
+      "name": "Sacred Scorpion Charm",
+      "source": "base",
+      "weight": 0.8,
+      "effect": "Raises holy attack, but lowers damage negation",
+      "icon": "assets/icons/talismans/sacred-scorpion-charm.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Sacred_Scorpion_Charm",
+      "param": {
+        "rowId": 2030,
+        "effectId": 320300,
+        "iconId": 18260,
+        "conflictGroup": 2030
+      },
+      "conflictGroup": "param-2030",
+      "modelStatus": "modeled",
+      "mult": {
+        "holy": 1.12
+      },
+      "defense": {
+        "physicalTakenMult": 1.1
+      },
+      "note": "+12% holy · +10% phys damage taken",
+      "confirmed": false
+    },
+    {
+      "id": "sacrificial-twig",
+      "name": "Sacrificial Twig",
+      "source": "base",
+      "weight": 1,
+      "effect": "Will be lost on death in place of runes",
+      "icon": "assets/icons/talismans/sacrificial-twig.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Sacrificial_Twig",
+      "param": {
+        "rowId": 6070,
+        "effectId": 360700,
+        "iconId": 18750,
+        "conflictGroup": 6070
+      },
+      "conflictGroup": "param-6070",
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "shabriris-woe",
+      "name": "Shabriri's Woe",
+      "source": "base",
+      "weight": 0.6,
+      "effect": "Constantly attracts enemies' aggression",
+      "icon": "assets/icons/talismans/shabriris-woe.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Shabriri%27s_Woe",
+      "param": {
+        "rowId": 6050,
+        "effectId": 360500,
+        "iconId": 18730,
+        "conflictGroup": 6050
+      },
+      "conflictGroup": "param-6050",
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "shard-of-alexander",
+      "name": "Shard of Alexander",
+      "source": "base",
+      "weight": 0.9,
+      "effect": "Greatly boosts the attack power of skills",
+      "icon": "assets/icons/talismans/shard-of-alexander.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Shard_of_Alexander",
+      "param": {
+        "rowId": 1231,
+        "effectId": 312310,
+        "iconId": 18871,
+        "conflictGroup": 1230
+      },
+      "conflictGroup": "param-1230",
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "sharpshot-talisman",
+      "name": "Sharpshot Talisman",
+      "source": "dlc",
+      "weight": 0.6,
+      "effect": "Boosts attack power of precision-aimed shots",
+      "icon": "assets/icons/talismans/sharpshot-talisman.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Sharpshot_Talisman",
+      "param": null,
+      "conflictGroup": null,
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "shattered-stone-talisman",
+      "name": "Shattered Stone Talisman",
+      "source": "dlc",
+      "weight": 0.8,
+      "effect": "Raises potency of kicking and stomping skills",
+      "icon": "assets/icons/talismans/shattered-stone-talisman.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Shattered_Stone_Talisman",
+      "param": null,
+      "conflictGroup": null,
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "silver-scarab",
+      "name": "Silver Scarab",
+      "source": "base",
+      "weight": 1.2,
+      "effect": "Raises item discovery",
+      "icon": "assets/icons/talismans/silver-scarab.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Silver_Scarab",
+      "param": {
+        "rowId": 1100,
+        "effectId": 311000,
+        "iconId": 18110,
+        "conflictGroup": 1100
+      },
+      "conflictGroup": "param-1100",
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "smithing-talisman",
+      "name": "Smithing Talisman",
+      "source": "dlc",
+      "weight": 1.3,
+      "effect": "Enhances weapon throwing · attacks",
+      "icon": "assets/icons/talismans/smithing-talisman.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Smithing_Talisman",
+      "param": null,
+      "conflictGroup": null,
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "spear-talisman",
+      "name": "Spear Talisman",
+      "source": "base",
+      "weight": 0.5,
+      "effect": "Enhances counterattacks unique to thrusting weapons",
+      "icon": "assets/icons/talismans/spear-talisman.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Spear_Talisman",
+      "param": {
+        "rowId": 2060,
+        "effectId": 320600,
+        "iconId": 18290,
+        "conflictGroup": 2060
+      },
+      "conflictGroup": "param-2060",
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "spelldrake-talisman",
+      "name": "Spelldrake Talisman",
+      "source": "base",
+      "weight": 0.6,
+      "effect": "Boosts magical damage negation",
+      "icon": "assets/icons/talismans/spelldrake-talisman.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Spelldrake_Talisman",
+      "param": {
+        "rowId": 4010,
+        "effectId": 340100,
+        "iconId": 18500,
+        "conflictGroup": 4010
+      },
+      "conflictGroup": "param-4010",
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "spelldrake-talisman-1",
+      "name": "Spelldrake Talisman +1",
+      "source": "base",
+      "weight": 0.6,
+      "effect": "Greatly boosts magical damage negation",
+      "icon": "assets/icons/talismans/spelldrake-talisman-1.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Spelldrake_Talisman_%2B1",
+      "param": {
+        "rowId": 4011,
+        "effectId": 340110,
+        "iconId": 18501,
+        "conflictGroup": 4010
+      },
+      "conflictGroup": "param-4010",
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "spelldrake-talisman-2",
+      "name": "Spelldrake Talisman +2",
+      "source": "base",
+      "weight": 0.6,
+      "effect": "Vastly boosts magical damage negation",
+      "icon": "assets/icons/talismans/spelldrake-talisman-2.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Spelldrake_Talisman_%2B2",
+      "param": {
+        "rowId": 4012,
+        "effectId": 340120,
+        "iconId": 18502,
+        "conflictGroup": 4010
+      },
+      "conflictGroup": "param-4010",
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "spelldrake-talisman-3",
+      "name": "Spelldrake Talisman +3",
+      "source": "dlc",
+      "weight": 0.9,
+      "effect": "Boosts magical damage negation by the utmost",
+      "icon": "assets/icons/talismans/spelldrake-talisman-3.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Spelldrake_Talisman_%2B3",
+      "param": null,
+      "conflictGroup": null,
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "st-trinas-smile",
+      "name": "St. Trina's Smile",
+      "source": "dlc",
+      "weight": 0.9,
+      "effect": "Sleep in the vicinity increases attack power",
+      "icon": "assets/icons/talismans/st-trinas-smile.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/St._Trina%27s_Smile",
+      "param": null,
+      "conflictGroup": null,
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "stalwart-horn-charm",
+      "name": "Stalwart Horn Charm",
+      "source": "base",
+      "weight": 0.6,
+      "effect": "Raises robustness",
+      "icon": "assets/icons/talismans/stalwart-horn-charm.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Stalwart_Horn_Charm",
+      "param": {
+        "rowId": 1160,
+        "effectId": 311600,
+        "iconId": 18170,
+        "conflictGroup": 1160
+      },
+      "conflictGroup": "param-1160",
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "stalwart-horn-charm-1",
+      "name": "Stalwart Horn Charm +1",
+      "source": "base",
+      "weight": 0.6,
+      "effect": "Greatly raises robustness",
+      "icon": "assets/icons/talismans/stalwart-horn-charm-1.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Stalwart_Horn_Charm_%2B1",
+      "param": {
+        "rowId": 1161,
+        "effectId": 311610,
+        "iconId": 18171,
+        "conflictGroup": 1160
+      },
+      "conflictGroup": "param-1160",
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "stalwart-horn-charm-2",
+      "name": "Stalwart Horn Charm +2",
+      "source": "dlc",
+      "weight": 0.9,
+      "effect": "Raises Robustness by +180",
+      "icon": "assets/icons/talismans/stalwart-horn-charm-2.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Stalwart_Horn_Charm_%2B2",
+      "param": null,
+      "conflictGroup": null,
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "stargazer-heirloom",
+      "name": "Stargazer Heirloom",
+      "source": "base",
+      "weight": 0.6,
+      "effect": "Raises intelligence by 5",
+      "icon": "assets/icons/talismans/stargazer-heirloom.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Stargazer_Heirloom",
+      "param": {
+        "rowId": 1080,
+        "effectId": 310800,
+        "iconId": 18090,
+        "conflictGroup": 1080
+      },
+      "conflictGroup": "param-1080",
+      "modelStatus": "modeled",
+      "statBonus": {
+        "INT": 5
+      },
+      "note": "+5 Intelligence",
+      "confirmed": false
+    },
+    {
+      "id": "starscourge-heirloom",
+      "name": "Starscourge Heirloom",
+      "source": "base",
+      "weight": 0.8,
+      "effect": "Raises strength by 5",
+      "icon": "assets/icons/talismans/starscourge-heirloom.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Starscourge_Heirloom",
+      "param": {
+        "rowId": 1060,
+        "effectId": 310600,
+        "iconId": 18070,
+        "conflictGroup": 1060
+      },
+      "conflictGroup": "param-1060",
+      "modelStatus": "modeled",
+      "statBonus": {
+        "STR": 5
+      },
+      "note": "+5 Strength",
+      "confirmed": false
+    },
+    {
+      "id": "takers-cameo",
+      "name": "Taker's Cameo",
+      "source": "base",
+      "weight": 1,
+      "effect": "Restores HP upon defeating enemies",
+      "icon": "assets/icons/talismans/takers-cameo.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Taker%27s_Cameo",
+      "param": {
+        "rowId": 5030,
+        "effectId": 350300,
+        "iconId": 18640,
+        "conflictGroup": 5030
+      },
+      "conflictGroup": "param-5030",
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "talisman-of-all-crucibles",
+      "name": "Talisman of All Crucibles",
+      "source": "dlc",
+      "weight": 0,
+      "effect": "See item description",
+      "icon": "assets/icons/talismans/talisman-of-all-crucibles.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Talisman_of_All_Crucibles",
+      "param": null,
+      "conflictGroup": null,
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "talisman-of-lords-bestowal",
+      "name": "Talisman of Lord's Bestowal",
+      "source": "dlc",
+      "weight": 0,
+      "effect": "See item description",
+      "icon": "assets/icons/talismans/talisman-of-lords-bestowal.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Talisman_of_Lord%27s_Bestowal",
+      "param": null,
+      "conflictGroup": null,
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "talisman-of-the-dread",
+      "name": "Talisman of the Dread",
+      "source": "dlc",
+      "weight": 0.3,
+      "effect": "Raises potency of magma",
+      "icon": "assets/icons/talismans/talisman-of-the-dread.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Talisman_of_the_Dread",
+      "param": null,
+      "conflictGroup": null,
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "twinblade-talisman",
+      "name": "Twinblade Talisman",
+      "source": "base",
+      "weight": 0.7,
+      "effect": "Enhances final hit of chain attacks",
+      "icon": "assets/icons/talismans/twinblade-talisman.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Twinblade_Talisman",
+      "param": {
+        "rowId": 2120,
+        "effectId": 321200,
+        "iconId": 18360,
+        "conflictGroup": 2120
+      },
+      "conflictGroup": "param-2120",
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "two-fingers-heirloom",
+      "name": "Two Fingers Heirloom",
+      "source": "base",
+      "weight": 0.6,
+      "effect": "Raises faith by 5",
+      "icon": "assets/icons/talismans/two-fingers-heirloom.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Two_Fingers_Heirloom",
+      "param": {
+        "rowId": 1090,
+        "effectId": 310900,
+        "iconId": 18100,
+        "conflictGroup": 1090
+      },
+      "conflictGroup": "param-1090",
+      "modelStatus": "modeled",
+      "statBonus": {
+        "FAI": 5
+      },
+      "note": "+5 Faith",
+      "confirmed": false
+    },
+    {
+      "id": "two-handed-sword-talisman",
+      "name": "Two-Handed Sword Talisman",
+      "source": "dlc",
+      "weight": 1.2,
+      "effect": "Enhances two-handed attacks",
+      "icon": "assets/icons/talismans/two-handed-sword-talisman.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Two-Handed_Sword_Talisman",
+      "param": null,
+      "conflictGroup": null,
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "two-headed-turtle-talisman",
+      "name": "Two-Headed Turtle Talisman",
+      "source": "dlc",
+      "weight": 1,
+      "effect": "Greatly raises stamina recovery speed",
+      "icon": "assets/icons/talismans/two-headed-turtle-talisman.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Two-Headed_Turtle_Talisman",
+      "param": null,
+      "conflictGroup": null,
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "verdigris-discus",
+      "name": "Verdigris Discus",
+      "source": "dlc",
+      "weight": 4.5,
+      "effect": "Raises defense with higher equipment load",
+      "icon": "assets/icons/talismans/verdigris-discus.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Verdigris_Discus",
+      "param": null,
+      "conflictGroup": null,
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "viridian-amber-medallion",
+      "name": "Viridian Amber Medallion",
+      "source": "base",
+      "weight": 0.3,
+      "effect": "See item description",
+      "icon": "assets/icons/talismans/viridian-amber-medallion.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Viridian_Amber_Medallion",
+      "param": {
+        "rowId": 1020,
+        "effectId": 310200,
+        "iconId": 18020,
+        "conflictGroup": 1020
+      },
+      "conflictGroup": "param-1020",
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "viridian-amber-medallion-1",
+      "name": "Viridian Amber Medallion +1",
+      "source": "base",
+      "weight": 0.3,
+      "effect": "See item description",
+      "icon": "assets/icons/talismans/viridian-amber-medallion-1.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Viridian_Amber_Medallion_%2B1",
+      "param": {
+        "rowId": 1021,
+        "effectId": 310210,
+        "iconId": 18021,
+        "conflictGroup": 1020
+      },
+      "conflictGroup": "param-1020",
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "viridian-amber-medallion-2",
+      "name": "Viridian Amber Medallion +2",
+      "source": "base",
+      "weight": 0.3,
+      "effect": "See item description",
+      "icon": "assets/icons/talismans/viridian-amber-medallion-2.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Viridian_Amber_Medallion_%2B2",
+      "param": {
+        "rowId": 1022,
+        "effectId": 310220,
+        "iconId": 18022,
+        "conflictGroup": 1020
+      },
+      "conflictGroup": "param-1020",
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "viridian-amber-medallion-3",
+      "name": "Viridian Amber Medallion +3",
+      "source": "dlc",
+      "weight": 0,
+      "effect": "See item description",
+      "icon": "assets/icons/talismans/viridian-amber-medallion-3.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Viridian_Amber_Medallion_%2B3",
+      "param": null,
+      "conflictGroup": null,
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "warrior-jar-shard",
+      "name": "Warrior Jar Shard",
+      "source": "base",
+      "weight": 0.9,
+      "effect": "Boosts the attack power of skills",
+      "icon": "assets/icons/talismans/warrior-jar-shard.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Warrior_Jar_Shard",
+      "param": {
+        "rowId": 1230,
+        "effectId": 312300,
+        "iconId": 18870,
+        "conflictGroup": 1230
+      },
+      "conflictGroup": "param-1230",
+      "modelStatus": "inventory"
+    },
+    {
+      "id": "winged-sword-insignia",
+      "name": "Winged Sword Insignia",
+      "source": "base",
+      "weight": 1.4,
+      "effect": "Raises attack power with successive attacks",
+      "icon": "assets/icons/talismans/winged-sword-insignia.png",
+      "wiki": "https://eldenring.wiki.gg/wiki/Winged_Sword_Insignia",
+      "param": {
+        "rowId": 2080,
+        "effectId": 320800,
+        "iconId": 18310,
+        "conflictGroup": 2080
+      },
+      "conflictGroup": "param-2080",
+      "modelStatus": "modeled",
+      "mult": {
+        "all": 1.1
+      },
+      "condition": {
+        "id": "successive-attacks",
+        "label": "Maximum attack chain",
+        "defaultActive": true
+      },
+      "note": "+10% at max successive-attack ramp",
+      "confirmed": true
+    }
+  ]
+}

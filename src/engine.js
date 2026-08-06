@@ -528,6 +528,83 @@
     return { weight: Math.round(weight * 10) / 10, poise: poise, negation: negation, resistance: resistance };
   }
 
+  /**
+   * resolveEffects(items, context)
+   * Canonical equipment-effect gate. It separates equipped state from active math, records
+   * conditional assumptions, and exposes invalid duplicate/conflict groups instead of silently
+   * stacking impossible combinations. Items without reviewed math remain honest inventory state.
+   */
+  function resolveEffects(items, context) {
+    context = context || {};
+    var conditionState = context.conditions || {};
+    var seenIds = {}, seenGroups = {}, conflicts = [], entries = [], mods = [], weight = 0;
+    (items || []).forEach(function (raw, slot) {
+      if (!raw) return;
+      var item = raw.item || raw;
+      var id = item.id;
+      weight += +item.weight || 0;
+      var invalid = null;
+      if (seenIds[id] != null) invalid = 'duplicate of slot ' + (seenIds[id] + 1);
+      else seenIds[id] = slot;
+      if (!invalid && item.conflictGroup) {
+        if (seenGroups[item.conflictGroup] != null) invalid = 'conflicts with slot ' + (seenGroups[item.conflictGroup] + 1);
+        else seenGroups[item.conflictGroup] = slot;
+      }
+      if (invalid) conflicts.push({ id: id, slot: slot, reason: invalid });
+
+      var modeled = item.modelStatus === 'modeled' || !!(item.statBonus || item.mult || item.flat || item.statusFlat || item.survival || item.defense);
+      var conditionActive = true;
+      if (item.condition) {
+        conditionActive = conditionState[id] != null ? !!conditionState[id] : item.condition.defaultActive !== false;
+      }
+      var active = !invalid && modeled && conditionActive;
+      if (active) mods.push(item);
+      entries.push({
+        id: id, name: item.name, slot: slot, item: item, active: active,
+        modeled: modeled, invalid: invalid, conditional: !!item.condition,
+        conditionActive: conditionActive,
+        reason: invalid || (!modeled ? 'effect math not modeled yet' : (!conditionActive ? 'condition off' : null))
+      });
+    });
+    return {
+      mods: mods,
+      entries: entries,
+      conflicts: conflicts,
+      weight: Math.round(weight * 10) / 10,
+      coverage: {
+        equipped: entries.length,
+        modeled: entries.filter(function (entry) { return entry.modeled; }).length,
+        active: entries.filter(function (entry) { return entry.active; }).length
+      }
+    };
+  }
+
+  /**
+   * aggregateDefense(armorTotal, mods)
+   * Applies post-armor incoming-damage multipliers. Positive armor negation and vulnerability
+   * effects share one transparent remainder pipeline. Values may go negative when a debuff makes
+   * the character take more than unmitigated damage.
+   */
+  function aggregateDefense(armorTotal, mods) {
+    var types = ['physical','strike','slash','pierce','magic','fire','lightning','holy'];
+    var taken = {}, negation = {};
+    types.forEach(function (type) { taken[type] = 1 - ((armorTotal && armorTotal.negation && armorTotal.negation[type]) || 0) / 100; });
+    (mods || []).forEach(function (mod) {
+      var d = mod && mod.defense;
+      if (!d) return;
+      types.forEach(function (type) {
+        if (d.allTakenMult) taken[type] *= d.allTakenMult;
+        if (type === 'physical' || type === 'strike' || type === 'slash' || type === 'pierce') {
+          if (d.physicalTakenMult) taken[type] *= d.physicalTakenMult;
+        }
+        var key = type + 'TakenMult';
+        if (d[key]) taken[type] *= d[key];
+      });
+    });
+    types.forEach(function (type) { negation[type] = Math.round((1 - taken[type]) * 1000) / 10; });
+    return { negation: negation, taken: taken };
+  }
+
   // Rough character level from attribute totals (Wretch baseline: 8x10 = level 1).
   function characterLevel(build) {
     var keys = ['VIG', 'MND', 'END', 'STR', 'DEX', 'INT', 'FAI', 'ARC'];
@@ -551,6 +628,8 @@
     statEffects: statEffects,
     rollState: rollState,
     aggregateArmor: aggregateArmor,
+    resolveEffects: resolveEffects,
+    aggregateDefense: aggregateDefense,
     STATS: STATS, DAMAGE_TYPES: DAMAGE_TYPES, STATUS_TYPES: STATUS_TYPES, CURVES: CURVES
   };
 });
