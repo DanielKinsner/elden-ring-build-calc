@@ -499,6 +499,35 @@
     return { state: state, ratio: Math.round(ratio * 1000) / 1000, headroom: headroom, nextBreakpoint: nextBreakpoint };
   }
 
+  /**
+   * aggregateArmor(pieces)
+   * Equipment negation combines multiplicatively: each piece removes a percentage of the
+   * damage that remains after the previous piece. Resistances, weight and poise are additive.
+   * Empty/null slots are ignored. Returns display-ready one-decimal negation and weight values.
+   */
+  function aggregateArmor(pieces) {
+    var types = ['physical','strike','slash','pierce','magic','fire','lightning','holy'];
+    var resistTypes = ['immunity','robustness','focus','vitality'];
+    var remaining = {}, resistance = {}, weight = 0, poise = 0;
+    types.forEach(function (key) { remaining[key] = 1; });
+    resistTypes.forEach(function (key) { resistance[key] = 0; });
+    (pieces || []).forEach(function (piece) {
+      if (!piece) return;
+      weight += +piece.weight || 0;
+      poise += +piece.poise || 0;
+      types.forEach(function (key) {
+        var value = piece.negation && +piece.negation[key] || 0;
+        remaining[key] *= 1 - value / 100;
+      });
+      resistTypes.forEach(function (key) {
+        resistance[key] += piece.resistance && +piece.resistance[key] || 0;
+      });
+    });
+    var negation = {};
+    types.forEach(function (key) { negation[key] = Math.round((1 - remaining[key]) * 1000) / 10; });
+    return { weight: Math.round(weight * 10) / 10, poise: poise, negation: negation, resistance: resistance };
+  }
+
   // Rough character level from attribute totals (Wretch baseline: 8x10 = level 1).
   function characterLevel(build) {
     var keys = ['VIG', 'MND', 'END', 'STR', 'DEX', 'INT', 'FAI', 'ARC'];
@@ -521,6 +550,7 @@
     scadutree: scadutree,
     statEffects: statEffects,
     rollState: rollState,
+    aggregateArmor: aggregateArmor,
     STATS: STATS, DAMAGE_TYPES: DAMAGE_TYPES, STATUS_TYPES: STATUS_TYPES, CURVES: CURVES
   };
 });

@@ -143,6 +143,32 @@ check('100.1/100 overloaded', ERCalc.rollState(100.1, 100).state, 'overloaded');
 check('overloaded headroom negative', ERCalc.rollState(110, 100).headroom, -10);
 check('medium headroom to 70%', ERCalc.rollState(30, 100).headroom, 40);
 
+/* ---- armor: v1.16 corpus shape + multiplicative negation / additive resistance ---- */
+console.log('armor:');
+var armorFile = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'armor.json'), 'utf8'));
+var armor = armorFile.items;
+check('armor corpus version', armorFile.gameVersion, '1.16');
+check('armor corpus loads (700+)', armor.length >= 700, true);
+check('armor slot counts', [
+  armor.filter(function (x) { return x.slot === 'head'; }).length,
+  armor.filter(function (x) { return x.slot === 'body'; }).length,
+  armor.filter(function (x) { return x.slot === 'arms'; }).length,
+  armor.filter(function (x) { return x.slot === 'legs'; }).length
+], [207,245,119,133]);
+var ironScale = ['40000','40100','40200','40300'].map(function (id) {
+  return armor.find(function (x) { return x.id === id; });
+});
+var armorTotal = ERCalc.aggregateArmor(ironScale);
+check('four-piece weight / poise', [armorTotal.weight, armorTotal.poise], [21,39]);
+check('four-piece physical negation is multiplicative', armorTotal.negation.physical, 23.5);
+check('four-piece elemental negation', [armorTotal.negation.magic, armorTotal.negation.fire, armorTotal.negation.lightning, armorTotal.negation.holy], [15.8,20.2,13.3,16.5]);
+check('four-piece resistances are additive', armorTotal.resistance, { immunity:61, robustness:108, focus:36, vitality:40 });
+check('empty armor is neutral', ERCalc.aggregateArmor([]), {
+  weight:0, poise:0,
+  negation:{ physical:0, strike:0, slash:0, pierce:0, magic:0, fire:0, lightning:0, holy:0 },
+  resistance:{ immunity:0, robustness:0, focus:0, vitality:0 }
+});
+
 // soreseal path: caller passes boosted stats (same as AR flow)
 check('boosted VIG 35+5 === VIG 40', ERCalc.statEffects({ VIG: 40 }).hp, ERCalc.statEffects({ VIG: 35 + 5 }).hp);
 // Great-Jar's Arsenal: x1.19 equip load on top of the table

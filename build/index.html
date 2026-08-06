@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Build Calculator · Elden Ring</title>
+<title>Full Build Lab · Elden Ring</title>
 <link rel="stylesheet" href="../assets/app.css">
 </head>
 <body class="build-page">
@@ -12,7 +12,7 @@
 <header class="topbar">
   <a class="brand" href="../">
     <span class="brand-mark">◈</span>
-    <span class="brand-text"><b>ELDEN RING</b><small>BUILD CALCULATOR</small></span>
+    <span class="brand-text"><b>ELDEN RING</b><small>FULL BUILD LAB</small></span>
   </a>
   <div class="topbar-right">
     <select id="presetSelect" class="preset-select" aria-label="Load build"></select>
@@ -48,10 +48,33 @@
       </div>
       <div id="survLoadBar"></div>
       <div id="survHeadroom" class="surv-headroom"></div>
-      <label class="surv-gear">Armor &amp; other gear weight
+      <label class="surv-gear">Extra equipped weight
         <input type="number" id="gearWeight" min="0" step="0.1" value="0"
-          title="Weapon weight is counted automatically — add armor, second weapon, arrows here">
+          title="Weapon and selected armor are counted automatically — add secondary armaments, arrows, bolts, or other equipped weight here">
       </label>
+    </div>
+    <h2 class="mt">Armor Loadout <span class="section-kicker">1.16</span></h2>
+    <div class="armor-slots" id="armorSlots" aria-label="Equipped armor"></div>
+    <div class="armor-picker" id="armorPicker" hidden>
+      <div class="armor-picker-head">
+        <div><span class="k">Choose</span><b id="armorPickerTitle">Armor</b></div>
+        <button id="armorPickerClose" class="picker-close" type="button" aria-label="Close armor picker">×</button>
+      </div>
+      <div class="search-wrap">
+        <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><line x1="15.3" y1="15.3" x2="21" y2="21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <input type="search" id="armorSearch" class="search" placeholder="Search this slot…" autocomplete="off">
+      </div>
+      <div id="armorList" class="armor-list"></div>
+    </div>
+    <div class="defense-summary">
+      <div class="defense-hero">
+        <div><span class="k">Armor Weight</span><b id="armorWeight">0.0</b></div>
+        <div><span class="k">Poise</span><b id="armorPoise">0</b><small id="poiseNote">unarmored</small></div>
+      </div>
+      <div class="k defense-label">Damage Negation</div>
+      <div id="armorNegation" class="defense-grid"></div>
+      <div class="k defense-label">Resistances</div>
+      <div id="armorResistance" class="resistance-grid"></div>
     </div>
     <h2 class="mt">Presets</h2>
     <div class="presets" id="presetBtns"></div>
@@ -61,7 +84,7 @@
 
   <!-- WEAPON + RESULT -->
   <section class="panel">
-    <h2>Weapon</h2>
+    <h2>Active Armament <span class="section-kicker">Right Hand 1</span></h2>
     <label class="dlc-toggle"><input type="checkbox" id="showDlc" checked> Include Shadow of the Erdtree weapons</label>
     <div class="search-wrap">
       <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><line x1="15.3" y1="15.3" x2="21" y2="21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>

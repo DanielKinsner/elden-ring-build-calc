@@ -2,7 +2,8 @@
 
 A backlog of *directions* for the next build session. The fixed parts are the **data contracts** and
 the **already-built engine** (below). Everything else is an invitation — reorder, reinterpret, improve.
-North star: **the site a serious build player keeps open on a second monitor.**
+North star: **one build object, every meaningful Elden Ring outcome — the site a serious player
+keeps open on a second monitor.** See `docs/04-full-build-platform.md` for the active architecture.
 
 ## Codebase map (where things live)
 - `src/engine.js` — the math. Pure UMD module (`window.ERCalc` / `require`). **All calc logic goes here.**
@@ -152,7 +153,7 @@ link. "Save Build" writes to localStorage; a small curated **meta build library*
   guides Walkthrough (`data/scadutree.json`).
 
 ## Shipped 2026-08-05 — hygiene pass + the defense half
-- **Golden test harness** — `node tests/engine.test.js`, 52 regression pins (library-build
+- **Golden test harness** — `node tests/engine.test.js`, 60 regression pins (library-build
   ARs frozen from in-game-verified output, 2H reqs, flooring, scadutree, status procs,
   buff layer, survival tables, roll brackets). Run it after touching `src/engine.js` or data.
 - **README refresh** — describes the shipped site, not the 2026-06 plan.
@@ -163,6 +164,10 @@ link. "Save Build" writes to localStorage; a small curated **meta build library*
   breakpoint ticks, "+X weight before …" / "+N END for …" hints, manual armor-&-gear
   weight input (`&gw=` in share URLs). Erdtree's Favor +2 + Great-Jar's Arsenal talismans
   (new per-mod `survival` multiplier field, invisible to the AR layer).
+- **Full-build v2 foundation + armor** — 704-piece 1.16 armor corpus with provenance,
+  four searchable equipment slots, `ERCalc.aggregateArmor()` (multiplicative negation;
+  additive weight/poise/resistances), live defense summaries, real armor weight in roll state,
+  old-save migration, and compact `&ar=` share state. Engine suite: 60/60.
 
 ## Shipped 2026-08 — guides/tales deck-out
 - **NPC + boss portraits** — scraped from wiki.gg via `scripts/fetch-portraits.js` (Infobox
@@ -189,9 +194,18 @@ link. "Save Build" writes to localStorage; a small curated **meta build library*
 - **Optional tale cover art** — drop `assets/tales/<workId>.jpg` in and the shelf card grows
   a 96px cover; absent, the layout is unchanged (owner-supplied art — not scraped or generated).
 
-## Backlog — deferred deliberately (spec 2026-08-05)
-- **Armor picker + damage negation** (the manual gear-weight field is the placeholder).
-- **Poise breakpoints.**
+## Active full-build expansion (architecture: `docs/04-full-build-platform.md`)
+- **Six armament slots + active-hand state:** upgrade/affinity/Ash per slot; every equipped
+  armament contributes weight while the active hand feeds damage analysis.
+- **True talisman equipment:** slot objects, weight, conflicts, conditions, PvE/PvP variants.
+- **Catalysts + spell loadout:** memory slots, FP/stamina costs, requirements, catalyst-aware
+  spell buff and spell damage.
+- **Physick + Great Rune + complete effect stack:** transparent ordering and conflicts.
+- **Enemy/context pipeline:** defense, negation, status thresholds, phase, NG cycle and PvP.
+- **Build optimizer + comparison:** offense/defense/weight targets over the same canonical state.
+
+## Backlog — deferred deliberately
+- **Poise breakpoint explanations and attack-specific hyperarmor context.**
 - **Per-boss enemy data** (`data/enemies.json`: HP, status thresholds, negations) → makes
   the status payoff card boss-specific ("4 hits to proc bleed on Malenia").
 - **T7 catalysts/spells** and **T8 maps** — unchanged, still the big lifts.
@@ -204,8 +218,8 @@ link. "Save Build" writes to localStorage; a small curated **meta build library*
 
 ## Suggested order
 1. ~~T1 + T2~~ ✅  2. ~~T3 + T4~~ ✅  3. ~~T5, T6, T11~~ ✅  4. ~~T9 + T10~~ ✅ — Tiers 1, 2, 4, 5 shipped.
-5. **T7, T8** (catalysts, maps — the big lifts) **← next up**, plus the smaller remainders noted in
-   each shipped ticket (more buffs, named multi-save, enemy status thresholds, weight data gap).
+5. **Six armament slots → true talisman/effect slots → catalysts/spells → enemy context**, then
+   optimizer/community publishing. T8 maps remains a parallel content project.
 
 ## Known data gaps (surfaced 2026-07)
 - ~~170/448 weapons have no `weight`~~ **Filled 2026-08** from the datamined EquipParamWeapon

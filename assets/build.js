@@ -10,6 +10,15 @@
   var weapons = await ERData.loadWeapons('../data/');
   var presets = await ERData.loadPresets('../data/');
   var buffData = await ERData.loadBuffs('../data/');
+  var armor = await ERData.loadArmor('../data/');
+  var armorById = {};
+  armor.forEach(function (item) { armorById[item.id] = item; });
+  var ARMOR_SLOTS = [
+    { id: 'head', label: 'Head', mark: '♜' },
+    { id: 'body', label: 'Body', mark: '♢' },
+    { id: 'arms', label: 'Arms', mark: '⌁' },
+    { id: 'legs', label: 'Legs', mark: '⋔' }
+  ];
 
   var build = { VIG:60, MND:20, END:30, STR:24, DEX:58, INT:9, FAI:15, ARC:40 };
   var twoHanded = true, upgradeLevel = null, focusStat = 'DEX', showDlc = true, affinity = 'Standard';
@@ -17,6 +26,7 @@
   var gearWeight = 0; // armor & other gear weight (weapon weight is auto-counted)
   function pool(){ return showDlc ? weapons : weapons.filter(function(w){ return w.source !== 'dlc'; }); }
   var current = weapons.find(function (w){ return w.id === 'rivers-of-blood'; }) || weapons[0];
+  var selectedArmor = { head: null, body: null, arms: null, legs: null };
   var compareIds = [];
 
   /* ---- build share/restore (T11): URL params win, then localStorage, then defaults ----
@@ -25,9 +35,11 @@
     var q = new URLSearchParams(location.search);
     if (q.get('b') || q.get('w')) {
       var s = (q.get('b') || '').split('.').map(Number);
+      var armorParts = (q.get('ar') || '').split('.');
       var o = { stats: {}, weapon: q.get('w'), affinity: q.get('a'), upgrade: q.get('u'), twoHanded: q.get('h') !== '0', level: +q.get('l') || null,
                 buffs: (q.get('bf') || '').split(',').filter(Boolean), talis: (q.get('tl') || '').split(',').filter(Boolean), scadu: +q.get('st') || 0,
-                gearWeight: +q.get('gw') || 0 };
+                gearWeight: +q.get('gw') || 0, armor: {} };
+      ARMOR_SLOTS.forEach(function (slot, i) { if (armorParts[i] && armorParts[i] !== '-') o.armor[slot.id] = armorParts[i]; });
       STATS.forEach(function (k, i) { if (s[i] >= 1 && s[i] <= 99) o.stats[k] = s[i]; });
       return o;
     }
@@ -40,6 +52,11 @@
     if (bootW) current = bootW;
     if (BOOT.scadu) scaduLevel = Math.max(0, Math.min(20, +BOOT.scadu || 0));
     if (BOOT.gearWeight) gearWeight = Math.max(0, +BOOT.gearWeight || 0);
+    var bootArmor = BOOT.armor || (BOOT.loadout && BOOT.loadout.armor) || {};
+    ARMOR_SLOTS.forEach(function (slot, i) {
+      var id = Array.isArray(bootArmor) ? bootArmor[i] : bootArmor[slot.id];
+      if (id != null && armorById[String(id)] && armorById[String(id)].slot === slot.id) selectedArmor[slot.id] = String(id);
+    });
   }
 
   /* ---- buffs & talismans (T3 + T5) ---- */
@@ -91,7 +108,10 @@
   function captureState() {
     var bf = Object.keys(activeBuffs).filter(function (k) { return activeBuffs[k]; });
     var tl = Object.keys(activeTalis).filter(function (k) { return activeTalis[k]; });
-    var state = { stats: {}, weapon: current.id, affinity: affinity, upgrade: upgradeLevel, twoHanded: twoHanded, level: +$('level').value || null, buffs: bf, talis: tl, scadu: scaduLevel, gearWeight: gearWeight };
+    var armorState = {};
+    ARMOR_SLOTS.forEach(function (slot) { armorState[slot.id] = selectedArmor[slot.id]; });
+    var state = { schemaVersion: 2, stats: {}, weapon: current.id, affinity: affinity, upgrade: upgradeLevel, twoHanded: twoHanded, level: +$('level').value || null, buffs: bf, talis: tl, scadu: scaduLevel, gearWeight: gearWeight, armor: armorState };
+    state.loadout = { rightHand: [{ weaponId: current.id, affinity: affinity, upgrade: upgradeLevel }, null, null], leftHand: [null,null,null], armor: armorState, talismans: tl, spells: [], physick: [], greatRune: null };
     STATS.forEach(function (k) { state.stats[k] = build[k]; });
     return state;
   }
@@ -109,6 +129,9 @@
     if (tl.length) q.set('tl', tl.join(','));
     if (scaduLevel) q.set('st', scaduLevel);
     if (gearWeight) q.set('gw', gearWeight);
+    if (ARMOR_SLOTS.some(function (slot) { return selectedArmor[slot.id]; })) {
+      q.set('ar', ARMOR_SLOTS.map(function (slot) { return selectedArmor[slot.id] || '-'; }).join('.'));
+    }
     history.replaceState(null, '', location.pathname + '?' + q);
   }
 
@@ -148,6 +171,55 @@
     render();
   });
   $('gearWeight').value = gearWeight;
+
+  /* ---- armor loadout: four slots + searchable picker ---- */
+  var armorPickerSlot = null;
+  function equippedArmorPieces() {
+    return ARMOR_SLOTS.map(function (slot) { return selectedArmor[slot.id] && armorById[selectedArmor[slot.id]]; }).filter(Boolean);
+  }
+  function renderArmorSlots() {
+    $('armorSlots').innerHTML = ARMOR_SLOTS.map(function (slot) {
+      var item = selectedArmor[slot.id] && armorById[selectedArmor[slot.id]];
+      return '<button type="button" class="armor-slot' + (item ? ' equipped' : '') + '" data-armor-slot="' + slot.id + '">' +
+        '<span class="armor-slot-mark">' + slot.mark + '</span><span class="armor-slot-copy"><small>' + slot.label + '</small><b>' +
+        (item ? escText(item.name) : 'Empty slot') + '</b></span><span class="armor-slot-weight">' + (item ? item.weight.toFixed(1) : '—') + '</span></button>';
+    }).join('');
+  }
+  function renderArmorList(query) {
+    var q = (query || '').toLowerCase().trim();
+    var hits = armor.filter(function (item) {
+      return item.slot === armorPickerSlot && (!q || item.name.toLowerCase().indexOf(q) >= 0);
+    }).sort(function (a, b) { return a.name.localeCompare(b.name); }).slice(0, 60);
+    $('armorList').innerHTML = '<button type="button" class="armor-result empty" data-armor-id=""><span>Remove armor</span><small>0.0 weight</small></button>' +
+      hits.map(function (item) {
+        return '<button type="button" class="armor-result" data-armor-id="' + item.id + '"><span>' + escText(item.name) + '</span>' +
+          '<small>' + item.weight.toFixed(1) + ' wt · ' + item.poise + ' poise</small></button>';
+      }).join('') + (hits.length === 60 ? '<div class="picker-more">Keep typing to narrow 60+ results</div>' : '');
+  }
+  function openArmorPicker(slot) {
+    armorPickerSlot = slot;
+    var meta = ARMOR_SLOTS.find(function (x) { return x.id === slot; });
+    $('armorPickerTitle').textContent = meta.label + ' armor';
+    $('armorSearch').value = '';
+    $('armorPicker').hidden = false;
+    renderArmorList('');
+    setTimeout(function () { $('armorSearch').focus(); }, 0);
+  }
+  function closeArmorPicker() { $('armorPicker').hidden = true; armorPickerSlot = null; }
+  $('armorSlots').addEventListener('click', function (e) {
+    var button = e.target.closest('[data-armor-slot]');
+    if (button) openArmorPicker(button.getAttribute('data-armor-slot'));
+  });
+  $('armorSearch').addEventListener('input', function () { renderArmorList(this.value); });
+  $('armorList').addEventListener('click', function (e) {
+    var button = e.target.closest('[data-armor-id]');
+    if (!button || !armorPickerSlot) return;
+    var id = button.getAttribute('data-armor-id');
+    selectedArmor[armorPickerSlot] = id || null;
+    closeArmorPicker();
+    render();
+  });
+  $('armorPickerClose').addEventListener('click', closeArmorPicker);
 
   /* ---- presets (dropdown + buttons) ---- */
   var activePresetIndex = presets.findIndex(function (p) { return p.loadout && p.loadout.weaponId === current.id; });
@@ -201,6 +273,11 @@
     (o.talis || []).slice(0, TALI_MAX).forEach(function (id) { if (buffData.talismans.some(function (t) { return t.id === id; })) activeTalis[id] = true; });
     scaduLevel = Math.max(0, Math.min(20, +o.scadu || 0)); syncScadu();
     gearWeight = Math.max(0, +o.gearWeight || 0); $('gearWeight').value = gearWeight;
+    var savedArmor = o.armor || (o.loadout && o.loadout.armor) || {};
+    ARMOR_SLOTS.forEach(function (slot, i) {
+      var id = Array.isArray(savedArmor) ? savedArmor[i] : savedArmor[slot.id];
+      selectedArmor[slot.id] = id != null && armorById[String(id)] && armorById[String(id)].slot === slot.id ? String(id) : null;
+    });
     renderBuffGroups();
     activePresetIndex = -1; syncActivePreset();
     render();
@@ -372,7 +449,8 @@
   function renderSurvival(mods, boosted) {
     var se = ERCalc.statEffects(boosted, mods);
     var weaponW = current.weight != null ? current.weight : 0;
-    var totalW = Math.round((weaponW + gearWeight) * 10) / 10;
+    var armorTotal = ERCalc.aggregateArmor(equippedArmorPieces());
+    var totalW = Math.round((weaponW + armorTotal.weight + gearWeight) * 10) / 10;
     var rs = ERCalc.rollState(totalW, se.equipLoad);
     $('survHP').textContent = se.hp;
     $('survFP').textContent = se.fp;
@@ -406,6 +484,19 @@
       }
     }
     $('survHeadroom').textContent = msg;
+    renderArmorSlots();
+    $('armorWeight').textContent = armorTotal.weight.toFixed(1);
+    $('armorPoise').textContent = armorTotal.poise;
+    $('poiseNote').textContent = armorTotal.poise < 51 ? (51 - armorTotal.poise) + ' to 51' : armorTotal.poise < 101 ? (101 - armorTotal.poise) + ' to 101' : '101+ tier';
+    var defenseTypes = [['physical','Physical'],['strike','Strike'],['slash','Slash'],['pierce','Pierce'],['magic','Magic'],['fire','Fire'],['lightning','Lightning'],['holy','Holy']];
+    $('armorNegation').innerHTML = defenseTypes.map(function (entry) {
+      var value = armorTotal.negation[entry[0]];
+      return '<div class="defense-row"><span>' + entry[1] + '</span><div class="defense-bar"><i style="width:' + Math.max(0, Math.min(100, value * 2.5)) + '%"></i></div><b>' + value.toFixed(1) + '</b></div>';
+    }).join('');
+    var resistTypes = [['immunity','Immunity'],['robustness','Robustness'],['focus','Focus'],['vitality','Vitality']];
+    $('armorResistance').innerHTML = resistTypes.map(function (entry) {
+      return '<div><span>' + entry[1] + '</span><b>' + armorTotal.resistance[entry[0]] + '</b></div>';
+    }).join('');
   }
 
   /* ---- status payoff (T4): hits-to-proc + what the proc is worth ---- */

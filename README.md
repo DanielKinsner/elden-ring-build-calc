@@ -9,14 +9,17 @@ are, which weapon wins on their build, and how bleed/status buildup scales.
 
 ## What's here
 
-**Build calculator** (`build/`)
+**Full Build Lab** (`build/`)
 - Live AR with full damage-type breakdown, all 8 stats, weapon + affinity + upgrade + two-hand.
+- Four-slot armor loadout backed by 704 game-versioned pieces; live armor weight, poise, eight
+  multiplicatively combined damage-negation values, four resistances, equip load, and roll state.
 - Buffs & talismans layer (Golden Vow, greases, soreseals, scorpions… — one per category, 4 talisman slots).
 - Status payoff card — hits-to-proc and what the proc is worth (bleed/frost/poison/rot) vs a target HP/resist.
 - Soft-cap chart + optimal stat advisor (redistributes your offensive points for max AR).
 - "Best Weapons for Your Build" ranking + a compare tray.
 - Scadutree Blessing slider — Land-of-Shadow AR and damage negation.
-- Share links (the whole build lives in the URL), auto-save, and **My Builds** named multi-save.
+- Versioned full-build state, compact share links, auto-save, old-save migration, and **My Builds**
+  named multi-save. The v2 schema already reserves six armament slots, spells, physick, and Great Rune.
 
 **Weapon Atlas** (`atlas/`) — every weapon, filterable by status/scaling/infusable/DLC, sortable
 by AR-for-a-reference-build, weight, or requirements; per-weapon detail pages with acquisition info.
@@ -51,7 +54,7 @@ so DLC-only systems (Scadutree Blessing, new weapons) never contaminate vanilla 
 ## Tests
 
 Golden regression pins for the engine (verified library-build ARs, two-handing rules,
-flooring, Scadutree, status procs, the buff layer):
+flooring, Scadutree, status procs, the buff layer, survival, and armor aggregation):
 
 ```
 node tests/engine.test.js
