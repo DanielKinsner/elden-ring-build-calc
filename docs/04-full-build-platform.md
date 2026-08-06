@@ -99,3 +99,10 @@ Current research anchors:
 
 Each slice ships with provenance, engine tests, responsive checks, keyboard support, and old-save
 migration. Breadth without trusted math does not count as completion.
+
+## Implementation status
+
+- **Shipped:** canonical v2 state, four armor slots, defense aggregation, armor-aware roll state.
+- **Shipped:** six armament slots, active-slot switching, independent affinity/reinforcement,
+  all-armament equip weight, compact sharing, and legacy migration.
+- **Next:** true talisman/effect slots, followed by catalysts and spell memory.

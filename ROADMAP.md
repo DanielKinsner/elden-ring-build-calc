@@ -168,6 +168,9 @@ link. "Save Build" writes to localStorage; a small curated **meta build library*
   four searchable equipment slots, `ERCalc.aggregateArmor()` (multiplicative negation;
   additive weight/poise/resistances), live defense summaries, real armor weight in roll state,
   old-save migration, and compact `&ar=` share state. Engine suite: 60/60.
+- **Six-slot armament rack** — three right-hand + three left-hand slots, searchable empty-slot
+  equip flow, active-slot analysis, independent affinity/reinforcement state, all-slot equip-load
+  contribution, compact `&rh=` / `&lh=` / `&as=` share state, and legacy-link migration.
 
 ## Shipped 2026-08 — guides/tales deck-out
 - **NPC + boss portraits** — scraped from wiki.gg via `scripts/fetch-portraits.js` (Infobox
@@ -195,8 +198,8 @@ link. "Save Build" writes to localStorage; a small curated **meta build library*
   a 96px cover; absent, the layout is unchanged (owner-supplied art — not scraped or generated).
 
 ## Active full-build expansion (architecture: `docs/04-full-build-platform.md`)
-- **Six armament slots + active-hand state:** upgrade/affinity/Ash per slot; every equipped
-  armament contributes weight while the active hand feeds damage analysis.
+- **Ash of War compatibility/state:** attach a legal Ash to each infusable armament and expose
+  skill damage/FP/poise context without muddying the weapon's base analysis.
 - **True talisman equipment:** slot objects, weight, conflicts, conditions, PvE/PvP variants.
 - **Catalysts + spell loadout:** memory slots, FP/stamina costs, requirements, catalyst-aware
   spell buff and spell damage.

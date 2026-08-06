@@ -11,6 +11,8 @@ are, which weapon wins on their build, and how bleed/status buildup scales.
 
 **Full Build Lab** (`build/`)
 - Live AR with full damage-type breakdown, all 8 stats, weapon + affinity + upgrade + two-hand.
+- Six right/left-hand armament slots with per-slot weapon, reinforcement and affinity state;
+  switch the active slot to analyze it while every equipped armament contributes weight.
 - Four-slot armor loadout backed by 704 game-versioned pieces; live armor weight, poise, eight
   multiplicatively combined damage-negation values, four resistances, equip load, and roll state.
 - Buffs & talismans layer (Golden Vow, greases, soreseals, scorpions… — one per category, 4 talisman slots).
@@ -19,7 +21,7 @@ are, which weapon wins on their build, and how bleed/status buildup scales.
 - "Best Weapons for Your Build" ranking + a compare tray.
 - Scadutree Blessing slider — Land-of-Shadow AR and damage negation.
 - Versioned full-build state, compact share links, auto-save, old-save migration, and **My Builds**
-  named multi-save. The v2 schema already reserves six armament slots, spells, physick, and Great Rune.
+  named multi-save. The v2 schema reserves spells, physick, and Great Rune for the next slices.
 
 **Weapon Atlas** (`atlas/`) — every weapon, filterable by status/scaling/infusable/DLC, sortable
 by AR-for-a-reference-build, weight, or requirements; per-weapon detail pages with acquisition info.

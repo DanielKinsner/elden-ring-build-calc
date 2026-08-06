@@ -28,6 +28,30 @@
   var current = weapons.find(function (w){ return w.id === 'rivers-of-blood'; }) || weapons[0];
   var selectedArmor = { head: null, body: null, arms: null, legs: null };
   var compareIds = [];
+  var activeSlot = { hand: 'right', index: 0 }, weaponTarget = null;
+
+  function normalizeArmament(raw) {
+    if (!raw) return null;
+    var weaponId = raw.weaponId || raw.id;
+    if (!weaponId || !weapons.some(function (w) { return w.id === weaponId; })) return null;
+    return {
+      weaponId: weaponId,
+      affinity: raw.affinity || 'Standard',
+      upgrade: raw.upgrade != null ? +raw.upgrade : raw.upgradeLevel != null ? +raw.upgradeLevel : null
+    };
+  }
+  function decodeArmaments(value) {
+    var out = [null,null,null];
+    (value || '').split(',').slice(0, 3).forEach(function (token, i) {
+      if (!token || token === '-') return;
+      var parts = token.split('~');
+      out[i] = normalizeArmament({ weaponId: parts[0], affinity: parts[1] || 'Standard', upgrade: parts[2] === '' || parts[2] == null ? null : +parts[2] });
+    });
+    return out;
+  }
+  function encodeArmaments(slots) {
+    return slots.map(function (slot) { return slot ? [slot.weaponId, slot.affinity || 'Standard', slot.upgrade == null ? '' : slot.upgrade].join('~') : '-'; }).join(',');
+  }
 
   /* ---- build share/restore (T11): URL params win, then localStorage, then defaults ----
      ?b=VIG.MND.END.STR.DEX.INT.FAI.ARC&w=<id>&a=<affinity>&u=<upgrade>&h=0|1&l=<level> */
@@ -38,7 +62,8 @@
       var armorParts = (q.get('ar') || '').split('.');
       var o = { stats: {}, weapon: q.get('w'), affinity: q.get('a'), upgrade: q.get('u'), twoHanded: q.get('h') !== '0', level: +q.get('l') || null,
                 buffs: (q.get('bf') || '').split(',').filter(Boolean), talis: (q.get('tl') || '').split(',').filter(Boolean), scadu: +q.get('st') || 0,
-                gearWeight: +q.get('gw') || 0, armor: {} };
+                gearWeight: +q.get('gw') || 0, armor: {}, activeSlot: q.get('as') || 'r0' };
+      if (q.get('rh') || q.get('lh')) o.loadout = { rightHand: decodeArmaments(q.get('rh')), leftHand: decodeArmaments(q.get('lh')) };
       ARMOR_SLOTS.forEach(function (slot, i) { if (armorParts[i] && armorParts[i] !== '-') o.armor[slot.id] = armorParts[i]; });
       STATS.forEach(function (k, i) { if (s[i] >= 1 && s[i] <= 99) o.stats[k] = s[i]; });
       return o;
@@ -57,6 +82,30 @@
       var id = Array.isArray(bootArmor) ? bootArmor[i] : bootArmor[slot.id];
       if (id != null && armorById[String(id)] && armorById[String(id)].slot === slot.id) selectedArmor[slot.id] = String(id);
     });
+  }
+  var armaments = { right: [null,null,null], left: [null,null,null] };
+  if (BOOT && BOOT.loadout && (BOOT.loadout.rightHand || BOOT.loadout.leftHand)) {
+    armaments.right = (BOOT.loadout.rightHand || []).slice(0, 3).map(normalizeArmament);
+    armaments.left = (BOOT.loadout.leftHand || []).slice(0, 3).map(normalizeArmament);
+    while (armaments.right.length < 3) armaments.right.push(null);
+    while (armaments.left.length < 3) armaments.left.push(null);
+  }
+  if (!armaments.right.some(Boolean) && !armaments.left.some(Boolean)) {
+    armaments.right[0] = { weaponId: current.id, affinity: (BOOT && BOOT.affinity) || 'Standard', upgrade: BOOT && BOOT.upgrade != null && BOOT.upgrade !== '' ? +BOOT.upgrade : null };
+  }
+  if (BOOT && /^([rl])[0-2]$/.test(BOOT.activeSlot || '')) activeSlot = { hand: BOOT.activeSlot.charAt(0) === 'l' ? 'left' : 'right', index: +BOOT.activeSlot.charAt(1) };
+  if (!armaments[activeSlot.hand][activeSlot.index]) {
+    ['right','left'].some(function (hand) {
+      var i = armaments[hand].findIndex(Boolean);
+      if (i >= 0) { activeSlot = { hand: hand, index: i }; return true; }
+      return false;
+    });
+  }
+  var initialArmament = armaments[activeSlot.hand][activeSlot.index];
+  if (initialArmament) {
+    current = weapons.find(function (w) { return w.id === initialArmament.weaponId; }) || current;
+    affinity = initialArmament.affinity || 'Standard';
+    upgradeLevel = initialArmament.upgrade;
   }
 
   /* ---- buffs & talismans (T3 + T5) ---- */
@@ -105,13 +154,18 @@
 
   var persistT;
   function persist() { clearTimeout(persistT); persistT = setTimeout(doPersist, 250); }
+  function saveActiveArmament() {
+    if (!armaments[activeSlot.hand][activeSlot.index]) return;
+    armaments[activeSlot.hand][activeSlot.index] = { weaponId: current.id, affinity: affinity, upgrade: upgradeLevel };
+  }
   function captureState() {
+    saveActiveArmament();
     var bf = Object.keys(activeBuffs).filter(function (k) { return activeBuffs[k]; });
     var tl = Object.keys(activeTalis).filter(function (k) { return activeTalis[k]; });
     var armorState = {};
     ARMOR_SLOTS.forEach(function (slot) { armorState[slot.id] = selectedArmor[slot.id]; });
-    var state = { schemaVersion: 2, stats: {}, weapon: current.id, affinity: affinity, upgrade: upgradeLevel, twoHanded: twoHanded, level: +$('level').value || null, buffs: bf, talis: tl, scadu: scaduLevel, gearWeight: gearWeight, armor: armorState };
-    state.loadout = { rightHand: [{ weaponId: current.id, affinity: affinity, upgrade: upgradeLevel }, null, null], leftHand: [null,null,null], armor: armorState, talismans: tl, spells: [], physick: [], greatRune: null };
+    var state = { schemaVersion: 2, stats: {}, weapon: current.id, affinity: affinity, upgrade: upgradeLevel, twoHanded: twoHanded, level: +$('level').value || null, buffs: bf, talis: tl, scadu: scaduLevel, gearWeight: gearWeight, armor: armorState, activeSlot: (activeSlot.hand === 'left' ? 'l' : 'r') + activeSlot.index };
+    state.loadout = { rightHand: armaments.right.map(function (x) { return x && Object.assign({}, x); }), leftHand: armaments.left.map(function (x) { return x && Object.assign({}, x); }), armor: armorState, talismans: tl, spells: [], physick: [], greatRune: null };
     STATS.forEach(function (k) { state.stats[k] = build[k]; });
     return state;
   }
@@ -132,6 +186,9 @@
     if (ARMOR_SLOTS.some(function (slot) { return selectedArmor[slot.id]; })) {
       q.set('ar', ARMOR_SLOTS.map(function (slot) { return selectedArmor[slot.id] || '-'; }).join('.'));
     }
+    q.set('rh', encodeArmaments(armaments.right));
+    q.set('lh', encodeArmaments(armaments.left));
+    if (state.activeSlot !== 'r0') q.set('as', state.activeSlot);
     history.replaceState(null, '', location.pathname + '?' + q);
   }
 
@@ -221,6 +278,63 @@
   });
   $('armorPickerClose').addEventListener('click', closeArmorPicker);
 
+  /* ---- six-slot armament rack ---- */
+  function slotLabel(hand, index) { return (hand === 'right' ? 'Right' : 'Left') + ' Hand ' + (index + 1); }
+  function slotMatches(a, b) { return a && b && a.hand === b.hand && a.index === b.index; }
+  function equippedArmamentPieces() {
+    return armaments.right.concat(armaments.left).map(function (slot) {
+      return slot && weapons.find(function (w) { return w.id === slot.weaponId; });
+    }).filter(Boolean);
+  }
+  function renderArmamentRack() {
+    var rows = [['right','Right Hand'],['left','Left Hand']];
+    $('armamentRack').innerHTML = rows.map(function (row) {
+      return '<div class="rack-row"><span class="rack-hand">' + row[1] + '</span><div class="rack-slots">' +
+        armaments[row[0]].map(function (slot, index) {
+          var weapon = slot && weapons.find(function (w) { return w.id === slot.weaponId; });
+          var pos = { hand: row[0], index: index };
+          var active = slotMatches(pos, activeSlot), target = slotMatches(pos, weaponTarget);
+          var img = weapon ? ' style="--slot-img:url(\'../assets/icons/weapons/' + weapon.id + '.png\')"' : '';
+          return '<button type="button" class="rack-slot' + (active ? ' active' : '') + (target ? ' target' : '') + (weapon ? ' filled' : '') + '" data-rack-hand="' + row[0] + '" data-rack-index="' + index + '"' + img + ' aria-label="' + slotLabel(row[0], index) + (weapon ? ': ' + escText(weapon.name) : ': empty') + '">' +
+            '<span class="rack-index">' + (index + 1) + '</span><span class="rack-icon"></span><span class="rack-copy"><small>' + (active ? 'Active' : target ? 'Choose weapon' : slotLabel(row[0], index)) + '</small><b>' + (weapon ? escText(weapon.name) : 'Empty') + '</b>' +
+            (weapon ? '<em>' + weapon.weight.toFixed(1) + ' wt' + (slot.upgrade != null ? ' · +' + slot.upgrade : ' · max') + '</em>' : '<em>select to equip</em>') + '</span>' +
+            (weapon && !active ? '<span class="rack-clear" data-rack-clear="1" title="Unequip">×</span>' : '') + '</button>';
+        }).join('') + '</div></div>';
+    }).join('');
+    $('activeSlotLabel').textContent = slotLabel(activeSlot.hand, activeSlot.index) + ' active';
+    $('rackHint').textContent = weaponTarget ? 'Searching for ' + slotLabel(weaponTarget.hand, weaponTarget.index) + ' — choose a weapon below.' : 'All equipped armaments count toward load. Select one to analyze it.';
+    $('rackHint').classList.toggle('choosing', !!weaponTarget);
+  }
+  function switchActiveArmament(hand, index) {
+    var slot = armaments[hand][index];
+    if (!slot) {
+      weaponTarget = { hand: hand, index: index };
+      renderArmamentRack();
+      $('weaponSearch').placeholder = 'Equip ' + slotLabel(hand, index) + '…';
+      $('weaponSearch').focus();
+      return;
+    }
+    saveActiveArmament();
+    activeSlot = { hand: hand, index: index };
+    weaponTarget = null;
+    current = weapons.find(function (w) { return w.id === slot.weaponId; }) || current;
+    fillAffinity(); fillUpgrade();
+    if (slot.affinity && (slot.affinity === 'Standard' || (current.affinities && current.affinities[slot.affinity]))) { affinity = slot.affinity; $('affinity').value = affinity; }
+    if (slot.upgrade != null) { upgradeLevel = slot.upgrade; $('upgrade').value = slot.upgrade; }
+    $('weaponSearch').placeholder = 'Search weapons…';
+    render();
+  }
+  $('armamentRack').addEventListener('click', function (e) {
+    var button = e.target.closest('[data-rack-hand]'); if (!button) return;
+    var hand = button.getAttribute('data-rack-hand'), index = +button.getAttribute('data-rack-index');
+    if (e.target.closest('[data-rack-clear]')) {
+      armaments[hand][index] = null;
+      if (slotMatches(weaponTarget, { hand: hand, index: index })) weaponTarget = null;
+      render(); return;
+    }
+    switchActiveArmament(hand, index);
+  });
+
   /* ---- presets (dropdown + buttons) ---- */
   var activePresetIndex = presets.findIndex(function (p) { return p.loadout && p.loadout.weaponId === current.id; });
   $('presetSelect').innerHTML = '<option value="">Load build…</option>' + presets.map(function (p, i) { return '<option value="'+i+'">'+p.name+'</option>'; }).join('');
@@ -239,6 +353,8 @@
   }
   function applyPreset(p) {
     activePresetIndex = presets.indexOf(p);
+    armaments = { right: [null,null,null], left: [null,null,null] };
+    activeSlot = { hand: 'right', index: 0 }; weaponTarget = null;
     STATS.forEach(function (k) { build[k] = p.stats[k]; syncStat(k); });
     $('level').value = ERCalc.characterLevel(p.stats); // sensible starting level; user can override
     twoHanded = !!p.twoHanded; $('twoHand').checked = twoHanded;
@@ -251,6 +367,7 @@
         affinity = wantAff; $('affinity').value = wantAff;
       }
     }
+    armaments.right[0] = { weaponId: current.id, affinity: affinity, upgrade: upgradeLevel };
     syncActivePreset();
     render();
   }
@@ -278,6 +395,27 @@
       var id = Array.isArray(savedArmor) ? savedArmor[i] : savedArmor[slot.id];
       selectedArmor[slot.id] = id != null && armorById[String(id)] && armorById[String(id)].slot === slot.id ? String(id) : null;
     });
+    armaments = { right: [null,null,null], left: [null,null,null] };
+    if (o.loadout && (o.loadout.rightHand || o.loadout.leftHand)) {
+      armaments.right = (o.loadout.rightHand || []).slice(0, 3).map(normalizeArmament);
+      armaments.left = (o.loadout.leftHand || []).slice(0, 3).map(normalizeArmament);
+      while (armaments.right.length < 3) armaments.right.push(null);
+      while (armaments.left.length < 3) armaments.left.push(null);
+    }
+    if (!armaments.right.some(Boolean) && !armaments.left.some(Boolean)) armaments.right[0] = { weaponId: current.id, affinity: affinity, upgrade: upgradeLevel };
+    activeSlot = { hand: 'right', index: 0 };
+    if (/^([rl])[0-2]$/.test(o.activeSlot || '')) activeSlot = { hand: o.activeSlot.charAt(0) === 'l' ? 'left' : 'right', index: +o.activeSlot.charAt(1) };
+    if (!armaments[activeSlot.hand][activeSlot.index]) {
+      ['right','left'].some(function (hand) { var i = armaments[hand].findIndex(Boolean); if (i >= 0) { activeSlot = { hand: hand, index: i }; return true; } return false; });
+    }
+    var restored = armaments[activeSlot.hand][activeSlot.index];
+    if (restored) {
+      current = weapons.find(function (x) { return x.id === restored.weaponId; }) || current;
+      fillUpgrade(); fillAffinity();
+      if (restored.affinity && (restored.affinity === 'Standard' || (current.affinities && current.affinities[restored.affinity]))) { affinity = restored.affinity; $('affinity').value = affinity; }
+      if (restored.upgrade != null) { upgradeLevel = restored.upgrade; $('upgrade').value = restored.upgrade; }
+    }
+    weaponTarget = null; $('weaponSearch').placeholder = 'Search weapons…';
     renderBuffGroups();
     activePresetIndex = -1; syncActivePreset();
     render();
@@ -332,8 +470,14 @@
   });
   list.addEventListener('click', function (e) {
     var id = e.target.closest('[data-id]'); if (!id) return;
+    saveActiveArmament();
+    var target = weaponTarget || activeSlot;
     current = weapons.find(function (w){ return w.id === id.getAttribute('data-id'); });
+    activeSlot = { hand: target.hand, index: target.index };
+    armaments[activeSlot.hand][activeSlot.index] = { weaponId: current.id, affinity: 'Standard', upgrade: null };
+    weaponTarget = null;
     upgradeLevel = null; search.value = ''; list.hidden = true; fillUpgrade(); fillAffinity();
+    search.placeholder = 'Search weapons…';
     activePresetIndex = -1; syncActivePreset(); render();
   });
 
@@ -374,6 +518,8 @@
   }
 
   function render() {
+    saveActiveArmament();
+    renderArmamentRack();
     var mods = collectMods();
     var r = ERCalc.computeARBuffed(build, current, { upgradeLevel: upgradeLevel, twoHanded: twoHanded, affinity: affinity }, mods);
     // stats after talisman bonuses — requirements + display should agree with the engine
@@ -448,7 +594,8 @@
   var ROLL_LABEL = { light: 'Light roll', medium: 'Medium roll', heavy: 'Heavy roll', overloaded: 'Overloaded — can’t roll' };
   function renderSurvival(mods, boosted) {
     var se = ERCalc.statEffects(boosted, mods);
-    var weaponW = current.weight != null ? current.weight : 0;
+    var equippedWeapons = equippedArmamentPieces();
+    var weaponW = equippedWeapons.reduce(function (sum, weapon) { return sum + (+weapon.weight || 0); }, 0);
     var armorTotal = ERCalc.aggregateArmor(equippedArmorPieces());
     var totalW = Math.round((weaponW + armorTotal.weight + gearWeight) * 10) / 10;
     var rs = ERCalc.rollState(totalW, se.equipLoad);
@@ -456,7 +603,7 @@
     $('survFP').textContent = se.fp;
     $('survStam').textContent = se.stamina;
     $('survLoadText').innerHTML = totalW + ' / ' + se.equipLoad +
-      (current.weight == null ? ' <span class="unverified" title="weapon weight unknown — not counted">?</span>' : '');
+      (equippedWeapons.some(function (weapon) { return weapon.weight == null; }) ? ' <span class="unverified" title="an equipped weapon weight is unknown — not counted">?</span>' : '');
     $('survLoadBar').innerHTML =
       '<div class="loadbar ' + rs.state + '"><i style="width:' + Math.min(100, rs.ratio * 100) + '%"></i>' +
       '<s style="left:30%"></s><s style="left:70%"></s></div>';
@@ -551,6 +698,7 @@
     if (e.target.closest('.sug-atlas')) return; // let the atlas link navigate
     var row = e.target.closest('[data-id]'); if (!row) return;
     current = weapons.find(function (w){ return w.id === row.getAttribute('data-id'); });
+    armaments[activeSlot.hand][activeSlot.index] = { weaponId: current.id, affinity: 'Standard', upgrade: null };
     upgradeLevel = null; fillUpgrade(); fillAffinity();
     activePresetIndex = -1; syncActivePreset(); render();
     document.querySelector('.weapon-card').scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -711,12 +859,14 @@
 
   $('level').value = (BOOT && BOOT.level) || ERCalc.characterLevel(build); // starting reference; level is manual + independent
   fillAffinity(); fillUpgrade();
-  if (BOOT) { // affinity/upgrade must be applied after the selects are (re)filled
-    if (BOOT.affinity && (BOOT.affinity === 'Standard' || (current.affinities && current.affinities[BOOT.affinity]))) {
-      affinity = BOOT.affinity; $('affinity').value = affinity;
+  if (BOOT || initialArmament) { // affinity/upgrade must be applied after the selects are (re)filled
+    var desiredAffinity = (initialArmament && initialArmament.affinity) || (BOOT && BOOT.affinity);
+    var desiredUpgrade = initialArmament && initialArmament.upgrade != null ? initialArmament.upgrade : BOOT && BOOT.upgrade;
+    if (desiredAffinity && (desiredAffinity === 'Standard' || (current.affinities && current.affinities[desiredAffinity]))) {
+      affinity = desiredAffinity; $('affinity').value = affinity;
     }
-    if (BOOT.upgrade != null && BOOT.upgrade !== '' && !isNaN(+BOOT.upgrade)) {
-      upgradeLevel = +BOOT.upgrade; $('upgrade').value = upgradeLevel;
+    if (desiredUpgrade != null && desiredUpgrade !== '' && !isNaN(+desiredUpgrade)) {
+      upgradeLevel = +desiredUpgrade; $('upgrade').value = upgradeLevel;
     }
   }
   renderBuffGroups(); syncActivePreset(); render();

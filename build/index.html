@@ -84,7 +84,10 @@
 
   <!-- WEAPON + RESULT -->
   <section class="panel">
-    <h2>Active Armament <span class="section-kicker">Right Hand 1</span></h2>
+    <h2>Armament Rack <span class="section-kicker" id="activeSlotLabel">Right Hand 1 active</span></h2>
+    <div class="armament-rack" id="armamentRack" aria-label="Six equipped armament slots"></div>
+    <div class="rack-hint" id="rackHint">Select an occupied slot to analyze it. Select an empty slot, then search to equip it.</div>
+    <h2 class="mt active-analysis-title">Active Armament</h2>
     <label class="dlc-toggle"><input type="checkbox" id="showDlc" checked> Include Shadow of the Erdtree weapons</label>
     <div class="search-wrap">
       <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><line x1="15.3" y1="15.3" x2="21" y2="21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
