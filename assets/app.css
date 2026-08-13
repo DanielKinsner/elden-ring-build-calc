@@ -581,6 +581,8 @@ body.build-page { padding-bottom: 80px; }
 .boss-chip.weak { color: var(--green); border-color: rgba(134,173,92,.45); background: rgba(134,173,92,.08); }
 .boss-chip.resist { color: #e0a396; border-color: rgba(207,90,68,.4); background: rgba(207,90,68,.07); }
 .boss-chip.immune { color: var(--dim); border-color: var(--line); background: rgba(156,145,111,.06); }
+a.boss-chip-link { cursor: pointer; text-decoration: none; transition: box-shadow .15s var(--ease), border-color .15s var(--ease); }
+a.boss-chip-link:hover { text-decoration: none; border-color: var(--gold-dim); box-shadow: 0 0 10px rgba(201,162,39,.25); }
 .boss-list { margin: 0; padding-left: 16px; font-size: 12.5px; line-height: 1.55; color: var(--text); }
 .boss-list li { margin-bottom: 2px; }
 

@@ -326,10 +326,21 @@
   }
 
   /* ---- boss guide ---- */
+  /* a "Weak" chip that leads with a status name becomes a link into the Atlas,
+     pre-filtered to weapons that build that status (atlas reads ?status=&sort=) */
+  var STATUS_LINK = { 'scarlet rot': 'rot', bleed: 'bleed', frost: 'frost', poison: 'poison', rot: 'rot', sleep: 'sleep', madness: 'madness' };
+  function statusLink(x) {
+    var m = /^(scarlet rot|bleed|frost|poison|rot|sleep|madness)\b/i.exec(String(x));
+    return m ? STATUS_LINK[m[1].toLowerCase()] : null;
+  }
   function chipList(cls, label, items) {
     if (!items || !items.length) return '';
     return '<div class="boss-row"><span class="k">' + label + '</span><span class="boss-chips">' +
-      items.map(function (x) { return '<span class="boss-chip ' + cls + '">' + verifyTag(x) + '</span>'; }).join('') + '</span></div>';
+      items.map(function (x) {
+        var st = cls === 'weak' ? statusLink(x) : null;
+        if (st) return '<a class="boss-chip ' + cls + ' boss-chip-link" href="../atlas/?status=' + st + '&sort=ar" title="Open the Weapon Atlas — weapons that build ' + st + ', ranked by AR">' + verifyTag(x) + ' ⚔</a>';
+        return '<span class="boss-chip ' + cls + '">' + verifyTag(x) + '</span>';
+      }).join('') + '</span></div>';
   }
   function bossCard(b) {
     var felled = !!store.bosses[b.id];
