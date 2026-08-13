@@ -32,13 +32,54 @@
     {
       "id": "kindling",
       "title": "Kindling",
-      "subtitle": "The Testament of Melina",
-      "blurb": "A first-person narrative in fourteen movements and a coda. The burned maiden tells her side of the whole journey — the accord, the road, the pyre — to the one person who was there for all of it: you.",
-      "words": "≈7,700 words",
+      "subtitle": "The Story of Melina",
+      "blurb": "Melina tells the whole journey as a single cinematic story: Torrent's choice, the accord, the road to Leyndell, the freedom she found there, and the fire she chose for herself.",
+      "words": "≈5,240 words",
       "spoilers": "Full spoilers for the base game's story and endings.",
-      "dir": "content/",
+      "dir": "content/kindling/",
       "chapters": [
-        { "id": "kindling", "file": "kindling.md", "num": "", "title": "Kindling — The Testament of Melina", "tease": "Ash remembers fire. That is all ash is." }
+        { "id": "ch01", "file": "01-the-fire-and-the-beginning.md", "num": "I", "title": "The Fire, and the Beginning", "tease": "Torrent chooses a Tarnished in a graveyard beneath Limgrave" },
+        { "id": "ch02", "file": "02-what-travelled-with-you.md", "num": "II", "title": "What Travelled With You", "tease": "Runes, borrowed touch, and the people worth stopping for" },
+        { "id": "ch03", "file": "03-my-mothers-voice.md", "num": "III", "title": "My Mother's Voice", "tease": "Marika's echoes and the hidden children made to burn" },
+        { "id": "ch04", "file": "04-the-city-at-the-foot-of-the-tree.md", "num": "IV", "title": "The City at the Foot of the Tree", "tease": "Freedom in Leyndell and a blade that remembers her hand" },
+        { "id": "ch05", "file": "05-the-choice.md", "num": "V", "title": "The Choice", "tease": "The thorns, the Flame of Frenzy, and a purpose reclaimed" },
+        { "id": "ch06", "file": "06-kindling.md", "num": "VI", "title": "Kindling", "tease": "At the Forge, sacrifice becomes an act of will" },
+        { "id": "ch07", "file": "07-what-the-fire-keeps.md", "num": "VII", "title": "What the Fire Keeps", "tease": "Destined Death opens the road through ash" },
+        { "id": "ch08", "file": "08-the-other-turning.md", "num": "VIII", "title": "The Other Turning", "tease": "The road where the Tarnished takes the flame instead" },
+        { "id": "ch09", "file": "09-embers.md", "num": "IX", "title": "Embers", "tease": "What remains when a life becomes a choice" }
+      ]
+    },
+    {
+      "id": "ranni",
+      "title": "The Testament of Ranni",
+      "subtitle": "The Whole Dark Moon",
+      "blurb": "Ranni takes possession of the history others wrote around her: the leash of the Two Fingers, the Night of Black Knives, the flesh she slew, the companions who paid, and the thousand-year voyage beyond the Order's reach.",
+      "words": "≈39,600 words",
+      "spoilers": "Full spoilers for Ranni's quest, the Age of Stars ending, and major base-game lore.",
+      "dir": "content/ranni/",
+      "chapters": [
+        { "id": "prologue", "file": "00-prologue.md", "num": "Prologue", "title": "The Leash", "tease": "I slew mine own flesh because the heavens mistook it for a leash" },
+        { "id": "ch01", "file": "01-house-beneath-two-moons.md", "num": "I", "title": "A House Beneath Two Moons", "tease": "Caria, Rennala, Radagon, and the first lessons of gold" },
+        { "id": "ch02", "file": "02-shadow-given-to-me.md", "num": "II", "title": "The Shadow Given to Me", "tease": "A wolf-brother fashioned as both companion and chain" },
+        { "id": "ch03", "file": "03-crone-in-the-snow.md", "num": "III", "title": "The Crone in the Snow", "tease": "The secret teacher whose likeness Ranni would one day wear" },
+        { "id": "ch04", "file": "04-candidate-for-the-cage.md", "num": "IV", "title": "A Candidate for the Cage", "tease": "The Empyrean design and the Fingers beneath the earth" },
+        { "id": "ch05", "file": "05-when-the-stars-were-chained.md", "num": "V", "title": "When the Stars Were Chained", "tease": "Radahn arrests the heavens and Carian fate with them" },
+        { "id": "ch06", "file": "06-knife-made-for-gods.md", "num": "VI", "title": "A Knife Made for Gods", "tease": "The Rune of Death, the Black Knives, and a necessary crime" },
+        { "id": "ch07", "file": "07-two-half-deaths.md", "num": "VII", "title": "Two Half-Deaths", "tease": "One broken wheel claims a prince's soul and a witch's flesh" },
+        { "id": "ch08", "file": "08-body-i-chose.md", "num": "VIII", "title": "The Body I Chose", "tease": "A dead teacher's likeness and a form beyond the Fingers" },
+        { "id": "ch09", "file": "09-three-towers-and-a-long-waiting.md", "num": "IX", "title": "Three Towers and a Long Waiting", "tease": "A household keeps faith while the stars remain still" },
+        { "id": "ch10", "file": "10-name-renna.md", "num": "X", "title": "The Name Renna", "tease": "A second name, a spirit bell, and Torrent's chosen master" },
+        { "id": "ch11", "file": "11-rare-sort.md", "num": "XI", "title": "A Rare Sort", "tease": "The Tarnished who enters her service and refuses the easy road" },
+        { "id": "ch12", "file": "12-festival-of-a-brother.md", "num": "XII", "title": "The Festival of a Brother", "tease": "The stars move again at the death of the Red Lion" },
+        { "id": "ch13", "file": "13-city-without-dawn.md", "num": "XIII", "title": "A City Without Dawn", "tease": "Nokron, the Fingerslayer Blade, and a buried rebellion" },
+        { "id": "ch14", "file": "14-corpse-on-the-tower.md", "num": "XIV", "title": "The Corpse on the Tower", "tease": "The discarded body and the full cost carved into it" },
+        { "id": "ch15", "file": "15-doll-that-spoke.md", "num": "XV", "title": "The Doll That Spoke", "tease": "Confession, farewell, and the love she could not say sooner" },
+        { "id": "ch16", "file": "16-rot-void-and-the-sealed-road.md", "num": "XVI", "title": "Rot, Void, and the Sealed Road", "tease": "The Lake of Rot and the passage beyond the false night" },
+        { "id": "ch17", "file": "17-beneath-manus-celes.md", "num": "XVII", "title": "Beneath Manus Celes", "tease": "A dark moon ring placed upon a waiting hand" },
+        { "id": "ch18", "file": "18-faithful-who-paid.md", "num": "XVIII", "title": "The Faithful Who Paid", "tease": "Blaidd and Iji, counted at last without euphemism" },
+        { "id": "ch19", "file": "19-order-at-a-great-remove.md", "num": "XIX", "title": "An Order at a Great Remove", "tease": "What the Age of Stars is—and what it refuses to be" },
+        { "id": "ch20", "file": "20-thousand-year-road.md", "num": "XX", "title": "A Thousand-Year Road", "tease": "The world released from certainty beneath a distant moon" },
+        { "id": "coda", "file": "21-coda-the-whole-dark-moon.md", "num": "Coda", "title": "The Whole Dark Moon", "tease": "No leash. No throne. And no solitude." }
       ]
     }
   ]

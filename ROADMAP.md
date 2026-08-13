@@ -141,8 +141,9 @@ link. "Save Build" writes to localStorage; a small curated **meta build library*
 ---
 
 ## Shipped beyond the roadmap (2026-08)
-- **Tales section** (`tales/`) — Dan's original fan writing on the site: *Gold and Shadow* (~55k words,
-  17 chapters) + *Kindling: The Testament of Melina* (~7.7k words). Library shelf w/ continue-reading,
+- **Tales section** (`tales/`) — original fan writing on the site: *Gold and Shadow* (~55k words,
+  17 chapters), *Kindling: The Story of Melina* (~5.2k words, 9 movements), and *The Testament of Ranni*
+  (~39.6k words, 22 movements). Library shelf w/ continue-reading,
   book-typography reader (drop caps, scroll progress, ←/→ keys, contents), per-chapter read state
   (`er-tales`). Content lives as raw `.md` in `tales/content/` — updating the book = copying files.
 - **Walkthrough tab** in `guides/` — full base route (12 stages, 13 checkable steps, stat targets,
