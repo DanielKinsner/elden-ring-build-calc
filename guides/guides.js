@@ -613,5 +613,13 @@
     else if ((e.key === 'k' || e.key === 'K') && (e.ctrlKey || e.metaKey)) { e.preventDefault(); searchInput.focus(); }
   });
 
-  setTab((location.hash || '#quests').slice(1));
+  var initHash = (location.hash || '#quests').slice(1);
+  if (initHash.indexOf('boss-') === 0) {
+    // deep link to a single boss card (weapon pages link here): open the tab, then scroll
+    setTab('bosses');
+    var bossEl = document.getElementById(initHash);
+    if (bossEl) bossEl.scrollIntoView({ block: 'start' });
+  } else {
+    setTab(initHash);
+  }
 })();
