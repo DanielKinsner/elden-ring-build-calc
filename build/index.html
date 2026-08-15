@@ -92,6 +92,19 @@
     <div class="presets" id="presetBtns"></div>
     <h2 class="mt" id="myBuildsHead" hidden>My Builds</h2>
     <div class="presets" id="myBuilds"></div>
+    <h2 class="mt">Physick &amp; Great Rune <span class="section-kicker">two tears · one Rune Arc</span></h2>
+    <section class="rite-rack" aria-label="Flask of Wondrous Physick and Great Rune">
+      <div class="rite-head"><span class="rite-sigil" aria-hidden="true">✦</span><div><b>Temporary Benedictions</b><small>Exact loadout state, applied only while its activation is on.</small></div></div>
+      <div class="rite-controls">
+        <label><span>Physick tear I</span><select id="physickOne"></select><small id="physickOneNote">Empty mixture slot</small></label>
+        <label><span>Physick tear II</span><select id="physickTwo"></select><small id="physickTwoNote">Empty mixture slot</small></label>
+        <label class="great-rune-control"><span>Great Rune</span><select id="greatRune"></select><small id="greatRuneNote">No Great Rune equipped</small></label>
+      </div>
+      <div class="rite-activation">
+        <label><input id="physickActive" type="checkbox" checked><i></i><span><b>Physick consumed</b><small>Apply both tear effects</small></span></label>
+        <label><input id="runeArcActive" type="checkbox" checked><i></i><span><b>Rune Arc active</b><small>Apply the equipped Great Rune</small></span></label>
+      </div>
+    </section>
   </section>
 
   <!-- WEAPON + RESULT -->

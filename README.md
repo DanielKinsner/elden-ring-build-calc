@@ -37,14 +37,18 @@ are, which weapon wins on their build, and how bleed/status buildup scales.
   their own FP branches. Typed weapon motion, AtkParam base damage, reinforcement, stat curves,
   stamina, poise, status motion, PvE/PvP multipliers, and enemy defense remain visible as one-event
   traces instead of being collapsed into an invented full-cast number.
-- Active buff layer (Golden Vow, greases, Physick tears) with category override rules.
+- Active buff layer (Golden Vow and greases) with category override rules.
+- A complete 37-tear Flask of Wondrous Physick rack with two unique slots, duration and model
+  coverage notes, live activation, and exact/partial math for supported stat, attack, survival,
+  defense, resistance, and recovery effects. All six equipable Great Runes share the same state,
+  with Rune Arc activation and live math for Godrick, Radahn, and Morgott.
 - Status payoff card — hits-to-proc and what the proc is worth (bleed/frost/poison/rot) vs a target HP/resist.
 - Soft-cap chart + optimal stat advisor (redistributes your offensive points for max AR).
 - "Best Weapons for Your Build" ranking + a compare tray.
 - Scadutree Blessing slider — Land-of-Shadow AR and damage negation.
 - Versioned full-build state, compact share links, auto-save, old-save migration, and **My Builds**
-  named multi-save. The v6 schema preserves equipment, combat, attack-lens, ammunition, catalyst,
-  and spell-memory state while reserving Physick and Great Rune for the next slices.
+  named multi-save. The v8 schema preserves equipment, combat, attack-lens, ammunition, catalyst,
+  spell-memory, two-tear Physick, Great Rune, and both activation states.
 
 **Weapon Atlas** (`atlas/`) — every weapon, filterable by status/scaling/infusable/DLC, sortable
 by AR-for-a-reference-build, weight, or requirements; per-weapon detail pages with acquisition info.

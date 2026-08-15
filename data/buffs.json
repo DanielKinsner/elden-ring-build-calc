@@ -3,8 +3,7 @@
   "categories": [
     { "id": "aura", "name": "Aura" },
     { "id": "body", "name": "Body" },
-    { "id": "grease", "name": "Grease" },
-    { "id": "tear", "name": "Physick" }
+    { "id": "grease", "name": "Grease" }
   ],
   "buffs": [
     { "id": "golden-vow", "name": "Golden Vow", "category": "aura", "mult": { "all": 1.15 }, "defense": { "allTakenMult": 0.9 }, "duration": 80, "note": "+15% attack, +10% defense (incantation)", "confirmed": true },
@@ -14,11 +13,7 @@
     { "id": "magic-grease", "name": "Magic Grease", "category": "grease", "flat": { "magic": 85 }, "duration": 60, "note": "+85 flat magic", "confirmed": false },
     { "id": "lightning-grease", "name": "Lightning Grease", "category": "grease", "flat": { "lightning": 85 }, "duration": 60, "note": "+85 flat lightning", "confirmed": false },
     { "id": "holy-grease", "name": "Holy Grease", "category": "grease", "flat": { "holy": 85 }, "duration": 60, "note": "+85 flat holy", "confirmed": false },
-    { "id": "blood-grease", "name": "Blood Grease", "category": "grease", "statusFlat": { "bleed": 30 }, "duration": 60, "note": "+30 blood loss buildup", "confirmed": true },
-    { "id": "flame-shrouding-tear", "name": "Flame-Shrouding Cracked Tear", "category": "tear", "mult": { "fire": 1.2 }, "duration": 180, "note": "+20% fire", "confirmed": false },
-    { "id": "magic-shrouding-tear", "name": "Magic-Shrouding Cracked Tear", "category": "tear", "mult": { "magic": 1.2 }, "duration": 180, "note": "+20% magic", "confirmed": false },
-    { "id": "lightning-shrouding-tear", "name": "Lightning-Shrouding Cracked Tear", "category": "tear", "mult": { "lightning": 1.2 }, "duration": 180, "note": "+20% lightning", "confirmed": false },
-    { "id": "holy-shrouding-tear", "name": "Holy-Shrouding Cracked Tear", "category": "tear", "mult": { "holy": 1.2 }, "duration": 180, "note": "+20% holy", "confirmed": false }
+    { "id": "blood-grease", "name": "Blood Grease", "category": "grease", "statusFlat": { "bleed": 30 }, "duration": 60, "note": "+30 blood loss buildup", "confirmed": true }
   ],
   "talismans": [
     { "id": "radagons-soreseal", "name": "Radagon's Soreseal", "statBonus": { "VIG": 5, "END": 5, "STR": 5, "DEX": 5 }, "defense": { "allTakenMult": 1.15 }, "note": "+5 VIG/END/STR/DEX · +15% damage taken", "confirmed": true },

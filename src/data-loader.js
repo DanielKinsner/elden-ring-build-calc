@@ -33,6 +33,11 @@
     return fetchJSON(basePath + 'buffs.json'); // { categories, buffs, talismans }
   }
 
+  async function loadRites(basePath) {
+    basePath = basePath || 'data/';
+    return fetchJSON(basePath + 'rites.json');
+  }
+
   async function loadArmor(basePath) {
     basePath = basePath || 'data/';
     var data = await fetchJSON(basePath + 'armor.json');
@@ -117,5 +122,5 @@
     return JSON.parse(fs.readFileSync(path.resolve(url), 'utf8'));
   }
 
-  return { loadWeapons: loadWeapons, loadPresets: loadPresets, loadBuffs: loadBuffs, loadArmor: loadArmor, loadTalismans: loadTalismans, loadAttackProfiles: loadAttackProfiles, loadMagic: loadMagic, loadEnemies: loadEnemies, loadWeaponMoves:loadWeaponMoves, loadAmmo:loadAmmo, loadSkills:loadSkills, loadGuides: loadGuides };
+  return { loadWeapons: loadWeapons, loadPresets: loadPresets, loadBuffs: loadBuffs, loadRites:loadRites, loadArmor: loadArmor, loadTalismans: loadTalismans, loadAttackProfiles: loadAttackProfiles, loadMagic: loadMagic, loadEnemies: loadEnemies, loadWeaponMoves:loadWeaponMoves, loadAmmo:loadAmmo, loadSkills:loadSkills, loadGuides: loadGuides };
 });

@@ -174,6 +174,53 @@ async function main() {
     assert(await skillPage.locator('#skillPreDamage').textContent() === '1708', 'skill math survives shared-link reload');
     await skillPage.screenshot({ path:'/tmp/elden-skill-desktop.png', fullPage:true });
 
+    const riteUrl = new URL(BASE);
+    riteUrl.searchParams.set('b', '60.20.30.24.58.9.15.40');
+    riteUrl.searchParams.set('w', 'rivers-of-blood');
+    riteUrl.searchParams.set('u', '10');
+    riteUrl.searchParams.set('rh', 'rivers-of-blood~Standard~10,-,-');
+    const ritePage = await context.newPage();
+    ritePage.on('pageerror', (error) => errors.push('rite page: ' + error.message));
+    await ritePage.goto(riteUrl.toString(), { waitUntil:'networkidle' });
+    assert(await ritePage.locator('#physickOne option').count() === 38, 'Physick rack exposes all 37 unique tears');
+    assert(await ritePage.locator('#greatRune option').count() === 7, 'Great Rune rack exposes all six equipable runes');
+    const riteRawAR = Number(await ritePage.locator('#ar').textContent());
+    await ritePage.locator('#physickOne').selectOption('strength-knot-crystal-tear');
+    const tearAR = Number(await ritePage.locator('#ar').textContent());
+    assert(tearAR > riteRawAR, 'active stat-knot tear changes live weapon output');
+    assert(await ritePage.locator('#physickTwo option[value="strength-knot-crystal-tear"]').getAttribute('disabled') !== null, 'the same tear cannot occupy both mixture slots');
+    await ritePage.locator('#physickTwo').selectOption('flame-shrouding-tear');
+    assert(Number(await ritePage.locator('#ar').textContent()) > tearAR, 'second tear stacks its typed damage through the attack engine');
+    await ritePage.locator('#physickActive + i').click();
+    assert(Number(await ritePage.locator('#ar').textContent()) === riteRawAR, 'Physick activation switch removes both tear effects');
+    await ritePage.locator('#physickActive + i').click();
+    await ritePage.locator('#greatRune').selectOption('godricks-great-rune');
+    const runedAR = Number(await ritePage.locator('#ar').textContent());
+    assert(runedAR > tearAR, 'Rune Arc activation applies Godrick attribute math');
+    await ritePage.locator('#runeArcActive + i').click();
+    assert(Number(await ritePage.locator('#ar').textContent()) < runedAR, 'Rune Arc switch removes Great Rune math without unequipping it');
+    await ritePage.locator('#runeArcActive + i').click();
+    assert((await ritePage.locator('#effectStack').textContent()).includes("Godrick's Great Rune"), 'effect trace names the equipped Great Rune');
+    await ritePage.waitForTimeout(350);
+    const sharedRiteUrl = ritePage.url();
+    assert(sharedRiteUrl.includes('ph=strength-knot-crystal-tear%2Cflame-shrouding-tear'), 'share URL preserves both Physick tears');
+    assert(sharedRiteUrl.includes('gr=godricks-great-rune'), 'share URL preserves the Great Rune');
+    await ritePage.reload({ waitUntil:'networkidle' });
+    assert(await ritePage.locator('#physickOne').inputValue() === 'strength-knot-crystal-tear' && await ritePage.locator('#physickTwo').inputValue() === 'flame-shrouding-tear', 'two-tear mixture survives shared-link reload');
+    assert(await ritePage.locator('#greatRune').inputValue() === 'godricks-great-rune', 'Great Rune survives shared-link reload');
+    assert(Number(await ritePage.locator('#ar').textContent()) === runedAR, 'rite calculations survive shared-link reload');
+    await ritePage.screenshot({ path:'/tmp/elden-rites-desktop.png', fullPage:true });
+
+    const legacyRiteUrl = new URL(BASE);
+    legacyRiteUrl.searchParams.set('b', '60.20.30.24.58.9.15.40');
+    legacyRiteUrl.searchParams.set('w', 'rivers-of-blood');
+    legacyRiteUrl.searchParams.set('bf', 'flame-shrouding-tear');
+    const legacyRitePage = await context.newPage();
+    await legacyRitePage.goto(legacyRiteUrl.toString(), { waitUntil:'networkidle' });
+    assert(await legacyRitePage.locator('#physickOne').inputValue() === 'flame-shrouding-tear', 'legacy one-tear buff links migrate into the Physick rack');
+    await legacyRitePage.waitForTimeout(350);
+    assert(legacyRitePage.url().includes('ph=flame-shrouding-tear') && !legacyRitePage.url().includes('bf=flame-shrouding-tear'), 'migrated links rewrite into canonical rite state');
+
     const mobile = await browser.newPage({ viewport: { width: 390, height: 844 } });
     mobile.on('pageerror', (error) => errors.push('mobile page: ' + error.message));
     await mobile.goto(url, { waitUntil: 'networkidle' });
@@ -195,6 +242,12 @@ async function main() {
     const skillOverflow = await skillMobile.evaluate(() => ({ scroll:document.documentElement.scrollWidth, inner:window.innerWidth }));
     assert(skillOverflow.scroll <= skillOverflow.inner, 'skill lab has no 390px horizontal overflow');
     assert(await skillMobile.locator('#skillSelect').inputValue() === 'bloody-slash', 'mobile retains per-armament Ash state');
+
+    const riteMobile = await browser.newPage({ viewport:{ width:390, height:844 } });
+    await riteMobile.goto(ritePage.url(), { waitUntil:'networkidle' });
+    const riteOverflow = await riteMobile.evaluate(() => ({ scroll:document.documentElement.scrollWidth, inner:window.innerWidth }));
+    assert(riteOverflow.scroll <= riteOverflow.inner, 'Physick and Great Rune rack has no 390px horizontal overflow');
+    assert(await riteMobile.locator('#physickOne').inputValue() === 'strength-knot-crystal-tear', 'mobile retains the shared Physick mixture');
 
     const homeContext = await browser.newContext({ viewport:{ width:1440, height:1000 } });
     await homeContext.addInitScript(() => {

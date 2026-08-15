@@ -178,6 +178,24 @@ var efMod = { survival: { hpMult: 1.04, staminaMult: 1.10, equipLoadMult: 1.08 }
 check('Erdtree Favor leaves AR alone', ERCalc.computeARBuffed(vera, rob, { twoHanded: true }, [efMod]).buffed.totalAR, fr.totalAR);
 check('Erdtree Favor HP @ VIG 60', ERCalc.statEffects({ VIG: 60 }, [efMod]).hp, Math.floor(1900 * 1.04));
 
+/* ---- Physick + Great Runes: complete loadout catalog and supported live effects ---- */
+console.log('Physick and Great Runes:');
+var rites = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'rites.json'), 'utf8'));
+check('complete unique rite catalog', [rites.physick.length, rites.greatRunes.length, new Set(rites.physick.map(function (x) { return x.id; })).size, new Set(rites.greatRunes.map(function (x) { return x.id; })).size], [37,6,37,6]);
+function rite(id) { return rites.physick.concat(rites.greatRunes).find(function (item) { return item.id === id; }); }
+var godrick = rite('godricks-great-rune');
+check('Godrick applies all eight attributes', Object.keys(godrick.statBonus).map(function (key) { return godrick.statBonus[key]; }), [5,5,5,5,5,5,5,5]);
+check('Godrick changes live weapon output', ERCalc.computeARBuffed(vera, rob, { twoHanded:true }, [godrick]).buffed.totalAR > fr.totalAR, true);
+var radahn = rite('radahns-great-rune'), unrunedSurvival = ERCalc.statEffects(vera), runedSurvival = ERCalc.statEffects(vera, [radahn]);
+check('Radahn raises all three survival pools 15%', [runedSurvival.hp,runedSurvival.fp,runedSurvival.stamina], [Math.floor(unrunedSurvival.hp*1.15),Math.floor(unrunedSurvival.fp*1.15),Math.floor(unrunedSurvival.stamina*1.15)]);
+check('Morgott raises maximum HP 25%', ERCalc.statEffects(vera, [rite('morgotts-great-rune')]).hp, Math.floor(unrunedSurvival.hp * 1.25));
+check('Winged Crystal Tear multiplies equip load 5.5×', ERCalc.statEffects(vera, [rite('winged-crystal-tear')]).equipLoad, Math.round(unrunedSurvival.equipLoad * 5.5 * 10) / 10);
+check('Opaline Hardtear switches PvE/PvP negation', [ERCalc.aggregateDefense(null,[rite('opaline-hardtear')],'pve').negation.physical,ERCalc.aggregateDefense(null,[rite('opaline-hardtear')],'pvp').negation.physical], [15,10]);
+check('Speckled Hardtear adds all four resistances', ERCalc.aggregateResistance(null,[rite('speckled-hardtear')]), {immunity:90,robustness:90,focus:90,vitality:90});
+var flamePve = ERCalc.resolveAttackEffects([rite('flame-shrouding-tear')], { combatContext:'pve', profileId:'neutral', tags:[], state:{} });
+var flamePvp = ERCalc.resolveAttackEffects([rite('flame-shrouding-tear')], { combatContext:'pvp', profileId:'neutral', tags:[], state:{} });
+check('shrouding tear preserves separate PvE/PvP values', [flamePve.mods[0].mult.fire,flamePvp.mods[0].mult.fire], [1.2,1.125]);
+
 /* ---- talisman equipment: positional state, conditional gates, conflicts, defense ---- */
 console.log('talisman effects:');
 var talismanFile = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'talismans.json'), 'utf8'));

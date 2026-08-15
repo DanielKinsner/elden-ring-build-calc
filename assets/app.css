@@ -141,6 +141,33 @@ a:hover { text-decoration: underline; }
 .presets button:active { transform: scale(.96); }
 .presets button.active { border-color: var(--gold); color: var(--gold-2); background: rgba(201,162,39,.12); }
 
+/* ---------- Physick + Great Rune: temporary loadout rites ---------- */
+.rite-rack { overflow:hidden; border:1px solid var(--line); border-radius:9px; background:linear-gradient(145deg,rgba(25,20,12,.96),rgba(11,9,6,.94)); }
+.rite-head { display:flex; align-items:center; gap:11px; padding:12px 13px; border-bottom:1px solid var(--line-2); background:rgba(201,162,39,.035); }
+.rite-sigil { width:32px;height:32px;display:grid;place-items:center;flex:0 0 auto;color:var(--gold-2);border:1px solid var(--gold-dim);border-radius:50%;box-shadow:inset 0 0 13px rgba(201,162,39,.12),0 0 13px rgba(201,162,39,.08); }
+.rite-head>div { min-width:0;display:flex;flex-direction:column; }
+.rite-head b { color:var(--gold-2);font:600 11px var(--serif);letter-spacing:.07em; }
+.rite-head small { color:var(--dim);font-size:9px; }
+.rite-controls { display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:11px; }
+.rite-controls label { min-width:0;display:flex;flex-direction:column;gap:4px;padding:8px;border:1px solid var(--line-2);border-radius:7px;background:rgba(8,7,5,.48); }
+.rite-controls label>span { color:var(--gold-dim);font-size:8px;letter-spacing:.12em;text-transform:uppercase; }
+.rite-controls select { width:100%;min-width:0;padding:7px 25px 7px 7px;color:var(--text);border:1px solid var(--line);border-radius:5px;background:var(--panel-2);font-size:10px; }
+.rite-controls label>small { min-height:29px;color:var(--dim);font-size:8.5px;line-height:1.35; }
+.rite-controls .great-rune-control { grid-column:1/-1; }
+.rite-activation { display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line-2); }
+.rite-activation label { display:grid;grid-template-columns:26px minmax(0,1fr);align-items:center;gap:8px;padding:10px 12px;cursor:pointer; }
+.rite-activation label+label { border-left:1px solid var(--line-2); }
+.rite-activation input { display:none; }
+.rite-activation i { grid-row:1;width:26px;height:14px;border:1px solid var(--line);border-radius:9px;background:#16130d;position:relative; }
+.rite-activation i::after { content:'';position:absolute;width:8px;height:8px;left:2px;top:2px;border-radius:50%;background:var(--dim);transition:left .18s var(--ease),background-color .18s var(--ease); }
+.rite-activation input:checked+i { border-color:var(--gold-dim);background:rgba(201,162,39,.13); }
+.rite-activation input:checked+i::after { left:14px;background:var(--gold-2); }
+.rite-activation input:disabled+i { opacity:.35;cursor:not-allowed; }
+.rite-activation label>span { min-width:0;display:flex;flex-direction:column; }
+.rite-activation b { color:var(--text);font:600 9px var(--serif); }
+.rite-activation small { color:var(--dim);font-size:8px; }
+@media(max-width:560px){.rite-controls,.rite-activation{grid-template-columns:1fr}.rite-controls .great-rune-control{grid-column:1}.rite-activation label+label{border-left:0;border-top:1px solid var(--line-2)}}
+
 /* ---------- six-slot armament rack ---------- */
 .armament-rack { display: flex; flex-direction: column; gap: 8px; }
 .rack-row { display: grid; grid-template-columns: 72px minmax(0, 1fr); gap: 8px; align-items: stretch; }

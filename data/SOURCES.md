@@ -159,3 +159,18 @@ This index records transformation and verification notes that do not belong in r
 - Verification pins corpus counts, unique scoped event IDs, fixed-skill FP branches, Bloody Slash's
   AtkParam + reinforcement + Arcane correction path, Lion's Claw weapon/status separation, legal
   selection by weapon and affinity, enemy defense, URL/reload persistence, 390px layout, and browser errors.
+
+## Physick and Great Runes (`rites.json`)
+
+- Game version target: App 1.16.1; schema version 1; verified 2026-08-14.
+- Catalog and effect descriptions: [Elden Ring Wiki — Key Items](https://eldenring.wiki.gg/wiki/Key_Item),
+  [Buffs](https://eldenring.wiki.gg/wiki/Buffs), and [Great Runes](https://eldenring.wiki.gg/wiki/Great_Runes).
+- Coverage: all 37 unique Crystal Tears (base game and Shadow of the Erdtree) and all six equipable
+  Great Runes. The UI enforces the in-game two-unique-tear mixture and one-rune loadout.
+- Exact live models cover stat knots, survival-pool/equip-load multipliers, persistent recovery,
+  all-resistance and all-negation effects, four typed shrouding tears with separate PvE/PvP values,
+  charged-heavy damage, and Godrick/Radahn/Morgott rune effects. Bloodsucking is labeled partial;
+  Windy and other one-shot, conditional, spirit, invasion, stagger, flask, and encounter mechanics remain
+  inventory-only rather than being converted into misleading static output.
+- Verification pins catalog counts/IDs, survival, defense, resistance, PvE/PvP attack math,
+  duplicate-slot prevention, activation, effect tracing, share/reload migration, and 390px layout.

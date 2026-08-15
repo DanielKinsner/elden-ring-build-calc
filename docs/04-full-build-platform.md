@@ -14,11 +14,11 @@ The experience should remain calm and legible. Motion communicates causality: ch
 flash softly, bars travel to their new state, equipment slots acknowledge selection, and panels
 reveal detail only when it is useful. Motion never delays input and respects reduced-motion.
 
-## Canonical build schema (v5)
+## Canonical build schema (v8)
 
 ```json
 {
-  "schemaVersion": 6,
+  "schemaVersion": 8,
   "name": "Vera Aletheia",
   "combatContext": "pve",
   "attackProfile": "jump",
@@ -32,8 +32,9 @@ reveal detail only when it is useful. Motion never delays input and respects red
     "talismans": [],
     "magic": { "catalystId": "astrologers-staff", "upgrade": 25, "memorySlots": 10 },
     "spells": [{ "spellId": "comet", "variantId": "40210" }],
-    "physick": [],
-    "greatRune": null
+    "physick": ["strength-knot-crystal-tear", "flame-shrouding-tear"],
+    "physickActive": true,
+    "greatRune": { "id": "godricks-great-rune", "active": true }
   },
   "context": { "twoHanded": true, "scadutree": 0, "enemyId": null, "ngCycle": 0, "ammoId": null },
   "activeEffects": []
@@ -114,6 +115,11 @@ migration. Breadth without trusted math does not count as completion.
   The 1.16.1 attack lens raises total live coverage to 100 with move-aware PvE/PvP multipliers,
   two-handed state, and type-specific exceptions. All other items are explicitly inventory-only
   rather than receiving inferred math.
+- **Shipped:** all 37 unique base+DLC Crystal Tears in a true two-slot Physick mixture and all six
+  equipable Great Runes. Physick consumption and Rune Arc activation are independent persistent
+  state; supported attribute, typed attack, survival, defense, resistance, and recovery effects
+  feed the live calculation stack. Conditional one-shot and encounter-only effects remain visible
+  as loadout state without invented static math. Legacy one-tear buff links migrate automatically.
 - **Shipped:** catalyst and spell core: 33 casting tools, all 213 base+DLC spells and 463 unique
   output variants, exact CalcCorrectGraph scaling, reinforcement, requirements, category bonuses,
   memory slots, FP/stamina costs, typed pre-defense output, responsive selection, persistence,

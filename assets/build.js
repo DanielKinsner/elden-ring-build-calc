@@ -10,6 +10,7 @@
   var weapons = await ERData.loadWeapons('../data/');
   var presets = await ERData.loadPresets('../data/');
   var buffData = await ERData.loadBuffs('../data/');
+  var riteData = await ERData.loadRites('../data/');
   var armor = await ERData.loadArmor('../data/');
   var talismans = await ERData.loadTalismans('../data/');
   var attackProfiles = await ERData.loadAttackProfiles('../data/');
@@ -39,6 +40,9 @@
     talismanById[item.id] = item;
     (item.legacyIds || []).forEach(function (id) { talismanById[id] = item; });
   });
+  var physickById = {}, greatRuneById = {};
+  riteData.physick.forEach(function (item) { physickById[item.id] = item; });
+  riteData.greatRunes.forEach(function (item) { greatRuneById[item.id] = item; });
   var ARMOR_SLOTS = [
     { id: 'head', label: 'Head', mark: '♜' },
     { id: 'body', label: 'Body', mark: '♢' },
@@ -93,6 +97,7 @@
       var armorParts = (q.get('ar') || '').split('.');
       var o = { stats: {}, weapon: q.get('w'), affinity: q.get('a'), upgrade: q.get('u'), twoHanded: q.get('h') !== '0', level: +q.get('l') || null,
                 buffs: (q.get('bf') || '').split(',').filter(Boolean), talis: (q.get('tl') || '').split(',').filter(Boolean), scadu: +q.get('st') || 0,
+                physick: (q.get('ph') || '').split(',').filter(Boolean), physickActive: q.get('pa') !== '0', greatRune: q.get('gr') || null, runeArcActive: q.get('ra') !== '0',
                 gearWeight: +q.get('gw') || 0, armor: {}, activeSlot: q.get('as') || 'r0', combatContext: q.get('ctx') === 'pvp' ? 'pvp' : 'pve', attackProfile: q.get('mv') || 'neutral',
                 magic: { catalystId: q.get('cat') || null, upgrade: q.get('cu') === null ? null : +q.get('cu'), memorySlots: +q.get('ms') || 10, spells: (q.get('sp') || '').split(',').filter(Boolean), activeSpell: q.get('sa') || null, variantId: q.get('sv') || null },
                 encounter: { enemyId: q.get('en') || null, ng: Math.max(0, Math.min(7, +q.get('ng') || 0)), moveId:q.get('wm') || null, ammoId:q.get('am') || null } };
@@ -145,10 +150,33 @@
     skillEventId = initialArmament.skillEventId || null;
   }
 
-  /* ---- buffs + true talisman equipment ---- */
+  /* ---- buffs + true talisman / Physick / Great Rune equipment ---- */
   var TALI_MAX = 4;
+  var RITE_MAX = 2;
   var activeBuffs = {}, selectedTalismans = [null,null,null,null], taliConditionState = {};
-  if (BOOT && BOOT.buffs) BOOT.buffs.forEach(function (id) { if (buffData.buffs.some(function (b) { return b.id === id; })) activeBuffs[id] = true; });
+  var selectedPhysick = [null, null], physickActive = true, selectedGreatRune = null, runeArcActive = true;
+  function normalizePhysick(raw) {
+    var id = typeof raw === 'string' ? raw : raw && (raw.tearId || raw.id);
+    return physickById[id] ? id : null;
+  }
+  function restoreRites(state) {
+    state = state || {};
+    var loadout = state.loadout || {};
+    var rawPhysick = state.physick || loadout.physick || [];
+    selectedPhysick = rawPhysick.slice(0, RITE_MAX).map(normalizePhysick).filter(function (id, i, all) { return id && all.indexOf(id) === i; });
+    while (selectedPhysick.length < RITE_MAX) selectedPhysick.push(null);
+    physickActive = state.physickActive != null ? state.physickActive !== false : loadout.physickActive !== false;
+    var rawRune = state.greatRune != null ? state.greatRune : loadout.greatRune;
+    var runeId = typeof rawRune === 'string' ? rawRune : rawRune && (rawRune.greatRuneId || rawRune.id);
+    selectedGreatRune = greatRuneById[runeId] ? runeId : null;
+    runeArcActive = state.runeArcActive != null ? state.runeArcActive !== false : rawRune && typeof rawRune === 'object' && rawRune.active != null ? rawRune.active !== false : true;
+  }
+  restoreRites(BOOT);
+  if (BOOT && BOOT.buffs) BOOT.buffs.forEach(function (id) {
+    if (physickById[id] && selectedPhysick.indexOf(id) < 0) {
+      var open = selectedPhysick.indexOf(null); if (open >= 0) selectedPhysick[open] = id;
+    } else if (buffData.buffs.some(function (b) { return b.id === id; })) activeBuffs[id] = true;
+  });
   function buffById(id) { return buffData.buffs.find(function (b) { return b.id === id; }); }
   function taliById(id) { return talismanById[id] || null; }
   function normalizeTalisman(raw) {
@@ -191,12 +219,56 @@
   function resolveTalismanEffects() {
     return ERCalc.resolveEffects(equippedTalismanItems(), { conditions: taliConditionState });
   }
+  function riteMods() {
+    var mods = [];
+    if (physickActive) selectedPhysick.forEach(function (id) { var item = physickById[id]; if (item && item.modelStatus !== 'inventory') mods.push(item); });
+    var rune = greatRuneById[selectedGreatRune];
+    if (runeArcActive && rune && rune.modelStatus !== 'inventory') mods.push(rune);
+    return mods;
+  }
   function collectMods(taliEffects) {
     var mods = [];
     for (var b in activeBuffs) if (activeBuffs[b]) { var bb = buffById(b); if (bb) mods.push(bb); }
-    mods = mods.concat((taliEffects || resolveTalismanEffects()).mods);
+    mods = mods.concat((taliEffects || resolveTalismanEffects()).mods, riteMods());
     return mods;
   }
+  function riteNote(item) {
+    if (!item) return '';
+    var duration = item.duration == null ? '' : item.duration === 0 ? ' · immediate' : ' · ' + (item.duration % 60 === 0 ? item.duration / 60 + 'm' : item.duration + 's');
+    var math = item.modelStatus === 'inventory' ? ' · loadout only' : item.modelStatus === 'partial' ? ' · supported portion calculated' : ' · calculated';
+    return item.effect + duration + math;
+  }
+  function renderRites() {
+    ['physickOne','physickTwo'].forEach(function (id, index) {
+      var other = selectedPhysick[index ? 0 : 1];
+      $(id).innerHTML = '<option value="">Empty mixture slot</option>' + riteData.physick.map(function (item) {
+        return '<option value="' + item.id + '"' + (item.id === other ? ' disabled' : '') + '>' + escText(item.name) + (item.dlc ? ' · DLC' : '') + (item.modelStatus === 'inventory' ? ' · loadout' : '') + '</option>';
+      }).join('');
+      $(id).value = selectedPhysick[index] || '';
+      var selected = physickById[selectedPhysick[index]];
+      $(id + 'Note').textContent = selected ? riteNote(selected) : 'Empty mixture slot';
+    });
+    $('greatRune').innerHTML = '<option value="">No Great Rune equipped</option>' + riteData.greatRunes.map(function (item) {
+      return '<option value="' + item.id + '">' + escText(item.name) + (item.modelStatus === 'inventory' ? ' · loadout' : '') + '</option>';
+    }).join('');
+    $('greatRune').value = selectedGreatRune || '';
+    $('greatRuneNote').textContent = selectedGreatRune ? riteNote(greatRuneById[selectedGreatRune]) : 'No Great Rune equipped';
+    $('physickActive').checked = physickActive;
+    $('runeArcActive').checked = runeArcActive;
+    $('physickActive').disabled = !selectedPhysick.some(Boolean);
+    $('runeArcActive').disabled = !selectedGreatRune;
+  }
+  ['physickOne','physickTwo'].forEach(function (id, index) {
+    $(id).addEventListener('change', function () {
+      var value = normalizePhysick(this.value);
+      if (value) selectedPhysick[index ? 0 : 1] = selectedPhysick[index ? 0 : 1] === value ? null : selectedPhysick[index ? 0 : 1];
+      selectedPhysick[index] = value;
+      render();
+    });
+  });
+  $('greatRune').addEventListener('change', function () { selectedGreatRune = greatRuneById[this.value] ? this.value : null; render(); });
+  $('physickActive').addEventListener('change', function () { physickActive = this.checked; render(); });
+  $('runeArcActive').addEventListener('change', function () { runeArcActive = this.checked; render(); });
   function renderBuffGroups() {
     $('buffGroups').innerHTML = buffData.categories.map(function (cat) {
       var chips = buffData.buffs.filter(function (b) { return b.category === cat.id; }).map(function (b) {
@@ -226,10 +298,10 @@
     var tl = selectedTalismans.map(function (slot) { return slot && Object.assign({}, slot, { conditionActive: taliConditionState[slot.talismanId] !== false }); });
     var armorState = {};
     ARMOR_SLOTS.forEach(function (slot) { armorState[slot.id] = selectedArmor[slot.id]; });
-    var state = { schemaVersion: 7, stats: {}, weapon: current.id, affinity: affinity, upgrade: upgradeLevel, twoHanded: twoHanded, level: +$('level').value || null, buffs: bf, talis: tl.filter(Boolean).map(function (slot) { return slot.talismanId; }), scadu: scaduLevel, gearWeight: gearWeight, armor: armorState, activeSlot: (activeSlot.hand === 'left' ? 'l' : 'r') + activeSlot.index, combatContext: combatContext, attackProfile: attackProfileId };
+    var state = { schemaVersion: 8, stats: {}, weapon: current.id, affinity: affinity, upgrade: upgradeLevel, twoHanded: twoHanded, level: +$('level').value || null, buffs: bf, talis: tl.filter(Boolean).map(function (slot) { return slot.talismanId; }), scadu: scaduLevel, gearWeight: gearWeight, armor: armorState, activeSlot: (activeSlot.hand === 'left' ? 'l' : 'r') + activeSlot.index, combatContext: combatContext, attackProfile: attackProfileId, physick:selectedPhysick.slice(), physickActive:physickActive, greatRune:selectedGreatRune, runeArcActive:runeArcActive };
     state.magic = { catalystId: magicState.catalystId, upgrade: magicState.upgrade, memorySlots: magicState.memorySlots, spells: magicState.spells.slice(), activeSpell: magicState.activeSpell, variantId: magicState.variantId };
     state.encounter = { enemyId:encounterState.enemyId, ng:encounterState.ng, moveId:encounterState.moveId, ammoId:encounterState.ammoId };
-    state.loadout = { rightHand: armaments.right.map(function (x) { return x && Object.assign({}, x); }), leftHand: armaments.left.map(function (x) { return x && Object.assign({}, x); }), armor: armorState, talismans: tl, spells: magicState.spells.slice(), magic: Object.assign({}, state.magic), physick: [], greatRune: null };
+    state.loadout = { rightHand: armaments.right.map(function (x) { return x && Object.assign({}, x); }), leftHand: armaments.left.map(function (x) { return x && Object.assign({}, x); }), armor: armorState, talismans: tl, spells: magicState.spells.slice(), magic: Object.assign({}, state.magic), physick: selectedPhysick.slice(), physickActive:physickActive, greatRune: selectedGreatRune ? { id:selectedGreatRune, active:runeArcActive } : null };
     state.context = { twoHanded:twoHanded, scadutree:scaduLevel, enemyId:encounterState.enemyId, ngCycle:encounterState.ng, moveId:encounterState.moveId, ammoId:encounterState.ammoId };
     STATS.forEach(function (k) { state.stats[k] = build[k]; });
     return state;
@@ -246,6 +318,10 @@
     if (+$('level').value) q.set('l', $('level').value);
     if (bf.length) q.set('bf', bf.join(','));
     if (tl.some(Boolean)) q.set('tl', encodeTalismans(tl));
+    if (selectedPhysick.some(Boolean)) q.set('ph', selectedPhysick.filter(Boolean).join(','));
+    if (selectedPhysick.some(Boolean) && !physickActive) q.set('pa', '0');
+    if (selectedGreatRune) q.set('gr', selectedGreatRune);
+    if (selectedGreatRune && !runeArcActive) q.set('ra', '0');
     if (scaduLevel) q.set('st', scaduLevel);
     if (gearWeight) q.set('gw', gearWeight);
     if (combatContext === 'pvp') q.set('ctx', 'pvp');
@@ -982,6 +1058,20 @@
     });
     var attackById = {};
     (attackEffects.entries || []).forEach(function (entry) { attackById[entry.id] = entry; });
+    selectedPhysick.forEach(function (id) {
+      var item = physickById[id]; if (!item) return;
+      var attackEntry = attackById[item.id];
+      var profileMiss = physickActive && item.attack && (!attackEntry || !attackEntry.applied);
+      var status = !physickActive ? 'MIXTURE DORMANT' : item.modelStatus === 'inventory' ? 'LOADOUT ONLY' : profileMiss ? 'MOVE MISMATCH' : item.modelStatus === 'partial' ? 'PARTIAL' : 'APPLIED';
+      rows.push('<div class="effect-row' + (physickActive && item.modelStatus !== 'inventory' && !profileMiss ? ' active' : '') + (profileMiss ? ' waiting' : '') + '">' +
+        '<span class="effect-mark">◌</span><span><b>' + escText(item.name) + '</b><small>' + escText(riteNote(item)) + '</small></span><em>' + status + '</em></div>');
+    });
+    var rune = greatRuneById[selectedGreatRune];
+    if (rune) {
+      var runeStatus = !runeArcActive ? 'ARC DORMANT' : rune.modelStatus === 'inventory' ? 'LOADOUT ONLY' : rune.modelStatus === 'partial' ? 'PARTIAL' : 'APPLIED';
+      rows.push('<div class="effect-row' + (runeArcActive && rune.modelStatus !== 'inventory' ? ' active' : '') + '">' +
+        '<span class="effect-mark">◈</span><span><b>' + escText(rune.name) + '</b><small>' + escText(riteNote(rune)) + '</small></span><em>' + runeStatus + '</em></div>');
+    }
     taliEffects.entries.forEach(function (entry) {
       var item = entry.item;
       var attackEntry = attackById[item.id];
@@ -1050,7 +1140,11 @@
     if (o.affinity && (o.affinity === 'Standard' || (current.affinities && current.affinities[o.affinity]))) { affinity = o.affinity; $('affinity').value = o.affinity; }
     if (o.level) $('level').value = o.level;
     activeBuffs = {};
-    (o.buffs || []).forEach(function (id) { if (buffData.buffs.some(function (b) { return b.id === id; })) activeBuffs[id] = true; });
+    restoreRites(o);
+    (o.buffs || []).forEach(function (id) {
+      if (physickById[id] && selectedPhysick.indexOf(id) < 0) { var open = selectedPhysick.indexOf(null); if (open >= 0) selectedPhysick[open] = id; }
+      else if (buffData.buffs.some(function (b) { return b.id === id; })) activeBuffs[id] = true;
+    });
     taliConditionState = {};
     var savedTalismans = o.loadout && o.loadout.talismans ? o.loadout.talismans : o.talis || [];
     selectedTalismans = savedTalismans.slice(0, TALI_MAX).map(normalizeTalisman);
@@ -1202,6 +1296,7 @@
   function render() {
     saveActiveArmament();
     renderArmamentRack();
+    renderRites();
     var taliEffects = resolveTalismanEffects();
     renderTalismanRack(taliEffects);
     var baseMods = collectMods(taliEffects);
