@@ -211,6 +211,7 @@ async function main() {
     assert(await home.locator('#ledgerBosses').textContent() === '1 / 21', 'returning Grace restores boss progress');
     assert(await home.locator('#ledgerTales').textContent() === '1 / 48', 'returning Grace spans all three Tales manifests');
     assert((await home.locator('#ledgerResume').getAttribute('href')).includes('work=kindling&ch=ch02'), 'returning Grace points to the next unread chapter');
+    assert((await home.locator('.film-ribbon').getAttribute('href')) === 'kindling/', 'homepage gives the first film a direct front door');
     await home.screenshot({ path:'/tmp/elden-home-desktop.png', fullPage:true });
     await homeContext.close();
 
@@ -222,6 +223,45 @@ async function main() {
     assert(await homeMobile.locator('.ledger-metric').count() === 4, 'mobile keeps all four Archive pillars visible');
     await homeMobile.screenshot({ path:'/tmp/elden-home-mobile.png', fullPage:true });
     await homeMobileContext.close();
+
+    const filmContext = await browser.newContext({ viewport:{ width:1440, height:1000 } });
+    const film = await filmContext.newPage();
+    film.on('console', (msg) => { if (msg.type() === 'error') errors.push('film console: ' + msg.text()); });
+    film.on('pageerror', (error) => errors.push('film page: ' + error.message));
+    film.on('response', (response) => { if (response.status() >= 400) errors.push('film http ' + response.status() + ': ' + response.url()); });
+    await film.goto(new URL('../kindling/', BASE).toString(), { waitUntil:'networkidle' });
+    assert((await film.locator('#kindlingStatus').textContent()).includes('In production'), 'KINDLING has a deliberate pre-release state');
+    assert(await film.locator('.kindling-movement').count() === 9, 'KINDLING exposes all nine written movements');
+    assert((await film.locator('.kindling-movement').first().getAttribute('href')).includes('work=kindling&ch=ch01'), 'first movement opens the exact Tale chapter');
+    assert(await film.locator('link[rel="canonical"]').getAttribute('href') === 'https://elden-ring-build-calc.vercel.app/kindling/', 'KINDLING publishes its canonical URL');
+    await film.screenshot({ path:'/tmp/elden-kindling-desktop.png', fullPage:true });
+    const tales = await filmContext.newPage();
+    await tales.goto(new URL('../tales/', BASE).toString(), { waitUntil:'networkidle' });
+    assert((await tales.locator('.tale-companion').getAttribute('href')) === '../kindling/', 'written KINDLING points back to the film companion');
+    await filmContext.close();
+
+    const filmMobileContext = await browser.newContext({ viewport:{ width:390, height:844 } });
+    const filmMobile = await filmMobileContext.newPage();
+    await filmMobile.goto(new URL('../kindling/', BASE).toString(), { waitUntil:'networkidle' });
+    const filmOverflow = await filmMobile.evaluate(() => ({ scroll:document.documentElement.scrollWidth, inner:window.innerWidth }));
+    assert(filmOverflow.scroll <= filmOverflow.inner, 'KINDLING has no 390px horizontal overflow');
+    assert(await filmMobile.locator('.kindling-movement').count() === 9, 'mobile retains the complete written film spine');
+    await filmMobile.screenshot({ path:'/tmp/elden-kindling-mobile.png', fullPage:true });
+    await filmMobileContext.close();
+
+    const liveFilmContext = await browser.newContext({ viewport:{ width:1280, height:800 } });
+    await liveFilmContext.route('**/data/releases.json', (route) => route.fulfill({
+      contentType:'application/json',
+      body:JSON.stringify({ schemaVersion:1, releases:{ kindling:{ title:'KINDLING — The Story of Melina', status:'live', youtubeId:'abcdefghijk', published:'2026-08-14', duration:'PT18M42S' } } })
+    }));
+    await liveFilmContext.route('https://www.youtube-nocookie.com/**', (route) => route.abort());
+    const liveFilm = await liveFilmContext.newPage();
+    await liveFilm.goto(new URL('../kindling/', BASE).toString(), { waitUntil:'domcontentloaded' });
+    await liveFilm.locator('.kindling-video').waitFor();
+    assert((await liveFilm.locator('.kindling-video').getAttribute('src')).includes('/abcdefghijk'), 'release switch installs the configured privacy-enhanced embed');
+    assert((await liveFilm.locator('#kindlingWatch').getAttribute('href')).endsWith('v=abcdefghijk'), 'release switch turns the primary action into a YouTube watch link');
+    assert((await liveFilm.locator('#kindlingSchema').textContent()).includes('VideoObject'), 'release switch emits video structured data');
+    await liveFilmContext.close();
 
     if (errors.length) console.error(errors.join('\n'));
     assert(errors.length === 0, 'no browser console or page errors');

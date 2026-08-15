@@ -37,6 +37,7 @@
       "words": "≈5,240 words",
       "spoilers": "Full spoilers for the base game's story and endings.",
       "dir": "content/kindling/",
+      "companion": "kindling",
       "chapters": [
         { "id": "ch01", "file": "01-the-fire-and-the-beginning.md", "num": "I", "title": "The Fire, and the Beginning", "tease": "Torrent chooses a Tarnished in a graveyard beneath Limgrave" },
         { "id": "ch02", "file": "02-what-travelled-with-you.md", "num": "II", "title": "What Travelled With You", "tease": "Runes, borrowed touch, and the people worth stopping for" },

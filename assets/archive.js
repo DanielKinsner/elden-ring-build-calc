@@ -32,6 +32,12 @@
   }
 
   var questData = payload[0], bossData = payload[1], taleData = payload[2];
+  fetchJSON('data/releases.json').then(function (releaseData) {
+    var release = releaseData.releases && releaseData.releases.kindling;
+    var live = release && release.status === 'live' && /^[A-Za-z0-9_-]{11}$/.test(release.youtubeId || '');
+    var ribbonStatus = $('filmRibbonStatus');
+    if (ribbonStatus && live) ribbonStatus.innerHTML = 'Watch the film <i>↗</i>';
+  }).catch(function () { /* Release state is optional; the archive ledger remains independent. */ });
   var guide = read('er-guides', {}), tales = read('er-tales', {}), build = read('er-build', null), myBuilds = read('er-my-builds', []);
   var quests = questData.quests || [], bosses = bossData.bosses || [], works = taleData.works || [];
   var validSteps = new Set([].concat.apply([], quests.map(function (quest) { return quest.steps.map(function (step) { return step.id; }); })));

@@ -162,6 +162,7 @@
           '<div class="tale-actions">' +
             '<a class="cta tale-cta" href="read.html?work=' + w.id + (cont ? '&ch=' + cont.id : '') + '">' +
               (started && cont ? 'Continue — ' + esc(cont.num ? cont.num + '. ' : '') + esc(cont.title) : 'Begin reading →') + '</a>' +
+            (w.companion ? '<a class="icon-btn tale-companion" href="../' + encodeURIComponent(w.companion) + '/">Film companion ↗</a>' : '') +
             (w.chapters.length > 1 ? '<button class="icon-btn tale-toc-toggle" data-work="' + w.id + '">Contents</button>' : '') +
           '</div>' +
           '</div>' +

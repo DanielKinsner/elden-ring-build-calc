@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://elden-ring-build-calc.vercel.app/sitemap.xml

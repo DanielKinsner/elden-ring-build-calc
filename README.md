@@ -62,6 +62,11 @@ boss, and key region in 2–3 sentences. Progress saves locally.
 reading-tools rail (continue reading, recent activity). A Timeline view traces ~25 in-world
 events across the setting's history, each linked back to the chapter it's drawn from.
 
+**KINDLING — Archive Film I** (`kindling/`) — the launch-ready cinematic companion for the
+first YouTube film. It joins the film to all nine written movements and routes new viewers into
+the Build Lab, journey guides, and Tales. Publication is a single manifest change in
+`data/releases.json`; see `docs/06-film-release.md` for the exact release switch.
+
 The landing page's **Returning Grace** ledger reads the same device-local state used by the tools:
 active/named builds, 109 valid quest steps, 21 boss records, and all 48 Tale chapters. It never
 uploads progress; it validates stored IDs against the current manifests and resumes the next unread
@@ -92,6 +97,7 @@ thresholds, weapon motion values, multi-hit sequences, and physical attack attri
 
 ```
 node tests/engine.test.js
+node scripts/check-releases.js
 node tests/ui.smoke.js   # requires the site at http://127.0.0.1:4173
 ```
 
@@ -105,6 +111,7 @@ build/        the calculator page
 atlas/        weapon atlas + per-weapon detail pages
 guides/       quests / bosses / endings / walkthrough
 tales/        fan-writing reader (content as raw .md)
+kindling/     Archive Film I companion + YouTube release switch
 src/          engine (pure math, UMD) + data loader
 data/         structured datasets (weapons, buffs, quests, …)
 docs/         research + reference (the math, with sources)
