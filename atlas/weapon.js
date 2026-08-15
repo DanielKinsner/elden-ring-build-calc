@@ -17,6 +17,12 @@
     if (res.ok) acquisition = await res.json();
   } catch (e) { /* network/parse failure — treat as undocumented */ }
 
+  var bosses = null; // status-payoff cross-reference; page works fine without it
+  try {
+    var bres = await fetch('../data/bosses.json');
+    if (bres.ok) bosses = (await bres.json()).bosses;
+  } catch (e) { /* optional */ }
+
   render(weapon, acquisition);
 
   function renderError(title, body) {
@@ -87,6 +93,43 @@
         '</section>';
     }
 
+    /* "Bring It To" — bosses whose weakness list leads with a status this weapon builds,
+       and the immune ones it's wasted on. Mirrors the guides' boss→atlas links, reversed. */
+    var bringHtml = '';
+    var STATUS_RX = /^(scarlet rot|bleed|frost|poison|rot|sleep|madness)\b/i;
+    var STATUS_KEY = { 'scarlet rot': 'rot', rot: 'rot', bleed: 'bleed', frost: 'frost', poison: 'poison', sleep: 'sleep', madness: 'madness' };
+    var STATUS_NAME = { bleed: 'Bleed', frost: 'Frost', poison: 'Poison', rot: 'Scarlet Rot', sleep: 'Sleep', madness: 'Madness' };
+    function leadStatus(x) { var m = STATUS_RX.exec(String(x)); return m ? STATUS_KEY[m[1].toLowerCase()] : null; }
+    var myStatuses = Object.keys(w.status || {}).filter(function (k) { return w.status[k] > 0 && STATUS_NAME[k]; });
+    if (bosses && myStatuses.length) {
+      function matches(list) {
+        var hit = {};
+        (list || []).forEach(function (x) { var s = leadStatus(x); if (s && myStatuses.indexOf(s) >= 0) hit[s] = true; });
+        return Object.keys(hit);
+      }
+      var weakTo = [], wastedOn = [];
+      bosses.forEach(function (b) {
+        var wk = matches(b.weak);
+        if (wk.length) { weakTo.push({ b: b, st: wk }); return; }
+        var im = matches(b.immune);
+        if (im.length) wastedOn.push({ b: b, st: im });
+      });
+      function bossChip(e, cls) {
+        return '<a class="boss-chip ' + cls + ' boss-chip-link" href="../guides/#boss-' + e.b.id + '" title="Open in the boss guide">' +
+          esc(e.b.name) + ' <small style="opacity:.75">(' + e.st.map(function (s) { return STATUS_NAME[s]; }).join(', ') + ')</small></a>';
+      }
+      if (weakTo.length || wastedOn.length) {
+        bringHtml =
+          '<section class="panel">' +
+          '  <h2>Bring It To</h2>' +
+          '  <p style="color:var(--dim);font-size:13px;margin:0 0 10px">This weapon builds <b style="color:var(--gold-2)">' +
+               myStatuses.map(function (s) { return STATUS_NAME[s]; }).join(' + ') + '</b> — how that lands across the boss roster (community consensus, see the <a href="../guides/#bosses">boss guide</a>).</p>' +
+          (weakTo.length ? '<div class="k">Weak to it</div><div class="boss-chips" style="margin:6px 0 10px">' + weakTo.map(function (e) { return bossChip(e, 'weak'); }).join('') + '</div>' : '') +
+          (wastedOn.length ? '<div class="k">Wasted on</div><div class="boss-chips" style="margin-top:6px">' + wastedOn.map(function (e) { return bossChip(e, 'immune'); }).join('') + '</div>' : '') +
+          '</section>';
+      }
+    }
+
     var loreHtml = '';
     if (acq && acq.lore) {
       loreHtml =
@@ -96,7 +139,7 @@
         '</section>';
     }
 
-    root.innerHTML = identityHtml + acqHtml + buildsHtml + loreHtml;
+    root.innerHTML = identityHtml + acqHtml + bringHtml + buildsHtml + loreHtml;
 
     var thumb = $('weaponThumbLg');
     var img = new Image();

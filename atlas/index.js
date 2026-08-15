@@ -47,6 +47,20 @@
   var fStatus = {}, fScale = {}, fInfusable = false, fSource = null; // fSource: null | 'base' | 'dlc'
   var sortBy = 'type';
 
+  // deep links: ?status=bleed&scale=DEX&infusable=1&source=dlc&sort=ar&q=uchi (guides link here)
+  (function () {
+    var p = new URLSearchParams(location.search);
+    (p.get('status') || '').split(',').forEach(function (s) {
+      if (STATUS_KEYS.some(function (k) { return k[0] === s; })) fStatus[s] = true;
+    });
+    (p.get('scale') || '').toUpperCase().split(',').forEach(function (k) { if (SCALE_KEYS.indexOf(k) >= 0) fScale[k] = true; });
+    if (p.get('infusable')) fInfusable = true;
+    if (p.get('source') === 'base' || p.get('source') === 'dlc') fSource = p.get('source');
+    var s = p.get('sort');
+    if (s && ['type', 'ar', 'weight', 'req'].indexOf(s) >= 0) { sortBy = s; $('atlasSort').value = s; }
+    if (p.get('q')) search.value = p.get('q');
+  })();
+
   // AR at a neutral reference build (all scaling stats 60 ≈ the soft caps), computed once.
   var REF_BUILD = { STR: 60, DEX: 60, INT: 60, FAI: 60, ARC: 60 };
   var refAR = {};
