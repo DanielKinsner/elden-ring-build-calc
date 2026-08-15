@@ -38,8 +38,9 @@
       <li><b>Full build outcomes</b> — AR, status, HP/FP/stamina, armor, poise, resistances, and roll state</li>
       <li><b>704-piece armor corpus</b> — searchable four-slot loadouts with real combined negation</li>
       <li><b>448-weapon armory</b> — ranked for <em>your</em> stats, with acquisition routes</li>
+      <li><b>Exact combat events</b> — 24,271 weapon moves and 2,422 skill events against 3,341 enemy profiles</li>
       <li><b>Complete journey</b> — quest fail-triggers, bosses, endings, walkthrough, and DLC</li>
-      <li><b>Original archive</b> — a 62,000-word history with reader memory and an in-world timeline</li>
+      <li><b>Original archive</b> — ≈99,800 words across three books, with reader memory and an in-world timeline</li>
       <li><b>Traceable math</b> — versioned data, documented formulas, and visible uncertainty</li>
     </ul>
     <div class="cta-row">
@@ -64,16 +65,32 @@
     </div>
   </section>
 </main>
+<section class="grace-ledger" id="graceLedger" aria-labelledby="ledgerTitle">
+  <div class="ledger-sigil" aria-hidden="true"><i></i><i></i><span>✦</span><b></b></div>
+  <div class="ledger-intro">
+    <span class="ledger-eyebrow">Your returning Grace</span>
+    <h2 id="ledgerTitle">The Archive remembers where you left the world.</h2>
+    <p id="ledgerLead">Builds, felled bosses, quest steps, and read chapters stay on this device. Begin anywhere; the thread will be waiting when you return.</p>
+    <a class="ledger-resume" id="ledgerResume" href="build/">Begin a record <span>→</span></a>
+  </div>
+  <div class="ledger-metrics" aria-label="Saved Archive progress">
+    <a class="ledger-metric" href="build/" data-ledger="build"><small>Build</small><b id="ledgerBuild">—</b><span id="ledgerBuildNote">No active loadout yet</span><i><em id="ledgerBuildBar"></em></i></a>
+    <a class="ledger-metric" href="guides/#quests" data-ledger="journey"><small>Journey</small><b id="ledgerJourney">0 / 109</b><span id="ledgerJourneyNote">Quest steps recorded</span><i><em id="ledgerJourneyBar"></em></i></a>
+    <a class="ledger-metric" href="guides/#bosses" data-ledger="bosses"><small>Bosses</small><b id="ledgerBosses">0 / 21</b><span>Remembrances felled</span><i><em id="ledgerBossBar"></em></i></a>
+    <a class="ledger-metric" href="tales/" data-ledger="tales"><small>Lore</small><b id="ledgerTales">0 / 48</b><span id="ledgerTalesNote">Chapters read</span><i><em id="ledgerTalesBar"></em></i></a>
+  </div>
+</section>
 <section class="archive-portals" aria-label="Explore the Tarnished Archive">
   <a class="archive-portal" href="build/"><span class="portal-num">01</span><small>Build</small><b>Full Build Lab</b><p>Stats, armaments, armor, effects, survival, and optimization in one persistent build.</p><em>704 armor pieces · live outcomes →</em></a>
   <a class="archive-portal" href="atlas/"><span class="portal-num">02</span><small>Armory</small><b>Weapon Atlas</b><p>Search, filter, rank, compare, and trace every weapon back to where it waits in the world.</p><em>448 armaments →</em></a>
   <a class="archive-portal" href="guides/"><span class="portal-num">03</span><small>Journey</small><b>The Tarnished Path</b><p>Questlines, failure warnings, remembrance bosses, endings, and a complete base-to-DLC route.</p><em>21 questlines · 55 references →</em></a>
-  <a class="archive-portal" href="tales/"><span class="portal-num">04</span><small>Lore</small><b>Tales of Gold &amp; Shadow</b><p>Original book-length histories in a real reader, with chapter memory and a linked timeline.</p><em>62,000+ words →</em></a>
+  <a class="archive-portal" href="tales/"><span class="portal-num">04</span><small>Lore</small><b>Tales of Gold &amp; Shadow</b><p>Three original book-length histories in a real reader, with chapter memory and a linked timeline.</p><em>≈99,800 words · 48 chapters →</em></a>
 </section>
 <footer class="foot">
   Weapon icons via <a href="https://eldenring.wiki.gg" target="_blank" rel="noopener">Eldenpedia (eldenring.wiki.gg)</a>, CC BY-SA 4.0.
   Elden Ring and all related images/trademarks are property of FromSoftware, Inc. and Bandai Namco
   Entertainment. Unofficial, non-commercial fan project — not affiliated with or endorsed by them.
 </footer>
+<script src="assets/archive.js"></script>
 </body>
 </html>

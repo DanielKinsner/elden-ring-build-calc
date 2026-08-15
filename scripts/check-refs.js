@@ -15,7 +15,7 @@ const tales = JSON.parse(fs.readFileSync(path.join(REPO, 'data', 'tales.json'), 
 
 const questIds = new Set(quests.quests.map(q => q.id));
 const bossIds = new Set(bosses.bosses.map(b => b.id));
-const chapterIds = new Set(tales.works.flatMap(w => w.chapters.map(c => c.id)));
+const chapterIds = new Set(tales.works.flatMap(w => w.chapters.map(c => w.id + ':' + c.id)));
 
 const errors = [];
 const ids = new Set();
@@ -32,7 +32,8 @@ compendium.entries.forEach((e, i) => {
   if (e.questId && !questIds.has(e.questId)) errors.push(where + ': questId "' + e.questId + '" not in quests.json');
   if (e.bossId && !bossIds.has(e.bossId)) errors.push(where + ': bossId "' + e.bossId + '" not in bosses.json');
   (e.chapters || []).forEach(ch => {
-    if (!chapterIds.has(ch)) errors.push(where + ': chapter "' + ch + '" not in tales.json');
+    if (!ch.includes(':')) errors.push(where + ': chapter "' + ch + '" is unscoped; use workId:chapterId');
+    else if (!chapterIds.has(ch)) errors.push(where + ': chapter "' + ch + '" not in tales.json');
   });
 });
 

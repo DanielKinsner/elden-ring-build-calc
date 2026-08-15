@@ -62,6 +62,11 @@ boss, and key region in 2–3 sentences. Progress saves locally.
 reading-tools rail (continue reading, recent activity). A Timeline view traces ~25 in-world
 events across the setting's history, each linked back to the chapter it's drawn from.
 
+The landing page's **Returning Grace** ledger reads the same device-local state used by the tools:
+active/named builds, 109 valid quest steps, 21 boss records, and all 48 Tale chapters. It never
+uploads progress; it validates stored IDs against the current manifests and resumes the next unread
+chapter, active quest thread, or build without creating a second persistence system.
+
 ## Accuracy & honesty
 
 This calculator uses the **documented Elden Ring damage model** — the real formula

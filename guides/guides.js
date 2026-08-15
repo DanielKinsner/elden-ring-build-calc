@@ -22,11 +22,11 @@
   var COMPENDIUM = (await (async function () {
     try { var r = await fetch('../data/compendium.json'); return r.ok ? r.json() : { entries: [] }; } catch (e) { return { entries: [] }; }
   })()).entries;
-  var TALES_CHAPTERS = {}; // chapterId -> { workId, num, title }
+  var TALES_CHAPTERS = {}; // workId:chapterId -> { workId, chapterId, num, title }
   (await (async function () {
     try { var r = await fetch('../data/tales.json'); return r.ok ? r.json() : { works: [] }; } catch (e) { return { works: [] }; }
   })()).works.forEach(function (w) {
-    w.chapters.forEach(function (c) { TALES_CHAPTERS[c.id] = { workId: w.id, num: c.num, title: c.title }; });
+    w.chapters.forEach(function (c) { TALES_CHAPTERS[w.id + ':' + c.id] = { workId: w.id, chapterId:c.id, num: c.num, title: c.title }; });
   });
   function avatar(manifest, dir, id, name, baseCls, modCls) {
     var extra = modCls ? ' ' + modCls : '';
@@ -435,7 +435,7 @@
     if (e.chapters && e.chapters[0]) {
       var ch = TALES_CHAPTERS[e.chapters[0]];
       if (ch) {
-        links.push('<a href="../tales/read.html?work=' + ch.workId + '&ch=' + e.chapters[0] + '" class="comp-link">In the Tales: ' +
+        links.push('<a href="../tales/read.html?work=' + ch.workId + '&ch=' + ch.chapterId + '" class="comp-link">In the Tales: ' +
           esc(ch.num ? ch.num + '. ' + ch.title : ch.title) + ' →</a>');
       }
     }

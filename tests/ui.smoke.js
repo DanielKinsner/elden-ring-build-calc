@@ -196,6 +196,33 @@ async function main() {
     assert(skillOverflow.scroll <= skillOverflow.inner, 'skill lab has no 390px horizontal overflow');
     assert(await skillMobile.locator('#skillSelect').inputValue() === 'bloody-slash', 'mobile retains per-armament Ash state');
 
+    const homeContext = await browser.newContext({ viewport:{ width:1440, height:1000 } });
+    await homeContext.addInitScript(() => {
+      localStorage.setItem('er-build', JSON.stringify({ schemaVersion:7, level:150, stats:{ VIG:60 }, weapon:'rivers-of-blood' }));
+      localStorage.setItem('er-my-builds', JSON.stringify([{ name:'Blood Lord' },{ name:'Dark Moon' }]));
+      localStorage.setItem('er-guides', JSON.stringify({ steps:{ 'ranni-0':1 }, bosses:{ margit:1 } }));
+      localStorage.setItem('er-tales', JSON.stringify({ kindling:{ chapter:'ch01', read:{ ch01:{ t:Date.now() } } } }));
+    });
+    const home = await homeContext.newPage();
+    home.on('pageerror', (error) => errors.push('home page: ' + error.message));
+    await home.goto(new URL('../', BASE).toString(), { waitUntil:'networkidle' });
+    assert(await home.locator('#ledgerBuild').textContent() === 'RL 150', 'returning Grace restores the active build summary');
+    assert(await home.locator('#ledgerJourney').textContent() === '1 / 109', 'returning Grace counts only valid quest steps');
+    assert(await home.locator('#ledgerBosses').textContent() === '1 / 21', 'returning Grace restores boss progress');
+    assert(await home.locator('#ledgerTales').textContent() === '1 / 48', 'returning Grace spans all three Tales manifests');
+    assert((await home.locator('#ledgerResume').getAttribute('href')).includes('work=kindling&ch=ch02'), 'returning Grace points to the next unread chapter');
+    await home.screenshot({ path:'/tmp/elden-home-desktop.png', fullPage:true });
+    await homeContext.close();
+
+    const homeMobileContext = await browser.newContext({ viewport:{ width:390, height:844 } });
+    const homeMobile = await homeMobileContext.newPage();
+    await homeMobile.goto(new URL('../', BASE).toString(), { waitUntil:'networkidle' });
+    const homeOverflow = await homeMobile.evaluate(() => ({ scroll:document.documentElement.scrollWidth, inner:window.innerWidth }));
+    assert(homeOverflow.scroll <= homeOverflow.inner, 'returning Grace has no 390px horizontal overflow');
+    assert(await homeMobile.locator('.ledger-metric').count() === 4, 'mobile keeps all four Archive pillars visible');
+    await homeMobile.screenshot({ path:'/tmp/elden-home-mobile.png', fullPage:true });
+    await homeMobileContext.close();
+
     if (errors.length) console.error(errors.join('\n'));
     assert(errors.length === 0, 'no browser console or page errors');
     console.log('\nUI smoke passed');
