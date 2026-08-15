@@ -215,8 +215,11 @@ link. "Save Build" writes to localStorage; a small curated **meta build library*
   a 96px cover; absent, the layout is unchanged (owner-supplied art — not scraped or generated).
 
 ## Active full-build expansion (architecture: `docs/04-full-build-platform.md`)
-- **Ash of War compatibility/state:** attach a legal Ash to each infusable armament and expose
-  skill damage/FP/poise context without muddying the weapon's base analysis.
+- **Ash of War compatibility/state:** **shipped.** Every weapon has explicit skill state; all 91
+  base-game Ashes and 2,422 exact attack events feed legal armament/affinity selection, FP branches,
+  typed damage, status motion, stamina, poise, PvE/PvP modifiers, enemy defense, persistence, and
+  compact share state. Multi-input/looping skills stay event-by-event until animation sequencing is
+  proven rather than receiving guessed full-cast totals.
 - **Talisman formula completion:** 100/154 models are live. Remaining work is primarily outputs
   that need their own domain (guard stamina, poise damage, flask restoration, discovery/runes,
   casting/spell costs) plus Blue Dancer and Verdigris load curves.
@@ -227,8 +230,9 @@ link. "Save Build" writes to localStorage; a small curated **meta build library*
   thresholds/immunities, phase variants, and NG–NG+7. Exact standard weapon attacks also shipped
   for 419 weapons / 24,271 moves, including multi-hit motion/status values and physical attributes.
   Standard ranged ammo is also shipped for all 65 ammunition items and all 29 ranged weapons,
-  including exact three-projectile Spread Crossbow damage/status sequencing. Remaining: ranged
-  weapon-skill projectiles, Ashes of War, player/PvP targets, phase chaining, and DLC
+  including exact three-projectile Spread Crossbow damage/status sequencing. Weapon skills and
+  base-game Ashes are shipped as exact single events. Remaining: ranged skill projectile sequencing,
+  DLC Ash compatibility, player/PvP targets, phase chaining, and DLC
   blessing context.
 - **Build optimizer + comparison:** offense/defense/weight targets over the same canonical state.
 
@@ -246,7 +250,7 @@ link. "Save Build" writes to localStorage; a small curated **meta build library*
 
 ## Suggested order
 1. ~~T1 + T2~~ ✅  2. ~~T3 + T4~~ ✅  3. ~~T5, T6, T11~~ ✅  4. ~~T9 + T10~~ ✅ — Tiers 1, 2, 4, 5 shipped.
-5. **Six armament slots → true talisman/effect slots → catalyst/spell core → PvE encounter core → exact standard weapon motion values → standard ammunition** ✅ → **Ashes/ranged skills → complete talisman/spell/status formulas**, then
+5. **Six armament slots → true talisman/effect slots → catalyst/spell core → PvE encounter core → exact standard weapon motion values → standard ammunition → base-game Ashes/weapon skills** ✅ → **ranged skill sequences → complete talisman/spell/status formulas**, then
    optimizer/community publishing. T8 maps remains a parallel content project.
 
 ## Known data gaps (surfaced 2026-07)

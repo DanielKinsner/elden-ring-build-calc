@@ -38,6 +38,9 @@ async function main() {
     await page.goto(BASE, { waitUntil: 'networkidle' });
 
     assert(await page.locator('.tali-slot').count() === 4, 'renders four talisman slots');
+    assert(await page.locator('#skillName').textContent() === 'Corpse Piler', 'fixed unique weapon exposes its real skill');
+    assert(await page.locator('#skillEvent option').count() === 18, 'fixed skill exposes every exact attack event');
+    assert(Number(await page.locator('#skillPreDamage').textContent()) > 0, 'fixed skill event produces pre-defense damage');
     const rawAR = Number(await page.locator('#ar').textContent());
     await equip(page, 0, 'Claw Talisman', 'Claw Talisman');
     assert(Number(await page.locator('#ar').textContent()) === rawAR, 'contextual talisman does not contaminate neutral AR');
@@ -90,6 +93,7 @@ async function main() {
     await page.locator('.enemy-result').filter({ hasText: "Miquella's Haligtree" }).first().click();
     assert(await page.locator('#enemyHP').textContent() === '18,473', 'encounter profile exposes exact NG health');
     assert(await page.locator('#enemySpellDamage').textContent() === '714', 'enemy defense and negation produce final Comet damage');
+    assert(await page.locator('#enemySkillDamage').textContent() !== '—', 'selected skill event flows through enemy defense');
     assert((await page.locator('#enemyStatus').textContent()).includes('7 hits · 420'), 'enemy status threshold drives exact hits-to-proc');
     await page.locator('#weaponMove').selectOption('2h-jumping-r2');
     assert((await page.locator('#enemyWeaponNote').textContent()).includes('135 MV'), 'weapon encounter uses the selected exact motion value');
@@ -145,6 +149,31 @@ async function main() {
     assert(await ranged.locator('#ammoSelect').inputValue() === 'bolt', 'ammunition survives shared-link reload');
     await ranged.screenshot({ path:'/tmp/elden-ranged-desktop.png', fullPage:true });
 
+    const skillUrl = new URL(BASE);
+    skillUrl.searchParams.set('b', '10.10.10.20.20.10.10.80');
+    skillUrl.searchParams.set('w', 'longsword');
+    skillUrl.searchParams.set('a', 'Blood');
+    skillUrl.searchParams.set('u', '25');
+    skillUrl.searchParams.set('rh', 'longsword~Blood~25,-,-');
+    skillUrl.searchParams.set('en', new URL(url).searchParams.get('en'));
+    const skillPage = await context.newPage();
+    skillPage.on('pageerror', (error) => errors.push('skill page: ' + error.message));
+    await skillPage.goto(skillUrl.toString(), { waitUntil:'networkidle' });
+    assert(!(await skillPage.locator('#skillSelect').isDisabled()), 'infusable weapon exposes legal Ash selection');
+    assert(await skillPage.locator('#skillSelect option').count() > 30, 'weapon and affinity filter the full legal Ash list');
+    await skillPage.locator('#skillSelect').selectOption('bloody-slash');
+    assert(await skillPage.locator('#skillEvent').inputValue() === 'bloody-slash-300000057', 'Ash selection resolves its exact default attack event');
+    assert(await skillPage.locator('#skillPreDamage').textContent() === '1708', 'AtkParam base, reinforcement, Arcane graph, and affinity produce exact Bloody Slash output');
+    assert(await skillPage.locator('#enemySkillDamage').textContent() === '1383', 'Bloody Slash applies Malenia defense and negation');
+    assert((await skillPage.locator('#skillTrace').textContent()).includes('AtkParam component'), 'skill trace separates projectile-param and weapon-MV math');
+    await skillPage.waitForTimeout(350);
+    const savedArmament = new URL(skillPage.url()).searchParams.get('rh');
+    assert(savedArmament.includes('bloody-slash') && savedArmament.includes('bloody-slash-300000057'), 'share state preserves Ash and event per armament slot');
+    await skillPage.reload({ waitUntil:'networkidle' });
+    assert(await skillPage.locator('#skillSelect').inputValue() === 'bloody-slash', 'Ash selection survives shared-link reload');
+    assert(await skillPage.locator('#skillPreDamage').textContent() === '1708', 'skill math survives shared-link reload');
+    await skillPage.screenshot({ path:'/tmp/elden-skill-desktop.png', fullPage:true });
+
     const mobile = await browser.newPage({ viewport: { width: 390, height: 844 } });
     mobile.on('pageerror', (error) => errors.push('mobile page: ' + error.message));
     await mobile.goto(url, { waitUntil: 'networkidle' });
@@ -160,6 +189,12 @@ async function main() {
     const rangedOverflow = await rangedMobile.evaluate(() => ({ scroll:document.documentElement.scrollWidth, inner:window.innerWidth }));
     assert(rangedOverflow.scroll <= rangedOverflow.inner, 'ranged encounter has no 390px horizontal overflow');
     assert(await rangedMobile.locator('#ammoControl').isVisible(), 'mobile retains its ammunition slot');
+
+    const skillMobile = await browser.newPage({ viewport:{ width:390, height:844 } });
+    await skillMobile.goto(skillPage.url(), { waitUntil:'networkidle' });
+    const skillOverflow = await skillMobile.evaluate(() => ({ scroll:document.documentElement.scrollWidth, inner:window.innerWidth }));
+    assert(skillOverflow.scroll <= skillOverflow.inner, 'skill lab has no 390px horizontal overflow');
+    assert(await skillMobile.locator('#skillSelect').inputValue() === 'bloody-slash', 'mobile retains per-armament Ash state');
 
     if (errors.length) console.error(errors.join('\n'));
     assert(errors.length === 0, 'no browser console or page errors');

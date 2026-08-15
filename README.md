@@ -32,6 +32,11 @@ are, which weapon wins on their build, and how bleed/status buildup scales.
   two-hand, movement, critical, and ranged attacks preserve every multi-hit/projectile motion value,
   per-hit physical attribute, and status motion value through the final enemy calculation. Spread
   Crossbow's three bolts are resolved independently.
+- Legal skill state for every weapon, including all 91 base-game Ashes of War and 2,422 audited
+  attack events. The active armament and affinity constrain the selectable Ash; fixed skills retain
+  their own FP branches. Typed weapon motion, AtkParam base damage, reinforcement, stat curves,
+  stamina, poise, status motion, PvE/PvP multipliers, and enemy defense remain visible as one-event
+  traces instead of being collapsed into an invented full-cast number.
 - Active buff layer (Golden Vow, greases, Physick tears) with category override rules.
 - Status payoff card — hits-to-proc and what the proc is worth (bleed/frost/poison/rot) vs a target HP/resist.
 - Soft-cap chart + optimal stat advisor (redistributes your offensive points for max AR).

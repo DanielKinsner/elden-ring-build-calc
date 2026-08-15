@@ -143,6 +143,28 @@
         <div class="spell-effect" id="spellEffect" hidden></div>
       </div>
     </section>
+    <h2 class="mt">Skill &amp; Ash <span class="section-kicker">2,422 exact attack events</span></h2>
+    <section class="skill-lab" aria-label="Weapon skill and Ash of War analysis">
+      <div class="skill-head">
+        <div class="skill-sigil" aria-hidden="true"><i></i><span>✧</span></div>
+        <div><span class="k" id="skillKind">Weapon skill</span><b id="skillName">—</b><small id="skillNote">The active armament decides what is legal.</small></div>
+      </div>
+      <div class="skill-controls">
+        <label><span>Equipped skill</span><select id="skillSelect" aria-label="Equipped weapon skill"></select></label>
+        <label><span>Exact attack event</span><select id="skillEvent" aria-label="Skill attack event"></select></label>
+      </div>
+      <div class="skill-analysis" id="skillAnalysis" hidden>
+        <div class="skill-numbers">
+          <div><span>Pre-defense</span><b id="skillPreDamage">—</b><small id="skillConfidence">param-exact event</small></div>
+          <div><span>Target damage</span><b id="skillFinalDamage">—</b><small id="skillTargetNote">choose an encounter profile</small></div>
+          <div><span>FP branches</span><b id="skillFP">—</b><small id="skillStamina">— stamina</small></div>
+          <div><span>Poise event</span><b id="skillPoise">—</b><small id="skillStatusMotion">— status MV</small></div>
+        </div>
+        <div class="skill-damage" id="skillDamage"></div>
+        <div class="skill-trace" id="skillTrace"></div>
+      </div>
+      <div class="skill-empty" id="skillEmpty" hidden></div>
+    </section>
     <h2 class="mt">Encounter <span class="section-kicker">3,341 profiles · NG–NG+7</span></h2>
     <section class="encounter-lab" aria-label="Enemy defense and status context">
       <div class="encounter-head">
@@ -166,6 +188,7 @@
         <div class="encounter-stats"><div><span>HP</span><b id="enemyHP">—</b></div><div><span>Defense</span><b id="enemyDefense">—</b></div><div><span>Weakest</span><b id="enemyWeakness">—</b></div></div>
         <div class="encounter-outputs">
           <div><span>Selected weapon attack</span><b id="enemyWeaponDamage">—</b><small id="enemyWeaponNote">exact motion value per hit</small></div>
+          <div><span>Selected skill event</span><b id="enemySkillDamage">—</b><small id="enemySkillNote">choose a modeled skill event above</small></div>
           <div><span>Active spell</span><b id="enemySpellDamage">—</b><small id="enemySpellNote">choose a spell above</small></div>
         </div>
         <div class="enemy-status" id="enemyStatus"></div>

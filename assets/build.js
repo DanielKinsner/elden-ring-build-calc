@@ -24,6 +24,9 @@
   var ammoData = await ERData.loadAmmo('../data/');
   var ammo = ammoData.items, ammoById = {};
   ammo.forEach(function (item) { ammoById[item.id] = item; });
+  var skillData = await ERData.loadSkills('../data/');
+  var skills = skillData.items, skillById = {};
+  skills.forEach(function (item) { skillById[item.id] = item; });
   var catalystById = {}, spellById = {};
   catalysts.forEach(function (item) { catalystById[item.id] = item; });
   spells.forEach(function (item) { spellById[item.id] = item; });
@@ -54,6 +57,7 @@
   var selectedArmor = { head: null, body: null, arms: null, legs: null };
   var compareIds = [];
   var activeSlot = { hand: 'right', index: 0 }, weaponTarget = null;
+  var skillId = null, skillEventId = null;
 
   function normalizeArmament(raw) {
     if (!raw) return null;
@@ -62,7 +66,9 @@
     return {
       weaponId: weaponId,
       affinity: raw.affinity || 'Standard',
-      upgrade: raw.upgrade != null ? +raw.upgrade : raw.upgradeLevel != null ? +raw.upgradeLevel : null
+      upgrade: raw.upgrade != null ? +raw.upgrade : raw.upgradeLevel != null ? +raw.upgradeLevel : null,
+      skillId: raw.skillId && skillById[raw.skillId] ? raw.skillId : null,
+      skillEventId: raw.skillEventId || raw.eventId || null
     };
   }
   function decodeArmaments(value) {
@@ -70,12 +76,12 @@
     (value || '').split(',').slice(0, 3).forEach(function (token, i) {
       if (!token || token === '-') return;
       var parts = token.split('~');
-      out[i] = normalizeArmament({ weaponId: parts[0], affinity: parts[1] || 'Standard', upgrade: parts[2] === '' || parts[2] == null ? null : +parts[2] });
+      out[i] = normalizeArmament({ weaponId: parts[0], affinity: parts[1] || 'Standard', upgrade: parts[2] === '' || parts[2] == null ? null : +parts[2], skillId:parts[3] || null, skillEventId:parts[4] || null });
     });
     return out;
   }
   function encodeArmaments(slots) {
-    return slots.map(function (slot) { return slot ? [slot.weaponId, slot.affinity || 'Standard', slot.upgrade == null ? '' : slot.upgrade].join('~') : '-'; }).join(',');
+    return slots.map(function (slot) { return slot ? [slot.weaponId, slot.affinity || 'Standard', slot.upgrade == null ? '' : slot.upgrade, slot.skillId || '', slot.skillEventId || ''].join('~') : '-'; }).join(',');
   }
 
   /* ---- build share/restore (T11): URL params win, then localStorage, then defaults ----
@@ -135,6 +141,8 @@
     current = weapons.find(function (w) { return w.id === initialArmament.weaponId; }) || current;
     affinity = initialArmament.affinity || 'Standard';
     upgradeLevel = initialArmament.upgrade;
+    skillId = initialArmament.skillId || null;
+    skillEventId = initialArmament.skillEventId || null;
   }
 
   /* ---- buffs + true talisman equipment ---- */
@@ -210,7 +218,7 @@
   function persist() { clearTimeout(persistT); persistT = setTimeout(doPersist, 250); }
   function saveActiveArmament() {
     if (!armaments[activeSlot.hand][activeSlot.index]) return;
-    armaments[activeSlot.hand][activeSlot.index] = { weaponId: current.id, affinity: affinity, upgrade: upgradeLevel };
+    armaments[activeSlot.hand][activeSlot.index] = { weaponId: current.id, affinity: affinity, upgrade: upgradeLevel, skillId:skillId, skillEventId:skillEventId };
   }
   function captureState() {
     saveActiveArmament();
@@ -218,7 +226,7 @@
     var tl = selectedTalismans.map(function (slot) { return slot && Object.assign({}, slot, { conditionActive: taliConditionState[slot.talismanId] !== false }); });
     var armorState = {};
     ARMOR_SLOTS.forEach(function (slot) { armorState[slot.id] = selectedArmor[slot.id]; });
-    var state = { schemaVersion: 6, stats: {}, weapon: current.id, affinity: affinity, upgrade: upgradeLevel, twoHanded: twoHanded, level: +$('level').value || null, buffs: bf, talis: tl.filter(Boolean).map(function (slot) { return slot.talismanId; }), scadu: scaduLevel, gearWeight: gearWeight, armor: armorState, activeSlot: (activeSlot.hand === 'left' ? 'l' : 'r') + activeSlot.index, combatContext: combatContext, attackProfile: attackProfileId };
+    var state = { schemaVersion: 7, stats: {}, weapon: current.id, affinity: affinity, upgrade: upgradeLevel, twoHanded: twoHanded, level: +$('level').value || null, buffs: bf, talis: tl.filter(Boolean).map(function (slot) { return slot.talismanId; }), scadu: scaduLevel, gearWeight: gearWeight, armor: armorState, activeSlot: (activeSlot.hand === 'left' ? 'l' : 'r') + activeSlot.index, combatContext: combatContext, attackProfile: attackProfileId };
     state.magic = { catalystId: magicState.catalystId, upgrade: magicState.upgrade, memorySlots: magicState.memorySlots, spells: magicState.spells.slice(), activeSpell: magicState.activeSpell, variantId: magicState.variantId };
     state.encounter = { enemyId:encounterState.enemyId, ng:encounterState.ng, moveId:encounterState.moveId, ammoId:encounterState.ammoId };
     state.loadout = { rightHand: armaments.right.map(function (x) { return x && Object.assign({}, x); }), leftHand: armaments.left.map(function (x) { return x && Object.assign({}, x); }), armor: armorState, talismans: tl, spells: magicState.spells.slice(), magic: Object.assign({}, state.magic), physick: [], greatRune: null };
@@ -411,6 +419,7 @@
     fillAffinity(); fillUpgrade();
     if (slot.affinity && (slot.affinity === 'Standard' || (current.affinities && current.affinities[slot.affinity]))) { affinity = slot.affinity; $('affinity').value = affinity; }
     if (slot.upgrade != null) { upgradeLevel = slot.upgrade; $('upgrade').value = slot.upgrade; }
+    skillId = slot.skillId || null; skillEventId = slot.skillEventId || null;
     $('weaponSearch').placeholder = 'Search weapons…';
     render();
   }
@@ -674,6 +683,109 @@
     return { catalyst:catalystResult, spell:result };
   }
 
+  /* ---- weapon skill / Ash state + exact single-event math ---- */
+  function weaponSkillRecord() { return skillData.weaponSkills[current.id] || { mode:'unavailable', reason:'No audited skill mapping is available.' }; }
+  function activeSkillModel() {
+    var record = weaponSkillRecord();
+    if (record.mode === 'fixed') return { id:record.skillId, name:record.skillName || 'Fixed skill', fp:record.fp, events:record.events || [], fixed:true, sourceVersion:record.sourceVersion };
+    if (record.mode !== 'configurable') return null;
+    var affinityRecord = record.affinities[affinity] || record.affinities.Standard;
+    if (!affinityRecord) return null;
+    var allowed = affinityRecord.allowed.map(function (name) { return skills.find(function (item) { return item.name === name; }); }).filter(Boolean);
+    var selected = skillById[skillId];
+    if (!selected || allowed.indexOf(selected) < 0) {
+      selected = allowed.find(function (item) { return item.name === affinityRecord.defaultSkill; }) || allowed[0] || null;
+      skillId = selected && selected.id || null; skillEventId = null;
+    }
+    return selected && { id:selected.id, name:selected.name, fp:selected.fp, events:selected.events || [], fixed:false, allowed:allowed, sourceVersion:record.sourceVersion, note:selected.note };
+  }
+  function compatibleSkillEvents(model) {
+    return model ? (model.events || []).filter(function (event) { return !event.weaponType || event.weaponType === current.type; }) : [];
+  }
+  function activeSkillEvent(model) {
+    var events = compatibleSkillEvents(model);
+    var event = events.find(function (item) { return item.id === skillEventId; }) || events.find(function (item) { return !/lacking fp/i.test(item.label); }) || events[0] || null;
+    skillEventId = event && event.id || null;
+    return event;
+  }
+  function skillProfile(model, event) {
+    var label = ((model && model.name) || '') + ' ' + ((event && event.label) || '');
+    if (/charged/i.test(label)) return 'charged-skill';
+    if (/roar|shriek/i.test(label)) return 'roar';
+    if (/storm/i.test(label)) return 'storm';
+    if (/magma|flame spit/i.test(label)) return 'magma';
+    if (/kick|stomp/i.test(label)) return 'kick-stomp';
+    if (/throw|vacuum slice|beast.s roar|storm blade/i.test(label)) return 'weapon-throw';
+    return 'skill';
+  }
+  function fpText(fp) {
+    if (!fp) return '—';
+    return Object.keys(fp).map(function (key) { return key.toUpperCase() + ' ' + fp[key]; }).join(' · ') || '0';
+  }
+  function renderSkill(baseMods, boosted) {
+    var record = weaponSkillRecord(), model = activeSkillModel();
+    $('skillEmpty').hidden = true;
+    if (!model) {
+      $('skillKind').textContent = 'Coverage boundary'; $('skillName').textContent = 'Skill mapping pending';
+      $('skillNote').textContent = record.reason || 'No audited compatibility record is available for this armament.';
+      $('skillSelect').innerHTML = '<option>Unavailable</option>'; $('skillSelect').disabled = true;
+      $('skillEvent').innerHTML = '<option>No event</option>'; $('skillEvent').disabled = true;
+      $('skillAnalysis').hidden = true; $('skillEmpty').hidden = false; $('skillEmpty').textContent = $('skillNote').textContent;
+      return null;
+    }
+    var events = compatibleSkillEvents(model), event = activeSkillEvent(model);
+    $('skillKind').textContent = model.fixed ? 'Fixed weapon skill · ' + model.sourceVersion : 'Ash of War · compatibility ' + model.sourceVersion;
+    $('skillName').textContent = model.name;
+    $('skillNote').textContent = model.fixed ? 'Locked to ' + current.name + '. Select a regulation attack event below.' : 'Legal for ' + current.type + ' with the ' + affinity + ' affinity.';
+    if (model.fixed) {
+      $('skillSelect').innerHTML = '<option>' + escText(model.name) + '</option>'; $('skillSelect').disabled = true;
+    } else {
+      $('skillSelect').disabled = false;
+      $('skillSelect').innerHTML = model.allowed.map(function (item) { return '<option value="' + item.id + '">' + escText(item.name) + (item.events.length ? '' : ' · utility') + '</option>'; }).join('');
+      $('skillSelect').value = model.id;
+    }
+    $('skillEvent').disabled = !events.length;
+    $('skillEvent').innerHTML = events.length ? events.map(function (item) {
+      var typedMotion = Object.keys(item.motion).filter(function (type) { return item.motion[type]; }).map(function (type) { return item.motion[type] + '% ' + type; }).join(' / ');
+      var hasBase = Object.keys(item.base).some(function (type) { return item.base[type]; });
+      return '<option value="' + item.id + '">' + escText(item.label) + (typedMotion ? ' · ' + typedMotion : hasBase ? ' · param base' : '') + '</option>';
+    }).join('') : '<option>No direct attack event</option>';
+    if (event) $('skillEvent').value = event.id;
+    if (!event) {
+      $('skillAnalysis').hidden = true; $('skillEmpty').hidden = false;
+      $('skillEmpty').textContent = model.note || 'This skill is legal equipment state, but its utility, buff, movement, parry, or ranged behavior is not represented by a direct attack event yet.';
+      return null;
+    }
+
+    var profileId = skillProfile(model, event), profile = attackProfileById[profileId] || attackProfileById.skill;
+    var attackEffects = ERCalc.resolveAttackEffects(baseMods, { combatContext:combatContext, profileId:profile.id, tags:profile.tags, state:{ twoHanded:twoHanded } });
+    var skillWeapon = ERCalc.computeARBuffed(build, current, { upgradeLevel:upgradeLevel, twoHanded:twoHanded, affinity:affinity }, baseMods.concat(attackEffects.mods));
+    var weaponParam = skillData.scaling.weaponParams[current.id] && skillData.scaling.weaponParams[current.id][affinity];
+    var enemy = encounterEnemy();
+    var result = ERCalc.computeSkillEvent(boosted, skillWeapon.buffed.byType, skillWeapon.buffed.status || {}, event, weaponParam, skillData.scaling, {
+      upgradeLevel:upgradeLevel, twoHanded:twoHanded, combatContext:combatContext, enemy:enemy, ng:encounterState.ng
+    });
+    $('skillAnalysis').hidden = false;
+    $('skillPreDamage').textContent = result.complete ? result.preDefense : result.preDefense + '+';
+    $('skillPreDamage').classList.toggle('partial', !result.complete);
+    $('skillConfidence').textContent = result.complete ? 'param-exact single event' : 'partial · missing audited scaling profile';
+    $('skillFinalDamage').textContent = result.total == null ? '—' : result.complete ? result.total : result.total + '+';
+    $('skillTargetNote').textContent = enemy ? enemy.name + ' · ' + (encounterState.ng ? 'NG+' + (encounterState.ng === 1 ? '' : encounterState.ng) : 'NG') : 'choose an encounter profile';
+    $('skillFP').textContent = fpText(model.fp);
+    $('skillStamina').textContent = result.staminaCost + ' stamina · event cost';
+    $('skillPoise').textContent = result.poiseMotion ? result.poiseMotion + '% MV' : result.poiseBase ? result.poiseBase + ' base' : '—';
+    $('skillStatusMotion').textContent = result.status && Object.keys(result.status).length ? event.statusMotion + '% weapon status MV' : 'no weapon-carried status';
+    $('skillDamage').innerHTML = Object.keys(result.raw).filter(function (type) { return result.raw[type] > 0; }).map(function (type) { return '<span>' + type + ' <b>' + Math.floor(result.raw[type]) + '</b></span>'; }).join('') || '<span>No direct HP damage</span>';
+    var weaponPart = Object.keys(result.weaponPart).reduce(function (sum,type) { return sum + result.weaponPart[type]; }, 0);
+    var paramPart = Object.keys(result.paramPart).reduce(function (sum,type) { return sum + result.paramPart[type]; }, 0);
+    var scaledStats = uniqueText([].concat.apply([], Object.keys(result.trace).map(function (type) { return result.trace[type].stats.map(function (item) { return item.stat + ' ' + Math.round(item.graph * 10) / 10 + '% graph'; }); })));
+    $('skillTrace').innerHTML = '<b>Event, not guessed full cast.</b> ' + (weaponPart ? 'Weapon-MV component ' + Math.floor(weaponPart) + '. ' : '') + (paramPart ? 'AtkParam component ' + Math.floor(paramPart) + (scaledStats.length ? ' via ' + scaledStats.join(', ') : '') + '. ' : '') + (combatContext === 'pvp' && result.pvpMultiplier !== 1 ? 'PvP ×' + result.pvpMultiplier + '. ' : '') + (event.specialEffects.length ? event.specialEffects.length + ' attached special effect' + (event.specialEffects.length === 1 ? '' : 's') + ' preserved but not silently converted into damage. ' : '') + 'Defense and negation apply per typed event.';
+    return { model:model, event:event, result:result, profile:profile };
+  }
+  function uniqueText(values) { return values.filter(function (value,index,array) { return value && array.indexOf(value) === index; }); }
+  $('skillSelect').addEventListener('change', function () { skillId = skillById[this.value] ? this.value : null; skillEventId = null; render(); });
+  $('skillEvent').addEventListener('change', function () { skillEventId = this.value || null; render(); });
+
   /* ---- encounter profiles + final defense/status pipeline ---- */
   var enemyPickerFilter = 'boss';
   function encounterEnemy() { return encounterState.enemyId && enemyById[encounterState.enemyId] || null; }
@@ -781,7 +893,7 @@
   });
   $('ammoSelect').addEventListener('change', function () { encounterState.ammoId = ammoById[this.value] ? this.value : null; render(); });
 
-  function renderEncounter(weaponResult, magicResult) {
+  function renderEncounter(weaponResult, magicResult, skillResult) {
     var enemy = encounterEnemy(), cycle = encounterCycle();
     var move = fillWeaponMoves();
     $('ngCycle').value = encounterState.ng;
@@ -810,6 +922,12 @@
     $('enemyWeaponDamage').textContent = weaponDamage ? weaponDamage.total : '—';
     $('enemyWeaponNote').textContent = move ? move.label + ' · ' + move.motion.join(' + ') + ' MV · ' + weaponDamage.hits.length + ' hit' + (weaponDamage.hits.length === 1 ? '' : 's')
       : ammoItem ? ammoItem.name + ' · ' + ammoProfile.label + ' · ' + weaponDamage.hits.length + ' projectile' + (weaponDamage.hits.length === 1 ? '' : 's') : 'no exact attack profile';
+    if (skillResult && skillResult.result) {
+      $('enemySkillDamage').textContent = skillResult.result.complete ? skillResult.result.total : skillResult.result.total + '+';
+      $('enemySkillNote').textContent = skillResult.model.name + ' · ' + skillResult.event.label + (skillResult.result.complete ? '' : ' · partial');
+    } else {
+      $('enemySkillDamage').textContent = '—'; $('enemySkillNote').textContent = 'choose a modeled skill event above';
+    }
     if (magicResult && magicResult.spell.totalPreDefense) {
       var spellDamage = ERCalc.applyEnemyDefense(magicResult.spell.byType, enemy, { ng:encounterState.ng });
       $('enemySpellDamage').textContent = spellDamage.total;
@@ -910,7 +1028,8 @@
         affinity = wantAff; $('affinity').value = wantAff;
       }
     }
-    armaments.right[0] = { weaponId: current.id, affinity: affinity, upgrade: upgradeLevel };
+    skillId = null; skillEventId = null;
+    armaments.right[0] = { weaponId: current.id, affinity: affinity, upgrade: upgradeLevel, skillId:null, skillEventId:null };
     syncActivePreset();
     render();
   }
@@ -955,6 +1074,7 @@
       var id = Array.isArray(savedArmor) ? savedArmor[i] : savedArmor[slot.id];
       selectedArmor[slot.id] = id != null && armorById[String(id)] && armorById[String(id)].slot === slot.id ? String(id) : null;
     });
+    skillId = null; skillEventId = null;
     armaments = { right: [null,null,null], left: [null,null,null] };
     if (o.loadout && (o.loadout.rightHand || o.loadout.leftHand)) {
       armaments.right = (o.loadout.rightHand || []).slice(0, 3).map(normalizeArmament);
@@ -974,6 +1094,7 @@
       fillUpgrade(); fillAffinity();
       if (restored.affinity && (restored.affinity === 'Standard' || (current.affinities && current.affinities[restored.affinity]))) { affinity = restored.affinity; $('affinity').value = affinity; }
       if (restored.upgrade != null) { upgradeLevel = restored.upgrade; $('upgrade').value = restored.upgrade; }
+      skillId = restored.skillId || null; skillEventId = restored.skillEventId || null;
     }
     weaponTarget = null; $('weaponSearch').placeholder = 'Search weapons…';
     renderBuffGroups();
@@ -1034,7 +1155,8 @@
     var target = weaponTarget || activeSlot;
     current = weapons.find(function (w){ return w.id === id.getAttribute('data-id'); });
     activeSlot = { hand: target.hand, index: target.index };
-    armaments[activeSlot.hand][activeSlot.index] = { weaponId: current.id, affinity: 'Standard', upgrade: null };
+    skillId = null; skillEventId = null;
+    armaments[activeSlot.hand][activeSlot.index] = { weaponId: current.id, affinity: 'Standard', upgrade: null, skillId:null, skillEventId:null };
     weaponTarget = null;
     upgradeLevel = null; search.value = ''; list.hidden = true; fillUpgrade(); fillAffinity();
     search.placeholder = 'Search weapons…';
@@ -1049,7 +1171,7 @@
     $('affinity').disabled = opts.length < 2;
     affinity = 'Standard'; $('affinity').value = 'Standard';
   }
-  $('affinity').addEventListener('change', function () { affinity = this.value; activePresetIndex = -1; syncActivePreset(); render(); });
+  $('affinity').addEventListener('change', function () { affinity = this.value; skillId = null; skillEventId = null; activePresetIndex = -1; syncActivePreset(); render(); });
   function fillUpgrade() {
     var max = current.category === 'somber' ? 10 : 25;
     $('upgrade').innerHTML = '';
@@ -1159,7 +1281,8 @@
 
     renderEffectStack(taliEffects, attackEffects);
     var magicResult = renderMagic(baseMods, boosted);
-    renderEncounter(r, magicResult);
+    var skillResult = renderSkill(baseMods, boosted);
+    renderEncounter(r, magicResult, skillResult);
     renderSurvival(baseMods, boosted, taliEffects);
     renderPayoff(r);
     renderSoftCap(r);
@@ -1301,7 +1424,8 @@
     if (e.target.closest('.sug-atlas')) return; // let the atlas link navigate
     var row = e.target.closest('[data-id]'); if (!row) return;
     current = weapons.find(function (w){ return w.id === row.getAttribute('data-id'); });
-    armaments[activeSlot.hand][activeSlot.index] = { weaponId: current.id, affinity: 'Standard', upgrade: null };
+    skillId = null; skillEventId = null;
+    armaments[activeSlot.hand][activeSlot.index] = { weaponId: current.id, affinity: 'Standard', upgrade: null, skillId:null, skillEventId:null };
     upgradeLevel = null; fillUpgrade(); fillAffinity();
     activePresetIndex = -1; syncActivePreset(); render();
     document.querySelector('.weapon-card').scrollIntoView({ behavior: 'smooth', block: 'center' });

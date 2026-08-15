@@ -130,5 +130,9 @@ migration. Breadth without trusted math does not count as completion.
 - **Shipped:** all 65 standard ammunition items across every ranged weapon class. Typed weapon AR
   and ammo base attack combine before exact projectile MVs; ammo status uses its own motion value.
   Spread Crossbow preserves three independent defense events rather than collapsing them into one hit.
-- **Next:** ranged weapon-skill projectiles and Ashes of War, player/PvP targets, then remaining
+- **Shipped:** explicit weapon-skill state for all 448 armaments, all 91 base-game Ashes, and 2,422
+  exact attack events. Legal Ash selection follows active weapon + affinity; fixed skills keep their
+  FP branches. Typed weapon motion and param-base scaling flow through PvE/PvP and enemy defense one
+  event at a time, with complete persistence and share state.
+- **Next:** ranged weapon-skill projectile sequencing and DLC Ash compatibility, player/PvP targets, then remaining
   talisman/spell outputs that depend on guard, poise, flask, loot, and encounter domains.

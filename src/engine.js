@@ -903,6 +903,99 @@
     return { ammo:ammo, profile:profile, combined:combined, hits:hits, preDefense:Math.floor(preDefense), total:total, status:status, statusAgainstEnemy:statusAgainstEnemy(status,enemy,{ng:opts.ng}) };
   }
 
+  /**
+   * Exact single skill-event calculation from AtkParam + weapon-param inputs.
+   *
+   * A skill event can contain two independently scaled pieces:
+   *   - the equipped weapon's typed AR multiplied by the event's typed motion value;
+   *   - additive AtkParam base damage multiplied by ReinforceParamWeapon.baseAtkRate,
+   *     then scaled through AttackElementCorrectParam + CalcCorrectGraph.
+   *
+   * Rows are events, not guessed full casts. A multi-input or looping Skill therefore
+   * remains a selectable list of exact events until its animation sequence is proven.
+   */
+  function computeSkillEvent(build, byType, buildup, event, weaponParam, scaling, opts) {
+    opts = opts || {};
+    scaling = scaling || {};
+    var stats = effectiveStats(build || {}, !!opts.twoHanded);
+    var reinforcementProfiles = scaling.reinforcements || {};
+    var levels = weaponParam && reinforcementProfiles[weaponParam.reinforceTypeId];
+    var maxLevel = levels && levels.length ? levels.length - 1 : 0;
+    var level = Math.max(0, Math.min(maxLevel, opts.upgradeLevel == null ? maxLevel : Math.floor(+opts.upgradeLevel || 0)));
+    var reinforcement = levels && levels[level];
+    var corrections = scaling.corrections || {};
+    var curves = scaling.curves || {};
+    var pvpMultiplier = opts.combatContext === 'pvp' ? (+event.pvpMultiplier || 1) : 1;
+    var raw = {}, weaponPart = {}, paramPart = {}, trace = {}, complete = true;
+
+    DAMAGE_TYPES.forEach(function (type) {
+      var motion = +(event.motion && event.motion[type]) || 0;
+      var weaponValue = (+byType[type] || 0) * motion / 100;
+      var paramBase = +(event.base && event.base[type]) || 0;
+      var paramValue = 0, scalingMultiplier = 0, statTrace = [];
+      if (paramBase > 0) {
+        if (!weaponParam || !reinforcement) {
+          complete = false;
+        } else {
+          var correctionId = event.correctionId == null ? weaponParam.attackElementCorrectId : event.correctionId;
+          var correction = corrections[correctionId] && corrections[correctionId][type];
+          var curve = curves[weaponParam.correctTypes && weaponParam.correctTypes[type]];
+          if (!correction || !curve) {
+            complete = false;
+          } else {
+            var contributions = [];
+            STATS.forEach(function (stat) {
+              var rule = correction[stat];
+              if (!rule || !rule.enabled) return;
+              var influence = rule.influence == null ? 1 : +rule.influence;
+              var requirement = +(weaponParam.requirements && weaponParam.requirements[stat]) || 0;
+              var contribution;
+              if ((stats[stat] || 1) < requirement) {
+                contribution = 0.6 * (influence - 1) - 0.4;
+              } else {
+                var baseScaling = rule.override >= 0 ? +rule.override : +(weaponParam.scaling && weaponParam.scaling[stat]) || 0;
+                var levelScaling = +(reinforcement.scaling && reinforcement.scaling[stat]) || 1;
+                var graphValue = +(curve[Math.max(1, Math.min(99, stats[stat])) - 1]) || 0;
+                contribution = influence - 1 + (baseScaling / 100) * levelScaling * (graphValue / 100) * influence;
+                statTrace.push({ stat:stat, level:stats[stat], requirement:requirement, baseScaling:baseScaling, levelScaling:levelScaling, graph:graphValue, contribution:contribution });
+              }
+              contributions.push(contribution);
+            });
+            var sum = contributions.reduce(function (total,value) { return total + value; }, 0);
+            var lowCap = contributions.length ? Math.min.apply(null, contributions) : 0;
+            scalingMultiplier = Math.max(lowCap, sum);
+            paramValue = paramBase * (+reinforcement.baseAtkRate || 1) * (1 + scalingMultiplier);
+          }
+        }
+      }
+      weaponPart[type] = weaponValue * pvpMultiplier;
+      paramPart[type] = paramValue * pvpMultiplier;
+      raw[type] = weaponPart[type] + paramPart[type];
+      trace[type] = { motion:motion, weapon:weaponPart[type], paramBase:paramBase, param:paramPart[type], scalingMultiplier:scalingMultiplier, stats:statTrace };
+    });
+
+    var status = {};
+    Object.keys(buildup || {}).forEach(function (type) {
+      status[type] = (+buildup[type] || 0) * (+event.statusMotion || 0) / 100;
+    });
+    var preDefense = DAMAGE_TYPES.reduce(function (sum,type) { return sum + raw[type]; }, 0);
+    var result = {
+      event:event, level:level, complete:complete, raw:raw, weaponPart:weaponPart, paramPart:paramPart,
+      preDefense:Math.floor(preDefense), status:status, trace:trace,
+      staminaCost:+event.staminaCost || 0, poiseMotion:+event.poiseMotion || 0,
+      poiseBase:+event.poiseBase || 0, staminaDamageBase:+event.staminaDamageBase || 0,
+      pvpMultiplier:pvpMultiplier
+    };
+    if (opts.enemy) {
+      var final = applyEnemyDefense(raw, opts.enemy, { ng:opts.ng, physicalType:event.physicalType || 'physical' });
+      result.final = final.byType;
+      result.total = final.total;
+      result.defenseTrace = final.trace;
+      result.statusAgainstEnemy = statusAgainstEnemy(status, opts.enemy, { ng:opts.ng });
+    }
+    return result;
+  }
+
   // Rough character level from attribute totals (Wretch baseline: 8x10 = level 1).
   function characterLevel(build) {
     var keys = ['VIG', 'MND', 'END', 'STR', 'DEX', 'INT', 'FAI', 'ARC'];
@@ -938,6 +1031,7 @@
     statusAgainstEnemy: statusAgainstEnemy,
     applyWeaponMove: applyWeaponMove,
     applyRangedAttack: applyRangedAttack,
+    computeSkillEvent: computeSkillEvent,
     STATS: STATS, DAMAGE_TYPES: DAMAGE_TYPES, STATUS_TYPES: STATUS_TYPES, CURVES: CURVES
   };
 });

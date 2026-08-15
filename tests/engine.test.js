@@ -324,5 +324,24 @@ var spreadShot = ERCalc.applyRangedAttack(spreadBase.byType, spreadBase.status, 
 check('Spread Crossbow preserves three independently defended projectiles', [spreadShot.preDefense,spreadShot.total,spreadShot.hits.map(function (hit) { return hit.total; })], [675,387,[129,129,129]]);
 check('Spread Crossbow applies exact 80% status motion per projectile', [spreadShot.status.bleed,spreadShot.statusAgainstEnemy.bleed.hits], [120,4]);
 
+console.log('weapon skills and Ashes of War:');
+var skillFile = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'skills.json'), 'utf8'));
+check('skill corpus preserves complete base Ash inventory and exact attack-event coverage', [skillFile.coverage.ashes,skillFile.coverage.ashesWithAttackEvents,skillFile.coverage.genericAttackEvents,skillFile.coverage.fixedAttackEvents], [91,64,1361,1061]);
+check('every weapon has an explicit skill-state record', Object.keys(skillFile.weaponSkills).length, weapons.length);
+check('all modeled skill events retain stable unique attack IDs within their skill', skillFile.skills.every(function (skill) {
+  return new Set(skill.events.map(function (event) { return event.id; })).size === skill.events.length;
+}), true);
+var skillLongsword = weapons.find(function (weapon) { return weapon.name === 'Longsword'; });
+var skillBuild = { STR:20,DEX:20,INT:10,FAI:10,ARC:80 };
+var bloodLongsword = ERCalc.computeAR(skillBuild, skillLongsword, { affinity:'Blood',upgradeLevel:25 });
+var bloodySlash = skillFile.skills.find(function (skill) { return skill.name === 'Bloody Slash'; }).events.find(function (event) { return event.label === 'Bloody Slash'; });
+var bloodyResult = ERCalc.computeSkillEvent(skillBuild,bloodLongsword.byType,bloodLongsword.status,bloodySlash,skillFile.scaling.weaponParams[skillLongsword.id].Blood,skillFile.scaling,{upgradeLevel:25,enemy:malenia,ng:0});
+check('Bloody Slash uses baseAtkRate + Arcane correction before enemy defense', [bloodyResult.complete,bloodyResult.preDefense,bloodyResult.total,Math.round(bloodyResult.trace.physical.scalingMultiplier*100000)/100000], [true,1708,1383,0.32625]);
+var lionsClaw = skillFile.skills.find(function (skill) { return skill.name === "Lion's Claw"; }).events.find(function (event) { return event.label === "Lion's Claw"; });
+var lionResult = ERCalc.computeSkillEvent(skillBuild,bloodLongsword.byType,bloodLongsword.status,lionsClaw,skillFile.scaling.weaponParams[skillLongsword.id].Blood,skillFile.scaling,{upgradeLevel:25});
+check("Lion's Claw keeps weapon MV and status MV separate", [lionResult.preDefense,lionResult.status.bleed,lionResult.poiseMotion,lionResult.staminaCost], [974,80,600,45]);
+var riversSkill = skillFile.weaponSkills['rivers-of-blood'];
+check('fixed unique skill carries FP branches and exact event catalog', [riversSkill.skillName,riversSkill.fp,riversSkill.events.length], ['Corpse Piler',{l2:17,r2:9},18]);
+
 console.log('\n' + passes + ' passed, ' + failures + ' failed');
 process.exit(failures ? 1 : 0);

@@ -137,3 +137,25 @@ This index records transformation and verification notes that do not belong in r
 - Verification pins full counts, exact compatibility filters, Longbow + Arrow typed combination,
   Spread Crossbow per-projectile damage, status motion, enemy hits-to-proc, URL persistence, reload,
   390px layout, and browser errors.
+
+## Weapon skills and Ashes of War (`skills.json`)
+
+- Schema version: 1. Attack rows and scaling profiles target App 1.16.1; the audited compatibility
+  and FP-branch sources cover the 1.10 base-game Ash inventory. Those version boundaries are shown
+  in the interface instead of implying complete DLC compatibility.
+- Upstream: the `Ashes of War Attack Data` sheet in
+  [ER – Motion Values and Attack Data](https://docs.google.com/spreadsheets/d/1j4bpTbsnp5Xsgw9TP2xv6d8R4qk0ErpE9r_5LGIDraU/edit),
+  the [Elden Ring Compatible Ash of War Sheet](https://docs.google.com/spreadsheets/d/1BTwjJaSX8iEK7TjUi0TbCY34apgH_028_a_j2XcITqY/edit),
+  the CryptidTracker planner's EquipParamWeapon/ReinforceParamWeapon/AttackElementCorrectParam/
+  CalcCorrectGraphEz sheets, and ERDB's SwordArtsParam export.
+- Transformation: `node scripts/import-skills.js motion-values.xlsx ash-compat.xlsx planner.xlsx
+  erdb-1.10.zip`. The importer preserves class-scoped attack IDs, typed weapon and AtkParam motion,
+  additive bases, status/weapon-buff/poise motion, stamina and poise bases, physical attributes,
+  correction overrides, attached special effects, PvP multipliers, reinforcement profiles, and
+  affinity-specific weapon scaling.
+- Coverage: explicit skill state for all 448 weapons, 91 base-game Ashes, 1,361 generic Ash events,
+  and 1,061 fixed-skill events. Sixty-four Ashes contain at least one direct attack event. Utility,
+  buff, parry, movement, and unresolved ranged behaviors are named but not converted into fake damage.
+- Verification pins corpus counts, unique scoped event IDs, fixed-skill FP branches, Bloody Slash's
+  AtkParam + reinforcement + Arcane correction path, Lion's Claw weapon/status separation, legal
+  selection by weapon and affinity, enemy defense, URL/reload persistence, 390px layout, and browser errors.
