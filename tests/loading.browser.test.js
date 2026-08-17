@@ -103,6 +103,31 @@ async function open(browser, query) {
     assert((await stored.locator('#buildRestoreNotice').textContent()).includes('unavailable'), 'invalid saved deferred values disclose their removal');
     await stored.close();
 
+    const named = await browser.newPage({ viewport:{ width:390, height:844 } });
+    await named.addInitScript(() => localStorage.setItem('er-my-builds', JSON.stringify([{
+      name:'Bad loaded build', state:{ weapon:'longsword', affinity:'Blood', upgrade:25,
+        magic:{ catalystId:'not-a-catalyst', spells:['not-a-spell'], activeSpell:'not-a-spell' },
+        encounter:{ enemyId:'not-an-enemy', moveId:'not-a-move', ammoId:'not-ammo' },
+        loadout:{ rightHand:[{ weaponId:'longsword', affinity:'Fire', upgrade:25, skillId:'bloody-slash', skillEventId:'bloody-slash-300000057' }], leftHand:[{ weaponId:'longsword', affinity:'Blood', upgrade:25, skillId:'bloody-slash', skillEventId:'square-off-r1-300000700' }] }
+      }
+    }])));
+    await named.goto(BASE, { waitUntil:'domcontentloaded' });
+    await named.locator('#stats .stat').first().waitFor({ state:'visible' });
+    await named.evaluate(() => Promise.all(['magic', 'skills', 'encounter'].map(name => window.ERBuild.ensureDomain(name))));
+    await named.getByRole('button', { name:'Bad loaded build', exact:true }).click();
+    await named.locator('#buildRestoreNotice').waitFor({ state:'visible' });
+    await named.waitForFunction(() => {
+      const saved = JSON.parse(localStorage.getItem('er-build'));
+      const right = saved.loadout.rightHand[0], left = saved.loadout.leftHand[0];
+      return !saved.magic.catalystId && !saved.encounter.enemyId && !right.skillId && !right.skillEventId && left.skillId === 'bloody-slash' && !left.skillEventId;
+    });
+    const namedNotice = await named.locator('#buildRestoreNotice').textContent();
+    assert(namedNotice.includes('catalyst') && namedNotice.includes('enemy') && namedNotice.includes('skill') && namedNotice.includes('skill event'), 'already-loaded named restoration aggregates every dropped deferred category');
+    assert.strictEqual(await named.locator('#summaryTarget').textContent(), 'General Build', 'already-loaded named restoration clears the stale target summary');
+    await named.getByRole('tab', { name:'Encounter', exact:true }).click();
+    assert.strictEqual(await named.locator('#enemyClear').isHidden(), true, 'already-loaded named restoration leaves no enemy clear action');
+    await named.close();
+
     console.log('loading browser regressions passed');
   } finally {
     await browser.close();

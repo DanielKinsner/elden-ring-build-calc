@@ -37,7 +37,7 @@ On PowerShell, set the same override with `$env:CHROMIUM_PATH = 'C:\path\to\chro
 ```text
 npm run test:engine       # trusted engine/data regression pins
 npm run test:data         # release manifest, compendium references, all 448 acquisition records
-npm run test:delivery     # loading waterfall, domain contracts, preview, Atlas lazy behavior, and four repaired icons
+npm run test:delivery     # loading waterfall, domain contracts, preview, Atlas lazy behavior, and four checked icon files
 npm run test:static       # active (non-commented) sitemap↔canonical equality; local HTML/CSS/metadata refs; all 448 generated icon files
 npm run test:lifecycle    # tracked browser/artifact cleanup; IPC, signal-handler, hung-child, and nonzero-child runner cases
 npm run test:browser      # loading, focused Build views, save/share reload, desktop/390px overflow, Films/Tales, local HTTP/assets, all 448 icon URLs
@@ -84,10 +84,16 @@ signals, but they do not replace owner visual and gameplay review; the metrics d
 claim interaction quality or game-math correctness.
 
 `npm run test:performance:compare` creates a detached OS-temp worktree at the recorded base SHA,
-serves both base content and current content with the current uncompressed `static-server.js`, and
-runs the checked-out harness with the same pinned Chromium revision. It removes that temporary
-worktree in `finally`; it never moves the active checkout's HEAD. The comparison emits the exact
-base/head first-useful snapshot and is intentionally documented rather than run in CI.
+serves both base and candidate HEAD content from detached OS-temp worktrees with the current
+uncompressed `static-server.js`, and explicitly pins the run to Playwright's bundled Chromium
+executable (ignoring `CHROMIUM_PATH`). It removes both temporary worktrees in `finally`; it never
+moves the active checkout's HEAD, and live uncommitted checkout content is never served as the
+candidate. The comparison emits the browser executable/version evidence and exact base/head
+first-useful snapshot; it is intentionally documented rather than run in CI.
+
+The four icon checks are file-presence/integrity coverage, not a claim of visual repair. Bonny
+Butchering Knife's visible top strip remains deferred: the approved wiki.gg source was HTTP 403
+during verification, so no clean attributed replacement has been confirmed.
 
 ## CI
 

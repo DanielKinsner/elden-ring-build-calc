@@ -15,6 +15,7 @@
     "test:a11y": "node scripts/run-browser-suite.js tests/a11y.browser.test.js tests/accessibility.browser.test.js",
     "test:performance": "node scripts/run-browser-suite.js tests/performance.browser.test.js",
     "test:performance:compare": "node scripts/compare-performance.js",
+    "test:performance:compare:contract": "node tests/compare-performance.test.js",
     "verify": "npm run test:engine && npm run test:data && npm run test:delivery && npm run test:static && npm run test:lifecycle && npm run test:browser && npm run test:a11y && npm run test:performance"
   },
   "devDependencies": {

@@ -1,29 +1,51 @@
 #!/usr/bin/env node
 'use strict';
 
-// Runs the checked-out test harness and pinned Playwright Chromium against both a detached
-// historical content worktree and this checkout. The server implementation is always this file's
-// checkout, so the only comparison variable is authored site content.
+// Comparison content is always served from detached worktrees. A dirty integration checkout is
+// intentionally harmless: it supplies the harness/server only, never the candidate site files.
 const { execFileSync, spawn } = require('child_process');
 const fs = require('fs');
 const os = require('os');
 const path = require('path');
+const { chromium } = require('playwright');
 const { ROOT, createStaticServer, listen, close } = require('./static-server');
 
 const BASE_SHA = process.env.ER_PERFORMANCE_BASE_SHA || 'fc64a89d7c902bf6c9a319c7f29d42ecb3ae996c';
-const HEAD_SHA = execFileSync('git', ['rev-parse', 'HEAD'], { cwd:ROOT, encoding:'utf8' }).trim();
-const baseRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'er-performance-base-'));
-let worktreeAdded = false;
 
-function run(command, args, options = {}) { return execFileSync(command, args, { cwd:ROOT, encoding:'utf8', stdio:['ignore', 'pipe', 'pipe'], ...options }); }
-function runProfile(root, label) {
+function git(args) { return execFileSync('git', args, { cwd:ROOT, encoding:'utf8', stdio:['ignore', 'pipe', 'pipe'] }); }
+function comparatorEnvironment(parentEnvironment, executablePath) {
+  // A caller-provided CHROMIUM_PATH must never change a comparison result.
+  return { ...parentEnvironment, CHROMIUM_PATH:executablePath };
+}
+function addDetachedWorktree(root, sha) { git(['worktree', 'add', '--detach', root, sha]); }
+function removeDetachedWorktree(root) {
+  try { git(['worktree', 'remove', '--force', root]); } catch (_) {}
+  if (fs.existsSync(root)) fs.rmSync(root, { recursive:true, force:true, maxRetries:3 });
+}
+async function chromiumEvidence() {
+  const executablePath = chromium.executablePath();
+  if (!executablePath || !fs.existsSync(executablePath)) throw new Error('Playwright bundled Chromium executable is unavailable; run npm run install:browsers');
+  const browser = await chromium.launch({ headless:true, executablePath });
+  try {
+    const revision = (executablePath.match(/[\\/]chromium-(\d+)[\\/]/i) || [])[1] || 'unparsed';
+    return {
+      executablePath,
+      executable:path.basename(executablePath),
+      version:browser.version(),
+      revision,
+      playwrightVersion:require('playwright/package.json').version
+    };
+  }
+  finally { await browser.close(); }
+}
+function runProfile(root, label, environment) {
   return new Promise(async (resolve, reject) => {
     const server = createStaticServer({ root });
     try {
       const address = await listen(server, 0);
       const child = spawn(process.execPath, [path.join(ROOT, 'tests', 'performance.browser.test.js')], {
         cwd:ROOT,
-        env:{ ...process.env, ER_SITE_URL:`http://127.0.0.1:${address.port}/build/` },
+        env:{ ...environment, ER_SITE_URL:`http://127.0.0.1:${address.port}/build/` },
         stdio:['ignore', 'pipe', 'pipe']
       });
       let output = '';
@@ -48,18 +70,33 @@ function runProfile(root, label) {
     }
   });
 }
-
-(async () => {
+async function main() {
+  const headSha = git(['rev-parse', 'HEAD']).trim();
+  const baseRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'er-performance-base-'));
+  const candidateRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'er-performance-candidate-'));
   try {
-    run('git', ['worktree', 'add', '--detach', baseRoot, BASE_SHA]); worktreeAdded = true;
-    const base = await runProfile(baseRoot, 'base');
-    const head = await runProfile(ROOT, 'head');
-    console.log(JSON.stringify({ baseSha:BASE_SHA, headSha:HEAD_SHA, profile:{ browser:'Playwright bundled Chromium', viewport:'390x844', cacheDisabled:true, latencyMs:150, downloadBytesPerSecond:200000, uploadBytesPerSecond:80000, server:'current checkout uncompressed static-server.js' }, base, head }, null, 2));
+    addDetachedWorktree(baseRoot, BASE_SHA);
+    addDetachedWorktree(candidateRoot, headSha);
+    const browser = await chromiumEvidence();
+    const environment = comparatorEnvironment(process.env, browser.executablePath);
+    const base = await runProfile(baseRoot, 'base', environment);
+    const head = await runProfile(candidateRoot, 'head', environment);
+    console.log(JSON.stringify({
+      baseSha:BASE_SHA,
+      headSha,
+      candidateSource:'detached worktree at committed HEAD; live checkout dirt is not served',
+      browser:{ executable:browser.executable, version:browser.version, revision:browser.revision, playwrightVersion:browser.playwrightVersion },
+      profile:{ viewport:'390x844', cacheDisabled:true, latencyMs:150, downloadBytesPerSecond:200000, uploadBytesPerSecond:80000, server:'current checkout uncompressed static-server.js' },
+      base,
+      head
+    }, null, 2));
   } finally {
-    if (worktreeAdded) {
-      // The generated path is an exact OS-temp worktree created above; do not target any user path.
-      try { run('git', ['worktree', 'remove', '--force', baseRoot]); } catch (_) {}
-    }
-    if (fs.existsSync(baseRoot)) fs.rmSync(baseRoot, { recursive:true, force:true, maxRetries:3 });
+    // Both are exact OS-temp directories created above; no user worktree is a cleanup target.
+    removeDetachedWorktree(candidateRoot);
+    removeDetachedWorktree(baseRoot);
   }
-})().catch(error => { console.error(error.stack); process.exit(1); });
+}
+
+if (require.main === module) main().catch(error => { console.error(error.stack); process.exit(1); });
+
+module.exports = { comparatorEnvironment, addDetachedWorktree, removeDetachedWorktree };

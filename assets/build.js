@@ -151,7 +151,11 @@
   function ensureDomain(name) {
     var domain = domains[name];
     if (!domain) return Promise.reject(new Error('Unknown Build Lab domain: ' + name));
-    if (domain.state === 'loaded') return Promise.resolve();
+    if (domain.state === 'loaded') {
+      var loadedDrops = normalizeDeferredState(name);
+      if (loadedDrops.length) finishNormalizedDomain(loadedDrops);
+      return Promise.resolve();
+    }
     if (domain.promise) return domain.promise;
     domain.state = 'loading'; updateDomainMessages();
     domain.promise = loadDomain(name).then(function (data) {
@@ -159,9 +163,7 @@
       if (buildReady) {
         if (name === 'magic') { fillCatalystOptions(); fillCatalystUpgrade(); }
         render();
-        // Deferred ids are intentionally retained only until their corpus is indexed.
-        // Persist the normalized state immediately so invalid deep links cannot revive.
-        if (restoredDrops.length) { showRestoreWarning(restoredDrops); doPersist(); }
+        finishNormalizedDomain(restoredDrops);
       }
     }, function () {
       domain.state = 'failed'; domain.promise = null; updateDomainMessages();
@@ -201,6 +203,7 @@
   var compareIds = [];
   var activeSlot = { hand: 'right', index: 0 }, weaponTarget = null;
   var skillId = null, skillEventId = null;
+  var restorationDrops = [], restorationActive = false;
 
   function restoreNotice() {
     var node = $('buildRestoreNotice');
@@ -216,6 +219,60 @@
     node.textContent = 'Restored build: removed unavailable ' + drops.join(', ') + '.';
     node.hidden = false;
   }
+  function clearRestoreWarning() {
+    var node = $('buildRestoreNotice');
+    if (node) { node.textContent = ''; node.hidden = true; }
+  }
+  function beginRestoration() {
+    restorationDrops = []; restorationActive = true; clearRestoreWarning();
+  }
+  function finishNormalizedDomain(drops) {
+    drops.forEach(function (drop) { if (restorationDrops.indexOf(drop) < 0) restorationDrops.push(drop); });
+    if (!restorationActive && restorationDrops.length) { showRestoreWarning(restorationDrops); doPersist(); restorationDrops = []; }
+  }
+  function finishRestoration() {
+    restorationActive = false;
+    if (restorationDrops.length) { showRestoreWarning(restorationDrops); doPersist(); }
+    else clearRestoreWarning();
+    restorationDrops = [];
+  }
+  function normalizedRestoration() {
+    beginRestoration();
+    var needs = {
+      magic: magicState.catalystId || magicState.spells.length || magicState.activeSpell,
+      skills: hasDeferredSkillState(),
+      encounter: encounterState.enemyId || encounterState.ng || encounterState.moveId || encounterState.ammoId
+    };
+    var tasks = Object.keys(needs).map(function (name) {
+      if (!needs[name]) return Promise.resolve();
+      if (domains[name].state === 'loaded') { finishNormalizedDomain(normalizeDeferredState(name)); return Promise.resolve(); }
+      return ensureDomain(name);
+    });
+    return Promise.all(tasks).then(function () { if (buildReady) render(); finishRestoration(); });
+  }
+  function slotSkillRecord(slot) {
+    var weapon = slot && weapons.find(function (item) { return item.id === slot.weaponId; });
+    return { weapon:weapon, record:weapon && skillData.weaponSkills[weapon.id] };
+  }
+  function validSkillEvent(event, weapon) { return event && (!event.weaponType || event.weaponType === weapon.type); }
+  function normalizeSkillSlot(slot) {
+    if (!slot || (!slot.skillId && !slot.skillEventId)) return [];
+    var scoped = slotSkillRecord(slot), weapon = scoped.weapon, record = scoped.record;
+    if (!weapon || !record) { slot.skillId = null; slot.skillEventId = null; return ['skill']; }
+    if (record.mode === 'fixed') {
+      if (slot.skillId && slot.skillId !== record.skillId) { slot.skillId = null; slot.skillEventId = null; return ['skill']; }
+      if (slot.skillEventId && !(record.events || []).some(function (event) { return event.id === slot.skillEventId && validSkillEvent(event, weapon); })) { slot.skillEventId = null; return ['skill event']; }
+      return [];
+    }
+    var affinity = record.affinities && (record.affinities[slot.affinity] || record.affinities.Standard);
+    var selected = slot.skillId && skillById[slot.skillId];
+    var allowed = affinity && affinity.allowed || [];
+    if (!selected || allowed.indexOf(selected.name) < 0 || (selected.legalWeaponTypes || []).indexOf(weapon.type) < 0 || (selected.legalAffinities || []).indexOf(slot.affinity || 'Standard') < 0) {
+      slot.skillId = null; slot.skillEventId = null; return ['skill'];
+    }
+    if (slot.skillEventId && !selected.events.some(function (event) { return event.id === slot.skillEventId && validSkillEvent(event, weapon); })) { slot.skillEventId = null; return ['skill event']; }
+    return [];
+  }
   function normalizeDeferredState(name) {
     var dropped = [];
     if (name === 'magic') {
@@ -227,13 +284,8 @@
       if (magicState.variantId && (!magicState.activeSpell || !spellById[magicState.activeSpell].variants.some(function (item) { return String(item.id) === String(magicState.variantId); }))) { magicState.variantId = null; dropped.push('spell variant'); }
     }
     if (name === 'skills') {
-      var knownEvents = {};
-      skills.forEach(function (item) { (item.events || []).forEach(function (event) { knownEvents[event.id] = true; }); });
-      Object.keys(skillData.weaponSkills || {}).forEach(function (weaponId) { (skillData.weaponSkills[weaponId].events || []).forEach(function (event) { knownEvents[event.id] = true; }); });
       armaments.right.concat(armaments.left).forEach(function (slot) {
-        if (!slot) return;
-        if (slot.skillId && !skillById[slot.skillId]) { slot.skillId = null; slot.skillEventId = null; dropped.push('skill'); return; }
-        if (slot.skillEventId && !knownEvents[slot.skillEventId]) { slot.skillEventId = null; dropped.push('skill event'); }
+        normalizeSkillSlot(slot).forEach(function (drop) { dropped.push(drop); });
       });
       var active = armaments[activeSlot.hand][activeSlot.index];
       skillId = active && active.skillId || null; skillEventId = active && active.skillEventId || null;
@@ -1428,9 +1480,7 @@
     renderBuffGroups();
     activePresetIndex = -1; syncActivePreset();
     render();
-    if (magicState.catalystId || magicState.spells.length || magicState.activeSpell) ensureDomain('magic');
-    if (hasDeferredSkillState()) ensureDomain('skills');
-    if (encounterState.enemyId || encounterState.ng || encounterState.moveId || encounterState.ammoId) ensureDomain('encounter');
+    normalizedRestoration();
   }
   function renderMyBuilds() {
     $('myBuildsHead').hidden = myBuilds.length === 0;
@@ -2005,7 +2055,5 @@
   updateDomainMessages();
   // Saved builds and share links requesting a secondary choice hydrate it as
   // soon as the core interface is usable, never by silently dropping it.
-  if (magicState.catalystId || magicState.spells.length || magicState.activeSpell) ensureDomain('magic');
-  if (hasDeferredSkillState()) ensureDomain('skills');
-  if (encounterState.enemyId || encounterState.ng || encounterState.moveId || encounterState.ammoId) ensureDomain('encounter');
+  normalizedRestoration();
 })();
