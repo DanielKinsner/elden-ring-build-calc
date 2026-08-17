@@ -39,7 +39,7 @@ async function unmetSuggestionContrast(page) {
     const rowColor = rgb(rowStyle.backgroundColor), opacity = Number(rowStyle.opacity);
     const backdrop = mix(rowColor, parent, rowColor[3]);
     const compositedBackdrop = mix(backdrop, parent, opacity);
-    return ['.sug-name small', '.sug-ar', '.sug-atlas'].map((selector) => {
+    return ['.sug-rank', '.sug-name small', '.sug-ar', '.sug-atlas'].map((selector) => {
       const text = row.querySelector(selector), foreground = rgb(getComputedStyle(text).color);
       return { selector, opacity, ratio:ratio(mix(foreground, backdrop, foreground[3] * opacity), compositedBackdrop) };
     });
@@ -52,6 +52,8 @@ async function unmetSuggestionContrast(page) {
     const desktop = await browser.newPage({ viewport:{ width:1280, height:900 } });
     await desktop.goto(new URL('build/', BASE).toString(), { waitUntil:'domcontentloaded' });
     await desktop.locator('#stats .stat').first().waitFor();
+    await desktop.locator('#buildActionStatus').waitFor();
+    await desktop.evaluate(() => { window.__m3ActionStatusNode = document.querySelector('#buildActionStatus'); });
 
     ok(await desktop.locator('h1').count() === 1 && await desktop.locator('h1').textContent() === 'Full Build Lab', 'Build has exactly one correct h1');
     ok(await desktop.locator('h2').count() > 4, 'Build retains h2 sections beneath its h1');
@@ -103,7 +105,7 @@ async function unmetSuggestionContrast(page) {
     await desktop.getByRole('tab', { name:'Advanced / Trace' }).click();
     await desktop.locator('#addCompare').click();
     await desktop.waitForFunction((name) => document.querySelector('#buildActionStatus').textContent === name, suggestionName + ' added to comparison');
-    ok(await desktop.getByRole('button', { name:'Add to Compare', exact:true }).count() === 1, 'comparison button keeps its stable name while status announces success');
+    ok(await desktop.getByRole('button', { name:'Add to Compare', exact:true }).count() === 1 && await desktop.evaluate(() => { const node = document.querySelector('#buildActionStatus'); return node === window.__m3ActionStatusNode && node.getAttribute('role') === 'status' && node.getAttribute('aria-live') === 'polite'; }), 'comparison keeps its stable name and uses the persistent polite status node');
     const removeCompare = desktop.getByRole('button', { name:'Remove ' + suggestionName + ' from comparison', exact:true });
     await removeCompare.waitFor();
     await keyActivate(desktop, removeCompare, 'a named comparison removal action');
@@ -113,7 +115,7 @@ async function unmetSuggestionContrast(page) {
     desktop.once('dialog', (dialog) => dialog.accept(quotedBuildName));
     await keyActivate(desktop, desktop.getByRole('button', { name:'Save', exact:true }), 'the Save action');
     await desktop.waitForFunction(() => document.querySelector('#buildActionStatus').textContent === 'Build saved');
-    ok(await desktop.getByRole('button', { name:'Save', exact:true }).count() === 1, 'Save keeps its stable name while status announces success');
+    ok(await desktop.getByRole('button', { name:'Save', exact:true }).count() === 1 && await desktop.evaluate(() => { const node = document.querySelector('#buildActionStatus'); return node === window.__m3ActionStatusNode && node.getAttribute('role') === 'status' && node.getAttribute('aria-live') === 'polite'; }), 'Save keeps its stable name and uses the persistent polite status node');
     await desktop.getByRole('tab', { name:'Character' }).click();
     const deleteSave = desktop.getByRole('button', { name:'Delete saved build ' + quotedBuildName, exact:true });
     await deleteSave.waitFor();
@@ -124,7 +126,7 @@ async function unmetSuggestionContrast(page) {
     await desktop.evaluate(() => Object.defineProperty(navigator, 'clipboard', { configurable:true, value:{ writeText:() => Promise.resolve() } }));
     await desktop.getByRole('button', { name:'Share', exact:true }).click();
     await desktop.waitForFunction(() => document.querySelector('#buildActionStatus').textContent === 'Build link copied');
-    ok(await desktop.getByRole('button', { name:'Share', exact:true }).count() === 1, 'Share keeps its stable name while status announces success');
+    ok(await desktop.getByRole('button', { name:'Share', exact:true }).count() === 1 && await desktop.evaluate(() => { const node = document.querySelector('#buildActionStatus'); return node === window.__m3ActionStatusNode && node.getAttribute('role') === 'status' && node.getAttribute('aria-live') === 'polite'; }), 'Share keeps its stable name and uses the persistent polite status node');
 
     const focusStyle = await desktop.locator('#stat-vig-number').evaluate((element) => { element.focus(); const style = getComputedStyle(element); return { outline:style.outlineStyle, width:parseFloat(style.outlineWidth) }; });
     ok(focusStyle.outline !== 'none' && focusStyle.width >= 2, 'Build number inputs receive a keyboard-visible focus treatment');
@@ -137,7 +139,7 @@ async function unmetSuggestionContrast(page) {
     await unmet.getByRole('tab', { name:'Damage' }).click();
     await unmet.locator('.sug-row.bad').first().waitFor();
     const unmetContrast = await unmetSuggestionContrast(unmet);
-    ok(unmetContrast.every((item) => item.opacity === 1 && item.ratio >= 4.5), 'enabled unmet suggestions retain 4.5:1 composited text contrast without ancestor opacity');
+    ok(unmetContrast.every((item) => item.opacity === 1 && item.ratio >= 4.5), 'enabled unmet suggestion rank, type, AR, and Atlas text retain 4.5:1 composited contrast');
 
     console.log('  … checking Build mobile geometry and motion');
     const mobile = await browser.newPage({ viewport:{ width:390, height:844 } });
