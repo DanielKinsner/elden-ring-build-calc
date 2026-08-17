@@ -239,7 +239,7 @@
   function normalizedRestoration() {
     beginRestoration();
     var needs = {
-      magic: magicState.catalystId || magicState.spells.length || magicState.activeSpell,
+      magic: magicState.catalystId || magicState.upgrade != null || magicState.spells.length || magicState.activeSpell || magicState.variantId,
       skills: hasDeferredSkillState(),
       encounter: encounterState.enemyId || encounterState.ng || encounterState.moveId || encounterState.ammoId
     };
@@ -277,6 +277,7 @@
     var dropped = [];
     if (name === 'magic') {
       if (magicState.catalystId && !catalystById[magicState.catalystId]) { magicState.catalystId = null; magicState.upgrade = null; dropped.push('catalyst'); }
+      if (!magicState.catalystId && magicState.upgrade != null) { magicState.upgrade = null; dropped.push('catalyst upgrade'); }
       var originalSpells = magicState.spells.slice();
       magicState.spells = originalSpells.filter(function (id, index, all) { return !!spellById[id] && all.indexOf(id) === index; });
       if (magicState.spells.length !== originalSpells.length) dropped.push('spell');

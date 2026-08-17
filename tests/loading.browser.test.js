@@ -13,6 +13,15 @@ async function open(browser, query) {
   return page;
 }
 
+async function assertOrphanMagicFieldRemoved(page, queryKey, stateKey, warning, label) {
+  await page.locator('#buildRestoreNotice').waitFor({ state:'visible' });
+  await page.waitForFunction(({ queryKey, stateKey }) => {
+    const saved = JSON.parse(localStorage.getItem('er-build'));
+    return !new URL(location.href).searchParams.has(queryKey) && saved.magic[stateKey] == null && !document.querySelector('#catalystSelect').disabled;
+  }, { queryKey, stateKey });
+  assert((await page.locator('#buildRestoreNotice').textContent()).includes(warning), label + ' reports the precise Magic normalization');
+}
+
 (async function () {
   const browser = await chromium.launch({ headless:true, executablePath:EXECUTABLE || undefined });
   try {
@@ -65,6 +74,20 @@ async function open(browser, query) {
     assert.strictEqual(await ranged.locator('#ammoSelect').inputValue(), 'bloodbone-bolt', 'secondary-only ammunition state restores after encounter hydration');
     await ranged.close();
 
+    const variantOnlyUrl = await open(browser, '?sv=not-a-variant');
+    await assertOrphanMagicFieldRemoved(variantOnlyUrl, 'sv', 'variantId', 'spell variant', 'variant-only URL restoration');
+    await variantOnlyUrl.close();
+
+    const upgradeOnlyUrl = await open(browser, '?cu=17');
+    await assertOrphanMagicFieldRemoved(upgradeOnlyUrl, 'cu', 'upgrade', 'catalyst upgrade', 'upgrade-only URL restoration');
+    await upgradeOnlyUrl.close();
+
+    const validMagic = await open(browser, '?cat=astrologers-staff&cu=5');
+    await validMagic.waitForFunction(() => document.querySelector('#catalystSelect').value === 'astrologers-staff' && document.querySelector('#catalystUpgrade').value === '5');
+    assert(await validMagic.locator('#buildRestoreNotice').isHidden(), 'valid catalyst and bounded upgrade remain a clean restoration');
+    assert.strictEqual(await validMagic.evaluate(() => new URL(location.href).searchParams.get('cu')), '5', 'valid catalyst upgrade remains in the canonical share URL');
+    await validMagic.close();
+
     const invalidUrl = await open(browser, '?w=longsword&cat=not-a-catalyst&sp=not-a-spell&sa=not-a-spell&sv=not-a-variant&en=not-an-enemy&wm=not-a-move&am=not-ammo&rh=longsword~Blood~25~not-a-skill~not-an-event,-,-');
     await invalidUrl.locator('#buildRestoreNotice').waitFor({ state:'visible' });
     await invalidUrl.evaluate(() => Promise.all(['magic', 'skills', 'encounter'].map(name => window.ERBuild.ensureDomain(name))));
@@ -103,6 +126,20 @@ async function open(browser, query) {
     assert((await stored.locator('#buildRestoreNotice').textContent()).includes('unavailable'), 'invalid saved deferred values disclose their removal');
     await stored.close();
 
+    const storedVariant = await browser.newPage({ viewport:{ width:390, height:844 } });
+    await storedVariant.addInitScript(() => localStorage.setItem('er-build', JSON.stringify({ magic:{ variantId:'not-a-variant' } })));
+    await storedVariant.goto(BASE, { waitUntil:'domcontentloaded' });
+    await storedVariant.locator('#stats .stat').first().waitFor({ state:'visible' });
+    await assertOrphanMagicFieldRemoved(storedVariant, 'sv', 'variantId', 'spell variant', 'variant-only localStorage restoration');
+    await storedVariant.close();
+
+    const storedUpgrade = await browser.newPage({ viewport:{ width:390, height:844 } });
+    await storedUpgrade.addInitScript(() => localStorage.setItem('er-build', JSON.stringify({ magic:{ upgrade:17 } })));
+    await storedUpgrade.goto(BASE, { waitUntil:'domcontentloaded' });
+    await storedUpgrade.locator('#stats .stat').first().waitFor({ state:'visible' });
+    await assertOrphanMagicFieldRemoved(storedUpgrade, 'cu', 'upgrade', 'catalyst upgrade', 'upgrade-only localStorage restoration');
+    await storedUpgrade.close();
+
     const named = await browser.newPage({ viewport:{ width:390, height:844 } });
     await named.addInitScript(() => localStorage.setItem('er-my-builds', JSON.stringify([{
       name:'Bad loaded build', state:{ weapon:'longsword', affinity:'Blood', upgrade:25,
@@ -127,6 +164,24 @@ async function open(browser, query) {
     await named.getByRole('tab', { name:'Encounter', exact:true }).click();
     assert.strictEqual(await named.locator('#enemyClear').isHidden(), true, 'already-loaded named restoration leaves no enemy clear action');
     await named.close();
+
+    const namedMagic = await browser.newPage({ viewport:{ width:390, height:844 } });
+    await namedMagic.addInitScript(() => localStorage.setItem('er-my-builds', JSON.stringify([
+      { name:'Variant-only loaded build', state:{ magic:{ variantId:'not-a-variant' } } },
+      { name:'Upgrade-only loaded build', state:{ magic:{ upgrade:17 } } }
+    ])));
+    await namedMagic.goto(BASE, { waitUntil:'domcontentloaded' });
+    await namedMagic.locator('#stats .stat').first().waitFor({ state:'visible' });
+    await namedMagic.evaluate(() => window.ERBuild.ensureDomain('magic'));
+    await namedMagic.getByRole('button', { name:'Variant-only loaded build', exact:true }).click();
+    await assertOrphanMagicFieldRemoved(namedMagic, 'sv', 'variantId', 'spell variant', 'already-loaded variant-only named restoration');
+    await namedMagic.getByRole('button', { name:'Upgrade-only loaded build', exact:true }).click();
+    await namedMagic.waitForFunction(() => {
+      const saved = JSON.parse(localStorage.getItem('er-build'));
+      return !new URL(location.href).searchParams.has('cu') && saved.magic.upgrade == null && !document.querySelector('#catalystSelect').disabled;
+    });
+    assert((await namedMagic.locator('#buildRestoreNotice').textContent()).includes('catalyst upgrade'), 'already-loaded upgrade-only named restoration reports Magic normalization');
+    await namedMagic.close();
 
     console.log('loading browser regressions passed');
   } finally {
