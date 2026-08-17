@@ -77,6 +77,10 @@ the Build Lab, journey guides, and Tales. Publication is a single manifest chang
 the final 40,061-word narration master to its prologue, twenty movements, and coda. Film II uses
 the same manifest-driven YouTube release switch while retaining the complete written edition.
 
+**GOLD AND SHADOW — Archive Film III** (`gold-and-shadow/`) — the candlelit cinematic companion
+to the 55,000-word in-world chronicle. It joins the film poster and chronicler study to the
+prologue, fourteen chapters, and two appendices, with the same manifest-driven release switch.
+
 The landing page's **Returning Grace** ledger reads the same device-local state used by the tools:
 active/named builds, 109 valid quest steps, 21 boss records, and all 48 Tale chapters. It never
 uploads progress; it validates stored IDs against the current manifests and resumes the next unread

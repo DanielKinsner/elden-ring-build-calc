@@ -9,6 +9,7 @@
       "words": "≈55,000 words",
       "spoilers": "Full spoilers — base game, all endings, and the entire DLC.",
       "dir": "content/gold-and-shadow/",
+      "companion": "gold-and-shadow",
       "chapters": [
         { "id": "prologue",   "file": "00-prologue.md",                    "num": "Prologue",  "title": "A Note on Relics",              "tease": "How to hear the hedges — read this first" },
         { "id": "ch01",       "file": "01-the-world-before-gold.md",       "num": "I",         "title": "The World Before Gold",         "tease": "Crucible, dragons, the fled god, the falling stars" },

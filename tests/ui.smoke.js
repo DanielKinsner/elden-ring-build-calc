@@ -323,9 +323,10 @@ async function main() {
     await film.screenshot({ path:'/tmp/elden-kindling-desktop.png', fullPage:true });
     const tales = await filmContext.newPage();
     await tales.goto(new URL('../tales/', BASE).toString(), { waitUntil:'networkidle' });
-    assert((await tales.locator('.tale-companion').first().getAttribute('href')) === '../kindling/', 'written KINDLING points back to the film companion');
-    assert(await tales.locator('.tale-companion').count() === 2, 'Tales exposes both Archive Film companions');
-    assert((await tales.locator('.tale-companion').nth(1).getAttribute('href')) === '../ranni/', 'written Ranni points back to Archive Film II');
+    assert(await tales.locator('.tale-companion').count() === 3, 'Tales exposes all three Archive Film companions');
+    assert((await tales.locator('.tale-card').nth(0).locator('.tale-companion').getAttribute('href')) === '../gold-and-shadow/', 'written Gold and Shadow points back to Archive Film III');
+    assert((await tales.locator('.tale-card').nth(1).locator('.tale-companion').getAttribute('href')) === '../kindling/', 'written KINDLING points back to Archive Film I');
+    assert((await tales.locator('.tale-card').nth(2).locator('.tale-companion').getAttribute('href')) === '../ranni/', 'written Ranni points back to Archive Film II');
 
     const ranni = await filmContext.newPage();
     ranni.on('console', (msg) => { if (msg.type() === 'error') errors.push('ranni console: ' + msg.text()); });
@@ -342,6 +343,21 @@ async function main() {
     assert(await ranni.locator('.ranni-coda img').evaluate(async (image) => { await image.decode(); return image.naturalWidth === 1672 && image.naturalHeight === 941; }), 'Film II loads the crescent portrait');
     assert((await ranni.locator('meta[property="og:image"]').getAttribute('content')).endsWith('/assets/ranni-film-ii.webp'), 'Film II shares with its dedicated title artwork');
     await ranni.screenshot({ path:'/tmp/elden-ranni-desktop.png', fullPage:true });
+
+    const goldShadow = await filmContext.newPage();
+    goldShadow.on('console', (msg) => { if (msg.type() === 'error') errors.push('gold shadow console: ' + msg.text()); });
+    goldShadow.on('pageerror', (error) => errors.push('gold shadow page: ' + error.message));
+    goldShadow.on('response', (response) => { if (response.status() >= 400) errors.push('gold shadow http ' + response.status() + ': ' + response.url()); });
+    await goldShadow.goto(new URL('../gold-and-shadow/', BASE).toString(), { waitUntil:'networkidle' });
+    assert((await goldShadow.locator('#goldShadowStatus').textContent()).includes('In production'), 'Film III has a deliberate pre-release state');
+    assert(await goldShadow.locator('.gold-shadow-chapter').count() === 17, 'Film III exposes the prologue, fourteen chapters, and two appendices');
+    assert((await goldShadow.locator('.gold-shadow-chapter').first().getAttribute('href')).includes('work=gold-and-shadow&ch=prologue'), 'Film III begins at the canonical prologue');
+    assert((await goldShadow.locator('.gold-shadow-chapter').last().getAttribute('href')).includes('work=gold-and-shadow&ch=appendix-b'), 'Film III ends at the canonical source appendix');
+    assert(await goldShadow.locator('link[rel="canonical"]').getAttribute('href') === 'https://elden-ring-build-calc.vercel.app/gold-and-shadow/', 'Film III publishes its canonical URL');
+    assert(await goldShadow.locator('.gold-shadow-poster').evaluate(async (image) => { await image.decode(); return image.naturalWidth === 1672 && image.naturalHeight === 941; }), 'Film III loads its full-resolution title poster');
+    assert(await goldShadow.locator('.gold-shadow-method img').evaluate(async (image) => { await image.decode(); return image.naturalWidth === 1672 && image.naturalHeight === 941; }), 'Film III loads the candlelit study artwork');
+    assert((await goldShadow.locator('meta[property="og:image"]').getAttribute('content')).endsWith('/assets/gold-shadow-film-iii.webp'), 'Film III shares with its dedicated title artwork');
+    await goldShadow.screenshot({ path:'/tmp/elden-gold-shadow-desktop.png', fullPage:true });
     await filmContext.close();
 
     const filmMobileContext = await browser.newContext({ viewport:{ width:390, height:844 } });
@@ -359,6 +375,14 @@ async function main() {
     assert(await ranniMobile.locator('.ranni-movement').count() === 22, 'mobile retains the complete Ranni testament');
     await ranniMobile.evaluate(() => Promise.all(Array.from(document.querySelectorAll('.ranni-page img')).map((image) => image.decode())));
     await ranniMobile.screenshot({ path:'/tmp/elden-ranni-mobile.png', fullPage:true });
+
+    const goldShadowMobile = await filmMobileContext.newPage();
+    await goldShadowMobile.goto(new URL('../gold-and-shadow/', BASE).toString(), { waitUntil:'networkidle' });
+    const goldShadowOverflow = await goldShadowMobile.evaluate(() => ({ scroll:document.documentElement.scrollWidth, inner:window.innerWidth }));
+    assert(goldShadowOverflow.scroll <= goldShadowOverflow.inner, 'Film III has no 390px horizontal overflow');
+    assert(await goldShadowMobile.locator('.gold-shadow-chapter').count() === 17, 'mobile retains the complete Gold and Shadow chronicle');
+    await goldShadowMobile.evaluate(() => Promise.all(Array.from(document.querySelectorAll('.gold-shadow-page img')).map((image) => image.decode())));
+    await goldShadowMobile.screenshot({ path:'/tmp/elden-gold-shadow-mobile.png', fullPage:true });
     await filmMobileContext.close();
 
     const liveFilmContext = await browser.newContext({ viewport:{ width:1280, height:800 } });

@@ -1,6 +1,15 @@
 {
   "schemaVersion": 1,
   "releases": {
+    "gold-and-shadow": {
+      "title": "GOLD AND SHADOW — A Complete History of the Lands Between",
+      "filmNumber": "III",
+      "status": "production",
+      "youtubeId": "",
+      "published": null,
+      "duration": null,
+      "description": "A chronicler in the Roundtable Hold reconstructs the complete history of the Lands Between from relics, remembrances, testimony, and the silences left behind."
+    },
     "kindling": {
       "title": "KINDLING — The Story of Melina",
       "filmNumber": "I",

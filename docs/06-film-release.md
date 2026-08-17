@@ -4,7 +4,8 @@
 
 ## Publish a film
 
-Change only the relevant release record (`kindling` for Film I or `ranni` for Film II):
+Change only the relevant release record (`kindling` for Film I, `ranni` for Film II, or
+`gold-and-shadow` for Film III):
 
 ```json
 {
@@ -29,4 +30,6 @@ node scripts/check-refs.js
 node tests/engine.test.js
 ```
 
-After Vercel reports Ready, open the changed companion (`/kindling/` or `/ranni/`), play the embed, and test the YouTube description link in a private browser window. For Film I, also check the homepage ribbon.
+After Vercel reports Ready, open the changed companion (`/kindling/`, `/ranni/`, or
+`/gold-and-shadow/`), play the embed, and test the YouTube description link in a private browser
+window. For Film I, also check the homepage ribbon.

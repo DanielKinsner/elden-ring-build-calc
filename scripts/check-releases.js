@@ -15,6 +15,7 @@ function assert(ok, message) {
 assert(releases.schemaVersion === 1, 'release manifest schema is versioned');
 const sitemap = fs.readFileSync(path.join(root, 'sitemap.xml'), 'utf8');
 [
+  { id:'gold-and-shadow', label:'Film III', chapters:17 },
   { id:'kindling', label:'KINDLING', chapters:9 },
   { id:'ranni', label:'Film II', chapters:22 }
 ].forEach((film) => {
