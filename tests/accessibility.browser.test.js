@@ -199,7 +199,14 @@ async function unmetSuggestionContrast(page) {
     ok(await mobile.locator('[data-tali-slot="0"]').getAttribute('aria-label') === 'Talisman slot 1: empty', '390px talisman removal target mutates the intended slot');
     const removalSize = await dimensions(mobile);
     ok(removalSize.scroll <= removalSize.inner, '40px mobile removal controls add no horizontal overflow');
-    await mobile.emulateMedia({ reducedMotion:'reduce' }); await mobile.reload({ waitUntil:'domcontentloaded' }); await mobile.locator('#build-view-tab-character').click(); await mobile.locator('[data-view-panel="character"]').waitFor({ state:'visible' }); await mobile.locator('#stats .stat').first().waitFor({ state:'visible' });
+    await mobile.emulateMedia({ reducedMotion:'reduce' });
+    await mobile.reload({ waitUntil:'domcontentloaded' });
+    // The tabs are static HTML, but their panels/listeners are installed after core data loads.
+    // Wait for that boundary so a fast runner cannot click a not-yet-wired tab.
+    await mobile.locator('[data-view-panel="character"]').waitFor({ state:'attached' });
+    await mobile.locator('#build-view-tab-character').click();
+    await mobile.locator('[data-view-panel="character"]').waitFor({ state:'visible' });
+    await mobile.locator('#stats .stat').first().waitFor({ state:'visible' });
     ok(await mobile.evaluate(() => matchMedia('(prefers-reduced-motion: reduce)').matches && Number.parseFloat(getComputedStyle(document.querySelector('.build-page .panel')).animationDuration) <= .001 && Number.parseFloat(getComputedStyle(document.querySelector('.rack-slot')).transitionDuration) <= .001), 'Build suppresses animation and transition motion');
 
     console.log('  … checking Atlas semantics, geometry, and motion');
