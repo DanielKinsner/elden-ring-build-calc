@@ -34,6 +34,7 @@
   </div>
 </header>
 
+<div class="build-load-state" id="buildLoadState" role="status" aria-live="polite">Loading essential build data…</div>
 <main class="grid">
   <!-- CHARACTER -->
   <section class="panel">
@@ -128,6 +129,7 @@
     </div>
     <h2 class="mt">Memory &amp; Casting <span class="section-kicker" id="memoryBudget">0 / 10 slots</span></h2>
     <section class="magic-altar" aria-label="Spell memory and catalyst analysis">
+      <div class="domain-state" id="magicDomainState" hidden></div>
       <div class="magic-altar-head">
         <div class="magic-sigil" aria-hidden="true"><i></i><span>✦</span></div>
         <div><span class="k">Casting tool</span><b id="catalystSummary">No catalyst equipped</b><small id="catalystSummaryNote">Select a staff, seal, or universal catalyst</small></div>
@@ -167,6 +169,7 @@
     </section>
     <h2 class="mt">Skill &amp; Ash <span class="section-kicker">2,422 exact attack events</span></h2>
     <section class="skill-lab" aria-label="Weapon skill and Ash of War analysis">
+      <div class="domain-state" id="skillsDomainState" hidden></div>
       <div class="skill-head">
         <div class="skill-sigil" aria-hidden="true"><i></i><span>✧</span></div>
         <div><span class="k" id="skillKind">Weapon skill</span><b id="skillName">—</b><small id="skillNote">The active armament decides what is legal.</small></div>
@@ -189,6 +192,7 @@
     </section>
     <h2 class="mt">Encounter <span class="section-kicker">3,341 profiles · NG–NG+7</span></h2>
     <section class="encounter-lab" aria-label="Enemy defense and status context">
+      <div class="domain-state" id="encounterDomainState" hidden></div>
       <div class="encounter-head">
         <div class="encounter-rune" aria-hidden="true"><i></i><span>☠</span></div>
         <div><span class="k">Target profile</span><b id="enemySummary">Sandbox target</b><small id="enemySummaryNote">Choose an enemy for final damage and exact status thresholds</small></div>

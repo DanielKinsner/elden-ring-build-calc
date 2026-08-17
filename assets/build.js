@@ -7,30 +7,76 @@
   var STATUS = [['bleed','Bleed'],['frost','Frost'],['poison','Poison'],['rot','Scarlet Rot'],['sleep','Sleep'],['madness','Madness']];
   var $ = function (id) { return document.getElementById(id); };
 
-  var weapons = await ERData.loadWeapons('../data/');
-  var presets = await ERData.loadPresets('../data/');
-  var buffData = await ERData.loadBuffs('../data/');
-  var riteData = await ERData.loadRites('../data/');
-  var armor = await ERData.loadArmor('../data/');
-  var talismans = await ERData.loadTalismans('../data/');
-  var attackProfiles = await ERData.loadAttackProfiles('../data/');
-  var magicData = await ERData.loadMagic('../data/');
-  var catalysts = magicData.catalysts, catalystCurves = magicData.curves, spells = magicData.spells;
-  var enemyData = await ERData.loadEnemies('../data/');
-  var enemies = enemyData.items, enemyById = {};
-  enemies.forEach(function (item) { enemyById[item.id] = item; });
-  var weaponMoveData = await ERData.loadWeaponMoves('../data/');
-  var weaponMovesById = {};
-  weaponMoveData.items.forEach(function (item) { weaponMovesById[item.weaponId] = item; });
-  var ammoData = await ERData.loadAmmo('../data/');
-  var ammo = ammoData.items, ammoById = {};
-  ammo.forEach(function (item) { ammoById[item.id] = item; });
-  var skillData = await ERData.loadSkills('../data/');
-  var skills = skillData.items, skillById = {};
-  skills.forEach(function (item) { skillById[item.id] = item; });
+  // Core data is all that is needed for a complete freeform character, loadout,
+  // AR, defense, effects, and save/share state. Keep analysis corpora separate.
+  var core;
+  try {
+    core = await Promise.all([
+      ERData.loadWeapons('../data/'), ERData.loadPresets('../data/'), ERData.loadBuffs('../data/'),
+      ERData.loadRites('../data/'), ERData.loadArmor('../data/'), ERData.loadTalismans('../data/'),
+      ERData.loadAttackProfiles('../data/')
+    ]);
+  } catch (error) {
+    $('buildLoadState').className = 'build-load-state error';
+    $('buildLoadState').innerHTML = 'Essential Build Lab data is unavailable. <button type="button" onclick="location.reload()">Retry</button>';
+    return;
+  }
+  var weapons = core[0], presets = core[1], buffData = core[2], riteData = core[3], armor = core[4], talismans = core[5], attackProfiles = core[6];
+  var magicData = { catalysts:[], curves:{}, spells:[] }, catalysts = [], catalystCurves = {}, spells = [];
+  var enemyData = { items:[] }, enemies = [], enemyById = {};
+  var weaponMoveData = { items:[] }, weaponMovesById = {};
+  var ammoData = { items:[], compatibility:{} }, ammo = [], ammoById = {};
+  var skillData = { items:[], weaponSkills:{} }, skills = [], skillById = {};
   var catalystById = {}, spellById = {};
-  catalysts.forEach(function (item) { catalystById[item.id] = item; });
-  spells.forEach(function (item) { spellById[item.id] = item; });
+  var domains = { magic:{ state:'idle' }, skills:{ state:'idle' }, encounter:{ state:'idle' } };
+  var buildReady = false;
+
+  function domainMessage(name) {
+    var domain = domains[name], el = $(name === 'magic' ? 'magicDomainState' : name === 'skills' ? 'skillsDomainState' : 'encounterDomainState');
+    if (!el) return;
+    if (domain.state === 'loaded') { el.hidden = true; return; }
+    el.hidden = false;
+    el.className = 'domain-state' + (domain.state === 'failed' ? ' error' : '');
+    var label = name === 'magic' ? 'Magic' : name === 'skills' ? 'Skills and Ashes' : 'Encounter analysis';
+    if (domain.state === 'loading') el.textContent = label + ' data is loading…';
+    else if (domain.state === 'failed') el.innerHTML = label + ' data is unavailable; core Build Lab controls remain usable. <button type="button" data-domain-retry="' + name + '">Retry</button>';
+    else el.innerHTML = label + ' data loads when you open this analysis. <button type="button" data-domain-retry="' + name + '">Load</button>';
+  }
+  function updateDomainMessages() { Object.keys(domains).forEach(domainMessage); }
+  function indexById(items) { var out = {}; items.forEach(function (item) { out[item.id] = item; }); return out; }
+  function loadDomain(name) {
+    if (name === 'magic') return ERData.loadMagic('../data/');
+    if (name === 'skills') return ERData.loadSkills('../data/');
+    return Promise.all([ERData.loadEnemies('../data/'), ERData.loadWeaponMoves('../data/'), ERData.loadAmmo('../data/')]);
+  }
+  function applyDomain(name, data) {
+    if (name === 'magic') {
+      magicData = data; catalysts = data.catalysts; catalystCurves = data.curves; spells = data.spells;
+      catalystById = indexById(catalysts); spellById = indexById(spells);
+    } else if (name === 'skills') {
+      skillData = data; skills = data.items; skillById = indexById(skills);
+    } else {
+      enemyData = data[0]; enemies = enemyData.items; enemyById = indexById(enemies);
+      weaponMoveData = data[1]; weaponMovesById = {}; weaponMoveData.items.forEach(function (item) { weaponMovesById[item.weaponId] = item; });
+      ammoData = data[2]; ammo = ammoData.items; ammoById = indexById(ammo);
+    }
+  }
+  function ensureDomain(name) {
+    var domain = domains[name];
+    if (!domain) return Promise.reject(new Error('Unknown Build Lab domain: ' + name));
+    if (domain.state === 'loaded') return Promise.resolve();
+    if (domain.promise) return domain.promise;
+    domain.state = 'loading'; updateDomainMessages();
+    domain.promise = loadDomain(name).then(function (data) {
+      applyDomain(name, data); domain.state = 'loaded'; domain.promise = null; updateDomainMessages();
+      if (buildReady) { if (name === 'magic') { fillCatalystOptions(); fillCatalystUpgrade(); } render(); }
+    }, function () {
+      domain.state = 'failed'; domain.promise = null; updateDomainMessages();
+    });
+    return domain.promise;
+  }
+  window.ERBuild = window.ERBuild || {};
+  window.ERBuild.ensureDomain = ensureDomain;
   var attackProfileById = {};
   attackProfiles.forEach(function (profile) { attackProfileById[profile.id] = profile; });
   var armorById = {};
@@ -71,7 +117,8 @@
       weaponId: weaponId,
       affinity: raw.affinity || 'Standard',
       upgrade: raw.upgrade != null ? +raw.upgrade : raw.upgradeLevel != null ? +raw.upgradeLevel : null,
-      skillId: raw.skillId && skillById[raw.skillId] ? raw.skillId : null,
+      // Retain a saved skill id until its deferred corpus hydrates.
+      skillId: raw.skillId || null,
       skillEventId: raw.skillEventId || raw.eventId || null
     };
   }
@@ -92,7 +139,7 @@
      ?b=VIG.MND.END.STR.DEX.INT.FAI.ARC&w=<id>&a=<affinity>&u=<upgrade>&h=0|1&l=<level> */
   var BOOT = (function () {
     var q = new URLSearchParams(location.search);
-    if (q.get('b') || q.get('w')) {
+    if (q.get('b') || q.get('w') || q.get('cat') || q.get('sp') || q.get('sa') || q.get('en') || q.get('wm') || q.get('am')) {
       var s = (q.get('b') || '').split('.').map(Number);
       var armorParts = (q.get('ar') || '').split('.');
       var o = { stats: {}, weapon: q.get('w'), affinity: q.get('a'), upgrade: q.get('u'), twoHanded: q.get('h') !== '0', level: +q.get('l') || null,
@@ -203,16 +250,18 @@
   while (selectedTalismans.length < TALI_MAX) selectedTalismans.push(null);
   var savedMagic = BOOT && (BOOT.magic || (BOOT.loadout && BOOT.loadout.magic)) || {};
   var magicState = {
-    catalystId: catalystById[savedMagic.catalystId] ? savedMagic.catalystId : null,
+    // Do not discard valid saved/deep-linked secondary choices before their
+    // respective data domain has loaded.
+    catalystId: savedMagic.catalystId || null,
     upgrade: savedMagic.upgrade == null ? null : +savedMagic.upgrade,
     memorySlots: Math.max(1, Math.min(10, +savedMagic.memorySlots || 10)),
-    spells: (savedMagic.spells || (BOOT && BOOT.loadout && BOOT.loadout.spells) || []).map(function (item) { return typeof item === 'string' ? item : item && (item.spellId || item.id); }).filter(function (id, index, all) { return spellById[id] && all.indexOf(id) === index; }),
-    activeSpell: spellById[savedMagic.activeSpell] ? savedMagic.activeSpell : null,
+    spells: (savedMagic.spells || (BOOT && BOOT.loadout && BOOT.loadout.spells) || []).map(function (item) { return typeof item === 'string' ? item : item && (item.spellId || item.id); }).filter(function (id, index, all) { return id && all.indexOf(id) === index; }),
+    activeSpell: savedMagic.activeSpell || null,
     variantId: savedMagic.variantId || null
   };
   if (!magicState.activeSpell && magicState.spells.length) magicState.activeSpell = magicState.spells[0];
   var savedEncounter = BOOT && (BOOT.encounter || (BOOT.context && { enemyId:BOOT.context.enemyId, ng:BOOT.context.ngCycle, moveId:BOOT.context.moveId, ammoId:BOOT.context.ammoId })) || {};
-  var encounterState = { enemyId: enemyById[savedEncounter.enemyId] ? savedEncounter.enemyId : null, ng:Math.max(0,Math.min(7,+savedEncounter.ng || 0)), moveId:savedEncounter.moveId || null, ammoId:ammoById[savedEncounter.ammoId] ? savedEncounter.ammoId : null };
+  var encounterState = { enemyId:savedEncounter.enemyId || null, ng:Math.max(0,Math.min(7,+savedEncounter.ng || 0)), moveId:savedEncounter.moveId || null, ammoId:savedEncounter.ammoId || null };
   function equippedTalismanItems() {
     return selectedTalismans.map(function (slot) { return slot && taliById(slot.talismanId); });
   }
@@ -689,7 +738,9 @@
     setTimeout(function () { $('spellSearch').focus(); }, 0);
   }
   function closeSpellPicker() { $('spellPicker').hidden = true; }
-  $('addSpell').addEventListener('click', openSpellPicker);
+  $('addSpell').addEventListener('click', function () {
+    ensureDomain('magic').then(function () { if (domains.magic.state === 'loaded') openSpellPicker(); });
+  });
   $('spellPickerClose').addEventListener('click', closeSpellPicker);
   $('spellSearch').addEventListener('input', function () { renderSpellList(this.value); });
   $('spellFilter').addEventListener('click', function (event) {
@@ -721,6 +772,14 @@
 
   function renderMagic(mods, boosted) {
     lastMagicMods = mods || [];
+    if (domains.magic.state !== 'loaded') {
+      $('catalystSelect').disabled = true; $('catalystUpgrade').disabled = true; $('addSpell').disabled = false;
+      $('catalystSummary').textContent = domains.magic.state === 'failed' ? 'Magic data unavailable' : 'Magic data on demand';
+      $('catalystSummaryNote').textContent = domains.magic.state === 'failed' ? 'Retry the Magic data load above.' : 'Open this section to load casting tools and spells.';
+      $('magicAnalysis').hidden = true;
+      return null;
+    }
+    $('catalystSelect').disabled = false;
     fillCatalystOptions(); fillCatalystUpgrade();
     $('baseMemorySlots').value = magicState.memorySlots;
     renderSpellRack(mods);
@@ -799,6 +858,15 @@
     return Object.keys(fp).map(function (key) { return key.toUpperCase() + ' ' + fp[key]; }).join(' · ') || '0';
   }
   function renderSkill(baseMods, boosted) {
+    if (domains.skills.state !== 'loaded') {
+      $('skillKind').textContent = domains.skills.state === 'failed' ? 'Unavailable' : 'On-demand analysis';
+      $('skillName').textContent = domains.skills.state === 'failed' ? 'Skill data unavailable' : 'Open Skills to load exact events';
+      $('skillNote').textContent = domains.skills.state === 'failed' ? 'Retry the Skill data load above.' : 'Your equipped weapon and freeform build remain unchanged.';
+      $('skillSelect').innerHTML = '<option>Loading on demand</option>'; $('skillSelect').disabled = true;
+      $('skillEvent').innerHTML = '<option>Loading on demand</option>'; $('skillEvent').disabled = true;
+      $('skillAnalysis').hidden = true; $('skillEmpty').hidden = true;
+      return null;
+    }
     var record = weaponSkillRecord(), model = activeSkillModel();
     $('skillEmpty').hidden = true;
     if (!model) {
@@ -945,7 +1013,9 @@
   }
   function openEnemyPicker() { $('enemyPicker').hidden = false; $('enemySearch').value = ''; renderEnemyList(''); setTimeout(function () { $('enemySearch').focus(); }, 0); }
   function closeEnemyPicker() { $('enemyPicker').hidden = true; }
-  $('enemyPickerOpen').addEventListener('click', openEnemyPicker);
+  $('enemyPickerOpen').addEventListener('click', function () {
+    ensureDomain('encounter').then(function () { if (domains.encounter.state === 'loaded') openEnemyPicker(); });
+  });
   $('enemyPickerClose').addEventListener('click', closeEnemyPicker);
   $('enemySearch').addEventListener('input', function () { renderEnemyList(this.value); });
   $('enemyFilter').addEventListener('click', function (event) {
@@ -970,6 +1040,14 @@
   $('ammoSelect').addEventListener('change', function () { encounterState.ammoId = ammoById[this.value] ? this.value : null; render(); });
 
   function renderEncounter(weaponResult, magicResult, skillResult) {
+    if (domains.encounter.state !== 'loaded') {
+      $('enemySummary').textContent = domains.encounter.state === 'failed' ? 'Encounter data unavailable' : 'Optional encounter analysis';
+      $('enemySummaryNote').textContent = domains.encounter.state === 'failed' ? 'Retry the Encounter data load above.' : 'Open this section to load enemy, move, and ammunition data.';
+      $('enemyButtonLabel').textContent = domains.encounter.state === 'failed' ? 'Unavailable' : 'Load profiles…';
+      $('weaponMove').innerHTML = '<option>Load encounter data</option>'; $('weaponMove').disabled = true;
+      $('ammoControl').hidden = true; $('encounterResults').hidden = true; $('enemyClear').hidden = true;
+      return;
+    }
     var enemy = encounterEnemy(), cycle = encounterCycle();
     var move = fillWeaponMoves();
     $('ngCycle').value = encounterState.ng;
@@ -1150,17 +1228,17 @@
     selectedTalismans = savedTalismans.slice(0, TALI_MAX).map(normalizeTalisman);
     while (selectedTalismans.length < TALI_MAX) selectedTalismans.push(null);
     var restoredMagic = o.magic || (o.loadout && o.loadout.magic) || {};
-    magicState.catalystId = catalystById[restoredMagic.catalystId] ? restoredMagic.catalystId : null;
+    magicState.catalystId = restoredMagic.catalystId || null;
     magicState.upgrade = restoredMagic.upgrade == null ? null : +restoredMagic.upgrade;
     magicState.memorySlots = Math.max(1, Math.min(10, +restoredMagic.memorySlots || 10));
-    magicState.spells = (restoredMagic.spells || (o.loadout && o.loadout.spells) || []).map(function (item) { return typeof item === 'string' ? item : item && (item.spellId || item.id); }).filter(function (id, index, all) { return spellById[id] && all.indexOf(id) === index; });
-    magicState.activeSpell = spellById[restoredMagic.activeSpell] ? restoredMagic.activeSpell : magicState.spells[0] || null;
+    magicState.spells = (restoredMagic.spells || (o.loadout && o.loadout.spells) || []).map(function (item) { return typeof item === 'string' ? item : item && (item.spellId || item.id); }).filter(function (id, index, all) { return id && all.indexOf(id) === index; });
+    magicState.activeSpell = restoredMagic.activeSpell || magicState.spells[0] || null;
     magicState.variantId = restoredMagic.variantId || null;
     var restoredEncounter = o.encounter || o.context || {};
-    encounterState.enemyId = enemyById[restoredEncounter.enemyId] ? restoredEncounter.enemyId : null;
+    encounterState.enemyId = restoredEncounter.enemyId || null;
     encounterState.ng = Math.max(0, Math.min(7, +(restoredEncounter.ng != null ? restoredEncounter.ng : restoredEncounter.ngCycle) || 0));
     encounterState.moveId = restoredEncounter.moveId || null;
-    encounterState.ammoId = ammoById[restoredEncounter.ammoId] ? restoredEncounter.ammoId : null;
+    encounterState.ammoId = restoredEncounter.ammoId || null;
     scaduLevel = Math.max(0, Math.min(20, +o.scadu || 0)); syncScadu();
     gearWeight = Math.max(0, +o.gearWeight || 0); $('gearWeight').value = gearWeight;
     var savedArmor = o.armor || (o.loadout && o.loadout.armor) || {};
@@ -1194,6 +1272,9 @@
     renderBuffGroups();
     activePresetIndex = -1; syncActivePreset();
     render();
+    if (magicState.catalystId || magicState.spells.length || magicState.activeSpell) ensureDomain('magic');
+    if (skillId) ensureDomain('skills');
+    if (encounterState.enemyId || encounterState.moveId || encounterState.ammoId) ensureDomain('encounter');
   }
   function renderMyBuilds() {
     $('myBuildsHead').hidden = myBuilds.length === 0;
@@ -1691,5 +1772,25 @@
       upgradeLevel = +desiredUpgrade; $('upgrade').value = upgradeLevel;
     }
   }
+  document.addEventListener('click', function (event) {
+    var retry = event.target.closest('[data-domain-retry]');
+    if (retry) ensureDomain(retry.getAttribute('data-domain-retry'));
+  });
+  [['magic-altar', 'magic'], ['skill-lab', 'skills'], ['encounter-lab', 'encounter']].forEach(function (entry) {
+    var section = document.querySelector('.' + entry[0]);
+    section.addEventListener('pointerdown', function () { ensureDomain(entry[1]); }, { once:true });
+  });
+
   renderBuffGroups(); syncActivePreset(); render();
+  buildReady = true;
+  $('buildLoadState').hidden = true;
+  updateDomainMessages();
+  // Saved builds and share links requesting a secondary choice hydrate it as
+  // soon as the core interface is usable, never by silently dropping it.
+  if (magicState.catalystId || magicState.spells.length || magicState.activeSpell) ensureDomain('magic');
+  if (skillId) ensureDomain('skills');
+  if (encounterState.enemyId || encounterState.moveId || encounterState.ammoId) ensureDomain('encounter');
+  // Leave the initial paint to the core, then warm the analytical domains in a
+  // separate task. Focused views can still call ensureDomain directly.
+  setTimeout(function () { Object.keys(domains).forEach(ensureDomain); }, 0);
 })();

@@ -14,12 +14,14 @@
     basePath = basePath || 'data/';
     var manifest = await fetchJSON(basePath + 'weapons/manifest.json');
     var files = [].concat(manifest.base || [], manifest.dlc || []);
-    var all = [];
-    for (var i = 0; i < files.length; i++) {
-      var arr = await fetchJSON(basePath + 'weapons/' + files[i]);
-      if (Array.isArray(arr)) all = all.concat(arr);
-    }
-    return all;
+    // Fetch every independent shard together, but flatten the resolved results in
+    // manifest order so callers retain the established corpus contract.
+    var shards = await Promise.all(files.map(function (file) {
+      return fetchJSON(basePath + 'weapons/' + file);
+    }));
+    return shards.reduce(function (all, arr) {
+      return Array.isArray(arr) ? all.concat(arr) : all;
+    }, []);
   }
 
   async function loadPresets(basePath) {

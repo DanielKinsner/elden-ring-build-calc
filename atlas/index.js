@@ -115,7 +115,7 @@
   function cardHtml(w) {
     var badge = badgeFor(w);
     return '<a class="atlas-card" href="./weapon.html?id=' + encodeURIComponent(w.id) + '">' +
-      '<div class="atlas-card-thumb" data-id="' + w.id + '">' + esc(w.name.charAt(0)) + '</div>' +
+      '<div class="atlas-card-thumb"><span aria-hidden="true">' + esc(w.name.charAt(0)) + '</span><img class="atlas-card-image" loading="lazy" decoding="async" src="../assets/icons/weapons/' + encodeURIComponent(w.id) + '.png" alt="" onerror="this.remove()"></div>' +
       '<div class="atlas-card-name">' + esc(w.name) + '</div>' +
       '<div class="atlas-card-type">' + esc(w.type) + '</div>' +
       (badge ? '<div class="atlas-card-badge">' + badge + '</div>' : '') +
@@ -163,11 +163,6 @@
         '<span class="count">' + sorted.length + '</span></div>' + sorted.map(cardHtml).join('');
     }
     grid.innerHTML = html;
-    grid.querySelectorAll('.atlas-card-thumb').forEach(function (el) {
-      var img = new Image();
-      img.onload = function () { el.innerHTML = ''; el.appendChild(img); el.classList.add('has-img'); };
-      img.src = '../assets/icons/weapons/' + el.getAttribute('data-id') + '.png';
-    });
   }
 
   $('atlasTabs').addEventListener('click', function (e) {
