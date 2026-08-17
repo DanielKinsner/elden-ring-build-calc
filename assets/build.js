@@ -614,7 +614,7 @@
             '<button type="button" class="rack-slot-main" data-rack-hand="' + row[0] + '" data-rack-index="' + index + '" aria-label="' + slotLabel(row[0], index) + (weapon ? ': ' + escText(weapon.name) : ': empty') + '">' +
             '<span class="rack-index" aria-hidden="true">' + (index + 1) + '</span><span class="rack-icon" aria-hidden="true"></span><span class="rack-copy"><small>' + (active ? 'Active' : target ? 'Choose weapon' : slotLabel(row[0], index)) + '</small><b>' + (weapon ? escText(weapon.name) : 'Empty') + '</b>' +
             (weapon ? '<em>' + weapon.weight.toFixed(1) + ' wt' + (slot.upgrade != null ? ' · +' + slot.upgrade : ' · max') + '</em>' : '<em>select to equip</em>') + '</span>' +
-            '</button>' + (weapon && !active ? '<button type="button" class="rack-clear" data-rack-clear="1" aria-label="Unequip ' + escText(weapon.name) + ' from ' + slotLabel(row[0], index) + '"><span aria-hidden="true">×</span></button>' : '') + '</div>';
+            '</button>' + (weapon && !active ? '<button type="button" class="rack-clear" data-rack-clear="1" data-rack-hand="' + row[0] + '" data-rack-index="' + index + '" aria-label="Unequip ' + escText(weapon.name) + ' from ' + slotLabel(row[0], index) + '"><span aria-hidden="true">×</span></button>' : '') + '</div>';
         }).join('') + '</div></div>';
     }).join('');
     $('activeSlotLabel').textContent = slotLabel(activeSlot.hand, activeSlot.index) + ' active';
@@ -645,7 +645,7 @@
   $('armamentRack').addEventListener('click', function (e) {
     var button = e.target.closest('[data-rack-hand]'); if (!button) return;
     var hand = button.getAttribute('data-rack-hand'), index = +button.getAttribute('data-rack-index');
-    if (e.target.closest('[data-rack-clear]')) {
+    if (button.hasAttribute('data-rack-clear')) {
       armaments[hand][index] = null;
       if (slotMatches(weaponTarget, { hand: hand, index: index })) weaponTarget = null;
       render(); return;
@@ -678,7 +678,7 @@
         '<button type="button" class="tali-slot-main" data-tali-slot="' + index + '" aria-label="Talisman slot ' + (index + 1) + (item ? ': ' + escText(item.name) : ': empty') + '">' +
           '<span class="tali-gem">' + icon + '</span><span class="tali-copy"><small>Slot ' + (index + 1) + '</small><b>' + (item ? escText(item.name) : 'Empty talisman') + '</b>' +
           '<em>' + (item ? item.weight.toFixed(1) + ' wt · ' + (entry && entry.modeled ? 'math linked' : 'inventory linked') : 'select to equip') + '</em></span></button>' +
-        (item ? '<button type="button" class="tali-clear" data-tali-clear="' + index + '" aria-label="Unequip ' + escText(item.name) + '">×</button>' : '') + condition + '</div>';
+        (item ? '<button type="button" class="tali-clear" data-tali-clear="' + index + '" aria-label="Unequip ' + escText(item.name) + '"><span aria-hidden="true">×</span></button>' : '') + condition + '</div>';
     }).join('');
     $('talismanWeight').textContent = resolution.weight.toFixed(1) + ' weight';
     $('talismanHint').textContent = resolution.conflicts.length
@@ -693,7 +693,7 @@
     var hits = talismans.filter(function (item) {
       return !q || item.name.toLowerCase().indexOf(q) >= 0 || item.effect.toLowerCase().indexOf(q) >= 0;
     }).slice(0, 70);
-    $('talismanList').innerHTML = '<button type="button" class="talisman-result empty" data-talisman-id=""><span class="tali-result-icon">◇</span><span><b>Remove talisman</b><small>0.0 weight</small></span></button>' +
+    $('talismanList').innerHTML = '<button type="button" class="talisman-result empty" data-talisman-id=""><span class="tali-result-icon" aria-hidden="true">◇</span><span><b>Remove talisman</b><small>0.0 weight</small></span></button>' +
       hits.map(function (item) {
         var conflict = talismanConflict(item, talismanPickerSlot);
         return '<button type="button" class="talisman-result' + (conflict ? ' conflict' : '') + '" data-talisman-id="' + item.id + '"' + (conflict ? ' disabled' : '') + '>' +
@@ -825,7 +825,7 @@
       var equipped = magicState.spells.indexOf(spell.id) >= 0;
       var blocked = !equipped && used + spell.slots > cap;
       var sub = spell.categoryDisplay || spell.category || (spell.effect ? spell.effect : spell.variants.length + ' attack variant' + (spell.variants.length === 1 ? '' : 's'));
-      return '<button type="button" class="spell-result ' + spell.type + '" data-spell-id="' + spell.id + '"' + (blocked ? ' disabled' : '') + '><span>' + (spell.type === 'sorcery' ? '✦' : '☼') + '</span><span><b>' + escText(spell.name) + (equipped ? ' · memorized' : '') + '</b><small>' + escText(sub) + '</small></span><em>' + spell.slots + ' slot' + (spell.slots === 1 ? '' : 's') + '</em></button>';
+      return '<button type="button" class="spell-result ' + spell.type + '" data-spell-id="' + spell.id + '"' + (blocked ? ' disabled' : '') + '><span aria-hidden="true">' + (spell.type === 'sorcery' ? '✦' : '☼') + '</span><span><b>' + escText(spell.name) + (equipped ? ' · memorized' : '') + '</b><small>' + escText(sub) + '</small></span><em>' + spell.slots + ' slot' + (spell.slots === 1 ? '' : 's') + '</em></button>';
     }).join('') + (hits.length === 70 ? '<div class="picker-more">Keep typing to narrow 70+ results</div>' : '');
   }
   function openSpellPicker() {
@@ -1227,7 +1227,7 @@
   function renderEffectStack(taliEffects, attackEffects) {
     var buffs = Object.keys(activeBuffs).filter(function (id) { return activeBuffs[id]; }).map(buffById).filter(Boolean);
     var rows = buffs.map(function (item) {
-      return '<div class="effect-row active"><span class="effect-mark">✦</span><span><b>' + escText(item.name) + '</b><small>' + escText(item.note || 'Active buff') + '</small></span><em>APPLIED</em></div>';
+      return '<div class="effect-row active"><span class="effect-mark" aria-hidden="true">✦</span><span><b>' + escText(item.name) + '</b><small>' + escText(item.note || 'Active buff') + '</small></span><em>APPLIED</em></div>';
     });
     var attackById = {};
     (attackEffects.entries || []).forEach(function (entry) { attackById[entry.id] = entry; });
@@ -1237,13 +1237,13 @@
       var profileMiss = physickActive && item.attack && (!attackEntry || !attackEntry.applied);
       var status = !physickActive ? 'MIXTURE DORMANT' : item.modelStatus === 'inventory' ? 'LOADOUT ONLY' : profileMiss ? 'MOVE MISMATCH' : item.modelStatus === 'partial' ? 'PARTIAL' : 'APPLIED';
       rows.push('<div class="effect-row' + (physickActive && item.modelStatus !== 'inventory' && !profileMiss ? ' active' : '') + (profileMiss ? ' waiting' : '') + '">' +
-        '<span class="effect-mark">◌</span><span><b>' + escText(item.name) + '</b><small>' + escText(riteNote(item)) + '</small></span><em>' + status + '</em></div>');
+        '<span class="effect-mark" aria-hidden="true">◌</span><span><b>' + escText(item.name) + '</b><small>' + escText(riteNote(item)) + '</small></span><em>' + status + '</em></div>');
     });
     var rune = greatRuneById[selectedGreatRune];
     if (rune) {
       var runeStatus = !runeArcActive ? 'ARC DORMANT' : rune.modelStatus === 'inventory' ? 'LOADOUT ONLY' : rune.modelStatus === 'partial' ? 'PARTIAL' : 'APPLIED';
       rows.push('<div class="effect-row' + (runeArcActive && rune.modelStatus !== 'inventory' ? ' active' : '') + '">' +
-        '<span class="effect-mark">◈</span><span><b>' + escText(rune.name) + '</b><small>' + escText(riteNote(rune)) + '</small></span><em>' + runeStatus + '</em></div>');
+        '<span class="effect-mark" aria-hidden="true">◈</span><span><b>' + escText(rune.name) + '</b><small>' + escText(riteNote(rune)) + '</small></span><em>' + runeStatus + '</em></div>');
     }
     taliEffects.entries.forEach(function (entry) {
       var item = entry.item;
@@ -1374,8 +1374,8 @@
   function renderMyBuilds() {
     $('myBuildsHead').hidden = myBuilds.length === 0;
     $('myBuilds').innerHTML = myBuilds.map(function (m, i) {
-      return '<button data-m="' + i + '" title="Load this build">' + escText(m.name) +
-        ' <span class="myb-x" data-x="' + i + '" title="Delete this build">×</span></button>';
+      return '<div class="my-build-entry"><button type="button" data-m="' + i + '">' + escText(m.name) +
+        '</button><button type="button" class="myb-x" data-x="' + i + '" aria-label="Delete saved build ' + escText(m.name) + '"><span aria-hidden="true">×</span></button></div>';
     }).join('');
     var sel = $('presetSelect'), og = sel.querySelector('optgroup');
     if (og) og.remove();
@@ -1396,7 +1396,7 @@
     var entry = { name: name, state: captureState() };
     if (existing >= 0) myBuilds[existing] = entry; else myBuilds.push(entry);
     saveMyBuilds(); renderMyBuilds(); renderBuildSummary();
-    self.textContent = 'Saved ✓'; setTimeout(function () { self.textContent = '💾 Save'; }, 1400);
+    self.innerHTML = 'Saved <span aria-hidden="true">✓</span>'; setTimeout(function () { self.innerHTML = '<span aria-hidden="true">💾</span> Save'; }, 1400);
   });
   $('summarySave').addEventListener('click', function () { $('saveBuild').click(); });
   $('summaryShare').addEventListener('click', function () { $('shareBuild').click(); });
@@ -1418,7 +1418,7 @@
     var q = this.value.toLowerCase().trim();
     if (!q) { list.hidden = true; return; }
     var hits = pool().filter(function (w){ return w.name.toLowerCase().indexOf(q) >= 0 || w.type.toLowerCase().indexOf(q) >= 0; }).slice(0, 12);
-    list.innerHTML = hits.map(function (w){ return '<div data-id="'+w.id+'">'+w.name+' <span style="color:var(--dim)">· '+w.type+'</span></div>'; }).join('') || '<div style="color:var(--dim)">no matches</div>';
+    list.innerHTML = hits.map(function (w){ return '<button type="button" data-id="'+w.id+'" aria-label="Equip '+escText(w.name)+'">'+w.name+' <span style="color:var(--dim)">· '+w.type+'</span></button>'; }).join('') || '<div style="color:var(--dim)">no matches</div>';
     list.hidden = false;
   });
   list.addEventListener('click', function (e) {
@@ -1559,8 +1559,8 @@
       var scales = SCALING.indexOf(k) >= 0;
       var grade = scales ? '<span class="grade">'+r.grades[k]+'</span>' : '';
       var cls = 'crow' + (v ? '' : ' zero') + (scales && k === topStat && v > 0 ? ' top' : '');
-      var clickable = scales ? ' data-stat="'+k+'" style="cursor:pointer"' : '';
-      return '<div class="'+cls+'"'+clickable+'><span class="lbl"><b>'+STAT_LABEL[k]+'</b>'+grade+'</span><span class="amt">+'+v+'</span></div>';
+      if (scales) return '<button type="button" class="'+cls+'" data-stat="'+k+'" aria-label="View '+STAT_LABEL[k]+' soft-cap analysis"><span class="lbl"><b>'+STAT_LABEL[k]+'</b>'+grade+'</span><span class="amt">+'+v+'</span></button>';
+      return '<div class="'+cls+'"><span class="lbl"><b>'+STAT_LABEL[k]+'</b>'+grade+'</span><span class="amt">+'+v+'</span></div>';
     }).join('');
 
     renderEffectStack(taliEffects, attackEffects);
@@ -1697,17 +1697,17 @@
     $('suggest').innerHTML = ranked.map(function (x, i) {
       var w = x.weapon;
       var pct = best ? Math.max(4, Math.round(x.ar / best * 100)) : 0;
-      return '<div class="sug-row'+(w.id === current.id ? ' current' : '')+(x.requirementsMet ? '' : ' bad')+'" data-id="'+w.id+'">' +
-        '<span class="sug-rank">'+(i+1)+'</span>' +
-        '<span class="sug-name">'+w.name+(x.requirementsMet ? '' : ' <span class="sug-warn" title="requirements not met">⚠</span>')+
+      return '<div class="sug-row'+(w.id === current.id ? ' current' : '')+(x.requirementsMet ? '' : ' bad')+'">' +
+        '<button type="button" class="sug-select" data-id="'+w.id+'" aria-label="Equip suggested weapon '+escText(w.name)+'">' +
+        '<span class="sug-rank" aria-hidden="true">'+(i+1)+'</span>' +
+        '<span class="sug-name">'+w.name+(x.requirementsMet ? '' : ' <span class="sug-warn" aria-hidden="true">⚠</span>')+
           '<small>'+w.type+(w.source === 'dlc' ? ' · DLC' : '')+'</small></span>' +
         '<span class="sug-bar"><i style="width:'+pct+'%"></i></span>' +
-        '<span class="sug-ar">'+x.ar+'</span>' +
-        '<a class="sug-atlas" href="../atlas/weapon.html?id='+encodeURIComponent(w.id)+'" title="Atlas: where to find it">➜</a></div>';
+        '<span class="sug-ar">'+x.ar+'</span></button>' +
+        '<a class="sug-atlas" href="../atlas/weapon.html?id='+encodeURIComponent(w.id)+'" aria-label="Open '+escText(w.name)+' in Weapon Atlas"><span aria-hidden="true">➜</span></a></div>';
     }).join('') || '<div style="color:var(--dim)">No weapons available.</div>';
   }
   $('suggest').addEventListener('click', function (e) {
-    if (e.target.closest('.sug-atlas')) return; // let the atlas link navigate
     var row = e.target.closest('[data-id]'); if (!row) return;
     current = weapons.find(function (w){ return w.id === row.getAttribute('data-id'); });
     skillId = null; skillEventId = null;
@@ -1734,7 +1734,7 @@
       '<div class="cmp-title">Compare · your build</div>' +
       '<div class="cmp-cards">' + rows.map(function (x) {
         return '<div class="cmp-card'+(x.ar===best?' win':'')+(x.met?'':' bad')+'" data-rm="'+x.w.id+'">' +
-          '<span class="cmp-x" title="remove">×</span>' +
+          '<button type="button" class="cmp-x" aria-label="Remove '+escText(x.w.name)+' from comparison"><span aria-hidden="true">×</span></button>' +
           '<div class="cmp-name">'+x.w.name+'</div>' +
           '<div class="cmp-ar">'+x.ar+(x.met?'':' ⚠')+'</div></div>';
       }).join('') + '</div>' +
@@ -1743,7 +1743,7 @@
   compareBar.addEventListener('click', function (e) {
     if (e.target.classList.contains('cmp-clear')) { compareIds = []; renderCompare(); return; }
     var card = e.target.closest('[data-rm]');
-    if (card && e.target.classList.contains('cmp-x')) {
+    if (card && e.target.closest('.cmp-x')) {
       compareIds = compareIds.filter(function (id){ return id !== card.getAttribute('data-rm'); });
       renderCompare();
     }
@@ -1902,7 +1902,7 @@
   $('shareBuild').addEventListener('click', function () {
     var self = this;
     doPersist(); // make sure the URL is current before copying
-    function ok() { self.textContent = 'Copied ✓'; setTimeout(function () { self.textContent = '🔗 Share'; }, 1400); }
+    function ok() { self.innerHTML = 'Copied <span aria-hidden="true">✓</span>'; setTimeout(function () { self.innerHTML = '<span aria-hidden="true">🔗</span> Share'; }, 1400); }
     if (navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(location.href).then(ok, function () { window.prompt('Copy this build link:', location.href); });
     } else {

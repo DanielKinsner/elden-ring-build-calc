@@ -125,7 +125,7 @@
   function renderTabs() {
     var tabs = ['All'].concat(ATK_PRESENT);
     $('atlasTabs').innerHTML = tabs.map(function (t) {
-      return '<button class="atlas-tab' + (t === activeAtk ? ' active' : '') + '" data-atk="' + esc(t) + '">' + esc(t) + '</button>';
+      return '<button type="button" class="atlas-tab' + (t === activeAtk ? ' active' : '') + '" data-atk="' + esc(t) + '" aria-pressed="' + (t === activeAtk ? 'true' : 'false') + '">' + esc(t) + '</button>';
     }).join('');
   }
 
