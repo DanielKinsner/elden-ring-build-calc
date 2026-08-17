@@ -46,7 +46,7 @@ function deliveryAssetsRemainLightweight() {
   assert(build.includes('ensureDomain'), 'Build Lab exposes an explicit secondary-domain loader');
   assert(build.includes("domain.state = 'failed'") && build.includes('data-domain-retry'), 'secondary failures remain visible and retryable');
   assert(build.includes("q.get('cat')") && build.includes("q.get('en')"), 'secondary-only share URLs enter the hydration path');
-  assert(build.includes('magicState.catalystId || magicState.spells.length') && build.includes("ensureDomain('encounter')"), 'saved secondary state requests hydration instead of being discarded');
+  assert(build.includes('function normalizedRestoration()') && build.includes('return ensureDomain(name);'), 'saved secondary state requests hydration instead of being discarded');
   ['moonrithyll-s-knight-sword.png', 'greatsword-of-radahn-light.png', 'bonny-butchering-knife.png', 'unarmed.png'].forEach(name => {
     const file = path.join(root, 'assets/icons/weapons', name);
     const bytes = fs.readFileSync(file);
