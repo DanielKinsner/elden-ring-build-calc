@@ -24,7 +24,8 @@
   function makeBuildView(name) {
     var panel = document.createElement('section');
     panel.className = 'panel build-view'; panel.setAttribute('data-view-panel', name);
-    panel.setAttribute('role', 'tabpanel'); panel.setAttribute('aria-label', name === 'advanced' ? 'Advanced and trace' : name);
+    panel.id = 'build-view-panel-' + name;
+    panel.setAttribute('role', 'tabpanel'); panel.setAttribute('aria-labelledby', 'build-view-tab-' + name);
     return panel;
   }
   function setBuildView(name, writeURL) {
@@ -34,6 +35,7 @@
     Array.prototype.forEach.call(document.querySelectorAll('[data-build-view]'), function (button) {
       var selected = button.getAttribute('data-build-view') === name;
       button.classList.toggle('active', selected); button.setAttribute('aria-selected', selected ? 'true' : 'false');
+      button.tabIndex = selected ? 0 : -1;
     });
     if (name === 'magic') ensureDomain('magic');
     if (name === 'encounter') ensureDomain('encounter');
@@ -74,6 +76,17 @@
 
     document.querySelector('.build-view-nav').addEventListener('click', function (event) {
       var button = event.target.closest('[data-build-view]'); if (button) setBuildView(button.getAttribute('data-build-view'), true);
+    });
+    document.querySelector('.build-view-nav').addEventListener('keydown', function (event) {
+      var button = event.target.closest('[data-build-view]');
+      if (!button || ['ArrowLeft', 'ArrowRight', 'Home', 'End'].indexOf(event.key) < 0) return;
+      var tabs = Array.prototype.slice.call(document.querySelectorAll('[data-build-view]'));
+      var index = tabs.indexOf(button);
+      if (event.key === 'ArrowLeft') index = (index + tabs.length - 1) % tabs.length;
+      if (event.key === 'ArrowRight') index = (index + 1) % tabs.length;
+      if (event.key === 'Home') index = 0;
+      if (event.key === 'End') index = tabs.length - 1;
+      event.preventDefault(); tabs[index].focus(); setBuildView(tabs[index].getAttribute('data-build-view'), true);
     });
     var requested = new URLSearchParams(location.search).get('view');
     setBuildView(BUILD_VIEWS.indexOf(requested) >= 0 ? requested : 'character', false);
@@ -474,9 +487,10 @@
 
   /* ---- stat sliders ---- */
   $('stats').innerHTML = STATS.map(function (k) {
-    return '<div class="stat"><img class="stat-icon" src="../assets/icons/stats/'+k.toLowerCase()+'.png" alt=""><span class="name">'+STAT_LABEL[k]+'</span>' +
-      '<input type="range" min="1" max="99" value="'+build[k]+'" data-k="'+k+'">' +
-      '<input class="box" type="number" min="1" max="99" value="'+build[k]+'" data-box="'+k+'"></div>';
+    var statName = STAT_LABEL[k];
+    return '<div class="stat"><img class="stat-icon" src="../assets/icons/stats/'+k.toLowerCase()+'.png" alt=""><span class="name">'+statName+'</span>' +
+      '<input id="stat-'+k.toLowerCase()+'-range" name="'+k.toLowerCase()+'-range" type="range" min="1" max="99" value="'+build[k]+'" data-k="'+k+'" aria-label="'+statName+' attribute slider">' +
+      '<input id="stat-'+k.toLowerCase()+'-number" name="'+k.toLowerCase()+'-value" class="box" type="number" min="1" max="99" value="'+build[k]+'" data-box="'+k+'" aria-label="'+statName+' attribute value"></div>';
   }).join('');
   $('stats').addEventListener('input', function (e) {
     var k = e.target.getAttribute('data-k') || e.target.getAttribute('data-box'); if (!k) return;
@@ -596,10 +610,11 @@
           var pos = { hand: row[0], index: index };
           var active = slotMatches(pos, activeSlot), target = slotMatches(pos, weaponTarget);
           var img = weapon ? ' style="--slot-img:url(\'../assets/icons/weapons/' + weapon.id + '.png\')"' : '';
-          return '<button type="button" class="rack-slot' + (active ? ' active' : '') + (target ? ' target' : '') + (weapon ? ' filled' : '') + '" data-rack-hand="' + row[0] + '" data-rack-index="' + index + '"' + img + ' aria-label="' + slotLabel(row[0], index) + (weapon ? ': ' + escText(weapon.name) : ': empty') + '">' +
-            '<span class="rack-index">' + (index + 1) + '</span><span class="rack-icon"></span><span class="rack-copy"><small>' + (active ? 'Active' : target ? 'Choose weapon' : slotLabel(row[0], index)) + '</small><b>' + (weapon ? escText(weapon.name) : 'Empty') + '</b>' +
+          return '<div class="rack-slot' + (active ? ' active' : '') + (target ? ' target' : '') + (weapon ? ' filled' : '') + '"' + img + '>' +
+            '<button type="button" class="rack-slot-main" data-rack-hand="' + row[0] + '" data-rack-index="' + index + '" aria-label="' + slotLabel(row[0], index) + (weapon ? ': ' + escText(weapon.name) : ': empty') + '">' +
+            '<span class="rack-index" aria-hidden="true">' + (index + 1) + '</span><span class="rack-icon" aria-hidden="true"></span><span class="rack-copy"><small>' + (active ? 'Active' : target ? 'Choose weapon' : slotLabel(row[0], index)) + '</small><b>' + (weapon ? escText(weapon.name) : 'Empty') + '</b>' +
             (weapon ? '<em>' + weapon.weight.toFixed(1) + ' wt' + (slot.upgrade != null ? ' · +' + slot.upgrade : ' · max') + '</em>' : '<em>select to equip</em>') + '</span>' +
-            (weapon && !active ? '<span class="rack-clear" data-rack-clear="1" title="Unequip">×</span>' : '') + '</button>';
+            '</button>' + (weapon && !active ? '<button type="button" class="rack-clear" data-rack-clear="1" aria-label="Unequip ' + escText(weapon.name) + ' from ' + slotLabel(row[0], index) + '"><span aria-hidden="true">×</span></button>' : '') + '</div>';
         }).join('') + '</div></div>';
     }).join('');
     $('activeSlotLabel').textContent = slotLabel(activeSlot.hand, activeSlot.index) + ' active';
@@ -655,7 +670,7 @@
     $('talismanRack').innerHTML = selectedTalismans.map(function (slot, index) {
       var item = slot && taliById(slot.talismanId);
       var entry = resolution.entries.find(function (x) { return x.slot === index; });
-      var icon = item ? '<img src="../' + item.icon + '" alt="">' : '<span>◇</span>';
+      var icon = item ? '<img src="../' + item.icon + '" alt="">' : '<span aria-hidden="true">◇</span>';
       var condition = item && item.condition ? '<label class="tali-condition' + (taliConditionState[item.id] === false ? ' off' : '') + '">' +
         '<input type="checkbox" data-tali-condition="' + index + '"' + (taliConditionState[item.id] === false ? '' : ' checked') + '> ' + escText(item.condition.label) + '</label>' : '';
       var state = entry && entry.invalid ? ' invalid' : entry && !entry.modeled ? ' inventory-only' : item ? ' equipped' : '';
@@ -794,9 +809,10 @@
     $('spellRack').innerHTML = selected.length ? selected.map(function (spell) {
       var active = spell.id === magicState.activeSpell;
       var reqs = Object.keys(spell.requirements).filter(function (key) { return spell.requirements[key]; }).map(function (key) { return key + ' ' + spell.requirements[key]; }).join(' · ') || 'no requirements';
-      return '<button type="button" class="spell-slot ' + spell.type + (active ? ' active' : '') + (used > cap ? ' invalid' : '') + '" data-spell-active="' + spell.id + '">' +
-        '<span class="spell-glyph">' + (spell.type === 'sorcery' ? '✦' : '☼') + '</span><span class="spell-slot-copy"><b>' + escText(spell.name) + '</b><small>' + reqs + '</small></span>' +
-        '<span class="spell-slot-cost">' + spell.slots + ' slot' + (spell.slots === 1 ? '' : 's') + ' · ' + spell.fp + ' FP</span><span class="spell-clear" data-spell-clear="' + spell.id + '" aria-label="Forget ' + escText(spell.name) + '">×</span></button>';
+      return '<div class="spell-slot ' + spell.type + (active ? ' active' : '') + (used > cap ? ' invalid' : '') + '">' +
+        '<button type="button" class="spell-slot-main" data-spell-active="' + spell.id + '" aria-label="Analyze ' + escText(spell.name) + '">' +
+        '<span class="spell-glyph" aria-hidden="true">' + (spell.type === 'sorcery' ? '✦' : '☼') + '</span><span class="spell-slot-copy"><b>' + escText(spell.name) + '</b><small>' + reqs + '</small></span>' +
+        '<span class="spell-slot-cost">' + spell.slots + ' slot' + (spell.slots === 1 ? '' : 's') + ' · ' + spell.fp + ' FP</span></button><button type="button" class="spell-clear" data-spell-clear="' + spell.id + '" aria-label="Forget ' + escText(spell.name) + '"><span aria-hidden="true">×</span></button></div>';
     }).join('') : '<div class="effect-empty">No spells memorized. Build a spellbook from all 213 sorceries and incantations.</div>';
     $('addSpell').disabled = used >= cap;
   }

@@ -21,20 +21,21 @@
 
 <header class="topbar">
   <a class="brand" href="../">
-    <span class="brand-mark">◈</span>
+    <span class="brand-mark" aria-hidden="true">◈</span>
     <span class="brand-text"><b>ELDEN RING</b><small>FULL BUILD LAB</small></span>
   </a>
   <div class="topbar-right">
     <select id="presetSelect" class="preset-select" aria-label="Load build"></select>
-    <button class="icon-btn" id="saveBuild" title="Save this build under a name">💾 Save</button>
-    <button class="icon-btn" id="shareBuild" title="Copy a shareable link to this build">🔗 Share</button>
-    <a class="icon-btn" href="../atlas/" title="Weapon Atlas">☰</a>
-    <a class="icon-btn" href="../guides/" title="Quest tracker, bosses, endings">📜</a>
-    <a class="icon-btn" href="../tales/" title="Tales — original fan writing">📖</a>
+    <button class="icon-btn" id="saveBuild"><span aria-hidden="true">💾</span> Save</button>
+    <button class="icon-btn" id="shareBuild"><span aria-hidden="true">🔗</span> Share</button>
+    <a class="icon-btn" href="../atlas/" aria-label="Open Weapon Atlas"><span aria-hidden="true">☰</span></a>
+    <a class="icon-btn" href="../guides/" aria-label="Open Guides"><span aria-hidden="true">📜</span></a>
+    <a class="icon-btn" href="../tales/" aria-label="Open Tales"><span aria-hidden="true">📖</span></a>
   </div>
 </header>
 
 <div class="build-load-state" id="buildLoadState" role="status" aria-live="polite">Loading essential build data…</div>
+<h1 class="page-title">Full Build Lab</h1>
 <section class="build-summary" id="buildSummary" aria-label="Current build summary">
   <div class="build-summary-copy"><span class="k">One Tarnished · General Build</span><b id="summaryBuildName">Freeform build</b><small id="summarySaveState">Autosaves locally</small></div>
   <div class="build-summary-metrics">
@@ -48,13 +49,13 @@
   <div class="build-summary-actions"><button type="button" id="summarySave">Save build</button><button type="button" id="summaryShare">Share build</button></div>
 </section>
 <nav class="build-view-nav" aria-label="Build Lab views" role="tablist">
-  <button type="button" role="tab" aria-selected="true" data-build-view="character">Character</button>
-  <button type="button" role="tab" aria-selected="false" data-build-view="loadout">Loadout</button>
-  <button type="button" role="tab" aria-selected="false" data-build-view="damage">Damage</button>
-  <button type="button" role="tab" aria-selected="false" data-build-view="defense">Defense</button>
-  <button type="button" role="tab" aria-selected="false" data-build-view="magic">Magic</button>
-  <button type="button" role="tab" aria-selected="false" data-build-view="encounter">Encounter</button>
-  <button type="button" role="tab" aria-selected="false" data-build-view="advanced">Advanced / Trace</button>
+  <button type="button" id="build-view-tab-character" role="tab" aria-controls="build-view-panel-character" aria-selected="true" tabindex="0" data-build-view="character">Character</button>
+  <button type="button" id="build-view-tab-loadout" role="tab" aria-controls="build-view-panel-loadout" aria-selected="false" tabindex="-1" data-build-view="loadout">Loadout</button>
+  <button type="button" id="build-view-tab-damage" role="tab" aria-controls="build-view-panel-damage" aria-selected="false" tabindex="-1" data-build-view="damage">Damage</button>
+  <button type="button" id="build-view-tab-defense" role="tab" aria-controls="build-view-panel-defense" aria-selected="false" tabindex="-1" data-build-view="defense">Defense</button>
+  <button type="button" id="build-view-tab-magic" role="tab" aria-controls="build-view-panel-magic" aria-selected="false" tabindex="-1" data-build-view="magic">Magic</button>
+  <button type="button" id="build-view-tab-encounter" role="tab" aria-controls="build-view-panel-encounter" aria-selected="false" tabindex="-1" data-build-view="encounter">Encounter</button>
+  <button type="button" id="build-view-tab-advanced" role="tab" aria-controls="build-view-panel-advanced" aria-selected="false" tabindex="-1" data-build-view="advanced">Advanced / Trace</button>
 </nav>
 <main class="grid">
   <!-- CHARACTER -->
@@ -96,7 +97,7 @@
       </div>
       <div class="search-wrap">
         <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><line x1="15.3" y1="15.3" x2="21" y2="21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-        <input type="search" id="armorSearch" class="search" placeholder="Search this slot…" autocomplete="off">
+        <input type="search" id="armorSearch" class="search" placeholder="Search this slot…" autocomplete="off" aria-label="Search armor for the selected slot">
       </div>
       <div id="armorList" class="armor-list"></div>
     </div>
@@ -144,7 +145,7 @@
       </div>
       <div class="search-wrap">
         <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><line x1="15.3" y1="15.3" x2="21" y2="21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-        <input type="search" id="talismanSearch" class="search" placeholder="Search all 154 talismans…" autocomplete="off">
+        <input type="search" id="talismanSearch" class="search" placeholder="Search all 154 talismans…" autocomplete="off" aria-label="Search talismans">
       </div>
       <div id="talismanList" class="talisman-list"></div>
     </div>
@@ -169,7 +170,7 @@
         </div>
         <div class="search-wrap">
           <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><line x1="15.3" y1="15.3" x2="21" y2="21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-          <input type="search" id="spellSearch" class="search" placeholder="Search 213 sorceries and incantations…" autocomplete="off">
+          <input type="search" id="spellSearch" class="search" placeholder="Search sorceries and incantations" autocomplete="off" aria-label="Search sorceries and incantations">
         </div>
         <div class="spell-filter" id="spellFilter"><button type="button" data-spell-filter="all" class="on">All</button><button type="button" data-spell-filter="sorcery">Sorcery</button><button type="button" data-spell-filter="incantation">Incantation</button></div>
         <div id="spellList" class="spell-list"></div>
@@ -219,7 +220,7 @@
         <div><span class="k">Target profile</span><b id="enemySummary">Sandbox target</b><small id="enemySummaryNote">Choose an enemy for final damage and exact status thresholds</small></div>
       </div>
       <div class="encounter-controls">
-        <button type="button" id="enemyPickerOpen"><span>Enemy</span><b id="enemyButtonLabel">Choose profile…</b></button>
+        <button type="button" id="enemyPickerOpen" aria-label="Choose enemy profile"><span>Enemy</span><b id="enemyButtonLabel">Choose profile…</b></button>
         <label class="encounter-move"><span>Weapon attack</span><select id="weaponMove" aria-label="Weapon attack motion value"></select></label>
         <label class="encounter-ammo" id="ammoControl" hidden><span>Ammunition</span><select id="ammoSelect" aria-label="Ammunition"></select></label>
         <label><span>Journey</span><select id="ngCycle" aria-label="New Game cycle"><option value="0">NG</option><option value="1">NG+</option><option value="2">NG+2</option><option value="3">NG+3</option><option value="4">NG+4</option><option value="5">NG+5</option><option value="6">NG+6</option><option value="7">NG+7</option></select></label>
@@ -227,7 +228,7 @@
       </div>
       <div class="enemy-picker" id="enemyPicker" hidden>
         <div class="armor-picker-head"><div><span class="k">Encounter archive</span><b>Choose an enemy</b></div><button id="enemyPickerClose" class="picker-close" type="button" aria-label="Close enemy picker">×</button></div>
-        <div class="search-wrap"><svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><line x1="15.3" y1="15.3" x2="21" y2="21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><input type="search" id="enemySearch" class="search" placeholder="Search enemies and locations…" autocomplete="off"></div>
+        <div class="search-wrap"><svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><line x1="15.3" y1="15.3" x2="21" y2="21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><input type="search" id="enemySearch" class="search" placeholder="Search enemies and locations…" autocomplete="off" aria-label="Search enemies and locations"></div>
         <div class="spell-filter" id="enemyFilter"><button type="button" data-enemy-filter="boss" class="on">Bosses</button><button type="button" data-enemy-filter="all">All</button><button type="button" data-enemy-filter="dlc">DLC</button></div>
         <div id="enemyList" class="enemy-list"></div>
       </div>
@@ -246,7 +247,7 @@
     <label class="dlc-toggle"><input type="checkbox" id="showDlc" checked> Include Shadow of the Erdtree weapons</label>
     <div class="search-wrap">
       <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><line x1="15.3" y1="15.3" x2="21" y2="21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-      <input type="search" id="weaponSearch" class="search" placeholder="Search weapons…" autocomplete="off">
+      <input type="search" id="weaponSearch" class="search" placeholder="Search weapons…" autocomplete="off" aria-label="Search weapons to equip">
     </div>
     <div id="weaponList" class="weapon-list" hidden></div>
     <div class="weapon-card">
@@ -287,8 +288,8 @@
       <div class="ar-base" id="arBase"></div>
       <div class="scadu-row" title="Shadow of the Erdtree only — Scadutree Blessing multiplies damage dealt and cuts damage taken, in the Land of Shadow">
         <label class="scadu-label">☾ Scadutree Blessing
-          <input id="scaduRange" type="range" min="0" max="20" value="0">
-          <input id="scaduNum" class="scadu-num" type="number" min="0" max="20" value="0">
+          <input id="scaduRange" type="range" min="0" max="20" value="0" aria-label="Scadutree Blessing slider">
+          <input id="scaduNum" class="scadu-num" type="number" min="0" max="20" value="0" aria-label="Scadutree Blessing value">
         </label>
         <div id="scaduOut" class="scadu-out"></div>
       </div>

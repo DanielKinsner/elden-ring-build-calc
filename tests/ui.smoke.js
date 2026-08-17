@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 'use strict';
 
-const { chromium } = require('/usr/lib/node_modules/openclaw/node_modules/playwright-core');
+const { chromium } = require(process.env.PLAYWRIGHT_MODULE || 'playwright');
 
 const BASE = process.env.ER_SITE_URL || 'http://127.0.0.1:4173/build/';
-const EXECUTABLE = process.env.CHROMIUM_PATH || '/home/dan/.cache/ms-playwright/chromium-1208/chrome-linux64/chrome';
+const EXECUTABLE = process.env.CHROMIUM_PATH || undefined;
 
 function assert(ok, message) {
   if (!ok) throw new Error(message);

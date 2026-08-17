@@ -82,7 +82,7 @@
   }
 
   function chip(key, label, on, group) {
-    return '<button class="atlas-chip' + (on ? ' on' : '') + '" data-chip="' + group + ':' + key + '">' + label + '</button>';
+    return '<button class="atlas-chip' + (on ? ' on' : '') + '" data-chip="' + group + ':' + key + '" aria-pressed="' + (on ? 'true' : 'false') + '">' + label + '</button>';
   }
   function renderFilters() {
     $('atlasFilters').innerHTML =
@@ -135,7 +135,7 @@
     list.forEach(function (w) { (groups[w.type] = groups[w.type] || []).push(w); });
     return Object.keys(groups).sort(function (a, b) { var d = typeRank(a) - typeRank(b); return d || a.localeCompare(b); })
       .map(function (t) {
-        return '<div class="atlas-type-header">' + esc(t) + '<span class="count">' + groups[t].length + '</span></div>' +
+        return '<h2 class="atlas-type-header">' + esc(t) + '<span class="count">' + groups[t].length + '</span></h2>' +
           groups[t].sort(byName).map(cardHtml).join('');
       }).join('');
   }
@@ -159,8 +159,8 @@
         if (sortBy === 'weight') return (a.weight != null ? a.weight : 1e9) - (b.weight != null ? b.weight : 1e9);
         return reqTotal(a) - reqTotal(b);
       });
-      html = '<div class="atlas-type-header">' + { ar: 'By Attack Rating — all stats 60, max upgrade', weight: 'Lightest first', req: 'Lowest stat requirements first' }[sortBy] +
-        '<span class="count">' + sorted.length + '</span></div>' + sorted.map(cardHtml).join('');
+      html = '<h2 class="atlas-type-header">' + { ar: 'By Attack Rating — all stats 60, max upgrade', weight: 'Lightest first', req: 'Lowest stat requirements first' }[sortBy] +
+        '<span class="count">' + sorted.length + '</span></h2>' + sorted.map(cardHtml).join('');
     }
     grid.innerHTML = html;
   }
