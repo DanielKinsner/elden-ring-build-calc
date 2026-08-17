@@ -10,6 +10,7 @@ const path = require('path');
 
 const ROOT = path.resolve(__dirname, '..');
 const runner = path.join(ROOT, 'scripts', 'run-browser-suite.js');
+const spawnAudit = path.join(ROOT, 'tests', 'fixtures', 'spawn-attempt-audit.js');
 
 function request(origin, timeout = 2000) {
   return new Promise(resolve => {
@@ -82,7 +83,7 @@ function requestRunnerShutdown(child, signal) {
 }
 async function runnerCase(fixtures, options = {}) {
   const files = Array.isArray(fixtures) ? fixtures : [fixtures];
-  const child = spawn(process.execPath, [runner, ...files], { cwd:ROOT, env:{ ...process.env, ...options.env }, stdio:['ignore', 'pipe', 'pipe', 'ipc'] });
+  const child = spawn(process.execPath, [options.runner || runner, ...files], { cwd:ROOT, env:{ ...process.env, ...options.env }, stdio:['ignore', 'pipe', 'pipe', 'ipc'] });
   let output = '', origin, sent = false;
   child.stdout.on('data', chunk => {
     output += chunk;
@@ -93,6 +94,30 @@ async function runnerCase(fixtures, options = {}) {
   child.stderr.on('data', chunk => { output += chunk; });
   const result = await waitFor(child);
   return { result, output, origin };
+}
+function auditedEnv(attempts, values = {}, auditTarget = runner) {
+  const preload = `--require "${spawnAudit.replace(/\\/g, '/')}"`;
+  return {
+    ...values,
+    LIFECYCLE_SPAWN_ATTEMPTS:attempts,
+    LIFECYCLE_SPAWN_AUDIT_TARGET:auditTarget,
+    NODE_OPTIONS:[process.env.NODE_OPTIONS, preload].filter(Boolean).join(' ')
+  };
+}
+function spawnAttempts(attempts) {
+  return fs.existsSync(attempts) ? fs.readFileSync(attempts, 'utf8').trim().split(/\r?\n/).filter(Boolean).map(line => JSON.parse(line).target) : [];
+}
+function mutateRunnerWithoutShutdownGuards() {
+  const original = fs.readFileSync(runner, 'utf8');
+  const mutated = original
+    .replace("require('./static-server')", `require(${JSON.stringify(path.join(ROOT, 'scripts', 'static-server.js'))})`)
+    .replace('  if (shuttingDown) return Promise.resolve(false);\n', '')
+    .replace('    if (shuttingDown) { resolve(false); return; }\n', '')
+    .replace('    if (shuttingDown) return;\n', '')
+    .replace(/      if \(shuttingDown\) break;\n/g, '');
+  const mutant = path.join(os.tmpdir(), `tarnished-runner-no-shutdown-guard-${process.pid}.js`);
+  fs.writeFileSync(mutant, mutated);
+  return mutant;
 }
 async function stalledServerCase() {
   const child = spawn(process.execPath, [runner, 'tests/fixtures/ignore-shutdown.browser.test.js'], {
@@ -129,16 +154,33 @@ async function stalledServerCase() {
   fs.rmSync(gracefulState.proof, { force:true });
   assert.strictEqual(await request(graceful.origin), false, 'runner graceful shutdown closes its temporary server');
 
-  const secondProof = path.join(os.tmpdir(), `tarnished-lifecycle-second-${process.pid}.txt`);
-  fs.rmSync(secondProof, { force:true });
+  const attempts = path.join(os.tmpdir(), `tarnished-lifecycle-spawn-attempts-${process.pid}.jsonl`);
+  fs.rmSync(attempts, { force:true });
   const multi = await runnerCase(['tests/fixtures/ignore-shutdown.browser.test.js', 'tests/fixtures/second-spawn.browser.test.js'], {
     shutdownWhen:'fixture ready',
     signal:process.platform === 'win32' ? null : 'SIGTERM',
-    env:{ ER_RUNNER_GRACE_MS:'100', ER_RUNNER_TERMINATE_MS:'100', LIFECYCLE_SECOND_SPAWN_PROOF:secondProof }
+    env:auditedEnv(attempts, { ER_RUNNER_GRACE_MS:'100', ER_RUNNER_TERMINATE_MS:'100' })
   });
   assert.strictEqual(multi.result.code, 143, 'runner shutdown retains SIGTERM-equivalent status during the first of multiple files');
-  assert.strictEqual(fs.existsSync(secondProof), false, `shutdown during the first fixture never spawns the second fixture; output was:\n${multi.output}`);
+  assert.deepStrictEqual(spawnAttempts(attempts), [path.resolve(ROOT, 'tests/fixtures/ignore-shutdown.browser.test.js')], `shutdown during fixture one never attempts fixture two spawn; output was:\n${multi.output}`);
   assert.strictEqual(await request(multi.origin), false, 'multi-file shutdown closes its temporary server');
+  fs.rmSync(attempts, { force:true });
+
+  const mutantAttempts = path.join(os.tmpdir(), `tarnished-lifecycle-mutant-spawn-attempts-${process.pid}.jsonl`);
+  const mutant = mutateRunnerWithoutShutdownGuards();
+  try {
+    const mutantCase = await runnerCase(['tests/fixtures/ignore-shutdown.browser.test.js', 'tests/fixtures/second-spawn.browser.test.js'], {
+      runner:mutant,
+      shutdownWhen:'fixture ready',
+      signal:process.platform === 'win32' ? null : 'SIGTERM',
+      env:auditedEnv(mutantAttempts, { ER_RUNNER_GRACE_MS:'100', ER_RUNNER_TERMINATE_MS:'100' }, mutant)
+    });
+    assert.strictEqual(mutantCase.result.code, 143, 'guard-removal mutant retains the requested shutdown status');
+    assert(spawnAttempts(mutantAttempts).includes(path.resolve(ROOT, 'tests/fixtures/second-spawn.browser.test.js')), `the spawn audit detects fixture two with guards removed; output was:\n${mutantCase.output}`);
+  } finally {
+    fs.rmSync(mutant, { force:true });
+    fs.rmSync(mutantAttempts, { force:true });
+  }
 
   if (process.platform !== 'win32') {
     const sigintRunner = await runnerCase('tests/fixtures/ignore-shutdown.browser.test.js', { shutdownWhen:'fixture ready', signal:'SIGINT', env:{ ER_RUNNER_GRACE_MS:'100', ER_RUNNER_TERMINATE_MS:'100' } });
