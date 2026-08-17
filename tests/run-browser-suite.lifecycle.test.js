@@ -5,13 +5,34 @@ const assert = require('assert');
 const { spawn } = require('child_process');
 const fs = require('fs');
 const http = require('http');
+const os = require('os');
 const path = require('path');
 
 const ROOT = path.resolve(__dirname, '..');
 const runner = path.join(ROOT, 'scripts', 'run-browser-suite.js');
 
-function request(origin) {
-  return new Promise(resolve => http.get(origin, response => { response.resume(); resolve(true); }).once('error', () => resolve(false)));
+function request(origin, timeout = 2000) {
+  return new Promise(resolve => {
+    let settled = false;
+    const finish = value => { if (!settled) { settled = true; clearTimeout(timer); resolve(value); } };
+    const client = http.get(origin, response => { response.resume(); finish(true); });
+    const timer = setTimeout(() => { client.destroy(); finish(false); }, timeout);
+    client.setTimeout(timeout, () => { client.destroy(); finish(false); });
+    client.once('error', () => finish(false));
+  });
+}
+function stalledRequest(origin, timeout = 2000) {
+  return new Promise((resolve, reject) => {
+    let settled = false;
+    const fail = error => { if (!settled) { settled = true; clearTimeout(timer); client.destroy(); reject(error); } };
+    const client = http.get(new URL('/__lifecycle-stall', origin), response => {
+      response.once('data', () => { if (!settled) { settled = true; clearTimeout(timer); resolve({ client, response }); } });
+      response.once('error', fail);
+    });
+    const timer = setTimeout(() => fail(new Error(`stalled request did not receive a response within ${timeout}ms`)), timeout);
+    client.setTimeout(timeout, () => fail(new Error(`stalled request timed out after ${timeout}ms`)));
+    client.once('error', fail);
+  });
 }
 function waitFor(child, timeout = 15000) {
   return new Promise((resolve, reject) => {
@@ -55,18 +76,47 @@ async function deliveredPosixSignal(signal) {
   assert.strictEqual(fs.readFileSync(state.proof, 'utf8'), 'browser disconnected', `${signal} closes the actual tracked browser after OS delivery`);
   fs.rmSync(state.proof, { force:true });
 }
-async function runnerCase(fixture, options = {}) {
-  const child = spawn(process.execPath, [runner, fixture], { cwd:ROOT, env:{ ...process.env, ...options.env }, stdio:['ignore', 'pipe', 'pipe', 'ipc'] });
+function requestRunnerShutdown(child, signal) {
+  if (signal && process.platform !== 'win32') child.kill(signal);
+  else if (child.connected) child.send({ type:'shutdown' });
+}
+async function runnerCase(fixtures, options = {}) {
+  const files = Array.isArray(fixtures) ? fixtures : [fixtures];
+  const child = spawn(process.execPath, [runner, ...files], { cwd:ROOT, env:{ ...process.env, ...options.env }, stdio:['ignore', 'pipe', 'pipe', 'ipc'] });
   let output = '', origin, sent = false;
   child.stdout.on('data', chunk => {
     output += chunk;
     const match = output.match(/Browser suite server: (http:\/\/127\.0\.0\.1:\d+)/);
     if (match) origin = match[1];
-    if (options.shutdownWhen && !sent && output.includes(options.shutdownWhen) && child.connected) { sent = true; child.send({ type:'shutdown' }); }
+    if (options.shutdownWhen && !sent && output.includes(options.shutdownWhen)) { sent = true; requestRunnerShutdown(child, options.signal); }
   });
   child.stderr.on('data', chunk => { output += chunk; });
   const result = await waitFor(child);
   return { result, output, origin };
+}
+async function stalledServerCase() {
+  const child = spawn(process.execPath, [runner, 'tests/fixtures/ignore-shutdown.browser.test.js'], {
+    cwd:ROOT,
+    env:{ ...process.env, ER_RUNNER_GRACE_MS:'100', ER_RUNNER_TERMINATE_MS:'100', ER_STATIC_SERVER_STALL_PATH:'/__lifecycle-stall', ER_STATIC_SERVER_CLOSE_GRACE_MS:'100', ER_STATIC_SERVER_CLOSE_FORCE_MS:'100' },
+    stdio:['ignore', 'pipe', 'pipe', 'ipc']
+  });
+  let output = '', origin, started = false, held;
+  const begin = async () => {
+    if (started || !origin) return;
+    started = true;
+    held = await stalledRequest(origin);
+    if (child.connected) child.send({ type:'shutdown' });
+  };
+  child.stdout.on('data', chunk => {
+    output += chunk;
+    const match = output.match(/Browser suite server: (http:\/\/127\.0\.0\.1:\d+)/);
+    if (match) { origin = match[1]; begin().catch(error => child.emit('error', error)); }
+  });
+  child.stderr.on('data', chunk => { output += chunk; });
+  const startedAt = Date.now();
+  const result = await waitFor(child);
+  if (held) { held.client.destroy(); held.response.destroy(); }
+  return { result, output, origin, elapsed:Date.now() - startedAt };
 }
 
 (async () => {
@@ -78,6 +128,28 @@ async function runnerCase(fixture, options = {}) {
   assert.strictEqual(fs.readFileSync(gracefulState.proof, 'utf8'), 'browser disconnected', 'runner IPC shutdown closes the actual tracked Playwright browser');
   fs.rmSync(gracefulState.proof, { force:true });
   assert.strictEqual(await request(graceful.origin), false, 'runner graceful shutdown closes its temporary server');
+
+  const secondProof = path.join(os.tmpdir(), `tarnished-lifecycle-second-${process.pid}.txt`);
+  fs.rmSync(secondProof, { force:true });
+  const multi = await runnerCase(['tests/fixtures/ignore-shutdown.browser.test.js', 'tests/fixtures/second-spawn.browser.test.js'], {
+    shutdownWhen:'fixture ready',
+    signal:process.platform === 'win32' ? null : 'SIGTERM',
+    env:{ ER_RUNNER_GRACE_MS:'100', ER_RUNNER_TERMINATE_MS:'100', LIFECYCLE_SECOND_SPAWN_PROOF:secondProof }
+  });
+  assert.strictEqual(multi.result.code, 143, 'runner shutdown retains SIGTERM-equivalent status during the first of multiple files');
+  assert.strictEqual(fs.existsSync(secondProof), false, `shutdown during the first fixture never spawns the second fixture; output was:\n${multi.output}`);
+  assert.strictEqual(await request(multi.origin), false, 'multi-file shutdown closes its temporary server');
+
+  if (process.platform !== 'win32') {
+    const sigintRunner = await runnerCase('tests/fixtures/ignore-shutdown.browser.test.js', { shutdownWhen:'fixture ready', signal:'SIGINT', env:{ ER_RUNNER_GRACE_MS:'100', ER_RUNNER_TERMINATE_MS:'100' } });
+    assert.strictEqual(sigintRunner.result.code, 130, 'a real OS SIGINT reaches the runner shutdown path');
+    assert.strictEqual(await request(sigintRunner.origin), false, 'runner SIGINT closes its temporary server');
+  }
+
+  const stalled = await stalledServerCase();
+  assert.strictEqual(stalled.result.code, 143, 'stalled server shutdown preserves the requested status');
+  assert(stalled.elapsed < 2000, `stalled loopback socket is forcibly bounded (${stalled.elapsed}ms); output was:\n${stalled.output}`);
+  assert.strictEqual(await request(stalled.origin), false, 'stalled server shutdown closes its loopback port');
 
   await directSignal('SIGINT');
   await directSignal('SIGTERM');

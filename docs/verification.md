@@ -53,7 +53,10 @@ tests close their own Playwright browsers and temporary artifacts. On a delivere
 the portable IPC shutdown path, the runner first asks its active child to do the same and waits five
 seconds. It then sends a direct-child SIGTERM, waits three seconds, and on platforms where the child
 is still alive sends direct-child SIGKILL and waits another three seconds. It never uses a broad
-process-tree kill.
+process-tree kill. Once shutdown starts, no later browser-test file is spawned. After the active
+child cleanup, the temporary server stops accepting new connections; it gives its own sockets two
+seconds to finish, then closes idle/all supported Node connections (or only its own tracked sockets
+on older Node) and settles within one final second.
 
 Windows may force-terminate a child for Node's SIGTERM/SIGKILL rather than run its JavaScript signal
 handlers; therefore browser/artifact cleanup is guaranteed for normal completion and the responsive

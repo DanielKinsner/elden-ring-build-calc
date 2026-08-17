@@ -31,13 +31,15 @@ function signalChild(child, signal) {
 }
 
 function run(file, env) {
+  if (shuttingDown) return Promise.resolve(false);
   return new Promise((resolve, reject) => {
+    if (shuttingDown) { resolve(false); return; }
     const child = spawn(process.execPath, [path.resolve(ROOT, file)], { cwd: ROOT, env, stdio:['inherit', 'inherit', 'inherit', 'ipc'] });
     activeChild = child;
     child.once('error', reject);
     child.once('exit', (code, signal) => {
       if (activeChild === child) activeChild = null;
-      (code === 0 || shuttingDown) ? resolve() : reject(new Error(`${file} ${signal ? `stopped by ${signal}` : `exited ${code}`}`));
+      (code === 0 || shuttingDown) ? resolve(!shuttingDown) : reject(new Error(`${file} ${signal ? `stopped by ${signal}` : `exited ${code}`}`));
     });
   });
 }
@@ -66,7 +68,7 @@ function stopActiveChild() {
 }
 
 (async () => {
-  const server = createStaticServer({ root: ROOT });
+  const server = createStaticServer({ root: ROOT, stallPath:process.env.ER_STATIC_SERVER_STALL_PATH });
   let closing = false;
   const shutdown = async () => {
     if (closing) return;
@@ -92,10 +94,15 @@ function stopActiveChild() {
   });
   try {
     const address = await listen(server, 0);
+    if (shuttingDown) return;
     const origin = `http://127.0.0.1:${address.port}`;
     console.log(`\nBrowser suite server: ${origin} (temporary port; uncompressed)\n`);
     const env = { ...process.env, ER_SITE_ORIGIN: origin, ER_SITE_URL: origin + '/build/' };
-    for (const file of tests) await run(file, env);
+    for (const file of tests) {
+      if (shuttingDown) break;
+      await run(file, env);
+      if (shuttingDown) break;
+    }
   } finally {
     await shutdown();
   }
