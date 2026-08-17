@@ -21,6 +21,12 @@ async function open(browser, query) {
     await failed.reload({ waitUntil:'domcontentloaded' });
     await failed.locator('#magicDomainState').getByText('unavailable').waitFor();
     assert.strictEqual(await failed.locator('#stats .stat').count(), 8, 'secondary failure leaves the core stat controls usable');
+    const dexterity = failed.locator('#stats [data-box="DEX"]');
+    const arBefore = Number(await failed.locator('#ar').textContent());
+    assert.strictEqual(await dexterity.isEnabled(), true, 'secondary failure does not disable core stat editing');
+    await dexterity.fill('70');
+    await failed.waitForFunction(before => Number(document.querySelector('#ar').textContent) !== before, arBefore);
+    assert.notStrictEqual(Number(await failed.locator('#ar').textContent()), arBefore, 'core AR remains reactive while Magic is unavailable');
     await failed.unroute('**/data/spells.json');
     await failed.locator('#magicDomainState button').click();
     await failed.locator('#magicDomainState').waitFor({ state:'hidden' });
