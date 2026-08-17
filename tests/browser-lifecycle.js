@@ -9,8 +9,16 @@ const launch = chromium.launch.bind(chromium);
 let stopping = null;
 const CLOSE_TIMEOUT_MS = Number(process.env.ER_BROWSER_CLOSE_TIMEOUT_MS || 3000);
 
-chromium.launch = async function trackedLaunch(...args) {
-  const browser = await launch(...args);
+chromium.launch = async function trackedLaunch(options = {}) {
+  // This module owns process-signal cleanup. Playwright's default signal handlers can
+  // otherwise race ours and exit after closing Chromium but before registered temp-file
+  // cleanups have run (most visible on fast CI runners).
+  const browser = await launch({
+    ...options,
+    handleSIGINT:false,
+    handleSIGTERM:false,
+    handleSIGHUP:false
+  });
   browsers.add(browser);
   browser.once('disconnected', () => browsers.delete(browser));
   return browser;
