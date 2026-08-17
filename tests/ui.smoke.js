@@ -327,6 +327,8 @@ async function main() {
     assert(await tales.locator('.tale-companion').count() === 3, 'Tales exposes all three Archive Film companions');
     assert(await tales.locator('.tale-cover').count() === 3, 'Tales presents all three volumes with their film artwork');
     assert(await tales.locator('.tale-cover').evaluateAll(async (images) => { await Promise.all(images.map((image) => image.decode())); return images.every((image) => image.naturalWidth === 1672 && image.naturalHeight === 941); }), 'Tales uses the full-resolution Archive Film posters');
+    assert(await tales.locator('.tale-art').evaluateAll((panels) => panels.every((panel) => { const box = panel.getBoundingClientRect(); return Math.abs(box.width / box.height - 16 / 9) < 0.01; })), 'desktop Tales preserves every poster at its authored 16:9 ratio');
+    assert(await tales.locator('.tale-cover').evaluateAll((images) => images.every((image) => getComputedStyle(image).objectFit === 'contain')), 'Tales never crops authored poster typography');
     assert((await tales.locator('.tale-card').nth(0).locator('.tale-companion').getAttribute('href')) === '../gold-and-shadow/', 'written Gold and Shadow points back to Archive Film III');
     assert((await tales.locator('.tale-card').nth(1).locator('.tale-companion').getAttribute('href')) === '../kindling/', 'written KINDLING points back to Archive Film I');
     assert((await tales.locator('.tale-card').nth(2).locator('.tale-companion').getAttribute('href')) === '../ranni/', 'written Ranni points back to Archive Film II');

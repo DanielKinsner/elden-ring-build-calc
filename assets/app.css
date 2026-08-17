@@ -1385,14 +1385,14 @@ a.boss-chip-link:hover { text-decoration: none; border-color: var(--gold-dim); b
 .tales-aggregate-track { margin-top:15px; }
 .tales-aggregate-track i,.tale-progress-track i { display:block; height:100%; background:linear-gradient(90deg,var(--gold-dim),var(--gold-2)); }
 .tales-volume-list { max-width:1280px; display:flex; flex-direction:column; gap:22px; margin:0 auto; }
-.tale-card { --tale-accent:#c9a227; position:relative; display:grid; grid-template-columns:minmax(360px,.85fr) minmax(0,1.15fr); gap:0; padding:0; overflow:hidden; border:1px solid color-mix(in srgb,var(--tale-accent) 26%,transparent); border-radius:2px; background:rgba(10,8,4,.91); box-shadow:0 24px 70px rgba(0,0,0,.27); transition:transform .25s var(--ease),border-color .25s var(--ease); }
+.tale-card { --tale-accent:#c9a227; position:relative; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); align-items:start; gap:0; padding:0; overflow:hidden; border:1px solid color-mix(in srgb,var(--tale-accent) 26%,transparent); border-radius:2px; background:rgba(10,8,4,.91); box-shadow:0 24px 70px rgba(0,0,0,.27); transition:transform .25s var(--ease),border-color .25s var(--ease); }
 .tale-card--gold-and-shadow { --tale-accent:#c99847; }
 .tale-card--kindling { --tale-accent:#d36731; }
 .tale-card--ranni { --tale-accent:#87b9ff; }
 .tale-card:hover { transform:translateY(-3px); border-color:color-mix(in srgb,var(--tale-accent) 54%,transparent); }
-.tale-art { position:relative; min-height:315px; display:block; overflow:hidden; border-right:1px solid color-mix(in srgb,var(--tale-accent) 22%,transparent); background:#050403; }
+.tale-art { position:relative; min-height:0; aspect-ratio:16/9; align-self:start; display:block; overflow:hidden; border-right:1px solid color-mix(in srgb,var(--tale-accent) 22%,transparent); background:#050403; }
 .tale-art::after { content:''; position:absolute; inset:0; box-shadow:inset 0 0 70px rgba(0,0,0,.42); pointer-events:none; }
-.tale-cover { width:100%; height:100%; border:0; border-radius:0; object-fit:cover; transition:transform .55s var(--ease),filter .55s var(--ease); }
+.tale-cover { width:100%; height:100%; border:0; border-radius:0; object-fit:contain; transition:transform .55s var(--ease),filter .55s var(--ease); }
 .tale-art:hover .tale-cover { transform:scale(1.025); filter:brightness(1.08); }
 .tale-art>span { position:absolute; z-index:2; left:18px; bottom:16px; padding:7px 10px; color:#f1e4c9; border:1px solid color-mix(in srgb,var(--tale-accent) 58%,transparent); background:rgba(6,5,3,.8); backdrop-filter:blur(8px); font:600 8px var(--serif); letter-spacing:.2em; text-transform:uppercase; }
 .tale-card-body { display:flex; flex-direction:column; padding:30px 34px 26px; }
@@ -1423,7 +1423,7 @@ a.boss-chip-link:hover { text-decoration: none; border-color: var(--gold-dim); b
 .tales-tools-explore>div { display:flex; flex-wrap:wrap; gap:18px; margin-top:10px; }
 .tales-tools-explore a { color:var(--gold-2); font-size:12px; text-decoration:none; }
 .tales-timeline { max-width:980px; margin:18px auto 0; }
-@media(max-width:900px){.tales-hero{grid-template-columns:1fr;gap:28px}.tale-card{grid-template-columns:1fr}.tale-art{min-height:0;aspect-ratio:16/8.5;border-right:0;border-bottom:1px solid color-mix(in srgb,var(--tale-accent) 22%,transparent)}.tales-tools{grid-template-columns:1fr;gap:25px}}
+@media(max-width:900px){.tales-hero{grid-template-columns:1fr;gap:28px}.tale-card{grid-template-columns:1fr}.tale-art{min-height:0;aspect-ratio:16/9;border-right:0;border-bottom:1px solid color-mix(in srgb,var(--tale-accent) 22%,transparent)}.tales-tools{grid-template-columns:1fr;gap:25px}}
 @media(max-width:620px){.tales-main{padding:20px 12px 70px}.tales-hero{padding:32px 2px 30px;margin-bottom:24px}.tales-hero h1{font-size:42px}.tales-aggregate>div:first-child{gap:8px 13px}.tales-volume-list{gap:16px}.tale-card{display:grid}.tale-art{width:auto;height:auto;aspect-ratio:16/9}.tale-card-body{padding:22px 18px 20px}.tale-title{font-size:30px}.tale-subtitle{font-size:13px}.tale-blurb{font-size:12px}.tale-meta-row{gap:7px}.tale-cta{width:100%}.tale-card>.tale-toc{grid-template-columns:1fr;padding:14px 10px 18px}.tales-tools{margin-top:25px}.tales-tools-recent>a{display:flex;margin-right:0}}
 
 /* ---- tales: nav row + timeline (vertical spine) ---- */
