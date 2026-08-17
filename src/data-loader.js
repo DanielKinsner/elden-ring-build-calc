@@ -98,7 +98,7 @@
     };
   }
 
-  // Guides data: quests + bosses + endings in one go (the guides pages need all three).
+  // Guides data: the complete tracker/reference bundle used by the Guides page.
   async function loadGuides(basePath) {
     basePath = basePath || 'data/';
     var parts = await Promise.all([
@@ -106,9 +106,10 @@
       fetchJSON(basePath + 'bosses.json'),
       fetchJSON(basePath + 'endings.json'),
       fetchJSON(basePath + 'progression.json'),
-      fetchJSON(basePath + 'scadutree.json')
+      fetchJSON(basePath + 'scadutree.json'),
+      fetchJSON(basePath + 'trophies.json')
     ]);
-    return { quests: parts[0], bosses: parts[1], endings: parts[2], progression: parts[3], scadutree: parts[4] };
+    return { quests: parts[0], bosses: parts[1], endings: parts[2], progression: parts[3], scadutree: parts[4], trophies: parts[5] };
   }
 
   async function fetchJSON(url) {

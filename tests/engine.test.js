@@ -361,5 +361,14 @@ check("Lion's Claw keeps weapon MV and status MV separate", [lionResult.preDefen
 var riversSkill = skillFile.weaponSkills['rivers-of-blood'];
 check('fixed unique skill carries FP branches and exact event catalog', [riversSkill.skillName,riversSkill.fp,riversSkill.events.length], ['Corpse Piler',{l2:17,r2:9},18]);
 
+console.log('trophy guide data:');
+var trophyFile = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'trophies.json'), 'utf8'));
+var trophyTiers = ['platinum','gold','silver','bronze'].map(function (tier) {
+  return trophyFile.trophies.filter(function (trophy) { return trophy.psTier === tier; }).length;
+});
+check('cross-platform list preserves all 42 objectives and 1,000G', [trophyFile.trophies.length,trophyFile.trophies.reduce(function (sum, trophy) { return sum + trophy.xboxScore; }, 0)], [42,1000]);
+check('PlayStation tier distribution matches the platform list', trophyTiers, [1,3,14,24]);
+check('trophy IDs remain unique and every category resolves', [new Set(trophyFile.trophies.map(function (trophy) { return trophy.id; })).size,trophyFile.trophies.every(function (trophy) { return trophyFile.categories.some(function (category) { return category.id === trophy.category; }); })], [42,true]);
+
 console.log('\n' + passes + ' passed, ' + failures + ' failed');
 process.exit(failures ? 1 : 0);

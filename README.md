@@ -57,7 +57,9 @@ by AR-for-a-reference-build, weight, or requirements; per-weapon detail pages wi
 and NPC portraits, boss cheat-sheet with ☠ felled checkboxes (base + SotE remembrances), all
 6 endings with unlock routes, and a full walkthrough (12-stage base route + 9-stage DLC
 route, stat targets, Scadutree/fragment tables). A region progress rail (wide screens) tracks
-completion by area. Instant search (Ctrl+K / `/`) finds any quest, step, boss, ending, or
+completion by area. The trophy tracker groups all 42 identical PlayStation, Xbox, and Steam
+requirements, platform grades/Gamerscore, collectible sets, cleanup notes, and linked boss or
+ending routes. Instant search (Ctrl+K / `/`) finds any quest, step, boss, ending, trophy, or
 compendium entry in one box. The Compendium tab is a lean, cross-linked reference — every NPC,
 boss, and key region in 2–3 sentences. Progress saves locally.
 

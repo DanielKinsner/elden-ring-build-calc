@@ -277,6 +277,34 @@ async function main() {
     await homeMobile.screenshot({ path:'/tmp/elden-home-mobile.png', fullPage:true });
     await homeMobileContext.close();
 
+    const guideContext = await browser.newContext({ viewport:{ width:1440, height:1000 } });
+    await guideContext.addInitScript(() => localStorage.clear());
+    const guide = await guideContext.newPage();
+    guide.on('console', (msg) => { if (msg.type() === 'error') errors.push('guides console: ' + msg.text()); });
+    guide.on('pageerror', (error) => errors.push('guides page: ' + error.message));
+    guide.on('response', (response) => { if (response.status() >= 400) errors.push('guides http ' + response.status() + ': ' + response.url()); });
+    await guide.goto(new URL('../guides/#trophies', BASE).toString(), { waitUntil:'networkidle' });
+    assert(await guide.locator('.trophy-card').count() === 42, 'trophy guide renders the complete cross-platform list');
+    assert(await guide.locator('.trophy-tier.platinum').count() === 1 && await guide.locator('.trophy-tier.gold').count() === 3 && await guide.locator('.trophy-tier.silver').count() === 14 && await guide.locator('.trophy-tier.bronze').count() === 24, 'trophy guide preserves every PlayStation grade');
+    assert((await guide.locator('.hero-stat-list').textContent()).includes('0 / 1,000G'), 'trophy guide exposes Xbox Gamerscore progress');
+    await guide.locator('#trophy-legendary-armaments .trophy-check').click();
+    assert((await guide.locator('.hero-stat-list').textContent()).includes('30 / 1,000G'), 'trophy completion updates and persists Gamerscore');
+    assert(await guide.evaluate(() => !!JSON.parse(localStorage.getItem('er-guides')).trophies['legendary-armaments']), 'trophy completion is saved in the shared guide store');
+    await guide.locator('#guideSearch').fill('Placidusax');
+    await guide.locator('.guide-search-item').first().click();
+    assert((await guide.locator('#trophy-dragonlord-placidusax').getAttribute('id')) === 'trophy-dragonlord-placidusax', 'instant search routes directly to trophy entries');
+    await guide.screenshot({ path:'/tmp/elden-trophies-desktop.png', fullPage:true });
+    await guideContext.close();
+
+    const guideMobileContext = await browser.newContext({ viewport:{ width:390, height:844 } });
+    const guideMobile = await guideMobileContext.newPage();
+    await guideMobile.goto(new URL('../guides/#trophies', BASE).toString(), { waitUntil:'networkidle' });
+    const guideOverflow = await guideMobile.evaluate(() => ({ scroll:document.documentElement.scrollWidth, inner:window.innerWidth }));
+    assert(guideOverflow.scroll <= guideOverflow.inner, 'trophy guide has no 390px horizontal overflow');
+    assert(await guideMobile.locator('.trophy-card').count() === 42, 'mobile retains all trophy requirements');
+    await guideMobile.screenshot({ path:'/tmp/elden-trophies-mobile.png', fullPage:true });
+    await guideMobileContext.close();
+
     const filmContext = await browser.newContext({ viewport:{ width:1440, height:1000 } });
     const film = await filmContext.newPage();
     film.on('console', (msg) => { if (msg.type() === 'error') errors.push('film console: ' + msg.text()); });
@@ -287,6 +315,8 @@ async function main() {
     assert(await film.locator('.kindling-movement').count() === 9, 'KINDLING exposes all nine written movements');
     assert((await film.locator('.kindling-movement').first().getAttribute('href')).includes('work=kindling&ch=ch01'), 'first movement opens the exact Tale chapter');
     assert(await film.locator('link[rel="canonical"]').getAttribute('href') === 'https://elden-ring-build-calc.vercel.app/kindling/', 'KINDLING publishes its canonical URL');
+    assert(await film.locator('.kindling-poster').evaluate((image) => image.complete && image.naturalWidth === 1672 && image.naturalHeight === 941), 'KINDLING loads the full-resolution Melina film poster');
+    assert((await film.locator('meta[property="og:image"]').getAttribute('content')).endsWith('/assets/kindling-melina.webp'), 'KINDLING shares with its dedicated Melina artwork');
     await film.screenshot({ path:'/tmp/elden-kindling-desktop.png', fullPage:true });
     const tales = await filmContext.newPage();
     await tales.goto(new URL('../tales/', BASE).toString(), { waitUntil:'networkidle' });

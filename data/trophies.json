@@ -1,0 +1,415 @@
+{
+  "title": "Trophies & Achievements",
+  "platformNote": "The same 42 requirements are used on PlayStation 4, PlayStation 5, Xbox, and Steam. PlayStation assigns trophy grades, Xbox assigns 1,000 total Gamerscore, and Steam uses achievements. The PS4 and PS5 lists are separate, despite having identical requirements.",
+  "dlcNote": "Shadow of the Erdtree adds no separate trophies or achievements; the complete list is the 42 base-game objectives below.",
+  "categories": [
+    { "id": "completion", "name": "Completion", "description": "The final meta award." },
+    { "id": "endings", "name": "Endings", "description": "Three ending families count; the four Elden Lord variants share one trophy." },
+    { "id": "collections", "name": "Legendary collections & upgrade", "description": "The five inventory checks that reward deliberate cleanup." },
+    { "id": "shardbearers", "name": "Shardbearers", "description": "Every demigod tied to a trophy or achievement." },
+    { "id": "story", "name": "Story path", "description": "Hub, progression, and mandatory boss milestones." },
+    { "id": "optional", "name": "Optional bosses", "description": "Side dungeons, underground regions, and hidden legends." }
+  ],
+  "trophies": [
+    {
+      "id": "elden-ring",
+      "name": "Elden Ring",
+      "requirement": "Obtain every other trophy or achievement.",
+      "tip": "This is the PlayStation platinum and the final 70G Xbox achievement. It unlocks after the other 41 entries are complete.",
+      "category": "completion",
+      "psTier": "platinum",
+      "xboxScore": 70
+    },
+    {
+      "id": "elden-lord",
+      "name": "Elden Lord",
+      "requirement": "Achieve an Elden Lord ending.",
+      "tip": "After the final boss, mend the Elden Ring normally or use the Mending Rune of Death-Prince, Perfect Order, or Fell Curse. Any of those four variants unlocks this one trophy.",
+      "category": "endings",
+      "psTier": "gold",
+      "xboxScore": 50,
+      "endingId": "age-of-fracture"
+    },
+    {
+      "id": "age-of-the-stars",
+      "name": "Age of the Stars",
+      "requirement": "Achieve the Age of the Stars ending.",
+      "tip": "Finish Ranni's questline, then use her blue summon sign after the final boss instead of touching Marika.",
+      "category": "endings",
+      "psTier": "gold",
+      "xboxScore": 50,
+      "endingId": "age-of-stars"
+    },
+    {
+      "id": "lord-of-frenzied-flame",
+      "name": "Lord of Frenzied Flame",
+      "requirement": "Achieve the Lord of Frenzied Flame ending.",
+      "tip": "Inherit the Flame of Frenzy beneath Leyndell, then finish the game. This route overrides the others unless you cure it with Miquella's Needle in Dragonlord Placidusax's arena.",
+      "warning": "The inheritance locks your ending choice until it is cured.",
+      "category": "endings",
+      "psTier": "gold",
+      "xboxScore": 50,
+      "endingId": "frenzied-flame"
+    },
+    {
+      "id": "legendary-armaments",
+      "name": "Legendary Armaments",
+      "requirement": "Acquire all nine legendary armaments on one character.",
+      "tip": "If the trophy does not pop after all nine are owned, place them in the Site of Grace chest and return them to inventory one at a time.",
+      "warning": "Bolt of Gransax is missable after Leyndell becomes the Ashen Capital.",
+      "items": ["Devourer's Scepter", "Eclipse Shotel", "Grafted Blade Greatsword", "Sword of Night and Flame", "Marais Executioner's Sword", "Dark Moon Greatsword", "Golden Order Greatsword", "Ruins Greatsword", "Bolt of Gransax"],
+      "category": "collections",
+      "psTier": "silver",
+      "xboxScore": 30
+    },
+    {
+      "id": "legendary-talismans",
+      "name": "Legendary Talismans",
+      "requirement": "Acquire all eight legendary talismans on one character.",
+      "tip": "Only the exact eight named talismans count; lower tiers such as Erdtree's Favor or +1 do not substitute for +2.",
+      "items": ["Radagon Icon", "Radagon's Soreseal", "Godfrey Icon", "Moon of Nokstella", "Dragoncrest Greatshield Talisman", "Marika's Soreseal", "Old Lord's Talisman", "Erdtree's Favor +2"],
+      "category": "collections",
+      "psTier": "silver",
+      "xboxScore": 30
+    },
+    {
+      "id": "legendary-sorceries-incantations",
+      "name": "Legendary Sorceries and Incantations",
+      "requirement": "Acquire all seven legendary spells on one character.",
+      "tip": "The list mixes four sorceries and three incantations; they only need to be owned, not cast.",
+      "items": ["Comet Azur", "Stars of Ruin", "Founding Rain of Stars", "Ranni's Dark Moon", "Elden Stars", "Flame of the Fell God", "Greyoll's Roar"],
+      "category": "collections",
+      "psTier": "silver",
+      "xboxScore": 30
+    },
+    {
+      "id": "legendary-ashen-remains",
+      "name": "Legendary Ashen Remains",
+      "requirement": "Acquire all six legendary Spirit Ashes on one character.",
+      "tip": "They only need to be collected; upgrading or summoning them is not required.",
+      "items": ["Lhutel the Headless", "Redmane Knight Ogha", "Mimic Tear Ashes", "Ancient Dragon Knight Kristoff", "Cleanrot Knight Finlay", "Black Knife Tiche"],
+      "category": "collections",
+      "psTier": "silver",
+      "xboxScore": 30
+    },
+    {
+      "id": "god-slaying-armament",
+      "name": "God-Slaying Armament",
+      "requirement": "Upgrade any armament to its highest stage.",
+      "tip": "Reach +25 with a standard weapon or +10 with a somber weapon. A somber weapon is usually faster because it needs one stone per tier.",
+      "category": "collections",
+      "psTier": "silver",
+      "xboxScore": 30
+    },
+    {
+      "id": "shardbearer-godrick",
+      "name": "Shardbearer Godrick",
+      "requirement": "Defeat Godrick the Grafted.",
+      "tip": "Godrick waits at the end of Stormveil Castle after Margit.",
+      "category": "shardbearers",
+      "psTier": "silver",
+      "xboxScore": 30,
+      "bossId": "godrick"
+    },
+    {
+      "id": "rennala-queen-full-moon",
+      "name": "Rennala, Queen of the Full Moon",
+      "requirement": "Defeat Rennala, Queen of the Full Moon.",
+      "tip": "Clear Raya Lucaria Academy in Liurnia. Her Great Rune enables rebirth and does not need activation at a Divine Tower.",
+      "category": "shardbearers",
+      "psTier": "bronze",
+      "xboxScore": 15,
+      "bossId": "rennala"
+    },
+    {
+      "id": "shardbearer-radahn",
+      "name": "Shardbearer Radahn",
+      "requirement": "Defeat Starscourge Radahn.",
+      "tip": "Trigger the Radahn Festival at Redmane Castle, then use the beach portal to enter the arena.",
+      "category": "shardbearers",
+      "psTier": "silver",
+      "xboxScore": 30,
+      "bossId": "radahn"
+    },
+    {
+      "id": "shardbearer-rykard",
+      "name": "Shardbearer Rykard",
+      "requirement": "Defeat Rykard, Lord of Blasphemy.",
+      "tip": "Reach the Audience Pathway through Volcano Manor's legacy dungeon or complete the Manor contracts, then use the Serpent-Hunter found inside the arena.",
+      "category": "shardbearers",
+      "psTier": "silver",
+      "xboxScore": 30,
+      "bossId": "rykard"
+    },
+    {
+      "id": "shardbearer-morgott",
+      "name": "Shardbearer Morgott",
+      "requirement": "Defeat Morgott, the Omen King.",
+      "tip": "Morgott is the mandatory throne-room boss at the top of Leyndell, Royal Capital.",
+      "category": "shardbearers",
+      "psTier": "silver",
+      "xboxScore": 30,
+      "bossId": "morgott"
+    },
+    {
+      "id": "shardbearer-mohg",
+      "name": "Shardbearer Mohg",
+      "requirement": "Defeat Mohg, Lord of Blood.",
+      "tip": "Reach Mohgwyn Palace through White Mask Varré's quest or the Consecrated Snowfield portal. Mohg's Shackle and the Purifying Crystal Tear help substantially.",
+      "category": "shardbearers",
+      "psTier": "silver",
+      "xboxScore": 30,
+      "bossId": "mohg"
+    },
+    {
+      "id": "shardbearer-malenia",
+      "name": "Shardbearer Malenia",
+      "requirement": "Defeat Malenia, Blade of Miquella.",
+      "tip": "Complete the Haligtree Medallion route, descend through Elphael, and defeat Malenia at the roots of the Haligtree.",
+      "category": "shardbearers",
+      "psTier": "silver",
+      "xboxScore": 30,
+      "bossId": "malenia"
+    },
+    {
+      "id": "roundtable-hold",
+      "name": "Roundtable Hold",
+      "requirement": "Arrive at Roundtable Hold.",
+      "tip": "Progress through early Sites of Grace and accept Melina's invitation when she appears while resting.",
+      "category": "story",
+      "psTier": "bronze",
+      "xboxScore": 15
+    },
+    {
+      "id": "great-rune",
+      "name": "Great Rune",
+      "requirement": "Restore the power of a Great Rune.",
+      "tip": "Godrick's is the simplest: after defeating him, cross Limgrave's Divine Tower bridge and activate the rune at the tower's summit.",
+      "category": "story",
+      "psTier": "bronze",
+      "xboxScore": 15
+    },
+    {
+      "id": "margit-fell-omen",
+      "name": "Margit, the Fell Omen",
+      "requirement": "Defeat Margit, the Fell Omen.",
+      "tip": "He guards Stormveil's main gate. Margit's Shackle can pin him briefly during the first phase.",
+      "category": "story",
+      "psTier": "bronze",
+      "xboxScore": 15,
+      "bossId": "margit"
+    },
+    {
+      "id": "red-wolf-radagon",
+      "name": "Red Wolf of Radagon",
+      "requirement": "Defeat the Red Wolf of Radagon.",
+      "tip": "This mandatory academy boss is beyond the Schoolhouse Classroom in Raya Lucaria.",
+      "category": "story",
+      "psTier": "bronze",
+      "xboxScore": 15
+    },
+    {
+      "id": "godfrey-first-lord",
+      "name": "Godfrey the First Lord",
+      "requirement": "Defeat Godfrey, First Elden Lord.",
+      "tip": "This trophy is for Godfrey's golden shade in Leyndell, not the later Hoarah Loux battle.",
+      "category": "story",
+      "psTier": "bronze",
+      "xboxScore": 15
+    },
+    {
+      "id": "fire-giant",
+      "name": "Fire Giant",
+      "requirement": "Defeat the Fire Giant.",
+      "tip": "He is the mandatory boss at the Forge of the Giants. Attack the splinted left ankle during phase one.",
+      "category": "story",
+      "psTier": "bronze",
+      "xboxScore": 15,
+      "bossId": "fire-giant"
+    },
+    {
+      "id": "erdtree-aflame",
+      "name": "Erdtree Aflame",
+      "requirement": "Use kindling to set the Erdtree aflame.",
+      "tip": "After the Fire Giant, rest at the Forge of the Giants and proceed with Melina's story choice. The trophy is part of normal progression.",
+      "category": "story",
+      "psTier": "bronze",
+      "xboxScore": 15
+    },
+    {
+      "id": "godskin-duo",
+      "name": "Godskin Duo",
+      "requirement": "Defeat the Godskin Duo.",
+      "tip": "This mandatory fight is in Crumbling Farum Azula. Sleep effects are extremely effective against both Godskins.",
+      "category": "story",
+      "psTier": "bronze",
+      "xboxScore": 15,
+      "bossId": "godskin-duo"
+    },
+    {
+      "id": "maliketh-black-blade",
+      "name": "Maliketh the Black Blade",
+      "requirement": "Defeat Maliketh, the Black Blade.",
+      "tip": "He is the mandatory final boss of Crumbling Farum Azula, reached from Beside the Great Bridge.",
+      "category": "story",
+      "psTier": "silver",
+      "xboxScore": 30,
+      "bossId": "maliketh"
+    },
+    {
+      "id": "hoarah-loux-warrior",
+      "name": "Hoarah Loux the Warrior",
+      "requirement": "Defeat Hoarah Loux the Warrior.",
+      "tip": "Defeat the real Godfrey in Leyndell, Ashen Capital; Hoarah Loux is his second phase.",
+      "category": "story",
+      "psTier": "silver",
+      "xboxScore": 30,
+      "bossId": "godfrey"
+    },
+    {
+      "id": "leonine-misbegotten",
+      "name": "Leonine Misbegotten",
+      "requirement": "Defeat the Leonine Misbegotten.",
+      "tip": "Clear Castle Morne in the Weeping Peninsula and reach the beach behind the castle.",
+      "category": "optional",
+      "psTier": "bronze",
+      "xboxScore": 15
+    },
+    {
+      "id": "royal-knight-loretta",
+      "name": "Royal Knight Loretta",
+      "requirement": "Defeat Royal Knight Loretta.",
+      "tip": "She is the spectral boss at the end of Caria Manor in northwestern Liurnia.",
+      "category": "optional",
+      "psTier": "bronze",
+      "xboxScore": 15
+    },
+    {
+      "id": "magma-wyrm-makar",
+      "name": "Magma Wyrm Makar",
+      "requirement": "Defeat Magma Wyrm Makar.",
+      "tip": "Climb the Ruin-Strewn Precipice at Liurnia's northern edge; Makar guards its Altus Plateau exit.",
+      "category": "optional",
+      "psTier": "bronze",
+      "xboxScore": 15
+    },
+    {
+      "id": "ancestor-spirit",
+      "name": "Ancestor Spirit",
+      "requirement": "Defeat the Ancestor Spirit.",
+      "tip": "Light all eight obelisks in Siofra River, then interact with the horned remains at Hallowhorn Grounds.",
+      "category": "optional",
+      "psTier": "bronze",
+      "xboxScore": 15
+    },
+    {
+      "id": "mimic-tear",
+      "name": "Mimic Tear",
+      "requirement": "Defeat the Mimic Tear.",
+      "tip": "The fight is on the route into Nokron after Radahn. It copies your equipped loadout when you cross the fog.",
+      "category": "optional",
+      "psTier": "bronze",
+      "xboxScore": 15
+    },
+    {
+      "id": "dragonkin-soldier-nokstella",
+      "name": "Dragonkin Soldier of Nokstella",
+      "requirement": "Defeat the Dragonkin Soldier of Nokstella.",
+      "tip": "Take the Ainsel River route to the enormous throne chamber downstream of Nokstella's ruins.",
+      "category": "optional",
+      "psTier": "bronze",
+      "xboxScore": 15
+    },
+    {
+      "id": "astel-naturalborn-void",
+      "name": "Astel, Naturalborn of the Void",
+      "requirement": "Defeat Astel, Naturalborn of the Void.",
+      "tip": "Follow Ranni's quest through the Lake of Rot and use the coffin beyond the Grand Cloister.",
+      "category": "optional",
+      "psTier": "bronze",
+      "xboxScore": 15,
+      "bossId": "astel"
+    },
+    {
+      "id": "regal-ancestor-spirit",
+      "name": "Regal Ancestor Spirit",
+      "requirement": "Defeat the Regal Ancestor Spirit.",
+      "tip": "Light all six obelisks in Nokron's Ancestral Woods, then interact with the second horned remains at Hallowhorn Grounds.",
+      "category": "optional",
+      "psTier": "bronze",
+      "xboxScore": 15
+    },
+    {
+      "id": "valiant-gargoyle",
+      "name": "Valiant Gargoyle",
+      "requirement": "Defeat the Valiant Gargoyle duo.",
+      "tip": "Find the pair at the end of Siofra Aqueduct in Nokron. Their arena coffin opens the route to Deeproot Depths.",
+      "category": "optional",
+      "psTier": "bronze",
+      "xboxScore": 15
+    },
+    {
+      "id": "elemer-briar",
+      "name": "Elemer of the Briar",
+      "requirement": "Defeat Elemer of the Briar.",
+      "tip": "He is the boss of The Shaded Castle on the border between Altus Plateau and Mt. Gelmir.",
+      "category": "optional",
+      "psTier": "bronze",
+      "xboxScore": 15
+    },
+    {
+      "id": "godskin-noble",
+      "name": "Godskin Noble",
+      "requirement": "Defeat the Godskin Noble.",
+      "tip": "Reach the Temple of Eiglay inside Volcano Manor's legacy dungeon. Sleep effects work exceptionally well.",
+      "category": "optional",
+      "psTier": "bronze",
+      "xboxScore": 15
+    },
+    {
+      "id": "commander-niall",
+      "name": "Commander Niall",
+      "requirement": "Defeat Commander Niall.",
+      "tip": "Clear Castle Sol in the Mountaintops. Victory grants access to the left half of the Haligtree Secret Medallion.",
+      "category": "optional",
+      "psTier": "bronze",
+      "xboxScore": 15
+    },
+    {
+      "id": "loretta-knight-haligtree",
+      "name": "Loretta, Knight of the Haligtree",
+      "requirement": "Defeat Loretta, Knight of the Haligtree.",
+      "tip": "She guards the route from Miquella's Haligtree into Elphael. This is the physical rematch, not the Caria Manor shade.",
+      "category": "optional",
+      "psTier": "bronze",
+      "xboxScore": 15
+    },
+    {
+      "id": "mohg-omen",
+      "name": "Mohg, the Omen",
+      "requirement": "Defeat Mohg, the Omen.",
+      "tip": "Descend the Subterranean Shunning-Grounds beneath Leyndell. This is a separate boss from Mohg, Lord of Blood.",
+      "category": "optional",
+      "psTier": "bronze",
+      "xboxScore": 15
+    },
+    {
+      "id": "lichdragon-fortissax",
+      "name": "Lichdragon Fortissax",
+      "requirement": "Defeat Lichdragon Fortissax.",
+      "tip": "Complete Fia's quest in Deeproot Depths, give her the Cursemark of Death, then enter her dream after she sleeps.",
+      "category": "optional",
+      "psTier": "bronze",
+      "xboxScore": 15
+    },
+    {
+      "id": "dragonlord-placidusax",
+      "name": "Dragonlord Placidusax",
+      "requirement": "Defeat Dragonlord Placidusax.",
+      "tip": "From Beside the Great Bridge in Farum Azula, descend the cliffs to the floating ruins and lie down in the empty grave.",
+      "category": "optional",
+      "psTier": "silver",
+      "xboxScore": 30
+    }
+  ]
+}

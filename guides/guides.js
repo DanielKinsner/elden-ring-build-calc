@@ -1,11 +1,11 @@
-/* guides.js — quest tracker (T9) + boss & endings guides (T10). Progress lives in localStorage. */
+/* guides.js — quests, route, bosses, endings, trophies, and compendium. Progress lives in localStorage. */
 (async function () {
   'use strict';
   var $ = function (id) { return document.getElementById(id); };
   var content = $('guideContent');
 
   var data = await ERData.loadGuides('../data/');
-  var QUESTS = data.quests, BOSSES = data.bosses, ENDINGS = data.endings, PROG = data.progression, SCADU = data.scadutree;
+  var QUESTS = data.quests, BOSSES = data.bosses, ENDINGS = data.endings, PROG = data.progression, SCADU = data.scadutree, TROPHIES = data.trophies;
 
   /* ---- portrait manifests: { <id>: "<filename>" }, scraped by scripts/fetch-portraits.js.
      Missing id = letter-in-a-box fallback (partial coverage ships fine). ---- */
@@ -44,6 +44,7 @@
   store.steps = store.steps || {};
   store.open = store.open || {};
   store.bosses = store.bosses || {};
+  store.trophies = store.trophies || {};
   function save() { try { localStorage.setItem(LS_KEY, JSON.stringify(store)); } catch (e) {} }
 
   function esc(s) { return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;'); }
@@ -75,7 +76,7 @@
   }
 
   /* ---- tabs (hash-routed so links can target a tab) ---- */
-  var TABS = { quests: renderQuests, walkthrough: renderWalkthrough, bosses: renderBosses, endings: renderEndings, compendium: renderCompendium };
+  var TABS = { quests: renderQuests, walkthrough: renderWalkthrough, bosses: renderBosses, endings: renderEndings, trophies: renderTrophies, compendium: renderCompendium };
   var tabBtns = Array.prototype.slice.call(document.querySelectorAll('#guideTabs .atlas-tab'));
   function setTab(name, questToOpen) {
     if (!TABS[name]) name = 'quests';
@@ -426,6 +427,86 @@
     });
   }
 
+  /* ---- trophies & achievements: one cross-platform checklist, grouped by requirement ---- */
+  var trophyFilter = 'all'; // survives rerenders (not persisted)
+  function trophyCard(t) {
+    var earned = !!store.trophies[t.id];
+    var tierLabel = t.psTier.charAt(0).toUpperCase() + t.psTier.slice(1);
+    var links = [];
+    if (t.bossId) links.push('<a class="trophy-link" href="#bosses" data-boss="' + t.bossId + '">Open boss guide →</a>');
+    if (t.endingId) links.push('<a class="trophy-link" href="#endings" data-ending="' + t.endingId + '">Open ending route →</a>');
+    return '<article class="trophy-card' + (earned ? ' earned' : '') + '" id="trophy-' + t.id + '">' +
+      '<div class="trophy-head"><label class="trophy-check">' +
+        '<input type="checkbox" data-trophy="' + t.id + '"' + (earned ? ' checked' : '') + '>' +
+        '<span class="trophy-mark" aria-hidden="true">' + (earned ? '✓' : '◇') + '</span>' +
+        '<span class="trophy-name-wrap"><span class="trophy-name">' + esc(t.name) + '</span>' +
+          '<span class="trophy-requirement">' + esc(t.requirement) + '</span></span>' +
+      '</label>' +
+      '<span class="trophy-badges"><span class="trophy-tier ' + t.psTier + '">PS ' + tierLabel + '</span>' +
+        '<span class="trophy-score">Xbox ' + t.xboxScore + 'G</span><span class="trophy-steam">Steam</span></span></div>' +
+      '<p class="trophy-tip">' + esc(t.tip) + '</p>' +
+      (t.warning ? '<p class="trophy-warning">⚠ ' + esc(t.warning) + '</p>' : '') +
+      (t.items && t.items.length ? '<details class="trophy-items"><summary>Required set · ' + t.items.length + ' items</summary><ul>' +
+        t.items.map(function (item) { return '<li>' + esc(item) + '</li>'; }).join('') + '</ul></details>' : '') +
+      (links.length ? '<div class="trophy-links">' + links.join('') + '</div>' : '') +
+    '</article>';
+  }
+  function renderTrophies() {
+    var earned = TROPHIES.trophies.filter(function (t) { return store.trophies[t.id]; });
+    var earnedScore = earned.reduce(function (sum, t) { return sum + t.xboxScore; }, 0);
+    var visible = TROPHIES.trophies.filter(function (t) {
+      return trophyFilter === 'all' || (trophyFilter === 'earned' ? !!store.trophies[t.id] : !store.trophies[t.id]);
+    });
+    var html = hero(TROPHIES.title,
+      'One checklist for PlayStation, Xbox, and Steam — exact requirements, cleanup notes, and routes to every unlock.',
+      Math.round(100 * earned.length / TROPHIES.trophies.length), [
+        ['Earned', earned.length + ' / ' + TROPHIES.trophies.length],
+        ['Xbox score', earnedScore + ' / 1,000G'],
+        ['PlayStation', '1P · 3G · 14S · 24B'],
+        ['DLC trophies', 'None']
+      ]);
+    html += rulesDetails('◈ Platform rules', [TROPHIES.platformNote, TROPHIES.dlcNote], true);
+    html += '<div class="trophy-filters" aria-label="Filter trophies">' +
+      [['all', 'All 42'], ['remaining', 'Remaining'], ['earned', 'Earned']].map(function (f) {
+        return '<button class="atlas-tab' + (trophyFilter === f[0] ? ' active' : '') + '" data-trophy-filter="' + f[0] + '">' + f[1] + '</button>';
+      }).join('') + '</div>';
+    TROPHIES.categories.forEach(function (cat) {
+      var list = visible.filter(function (t) { return t.category === cat.id; });
+      if (!list.length) return;
+      var catEarned = TROPHIES.trophies.filter(function (t) { return t.category === cat.id && store.trophies[t.id]; }).length;
+      var catTotal = TROPHIES.trophies.filter(function (t) { return t.category === cat.id; }).length;
+      html += '<section class="trophy-section"><h3 class="guide-h3">' + esc(cat.name) +
+        ' <span class="guide-h3-sub">' + esc(cat.description) + ' · ' + catEarned + '/' + catTotal + ' earned</span></h3>' +
+        '<div class="trophy-list">' + list.map(trophyCard).join('') + '</div></section>';
+    });
+    if (!visible.length) html += '<p class="trophy-empty">Nothing in this filter. That is either excellent news or suspiciously maidenless recordkeeping.</p>';
+    content.innerHTML = html;
+
+    Array.prototype.forEach.call(content.querySelectorAll('[data-trophy-filter]'), function (b) {
+      b.addEventListener('click', function () { trophyFilter = b.dataset.trophyFilter; renderTrophies(); });
+    });
+    Array.prototype.forEach.call(content.querySelectorAll('input[data-trophy]'), function (c) {
+      c.addEventListener('change', function () {
+        if (c.checked) store.trophies[c.dataset.trophy] = 1; else delete store.trophies[c.dataset.trophy];
+        save(); renderTrophies();
+      });
+    });
+    Array.prototype.forEach.call(content.querySelectorAll('.trophy-link[data-boss]'), function (a) {
+      a.addEventListener('click', function (ev) {
+        ev.preventDefault(); setTab('bosses');
+        var el = document.getElementById('boss-' + a.dataset.boss);
+        if (el) el.scrollIntoView({ block: 'start', behavior: 'smooth' });
+      });
+    });
+    Array.prototype.forEach.call(content.querySelectorAll('.trophy-link[data-ending]'), function (a) {
+      a.addEventListener('click', function (ev) {
+        ev.preventDefault(); setTab('endings');
+        var el = document.getElementById('ending-' + a.dataset.ending);
+        if (el) el.scrollIntoView({ block: 'start', behavior: 'smooth' });
+      });
+    });
+  }
+
   /* ---- compendium: lean NPC/boss/place reference, cross-linked to tracker/bosses/tales ---- */
   var compendiumFilter = 'all'; // survives rerenders (not persisted)
   function compendiumLinks(e) {
@@ -491,7 +572,7 @@
     });
   }
 
-  /* ---- instant search: quests, steps, bosses, endings, route (Ctrl+K, /) ---- */
+  /* ---- instant search: every guide surface (Ctrl+K, /) ---- */
   var SEARCH_INDEX = (function () {
     var idx = [];
     QUESTS.quests.forEach(function (q) {
@@ -505,6 +586,9 @@
     });
     ENDINGS.endings.forEach(function (e) {
       idx.push({ group: 'Endings', label: e.name, sub: e.how, endingId: e.id });
+    });
+    TROPHIES.trophies.forEach(function (t) {
+      idx.push({ group: 'Trophies', label: t.name, sub: t.requirement, trophyId: t.id });
     });
     PROG.steps.forEach(function (s) {
       idx.push({ group: 'Route', label: s.text, sub: 'Walkthrough', stepId: s.id });
@@ -570,6 +654,11 @@
       setTab('endings');
       var eEl = document.getElementById('ending-' + hit.endingId);
       if (eEl) eEl.scrollIntoView({ block: 'start', behavior: 'smooth' });
+    } else if (hit.group === 'Trophies') {
+      trophyFilter = 'all';
+      setTab('trophies');
+      var tEl = document.getElementById('trophy-' + hit.trophyId);
+      if (tEl) tEl.scrollIntoView({ block: 'center', behavior: 'smooth' });
     } else if (hit.group === 'Route') {
       setTab('walkthrough');
       var rEl = document.getElementById('rstep-' + hit.stepId);
