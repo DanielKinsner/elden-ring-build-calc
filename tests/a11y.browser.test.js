@@ -12,6 +12,7 @@ const targets = [
   { name:'Atlas', path:'../atlas/' }
 ];
 const views = ['Character', 'Loadout', 'Damage', 'Defense', 'Magic', 'Encounter', 'Advanced / Trace'];
+const viewDomains = { Magic:'magic', Encounter:'encounter', 'Advanced / Trace':'skills' };
 
 function format(violations) {
   return violations.map(item => `${item.id}: ${item.nodes.map(node => node.target.join(' ')).join(', ')}`).join('\n');
@@ -33,6 +34,8 @@ async function main() {
   const browser = await chromium.launch({ headless:true, executablePath:EXECUTABLE });
   try {
     const page = await browser.newPage({ viewport:{ width:1280, height:900 } });
+    // Contrast must be measured in a stable rendered state, not during authored entrance motion.
+    await page.emulateMedia({ reducedMotion:'reduce' });
     for (const target of targets) {
       await page.goto(new URL(target.path, BASE).toString(), { waitUntil:'networkidle' });
       if (target.name === 'Build') await page.locator('#stats .stat').first().waitFor();
@@ -43,6 +46,12 @@ async function main() {
     await page.locator('#stats .stat').first().waitFor();
     for (const view of views) {
       await page.getByRole('tab', { name:view, exact:true }).click();
+      if (viewDomains[view]) {
+        const domain = viewDomains[view];
+        await page.evaluate(name => window.ERBuild.ensureDomain(name), domain);
+        const stateId = domain === 'magic' ? '#magicDomainState' : domain === 'skills' ? '#skillsDomainState' : '#encounterDomainState';
+        await page.locator(stateId).waitFor({ state:'hidden' });
+      }
       await scan(page, `Build ${view}`);
     }
     console.log('Automated accessibility checks passed');

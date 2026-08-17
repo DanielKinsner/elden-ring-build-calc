@@ -7,6 +7,7 @@ const browsers = new Set();
 const cleanups = new Set();
 const launch = chromium.launch.bind(chromium);
 let stopping = null;
+const CLOSE_TIMEOUT_MS = Number(process.env.ER_BROWSER_CLOSE_TIMEOUT_MS || 3000);
 
 chromium.launch = async function trackedLaunch(...args) {
   const browser = await launch(...args);
@@ -23,12 +24,20 @@ function addCleanup(callback) {
 async function stop() {
   if (stopping) return stopping;
   stopping = (async () => {
-    await Promise.allSettled([...browsers].map(browser => browser.close()));
+    await Promise.allSettled([...browsers].map(browser => bounded(browser.close(), 'browser.close')));
     for (const cleanup of [...cleanups]) {
-      try { await cleanup(); } catch (_) { /* preserve the original signal exit status */ }
+      try { await bounded(Promise.resolve().then(cleanup), 'temporary-artifact cleanup'); }
+      catch (error) { console.error(`Browser lifecycle cleanup failed: ${error.message}`); }
     }
   })();
   return stopping;
+}
+
+function bounded(promise, label) {
+  return new Promise((resolve, reject) => {
+    const timer = setTimeout(() => reject(new Error(`${label} exceeded ${CLOSE_TIMEOUT_MS}ms`)), CLOSE_TIMEOUT_MS);
+    Promise.resolve(promise).then(value => { clearTimeout(timer); resolve(value); }, error => { clearTimeout(timer); reject(error); });
+  });
 }
 
 function signalExit(code) {
@@ -44,4 +53,4 @@ if (process.send) process.on('message', message => {
 // allowing a completed test process to exit normally once its browser and other handles are closed.
 if (process.channel) process.channel.unref();
 
-module.exports = { chromium, addCleanup };
+module.exports = { chromium, addCleanup, shutdownForSignal:signalExit };

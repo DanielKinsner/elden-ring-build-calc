@@ -11,9 +11,10 @@ const ATLAS = new URL('/atlas/', ORIGIN).toString();
 function ok(value, message) { assert(value, message); console.log('  ✓ ' + message); }
 async function dimensions(page) { return page.evaluate(() => ({ scroll:document.documentElement.scrollWidth, inner:innerWidth })); }
 async function keyActivate(page, locator, label) {
-  await locator.focus();
-  ok(await locator.evaluate((element) => document.activeElement === element), 'keyboard focus reaches ' + label);
-  await page.keyboard.press('Enter');
+  // Check native focus atomically with selection of the generated element; the protocol's
+  // separate focus/evaluate round trips can span a Build re-render.
+  ok(await locator.evaluate((element) => { element.focus(); return document.activeElement === element; }), 'keyboard focus reaches ' + label);
+  await locator.press('Enter');
 }
 async function functionalContrast(page) {
   return page.evaluate(() => {
@@ -90,12 +91,21 @@ async function unmetSuggestionContrast(page) {
     ok(await desktop.locator('.rack-slot-main[data-rack-hand="left"][data-rack-index="0"]').getAttribute('aria-label') === 'Left Hand 1: empty', 'keyboard Unequip clears the selected armament');
 
     console.log('  … checking generated analysis, suggestions, and actions');
-    await desktop.getByRole('tab', { name:'Advanced / Trace' }).click();
+    const advancedTab = desktop.getByRole('tab', { name:'Advanced / Trace' });
+    await advancedTab.click();
     console.log('  … Advanced view selected');
     const statChoice = desktop.locator('#byStat button[data-stat]').first();
+    await statChoice.waitFor({ state:'visible' });
     const statName = (await statChoice.getAttribute('aria-label')).replace('View ', '').replace(' soft-cap analysis', '');
     console.log('  … ' + statName + ' choice resolved');
-    await keyActivate(desktop, statChoice, 'a generated stat-analysis choice');
+    await advancedTab.evaluate((element) => element.focus());
+    let statFocused = false;
+    for (let step = 0; step < 40 && !statFocused; step++) {
+      await desktop.keyboard.press('Tab');
+      statFocused = await desktop.evaluate(() => document.activeElement && document.activeElement.matches('#byStat button[data-stat]'));
+    }
+    ok(statFocused, 'keyboard focus reaches a generated stat-analysis choice');
+    await desktop.keyboard.press('Enter');
     console.log('  … ' + statName + ' choice activated');
     ok((await desktop.locator('#softcapHeader').textContent()).indexOf(statName) >= 0, 'keyboard activates generated stat-analysis choices');
     await desktop.getByRole('tab', { name:'Damage' }).click();

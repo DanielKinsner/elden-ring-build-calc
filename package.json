@@ -9,7 +9,7 @@
     "test:engine": "node tests/engine.test.js",
     "test:data": "node scripts/check-releases.js && node scripts/check-refs.js && node scripts/validate-acquisition.js",
     "test:delivery": "node tests/loading.test.js",
-    "test:static": "node scripts/validate-static-site.js",
+    "test:static": "node tests/validate-static-site.test.js && node scripts/validate-static-site.js",
     "test:lifecycle": "node tests/run-browser-suite.lifecycle.test.js",
     "test:browser": "node scripts/run-browser-suite.js tests/loading.browser.test.js tests/build-views.browser.test.js tests/ui.smoke.js tests/site.browser.test.js",
     "test:a11y": "node scripts/run-browser-suite.js tests/a11y.browser.test.js tests/accessibility.browser.test.js",

@@ -13,6 +13,22 @@ if (!tests.length) {
 
 let activeChild = null;
 let shuttingDown = false;
+const GRACE_MS = Number(process.env.ER_RUNNER_GRACE_MS || 5000);
+const TERMINATE_MS = Number(process.env.ER_RUNNER_TERMINATE_MS || 3000);
+
+function waitForExit(child, timeout) {
+  return new Promise(resolve => {
+    if (child.exitCode != null || child.signalCode) { resolve(true); return; }
+    const timer = setTimeout(() => { child.off('exit', exited); resolve(false); }, timeout);
+    const exited = () => { clearTimeout(timer); resolve(true); };
+    child.once('exit', exited);
+  });
+}
+
+function signalChild(child, signal) {
+  try { return child.kill(signal); }
+  catch (_) { return false; }
+}
 
 function run(file, env) {
   return new Promise((resolve, reject) => {
@@ -29,16 +45,24 @@ function run(file, env) {
 function stopActiveChild() {
   if (!activeChild || activeChild.exitCode != null || activeChild.signalCode) return Promise.resolve();
   const child = activeChild;
-  return new Promise(resolve => {
-    const done = () => resolve();
-    child.once('exit', done);
-    const fallback = setTimeout(() => { try { child.kill('SIGTERM'); } catch (_) { done(); } }, 5000);
-    fallback.unref();
+  return (async () => {
     // Browser tests receive this platform-neutral graceful-stop message and close only their own
-    // Playwright browsers/temp files. A bounded direct-child SIGTERM fallback avoids a hung child.
-    if (child.connected) child.send({ type:'shutdown' }, error => { if (error) { try { child.kill('SIGTERM'); } catch (_) { done(); } } });
-    else { try { child.kill('SIGTERM'); } catch (_) { done(); } }
-  });
+    // Playwright browsers/temp files. No broad process-tree signal is ever sent.
+    if (child.connected) {
+      try {
+        child.send({ type:'shutdown' }, () => {});
+      } catch {
+        // The child can disconnect between checking `connected` and sending.
+      }
+    }
+    if (await waitForExit(child, GRACE_MS)) return;
+    console.error(`Browser suite: ${path.basename(child.spawnargs[1] || 'child')} ignored graceful shutdown after ${GRACE_MS}ms; sending direct SIGTERM.`);
+    signalChild(child, 'SIGTERM');
+    if (await waitForExit(child, TERMINATE_MS)) return;
+    console.error(`Browser suite: direct child still running after ${TERMINATE_MS}ms; sending direct SIGKILL.`);
+    signalChild(child, 'SIGKILL');
+    if (!await waitForExit(child, TERMINATE_MS)) console.error('Browser suite: direct child did not report exit after SIGKILL; continuing shutdown without a broad process-tree kill.');
+  })();
 }
 
 (async () => {
