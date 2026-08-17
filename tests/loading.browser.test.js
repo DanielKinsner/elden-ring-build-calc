@@ -47,7 +47,8 @@ async function open(browser, query) {
     await armamentOnly.close();
 
     const restored = await open(browser, '?cat=astrologers-staff&sp=comet&sa=comet&en=malenia-blade-of-miquella-128t7sv&ng=7&wm=2h-jumping-r2&rh=longsword~Blood~25~bloody-slash~bloody-slash-300000057,-,-');
-    await restored.locator('#skillSelect').waitFor();
+    await restored.locator('#skillSelect').waitFor({ state:'attached' });
+    await restored.getByRole('tab', { name:'Encounter', exact:true }).click();
     await restored.locator('#enemySummary').getByText('Malenia, Blade of Miquella').waitFor();
     assert.strictEqual(await restored.locator('#weaponName').textContent(), 'Longsword', 'secondary-only armament URL restores its selected weapon');
     assert.strictEqual(await restored.locator('#skillSelect').inputValue(), 'bloody-slash', 'secondary-only armament URL restores its Ash');
@@ -59,6 +60,7 @@ async function open(browser, query) {
     await restored.close();
 
     const ranged = await open(browser, '?w=spread-crossbow&en=malenia-blade-of-miquella-128t7sv&ng=7&am=bloodbone-bolt');
+    await ranged.getByRole('tab', { name:'Encounter', exact:true }).click();
     await ranged.locator('#ammoControl').waitFor({ state:'visible' });
     assert.strictEqual(await ranged.locator('#ammoSelect').inputValue(), 'bloodbone-bolt', 'secondary-only ammunition state restores after encounter hydration');
     await ranged.close();

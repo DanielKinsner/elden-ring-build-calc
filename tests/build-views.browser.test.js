@@ -13,11 +13,12 @@ async function main() {
   const browser = await chromium.launch({ headless:true, executablePath:process.env.CHROMIUM_PATH || undefined });
   try {
     const context = await browser.newContext({ viewport:{ width:1280, height:900 } });
-    await context.addInitScript(() => localStorage.clear());
+    await context.grantPermissions(['clipboard-read', 'clipboard-write'], { origin:new URL(BASE).origin });
     const page = await context.newPage();
     page.setDefaultTimeout(10000);
     await page.goto(BASE, { waitUntil:'domcontentloaded' });
     await page.locator('#stats .stat').first().waitFor();
+    await page.evaluate(() => localStorage.clear());
 
     assert.strictEqual(await page.getByRole('tab', { name:'Character', exact:true }).getAttribute('aria-selected'), 'true', 'Character is the default view');
     assert((await page.locator('#summaryTarget').textContent()).includes('General Build'), 'General Build is the default context');
@@ -55,6 +56,13 @@ async function main() {
     await page.locator('#optimizeBtn').click();
     await page.locator('#optResult').getByText('Preview only').waitFor();
     assert.strictEqual(await dex.inputValue(), beforePreview, 'advisor preview never mutates live stats');
+    await openView(page, 'Character');
+    await page.locator('#twoHand').evaluate(input => { input.checked = false; input.dispatchEvent(new Event('change', { bubbles:true })); });
+    assert.strictEqual(await page.locator('#twoHand').isChecked(), false, 'context change applies before advisor invalidation');
+    await openView(page, 'Advanced / Trace');
+    assert.strictEqual(await page.locator('#optApply').isVisible(), false, 'changing context invalidates a stale advisor preview before Apply');
+    await page.locator('#optimizeBtn').click();
+    await page.locator('#optResult').getByText('Preview only').waitFor();
     const apply = page.locator('#optApply');
     assert.strictEqual(await apply.isDisabled(), false, 'advisor proposal exposes an explicit apply action');
     await apply.click();
@@ -63,15 +71,65 @@ async function main() {
     await page.locator('#optUndo').click();
     assert.strictEqual(await dex.inputValue(), beforePreview, 'advisor undo restores the exact prior spread');
 
+    await page.locator('#optimizeBtn').click();
+    await page.locator('#optApply').click();
+    await openView(page, 'Character');
+    await dex.fill(String(Number(beforePreview) + 1));
+    await openView(page, 'Advanced / Trace');
+    assert.strictEqual(await page.locator('#optUndo').isVisible(), false, 'manual stat changes invalidate Undo instead of overwriting a later build');
+
+    const presetContext = await browser.newContext({ viewport:{ width:1280, height:900 } });
+    const presetPage = await presetContext.newPage();
+    presetPage.setDefaultTimeout(10000);
+    await presetPage.goto(BASE, { waitUntil:'domcontentloaded' });
+    await presetPage.locator('#stats .stat').first().waitFor();
+    await presetPage.locator('#stats [data-box="DEX"]').fill('70');
+    await presetPage.locator('#twoHand').evaluate(input => { input.checked = false; input.dispatchEvent(new Event('change', { bubbles:true })); });
+    await openView(presetPage, 'Advanced / Trace');
+    await presetPage.locator('#skillsDomainState').waitFor({ state:'hidden' });
+    await presetPage.locator('#optimizeBtn').click();
+    await presetPage.locator('#optApply').click();
+    await presetPage.locator('#optUndo').waitFor();
+    await openView(presetPage, 'Character');
+    await presetPage.locator('#presetBtns [data-p]').first().click();
+    await openView(presetPage, 'Advanced / Trace');
+    assert.strictEqual(await presetPage.locator('#optUndo').isVisible(), false, 'preset changes invalidate Undo instead of overwriting a later build');
+    await presetContext.close();
+
+    await openView(page, 'Loadout');
+    await page.locator('[data-rack-hand="left"][data-rack-index="1"]').click();
+    assert.strictEqual(await page.getByRole('tab', { name:'Damage', exact:true }).getAttribute('aria-selected'), 'true', 'empty inactive armament selection opens the visible weapon picker');
+    await page.locator('#weaponSearch').fill('Longsword');
+    await page.locator('#weaponList [data-id="longsword"]').click();
+    assert((await page.locator('#summaryWeapon').textContent()).includes('Longsword'), 'equipping an inactive slot synchronizes the persistent summary');
+    await openView(page, 'Loadout');
+    await page.locator('[data-rack-hand="right"][data-rack-index="1"]').click();
+    assert.strictEqual(await page.getByRole('tab', { name:'Damage', exact:true }).getAttribute('aria-selected'), 'true', 'right inactive armament selection also opens the visible weapon picker');
+    await page.locator('#weaponSearch').fill('Longsword');
+    await page.locator('#weaponList [data-id="longsword"]').click();
+    assert((await page.locator('#summaryWeapon').textContent()).includes('Longsword'), 'right inactive armament equip also synchronizes the persistent summary');
+
     await openView(page, 'Character');
     await dex.fill('71');
     await openView(page, 'Advanced / Trace');
     await page.waitForTimeout(300);
-    const shared = page.url();
-    await page.reload({ waitUntil:'domcontentloaded' });
-    await page.locator('#stats .stat').first().waitFor({ state:'attached' });
-    assert.strictEqual(await page.locator('#stats [data-box="DEX"]').inputValue(), '71', 'share URL still restores canonical stat state');
-    assert(shared.includes('view=advanced'), 'focused-view selection persists with the shared build URL');
+    page.on('dialog', dialog => dialog.accept('Focused browser save'));
+    await page.locator('#summarySave').click();
+    assert.strictEqual(await page.evaluate(() => JSON.parse(localStorage.getItem('er-my-builds')).some(entry => entry.name === 'Focused browser save')), true, 'summary Save delegates to named-build persistence');
+    await page.locator('#summaryShare').click();
+    const shared = await page.evaluate(() => navigator.clipboard.readText());
+    assert.strictEqual(shared, page.url(), 'summary Share delegates to the canonical copied share URL');
+
+    const restoredContext = await browser.newContext({ viewport:{ width:1280, height:900 } });
+    const restored = await restoredContext.newPage();
+    restored.setDefaultTimeout(10000);
+    await restored.goto(shared, { waitUntil:'domcontentloaded' });
+    await restored.locator('[data-view-panel="advanced"]').waitFor({ state:'visible' });
+    await restored.locator('#skillsDomainState').waitFor({ state:'hidden' });
+    assert.strictEqual(await restored.getByRole('tab', { name:'Advanced / Trace', exact:true }).getAttribute('aria-selected'), 'true', 'share reload restores the requested Advanced view');
+    assert.strictEqual(await restored.locator('#stats [data-box="DEX"]').inputValue(), '71', 'clean share reload restores canonical stat state');
+    assert.strictEqual(await restored.locator('#skillSelect').isDisabled(), false, 'restored Advanced view hydrates its secondary skill domain');
+    await restoredContext.close();
     await context.close();
 
     const mobileContext = await browser.newContext({ viewport:{ width:390, height:844 } });

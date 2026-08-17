@@ -11,7 +11,14 @@ function assert(ok, message) {
   console.log('  ✓ ' + message);
 }
 
+async function openView(page, name) {
+  const view = { Character:'character', Loadout:'loadout', Damage:'damage', Defense:'defense', Magic:'magic', Encounter:'encounter', 'Advanced / Trace':'advanced' }[name];
+  await page.getByRole('tab', { name, exact:true }).click();
+  await page.locator('[data-view-panel="' + view + '"]').waitFor({ state:'visible' });
+}
+
 async function equip(page, slot, query, exactName) {
+  await openView(page, 'Loadout');
   await page.locator('[data-tali-slot="' + slot + '"]').click();
   await page.locator('#talismanSearch').fill(query);
   const result = page.locator('.talisman-result').filter({ has: page.locator('b', { hasText: exactName }) }).first();
@@ -19,6 +26,7 @@ async function equip(page, slot, query, exactName) {
 }
 
 async function memorize(page, query, exactName) {
+  await openView(page, 'Magic');
   await page.locator('#addSpell').click();
   await page.locator('#spellSearch').fill(query);
   const result = page.locator('.spell-result').filter({ has: page.locator('b', { hasText: exactName }) }).first();
@@ -37,22 +45,29 @@ async function main() {
     page.on('response', (response) => { if (response.status() >= 400) errors.push('http ' + response.status() + ': ' + response.url()); });
     await page.goto(BASE, { waitUntil: 'networkidle' });
 
+    await openView(page, 'Loadout');
     assert(await page.locator('.tali-slot').count() === 4, 'renders four talisman slots');
+    await openView(page, 'Advanced / Trace');
+    await page.locator('#skillsDomainState').waitFor({ state:'hidden' });
     assert(await page.locator('#skillName').textContent() === 'Corpse Piler', 'fixed unique weapon exposes its real skill');
     assert(await page.locator('#skillEvent option').count() === 18, 'fixed skill exposes every exact attack event');
     assert(Number(await page.locator('#skillPreDamage').textContent()) > 0, 'fixed skill event produces pre-defense damage');
     const rawAR = Number(await page.locator('#ar').textContent());
     await equip(page, 0, 'Claw Talisman', 'Claw Talisman');
     assert(Number(await page.locator('#ar').textContent()) === rawAR, 'contextual talisman does not contaminate neutral AR');
+    await openView(page, 'Damage');
     await page.locator('#attackProfile').selectOption('jump');
     const jumpAR = Number(await page.locator('#ar').textContent());
     assert(jumpAR > rawAR, 'jump lens applies Claw Talisman to live output');
     assert((await page.locator('#attackLensState').textContent()).includes('matched modifier'), 'attack lens exposes matched move math');
+    await openView(page, 'Loadout');
     await page.locator('[data-tali-clear="0"]').click();
+    await openView(page, 'Damage');
     await page.locator('#attackProfile').selectOption('neutral');
     await equip(page, 0, 'Ritual Sword', 'Ritual Sword Talisman');
     const ritualAR = Number(await page.locator('#ar').textContent());
     assert(ritualAR > rawAR, 'conditional Ritual Sword effect changes live AR');
+    await openView(page, 'Loadout');
     await page.locator('[data-tali-condition="0"]').uncheck();
     assert(Number(await page.locator('#ar').textContent()) === rawAR, 'condition switch removes its math immediately');
     await page.locator('[data-tali-condition="0"]').check();
@@ -75,11 +90,15 @@ async function main() {
     await equip(page, 3, 'Dragoncrest Greatshield', 'Dragoncrest Greatshield Talisman');
     const physicalDefense = page.locator('#armorNegation .defense-row').filter({ hasText: 'Physical' });
     assert((await physicalDefense.textContent()).includes('20.0'), 'PvE context applies the datamined Dragoncrest multiplier');
+    await openView(page, 'Character');
     await page.locator('#combatContext').selectOption('pvp');
+    await openView(page, 'Damage');
     assert((await physicalDefense.textContent()).includes('5.0'), 'PvP context switches to its separate Dragoncrest multiplier');
     await page.locator('#attackProfile').selectOption('jump');
 
+    await openView(page, 'Character');
     await page.locator('[data-box="INT"]').fill('80');
+    await openView(page, 'Magic');
     await page.locator('#catalystSelect').selectOption('astrologers-staff');
     await page.locator('#catalystUpgrade').selectOption('25');
     await memorize(page, 'Comet', 'Comet');
@@ -88,6 +107,7 @@ async function main() {
     assert(await page.locator('#spellOutput').textContent() === '992', 'Comet motion value produces 992 pre-defense magic damage');
     assert((await page.locator('#spellCosts').textContent()).startsWith('24 / 31'), 'spell output exposes FP and stamina costs');
     assert((await page.locator('#activeSpellReqs').textContent()).includes('ready'), 'spell analysis validates catalyst and attribute requirements');
+    await openView(page, 'Encounter');
     await page.locator('#enemyPickerOpen').click();
     await page.locator('#enemySearch').fill('Malenia, Blade of Miquella');
     await page.locator('.enemy-result').filter({ hasText: "Miquella's Haligtree" }).first().click();
@@ -136,6 +156,7 @@ async function main() {
     const ranged = await context.newPage();
     ranged.on('pageerror', (error) => errors.push('ranged page: ' + error.message));
     await ranged.goto(rangedUrl.toString(), { waitUntil: 'networkidle' });
+    await openView(ranged, 'Encounter');
     assert(await ranged.locator('#ammoControl').isVisible(), 'ranged armament exposes an ammunition slot');
     assert(await ranged.locator('#ammoSelect option').count() === 20, 'crossbows expose all 20 compatible bolts');
     assert(await ranged.locator('#ammoSelect').inputValue() === 'bloodbone-bolt', 'shared link restores exact ammunition');
@@ -159,6 +180,7 @@ async function main() {
     const skillPage = await context.newPage();
     skillPage.on('pageerror', (error) => errors.push('skill page: ' + error.message));
     await skillPage.goto(skillUrl.toString(), { waitUntil:'networkidle' });
+    await openView(skillPage, 'Advanced / Trace');
     assert(!(await skillPage.locator('#skillSelect').isDisabled()), 'infusable weapon exposes legal Ash selection');
     assert(await skillPage.locator('#skillSelect option').count() > 30, 'weapon and affinity filter the full legal Ash list');
     await skillPage.locator('#skillSelect').selectOption('bloody-slash');
@@ -182,6 +204,7 @@ async function main() {
     const ritePage = await context.newPage();
     ritePage.on('pageerror', (error) => errors.push('rite page: ' + error.message));
     await ritePage.goto(riteUrl.toString(), { waitUntil:'networkidle' });
+    await openView(ritePage, 'Loadout');
     assert(await ritePage.locator('#physickOne option').count() === 38, 'Physick rack exposes all 37 unique tears');
     assert(await ritePage.locator('#greatRune option').count() === 7, 'Great Rune rack exposes all six equipable runes');
     const riteRawAR = Number(await ritePage.locator('#ar').textContent());

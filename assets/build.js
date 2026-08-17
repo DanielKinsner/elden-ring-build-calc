@@ -612,7 +612,8 @@
       weaponTarget = { hand: hand, index: index };
       renderArmamentRack();
       $('weaponSearch').placeholder = 'Equip ' + slotLabel(hand, index) + '…';
-      $('weaponSearch').focus();
+      setBuildView('damage', true);
+      setTimeout(function () { $('weaponSearch').focus(); }, 0);
       return;
     }
     saveActiveArmament();
@@ -1811,6 +1812,21 @@
 
   /* ---- stat advisor: proposal first, intentional apply, reversible undo ---- */
   var advisorPreview = null, advisorUndo = null;
+  function advisorContextSignature() {
+    return JSON.stringify({
+      stats: SCALING.map(function (key) { return build[key]; }),
+      weapon: current && current.id,
+      affinity: affinity,
+      upgrade: upgradeLevel,
+      twoHanded: twoHanded,
+      activeSlot: activeSlot.hand + activeSlot.index,
+      armaments: armaments,
+      level: $('level').value
+    });
+  }
+  function advisorUndoIsCurrent() {
+    return advisorUndo && advisorUndo.signature === advisorContextSignature() && SCALING.every(function (key) { return build[key] === advisorUndo.applied[key]; });
+  }
   function advisorRows(proposal) {
     return SCALING.map(function (k) {
       var cur = build[k], suggested = proposal.stats[k], delta = suggested - cur;
@@ -1825,13 +1841,15 @@
   }
   function renderAdvisor() {
     var result = $('optResult');
+    if (advisorPreview && advisorPreview.signature !== advisorContextSignature()) advisorPreview = null;
+    if (advisorUndo && !advisorUndoIsCurrent()) advisorUndo = null;
     if (advisorUndo) {
       result.hidden = false;
       result.innerHTML = '<div class="advisor-state applied">Applied to the current build. Your previous five-stat spread is available until you undo it.</div><button type="button" class="opt-apply" id="optUndo">Undo applied spread</button>';
       return;
     }
     if (!advisorPreview) { result.hidden = true; return; }
-    var proposal = advisorPreview;
+    var proposal = advisorPreview.proposal;
     result.hidden = false;
     result.innerHTML = '<div class="advisor-state"><b>Preview only — your live stats have not changed.</b><small>Current → proposed, with exact deltas</small></div>' +
       advisorRows(proposal) +
@@ -1841,16 +1859,19 @@
   }
   $('optimizeBtn').addEventListener('click', function () {
     advisorUndo = null;
-    advisorPreview = ERCalc.optimize(build, current, { twoHanded: twoHanded, affinity: affinity, upgradeLevel: upgradeLevel });
+    advisorPreview = { proposal: ERCalc.optimize(build, current, { twoHanded: twoHanded, affinity: affinity, upgradeLevel: upgradeLevel }), signature:advisorContextSignature() };
     renderAdvisor();
   });
   $('optResult').addEventListener('click', function (e) {
-    if (e.target.id === 'optApply' && advisorPreview && advisorPreview.gained > 0) {
-      advisorUndo = {}; SCALING.forEach(function (k) { advisorUndo[k] = build[k]; build[k] = advisorPreview.stats[k]; syncStat(k); });
+    if (e.target.id === 'optApply' && advisorPreview && advisorPreview.signature === advisorContextSignature() && advisorPreview.proposal.gained > 0) {
+      var proposal = advisorPreview.proposal, previous = {};
+      SCALING.forEach(function (k) { previous[k] = build[k]; build[k] = proposal.stats[k]; syncStat(k); });
       advisorPreview = null; activePresetIndex = -1; syncActivePreset(); render();
+      advisorUndo = { previous:previous, applied:SCALING.reduce(function (out, key) { out[key] = build[key]; return out; }, {}), signature:advisorContextSignature() };
+      renderAdvisor();
     }
-    if (e.target.id === 'optUndo' && advisorUndo) {
-      SCALING.forEach(function (k) { build[k] = advisorUndo[k]; syncStat(k); });
+    if (e.target.id === 'optUndo' && advisorUndoIsCurrent()) {
+      SCALING.forEach(function (k) { build[k] = advisorUndo.previous[k]; syncStat(k); });
       advisorUndo = null; activePresetIndex = -1; syncActivePreset(); render();
     }
   });
@@ -1872,7 +1893,7 @@
       window.prompt('Copy this build link:', location.href);
     }
   });
-  $('level').addEventListener('input', persist);
+  $('level').addEventListener('input', function () { persist(); renderAdvisor(); });
 
   $('level').value = (BOOT && BOOT.level) || ERCalc.characterLevel(build); // starting reference; level is manual + independent
   fillAffinity(); fillUpgrade();
