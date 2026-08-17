@@ -139,7 +139,8 @@
      ?b=VIG.MND.END.STR.DEX.INT.FAI.ARC&w=<id>&a=<affinity>&u=<upgrade>&h=0|1&l=<level> */
   var BOOT = (function () {
     var q = new URLSearchParams(location.search);
-    if (q.get('b') || q.get('w') || q.get('cat') || q.get('sp') || q.get('sa') || q.get('en') || q.get('wm') || q.get('am')) {
+    var stateKeys = ['b','w','a','u','h','l','bf','tl','ph','pa','gr','ra','st','gw','ctx','mv','ar','rh','lh','as','cat','cu','ms','sp','sa','sv','en','ng','wm','am'];
+    if (stateKeys.some(function (key) { return q.has(key); })) {
       var s = (q.get('b') || '').split('.').map(Number);
       var armorParts = (q.get('ar') || '').split('.');
       var o = { stats: {}, weapon: q.get('w'), affinity: q.get('a'), upgrade: q.get('u'), twoHanded: q.get('h') !== '0', level: +q.get('l') || null,
@@ -195,6 +196,9 @@
     upgradeLevel = initialArmament.upgrade;
     skillId = initialArmament.skillId || null;
     skillEventId = initialArmament.skillEventId || null;
+  }
+  function hasDeferredSkillState() {
+    return armaments.right.concat(armaments.left).some(function (slot) { return slot && (slot.skillId || slot.skillEventId); });
   }
 
   /* ---- buffs + true talisman / Physick / Great Rune equipment ---- */
@@ -1273,8 +1277,8 @@
     activePresetIndex = -1; syncActivePreset();
     render();
     if (magicState.catalystId || magicState.spells.length || magicState.activeSpell) ensureDomain('magic');
-    if (skillId) ensureDomain('skills');
-    if (encounterState.enemyId || encounterState.moveId || encounterState.ammoId) ensureDomain('encounter');
+    if (hasDeferredSkillState()) ensureDomain('skills');
+    if (encounterState.enemyId || encounterState.ng || encounterState.moveId || encounterState.ammoId) ensureDomain('encounter');
   }
   function renderMyBuilds() {
     $('myBuildsHead').hidden = myBuilds.length === 0;
@@ -1788,8 +1792,8 @@
   // Saved builds and share links requesting a secondary choice hydrate it as
   // soon as the core interface is usable, never by silently dropping it.
   if (magicState.catalystId || magicState.spells.length || magicState.activeSpell) ensureDomain('magic');
-  if (skillId) ensureDomain('skills');
-  if (encounterState.enemyId || encounterState.moveId || encounterState.ammoId) ensureDomain('encounter');
+  if (hasDeferredSkillState()) ensureDomain('skills');
+  if (encounterState.enemyId || encounterState.ng || encounterState.moveId || encounterState.ammoId) ensureDomain('encounter');
   // Leave the initial paint to the core, then warm the analytical domains in a
   // separate task. Focused views can still call ensureDomain directly.
   setTimeout(function () { Object.keys(domains).forEach(ensureDomain); }, 0);
