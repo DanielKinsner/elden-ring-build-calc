@@ -100,23 +100,21 @@ we don't have.
 **Base game (vanilla) and Shadow of the Erdtree (DLC) math are kept in separate reference files**
 so DLC-only systems (Scadutree Blessing, new weapons) never contaminate vanilla numbers.
 
-## Tests
+## Verification
 
-Golden regression pins for the engine (verified library-build ARs, two-handing rules,
-flooring, Scadutree, status procs, the buff layer, survival, armor aggregation, talisman
-conditions/conflicts, move-profile rules, damage-type overrides, resistances/utility, PvE/PvP
-variants, incoming-damage order, catalyst graph scaling, requirements, category effects, and spell
-motion-value output, the ratio defense curve, enemy NG cycles, final typed damage, and exact status
-thresholds, weapon motion values, multi-hit sequences, and physical attack attributes):
+The static site has a pinned development-only verification harness. From a clean checkout:
 
 ```
-node tests/engine.test.js
-node scripts/check-releases.js
-node tests/ui.smoke.js   # requires the site at http://127.0.0.1:4173
+npm ci
+npm run install:browsers
+npm run verify
 ```
 
-Run the engine suite after touching math or data. The browser smoke checks desktop/mobile
-interaction, persistence, overflow, and console errors.
+It covers engine/data, releases, compendium references, all 448 acquisition records, sitemap and
+local references, desktop/390px browser behavior, save/share compatibility, Film/Tales structure,
+HTTP/assets, automated accessibility, and the reproducible mobile performance profile. See
+[`docs/verification.md`](docs/verification.md) for individual commands, the optional
+`CHROMIUM_PATH` override, the exact measurement profile, and CI scope.
 
 ## Structure
 

@@ -1,10 +1,18 @@
 #!/usr/bin/env node
 'use strict';
 
-const { chromium } = require(process.env.PLAYWRIGHT_MODULE || 'playwright');
+const fs = require('fs');
+const os = require('os');
+const path = require('path');
+const { chromium } = require('playwright');
 
 const BASE = process.env.ER_SITE_URL || 'http://127.0.0.1:4173/build/';
 const EXECUTABLE = process.env.CHROMIUM_PATH || undefined;
+const artifacts = fs.mkdtempSync(path.join(os.tmpdir(), 'tarnished-archive-ui-'));
+
+function screenshot(page, name) {
+  return page.screenshot({ path: path.join(artifacts, name + '.png'), fullPage: true });
+}
 
 function assert(ok, message) {
   if (!ok) throw new Error(message);
@@ -146,7 +154,7 @@ async function main() {
     assert((await page.locator('#enemySummary').textContent()).includes('Malenia'), 'enemy profile survives shared-link reload');
     assert(await page.locator('#ngCycle').inputValue() === '7', 'NG cycle survives shared-link reload');
     assert(await page.locator('#weaponMove').inputValue() === '2h-jumping-r2', 'exact weapon move survives shared-link reload');
-    await page.screenshot({ path: '/tmp/elden-talisman-desktop.png', fullPage: true });
+    await screenshot(page, 'talisman-desktop');
 
     const rangedUrl = new URL(BASE);
     rangedUrl.searchParams.set('w', 'spread-crossbow');
@@ -168,7 +176,7 @@ async function main() {
     assert(ranged.url().includes('am=bolt'), 'ammunition selection persists into the share URL');
     await ranged.reload({ waitUntil:'networkidle' });
     assert(await ranged.locator('#ammoSelect').inputValue() === 'bolt', 'ammunition survives shared-link reload');
-    await ranged.screenshot({ path:'/tmp/elden-ranged-desktop.png', fullPage:true });
+    await screenshot(ranged, 'ranged-desktop');
 
     const skillUrl = new URL(BASE);
     skillUrl.searchParams.set('b', '10.10.10.20.20.10.10.80');
@@ -181,6 +189,7 @@ async function main() {
     skillPage.on('pageerror', (error) => errors.push('skill page: ' + error.message));
     await skillPage.goto(skillUrl.toString(), { waitUntil:'networkidle' });
     await openView(skillPage, 'Advanced / Trace');
+    await skillPage.locator('#skillsDomainState').waitFor({ state:'hidden' });
     assert(!(await skillPage.locator('#skillSelect').isDisabled()), 'infusable weapon exposes legal Ash selection');
     assert(await skillPage.locator('#skillSelect option').count() > 30, 'weapon and affinity filter the full legal Ash list');
     await skillPage.locator('#skillSelect').selectOption('bloody-slash');
@@ -194,7 +203,7 @@ async function main() {
     await skillPage.reload({ waitUntil:'networkidle' });
     assert(await skillPage.locator('#skillSelect').inputValue() === 'bloody-slash', 'Ash selection survives shared-link reload');
     assert(await skillPage.locator('#skillPreDamage').textContent() === '1708', 'skill math survives shared-link reload');
-    await skillPage.screenshot({ path:'/tmp/elden-skill-desktop.png', fullPage:true });
+    await screenshot(skillPage, 'skill-desktop');
 
     const riteUrl = new URL(BASE);
     riteUrl.searchParams.set('b', '60.20.30.24.58.9.15.40');
@@ -232,7 +241,7 @@ async function main() {
     assert(await ritePage.locator('#physickOne').inputValue() === 'strength-knot-crystal-tear' && await ritePage.locator('#physickTwo').inputValue() === 'flame-shrouding-tear', 'two-tear mixture survives shared-link reload');
     assert(await ritePage.locator('#greatRune').inputValue() === 'godricks-great-rune', 'Great Rune survives shared-link reload');
     assert(Number(await ritePage.locator('#ar').textContent()) === runedAR, 'rite calculations survive shared-link reload');
-    await ritePage.screenshot({ path:'/tmp/elden-rites-desktop.png', fullPage:true });
+    await screenshot(ritePage, 'rites-desktop');
 
     const legacyRiteUrl = new URL(BASE);
     legacyRiteUrl.searchParams.set('b', '60.20.30.24.58.9.15.40');
@@ -255,7 +264,7 @@ async function main() {
     assert((await mobile.locator('#spellRack').textContent()).includes('Comet'), 'mobile retains spell memory and casting state');
     await mobile.getByRole('tab', { name:'Encounter', exact:true }).click();
     assert((await mobile.locator('#enemySummary').textContent()).includes('Malenia'), 'mobile retains encounter state');
-    await mobile.screenshot({ path: '/tmp/elden-talisman-mobile.png', fullPage: true });
+    await screenshot(mobile, 'talisman-mobile');
 
     const rangedMobile = await browser.newPage({ viewport:{ width:390, height:844 } });
     await rangedMobile.goto(ranged.url(), { waitUntil:'networkidle' });
@@ -294,7 +303,7 @@ async function main() {
     assert(await home.locator('#ledgerTales').textContent() === '1 / 48', 'returning Grace spans all three Tales manifests');
     assert((await home.locator('#ledgerResume').getAttribute('href')).includes('work=kindling&ch=ch02'), 'returning Grace points to the next unread chapter');
     assert((await home.locator('.film-ribbon').getAttribute('href')) === 'kindling/', 'homepage gives the first film a direct front door');
-    await home.screenshot({ path:'/tmp/elden-home-desktop.png', fullPage:true });
+    await screenshot(home, 'home-desktop');
     await homeContext.close();
 
     const homeMobileContext = await browser.newContext({ viewport:{ width:390, height:844 } });
@@ -303,7 +312,7 @@ async function main() {
     const homeOverflow = await homeMobile.evaluate(() => ({ scroll:document.documentElement.scrollWidth, inner:window.innerWidth }));
     assert(homeOverflow.scroll <= homeOverflow.inner, 'returning Grace has no 390px horizontal overflow');
     assert(await homeMobile.locator('.ledger-metric').count() === 4, 'mobile keeps all four Archive pillars visible');
-    await homeMobile.screenshot({ path:'/tmp/elden-home-mobile.png', fullPage:true });
+    await screenshot(homeMobile, 'home-mobile');
     await homeMobileContext.close();
 
     const guideContext = await browser.newContext({ viewport:{ width:1440, height:1000 } });
@@ -322,7 +331,7 @@ async function main() {
     await guide.locator('#guideSearch').fill('Placidusax');
     await guide.locator('.guide-search-item').first().click();
     assert((await guide.locator('#trophy-dragonlord-placidusax').getAttribute('id')) === 'trophy-dragonlord-placidusax', 'instant search routes directly to trophy entries');
-    await guide.screenshot({ path:'/tmp/elden-trophies-desktop.png', fullPage:true });
+    await screenshot(guide, 'trophies-desktop');
     await guideContext.close();
 
     const guideMobileContext = await browser.newContext({ viewport:{ width:390, height:844 } });
@@ -331,7 +340,7 @@ async function main() {
     const guideOverflow = await guideMobile.evaluate(() => ({ scroll:document.documentElement.scrollWidth, inner:window.innerWidth }));
     assert(guideOverflow.scroll <= guideOverflow.inner, 'trophy guide has no 390px horizontal overflow');
     assert(await guideMobile.locator('.trophy-card').count() === 42, 'mobile retains all trophy requirements');
-    await guideMobile.screenshot({ path:'/tmp/elden-trophies-mobile.png', fullPage:true });
+    await screenshot(guideMobile, 'trophies-mobile');
     await guideMobileContext.close();
 
     const filmContext = await browser.newContext({ viewport:{ width:1900, height:1000 } });
@@ -350,7 +359,7 @@ async function main() {
     assert(await film.locator('.archive-film-shell + .archive-film-threshold').count() === 1, 'KINDLING uses the shared frame-first Archive Film structure');
     assert(await film.locator('.archive-film-feature + .archive-film-chapters').count() === 1, 'KINDLING follows artwork with its complete written spine');
     assert(await film.locator('.archive-film-chapters + .archive-film-coda').count() === 1, 'KINDLING closes the written spine with a final statement');
-    await film.screenshot({ path:'/tmp/elden-kindling-desktop.png', fullPage:true });
+    await screenshot(film, 'kindling-desktop');
     const tales = await filmContext.newPage();
     await tales.goto(new URL('../tales/', BASE).toString(), { waitUntil:'networkidle' });
     assert(await tales.locator('.tale-companion').count() === 3, 'Tales exposes all three Archive Film companions');
@@ -381,7 +390,7 @@ async function main() {
     assert((await ranni.locator('meta[property="og:image"]').getAttribute('content')).endsWith('/assets/ranni-film-ii.webp'), 'Film II shares with its dedicated title artwork');
     assert(await ranni.locator('.archive-film-shell + .archive-film-threshold').count() === 1, 'Film II uses the shared frame-first Archive Film structure');
     assert(await ranni.locator('.archive-film-feature + .archive-film-chapters').count() === 1, 'Film II follows artwork with its complete written spine');
-    await ranni.screenshot({ path:'/tmp/elden-ranni-desktop.png', fullPage:true });
+    await screenshot(ranni, 'ranni-desktop');
 
     const goldShadow = await filmContext.newPage();
     goldShadow.on('console', (msg) => { if (msg.type() === 'error') errors.push('gold shadow console: ' + msg.text()); });
@@ -398,7 +407,7 @@ async function main() {
     assert((await goldShadow.locator('meta[property="og:image"]').getAttribute('content')).endsWith('/assets/gold-shadow-film-iii.webp'), 'Film III shares with its dedicated title artwork');
     assert(await goldShadow.locator('.archive-film-shell + .archive-film-threshold').count() === 1, 'Film III uses the shared frame-first Archive Film structure');
     assert(await goldShadow.locator('.archive-film-feature + .archive-film-chapters').count() === 1, 'Film III follows artwork with its complete written spine');
-    await goldShadow.screenshot({ path:'/tmp/elden-gold-shadow-desktop.png', fullPage:true });
+    await screenshot(goldShadow, 'gold-shadow-desktop');
     await filmContext.close();
 
     const filmMobileContext = await browser.newContext({ viewport:{ width:390, height:844 } });
@@ -407,7 +416,7 @@ async function main() {
     const filmOverflow = await filmMobile.evaluate(() => ({ scroll:document.documentElement.scrollWidth, inner:window.innerWidth }));
     assert(filmOverflow.scroll <= filmOverflow.inner, 'KINDLING has no 390px horizontal overflow');
     assert(await filmMobile.locator('.kindling-movement').count() === 9, 'mobile retains the complete written film spine');
-    await filmMobile.screenshot({ path:'/tmp/elden-kindling-mobile.png', fullPage:true });
+    await screenshot(filmMobile, 'kindling-mobile');
 
     const ranniMobile = await filmMobileContext.newPage();
     await ranniMobile.goto(new URL('../ranni/', BASE).toString(), { waitUntil:'networkidle' });
@@ -415,7 +424,7 @@ async function main() {
     assert(ranniOverflow.scroll <= ranniOverflow.inner, 'Film II has no 390px horizontal overflow');
     assert(await ranniMobile.locator('.ranni-movement').count() === 22, 'mobile retains the complete Ranni testament');
     await ranniMobile.evaluate(() => Promise.all(Array.from(document.querySelectorAll('.ranni-page img')).map((image) => image.decode())));
-    await ranniMobile.screenshot({ path:'/tmp/elden-ranni-mobile.png', fullPage:true });
+    await screenshot(ranniMobile, 'ranni-mobile');
 
     const goldShadowMobile = await filmMobileContext.newPage();
     await goldShadowMobile.goto(new URL('../gold-and-shadow/', BASE).toString(), { waitUntil:'networkidle' });
@@ -423,14 +432,14 @@ async function main() {
     assert(goldShadowOverflow.scroll <= goldShadowOverflow.inner, 'Film III has no 390px horizontal overflow');
     assert(await goldShadowMobile.locator('.gold-shadow-chapter').count() === 17, 'mobile retains the complete Gold and Shadow chronicle');
     await goldShadowMobile.evaluate(() => Promise.all(Array.from(document.querySelectorAll('.gold-shadow-page img')).map((image) => image.decode())));
-    await goldShadowMobile.screenshot({ path:'/tmp/elden-gold-shadow-mobile.png', fullPage:true });
+    await screenshot(goldShadowMobile, 'gold-shadow-mobile');
 
     const talesMobile = await filmMobileContext.newPage();
     await talesMobile.goto(new URL('../tales/', BASE).toString(), { waitUntil:'networkidle' });
     const talesOverflow = await talesMobile.evaluate(() => ({ scroll:document.documentElement.scrollWidth, inner:window.innerWidth }));
     assert(talesOverflow.scroll <= talesOverflow.inner, 'clean Tales shelf has no 390px horizontal overflow');
     assert(await talesMobile.locator('.tale-card').count() === 3, 'mobile Tales shelf retains all three volumes');
-    await talesMobile.screenshot({ path:'/tmp/elden-tales-mobile.png', fullPage:true });
+    await screenshot(talesMobile, 'tales-mobile');
     await filmMobileContext.close();
 
     const liveFilmContext = await browser.newContext({ viewport:{ width:1280, height:800 } });
@@ -452,6 +461,7 @@ async function main() {
     console.log('\nUI smoke passed');
   } finally {
     await browser.close();
+    fs.rmSync(artifacts, { recursive:true, force:true });
   }
 }
 

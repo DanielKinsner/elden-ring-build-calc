@@ -2,8 +2,11 @@
 
 /* Focused production-browser accessibility regression checks for Build Lab and Atlas. */
 const assert = require('assert');
-const { chromium } = require(process.env.PLAYWRIGHT_MODULE || 'playwright');
+const { chromium } = require('playwright');
 const BASE = process.env.ER_SITE_URL || 'http://127.0.0.1:4173/';
+const ORIGIN = process.env.ER_SITE_ORIGIN || new URL(BASE).origin;
+const BUILD = new URL('/build/', ORIGIN).toString();
+const ATLAS = new URL('/atlas/', ORIGIN).toString();
 
 function ok(value, message) { assert(value, message); console.log('  ✓ ' + message); }
 async function dimensions(page) { return page.evaluate(() => ({ scroll:document.documentElement.scrollWidth, inner:innerWidth })); }
@@ -50,7 +53,7 @@ async function unmetSuggestionContrast(page) {
   const browser = await chromium.launch({ headless:true, executablePath:process.env.CHROMIUM_PATH || undefined });
   try {
     const desktop = await browser.newPage({ viewport:{ width:1280, height:900 } });
-    await desktop.goto(new URL('build/', BASE).toString(), { waitUntil:'domcontentloaded' });
+    await desktop.goto(BUILD, { waitUntil:'domcontentloaded' });
     await desktop.locator('#stats .stat').first().waitFor();
     await desktop.locator('#buildActionStatus').waitFor();
     await desktop.evaluate(() => { window.__m3ActionStatusNode = document.querySelector('#buildActionStatus'); });
@@ -134,7 +137,7 @@ async function unmetSuggestionContrast(page) {
     ok(contrast.every((item) => item.ratio >= 4.5), 'functional Build text clears 4.5:1 contrast on its rendered dark surface');
 
     const unmet = await browser.newPage({ viewport:{ width:1280, height:900 } });
-    await unmet.goto(new URL('build/', BASE).toString(), { waitUntil:'domcontentloaded' }); await unmet.locator('#stats .stat').first().waitFor();
+    await unmet.goto(BUILD, { waitUntil:'domcontentloaded' }); await unmet.locator('#stats .stat').first().waitFor();
     for (const stat of ['vig', 'mnd', 'end', 'str', 'dex', 'int', 'fai', 'arc']) await unmet.locator('#stat-' + stat + '-number').fill('1');
     await unmet.getByRole('tab', { name:'Damage' }).click();
     await unmet.locator('.sug-row.bad').first().waitFor();
@@ -143,7 +146,7 @@ async function unmetSuggestionContrast(page) {
 
     console.log('  … checking Build mobile geometry and motion');
     const mobile = await browser.newPage({ viewport:{ width:390, height:844 } });
-    await mobile.goto(new URL('build/', BASE).toString(), { waitUntil:'domcontentloaded' }); await mobile.locator('#stats .stat').first().waitFor();
+    await mobile.goto(BUILD, { waitUntil:'domcontentloaded' }); await mobile.locator('#stats .stat').first().waitFor();
     const buildSize = await dimensions(mobile);
     ok(buildSize.scroll <= buildSize.inner, '390px Build has no horizontal overflow');
     ok(await mobile.locator('#summarySave, #build-view-tab-character, #stat-vig-number').evaluateAll((items) => items.every((item) => item.getBoundingClientRect().height >= 40)), 'critical Build mobile controls meet the 40px target');
@@ -166,7 +169,7 @@ async function unmetSuggestionContrast(page) {
     ok(await mobile.evaluate(() => matchMedia('(prefers-reduced-motion: reduce)').matches && Number.parseFloat(getComputedStyle(document.querySelector('.build-page .panel')).animationDuration) <= .001 && Number.parseFloat(getComputedStyle(document.querySelector('.rack-slot')).transitionDuration) <= .001), 'Build suppresses animation and transition motion');
 
     console.log('  … checking Atlas semantics, geometry, and motion');
-    await desktop.goto(new URL('atlas/', BASE).toString(), { waitUntil:'domcontentloaded' }); await desktop.locator('.atlas-card').first().waitFor();
+    await desktop.goto(ATLAS, { waitUntil:'domcontentloaded' }); await desktop.locator('.atlas-card').first().waitFor();
     ok(await desktop.locator('h1').count() === 1 && await desktop.locator('h1').textContent() === 'Weapon Atlas', 'Atlas has exactly one correct h1');
     ok(await desktop.locator('h2.atlas-type-header').count() > 0 && await desktop.locator('#atlasSearch').getAttribute('aria-label') === 'Search weapons', 'Atlas generated sections are h2 headings and its search is named');
     ok(await desktop.locator('.atlas-chip').evaluateAll((chips) => chips.every((chip) => chip.hasAttribute('aria-pressed'))), 'Atlas filter controls expose toggle state');
@@ -176,7 +179,7 @@ async function unmetSuggestionContrast(page) {
     ok(await atlasTabs.nth(1).getAttribute('aria-pressed') === 'true', 'keyboard activation updates Atlas attack-filter state');
     ok(await desktop.locator('.atlas-tab').evaluateAll((items) => items.every((item) => item.getBoundingClientRect().height < 40)), 'Atlas desktop filters retain compact desktop geometry');
 
-    await mobile.emulateMedia({ reducedMotion:'no-preference' }); await mobile.goto(new URL('atlas/', BASE).toString(), { waitUntil:'domcontentloaded' }); await mobile.locator('.atlas-card').first().waitFor();
+    await mobile.emulateMedia({ reducedMotion:'no-preference' }); await mobile.goto(ATLAS, { waitUntil:'domcontentloaded' }); await mobile.locator('.atlas-card').first().waitFor();
     const atlasSize = await dimensions(mobile);
     ok(atlasSize.scroll <= atlasSize.inner, '390px Atlas has no horizontal overflow');
     ok(await mobile.locator('#atlasSearch, .atlas-tab, .atlas-chip').evaluateAll((items) => items.every((item) => item.getBoundingClientRect().height >= 40)), 'critical Atlas mobile controls meet the 40px target');

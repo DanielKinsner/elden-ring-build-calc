@@ -1,7 +1,7 @@
 'use strict';
 
 const assert = require('assert');
-const { chromium } = require(process.env.PLAYWRIGHT_MODULE || 'playwright');
+const { chromium } = require('playwright');
 
 const BASE = process.env.ER_SITE_URL || 'http://127.0.0.1:4173/build/';
 const EXECUTABLE = process.env.CHROMIUM_PATH;

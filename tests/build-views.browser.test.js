@@ -1,7 +1,7 @@
 'use strict';
 
 const assert = require('assert');
-const { chromium } = require(process.env.PLAYWRIGHT_MODULE || 'playwright');
+const { chromium } = require('playwright');
 const BASE = process.env.ER_SITE_URL || 'http://127.0.0.1:4173/build/';
 
 async function openView(page, name) {
@@ -88,8 +88,11 @@ async function main() {
     await openView(presetPage, 'Advanced / Trace');
     await presetPage.locator('#skillsDomainState').waitFor({ state:'hidden' });
     await presetPage.locator('#optimizeBtn').click();
-    await presetPage.locator('#optApply').click();
-    await presetPage.locator('#optUndo').waitFor();
+    await presetPage.locator('#optResult').getByText('Preview only').waitFor();
+    const presetApply = presetPage.locator('#optApply');
+    assert.strictEqual(await presetApply.isDisabled(), false, 'preset-context advisor proposal remains explicitly applicable');
+    await presetApply.click();
+    await presetPage.waitForFunction(() => Boolean(document.querySelector('#optUndo')));
     await openView(presetPage, 'Character');
     await presetPage.locator('#presetBtns [data-p]').first().click();
     await openView(presetPage, 'Advanced / Trace');

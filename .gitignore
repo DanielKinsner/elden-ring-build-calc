@@ -8,3 +8,5 @@ scratch/
 tmp/
 scripts/icon-fetch-report.json
 scripts/portrait-fetch-report.json
+playwright-report/
+test-results/
