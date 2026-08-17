@@ -535,6 +535,87 @@ a:hover { text-decoration: underline; }
 @media(max-width:700px){.kindling-main{padding:0 16px 70px}.kindling-hero{gap:54px;padding:52px 0 70px}.kindling-overline em{display:none}.kindling-copy h1{font-size:clamp(50px,17vw,68px)}.kindling-subtitle{font-size:15px;letter-spacing:.16em}.kindling-copy blockquote{font-size:19px;margin-top:32px}.kindling-frame-corners{display:none}.kindling-placeholder{padding:22px 18px}.kindling-flame{width:58px;height:70px;margin-bottom:18px}.kindling-flame span{width:34px;height:48px}.kindling-flame i:first-child{width:49px;height:64px}.kindling-flame i:nth-child(2){width:16px;height:28px}.kindling-placeholder>b{font-size:18px}.kindling-placeholder p{display:none}.kindling-creed{margin-bottom:80px;padding:55px 14px}.kindling-creed p{font-size:17px}.kindling-movements>header,.kindling-door-intro{grid-template-columns:1fr;gap:15px}.kindling-door-intro p{grid-column:1;grid-row:auto}.kindling-movement-grid,.kindling-door-grid{grid-template-columns:1fr}.kindling-movement{min-height:126px}.kindling-doors{margin-top:85px}.kindling-door-grid>a{min-height:195px}}
 @media(prefers-reduced-motion:reduce){.kindling-copy,.kindling-frame-wrap,.kindling-flame span,.kindling-flame i{animation:none}}
 
+.sr-only { position:absolute!important; width:1px!important; height:1px!important; padding:0!important; margin:-1px!important; overflow:hidden!important; clip:rect(0,0,0,0)!important; white-space:nowrap!important; border:0!important; }
+.kindling-placeholder--finished { align-items:flex-end; justify-content:flex-start; padding:18px; }
+.kindling-placeholder--finished small { padding:8px 11px; color:#f4d5b5; border:1px solid rgba(242,163,92,.5); background:rgba(8,5,3,.82); box-shadow:0 8px 25px rgba(0,0,0,.35); backdrop-filter:blur(8px); }
+
+/* Archive Film II — Ranni. A colder sibling to KINDLING, built around distance and orbit. */
+.ranni-page { --moon:#87b9ff; --moon-bright:#d7e8ff; --moon-dim:#7285a5; --moon-line:rgba(113,157,226,.27); overflow-x:hidden; background:#030711; }
+.ranni-backdrop { position:fixed; z-index:-2; inset:0; background:#030711 url('ranni-crescent-portrait.webp') 80% top/cover no-repeat; }
+.ranni-backdrop::before { content:''; position:absolute; inset:0; background:linear-gradient(90deg,rgba(2,5,12,.99),rgba(4,9,20,.88) 46%,rgba(3,7,16,.72)),linear-gradient(180deg,rgba(3,7,15,.38),#030711 82%); }
+.ranni-backdrop::after { content:''; position:absolute; inset:0; opacity:.22; background-image:radial-gradient(circle at 12% 18%,rgba(181,213,255,.8) 0 1px,transparent 1.6px),radial-gradient(circle at 76% 32%,rgba(181,213,255,.55) 0 1px,transparent 1.5px); background-size:127px 127px,183px 183px; }
+.ranni-topbar { position:relative; z-index:20; background:linear-gradient(180deg,rgba(2,5,12,.95),rgba(2,5,12,.24)); }
+.ranni-main { max-width:1780px; margin:0 auto; padding:38px 28px 110px; }
+.ranni-hero { max-width:1600px; margin:0 auto; }
+.ranni-film-shell { position:relative; animation:ranniDrift 1.05s var(--ease) both; }
+.ranni-frame { position:relative; aspect-ratio:16/9; overflow:hidden; border:1px solid rgba(180,209,255,.25); background:#02040a; box-shadow:0 42px 120px rgba(0,0,0,.68),0 0 80px rgba(63,117,204,.08); }
+.ranni-frame::after { content:''; position:absolute; z-index:2; inset:0; pointer-events:none; box-shadow:inset 0 0 0 8px rgba(1,3,8,.35),inset 0 0 90px rgba(0,0,0,.38); }
+.ranni-poster { display:block; width:100%; height:100%; object-fit:cover; }
+.ranni-film-status { position:absolute; z-index:3; right:24px; top:24px; padding:9px 13px; color:#dceaff; border:1px solid rgba(145,188,255,.5); background:rgba(2,7,18,.76); backdrop-filter:blur(8px); font:600 8px var(--serif); letter-spacing:.24em; text-transform:uppercase; }
+.ranni-video { position:absolute; z-index:3; inset:0; width:100%; height:100%; border:0; }
+.ranni-frame-meta { display:flex; justify-content:space-between; gap:18px; padding:11px 3px 0; color:#61718d; font-size:9px; letter-spacing:.14em; text-transform:uppercase; }
+.ranni-frame-meta button { padding:0; color:#8296b8; border:0; background:transparent; font:inherit; letter-spacing:inherit; text-transform:inherit; cursor:pointer; }
+.ranni-frame-meta button:hover { color:var(--moon); }
+.ranni-threshold { display:grid; grid-template-columns:minmax(0,1.05fr) minmax(420px,.8fr); gap:clamp(45px,8vw,130px); align-items:start; padding:90px clamp(0px,4vw,64px) 135px; }
+.ranni-kicker,.ranni-section-no { color:var(--moon); font:600 9px var(--serif); letter-spacing:.25em; text-transform:uppercase; }
+.ranni-threshold h1 { margin:20px 0 0; color:#eef4ff; font:600 clamp(48px,6.2vw,96px)/.92 var(--serif); letter-spacing:-.04em; }
+.ranni-threshold h1 em { color:var(--moon-bright); font-style:italic; font-weight:500; }
+.ranni-threshold-copy { padding-top:24px; }
+.ranni-threshold blockquote { margin:0; padding-left:20px; color:#e4edfb; border-left:1px solid rgba(135,185,255,.55); font:italic 500 clamp(19px,2vw,25px)/1.45 var(--serif-num); }
+.ranni-threshold-copy>p { margin:23px 0 0; color:#9cadc7; font-size:14px; line-height:1.75; }
+.ranni-actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:30px; }
+.ranni-primary,.ranni-secondary { display:inline-flex; min-height:47px; align-items:center; justify-content:center; gap:12px; padding:13px 20px; border-radius:2px; font:600 10px var(--serif); letter-spacing:.14em; text-transform:uppercase; transition:transform .2s var(--ease),border-color .2s var(--ease),background-color .2s var(--ease); }
+.ranni-primary { color:#050a15; border:1px solid #a8ceff; background:linear-gradient(135deg,#d5e7ff,#729cda); box-shadow:0 12px 35px rgba(66,120,204,.23); }
+.ranni-secondary { color:#d9e7fb; border:1px solid rgba(135,185,255,.34); background:rgba(4,10,22,.55); }
+.ranni-primary:hover,.ranni-secondary:hover { transform:translateY(-2px); text-decoration:none; }
+.ranni-secondary:hover { border-color:var(--moon); background:rgba(54,102,176,.12); }
+.ranni-facts { display:flex; flex-wrap:wrap; align-items:center; gap:10px; margin-top:19px; color:#687b9a; font-size:9px; letter-spacing:.11em; text-transform:uppercase; }
+.ranni-facts i { width:3px; height:3px; border-radius:50%; background:var(--moon); }
+.ranni-vow { position:relative; max-width:1500px; aspect-ratio:16/8.2; margin:0 auto 145px; overflow:hidden; border-top:1px solid var(--moon-line); border-bottom:1px solid var(--moon-line); }
+.ranni-vow::after { content:''; position:absolute; inset:0; background:linear-gradient(90deg,rgba(1,5,13,.9),rgba(2,8,18,.28) 57%,rgba(2,5,11,.1)),linear-gradient(180deg,rgba(1,4,10,.05),rgba(1,4,10,.56)); }
+.ranni-vow>img { width:100%; height:100%; object-fit:cover; }
+.ranni-vow-copy { position:absolute; z-index:2; left:clamp(26px,7vw,110px); top:50%; width:min(520px,46%); transform:translateY(-50%); }
+.ranni-vow-copy span { color:#a9cbfa; font:600 9px var(--serif); letter-spacing:.25em; text-transform:uppercase; }
+.ranni-vow-copy b { display:block; margin-top:17px; color:#f0f5ff; font:600 clamp(30px,4.4vw,66px)/.98 var(--serif); }
+.ranni-vow-copy p { margin:22px 0 0; color:#bac9df; font:italic 500 clamp(16px,1.8vw,21px)/1.6 var(--serif-num); }
+.ranni-movements,.ranni-doors { max-width:1260px; margin:0 auto; }
+.ranni-movements>header { display:grid; grid-template-columns:minmax(0,1fr) minmax(320px,.72fr); gap:60px; align-items:end; margin-bottom:35px; }
+.ranni-movements h2,.ranni-doors h2 { margin:9px 0 0; color:#e7effc; font:600 clamp(30px,4.5vw,52px)/1.08 var(--serif); }
+.ranni-movements>header p,.ranni-door-intro>p { margin:0; color:#8292ab; font-size:13px; line-height:1.7; }
+.ranni-movement-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1px; background:var(--moon-line); border:1px solid var(--moon-line); }
+.ranni-movement { position:relative; min-height:130px; display:grid; grid-template-columns:72px minmax(0,1fr); gap:18px; padding:24px 26px; overflow:hidden; color:#dfe9f8; background:rgba(3,8,18,.9); transition:background-color .25s var(--ease),color .25s var(--ease); }
+.ranni-movement:hover { color:#fff; text-decoration:none; background:rgba(26,55,99,.6); }
+.ranni-movement>span { color:var(--moon); font:600 11px var(--serif); letter-spacing:.12em; text-transform:uppercase; }
+.ranni-movement b { font:600 15px/1.25 var(--serif); }
+.ranni-movement p { margin:9px 0 0; color:#73839c; font-size:10px; line-height:1.55; }
+.ranni-movement em { position:absolute; right:13px; bottom:-15px; color:rgba(122,170,240,.065); font:600 64px/1 var(--serif-num); font-style:normal; }
+.ranni-movement--edge { background:linear-gradient(135deg,rgba(37,76,133,.52),rgba(3,8,18,.92)); }
+.ranni-load-error { grid-column:1/-1; padding:30px; color:#9cadc7; background:#030812; }
+.ranni-coda { position:relative; max-width:1500px; aspect-ratio:16/7.5; margin:145px auto 0; overflow:hidden; border:1px solid rgba(113,157,226,.18); }
+.ranni-coda::after { content:''; position:absolute; inset:0; background:linear-gradient(90deg,rgba(1,4,10,.9) 0%,rgba(2,7,16,.67) 42%,transparent 72%); }
+.ranni-coda>img { width:100%; height:100%; object-fit:cover; }
+.ranni-coda-copy { position:absolute; z-index:2; left:clamp(26px,6vw,95px); top:50%; transform:translateY(-50%); }
+.ranni-coda-copy h2 { margin:16px 0 0; color:#edf4ff; font:600 clamp(38px,5.7vw,82px)/.88 var(--serif); letter-spacing:-.035em; }
+.ranni-coda-copy h2 em { color:var(--moon); font-style:italic; }
+.ranni-coda-copy p { margin:24px 0 0; color:#9fb1cc; font:italic 500 18px/1.5 var(--serif-num); }
+.ranni-coda-copy a { display:inline-block; margin-top:24px; color:#bcd9ff; font:600 9px var(--serif); letter-spacing:.17em; text-transform:uppercase; }
+.ranni-doors { margin-top:135px; }
+.ranni-door-intro { display:grid; grid-template-columns:minmax(0,1fr) minmax(320px,.72fr); gap:4px 60px; align-items:end; }
+.ranni-door-intro .ranni-section-no,.ranni-door-intro h2 { grid-column:1; }
+.ranni-door-intro p { grid-column:2; grid-row:1/3; }
+.ranni-door-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; margin-top:34px; }
+.ranni-door-grid>a { min-height:235px; display:flex; flex-direction:column; padding:26px; color:#dde9fa; border:1px solid rgba(113,157,226,.2); background:linear-gradient(145deg,rgba(12,27,51,.74),rgba(2,7,16,.92)); transition:transform .25s var(--ease),border-color .25s var(--ease); }
+.ranni-door-grid>a:hover { transform:translateY(-5px); border-color:rgba(135,185,255,.55); text-decoration:none; }
+.ranni-door-grid small { color:var(--moon); font-size:8px; letter-spacing:.2em; text-transform:uppercase; }
+.ranni-door-grid b { margin-top:13px; font:600 18px var(--serif); }
+.ranni-door-grid p { margin:13px 0 22px; color:#7f91ad; font-size:11px; line-height:1.65; }
+.ranni-door-grid em { margin-top:auto; color:#a9ccfa; font:600 9px var(--serif); letter-spacing:.1em; text-transform:uppercase; font-style:normal; }
+.ranni-foot { color:#5d6d86; border-color:rgba(113,157,226,.14); }
+@keyframes ranniDrift { from { opacity:0; transform:translateY(16px) scale(.995); } to { opacity:1; transform:none; } }
+@media(max-width:900px){.ranni-threshold{grid-template-columns:1fr;gap:34px;padding-bottom:100px}.ranni-threshold-copy{padding-top:0}.ranni-vow{aspect-ratio:4/3}.ranni-vow-copy{width:58%}.ranni-door-grid{grid-template-columns:1fr}.ranni-door-grid>a{min-height:190px}}
+@media(max-width:700px){.ranni-main{padding:20px 14px 75px}.ranni-film-status{right:10px;top:10px;padding:7px 9px;font-size:7px}.ranni-threshold{padding:60px 3px 85px}.ranni-threshold h1{font-size:clamp(44px,14vw,65px)}.ranni-vow{aspect-ratio:3/4;margin-bottom:90px}.ranni-vow>img{object-position:64% center;filter:brightness(1.42) saturate(1.1)}.ranni-vow::after{background:linear-gradient(180deg,rgba(1,5,13,.04),rgba(1,5,13,.84) 84%)}.ranni-vow-copy{left:20px;right:20px;top:auto;bottom:24px;width:auto;transform:none}.ranni-movements>header,.ranni-door-intro{grid-template-columns:1fr;gap:16px}.ranni-door-intro p{grid-column:1;grid-row:auto}.ranni-movement-grid{grid-template-columns:1fr}.ranni-movement{grid-template-columns:55px minmax(0,1fr);min-height:122px;padding:21px 18px}.ranni-coda{aspect-ratio:3/4;margin-top:90px}.ranni-coda>img{object-position:69% center}.ranni-coda::after{background:linear-gradient(180deg,rgba(1,4,10,.18),rgba(1,4,10,.92) 80%)}.ranni-coda-copy{left:22px;right:20px;top:auto;bottom:26px;transform:none}.ranni-coda-copy h2{font-size:47px}.ranni-doors{margin-top:90px}}
+@media(prefers-reduced-motion:reduce){.ranni-film-shell{animation:none}}
+
 /* ---------- archive portals: the site's four pillars ---------- */
 .archive-portals { max-width: 1400px; margin: -28px auto 44px; padding: 0 26px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
 .archive-portal { position: relative; min-width: 0; min-height: 210px; display: flex; flex-direction: column; padding: 18px; overflow: hidden; color: var(--text); text-decoration: none; border: 1px solid var(--line); border-radius: 10px; background: linear-gradient(145deg, rgba(31,26,17,.92), rgba(14,12,8,.94)); box-shadow: 0 10px 30px rgba(0,0,0,.3); transition: transform .28s var(--ease), border-color .28s var(--ease), box-shadow .28s var(--ease); }

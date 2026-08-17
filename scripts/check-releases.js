@@ -13,17 +13,22 @@ function assert(ok, message) {
 }
 
 assert(releases.schemaVersion === 1, 'release manifest schema is versioned');
-const kindling = releases.releases && releases.releases.kindling;
-assert(kindling, 'KINDLING release record exists');
-assert(['production', 'live'].includes(kindling.status), 'release status is production or live');
-assert(typeof kindling.youtubeId === 'string', 'YouTube ID is explicit');
-if (kindling.status === 'live') {
-  assert(/^[A-Za-z0-9_-]{11}$/.test(kindling.youtubeId), 'live release has a valid 11-character YouTube ID');
-  assert(/^\d{4}-\d{2}-\d{2}/.test(kindling.published || ''), 'live release has a publication date');
-}
-const work = (tales.works || []).find((item) => item.id === 'kindling');
-assert(work && work.companion === 'kindling', 'written work points back to its film companion');
-assert(work.chapters.length === 9, 'film companion exposes all nine written movements');
 const sitemap = fs.readFileSync(path.join(root, 'sitemap.xml'), 'utf8');
-assert(sitemap.includes('/kindling/'), 'sitemap includes the film companion');
+[
+  { id:'kindling', label:'KINDLING', chapters:9 },
+  { id:'ranni', label:'Film II', chapters:22 }
+].forEach((film) => {
+  const release = releases.releases && releases.releases[film.id];
+  assert(release, film.label + ' release record exists');
+  assert(['production', 'live'].includes(release.status), film.label + ' status is production or live');
+  assert(typeof release.youtubeId === 'string', film.label + ' YouTube ID is explicit');
+  if (release.status === 'live') {
+    assert(/^[A-Za-z0-9_-]{11}$/.test(release.youtubeId), film.label + ' live release has a valid 11-character YouTube ID');
+    assert(/^\d{4}-\d{2}-\d{2}/.test(release.published || ''), film.label + ' live release has a publication date');
+  }
+  const work = (tales.works || []).find((item) => item.id === film.id);
+  assert(work && work.companion === film.id, film.label + ' written work points back to its film companion');
+  assert(work.chapters.length === film.chapters, film.label + ' companion exposes all written sections');
+  assert(sitemap.includes('/' + film.id + '/'), 'sitemap includes ' + film.label);
+});
 console.log('\nRelease manifest passed');

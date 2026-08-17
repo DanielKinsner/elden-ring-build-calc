@@ -73,6 +73,10 @@ first YouTube film. It joins the film to all nine written movements and routes n
 the Build Lab, journey guides, and Tales. Publication is a single manifest change in
 `data/releases.json`; see `docs/06-film-release.md` for the exact release switch.
 
+**THE WHOLE DARK MOON — Archive Film II** (`ranni/`) — Ranni's cinematic companion, joining
+the final 40,061-word narration master to its prologue, twenty movements, and coda. Film II uses
+the same manifest-driven YouTube release switch while retaining the complete written edition.
+
 The landing page's **Returning Grace** ledger reads the same device-local state used by the tools:
 active/named builds, 109 valid quest steps, 21 boss records, and all 48 Tale chapters. It never
 uploads progress; it validates stored IDs against the current manifests and resumes the next unread
@@ -118,6 +122,7 @@ atlas/        weapon atlas + per-weapon detail pages
 guides/       quests / bosses / endings / walkthrough
 tales/        fan-writing reader (content as raw .md)
 kindling/     Archive Film I companion + YouTube release switch
+ranni/        Archive Film II companion + YouTube release switch
 src/          engine (pure math, UMD) + data loader
 data/         structured datasets (weapons, buffs, quests, …)
 docs/         research + reference (the math, with sources)

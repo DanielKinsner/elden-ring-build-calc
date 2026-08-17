@@ -55,9 +55,10 @@
       "title": "The Testament of Ranni",
       "subtitle": "The Whole Dark Moon",
       "blurb": "Ranni takes possession of the history others wrote around her: the leash of the Two Fingers, the Night of Black Knives, the flesh she slew, the companions who paid, and the thousand-year voyage beyond the Order's reach.",
-      "words": "≈39,600 words",
+      "words": "≈40,100 words",
       "spoilers": "Full spoilers for Ranni's quest, the Age of Stars ending, and major base-game lore.",
       "dir": "content/ranni/",
+      "companion": "ranni",
       "chapters": [
         { "id": "prologue", "file": "00-prologue.md", "num": "Prologue", "title": "The Leash", "tease": "I slew mine own flesh because the heavens mistook it for a leash" },
         { "id": "ch01", "file": "01-house-beneath-two-moons.md", "num": "I", "title": "A House Beneath Two Moons", "tease": "Caria, Rennala, Radagon, and the first lessons of gold" },

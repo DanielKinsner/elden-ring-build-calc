@@ -323,7 +323,25 @@ async function main() {
     await film.screenshot({ path:'/tmp/elden-kindling-desktop.png', fullPage:true });
     const tales = await filmContext.newPage();
     await tales.goto(new URL('../tales/', BASE).toString(), { waitUntil:'networkidle' });
-    assert((await tales.locator('.tale-companion').getAttribute('href')) === '../kindling/', 'written KINDLING points back to the film companion');
+    assert((await tales.locator('.tale-companion').first().getAttribute('href')) === '../kindling/', 'written KINDLING points back to the film companion');
+    assert(await tales.locator('.tale-companion').count() === 2, 'Tales exposes both Archive Film companions');
+    assert((await tales.locator('.tale-companion').nth(1).getAttribute('href')) === '../ranni/', 'written Ranni points back to Archive Film II');
+
+    const ranni = await filmContext.newPage();
+    ranni.on('console', (msg) => { if (msg.type() === 'error') errors.push('ranni console: ' + msg.text()); });
+    ranni.on('pageerror', (error) => errors.push('ranni page: ' + error.message));
+    ranni.on('response', (response) => { if (response.status() >= 400) errors.push('ranni http ' + response.status() + ': ' + response.url()); });
+    await ranni.goto(new URL('../ranni/', BASE).toString(), { waitUntil:'networkidle' });
+    assert((await ranni.locator('#ranniStatus').textContent()).includes('In production'), 'Film II has a deliberate pre-release state');
+    assert(await ranni.locator('.ranni-movement').count() === 22, 'Film II exposes the prologue, twenty movements, and coda');
+    assert((await ranni.locator('.ranni-movement').first().getAttribute('href')).includes('work=ranni&ch=prologue'), 'Film II begins at the canonical Ranni prologue');
+    assert((await ranni.locator('.ranni-movement').last().getAttribute('href')).includes('work=ranni&ch=coda'), 'Film II ends at the canonical Ranni coda');
+    assert(await ranni.locator('link[rel="canonical"]').getAttribute('href') === 'https://elden-ring-build-calc.vercel.app/ranni/', 'Film II publishes its canonical URL');
+    assert(await ranni.locator('.ranni-poster').evaluate(async (image) => { await image.decode(); return image.naturalWidth === 1672 && image.naturalHeight === 941; }), 'Film II loads its full-resolution title poster');
+    assert(await ranni.locator('.ranni-vow img').evaluate(async (image) => { await image.decode(); return image.naturalWidth === 1672 && image.naturalHeight === 941; }), 'Film II loads the fractured-moon artwork');
+    assert(await ranni.locator('.ranni-coda img').evaluate(async (image) => { await image.decode(); return image.naturalWidth === 1672 && image.naturalHeight === 941; }), 'Film II loads the crescent portrait');
+    assert((await ranni.locator('meta[property="og:image"]').getAttribute('content')).endsWith('/assets/ranni-film-ii.webp'), 'Film II shares with its dedicated title artwork');
+    await ranni.screenshot({ path:'/tmp/elden-ranni-desktop.png', fullPage:true });
     await filmContext.close();
 
     const filmMobileContext = await browser.newContext({ viewport:{ width:390, height:844 } });
@@ -333,6 +351,14 @@ async function main() {
     assert(filmOverflow.scroll <= filmOverflow.inner, 'KINDLING has no 390px horizontal overflow');
     assert(await filmMobile.locator('.kindling-movement').count() === 9, 'mobile retains the complete written film spine');
     await filmMobile.screenshot({ path:'/tmp/elden-kindling-mobile.png', fullPage:true });
+
+    const ranniMobile = await filmMobileContext.newPage();
+    await ranniMobile.goto(new URL('../ranni/', BASE).toString(), { waitUntil:'networkidle' });
+    const ranniOverflow = await ranniMobile.evaluate(() => ({ scroll:document.documentElement.scrollWidth, inner:window.innerWidth }));
+    assert(ranniOverflow.scroll <= ranniOverflow.inner, 'Film II has no 390px horizontal overflow');
+    assert(await ranniMobile.locator('.ranni-movement').count() === 22, 'mobile retains the complete Ranni testament');
+    await ranniMobile.evaluate(() => Promise.all(Array.from(document.querySelectorAll('.ranni-page img')).map((image) => image.decode())));
+    await ranniMobile.screenshot({ path:'/tmp/elden-ranni-mobile.png', fullPage:true });
     await filmMobileContext.close();
 
     const liveFilmContext = await browser.newContext({ viewport:{ width:1280, height:800 } });
