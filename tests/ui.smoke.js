@@ -316,17 +316,23 @@ async function main() {
     assert((await film.locator('.kindling-movement').first().getAttribute('href')).includes('work=kindling&ch=ch01'), 'first movement opens the exact Tale chapter');
     assert(await film.locator('link[rel="canonical"]').getAttribute('href') === 'https://elden-ring-build-calc.vercel.app/kindling/', 'KINDLING publishes its canonical URL');
     assert(await film.locator('.kindling-poster').evaluate((image) => image.complete && image.naturalWidth === 1672 && image.naturalHeight === 941), 'KINDLING loads the full-resolution Melina film poster');
+    assert(await film.locator('.kindling-vow img').evaluate(async (image) => { await image.decode(); return image.naturalWidth === 1672 && image.naturalHeight === 941; }), 'KINDLING loads its dedicated story artwork');
     assert((await film.locator('meta[property="og:image"]').getAttribute('content')).endsWith('/assets/kindling-melina.webp'), 'KINDLING shares with its dedicated Melina artwork');
-    const kindlingTitleBox = await film.locator('#kindlingTitle').boundingBox();
-    const kindlingFrameBox = await film.locator('.kindling-frame-wrap').boundingBox();
-    assert(kindlingTitleBox.x + kindlingTitleBox.width < kindlingFrameBox.x, 'KINDLING title remains clear of the film frame');
+    assert(await film.locator('.archive-film-shell + .archive-film-threshold').count() === 1, 'KINDLING uses the shared frame-first Archive Film structure');
+    assert(await film.locator('.archive-film-feature + .archive-film-chapters').count() === 1, 'KINDLING follows artwork with its complete written spine');
+    assert(await film.locator('.archive-film-chapters + .archive-film-coda').count() === 1, 'KINDLING closes the written spine with a final statement');
     await film.screenshot({ path:'/tmp/elden-kindling-desktop.png', fullPage:true });
     const tales = await filmContext.newPage();
     await tales.goto(new URL('../tales/', BASE).toString(), { waitUntil:'networkidle' });
     assert(await tales.locator('.tale-companion').count() === 3, 'Tales exposes all three Archive Film companions');
+    assert(await tales.locator('.tale-cover').count() === 3, 'Tales presents all three volumes with their film artwork');
+    assert(await tales.locator('.tale-cover').evaluateAll(async (images) => { await Promise.all(images.map((image) => image.decode())); return images.every((image) => image.naturalWidth === 1672 && image.naturalHeight === 941); }), 'Tales uses the full-resolution Archive Film posters');
     assert((await tales.locator('.tale-card').nth(0).locator('.tale-companion').getAttribute('href')) === '../gold-and-shadow/', 'written Gold and Shadow points back to Archive Film III');
     assert((await tales.locator('.tale-card').nth(1).locator('.tale-companion').getAttribute('href')) === '../kindling/', 'written KINDLING points back to Archive Film I');
     assert((await tales.locator('.tale-card').nth(2).locator('.tale-companion').getAttribute('href')) === '../ranni/', 'written Ranni points back to Archive Film II');
+    await tales.locator('.tale-toc-toggle').first().click();
+    assert(await tales.locator('.tale-card').first().locator('.tale-toc').isVisible(), 'Tales keeps chapter contents available on demand');
+    assert(await tales.locator('.tale-toc-toggle').first().getAttribute('aria-expanded') === 'true', 'Tales reports expanded contents accessibly');
 
     const ranni = await filmContext.newPage();
     ranni.on('console', (msg) => { if (msg.type() === 'error') errors.push('ranni console: ' + msg.text()); });
@@ -342,6 +348,8 @@ async function main() {
     assert(await ranni.locator('.ranni-vow img').evaluate(async (image) => { await image.decode(); return image.naturalWidth === 1672 && image.naturalHeight === 941; }), 'Film II loads the fractured-moon artwork');
     assert(await ranni.locator('.ranni-coda img').evaluate(async (image) => { await image.decode(); return image.naturalWidth === 1672 && image.naturalHeight === 941; }), 'Film II loads the crescent portrait');
     assert((await ranni.locator('meta[property="og:image"]').getAttribute('content')).endsWith('/assets/ranni-film-ii.webp'), 'Film II shares with its dedicated title artwork');
+    assert(await ranni.locator('.archive-film-shell + .archive-film-threshold').count() === 1, 'Film II uses the shared frame-first Archive Film structure');
+    assert(await ranni.locator('.archive-film-feature + .archive-film-chapters').count() === 1, 'Film II follows artwork with its complete written spine');
     await ranni.screenshot({ path:'/tmp/elden-ranni-desktop.png', fullPage:true });
 
     const goldShadow = await filmContext.newPage();
@@ -357,6 +365,8 @@ async function main() {
     assert(await goldShadow.locator('.gold-shadow-poster').evaluate(async (image) => { await image.decode(); return image.naturalWidth === 1672 && image.naturalHeight === 941; }), 'Film III loads its full-resolution title poster');
     assert(await goldShadow.locator('.gold-shadow-method img').evaluate(async (image) => { await image.decode(); return image.naturalWidth === 1672 && image.naturalHeight === 941; }), 'Film III loads the candlelit study artwork');
     assert((await goldShadow.locator('meta[property="og:image"]').getAttribute('content')).endsWith('/assets/gold-shadow-film-iii.webp'), 'Film III shares with its dedicated title artwork');
+    assert(await goldShadow.locator('.archive-film-shell + .archive-film-threshold').count() === 1, 'Film III uses the shared frame-first Archive Film structure');
+    assert(await goldShadow.locator('.archive-film-feature + .archive-film-chapters').count() === 1, 'Film III follows artwork with its complete written spine');
     await goldShadow.screenshot({ path:'/tmp/elden-gold-shadow-desktop.png', fullPage:true });
     await filmContext.close();
 
@@ -383,6 +393,13 @@ async function main() {
     assert(await goldShadowMobile.locator('.gold-shadow-chapter').count() === 17, 'mobile retains the complete Gold and Shadow chronicle');
     await goldShadowMobile.evaluate(() => Promise.all(Array.from(document.querySelectorAll('.gold-shadow-page img')).map((image) => image.decode())));
     await goldShadowMobile.screenshot({ path:'/tmp/elden-gold-shadow-mobile.png', fullPage:true });
+
+    const talesMobile = await filmMobileContext.newPage();
+    await talesMobile.goto(new URL('../tales/', BASE).toString(), { waitUntil:'networkidle' });
+    const talesOverflow = await talesMobile.evaluate(() => ({ scroll:document.documentElement.scrollWidth, inner:window.innerWidth }));
+    assert(talesOverflow.scroll <= talesOverflow.inner, 'clean Tales shelf has no 390px horizontal overflow');
+    assert(await talesMobile.locator('.tale-card').count() === 3, 'mobile Tales shelf retains all three volumes');
+    await talesMobile.screenshot({ path:'/tmp/elden-tales-mobile.png', fullPage:true });
     await filmMobileContext.close();
 
     const liveFilmContext = await browser.newContext({ viewport:{ width:1280, height:800 } });

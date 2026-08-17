@@ -42,7 +42,7 @@
 
     if (!work) throw new Error('KINDLING work missing from tales manifest');
     $('kindlingMovements').innerHTML = work.chapters.map(function (chapter, index) {
-      return '<a class="kindling-movement" href="../tales/read.html?work=kindling&ch=' + encodeURIComponent(chapter.id) + '">' +
+      return '<a class="kindling-movement archive-film-chapter" href="../tales/read.html?work=kindling&ch=' + encodeURIComponent(chapter.id) + '">' +
         '<span>' + esc(chapter.num) + '</span><div><b>' + esc(chapter.title) + '</b><p>' + esc(chapter.tease) + '</p></div><em>' + String(index + 1).padStart(2, '0') + '</em></a>';
     }).join('');
   } catch (error) {

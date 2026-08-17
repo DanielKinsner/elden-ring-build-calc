@@ -39,7 +39,7 @@
 }
 </script>
 </head>
-<body class="kindling-page">
+<body class="kindling-page archive-film-page">
 <div class="kindling-backdrop" aria-hidden="true"></div>
 <header class="topbar kindling-topbar">
   <a class="brand" href="../"><span class="brand-mark">◈</span><span class="brand-text"><b>ELDEN RING</b><small>THE TARNISHED ARCHIVE</small></span></a>
@@ -50,49 +50,58 @@
   </div>
 </header>
 
-<main class="kindling-main">
-  <section class="kindling-hero" aria-labelledby="kindlingTitle">
-    <div class="kindling-copy">
-      <div class="kindling-overline"><span>Archive Film I</span><i></i><em>The testimony of Melina</em></div>
-      <h1 id="kindlingTitle">KINDLING</h1>
-      <p class="kindling-subtitle">The Story of Melina</p>
-      <blockquote>“I was made for a purpose. I became a person when I chose what that purpose meant.”</blockquote>
-      <p class="kindling-intro">From a graveyard beneath Limgrave to the Forge of the Giants, Melina tells the journey in her own voice—not as the maiden who burned, but as the person who learned to choose.</p>
-      <div class="kindling-actions">
-        <a class="kindling-primary" id="kindlingWatch" href="#film">Enter the film <span>↓</span></a>
-        <a class="kindling-secondary" href="../tales/read.html?work=kindling&ch=ch01">Read movement I</a>
-      </div>
-      <div class="kindling-facts"><span>Nine movements</span><i></i><span>≈5,240 words</span><i></i><span>Full story spoilers</span></div>
-    </div>
-
-    <div class="kindling-frame-wrap" id="film">
+<main class="kindling-main archive-film-main">
+  <section class="kindling-hero archive-film-hero" aria-labelledby="kindlingTitle">
+    <div class="kindling-frame-wrap archive-film-shell" id="film">
       <div class="kindling-frame-corners" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
-      <div class="kindling-frame" id="kindlingFrame">
-        <img class="kindling-poster" src="../assets/kindling-melina.webp" width="1672" height="941" alt="Melina resting beside a Site of Grace beneath the golden Erdtree" fetchpriority="high" decoding="async">
+      <div class="kindling-frame archive-film-frame" id="kindlingFrame">
+        <img class="kindling-poster archive-film-poster" src="../assets/kindling-melina.webp" width="1672" height="941" alt="KINDLING, Archive Film I: Melina before the Erdtree" fetchpriority="high" decoding="async">
         <div class="kindling-placeholder kindling-placeholder--finished" id="kindlingPlaceholder">
-          <small id="kindlingStatus">Film I · In production</small>
+          <small class="archive-film-status" id="kindlingStatus">Film I · In production</small>
           <span class="sr-only">The film is being forged. The complete written edition is already waiting below.</span>
         </div>
       </div>
-      <div class="kindling-frame-meta"><span id="kindlingFrameStatus">Production companion</span><button id="kindlingShare" type="button">Share this page ↗</button></div>
+      <div class="kindling-frame-meta archive-film-meta"><span id="kindlingFrameStatus">Production companion</span><button id="kindlingShare" type="button">Share this page ↗</button></div>
+    </div>
+
+    <div class="kindling-threshold archive-film-threshold">
+      <div>
+        <span class="kindling-overline archive-film-kicker">Archive Film I · The testimony of Melina</span>
+        <h1 class="archive-film-title" id="kindlingTitle">A purpose inherited,<br><em>a choice made hers.</em></h1>
+      </div>
+      <div class="kindling-copy archive-film-copy">
+        <blockquote>“I was made for a purpose. I became a person when I chose what that purpose meant.”</blockquote>
+        <p class="kindling-intro">From a graveyard beneath Limgrave to the Forge of the Giants, Melina tells the journey in her own voice—not as the maiden who burned, but as the person who learned to choose.</p>
+        <div class="kindling-actions archive-film-actions">
+          <a class="kindling-primary" id="kindlingWatch" href="#movements">Enter the story <span>↓</span></a>
+          <a class="kindling-secondary" href="../tales/read.html?work=kindling&amp;ch=ch01">Read movement I</a>
+        </div>
+        <div class="kindling-facts archive-film-facts"><span>Nine movements</span><i></i><span>≈5,240 words</span><i></i><span>Full story spoilers</span></div>
+      </div>
     </div>
   </section>
 
-  <section class="kindling-creed" aria-label="The heart of Kindling">
-    <span>Purpose was given.</span>
-    <b>Choice was hers.</b>
-    <p>The tragedy is not to be made for a purpose. The tragedy is to live and die as someone else’s unread letter.</p>
+  <section class="kindling-vow archive-film-feature" aria-label="The heart of Kindling">
+    <img src="../assets/kindling-grace.webp" width="1672" height="941" alt="Melina resting beside a Site of Grace beneath the golden Erdtree" loading="eager" decoding="async">
+    <div class="kindling-vow-copy archive-film-feature-copy"><span>The heart of the flame</span><b>Purpose was given.<br>Choice was hers.</b><p>The tragedy is not to be made for a purpose. The tragedy is to live and die as someone else’s unread letter.</p></div>
   </section>
 
-  <section class="kindling-movements" id="movements" aria-labelledby="movementsTitle">
+  <section class="kindling-movements archive-film-chapters" id="movements" aria-labelledby="movementsTitle">
     <header>
       <div><span class="kindling-section-no">I — IX</span><h2 id="movementsTitle">The story in nine movements</h2></div>
       <p>The film and the written edition share one spine. Read straight through, or enter at the moment still burning in your memory.</p>
     </header>
-    <div class="kindling-movement-grid" id="kindlingMovements"><p class="guide-loading">Opening the record…</p></div>
+    <div class="kindling-movement-grid archive-film-chapter-grid" id="kindlingMovements"><p class="guide-loading">Opening the record…</p></div>
   </section>
 
-  <section class="kindling-doors" aria-labelledby="doorsTitle">
+  <section class="kindling-coda archive-film-coda archive-film-coda--text" aria-labelledby="kindlingCodaTitle">
+    <span class="kindling-section-no">What the fire keeps</span>
+    <h2 id="kindlingCodaTitle">Not kindling.<br><em>A person who chose.</em></h2>
+    <p>What remains when a life becomes a choice.</p>
+    <a href="../tales/read.html?work=kindling&amp;ch=ch09">Read Embers →</a>
+  </section>
+
+  <section class="kindling-doors archive-film-doors" aria-labelledby="doorsTitle">
     <div class="kindling-door-intro"><span class="kindling-section-no">Beyond the film</span><h2 id="doorsTitle">Carry the story back into the world.</h2><p>KINDLING is one door. The Archive keeps the build, the road, the weapons, and the histories on the other side.</p></div>
     <div class="kindling-door-grid">
       <a href="../build/"><small>Build</small><b>Forge the Tarnished</b><p>Six armament slots, armor, spells, Ashes, exact combat events, and live enemy context.</p><em>Enter the Full Build Lab →</em></a>

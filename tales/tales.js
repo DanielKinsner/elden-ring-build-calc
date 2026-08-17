@@ -66,7 +66,7 @@
   if (shelf) {
     var spoilerLine = '<b style="color:var(--red)">⚠ Full spoilers</b> — base game, all endings, and the DLC.';
 
-    /* ---- reading-tools rail (>=1100px): continue reading, recent activity, explore ---- */
+    /* ---- quiet library tools: recent activity + adjacent Archive doors ---- */
     function relTime(ts) {
       var min = Math.max(0, Math.floor((Date.now() - ts) / 60000));
       if (min < 1) return 'just now';
@@ -88,36 +88,16 @@
       return items.slice(0, 5);
     }
     function chapterLabel(c) { return (c.num ? c.num + '. ' : '') + c.title; }
-    function railHtml() {
-      var continueItems = WORKS.map(function (w) {
-        var st = wstate(w.id);
-        var next = w.chapters.find(function (c) { return !st.read[c.id]; });
-        if (!next) return null;
-        var started = w.chapters.some(function (c) { return st.read[c.id]; });
-        return { work: w, chapter: next, started: started };
-      }).filter(Boolean);
+    function toolsHtml() {
       var recent = recentActivity();
-
-      return '<div class="tales-rail">' +
-        '<div class="tales-rail-section"><h4 class="tales-rail-title">Continue reading</h4>' +
-        (continueItems.length ? continueItems.map(function (it) {
-          return '<a class="tales-rail-continue" href="read.html?work=' + it.work.id + '&ch=' + it.chapter.id + '">' +
-            '<span class="tales-rail-work">' + esc(it.work.title) + '</span>' +
-            '<span class="tales-rail-chapter">' + (it.started ? 'Continue: ' : 'Begin: ') + esc(chapterLabel(it.chapter)) + ' →</span></a>';
-        }).join('') : '<p class="tales-rail-empty">All caught up — nothing left to read.</p>') +
-        '</div>' +
-        '<div class="tales-rail-section"><h4 class="tales-rail-title">Recent activity</h4>' +
-        (recent.length ? recent.map(function (it) {
-          return '<a class="tales-rail-recent" href="read.html?work=' + it.workId + '&ch=' + it.chapter.id + '">' +
-            '<span class="tales-rail-recent-title">' + esc(chapterLabel(it.chapter)) + '</span>' +
-            '<span class="tales-rail-recent-time">' + relTime(it.t) + '</span></a>';
-        }).join('') : '<p class="tales-rail-empty">Start a tale to see your progress here.</p>') +
-        '</div>' +
-        '<div class="tales-rail-section"><h4 class="tales-rail-title">Explore</h4>' +
-        '<a class="tales-rail-explore" href="#timeline">Timeline</a>' +
-        '<a class="tales-rail-explore" href="../guides/#compendium">Compendium</a>' +
-        '<a class="tales-rail-explore" href="../guides/#quests">Quest Tracker</a>' +
-        '</div>' +
+      return '<div class="tales-tools">' +
+        '<div class="tales-tools-recent"><span class="tales-tools-label">Recently opened</span>' +
+        (recent.length ? recent.slice(0, 3).map(function (it) {
+          return '<a href="read.html?work=' + it.workId + '&ch=' + it.chapter.id + '"><span>' +
+            esc(chapterLabel(it.chapter)) + '</span><small>' + relTime(it.t) + '</small></a>';
+        }).join('') : '<p>Your reading history will gather here.</p>') + '</div>' +
+        '<nav class="tales-tools-explore" aria-label="Explore the Archive"><span class="tales-tools-label">Elsewhere in the Archive</span>' +
+        '<div><a href="#timeline">Timeline</a><a href="../guides/#compendium">Compendium</a><a href="../guides/#quests">Quest tracker</a></div></nav>' +
       '</div>';
     }
 
@@ -128,46 +108,48 @@
         var st0 = wstate(w.id);
         totRead += w.chapters.filter(function (c) { return st0.read[c.id]; }).length;
       });
-      var heroHtml = '<div class="hero-head">' +
-        '<div class="hero-lead"><div class="hero-eyebrow">Lore &amp; Legends</div>' +
-        '<h1 class="hero-title">Tales of the Lands Between</h1>' +
-        '<p class="hero-sub">Original fan writing, built on the game’s own evidence. ' + spoilerLine + '</p></div>' +
-        '<div class="hero-stats">' + ring(totCh ? Math.round(100 * totRead / totCh) : 0, 'READ') +
-        '<div class="hero-stat-list">' +
-          '<div class="hero-stat"><span>Tales</span><b>' + WORKS.length + '</b></div>' +
-          '<div class="hero-stat"><span>Words</span><b>≈' + totWords.toLocaleString() + '</b></div>' +
-          '<div class="hero-stat"><span>Chapters read</span><b>' + totRead + ' / ' + totCh + '</b></div>' +
-        '</div></div></div>';
+      var totalPct = totCh ? Math.round(100 * totRead / totCh) : 0;
+      var heroHtml = '<header class="tales-hero">' +
+        '<div><span class="tales-kicker">The written archive</span><h1>Tales of the Lands Between</h1>' +
+        '<p>Three complete histories. Three voices refusing the easy version. ' + spoilerLine + '</p></div>' +
+        '<div class="tales-aggregate"><div><span><b>' + WORKS.length + '</b> volumes</span><span><b>≈' + totWords.toLocaleString() + '</b> words</span><span><b>' + totRead + ' / ' + totCh + '</b> sections read</span></div>' +
+        '<div class="tales-aggregate-track" aria-label="' + totalPct + '% of the collection read"><i style="width:' + totalPct + '%"></i></div></div>' +
+      '</header>';
+      var filmArt = {
+        'gold-and-shadow': { src:'../assets/gold-shadow-film-iii.webp', film:'Archive Film III', alt:'Gold and Shadow film poster' },
+        'kindling': { src:'../assets/kindling-melina.webp', film:'Archive Film I', alt:'KINDLING film poster' },
+        'ranni': { src:'../assets/ranni-film-ii.webp', film:'Archive Film II', alt:'The Whole Dark Moon film poster' }
+      };
       var cardsHtml = WORKS.map(function (w) {
         var st = wstate(w.id);
         var readCount = w.chapters.filter(function (c) { return st.read[c.id]; }).length;
         var started = !!st.chapter || readCount > 0;
         var cont = st.chapter && w.chapters.find(function (c) { return c.id === st.chapter; });
         var pct = Math.round(100 * readCount / w.chapters.length);
-        return '<div class="tale-card">' +
-          '<img class="tale-cover" id="tale-cover-' + w.id + '" alt="" hidden>' +
-          '<div class="tale-card-body"><div class="tale-card-grid">' +
-          '<div class="tale-card-main">' +
-          '<div class="tale-card-head">' +
-            '<div class="tale-titles"><span class="tale-title">' + esc(w.title) + '</span>' +
-            '<span class="tale-subtitle">' + esc(w.subtitle) + '</span></div>' +
-          '</div>' +
+        var art = filmArt[w.id];
+        var status = pct === 100 ? 'Finished' : started ? 'In progress' : 'Not started';
+        return '<article class="tale-card tale-card--' + w.id + '">' +
+          '<a class="tale-art" href="../' + encodeURIComponent(w.companion) + '/" aria-label="Open ' + esc(w.title) + ' film companion">' +
+            '<img class="tale-cover" src="' + art.src + '" width="1672" height="941" alt="' + esc(art.alt) + '" decoding="async">' +
+            '<span>' + art.film + '</span></a>' +
+          '<div class="tale-card-body">' +
+          '<div class="tale-card-head"><div class="tale-titles"><span class="tale-title">' + esc(w.title) + '</span>' +
+            '<span class="tale-subtitle">' + esc(w.subtitle) + '</span></div></div>' +
           '<p class="tale-blurb">' + esc(w.blurb) + '</p>' +
-          '<p class="tale-spoilers">⚠ ' + esc(w.spoilers) + '</p>' +
           '<div class="tale-meta-row">' +
-            '<span>📖 <b>' + esc(w.words) + '</b></span>' +
-            '<span>✒ <b>' + readCount + ' / ' + w.chapters.length + '</b> chapters read</span>' +
-            (readTime(wordCount(w)) ? '<span>◷ <b>' + readTime(wordCount(w)) + '</b></span>' : '') +
+            '<span><b>' + esc(w.words) + '</b></span><i></i>' +
+            '<span><b>' + w.chapters.length + '</b> sections</span>' +
+            (readTime(wordCount(w)) ? '<i></i><span><b>' + readTime(wordCount(w)) + '</b></span>' : '') +
           '</div>' +
+          '<div class="tale-progress-summary"><span>' + status + '</span><b>' + readCount + ' / ' + w.chapters.length + '</b></div>' +
+          '<div class="tale-progress-track" aria-label="' + pct + '% read"><i style="width:' + pct + '%"></i></div>' +
           '<div class="tale-actions">' +
             '<a class="cta tale-cta" href="read.html?work=' + w.id + (cont ? '&ch=' + cont.id : '') + '">' +
               (started && cont ? 'Continue — ' + esc(cont.num ? cont.num + '. ' : '') + esc(cont.title) : 'Begin reading →') + '</a>' +
-            (w.companion ? '<a class="icon-btn tale-companion" href="../' + encodeURIComponent(w.companion) + '/">Film companion ↗</a>' : '') +
-            (w.chapters.length > 1 ? '<button class="icon-btn tale-toc-toggle" data-work="' + w.id + '">Contents</button>' : '') +
+            '<a class="tale-companion" href="../' + encodeURIComponent(w.companion) + '/">Film companion ↗</a>' +
+            (w.chapters.length > 1 ? '<button class="tale-toc-toggle" data-work="' + w.id + '" aria-expanded="false">Contents ↓</button>' : '') +
           '</div>' +
-          '</div>' +
-          '<div class="tale-status">' + ring(pct, 'READ') +
-            '<span class="tale-status-label">' + (pct === 100 ? 'Finished' : started ? 'Reading' : 'Not started') + '</span></div>' +
+          '<p class="tale-spoilers">⚠ ' + esc(w.spoilers) + '</p>' +
           '</div>' +
           (w.chapters.length > 1 ?
             '<ol class="tale-toc" id="toc-' + w.id + '" hidden>' +
@@ -176,24 +158,18 @@
                 '<span class="tale-toc-num">' + esc(c.num) + '</span><span class="tale-toc-title">' + esc(c.title) + '</span>' +
                 '<span class="tale-toc-tease">' + esc(c.tease) + '</span></a></li>';
             }).join('') + '</ol>' : '') +
-          '</div></div>';
+          '</article>';
       }).join('');
 
-      shelf.innerHTML = '<div class="tales-shelf-layout"><div class="tales-shelf-main">' +
-        heroHtml + cardsHtml + '</div>' + railHtml() + '</div>';
-
-      /* optional cover art: assets/tales/<workId>.jpg, silently skipped if absent (D6) */
-      WORKS.forEach(function (w) {
-        var slot = $('tale-cover-' + w.id);
-        var img = new Image();
-        img.onload = function () { slot.src = img.src; slot.hidden = false; };
-        img.src = '../assets/tales/' + w.id + '.jpg';
-      });
+      shelf.innerHTML = '<div class="tales-shelf-layout">' + heroHtml +
+        '<div class="tales-volume-list">' + cardsHtml + '</div>' + toolsHtml() + '</div>';
 
       Array.prototype.forEach.call(shelf.querySelectorAll('.tale-toc-toggle'), function (b) {
         b.addEventListener('click', function () {
           var toc = $('toc-' + b.dataset.work);
           toc.hidden = !toc.hidden;
+          b.setAttribute('aria-expanded', String(!toc.hidden));
+          b.textContent = toc.hidden ? 'Contents ↓' : 'Close contents ↑';
         });
       });
     }

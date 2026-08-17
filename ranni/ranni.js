@@ -42,7 +42,7 @@
     if (!work) throw new Error('Ranni work missing from tales manifest');
     $('ranniMovements').innerHTML = work.chapters.map(function (chapter, index) {
       var edge = index === 0 || index === work.chapters.length - 1 ? ' ranni-movement--edge' : '';
-      return '<a class="ranni-movement' + edge + '" href="../tales/read.html?work=ranni&ch=' + encodeURIComponent(chapter.id) + '">' +
+      return '<a class="ranni-movement archive-film-chapter' + edge + '" href="../tales/read.html?work=ranni&ch=' + encodeURIComponent(chapter.id) + '">' +
         '<span>' + esc(chapter.num) + '</span><div><b>' + esc(chapter.title) + '</b><p>' + esc(chapter.tease) + '</p></div><em>' + String(index).padStart(2, '0') + '</em></a>';
     }).join('');
   } catch (error) {
