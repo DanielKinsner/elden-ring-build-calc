@@ -35,6 +35,27 @@
 </header>
 
 <div class="build-load-state" id="buildLoadState" role="status" aria-live="polite">Loading essential build data…</div>
+<section class="build-summary" id="buildSummary" aria-label="Current build summary">
+  <div class="build-summary-copy"><span class="k">One Tarnished · General Build</span><b id="summaryBuildName">Freeform build</b><small id="summarySaveState">Autosaves locally</small></div>
+  <div class="build-summary-metrics">
+    <span><small>Rune level</small><b id="summaryLevel">—</b></span>
+    <span><small>Active armament</small><b id="summaryWeapon">—</b></span>
+    <span><small>Output</small><b id="summaryOutput">—</b></span>
+    <span><small>Load / roll</small><b id="summaryLoad">—</b></span>
+    <span><small>Poise</small><b id="summaryPoise">—</b></span>
+    <span><small>Target</small><b id="summaryTarget">General Build</b></span>
+  </div>
+  <div class="build-summary-actions"><button type="button" id="summarySave">Save build</button><button type="button" id="summaryShare">Share build</button></div>
+</section>
+<nav class="build-view-nav" aria-label="Build Lab views" role="tablist">
+  <button type="button" role="tab" aria-selected="true" data-build-view="character">Character</button>
+  <button type="button" role="tab" aria-selected="false" data-build-view="loadout">Loadout</button>
+  <button type="button" role="tab" aria-selected="false" data-build-view="damage">Damage</button>
+  <button type="button" role="tab" aria-selected="false" data-build-view="defense">Defense</button>
+  <button type="button" role="tab" aria-selected="false" data-build-view="magic">Magic</button>
+  <button type="button" role="tab" aria-selected="false" data-build-view="encounter">Encounter</button>
+  <button type="button" role="tab" aria-selected="false" data-build-view="advanced">Advanced / Trace</button>
+</nav>
 <main class="grid">
   <!-- CHARACTER -->
   <section class="panel">
@@ -308,7 +329,7 @@
     <div id="breakpoints" class="breakpoints"></div>
     <h2 class="mt">Stat Advisor</h2>
     <div class="advisor-sub">Redistributes your five offensive stats for this weapon — same total points, best AR.</div>
-    <button class="opt-btn" id="optimizeBtn">Optimize Stat Spread</button>
+    <button class="opt-btn" id="optimizeBtn">Preview Stat Proposal</button>
     <div id="optResult" class="opt-result" hidden></div>
     <button class="cta-compare" id="addCompare">Add to Compare</button>
   </section>

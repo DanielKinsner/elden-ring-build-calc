@@ -226,8 +226,11 @@ async function main() {
     await mobile.goto(url, { waitUntil: 'networkidle' });
     const overflow = await mobile.evaluate(() => ({ scroll: document.documentElement.scrollWidth, inner: window.innerWidth }));
     assert(overflow.scroll <= overflow.inner, '390px layout has no horizontal overflow');
+    await mobile.getByRole('tab', { name:'Loadout', exact:true }).click();
     assert(await mobile.locator('.tali-slot').count() === 4, 'mobile retains all four equipment slots');
+    await mobile.getByRole('tab', { name:'Magic', exact:true }).click();
     assert((await mobile.locator('#spellRack').textContent()).includes('Comet'), 'mobile retains spell memory and casting state');
+    await mobile.getByRole('tab', { name:'Encounter', exact:true }).click();
     assert((await mobile.locator('#enemySummary').textContent()).includes('Malenia'), 'mobile retains encounter state');
     await mobile.screenshot({ path: '/tmp/elden-talisman-mobile.png', fullPage: true });
 
@@ -235,18 +238,21 @@ async function main() {
     await rangedMobile.goto(ranged.url(), { waitUntil:'networkidle' });
     const rangedOverflow = await rangedMobile.evaluate(() => ({ scroll:document.documentElement.scrollWidth, inner:window.innerWidth }));
     assert(rangedOverflow.scroll <= rangedOverflow.inner, 'ranged encounter has no 390px horizontal overflow');
+    await rangedMobile.getByRole('tab', { name:'Encounter', exact:true }).click();
     assert(await rangedMobile.locator('#ammoControl').isVisible(), 'mobile retains its ammunition slot');
 
     const skillMobile = await browser.newPage({ viewport:{ width:390, height:844 } });
     await skillMobile.goto(skillPage.url(), { waitUntil:'networkidle' });
     const skillOverflow = await skillMobile.evaluate(() => ({ scroll:document.documentElement.scrollWidth, inner:window.innerWidth }));
     assert(skillOverflow.scroll <= skillOverflow.inner, 'skill lab has no 390px horizontal overflow');
+    await skillMobile.getByRole('tab', { name:'Advanced / Trace', exact:true }).click();
     assert(await skillMobile.locator('#skillSelect').inputValue() === 'bloody-slash', 'mobile retains per-armament Ash state');
 
     const riteMobile = await browser.newPage({ viewport:{ width:390, height:844 } });
     await riteMobile.goto(ritePage.url(), { waitUntil:'networkidle' });
     const riteOverflow = await riteMobile.evaluate(() => ({ scroll:document.documentElement.scrollWidth, inner:window.innerWidth }));
     assert(riteOverflow.scroll <= riteOverflow.inner, 'Physick and Great Rune rack has no 390px horizontal overflow');
+    await riteMobile.getByRole('tab', { name:'Loadout', exact:true }).click();
     assert(await riteMobile.locator('#physickOne').inputValue() === 'strength-knot-crystal-tear', 'mobile retains the shared Physick mixture');
 
     const homeContext = await browser.newContext({ viewport:{ width:1440, height:1000 } });

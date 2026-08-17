@@ -7,6 +7,78 @@
   var STATUS = [['bleed','Bleed'],['frost','Frost'],['poison','Poison'],['rot','Scarlet Rot'],['sleep','Sleep'],['madness','Madness']];
   var $ = function (id) { return document.getElementById(id); };
 
+  // Focused views only move the existing controls between named panels. They do
+  // not clone, serialize, or create a second calculator state.
+  var BUILD_VIEWS = ['character', 'loadout', 'damage', 'defense', 'magic', 'encounter', 'advanced'];
+  var activeBuildView = 'character';
+  function heading(parent, text) {
+    return Array.prototype.find.call(parent.querySelectorAll(':scope > h2'), function (item) { return item.textContent.indexOf(text) >= 0; });
+  }
+  function moveUntil(source, target, first, end) {
+    for (var node = first; node && node !== end;) {
+      var next = node.nextSibling;
+      target.appendChild(node);
+      node = next;
+    }
+  }
+  function makeBuildView(name) {
+    var panel = document.createElement('section');
+    panel.className = 'panel build-view'; panel.setAttribute('data-view-panel', name);
+    panel.setAttribute('role', 'tabpanel'); panel.setAttribute('aria-label', name === 'advanced' ? 'Advanced and trace' : name);
+    return panel;
+  }
+  function setBuildView(name, writeURL) {
+    if (BUILD_VIEWS.indexOf(name) < 0) name = 'character';
+    activeBuildView = name;
+    Array.prototype.forEach.call(document.querySelectorAll('[data-view-panel]'), function (panel) { panel.hidden = panel.getAttribute('data-view-panel') !== name; });
+    Array.prototype.forEach.call(document.querySelectorAll('[data-build-view]'), function (button) {
+      var selected = button.getAttribute('data-build-view') === name;
+      button.classList.toggle('active', selected); button.setAttribute('aria-selected', selected ? 'true' : 'false');
+    });
+    if (name === 'magic') ensureDomain('magic');
+    if (name === 'encounter') ensureDomain('encounter');
+    if (name === 'advanced') ensureDomain('skills');
+    if (writeURL && window.history && history.replaceState) {
+      var url = new URL(location.href); url.searchParams.set('view', name); history.replaceState(null, '', url.toString());
+    }
+  }
+  function setupBuildViews() {
+    var grid = document.querySelector('.build-page .grid');
+    var panels = Array.prototype.slice.call(grid.querySelectorAll(':scope > .panel'));
+    if (panels.length < 4) return;
+    var character = panels[0], equipment = panels[1], analysis = panels[2], suggestions = panels[3];
+    var views = {};
+    BUILD_VIEWS.forEach(function (name) { views[name] = makeBuildView(name); });
+
+    var characterHead = heading(character, 'Character'), survivalHead = heading(character, 'Survival');
+    var armorHead = heading(character, 'Armor Loadout'), presetsHead = heading(character, 'Presets');
+    var ritesHead = heading(character, 'Physick');
+    moveUntil(character, views.character, characterHead, survivalHead);
+    moveUntil(character, views.defense, survivalHead, presetsHead);
+    moveUntil(character, views.character, presetsHead, ritesHead);
+    moveUntil(character, views.loadout, ritesHead, null);
+
+    var armamentHead = heading(equipment, 'Armament Rack'), magicHead = heading(equipment, 'Memory & Casting');
+    var skillHead = heading(equipment, 'Skill & Ash'), encounterHead = heading(equipment, 'Encounter');
+    var activeArmamentHead = heading(equipment, 'Active Armament'), effectsHead = heading(equipment, 'Active Effects');
+    moveUntil(equipment, views.loadout, armamentHead, magicHead);
+    moveUntil(equipment, views.magic, magicHead, skillHead);
+    moveUntil(equipment, views.advanced, skillHead, encounterHead);
+    moveUntil(equipment, views.encounter, encounterHead, activeArmamentHead);
+    moveUntil(equipment, views.damage, activeArmamentHead, effectsHead);
+    moveUntil(equipment, views.advanced, effectsHead, null);
+    while (analysis.firstChild) views.advanced.appendChild(analysis.firstChild);
+    while (suggestions.firstChild) views.damage.appendChild(suggestions.firstChild);
+    panels.forEach(function (panel) { panel.remove(); });
+    BUILD_VIEWS.forEach(function (name) { grid.appendChild(views[name]); });
+
+    document.querySelector('.build-view-nav').addEventListener('click', function (event) {
+      var button = event.target.closest('[data-build-view]'); if (button) setBuildView(button.getAttribute('data-build-view'), true);
+    });
+    var requested = new URLSearchParams(location.search).get('view');
+    setBuildView(BUILD_VIEWS.indexOf(requested) >= 0 ? requested : 'character', false);
+  }
+
   // Core data is all that is needed for a complete freeform character, loadout,
   // AR, defense, effects, and save/share state. Keep analysis corpora separate.
   var core;
@@ -30,6 +102,7 @@
   var catalystById = {}, spellById = {};
   var domains = { magic:{ state:'idle' }, skills:{ state:'idle' }, encounter:{ state:'idle' } };
   var buildReady = false;
+  setupBuildViews();
 
   function domainMessage(name) {
     var domain = domains[name], el = $(name === 'magic' ? 'magicDomainState' : name === 'skills' ? 'skillsDomainState' : 'encounterDomainState');
@@ -395,6 +468,7 @@
     if (encounterState.ng) q.set('ng', encounterState.ng);
     if (encounterState.moveId) q.set('wm', encounterState.moveId);
     if (encounterState.ammoId) q.set('am', encounterState.ammoId);
+    if (activeBuildView !== 'character') q.set('view', activeBuildView);
     history.replaceState(null, '', location.pathname + '?' + q);
   }
 
@@ -407,7 +481,7 @@
   $('stats').addEventListener('input', function (e) {
     var k = e.target.getAttribute('data-k') || e.target.getAttribute('data-box'); if (!k) return;
     var val = Math.max(1, Math.min(99, +e.target.value || 1));
-    build[k] = val; syncStat(k); activePresetIndex = -1; syncActivePreset(); render();
+    build[k] = val; advisorPreview = null; syncStat(k); activePresetIndex = -1; syncActivePreset(); render();
   });
   function syncStat(k) {
     var r = $('stats').querySelector('[data-k="'+k+'"]'); var b = $('stats').querySelector('[data-box="'+k+'"]');
@@ -1304,14 +1378,16 @@
     var existing = myBuilds.findIndex(function (m) { return m.name.toLowerCase() === name.toLowerCase(); });
     var entry = { name: name, state: captureState() };
     if (existing >= 0) myBuilds[existing] = entry; else myBuilds.push(entry);
-    saveMyBuilds(); renderMyBuilds();
+    saveMyBuilds(); renderMyBuilds(); renderBuildSummary();
     self.textContent = 'Saved ✓'; setTimeout(function () { self.textContent = '💾 Save'; }, 1400);
   });
+  $('summarySave').addEventListener('click', function () { $('saveBuild').click(); });
+  $('summaryShare').addEventListener('click', function () { $('shareBuild').click(); });
   $('myBuilds').addEventListener('click', function (e) {
     var x = e.target.closest('[data-x]');
     if (x) {
       var i = +x.getAttribute('data-x');
-      if (window.confirm('Delete "' + myBuilds[i].name + '"?')) { myBuilds.splice(i, 1); saveMyBuilds(); renderMyBuilds(); }
+      if (window.confirm('Delete "' + myBuilds[i].name + '"?')) { myBuilds.splice(i, 1); saveMyBuilds(); renderMyBuilds(); renderBuildSummary(); }
       return;
     }
     var b = e.target.closest('[data-m]');
@@ -1376,6 +1452,17 @@
     img.onload = function () { thumb.innerHTML = ''; thumb.appendChild(img); thumb.classList.add('has-img'); };
     img.src = '../assets/icons/weapons/' + weapon.id + '.png';
     img.alt = weapon.name;
+  }
+
+  function renderBuildSummary() {
+    var enemy = encounterEnemy();
+    $('summaryLevel').textContent = $('level').value || ERCalc.characterLevel(build);
+    $('summaryWeapon').textContent = current.name;
+    $('summaryOutput').textContent = $('ar').textContent + ' AR';
+    $('summaryLoad').textContent = $('survLoadText').textContent + ' · ' + $('survRollState').textContent;
+    $('summaryPoise').textContent = $('armorPoise').textContent;
+    $('summaryTarget').textContent = enemy ? enemy.name : encounterState.enemyId ? 'Encounter selected' : 'General Build';
+    $('summarySaveState').textContent = myBuilds.length ? myBuilds.length + ' named save' + (myBuilds.length === 1 ? '' : 's') + ' · share link ready' : 'Autosaves locally · share link ready';
   }
 
   function render() {
@@ -1464,9 +1551,11 @@
     var skillResult = renderSkill(baseMods, boosted);
     renderEncounter(r, magicResult, skillResult);
     renderSurvival(baseMods, boosted, taliEffects);
+    renderBuildSummary();
     renderPayoff(r);
     renderSoftCap(r);
     renderBreakpoints(r);
+    renderAdvisor();
     renderCompare();
     renderSuggestions();
     persist();
@@ -1720,29 +1809,50 @@
     }).join('');
   }
 
-  /* ---- stat advisor (T6) ---- */
-  var lastOpt = null;
-  $('optimizeBtn').addEventListener('click', function () {
-    lastOpt = ERCalc.optimize(build, current, { twoHanded: twoHanded, affinity: affinity, upgradeLevel: upgradeLevel });
-    var o = lastOpt;
-    var rows = SCALING.map(function (k) {
-      var cur = build[k], sug = o.stats[k];
-      var cls = sug > cur ? 'up' : sug < cur ? 'down' : 'same';
-      var arrow = sug > cur ? '▲' : sug < cur ? '▼' : '·';
-      return '<div class="opt-row"><span class="lbl">'+STAT_LABEL[k]+'</span>' +
-        '<span class="vals"><span class="cur">'+cur+'</span> → <b class="'+cls+'">'+sug+'</b> <i class="'+cls+'">'+arrow+'</i></span></div>';
+  /* ---- stat advisor: proposal first, intentional apply, reversible undo ---- */
+  var advisorPreview = null, advisorUndo = null;
+  function advisorRows(proposal) {
+    return SCALING.map(function (k) {
+      var cur = build[k], suggested = proposal.stats[k], delta = suggested - cur;
+      var cls = delta > 0 ? 'up' : delta < 0 ? 'down' : 'same';
+      var sign = delta > 0 ? '+' : '';
+      return '<div class="opt-row"><span class="lbl">'+STAT_LABEL[k]+'</span><span class="vals"><span class="cur">'+cur+'</span> → <b class="'+cls+'">'+suggested+'</b> <i class="'+cls+'">('+sign+delta+')</i></span></div>';
     }).join('');
-    $('optResult').innerHTML = o.gained > 0
-      ? rows + '<div class="opt-gain">+'+o.gained+' AR <small>('+o.before+' → '+o.totalAR+')</small></div>' +
-        '<button class="opt-apply" id="optApply">Apply This Spread</button>'
-      : '<div class="opt-gain even">Your spread is already optimal for this weapon — '+o.before+' AR</div>';
-    $('optResult').hidden = false;
+  }
+  function advisorTradeoff(proposal) {
+    var losses = SCALING.filter(function (k) { return proposal.stats[k] < build[k]; }).map(function (k) { return Math.abs(proposal.stats[k] - build[k]) + ' ' + k; });
+    return losses.length ? 'Tradeoff: moves ' + losses.join(', ') + ' into stronger scaling for this armament. Rune level and total offensive points stay unchanged.' : 'Cost: no offensive stats move; rune level and total offensive points stay unchanged.';
+  }
+  function renderAdvisor() {
+    var result = $('optResult');
+    if (advisorUndo) {
+      result.hidden = false;
+      result.innerHTML = '<div class="advisor-state applied">Applied to the current build. Your previous five-stat spread is available until you undo it.</div><button type="button" class="opt-apply" id="optUndo">Undo applied spread</button>';
+      return;
+    }
+    if (!advisorPreview) { result.hidden = true; return; }
+    var proposal = advisorPreview;
+    result.hidden = false;
+    result.innerHTML = '<div class="advisor-state"><b>Preview only — your live stats have not changed.</b><small>Current → proposed, with exact deltas</small></div>' +
+      advisorRows(proposal) +
+      '<div class="opt-gain'+(proposal.gained > 0 ? '' : ' even')+'">'+(proposal.gained > 0 ? '+' + proposal.gained + ' AR' : 'No AR gain')+' <small>('+proposal.before+' → '+proposal.totalAR+')</small></div>' +
+      '<p class="advisor-tradeoff">'+advisorTradeoff(proposal)+'</p>' +
+      '<button type="button" class="opt-apply" id="optApply"'+(proposal.gained > 0 ? '' : ' disabled')+'>Apply proposed stats</button>';
+  }
+  $('optimizeBtn').addEventListener('click', function () {
+    advisorUndo = null;
+    advisorPreview = ERCalc.optimize(build, current, { twoHanded: twoHanded, affinity: affinity, upgradeLevel: upgradeLevel });
+    renderAdvisor();
   });
   $('optResult').addEventListener('click', function (e) {
-    if (e.target.id !== 'optApply' || !lastOpt) return;
-    SCALING.forEach(function (k) { build[k] = lastOpt.stats[k]; syncStat(k); });
-    $('optResult').hidden = true;
-    activePresetIndex = -1; syncActivePreset(); render();
+    if (e.target.id === 'optApply' && advisorPreview && advisorPreview.gained > 0) {
+      advisorUndo = {}; SCALING.forEach(function (k) { advisorUndo[k] = build[k]; build[k] = advisorPreview.stats[k]; syncStat(k); });
+      advisorPreview = null; activePresetIndex = -1; syncActivePreset(); render();
+    }
+    if (e.target.id === 'optUndo' && advisorUndo) {
+      SCALING.forEach(function (k) { build[k] = advisorUndo[k]; syncStat(k); });
+      advisorUndo = null; activePresetIndex = -1; syncActivePreset(); render();
+    }
   });
 
   $('addCompare').addEventListener('click', function () {
@@ -1794,7 +1904,4 @@
   if (magicState.catalystId || magicState.spells.length || magicState.activeSpell) ensureDomain('magic');
   if (hasDeferredSkillState()) ensureDomain('skills');
   if (encounterState.enemyId || encounterState.ng || encounterState.moveId || encounterState.ammoId) ensureDomain('encounter');
-  // Leave the initial paint to the core, then warm the analytical domains in a
-  // separate task. Focused views can still call ensureDomain directly.
-  setTimeout(function () { Object.keys(domains).forEach(ensureDomain); }, 0);
 })();
