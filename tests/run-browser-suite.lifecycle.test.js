@@ -154,32 +154,37 @@ async function stalledServerCase() {
   fs.rmSync(gracefulState.proof, { force:true });
   assert.strictEqual(await request(graceful.origin), false, 'runner graceful shutdown closes its temporary server');
 
-  const attempts = path.join(os.tmpdir(), `tarnished-lifecycle-spawn-attempts-${process.pid}.jsonl`);
-  fs.rmSync(attempts, { force:true });
-  const multi = await runnerCase(['tests/fixtures/ignore-shutdown.browser.test.js', 'tests/fixtures/second-spawn.browser.test.js'], {
-    shutdownWhen:'fixture ready',
-    signal:process.platform === 'win32' ? null : 'SIGTERM',
-    env:auditedEnv(attempts, { ER_RUNNER_GRACE_MS:'100', ER_RUNNER_TERMINATE_MS:'100' })
-  });
-  assert.strictEqual(multi.result.code, 143, 'runner shutdown retains SIGTERM-equivalent status during the first of multiple files');
-  assert.deepStrictEqual(spawnAttempts(attempts), [path.resolve(ROOT, 'tests/fixtures/ignore-shutdown.browser.test.js')], `shutdown during fixture one never attempts fixture two spawn; output was:\n${multi.output}`);
-  assert.strictEqual(await request(multi.origin), false, 'multi-file shutdown closes its temporary server');
-  fs.rmSync(attempts, { force:true });
-
-  const mutantAttempts = path.join(os.tmpdir(), `tarnished-lifecycle-mutant-spawn-attempts-${process.pid}.jsonl`);
-  const mutant = mutateRunnerWithoutShutdownGuards();
+  const spawnAuditDirectory = fs.mkdtempSync(path.join(os.tmpdir(), 'tarnished-lifecycle-spawn-audit-'));
+  const attempts = path.join(spawnAuditDirectory, 'guarded.jsonl');
   try {
-    const mutantCase = await runnerCase(['tests/fixtures/ignore-shutdown.browser.test.js', 'tests/fixtures/second-spawn.browser.test.js'], {
-      runner:mutant,
+    const multi = await runnerCase(['tests/fixtures/ignore-shutdown.browser.test.js', 'tests/fixtures/second-spawn.browser.test.js'], {
       shutdownWhen:'fixture ready',
       signal:process.platform === 'win32' ? null : 'SIGTERM',
-      env:auditedEnv(mutantAttempts, { ER_RUNNER_GRACE_MS:'100', ER_RUNNER_TERMINATE_MS:'100' }, mutant)
+      env:auditedEnv(attempts, { ER_RUNNER_GRACE_MS:'100', ER_RUNNER_TERMINATE_MS:'100' })
     });
-    assert.strictEqual(mutantCase.result.code, 143, 'guard-removal mutant retains the requested shutdown status');
-    assert(spawnAttempts(mutantAttempts).includes(path.resolve(ROOT, 'tests/fixtures/second-spawn.browser.test.js')), `the spawn audit detects fixture two with guards removed; output was:\n${mutantCase.output}`);
+    assert.strictEqual(multi.result.code, 143, 'runner shutdown retains SIGTERM-equivalent status during the first of multiple files');
+    assert.deepStrictEqual(spawnAttempts(attempts), [path.resolve(ROOT, 'tests/fixtures/ignore-shutdown.browser.test.js')], `shutdown during fixture one never attempts fixture two spawn; output was:\n${multi.output}`);
+    assert.strictEqual(await request(multi.origin), false, 'multi-file shutdown closes its temporary server');
+
+    const mutantAttempts = path.join(spawnAuditDirectory, 'mutant.jsonl');
+    const mutant = mutateRunnerWithoutShutdownGuards();
+    try {
+      const mutantCase = await runnerCase(['tests/fixtures/ignore-shutdown.browser.test.js', 'tests/fixtures/second-spawn.browser.test.js'], {
+        runner:mutant,
+        shutdownWhen:'fixture ready',
+        signal:process.platform === 'win32' ? null : 'SIGTERM',
+        env:auditedEnv(mutantAttempts, { ER_RUNNER_GRACE_MS:'100', ER_RUNNER_TERMINATE_MS:'100' }, mutant)
+      });
+      assert.strictEqual(mutantCase.result.code, 143, 'guard-removal mutant retains the requested shutdown status');
+      assert.deepStrictEqual(spawnAttempts(mutantAttempts), [
+        path.resolve(ROOT, 'tests/fixtures/ignore-shutdown.browser.test.js'),
+        path.resolve(ROOT, 'tests/fixtures/second-spawn.browser.test.js')
+      ], `the spawn audit detects fixture two with guards removed; output was:\n${mutantCase.output}`);
+    } finally {
+      fs.rmSync(mutant, { force:true });
+    }
   } finally {
-    fs.rmSync(mutant, { force:true });
-    fs.rmSync(mutantAttempts, { force:true });
+    fs.rmSync(spawnAuditDirectory, { recursive:true, force:true });
   }
 
   if (process.platform !== 'win32') {
