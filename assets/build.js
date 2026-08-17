@@ -146,6 +146,7 @@
       weaponMoveData = data[1]; weaponMovesById = {}; weaponMoveData.items.forEach(function (item) { weaponMovesById[item.weaponId] = item; });
       ammoData = data[2]; ammo = ammoData.items; ammoById = indexById(ammo);
     }
+    return normalizeDeferredState(name);
   }
   function ensureDomain(name) {
     var domain = domains[name];
@@ -154,8 +155,14 @@
     if (domain.promise) return domain.promise;
     domain.state = 'loading'; updateDomainMessages();
     domain.promise = loadDomain(name).then(function (data) {
-      applyDomain(name, data); domain.state = 'loaded'; domain.promise = null; updateDomainMessages();
-      if (buildReady) { if (name === 'magic') { fillCatalystOptions(); fillCatalystUpgrade(); } render(); }
+      var restoredDrops = applyDomain(name, data); domain.state = 'loaded'; domain.promise = null; updateDomainMessages();
+      if (buildReady) {
+        if (name === 'magic') { fillCatalystOptions(); fillCatalystUpgrade(); }
+        render();
+        // Deferred ids are intentionally retained only until their corpus is indexed.
+        // Persist the normalized state immediately so invalid deep links cannot revive.
+        if (restoredDrops.length) { showRestoreWarning(restoredDrops); doPersist(); }
+      }
     }, function () {
       domain.state = 'failed'; domain.promise = null; updateDomainMessages();
     });
@@ -194,6 +201,52 @@
   var compareIds = [];
   var activeSlot = { hand: 'right', index: 0 }, weaponTarget = null;
   var skillId = null, skillEventId = null;
+
+  function restoreNotice() {
+    var node = $('buildRestoreNotice');
+    if (!node) {
+      node = document.createElement('p'); node.id = 'buildRestoreNotice'; node.className = 'build-restore-notice';
+      node.setAttribute('role', 'status'); node.setAttribute('aria-live', 'polite'); node.hidden = true;
+      $('buildSummary').insertAdjacentElement('afterend', node);
+    }
+    return node;
+  }
+  function showRestoreWarning(drops) {
+    var node = restoreNotice();
+    node.textContent = 'Restored build: removed unavailable ' + drops.join(', ') + '.';
+    node.hidden = false;
+  }
+  function normalizeDeferredState(name) {
+    var dropped = [];
+    if (name === 'magic') {
+      if (magicState.catalystId && !catalystById[magicState.catalystId]) { magicState.catalystId = null; magicState.upgrade = null; dropped.push('catalyst'); }
+      var originalSpells = magicState.spells.slice();
+      magicState.spells = originalSpells.filter(function (id, index, all) { return !!spellById[id] && all.indexOf(id) === index; });
+      if (magicState.spells.length !== originalSpells.length) dropped.push('spell');
+      if (magicState.activeSpell && magicState.spells.indexOf(magicState.activeSpell) < 0) { magicState.activeSpell = magicState.spells[0] || null; magicState.variantId = null; dropped.push('active spell'); }
+      if (magicState.variantId && (!magicState.activeSpell || !spellById[magicState.activeSpell].variants.some(function (item) { return String(item.id) === String(magicState.variantId); }))) { magicState.variantId = null; dropped.push('spell variant'); }
+    }
+    if (name === 'skills') {
+      var knownEvents = {};
+      skills.forEach(function (item) { (item.events || []).forEach(function (event) { knownEvents[event.id] = true; }); });
+      Object.keys(skillData.weaponSkills || {}).forEach(function (weaponId) { (skillData.weaponSkills[weaponId].events || []).forEach(function (event) { knownEvents[event.id] = true; }); });
+      armaments.right.concat(armaments.left).forEach(function (slot) {
+        if (!slot) return;
+        if (slot.skillId && !skillById[slot.skillId]) { slot.skillId = null; slot.skillEventId = null; dropped.push('skill'); return; }
+        if (slot.skillEventId && !knownEvents[slot.skillEventId]) { slot.skillEventId = null; dropped.push('skill event'); }
+      });
+      var active = armaments[activeSlot.hand][activeSlot.index];
+      skillId = active && active.skillId || null; skillEventId = active && active.skillEventId || null;
+    }
+    if (name === 'encounter') {
+      if (encounterState.enemyId && !enemyById[encounterState.enemyId]) { encounterState.enemyId = null; dropped.push('enemy'); }
+      var moves = weaponMovesById[current.id] && weaponMovesById[current.id].moves || [];
+      if (encounterState.moveId && !moves.some(function (move) { return move.id === encounterState.moveId; })) { encounterState.moveId = null; dropped.push('weapon move'); }
+      var choices = (ammoData.compatibility[current.type] ? ammo.filter(function (item) { return item.type === ammoData.compatibility[current.type]; }) : []);
+      if (encounterState.ammoId && !choices.some(function (item) { return item.id === encounterState.ammoId; })) { encounterState.ammoId = null; dropped.push('ammunition'); }
+    }
+    return dropped.filter(function (item, index, all) { return all.indexOf(item) === index; });
+  }
 
   function normalizeArmament(raw) {
     if (!raw) return null;
@@ -552,8 +605,8 @@
   function renderArmorSlots() {
     $('armorSlots').innerHTML = ARMOR_SLOTS.map(function (slot) {
       var item = selectedArmor[slot.id] && armorById[selectedArmor[slot.id]];
-      return '<button type="button" class="armor-slot' + (item ? ' equipped' : '') + '" data-armor-slot="' + slot.id + '">' +
-        '<span class="armor-slot-mark">' + slot.mark + '</span><span class="armor-slot-copy"><small>' + slot.label + '</small><b>' +
+      return '<button type="button" class="armor-slot' + (item ? ' equipped' : '') + '" data-armor-slot="' + slot.id + '" aria-label="' + escAttr(slot.label + ': ' + (item ? item.name : 'Empty slot')) + '">' +
+        '<span class="armor-slot-mark" aria-hidden="true">' + slot.mark + '</span><span class="armor-slot-copy"><small>' + slot.label + '</small><b>' +
         (item ? escText(item.name) : 'Empty slot') + '</b></span><span class="armor-slot-weight">' + (item ? item.weight.toFixed(1) : '—') + '</span></button>';
     }).join('');
   }
@@ -925,7 +978,8 @@
     var selected = skillById[skillId];
     if (!selected || allowed.indexOf(selected) < 0) {
       selected = allowed.find(function (item) { return item.name === affinityRecord.defaultSkill; }) || allowed[0] || null;
-      skillId = selected && selected.id || null; skillEventId = null;
+      // Render the compatible fallback without converting an absent or rejected deferred id
+      // into a new saved choice. An explicit control change owns persistence.
     }
     return selected && { id:selected.id, name:selected.name, fp:selected.fp, events:selected.events || [], fixed:false, allowed:allowed, sourceVersion:record.sourceVersion, note:selected.note };
   }
@@ -935,7 +989,6 @@
   function activeSkillEvent(model) {
     var events = compatibleSkillEvents(model);
     var event = events.find(function (item) { return item.id === skillEventId; }) || events.find(function (item) { return !/lacking fp/i.test(item.label); }) || events[0] || null;
-    skillEventId = event && event.id || null;
     return event;
   }
   function skillProfile(model, event) {
@@ -1022,7 +1075,13 @@
     return { model:model, event:event, result:result, profile:profile };
   }
   function uniqueText(values) { return values.filter(function (value,index,array) { return value && array.indexOf(value) === index; }); }
-  $('skillSelect').addEventListener('change', function () { skillId = skillById[this.value] ? this.value : null; skillEventId = null; render(); });
+  $('skillSelect').addEventListener('change', function () {
+    skillId = skillById[this.value] ? this.value : null;
+    // This is an explicit user selection, so retain its first usable event in the share state.
+    var events = skillId ? (skillById[skillId].events || []).filter(function (event) { return !event.weaponType || event.weaponType === current.type; }) : [];
+    skillEventId = (events.find(function (event) { return !/lacking fp/i.test(event.label); }) || events[0] || {}).id || null;
+    render();
+  });
   $('skillEvent').addEventListener('change', function () { skillEventId = this.value || null; render(); });
 
   /* ---- encounter profiles + final defense/status pipeline ---- */
@@ -1041,7 +1100,8 @@
   function activeAmmo() {
     var choices = compatibleAmmo();
     var item = choices.find(function (entry) { return entry.id === encounterState.ammoId; }) || choices[0] || null;
-    if (item) encounterState.ammoId = item.id;
+    // A displayed fallback is not an explicit saved ammo choice. Keeping null here lets
+    // deferred normalization remove malformed ids instead of immediately persisting a guess.
     return item;
   }
   function activeAmmoProfile(item) {
@@ -1054,7 +1114,7 @@
     if (!move) {
       var preferred = twoHanded ? '2h-r1-1' : '1h-r1-1';
       move = moves.find(function (item) { return item.id === preferred; }) || moves[0] || null;
-      encounterState.moveId = move && move.id || null;
+      // As above, use the UI fallback without turning it into an implicit saved selection.
     }
     return move;
   }

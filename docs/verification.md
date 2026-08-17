@@ -43,6 +43,7 @@ npm run test:lifecycle    # tracked browser/artifact cleanup; IPC, signal-handle
 npm run test:browser      # loading, focused Build views, save/share reload, desktop/390px overflow, Films/Tales, local HTTP/assets, all 448 icon URLs
 npm run test:a11y         # axe WCAG A/AA scan: Home, Build, Atlas, and every focused Build view; structural a11y regression checks
 npm run test:performance  # exact throttled-mobile measurement
+npm run test:performance:compare # same-harness base-versus-HEAD Chromium record (not a CI gate)
 npm run verify            # every gate above, in order
 npm start                  # manually serve the site at http://127.0.0.1:4173/
 ```
@@ -70,7 +71,7 @@ temporary directory and are removed on normal exit or responsive runner shutdown
 
 `npm run test:performance` is the comparison profile for Build Lab changes:
 
-- Chromium/Edge engine, viewport **390 × 844**;
+- Playwright's pinned bundled **Chromium** engine, viewport **390 × 844**;
 - browser cache disabled;
 - **150 ms** latency, **200000 B/s** download, **80000 B/s** upload;
 - local uncompressed static server;
@@ -81,6 +82,12 @@ temporary directory and are removed on normal exit or responsive runner shutdown
 Compare only runs made with this exact profile. Lower times and fewer bytes/resources are useful
 signals, but they do not replace owner visual and gameplay review; the metrics deliberately do not
 claim interaction quality or game-math correctness.
+
+`npm run test:performance:compare` creates a detached OS-temp worktree at the recorded base SHA,
+serves both base content and current content with the current uncompressed `static-server.js`, and
+runs the checked-out harness with the same pinned Chromium revision. It removes that temporary
+worktree in `finally`; it never moves the active checkout's HEAD. The comparison emits the exact
+base/head first-useful snapshot and is intentionally documented rather than run in CI.
 
 ## CI
 

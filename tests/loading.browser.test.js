@@ -65,6 +65,44 @@ async function open(browser, query) {
     assert.strictEqual(await ranged.locator('#ammoSelect').inputValue(), 'bloodbone-bolt', 'secondary-only ammunition state restores after encounter hydration');
     await ranged.close();
 
+    const invalidUrl = await open(browser, '?w=longsword&cat=not-a-catalyst&sp=not-a-spell&sa=not-a-spell&sv=not-a-variant&en=not-an-enemy&wm=not-a-move&am=not-ammo&rh=longsword~Blood~25~not-a-skill~not-an-event,-,-');
+    await invalidUrl.locator('#buildRestoreNotice').waitFor({ state:'visible' });
+    await invalidUrl.evaluate(() => Promise.all(['magic', 'skills', 'encounter'].map(name => window.ERBuild.ensureDomain(name))));
+    await invalidUrl.waitForFunction(() => {
+      const q = new URL(location.href).searchParams;
+      return ['cat', 'sp', 'sa', 'sv', 'en', 'wm', 'am'].every(key => !q.has(key)) && !location.href.includes('not-a-skill') && !location.href.includes('not-an-event');
+    });
+    assert((await invalidUrl.locator('#buildRestoreNotice').textContent()).includes('removed unavailable'), 'invalid deferred URL values receive a visible restoration warning');
+    await invalidUrl.getByRole('tab', { name:'Encounter', exact:true }).click();
+    assert.strictEqual(await invalidUrl.locator('#summaryTarget').textContent(), 'General Build', 'invalid enemy restoration returns the summary to General Build');
+    assert.strictEqual(await invalidUrl.locator('#enemyClear').isHidden(), true, 'invalid enemy restoration leaves no stale clear action');
+    const invalidPersisted = await invalidUrl.evaluate(() => {
+      const saved = JSON.parse(localStorage.getItem('er-build'));
+      const slot = saved.loadout.rightHand[0];
+      return { saved, ok:saved.magic.catalystId === null && saved.magic.spells.length === 0 && saved.encounter.enemyId === null && !slot.skillId && !slot.skillEventId };
+    });
+    assert(invalidPersisted.ok, 'invalid deferred URL values are cleared before local persistence: ' + JSON.stringify(invalidPersisted.saved));
+    await invalidUrl.close();
+
+    const stored = await browser.newPage({ viewport:{ width:390, height:844 } });
+    await stored.addInitScript(() => localStorage.setItem('er-build', JSON.stringify({
+      weapon:'longsword', affinity:'Blood', upgrade:25,
+      magic:{ catalystId:'not-a-catalyst', spells:['not-a-spell'], activeSpell:'not-a-spell', variantId:'not-a-variant' },
+      encounter:{ enemyId:'not-an-enemy', ng:7, moveId:'not-a-move', ammoId:'not-ammo' },
+      loadout:{ rightHand:[{ weaponId:'longsword', affinity:'Blood', upgrade:25, skillId:'not-a-skill', skillEventId:'not-an-event' }], leftHand:[] }
+    })));
+    await stored.goto(BASE, { waitUntil:'domcontentloaded' });
+    await stored.locator('#stats .stat').first().waitFor({ state:'visible' });
+    await stored.locator('#buildRestoreNotice').waitFor({ state:'visible' });
+    await stored.evaluate(() => Promise.all(['magic', 'skills', 'encounter'].map(name => window.ERBuild.ensureDomain(name))));
+    await stored.waitForFunction(() => {
+      const saved = JSON.parse(localStorage.getItem('er-build'));
+      return saved.magic.catalystId === null && saved.magic.spells.length === 0 && saved.encounter.enemyId === null && !saved.loadout.rightHand[0].skillId;
+    });
+    assert.strictEqual(await stored.locator('#summaryTarget').textContent(), 'General Build', 'invalid saved deferred values restore the General Build state');
+    assert((await stored.locator('#buildRestoreNotice').textContent()).includes('unavailable'), 'invalid saved deferred values disclose their removal');
+    await stored.close();
+
     console.log('loading browser regressions passed');
   } finally {
     await browser.close();

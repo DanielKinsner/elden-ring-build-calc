@@ -1488,6 +1488,7 @@ a.boss-chip-link:hover { text-decoration: none; border-color: var(--gold-dim); b
 .build-page .picker-more,
 .atlas-page .atlas-type-header { color:var(--functional-gold); }
 .build-page .rack-slot:focus-within { outline:2px solid var(--gold-2); outline-offset:2px; }
+.build-restore-notice { max-width: min(1180px, calc(100% - 32px)); margin: 10px auto 0; padding: 9px 12px; border: 1px solid rgba(207,90,68,.55); border-radius: 6px; background: rgba(73,26,18,.78); color: #ffd5ca; font-size: 13px; line-height: 1.35; }
 
 @media (max-width:560px) {
   .atlas-page .atlas-tab,
@@ -1500,8 +1501,9 @@ a.boss-chip-link:hover { text-decoration: none; border-color: var(--gold-dim); b
   .build-page .stat { min-height:42px; }
   .build-page .stat .box { min-height:40px; }
   .build-page .picker-close { width:40px; height:40px; }
-  .build-page .rack-clear { width:36px; height:36px; }
-  .build-page .tali-clear { width:36px; height:36px; }
+  .build-page .rack-clear { width:40px; height:40px; top:0; right:0; }
+  .build-page .tali-clear { width:40px; height:40px; top:0; right:0; }
+
   .build-page .spell-clear { width:40px; height:40px; }
   .build-page :is(.cmp-x, .myb-x, .sug-atlas) { display:inline-grid; width:40px; min-width:40px; height:40px; min-height:40px; padding:0; place-items:center; }
 }
