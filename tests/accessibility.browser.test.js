@@ -27,6 +27,24 @@ async function functionalContrast(page) {
     });
   });
 }
+async function unmetSuggestionContrast(page) {
+  return page.evaluate(() => {
+    const channel = (color) => (color.match(/\d+(?:\.\d+)?/g) || []).slice(0, 4).map(Number);
+    const rgb = (color) => { const values = channel(color); return [values[0], values[1], values[2], values[3] == null ? 1 : values[3]]; };
+    const mix = (foreground, background, alpha) => [0, 1, 2].map((index) => foreground[index] * alpha + background[index] * (1 - alpha));
+    const linear = (value) => { value /= 255; return value <= .03928 ? value / 12.92 : Math.pow((value + .055) / 1.055, 2.4); };
+    const luminance = (color) => .2126 * linear(color[0]) + .7152 * linear(color[1]) + .0722 * linear(color[2]);
+    const ratio = (foreground, background) => (Math.max(luminance(foreground), luminance(background)) + .05) / (Math.min(luminance(foreground), luminance(background)) + .05);
+    const row = document.querySelector('.sug-row.bad'), parent = rgb(getComputedStyle(document.body).backgroundColor), rowStyle = getComputedStyle(row);
+    const rowColor = rgb(rowStyle.backgroundColor), opacity = Number(rowStyle.opacity);
+    const backdrop = mix(rowColor, parent, rowColor[3]);
+    const compositedBackdrop = mix(backdrop, parent, opacity);
+    return ['.sug-name small', '.sug-ar', '.sug-atlas'].map((selector) => {
+      const text = row.querySelector(selector), foreground = rgb(getComputedStyle(text).color);
+      return { selector, opacity, ratio:ratio(mix(foreground, backdrop, foreground[3] * opacity), compositedBackdrop) };
+    });
+  });
+}
 
 (async function main() {
   const browser = await chromium.launch({ headless:true, executablePath:process.env.CHROMIUM_PATH || undefined });
@@ -84,24 +102,42 @@ async function functionalContrast(page) {
 
     await desktop.getByRole('tab', { name:'Advanced / Trace' }).click();
     await desktop.locator('#addCompare').click();
+    await desktop.waitForFunction((name) => document.querySelector('#buildActionStatus').textContent === name, suggestionName + ' added to comparison');
+    ok(await desktop.getByRole('button', { name:'Add to Compare', exact:true }).count() === 1, 'comparison button keeps its stable name while status announces success');
     const removeCompare = desktop.getByRole('button', { name:'Remove ' + suggestionName + ' from comparison', exact:true });
     await removeCompare.waitFor();
     await keyActivate(desktop, removeCompare, 'a named comparison removal action');
     ok(!(await desktop.locator('.compare-bar').evaluate((bar) => bar.classList.contains('show'))), 'keyboard comparison removal changes live state');
 
-    desktop.once('dialog', (dialog) => dialog.accept('Keyboard a11y save'));
+    const quotedBuildName = 'Dex "Quality" <unsafe>';
+    desktop.once('dialog', (dialog) => dialog.accept(quotedBuildName));
     await keyActivate(desktop, desktop.getByRole('button', { name:'Save', exact:true }), 'the Save action');
+    await desktop.waitForFunction(() => document.querySelector('#buildActionStatus').textContent === 'Build saved');
+    ok(await desktop.getByRole('button', { name:'Save', exact:true }).count() === 1, 'Save keeps its stable name while status announces success');
     await desktop.getByRole('tab', { name:'Character' }).click();
-    const deleteSave = desktop.getByRole('button', { name:'Delete saved build Keyboard a11y save', exact:true });
+    const deleteSave = desktop.getByRole('button', { name:'Delete saved build ' + quotedBuildName, exact:true });
     await deleteSave.waitFor();
+    ok(await deleteSave.getAttribute('aria-label') === 'Delete saved build ' + quotedBuildName && await desktop.locator('#myBuilds unsafe').count() === 0, 'quoted saved-build names remain one safe complete delete label');
     desktop.once('dialog', (dialog) => dialog.accept());
     await keyActivate(desktop, deleteSave, 'a named saved-build delete action');
-    ok(await desktop.getByRole('button', { name:'Delete saved build Keyboard a11y save', exact:true }).count() === 0, 'saved-build delete is a separate named keyboard action');
+    ok(await desktop.getByRole('button', { name:'Delete saved build ' + quotedBuildName, exact:true }).count() === 0, 'saved-build delete is a separate named keyboard action');
+    await desktop.evaluate(() => Object.defineProperty(navigator, 'clipboard', { configurable:true, value:{ writeText:() => Promise.resolve() } }));
+    await desktop.getByRole('button', { name:'Share', exact:true }).click();
+    await desktop.waitForFunction(() => document.querySelector('#buildActionStatus').textContent === 'Build link copied');
+    ok(await desktop.getByRole('button', { name:'Share', exact:true }).count() === 1, 'Share keeps its stable name while status announces success');
 
     const focusStyle = await desktop.locator('#stat-vig-number').evaluate((element) => { element.focus(); const style = getComputedStyle(element); return { outline:style.outlineStyle, width:parseFloat(style.outlineWidth) }; });
     ok(focusStyle.outline !== 'none' && focusStyle.width >= 2, 'Build number inputs receive a keyboard-visible focus treatment');
     const contrast = await functionalContrast(desktop);
     ok(contrast.every((item) => item.ratio >= 4.5), 'functional Build text clears 4.5:1 contrast on its rendered dark surface');
+
+    const unmet = await browser.newPage({ viewport:{ width:1280, height:900 } });
+    await unmet.goto(new URL('build/', BASE).toString(), { waitUntil:'domcontentloaded' }); await unmet.locator('#stats .stat').first().waitFor();
+    for (const stat of ['vig', 'mnd', 'end', 'str', 'dex', 'int', 'fai', 'arc']) await unmet.locator('#stat-' + stat + '-number').fill('1');
+    await unmet.getByRole('tab', { name:'Damage' }).click();
+    await unmet.locator('.sug-row.bad').first().waitFor();
+    const unmetContrast = await unmetSuggestionContrast(unmet);
+    ok(unmetContrast.every((item) => item.opacity === 1 && item.ratio >= 4.5), 'enabled unmet suggestions retain 4.5:1 composited text contrast without ancestor opacity');
 
     console.log('  … checking Build mobile geometry and motion');
     const mobile = await browser.newPage({ viewport:{ width:390, height:844 } });
@@ -109,6 +145,19 @@ async function functionalContrast(page) {
     const buildSize = await dimensions(mobile);
     ok(buildSize.scroll <= buildSize.inner, '390px Build has no horizontal overflow');
     ok(await mobile.locator('#summarySave, #build-view-tab-character, #stat-vig-number').evaluateAll((items) => items.every((item) => item.getBoundingClientRect().height >= 40)), 'critical Build mobile controls meet the 40px target');
+    await mobile.getByRole('tab', { name:'Damage' }).click();
+    const suggestionAtlasBox = await mobile.locator('#suggest .sug-atlas').first().boundingBox();
+    mobile.once('dialog', (dialog) => dialog.accept('Mobile target build'));
+    await mobile.getByRole('button', { name:'Save', exact:true }).click();
+    await mobile.getByRole('tab', { name:'Character' }).click();
+    const savedDeleteBox = await mobile.getByRole('button', { name:'Delete saved build Mobile target build', exact:true }).boundingBox();
+    await mobile.getByRole('tab', { name:'Advanced / Trace' }).click();
+    await mobile.locator('#addCompare').click();
+    const compareRemoveBox = await mobile.locator('.cmp-x').boundingBox();
+    ok([suggestionAtlasBox, savedDeleteBox, compareRemoveBox].every((box) => box.width >= 40 && box.height >= 40), 'mobile icon-only suggestion, saved-delete, and comparison-remove targets are at least 40px in both dimensions');
+    const postActionSize = await dimensions(mobile);
+    ok(postActionSize.scroll <= postActionSize.inner, 'mobile icon-only target sizing adds no horizontal overflow');
+    await mobile.getByRole('tab', { name:'Character' }).click();
     await mobile.locator('#stat-vig-number').focus(); await mobile.keyboard.press('Tab');
     ok(await mobile.evaluate(() => { const item = document.activeElement, box = item.getBoundingClientRect(); return item.matches('a,button,input,select,textarea') && !item.closest('[hidden]') && box.width > 0 && box.height > 0; }), '390px Build keyboard walk keeps focus on a visible interactive control');
     await mobile.emulateMedia({ reducedMotion:'reduce' }); await mobile.reload({ waitUntil:'domcontentloaded' }); await mobile.locator('#stats .stat').first().waitFor();

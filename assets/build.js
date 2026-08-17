@@ -1301,6 +1301,7 @@
   var MYB_KEY = 'er-my-builds';
   var myBuilds = (function () { try { return JSON.parse(localStorage.getItem(MYB_KEY) || '[]') || []; } catch (e) { return []; } })();
   function escText(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;'); }
+  function escAttr(s) { return escText(s).replace(/"/g, '&quot;').replace(/'/g, '&#39;'); }
   function saveMyBuilds() { try { localStorage.setItem(MYB_KEY, JSON.stringify(myBuilds)); } catch (e) {} }
   function applyState(o) {
     if (o.stats) STATS.forEach(function (k) { if (o.stats[k] >= 1) { build[k] = Math.min(99, o.stats[k]); syncStat(k); } });
@@ -1375,7 +1376,7 @@
     $('myBuildsHead').hidden = myBuilds.length === 0;
     $('myBuilds').innerHTML = myBuilds.map(function (m, i) {
       return '<div class="my-build-entry"><button type="button" data-m="' + i + '">' + escText(m.name) +
-        '</button><button type="button" class="myb-x" data-x="' + i + '" aria-label="Delete saved build ' + escText(m.name) + '"><span aria-hidden="true">×</span></button></div>';
+        '</button><button type="button" class="myb-x" data-x="' + i + '" aria-label="Delete saved build ' + escAttr(m.name) + '"><span aria-hidden="true">×</span></button></div>';
     }).join('');
     var sel = $('presetSelect'), og = sel.querySelector('optgroup');
     if (og) og.remove();
@@ -1387,6 +1388,14 @@
       sel.appendChild(g);
     }
   }
+  var actionStatus = document.createElement('span');
+  actionStatus.id = 'buildActionStatus'; actionStatus.className = 'build-action-status';
+  actionStatus.setAttribute('role', 'status'); actionStatus.setAttribute('aria-live', 'polite');
+  document.querySelector('.topbar-right').appendChild(actionStatus);
+  function announceAction(message) {
+    actionStatus.textContent = '';
+    setTimeout(function () { actionStatus.textContent = message; }, 0);
+  }
   $('saveBuild').addEventListener('click', function () {
     var self = this;
     var suggestion = current.name + ' ' + (twoHanded ? '2H' : '1H');
@@ -1396,7 +1405,7 @@
     var entry = { name: name, state: captureState() };
     if (existing >= 0) myBuilds[existing] = entry; else myBuilds.push(entry);
     saveMyBuilds(); renderMyBuilds(); renderBuildSummary();
-    self.innerHTML = 'Saved <span aria-hidden="true">✓</span>'; setTimeout(function () { self.innerHTML = '<span aria-hidden="true">💾</span> Save'; }, 1400);
+    announceAction('Build saved');
   });
   $('summarySave').addEventListener('click', function () { $('saveBuild').click(); });
   $('summaryShare').addEventListener('click', function () { $('shareBuild').click(); });
@@ -1895,18 +1904,16 @@
   $('addCompare').addEventListener('click', function () {
     if (compareIds.indexOf(current.id) < 0) compareIds.push(current.id);
     renderCompare();
-    var self = this; self.textContent = current.name + ' added ✓';
-    setTimeout(function(){ self.textContent = 'Add to Compare'; }, 1200);
+    announceAction(current.name + ' added to comparison');
   });
 
   $('shareBuild').addEventListener('click', function () {
-    var self = this;
     doPersist(); // make sure the URL is current before copying
-    function ok() { self.innerHTML = 'Copied <span aria-hidden="true">✓</span>'; setTimeout(function () { self.innerHTML = '<span aria-hidden="true">🔗</span> Share'; }, 1400); }
+    function ok() { announceAction('Build link copied'); }
     if (navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(location.href).then(ok, function () { window.prompt('Copy this build link:', location.href); });
     } else {
-      window.prompt('Copy this build link:', location.href);
+      window.prompt('Copy this build link:', location.href); announceAction('Build link ready to copy');
     }
   });
   $('level').addEventListener('input', function () { persist(); renderAdvisor(); });
