@@ -1,7 +1,7 @@
 'use strict';
 
 const assert = require('assert');
-const { chromium } = require('playwright');
+const { chromium } = require('./browser-lifecycle');
 const BASE = process.env.ER_SITE_URL || 'http://127.0.0.1:4173/build/';
 
 async function openView(page, name) {

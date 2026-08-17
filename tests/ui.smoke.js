@@ -4,11 +4,12 @@
 const fs = require('fs');
 const os = require('os');
 const path = require('path');
-const { chromium } = require('playwright');
+const { chromium, addCleanup } = require('./browser-lifecycle');
 
 const BASE = process.env.ER_SITE_URL || 'http://127.0.0.1:4173/build/';
 const EXECUTABLE = process.env.CHROMIUM_PATH || undefined;
 const artifacts = fs.mkdtempSync(path.join(os.tmpdir(), 'tarnished-archive-ui-'));
+const removeArtifacts = addCleanup(() => fs.rmSync(artifacts, { recursive:true, force:true }));
 
 function screenshot(page, name) {
   return page.screenshot({ path: path.join(artifacts, name + '.png'), fullPage: true });
@@ -461,6 +462,7 @@ async function main() {
     console.log('\nUI smoke passed');
   } finally {
     await browser.close();
+    removeArtifacts();
     fs.rmSync(artifacts, { recursive:true, force:true });
   }
 }

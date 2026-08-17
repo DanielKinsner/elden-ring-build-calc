@@ -2,7 +2,7 @@
 
 /* Focused production-browser accessibility regression checks for Build Lab and Atlas. */
 const assert = require('assert');
-const { chromium } = require('playwright');
+const { chromium } = require('./browser-lifecycle');
 const BASE = process.env.ER_SITE_URL || 'http://127.0.0.1:4173/';
 const ORIGIN = process.env.ER_SITE_ORIGIN || new URL(BASE).origin;
 const BUILD = new URL('/build/', ORIGIN).toString();
