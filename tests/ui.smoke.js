@@ -305,7 +305,7 @@ async function main() {
     await guideMobile.screenshot({ path:'/tmp/elden-trophies-mobile.png', fullPage:true });
     await guideMobileContext.close();
 
-    const filmContext = await browser.newContext({ viewport:{ width:1440, height:1000 } });
+    const filmContext = await browser.newContext({ viewport:{ width:1900, height:1000 } });
     const film = await filmContext.newPage();
     film.on('console', (msg) => { if (msg.type() === 'error') errors.push('film console: ' + msg.text()); });
     film.on('pageerror', (error) => errors.push('film page: ' + error.message));
@@ -317,6 +317,9 @@ async function main() {
     assert(await film.locator('link[rel="canonical"]').getAttribute('href') === 'https://elden-ring-build-calc.vercel.app/kindling/', 'KINDLING publishes its canonical URL');
     assert(await film.locator('.kindling-poster').evaluate((image) => image.complete && image.naturalWidth === 1672 && image.naturalHeight === 941), 'KINDLING loads the full-resolution Melina film poster');
     assert((await film.locator('meta[property="og:image"]').getAttribute('content')).endsWith('/assets/kindling-melina.webp'), 'KINDLING shares with its dedicated Melina artwork');
+    const kindlingTitleBox = await film.locator('#kindlingTitle').boundingBox();
+    const kindlingFrameBox = await film.locator('.kindling-frame-wrap').boundingBox();
+    assert(kindlingTitleBox.x + kindlingTitleBox.width < kindlingFrameBox.x, 'KINDLING title remains clear of the film frame');
     await film.screenshot({ path:'/tmp/elden-kindling-desktop.png', fullPage:true });
     const tales = await filmContext.newPage();
     await tales.goto(new URL('../tales/', BASE).toString(), { waitUntil:'networkidle' });
