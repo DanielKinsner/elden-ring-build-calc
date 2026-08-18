@@ -146,6 +146,7 @@ async function main() {
     await mobile.locator('#stats .stat').first().waitFor();
     const dimensions = await mobile.evaluate(() => ({ scroll:document.documentElement.scrollWidth, inner:window.innerWidth }));
     assert(dimensions.scroll <= dimensions.inner, '390px Build Lab has no horizontal overflow');
+    assert.deepStrictEqual(await mobile.evaluate(() => [getComputedStyle(document.documentElement).overflowX, getComputedStyle(document.body).overflowX]), ['clip', 'clip'], 'mobile root canvas suppresses accidental horizontal page panning');
     assert.strictEqual(await mobile.getByRole('tab').count(), 7, '390px navigation retains plainly named focused views');
     await mobileContext.close();
     console.log('Build Lab view regressions passed');
