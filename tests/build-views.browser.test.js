@@ -20,13 +20,15 @@ async function main() {
     await page.locator('#stats .stat').first().waitFor();
     await page.evaluate(() => localStorage.clear());
 
-    assert.strictEqual(await page.getByRole('tab', { name:'Character', exact:true }).getAttribute('aria-selected'), 'true', 'Character is the default view');
+    assert.strictEqual(await page.getByRole('tab', { name:'Character', exact:true }).getAttribute('aria-selected'), 'true', 'Character is the default section target');
     assert((await page.locator('#summaryTarget').textContent()).includes('General Build'), 'General Build is the default context');
     assert.strictEqual(await page.locator('#stats .stat').count(), 8, 'all eight freeform stat controls remain present');
+    assert.strictEqual(await page.locator('[data-view-panel]:visible').count(), 7, 'all seven calculator sections remain visible together');
 
     const dex = page.locator('#stats [data-box="DEX"]');
     await dex.fill('70');
     const dexValue = await dex.inputValue();
+    assert.strictEqual(await page.locator('#summaryOutput').textContent(), (await page.locator('#ar').textContent()) + ' AR', 'stat changes update visible output without changing sections');
     await openView(page, 'Damage');
     assert.strictEqual(await page.locator('#summaryOutput').textContent(), (await page.locator('#ar').textContent()) + ' AR', 'persistent summary follows immediate output');
     await openView(page, 'Loadout');
@@ -101,13 +103,15 @@ async function main() {
 
     await openView(page, 'Loadout');
     await page.locator('[data-rack-hand="left"][data-rack-index="1"]').click();
-    assert.strictEqual(await page.getByRole('tab', { name:'Damage', exact:true }).getAttribute('aria-selected'), 'true', 'empty inactive armament selection opens the visible weapon picker');
+    await page.waitForFunction(() => document.activeElement && document.activeElement.id === 'weaponSearch');
+    assert.strictEqual(await page.locator('#weaponSearch').isVisible(), true, 'empty inactive armament selection focuses the already-visible weapon picker');
     await page.locator('#weaponSearch').fill('Longsword');
     await page.locator('#weaponList [data-id="longsword"]').click();
     assert((await page.locator('#summaryWeapon').textContent()).includes('Longsword'), 'equipping an inactive slot synchronizes the persistent summary');
     await openView(page, 'Loadout');
     await page.locator('[data-rack-hand="right"][data-rack-index="1"]').click();
-    assert.strictEqual(await page.getByRole('tab', { name:'Damage', exact:true }).getAttribute('aria-selected'), 'true', 'right inactive armament selection also opens the visible weapon picker');
+    await page.waitForFunction(() => document.activeElement && document.activeElement.id === 'weaponSearch');
+    assert.strictEqual(await page.locator('#weaponSearch').isVisible(), true, 'right inactive armament selection also focuses the visible weapon picker');
     await page.locator('#weaponSearch').fill('Longsword');
     await page.locator('#weaponList [data-id="longsword"]').click();
     assert((await page.locator('#summaryWeapon').textContent()).includes('Longsword'), 'right inactive armament equip also synchronizes the persistent summary');

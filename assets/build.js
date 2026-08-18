@@ -7,9 +7,9 @@
   var STATUS = [['bleed','Bleed'],['frost','Frost'],['poison','Poison'],['rot','Scarlet Rot'],['sleep','Sleep'],['madness','Madness']];
   var $ = function (id) { return document.getElementById(id); };
 
-  // Focused views only move the existing controls between named panels. They do
-  // not clone, serialize, or create a second calculator state.
-  var BUILD_VIEWS = ['character', 'loadout', 'damage', 'defense', 'magic', 'encounter', 'advanced'];
+  // Keep the calculator spatially unified: inputs and their reactive damage/defense
+  // outputs remain visible together. The section rail is navigation, never a visibility gate.
+  var BUILD_VIEWS = ['character', 'damage', 'defense', 'loadout', 'magic', 'encounter', 'advanced'];
   var activeBuildView = 'character';
   function heading(parent, text) {
     return Array.prototype.find.call(parent.querySelectorAll(':scope > h2'), function (item) { return item.textContent.indexOf(text) >= 0; });
@@ -31,7 +31,7 @@
   function setBuildView(name, writeURL) {
     if (BUILD_VIEWS.indexOf(name) < 0) name = 'character';
     activeBuildView = name;
-    Array.prototype.forEach.call(document.querySelectorAll('[data-view-panel]'), function (panel) { panel.hidden = panel.getAttribute('data-view-panel') !== name; });
+    Array.prototype.forEach.call(document.querySelectorAll('[data-view-panel]'), function (panel) { panel.hidden = false; });
     Array.prototype.forEach.call(document.querySelectorAll('[data-build-view]'), function (button) {
       var selected = button.getAttribute('data-build-view') === name;
       button.classList.toggle('active', selected); button.setAttribute('aria-selected', selected ? 'true' : 'false');
@@ -42,6 +42,8 @@
     if (name === 'advanced') ensureDomain('skills');
     if (writeURL && window.history && history.replaceState) {
       var url = new URL(location.href); url.searchParams.set('view', name); history.replaceState(null, '', url.toString());
+      var panel = document.querySelector('[data-view-panel="' + name + '"]');
+      if (panel) panel.scrollIntoView({ behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block:'start' });
     }
   }
   function setupBuildViews() {
@@ -733,7 +735,6 @@
       weaponTarget = { hand: hand, index: index };
       renderArmamentRack();
       $('weaponSearch').placeholder = 'Equip ' + slotLabel(hand, index) + '…';
-      setBuildView('damage', true);
       setTimeout(function () { $('weaponSearch').focus(); }, 0);
       return;
     }

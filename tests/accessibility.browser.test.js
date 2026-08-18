@@ -101,14 +101,7 @@ async function unmetSuggestionContrast(page) {
     await statChoice.waitFor({ state:'visible' });
     const statName = (await statChoice.getAttribute('aria-label')).replace('View ', '').replace(' soft-cap analysis', '');
     console.log('  … ' + statName + ' choice resolved');
-    await advancedTab.evaluate((element) => element.focus());
-    let statFocused = false;
-    for (let step = 0; step < 40 && !statFocused; step++) {
-      await desktop.keyboard.press('Tab');
-      statFocused = await desktop.evaluate(() => document.activeElement && document.activeElement.matches('#byStat button[data-stat]'));
-    }
-    ok(statFocused, 'keyboard focus reaches a generated stat-analysis choice');
-    await desktop.keyboard.press('Enter');
+    await keyActivate(desktop, statChoice, 'a generated stat-analysis choice');
     console.log('  … ' + statName + ' choice activated');
     ok((await desktop.locator('#softcapHeader').textContent()).indexOf(statName) >= 0, 'keyboard activates generated stat-analysis choices');
     await desktop.getByRole('tab', { name:'Damage' }).click();
