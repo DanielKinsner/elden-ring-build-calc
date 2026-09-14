@@ -371,9 +371,15 @@ async function main() {
     assert(await tales.locator('.tale-cover').evaluateAll(async (images) => { await Promise.all(images.map((image) => image.decode())); return images.every((image) => image.naturalWidth === 1672 && image.naturalHeight === 941); }), 'Tales uses full-resolution 16:9 artwork for every volume');
     assert(await tales.locator('.tale-art').evaluateAll((panels) => panels.every((panel) => { const box = panel.getBoundingClientRect(); return Math.abs(box.width / box.height - 16 / 9) < 0.01; })), 'desktop Tales preserves every poster at its authored 16:9 ratio');
     assert(await tales.locator('.tale-cover').evaluateAll((images) => images.every((image) => getComputedStyle(image).objectFit === 'contain')), 'Tales never crops authored artwork');
-    assert((await tales.locator('.tale-card').nth(0).locator('.tale-companion').getAttribute('href')) === '../gold-and-shadow/', 'written Gold and Shadow points back to Archive Film III');
-    assert((await tales.locator('.tale-card').nth(1).locator('.tale-companion').getAttribute('href')) === '../kindling/', 'written KINDLING points back to Archive Film I');
-    assert((await tales.locator('.tale-card').nth(2).locator('.tale-companion').getAttribute('href')) === '../ranni/', 'written Ranni points back to Archive Film II');
+    assert(JSON.stringify(await tales.locator('.tale-title').allTextContents()) === JSON.stringify([
+      'Kindling', 'The Testament of Ranni', 'Gold and Shadow', 'The Loyalty of Morgott', 'A Soundless Bell', 'Adjustments', 'Into My Sword'
+    ]), 'Tales shelf follows the numbered Archive sequence from I through VII');
+    assert(JSON.stringify(await tales.locator('.tale-art > span').allTextContents()) === JSON.stringify([
+      'Archive Film I', 'Archive Film II', 'Archive Film III', 'Archive Tale IV', 'Archive Tale V', 'Archive Tale VI', 'Archive Tale VII'
+    ]), 'every Archive poster carries its matching series numeral');
+    assert((await tales.locator('.tale-card').nth(0).locator('.tale-companion').getAttribute('href')) === '../kindling/', 'written KINDLING points back to Archive Film I');
+    assert((await tales.locator('.tale-card').nth(1).locator('.tale-companion').getAttribute('href')) === '../ranni/', 'written Ranni points back to Archive Film II');
+    assert((await tales.locator('.tale-card').nth(2).locator('.tale-companion').getAttribute('href')) === '../gold-and-shadow/', 'written Gold and Shadow points back to Archive Film III');
     await tales.locator('.tale-toc-toggle').first().click();
     assert(await tales.locator('.tale-card').first().locator('.tale-toc').isVisible(), 'Tales keeps chapter contents available on demand');
     assert(await tales.locator('.tale-toc-toggle').first().getAttribute('aria-expanded') === 'true', 'Tales reports expanded contents accessibly');

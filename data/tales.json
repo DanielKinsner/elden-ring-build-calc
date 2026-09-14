@@ -3,6 +3,7 @@
   "works": [
     {
       "id": "gold-and-shadow",
+      "archiveOrder": 3,
       "title": "Gold and Shadow",
       "subtitle": "A Complete History of the Lands Between, Compiled from the Relics and Remembrances",
       "blurb": "A book-length in-world history in the manner of Fire & Blood: an unnamed chronicler, working in the Roundtable Hold's library after the Erdtree burned, reconstructs the whole story from the game's actual evidence — and tells you, sentence by sentence, how sure he is. Flat statements are explicit in-game text; \"the inscription would have us believe\" marks rumor; \"perhaps\" means exactly perhaps.",
@@ -32,6 +33,7 @@
     },
     {
       "id": "kindling",
+      "archiveOrder": 1,
       "title": "Kindling",
       "subtitle": "The Story of Melina",
       "blurb": "Melina tells the whole journey as a single cinematic story: Torrent's choice, the accord, the road to Leyndell, the freedom she found there, and the fire she chose for herself.",
@@ -53,6 +55,7 @@
     },
     {
       "id": "ranni",
+      "archiveOrder": 2,
       "title": "The Testament of Ranni",
       "subtitle": "The Whole Dark Moon",
       "blurb": "Ranni takes possession of the history others wrote around her: the leash of the Two Fingers, the Night of Black Knives, the flesh she slew, the companions who paid, and the thousand-year voyage beyond the Order's reach.",
@@ -87,6 +90,7 @@
     },
     {
       "id": "morgott",
+      "archiveOrder": 4,
       "title": "The Loyalty of Morgott",
       "subtitle": "The Testament of the Omen King",
       "blurb": "Dying before the Elden Throne, Morgott puts both of his names into the same sentence at last: the royal Omen buried beneath Leyndell, the veiled hunter called Margit, and the king who gave everything to an Order that never loved him back.",
@@ -122,6 +126,7 @@
     },
     {
       "id": "roderika",
+      "archiveOrder": 5,
       "title": "A Soundless Bell",
       "subtitle": "A Novella in the Voice of Roderika",
       "blurb": "Roderika speaks three messages to people who cannot answer: the chrysalids she left at Stormveil, the stranger who returned her purpose, and Hewg at the anvil while the Roundtable burns around them.",
@@ -136,6 +141,7 @@
     },
     {
       "id": "boc",
+      "archiveOrder": 6,
       "title": "Adjustments",
       "subtitle": "A Tale Between, as Told by Boc the Seamster",
       "blurb": "Boc tells the Tarnished what cloth remembers: his mother's needle, the cave and the tree, the voice that named him beautiful, and the terrible cost of changing the body that love had already recognized.",
@@ -156,6 +162,7 @@
     },
     {
       "id": "maliketh",
+      "archiveOrder": 7,
       "title": "Into My Sword",
       "subtitle": "The Testament of Maliketh, the Black Blade",
       "blurb": "Time pools in Farum Azula. Maliketh waits at the door while Gurranq remains on his knees in the east, and both halves of Marika's shadow tell how the world's death was sealed, stolen, and eaten root by root.",

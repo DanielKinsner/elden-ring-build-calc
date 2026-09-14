@@ -4,7 +4,9 @@
   var $ = function (id) { return document.getElementById(id); };
 
   var manifest = await (await fetch('../data/tales.json')).json();
-  var WORKS = manifest.works;
+  var WORKS = manifest.works.slice().sort(function (a, b) {
+    return (a.archiveOrder || 999) - (b.archiveOrder || 999);
+  });
   function workById(id) { return WORKS.find(function (w) { return w.id === id; }); }
 
   /* ---- reading state: { <workId>: { chapter: <chapterId>, read: {chapterId:1} } } ---- */
@@ -119,10 +121,10 @@
         'gold-and-shadow': { src:'../assets/gold-shadow-film-iii.webp', film:'Archive Film III', alt:'Gold and Shadow film poster' },
         'kindling': { src:'../assets/kindling-melina.webp', film:'Archive Film I', alt:'KINDLING film poster' },
         'ranni': { src:'../assets/ranni-film-ii.webp', film:'Archive Film II', alt:'The Whole Dark Moon film poster' },
-        'morgott': { src:'../assets/tale-morgott.webp', film:'Archive Tale', alt:'Morgott keeping vigil over ash-dimmed Leyndell', generated:true },
-        'roderika': { src:'../assets/tale-roderika.webp', film:'Archive Tale', alt:'Roderika listening to spirits in the burning Roundtable Hold', generated:true },
-        'boc': { src:'../assets/tale-boc.webp', film:'Archive Tale', alt:'Boc repairing a red cloak by candlelight', generated:true },
-        'maliketh': { src:'../assets/tale-maliketh.webp', film:'Archive Tale', alt:'Maliketh holding the Black Blade in Crumbling Farum Azula', generated:true }
+        'morgott': { src:'../assets/tale-morgott.webp', film:'Archive Tale IV', alt:'The Loyalty of Morgott title poster', generated:true },
+        'roderika': { src:'../assets/tale-roderika.webp', film:'Archive Tale V', alt:'A Soundless Bell title poster', generated:true },
+        'boc': { src:'../assets/tale-boc.webp', film:'Archive Tale VI', alt:'Adjustments title poster', generated:true },
+        'maliketh': { src:'../assets/tale-maliketh.webp', film:'Archive Tale VII', alt:'Into My Sword title poster', generated:true }
       };
       var cardsHtml = WORKS.map(function (w) {
         var st = wstate(w.id);
