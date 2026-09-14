@@ -111,14 +111,18 @@
       var totalPct = totCh ? Math.round(100 * totRead / totCh) : 0;
       var heroHtml = '<header class="tales-hero">' +
         '<div><span class="tales-kicker">The written archive</span><h1>Tales of the Lands Between</h1>' +
-        '<p>Three complete histories. Three voices refusing the easy version. ' + spoilerLine + '</p></div>' +
+        '<p>' + WORKS.length + ' complete works. Each voice refuses the easy version. ' + spoilerLine + '</p></div>' +
         '<div class="tales-aggregate"><div><span><b>' + WORKS.length + '</b> volumes</span><span><b>≈' + totWords.toLocaleString() + '</b> words</span><span><b>' + totRead + ' / ' + totCh + '</b> sections read</span></div>' +
         '<div class="tales-aggregate-track" aria-label="' + totalPct + '% of the collection read"><i style="width:' + totalPct + '%"></i></div></div>' +
       '</header>';
-      var filmArt = {
+      var shelfArt = {
         'gold-and-shadow': { src:'../assets/gold-shadow-film-iii.webp', film:'Archive Film III', alt:'Gold and Shadow film poster' },
         'kindling': { src:'../assets/kindling-melina.webp', film:'Archive Film I', alt:'KINDLING film poster' },
-        'ranni': { src:'../assets/ranni-film-ii.webp', film:'Archive Film II', alt:'The Whole Dark Moon film poster' }
+        'ranni': { src:'../assets/ranni-film-ii.webp', film:'Archive Film II', alt:'The Whole Dark Moon film poster' },
+        'morgott': { src:'../assets/tale-morgott.webp', film:'Archive Tale', alt:'Morgott keeping vigil over ash-dimmed Leyndell', generated:true },
+        'roderika': { src:'../assets/tale-roderika.webp', film:'Archive Tale', alt:'Roderika listening to spirits in the burning Roundtable Hold', generated:true },
+        'boc': { src:'../assets/tale-boc.webp', film:'Archive Tale', alt:'Boc repairing a red cloak by candlelight', generated:true },
+        'maliketh': { src:'../assets/tale-maliketh.webp', film:'Archive Tale', alt:'Maliketh holding the Black Blade in Crumbling Farum Azula', generated:true }
       };
       var cardsHtml = WORKS.map(function (w) {
         var st = wstate(w.id);
@@ -126,12 +130,18 @@
         var started = !!st.chapter || readCount > 0;
         var cont = st.chapter && w.chapters.find(function (c) { return c.id === st.chapter; });
         var pct = Math.round(100 * readCount / w.chapters.length);
-        var art = filmArt[w.id];
+        var art = shelfArt[w.id];
+        var cover = art ? '<img class="tale-cover' + (art.generated ? ' tale-cover--generated' : '') + '" src="' + art.src + '" width="1672" height="941" alt="' + esc(art.alt) + '" decoding="async">' +
+          '<span>' + art.film + '</span>' : '';
+        var artHtml = art && w.companion ?
+          '<a class="tale-art" href="../' + encodeURIComponent(w.companion) + '/" aria-label="Open ' + esc(w.title) + ' film companion">' + cover + '</a>' : art ?
+          '<div class="tale-art">' + cover + '</div>' :
+          '<div class="tale-art tale-art--manuscript" aria-hidden="true">' +
+            '<div class="tale-manuscript-copy"><span>Archive manuscript</span><strong>' + esc(w.title) + '</strong>' +
+            '<em>' + esc(w.subtitle) + '</em><i></i></div></div>';
         var status = pct === 100 ? 'Finished' : started ? 'In progress' : 'Not started';
         return '<article class="tale-card tale-card--' + w.id + '">' +
-          '<a class="tale-art" href="../' + encodeURIComponent(w.companion) + '/" aria-label="Open ' + esc(w.title) + ' film companion">' +
-            '<img class="tale-cover" src="' + art.src + '" width="1672" height="941" alt="' + esc(art.alt) + '" decoding="async">' +
-            '<span>' + art.film + '</span></a>' +
+          artHtml +
           '<div class="tale-card-body">' +
           '<div class="tale-card-head"><div class="tale-titles"><span class="tale-title">' + esc(w.title) + '</span>' +
             '<span class="tale-subtitle">' + esc(w.subtitle) + '</span></div></div>' +
@@ -146,7 +156,7 @@
           '<div class="tale-actions">' +
             '<a class="cta tale-cta" href="read.html?work=' + w.id + (cont ? '&ch=' + cont.id : '') + '">' +
               (started && cont ? 'Continue — ' + esc(cont.num ? cont.num + '. ' : '') + esc(cont.title) : 'Begin reading →') + '</a>' +
-            '<a class="tale-companion" href="../' + encodeURIComponent(w.companion) + '/">Film companion ↗</a>' +
+            (w.companion ? '<a class="tale-companion" href="../' + encodeURIComponent(w.companion) + '/">Film companion ↗</a>' : '') +
             (w.chapters.length > 1 ? '<button class="tale-toc-toggle" data-work="' + w.id + '" aria-expanded="false">Contents ↓</button>' : '') +
           '</div>' +
           '<p class="tale-spoilers">⚠ ' + esc(w.spoilers) + '</p>' +

@@ -10,7 +10,7 @@ For that is the first thing that must be said about a history of this land: **th
 
 So this book is written under rules, and you, reader, deserve to know them — because you will *hear* them, on every page, if you know how to listen.
 
-When I state a thing flatly — *Godfrey was the first Elden Lord* — it is because some surviving text or unarguable scene states it flatly, and I could put my hand on the relic in question before sundown. Grant these sentences your full weight.
+When I state a thing flatly, *Godfrey was the first Elden Lord*, it is because some surviving text or unarguable scene states it flatly, and I could put my hand on the relic in question before sundown. Grant these sentences your full weight.
 
 When I say *the knife-print would have us believe*, or *the old grandam of the horned folk still insists* — I am giving you a witness, not a fact. That the witness spoke is certain; that the witness spoke *truly* is a separate question, and where the witness had reason to lie I will say so. This land's most interesting claims live in this register. So do its most dangerous.
 
@@ -18,11 +18,11 @@ When I say *by every sign that survives*, I am reasoning in front of you: severa
 
 When I say *perhaps*, I mean perhaps. When I report what *some scholars venture*, I am being courteous to colleagues whose imagination outruns their evidence, and you may enjoy their theories as I do — after supper, and not as load-bearing walls.
 
-And when I write *the record is silent*, I beg you not to skim past it, for the silences of this history are not all accidents. Some doors in the record hang open, rifled by time. Others have been closed, and locked, and the shape of the lock tells you a hand did it. Where I believe a silence was *made* — and there is one father in this book whose name was not lost but removed — I will say that too.
+And when I write *the record is silent*, I beg you not to skim past it, for the silences of this history are not all accidents. Some doors in the record hang open, rifled by time. Others have been closed, and locked, and the shape of the lock tells you a hand did it. Where I believe a silence was *made* (and there is one father in this book whose name was not lost but removed) I will say that too.
 
-One further honesty. I write after the burning, in a hold outside the world, and the ending of this story has not reached me. Of what came after the last Tarnished knelt — or did not kneel — at the seat of the Elden Ring, I have gathered six contending traditions, and I can no more choose among them than a man watching six sunrises from six windows. This book will give you all six, in their own chapter, and you may keep the dawn you find most likely. The historian's privilege ends where the future begins.
+One further honesty. I write after the burning, in a hold outside the world, and the ending of this story has not reached me. Of what came after the last Tarnished knelt, or did not kneel, at the seat of the Elden Ring, I have gathered six contending traditions, and I can no more choose among them than a man watching six sunrises from six windows. This book will give you all six, in their own chapter, and you may keep the dawn you find most likely. The historian's privilege ends where the future begins.
 
-Everything else — the gold, the shadow, the family that was one flesh quarreling with itself across ten thousand years, and the stranger who walked out of banishment to inherit the wreck of it — begins on the next page, at the beginning of the world.
+Everything else (the gold, the shadow, the family that was one flesh quarreling with itself across ten thousand years, and the stranger who walked out of banishment to inherit the wreck of it) begins on the next page, at the beginning of the world.
 
 The relics say what they say, and no more. I have tried to do the same.
 

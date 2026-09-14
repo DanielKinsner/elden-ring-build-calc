@@ -63,8 +63,9 @@ ending routes. Instant search (Ctrl+K / `/`) finds any quest, step, boss, ending
 compendium entry in one box. The Compendium tab is a lean, cross-linked reference — every NPC,
 boss, and key region in 2–3 sentences. Progress saves locally.
 
-**Tales** (`tales/`) — original fan writing: *Gold and Shadow* (~55k words),
-*Kindling: The Story of Melina*, and *The Testament of Ranni*, in a book-style reader with per-chapter read state and a
+**Tales** (`tales/`) — seven original literary fan works: *Gold and Shadow*, *Kindling*,
+*The Testament of Ranni*, *The Loyalty of Morgott*, *A Soundless Bell*, *Adjustments*, and
+*Into My Sword*. The 94-section collection uses a book-style reader with per-chapter read state and a
 reading-tools rail (continue reading, recent activity). A Timeline view traces ~25 in-world
 events across the setting's history, each linked back to the chapter it's drawn from.
 

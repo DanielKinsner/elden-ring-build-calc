@@ -301,7 +301,7 @@ async function main() {
     assert(await home.locator('#ledgerBuild').textContent() === 'RL 150', 'returning Grace restores the active build summary');
     assert(await home.locator('#ledgerJourney').textContent() === '1 / 109', 'returning Grace counts only valid quest steps');
     assert(await home.locator('#ledgerBosses').textContent() === '1 / 21', 'returning Grace restores boss progress');
-    assert(await home.locator('#ledgerTales').textContent() === '1 / 48', 'returning Grace spans all three Tales manifests');
+    assert(await home.locator('#ledgerTales').textContent() === '1 / 94', 'returning Grace spans all seven Tales manifests');
     assert((await home.locator('#ledgerResume').getAttribute('href')).includes('work=kindling&ch=ch02'), 'returning Grace points to the next unread chapter');
     assert((await home.locator('.film-ribbon').getAttribute('href')) === 'kindling/', 'homepage gives the first film a direct front door');
     await screenshot(home, 'home-desktop');
@@ -364,16 +364,40 @@ async function main() {
     const tales = await filmContext.newPage();
     await tales.goto(new URL('../tales/', BASE).toString(), { waitUntil:'networkidle' });
     assert(await tales.locator('.tale-companion').count() === 3, 'Tales exposes all three Archive Film companions');
-    assert(await tales.locator('.tale-cover').count() === 3, 'Tales presents all three volumes with their film artwork');
-    assert(await tales.locator('.tale-cover').evaluateAll(async (images) => { await Promise.all(images.map((image) => image.decode())); return images.every((image) => image.naturalWidth === 1672 && image.naturalHeight === 941); }), 'Tales uses the full-resolution Archive Film posters');
+    assert(await tales.locator('.tale-cover').count() === 7, 'Tales presents all seven volumes with dedicated artwork');
+    assert(await tales.locator('.tale-cover--generated').count() === 4, 'Tales gives all four new works dedicated cinematic artwork');
+    assert(await tales.locator('.tale-art--manuscript').count() === 0, 'Tales does not fall back to manuscript placeholders when artwork exists');
+    assert(await tales.locator('.tale-card').count() === 7, 'Tales shelf contains the complete seven-work collection');
+    assert(await tales.locator('.tale-cover').evaluateAll(async (images) => { await Promise.all(images.map((image) => image.decode())); return images.every((image) => image.naturalWidth === 1672 && image.naturalHeight === 941); }), 'Tales uses full-resolution 16:9 artwork for every volume');
     assert(await tales.locator('.tale-art').evaluateAll((panels) => panels.every((panel) => { const box = panel.getBoundingClientRect(); return Math.abs(box.width / box.height - 16 / 9) < 0.01; })), 'desktop Tales preserves every poster at its authored 16:9 ratio');
-    assert(await tales.locator('.tale-cover').evaluateAll((images) => images.every((image) => getComputedStyle(image).objectFit === 'contain')), 'Tales never crops authored poster typography');
+    assert(await tales.locator('.tale-cover').evaluateAll((images) => images.every((image) => getComputedStyle(image).objectFit === 'contain')), 'Tales never crops authored artwork');
     assert((await tales.locator('.tale-card').nth(0).locator('.tale-companion').getAttribute('href')) === '../gold-and-shadow/', 'written Gold and Shadow points back to Archive Film III');
     assert((await tales.locator('.tale-card').nth(1).locator('.tale-companion').getAttribute('href')) === '../kindling/', 'written KINDLING points back to Archive Film I');
     assert((await tales.locator('.tale-card').nth(2).locator('.tale-companion').getAttribute('href')) === '../ranni/', 'written Ranni points back to Archive Film II');
     await tales.locator('.tale-toc-toggle').first().click();
     assert(await tales.locator('.tale-card').first().locator('.tale-toc').isVisible(), 'Tales keeps chapter contents available on demand');
     assert(await tales.locator('.tale-toc-toggle').first().getAttribute('aria-expanded') === 'true', 'Tales reports expanded contents accessibly');
+
+    const morgottReader = await filmContext.newPage();
+    morgottReader.on('pageerror', (error) => errors.push('Morgott reader: ' + error.message));
+    await morgottReader.goto(new URL('../tales/read.html?work=morgott&ch=coda', BASE).toString(), { waitUntil:'networkidle' });
+    assert(await morgottReader.locator('#tocPanel li').count() === 24, 'Morgott reader retains its prologue, twenty-two chapters, and coda');
+    assert((await morgottReader.locator('#chapterBody').textContent()).trim().endsWith('to the only face that ever'), 'Morgott preserves the canonical unfinished final line');
+
+    const roderikaReader = await filmContext.newPage();
+    await roderikaReader.goto(new URL('../tales/read.html?work=roderika&ch=part-one', BASE).toString(), { waitUntil:'networkidle' });
+    assert(await roderikaReader.locator('#tocPanel li').count() === 3, 'Roderika reader retains all three addressed parts');
+    assert((await roderikaReader.locator('#chapterBody').textContent()).includes('To the Chrysalids'), 'Roderika reader loads the canonical opening address');
+
+    const bocReader = await filmContext.newPage();
+    await bocReader.goto(new URL('../tales/read.html?work=boc&ch=ch01', BASE).toString(), { waitUntil:'networkidle' });
+    assert(await bocReader.locator('#tocPanel li').count() === 9, 'Boc reader retains all nine chapters');
+    assert((await bocReader.locator('#chapterBody').textContent()).includes('The Cave on the Shore'), 'Boc reader loads the canonical opening chapter');
+
+    const malikethReader = await filmContext.newPage();
+    await malikethReader.goto(new URL('../tales/read.html?work=maliketh&ch=bridge', BASE).toString(), { waitUntil:'networkidle' });
+    assert(await malikethReader.locator('#tocPanel li').count() === 10, 'Maliketh reader retains its bridge prelude and nine chapters');
+    assert((await malikethReader.locator('#chapterBody').textContent()).includes('Thou, who approacheth Destined Death'), 'Maliketh reader loads the canonical bridge address');
 
     const ranni = await filmContext.newPage();
     ranni.on('console', (msg) => { if (msg.type() === 'error') errors.push('ranni console: ' + msg.text()); });
@@ -439,7 +463,7 @@ async function main() {
     await talesMobile.goto(new URL('../tales/', BASE).toString(), { waitUntil:'networkidle' });
     const talesOverflow = await talesMobile.evaluate(() => ({ scroll:document.documentElement.scrollWidth, inner:window.innerWidth }));
     assert(talesOverflow.scroll <= talesOverflow.inner, 'clean Tales shelf has no 390px horizontal overflow');
-    assert(await talesMobile.locator('.tale-card').count() === 3, 'mobile Tales shelf retains all three volumes');
+    assert(await talesMobile.locator('.tale-card').count() === 7, 'mobile Tales shelf retains all seven volumes');
     await screenshot(talesMobile, 'tales-mobile');
     await filmMobileContext.close();
 

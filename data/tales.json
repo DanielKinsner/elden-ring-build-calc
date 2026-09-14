@@ -1,5 +1,5 @@
 {
-  "_source": "Original fan writing by the site author. Elden Ring and its world are property of FromSoftware / Bandai Namco; these are unofficial, non-commercial fan works.",
+  "_source": "Original literary fan works created for this archive. Elden Ring and its world are property of FromSoftware / Bandai Namco; these are unofficial, non-commercial fan works.",
   "works": [
     {
       "id": "gold-and-shadow",
@@ -83,6 +83,96 @@
         { "id": "ch19", "file": "19-order-at-a-great-remove.md", "num": "XIX", "title": "An Order at a Great Remove", "tease": "What the Age of Stars is—and what it refuses to be" },
         { "id": "ch20", "file": "20-thousand-year-road.md", "num": "XX", "title": "A Thousand-Year Road", "tease": "The world released from certainty beneath a distant moon" },
         { "id": "coda", "file": "21-coda-the-whole-dark-moon.md", "num": "Coda", "title": "The Whole Dark Moon", "tease": "No leash. No throne. And no solitude." }
+      ]
+    },
+    {
+      "id": "morgott",
+      "title": "The Loyalty of Morgott",
+      "subtitle": "The Testament of the Omen King",
+      "blurb": "Dying before the Elden Throne, Morgott puts both of his names into the same sentence at last: the royal Omen buried beneath Leyndell, the veiled hunter called Margit, and the king who gave everything to an Order that never loved him back.",
+      "words": "≈41,638 words",
+      "spoilers": "Full spoilers for Morgott, Mohg, Leyndell, and the base-game journey through the Mountaintops.",
+      "dir": "content/morgott/",
+      "chapters": [
+        { "id": "prologue", "file": "00-prologue.md", "num": "Prologue", "title": "Writ Upon a Meagre Grave", "tease": "The grave is his, and the account is not a plea" },
+        { "id": "ch01", "file": "01-two-cradles-one-stone.md", "num": "I", "title": "Two Cradles, One Stone", "tease": "Two royal Omen infants and the knife withheld from them" },
+        { "id": "ch02", "file": "02-the-water-above.md", "num": "II", "title": "The Water Above", "tease": "A childhood beneath the capital, listening up and down" },
+        { "id": "ch03", "file": "03-the-word-they-had-for-us.md", "num": "III", "title": "The Word They Had for Us", "tease": "The curse the Golden Order made into a category" },
+        { "id": "ch04", "file": "04-the-lord-who-took-his-kinfolk.md", "num": "IV", "title": "The Lord Who Took His Kinfolk", "tease": "Godfrey leaves, and the buried sons remain" },
+        { "id": "ch05", "file": "05-a-brother-made-of-light.md", "num": "V", "title": "A Brother Made of Light", "tease": "Godwyn glimpsed through a grate from the dark below" },
+        { "id": "ch06", "file": "06-the-tree-from-beneath.md", "num": "VI", "title": "The Tree From Beneath", "tease": "The Erdtree first known as cold gold upon sewer water" },
+        { "id": "ch07", "file": "07-my-brothers-other-mother.md", "num": "VII", "title": "My Brother's Other Mother", "tease": "Mohg listens downward and finds a different answer" },
+        { "id": "ch08", "file": "08-the-night-of-knives.md", "num": "VIII", "title": "The Night of Knives", "tease": "The first demigod dies and something changes underground" },
+        { "id": "ch09", "file": "09-the-empty-seats.md", "num": "IX", "title": "The Empty Seats", "tease": "A throne room without heirs and a city without a king" },
+        { "id": "ch10", "file": "10-the-first-defense.md", "num": "X", "title": "The First Defense", "tease": "The hidden son comes above to keep Leyndell" },
+        { "id": "ch11", "file": "11-margit.md", "num": "XI", "title": "Margit", "tease": "A lesser name made into a weapon against ambition" },
+        { "id": "ch12", "file": "12-the-keeping.md", "num": "XII", "title": "The Keeping", "tease": "What a king protects when he is forbidden the chair" },
+        { "id": "ch13", "file": "13-the-undercapital.md", "num": "XIII", "title": "The Undercapital", "tease": "The city above survives by refusing to see the city below" },
+        { "id": "ch14", "file": "14-the-heroes-heap.md", "num": "XIV", "title": "The Heroes' Heap", "tease": "Tarnished ambition piles up outside the gate" },
+        { "id": "ch15", "file": "15-the-fool-omen-king.md", "num": "XV", "title": "The Fool Omen King", "tease": "The title he claimed and the judgment he passed on himself" },
+        { "id": "ch16", "file": "16-before-the-barbs.md", "num": "XVI", "title": "Before the Barbs", "tease": "The thorns refuse every claim made before them" },
+        { "id": "ch17", "file": "17-the-shape-in-the-cathedral.md", "num": "XVII", "title": "The Shape in the Cathedral", "tease": "A secret at the foot of the Erdtree changes the account" },
+        { "id": "ch18", "file": "18-the-bridge-at-stormveil.md", "num": "XVIII", "title": "The Bridge at Stormveil", "tease": "The first wall in the Tarnished's road was a king in disguise" },
+        { "id": "ch19", "file": "19-the-outer-road.md", "num": "XIX", "title": "The Outer Road", "tease": "Margit hunts the flame long before it reaches Leyndell" },
+        { "id": "ch20", "file": "20-what-is-thy-business.md", "num": "XX", "title": "What Is Thy Business With These Thrones", "tease": "The veiled monarch finally asks the invader's purpose" },
+        { "id": "ch21", "file": "21-just-as-i.md", "num": "XXI", "title": "Just As I", "tease": "Omen blood and borrowed weapons are no longer hidden" },
+        { "id": "ch22", "file": "22-ash.md", "num": "XXII", "title": "Ash", "tease": "The seal breaks as the Omen King lies dying" },
+        { "id": "coda", "file": "23-coda-long-and-hard.md", "num": "Coda", "title": "Long and Hard", "tease": "His final verdict slows into something else" }
+      ]
+    },
+    {
+      "id": "roderika",
+      "title": "A Soundless Bell",
+      "subtitle": "A Novella in the Voice of Roderika",
+      "blurb": "Roderika speaks three messages to people who cannot answer: the chrysalids she left at Stormveil, the stranger who returned her purpose, and Hewg at the anvil while the Roundtable burns around them.",
+      "words": "≈18,694 words",
+      "spoilers": "Full spoilers for Roderika, Hewg, Stormveil Castle, and the Roundtable Hold.",
+      "dir": "content/roderika/",
+      "chapters": [
+        { "id": "part-one", "file": "01-to-the-chrysalids.md", "num": "Part One", "title": "To the Chrysalids", "tease": "A crimson cloak, nine names kept like stones, and the road out of the hut" },
+        { "id": "part-two", "file": "02-to-the-stranger.md", "num": "Part Two", "title": "To the Stranger", "tease": "A spirit-tuner finds her hands in a house built around an unused table" },
+        { "id": "part-three", "file": "03-to-hewg.md", "num": "Part Three", "title": "To Hewg", "tease": "The house burns; the hammer continues; a soundless bell is heard" }
+      ]
+    },
+    {
+      "id": "boc",
+      "title": "Adjustments",
+      "subtitle": "A Tale Between, as Told by Boc the Seamster",
+      "blurb": "Boc tells the Tarnished what cloth remembers: his mother's needle, the cave and the tree, the voice that named him beautiful, and the terrible cost of changing the body that love had already recognized.",
+      "words": "≈12,961 words",
+      "spoilers": "Full spoilers for Boc's quest, Rennala's library, and the consequences of rebirth.",
+      "dir": "content/boc/",
+      "chapters": [
+        { "id": "ch01", "file": "01-the-cave-on-the-shore.md", "num": "I", "title": "The Cave on the Shore", "tease": "A mother's needle makes purpose from what the sea leaves behind" },
+        { "id": "ch02", "file": "02-what-happened-after.md", "num": "II", "title": "What Happened After", "tease": "Cast out, robbed, and still listening for his mother's words" },
+        { "id": "ch03", "file": "03-a-tree-by-the-water.md", "num": "III", "title": "A Tree by the Water", "tease": "The spell breaks and a seamster meets his lord" },
+        { "id": "ch04", "file": "04-the-cave-again.md", "num": "IV", "title": "The Cave Again", "tease": "A sewing needle recovered from the place that took everything" },
+        { "id": "ch05", "file": "05-the-cliff-and-the-gate.md", "num": "V", "title": "The Cliff and the Gate", "tease": "Every hem repaired on the road toward Stormveil" },
+        { "id": "ch06", "file": "06-the-junction.md", "num": "VI", "title": "The Junction", "tease": "A choice between adjustment and transformation" },
+        { "id": "ch07", "file": "07-the-rampart.md", "num": "VII", "title": "The Rampart", "tease": "The golden needle and the language of better cloth" },
+        { "id": "ch08", "file": "08-the-lake-and-the-library.md", "num": "VIII", "title": "The Lake and the Library", "tease": "A larval tear offers the face he thought he needed" },
+        { "id": "ch09", "file": "09-now.md", "num": "IX", "title": "Now", "tease": "Memory leaves from the hem upward before one word can return" }
+      ]
+    },
+    {
+      "id": "maliketh",
+      "title": "Into My Sword",
+      "subtitle": "The Testament of Maliketh, the Black Blade",
+      "blurb": "Time pools in Farum Azula. Maliketh waits at the door while Gurranq remains on his knees in the east, and both halves of Marika's shadow tell how the world's death was sealed, stolen, and eaten root by root.",
+      "words": "≈11,278 words",
+      "spoilers": "Full spoilers for Maliketh, Gurranq, Destined Death, and the late base-game story.",
+      "dir": "content/maliketh/",
+      "chapters": [
+        { "id": "bridge", "file": "00-the-bridge.md", "num": "Prelude", "title": "The Bridge", "tease": "A Tarnished crosses the storm toward the thing that still listens" },
+        { "id": "ch01", "file": "01-stone.md", "num": "I", "title": "Stone", "tease": "A beast remembers the first weapon and the gift of five fingers" },
+        { "id": "ch02", "file": "02-the-fingers.md", "num": "II", "title": "The Fingers", "tease": "A shadow is given to an Empyrean and taught what following means" },
+        { "id": "ch03", "file": "03-the-seal.md", "num": "III", "title": "The Seal", "tease": "Marika removes death from the Ring and puts it in his keeping" },
+        { "id": "ch04", "file": "04-the-night-of-the-conspiracy.md", "num": "IV", "title": "The Night of the Conspiracy", "tease": "Pale hands take one fragment from the Black Blade" },
+        { "id": "ch05", "file": "05-within.md", "num": "V", "title": "Within", "tease": "The sword and its burden are locked where hands cannot reach" },
+        { "id": "ch06", "file": "06-shatter.md", "num": "VI", "title": "Shatter", "tease": "The Ring breaks and the thing he carries loses its opposite" },
+        { "id": "ch07", "file": "07-roots.md", "num": "VII", "title": "Roots", "tease": "Death spreads through the roots while Maliketh goes east" },
+        { "id": "ch08", "file": "08-nine.md", "num": "VIII", "title": "Nine", "tease": "Gurranq eats deathroot and gives away the first weapons" },
+        { "id": "ch09", "file": "09-the-door.md", "num": "IX", "title": "The Door", "tease": "The hand that fed him comes at last for Destined Death" }
       ]
     }
   ]
